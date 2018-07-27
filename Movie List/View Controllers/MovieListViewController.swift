@@ -11,11 +11,11 @@ import UIKit
 class MovieListViewController: UIViewController, UITableViewDataSource, MovieControllerProtocol, MovieTableViewCellDelegate {
     
 
-    /* override func viewWillAppear(_ animated: Bool) {
-        viewWillAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
         tableView.reloadData()
-    } */
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
