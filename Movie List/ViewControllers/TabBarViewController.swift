@@ -8,12 +8,14 @@
 
 import UIKit
 
-class TabBarViewController: UIViewController {
+class TabBarViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        for vc in childViewControllers {
+        guard let viewControllers = viewControllers else { return }
+
+        for vc in viewControllers {
             if let vc = vc as? MovieControllerProtocol {
                 vc.movieController = movieController
             }

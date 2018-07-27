@@ -8,27 +8,34 @@
 
 import UIKit
 
-class MovieTableViewController: UIViewController, MovieControllerProtocol {
+class MovieTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, MovieControllerProtocol {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(movieController!.movies)
-        // Do any additional setup after loading the view.
+        tableView.dataSource = self
+        tableView.delegate = self
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return movieController?.movies.count ?? 0
     }
-    */
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath)
+        
+        guard let movieCell = cell as? MovieTableViewCell else { return cell }
+        movieCell.movieController = movieController
+        
+        return movieCell
+    }
+    
+    @IBAction func toggleSeenMovie(_ sender: Any) {
+        
+    }
     
     // MARK: - Properties
     
     var movieController: MovieController?
 
+    @IBOutlet weak var tableView: UITableView!
 }
