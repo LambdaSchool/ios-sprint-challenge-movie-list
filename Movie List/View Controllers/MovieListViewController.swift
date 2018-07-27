@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MoviesListViewController: UITabBarController {
+class MovieListViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
