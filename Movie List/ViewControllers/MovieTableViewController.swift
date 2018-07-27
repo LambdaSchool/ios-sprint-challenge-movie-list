@@ -44,9 +44,10 @@ class MovieTableViewController: UIViewController, UITableViewDataSource, UITable
         }
     }
     
-    func seenMovieButtonWasTapped(on cell: MovieTableViewCell) {
-        guard let movie = cell.movie else { return }
-        movieController?.toggleSeen(movie: movie)
+    func seenMovieButtonWasTapped(on cell: MovieTableViewCell) -> Movie {
+        guard let movie = cell.movie else { return cell.movie! }
+        guard let updatedMovie = movieController?.toggleSeen(movie: movie) else { return cell.movie! }
+        return updatedMovie
     }
     
     // MARK: - Properties

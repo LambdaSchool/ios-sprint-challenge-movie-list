@@ -9,7 +9,7 @@
 import UIKit
 
 protocol MovieTableViewCellProtocol {
-    func seenMovieButtonWasTapped(on cell: MovieTableViewCell)
+    func seenMovieButtonWasTapped(on cell: MovieTableViewCell) -> Movie
 }
 
 class MovieTableViewCell: UITableViewCell {
@@ -23,7 +23,7 @@ class MovieTableViewCell: UITableViewCell {
     }
     
     @IBAction func toggleSeenMovie(_ sender: Any) {
-        delegate?.seenMovieButtonWasTapped(on: self)
+        movie = delegate?.seenMovieButtonWasTapped(on: self)
     }
     
     // MARK: - Properties

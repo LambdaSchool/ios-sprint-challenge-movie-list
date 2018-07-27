@@ -20,13 +20,14 @@ class MovieController {
         movies.remove(at: index)
     }
     
-    func toggleSeen(movie: Movie) {
-        guard let index = movies.index(of: movie) else { return }
+    func toggleSeen(movie: Movie) -> Movie {
+        guard let index = movies.index(of: movie) else { return movie }
         var movie = movies[index]
         movie.seen = !movie.seen
         
         movies.remove(at: index)
         movies.insert(movie, at: index)
+        return movies[index]
     }
     
     private(set) var movies: [Movie] = []
