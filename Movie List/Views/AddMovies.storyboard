@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="UiH-nr-uwr">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Add Movies View Controller-->
+        <scene sceneID="R29-61-uhG">
+            <objects>
+                <viewController id="UiH-nr-uwr" customClass="AddMoviesViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6V0-SU-Zt8">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter the movie's title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2jY-KN-CVQ">
+                                <rect key="frame" x="16" y="142" width="343" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p9O-U6-8OI">
+                                <rect key="frame" x="137" y="180" width="100" height="30"/>
+                                <state key="normal" title="Add Movie"/>
+                                <connections>
+                                    <action selector="addMovieButton:" destination="UiH-nr-uwr" eventType="touchUpInside" id="V2t-Hx-rMm"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a New Movie to The List" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G2b-DS-yyD">
+                                <rect key="frame" x="16" y="66" width="343" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="G2b-DS-yyD" firstAttribute="trailing" secondItem="2jY-KN-CVQ" secondAttribute="trailing" id="6yJ-qG-F2J"/>
+                            <constraint firstItem="G2b-DS-yyD" firstAttribute="leading" secondItem="6V0-SU-Zt8" secondAttribute="leadingMargin" id="Cv6-nB-tMY"/>
+                            <constraint firstItem="2jY-KN-CVQ" firstAttribute="centerX" secondItem="p9O-U6-8OI" secondAttribute="centerX" id="KWy-iN-RDl"/>
+                            <constraint firstItem="G2b-DS-yyD" firstAttribute="top" secondItem="q3K-R8-YjK" secondAttribute="top" constant="46" id="Ng2-27-Hnv"/>
+                            <constraint firstItem="G2b-DS-yyD" firstAttribute="trailing" secondItem="6V0-SU-Zt8" secondAttribute="trailingMargin" id="PLe-Dv-8u0"/>
+                            <constraint firstItem="G2b-DS-yyD" firstAttribute="leading" secondItem="2jY-KN-CVQ" secondAttribute="leading" id="abI-Wc-0B1"/>
+                            <constraint firstItem="2jY-KN-CVQ" firstAttribute="top" secondItem="G2b-DS-yyD" secondAttribute="bottom" constant="55" id="ccQ-90-w36"/>
+                            <constraint firstItem="p9O-U6-8OI" firstAttribute="top" secondItem="2jY-KN-CVQ" secondAttribute="bottom" constant="8" symbolic="YES" id="fNl-iv-Qez"/>
+                            <constraint firstItem="p9O-U6-8OI" firstAttribute="leading" secondItem="q3K-R8-YjK" secondAttribute="leading" constant="137" id="hRE-vP-ya1"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="q3K-R8-YjK"/>
+                    </view>
+                    <connections>
+                        <outlet property="addMovieLabel" destination="G2b-DS-yyD" id="Hzp-Vq-kbH"/>
+                        <outlet property="addMovieTextField" destination="2jY-KN-CVQ" id="C30-au-TTe"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dVx-2O-q5U" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-23.199999999999999" y="151.57421289355324"/>
+        </scene>
+    </scenes>
+</document>
