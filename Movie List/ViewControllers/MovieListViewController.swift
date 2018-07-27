@@ -45,6 +45,11 @@ class MovieListViewController: UIViewController, UITableViewDataSource, UITableV
         
         cell.movieTitleLabel.text = movieController?.movies[indexPath.row].title
         
+        cell.toogleSeenButton.tag = indexPath.row
+        
+        
+        
+        
         return cell
     }
     

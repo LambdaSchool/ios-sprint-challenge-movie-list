@@ -25,4 +25,14 @@ class MovieController {
         // We have a movie to delete
         movies.remove(at: index)
     }
+
+    // Update seen status
+    
+    func toogleSeen(movie: Movie) {
+        guard let index = movies.index(of: movie) else { return }
+        
+        // We have a movie to update
+        
+        movies[index].seen = !movies[index].seen
+    }
 }
