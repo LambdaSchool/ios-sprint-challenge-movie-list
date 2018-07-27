@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14306.4" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="KWC-An-GHR">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14278.2"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Movie List-->
+        <scene sceneID="9EU-jr-LuT">
+            <objects>
+                <tableViewController title="Movie List" id="KWC-An-GHR" customClass="MovieListTableViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="iab-ZD-6yI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieCell" rowHeight="57" id="0KR-M6-QGm" customClass="MovieTableViewCell" customModule="Movie_List" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="57"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0KR-M6-QGm" id="4Vw-Z2-Jfj">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="56.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oEN-Pa-x8P">
+                                            <rect key="frame" x="16" y="12" width="181" height="32"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="23"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r5K-B6-T2i">
+                                            <rect key="frame" x="287" y="13" width="82" height="35"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                            <state key="normal" title="Seen"/>
+                                            <connections>
+                                                <action selector="toggleSeen:" destination="0KR-M6-QGm" eventType="touchUpInside" id="VJH-Vn-5a6"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="r5K-B6-T2i" firstAttribute="top" secondItem="4Vw-Z2-Jfj" secondAttribute="top" constant="13" id="r34-yL-2AJ"/>
+                                        <constraint firstAttribute="trailing" secondItem="r5K-B6-T2i" secondAttribute="trailing" constant="6" id="tXm-ce-fvs"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="hasBeenSeenButton" destination="r5K-B6-T2i" id="Wuw-AK-Muy"/>
+                                    <outlet property="movieLabelText" destination="oEN-Pa-x8P" id="s0P-Od-SCk"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="KWC-An-GHR" id="mMD-Re-tjP"/>
+                            <outlet property="delegate" destination="KWC-An-GHR" id="Uil-bU-zBP"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Movie List" image="Clapboard" id="pJY-O4-cxC"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VQX-O0-5pb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="261.60000000000002" y="59.820089955022496"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Clapboard" width="28" height="28"/>
+    </resources>
+</document>
