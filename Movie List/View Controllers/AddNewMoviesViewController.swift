@@ -21,6 +21,8 @@ class AddNewMoviesViewController: UIViewController, MovieControllerProtocol {
         guard let movieTitle = movieTitleTextField.text else { return }
         
         movieController?.addMovie(title: movieTitle, isSeen: false)
+        
+        movieTitleTextField.text = ""
     }
     
     

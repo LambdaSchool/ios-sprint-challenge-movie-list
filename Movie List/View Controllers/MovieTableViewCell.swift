@@ -13,13 +13,13 @@ protocol MovieTableViewCellDelegate: class {
     func seenButtonWasTapped(onCell: MovieTableViewCell)
 }
 
-
 class MovieTableViewCell: UITableViewCell {
     
     @IBAction func seenButtonTapped(_ sender: Any) {
         delegate?.seenButtonWasTapped(onCell: self)
     }
     
+    // Didn't remember this part by myself
     private func updateViews() {
         guard let movie = movie else { return }
         
@@ -37,6 +37,7 @@ class MovieTableViewCell: UITableViewCell {
     
     weak var delegate : MovieTableViewCellDelegate?
     
+    // Not confident in didSet
     var movie: Movie? {
         didSet {
             updateViews()
