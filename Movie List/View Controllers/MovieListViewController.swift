@@ -10,7 +10,7 @@ import UIKit
 
 
 
-class MovieListViewController: UIViewController, UITableViewDataSource,MovieControllerProtocol {
+class MovieListViewController: UIViewController, UITableViewDataSource, MovieControllerProtocol {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
