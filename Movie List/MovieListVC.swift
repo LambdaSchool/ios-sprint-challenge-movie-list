@@ -1,52 +1,7 @@
-//
-//  MovieView.swift
-//  Movie List
-//
-//  Created by William Bundy on 7/27/18.
-//  Copyright © 2018 Lambda School. All rights reserved.
-//
+
 
 import Foundation
 import UIKit
-
-class MovieTabBarVC: UITabBarController
-{
-	var movieController = MovieController()
-
-	override func viewDidLoad()
-	{
-		for defaultChild in childViewControllers {
-			if var child = defaultChild as? MovieConsumer {
-				child.movieController = movieController
-			}
-		}
-	}
-}
-
-protocol MovieCellDelegate: class
-{
-	func onWatchToggled(_ movie:Movie, state:Bool)
-}
-
-class MovieCell: UITableViewCell
-{
-	weak var delegate:MovieCellDelegate!
-
-	@IBOutlet weak var nameLabel: UILabel!
-	@IBOutlet weak var watchedSwitch: UISwitch!
-	var movie:Movie! {
-		didSet {
-			nameLabel.text = movie.name
-			watchedSwitch.setOn(movie.watched, animated: true)
-		}
-	}
-
-	@IBAction func watchToggled(_ sender: Any)
-	{
-		delegate.onWatchToggled(movie, state:watchedSwitch.isOn)
-	}
-}
-
 class MovieListVC: UIViewController, MovieConsumer, UITableViewDataSource, UITableViewDelegate, MovieCellDelegate
 {
 	var filtering:Bool = false
@@ -112,18 +67,5 @@ class MovieListVC: UIViewController, MovieConsumer, UITableViewDataSource, UITab
 			table.reloadData()
 		}
 	}
-
 }
 
-class MovieAddVC: UIViewController, MovieConsumer
-{
-	var movieController: MovieController!
-
-	@IBOutlet weak var nameField: UITextField!
-
-	@IBAction func addMovie(_ sender: Any) {
-		guard let name = nameField.text, name != "" else {return}
-		movieController.create(name)
-		nameField.text = nil
-	}
-}
