@@ -16,6 +16,10 @@ class MovieListTableViewController: UITableViewController, MovieControllerProtoc
         movieController?.toggleSeenStatus(for: movieSeen)
         tableView.reloadRows(at: [idx], with: .fade)
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
