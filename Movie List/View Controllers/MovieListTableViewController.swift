@@ -40,6 +40,14 @@ class MovieListTableViewController: UITableViewController, MovieControllerProtoc
         
         return movieCell
     }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            guard let movie = movieController?.movies[indexPath.row] else { return }
+            movieController?.delete(movie: movie)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
 
     // MARK: - Properties
     var movieController: MovieController?
