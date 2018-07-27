@@ -14,7 +14,6 @@ class MovieController {
     }
     
     func toggleSeenStatus(for movie: Movie) {
-        var movie = movie
         if (movie.isSeen == "Seen") {
             movie.isSeen = "Not seen"
         } else {

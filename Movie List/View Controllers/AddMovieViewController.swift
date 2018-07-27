@@ -17,7 +17,7 @@ class AddMovieViewController: UIViewController, MovieControllerProtocol {
     @IBAction func addMovie(_ sender: Any) {
         guard let movieName = addMovieTextField.text else { return }
         
-        movieController?.addMovie(movieName: movieName, isSeen: "Not seen")
+        movieController?.addMovie(movieName: movieName, isSeen: "Seen")
     }
     
     @IBOutlet var addMovieTextField: UITextField!

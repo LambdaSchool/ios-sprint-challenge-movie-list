@@ -14,6 +14,7 @@ class MovieListTableViewController: UITableViewController, MovieControllerProtoc
         guard let idx = tableView.indexPath(for: cell),
         let movieSeen = movieController?.movies[idx.row] else { return }
         movieController?.toggleSeenStatus(for: movieSeen)
+        tableView.reloadRows(at: [idx], with: .fade)
     }
 
     override func viewDidLoad() {
