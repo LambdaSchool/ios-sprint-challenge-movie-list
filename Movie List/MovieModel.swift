@@ -27,6 +27,7 @@ protocol MovieConsumer
 class MovieController
 {
 	var movies:[Movie] = []
+	var filteredMovies:[Movie] = []
 
 	func add(_ movie:Movie)
 	{
@@ -48,5 +49,17 @@ class MovieController
 		movies[index] = movies[movies.count - 1]
 		movies.removeLast()
 		movies.sort()
+	}
+
+	func updateFilter(_ filter:String)
+	{
+		let filter = filter.lowercased()
+		filteredMovies.removeAll()
+		for movie in movies {
+			if movie.name.lowercased().range(of:filter) != nil {
+				filteredMovies.append(movie)
+			}
+		}
+		filteredMovies.sort()
 	}
 }

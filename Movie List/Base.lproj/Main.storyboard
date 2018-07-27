@@ -28,7 +28,7 @@
                                 </items>
                             </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hxj-8H-WFy">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="103" width="375" height="515"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MovieCell" id="a28-ie-OMa" customClass="MovieCell" customModule="Movie_List" customModuleProvider="target">
@@ -50,8 +50,8 @@
                                                         <action selector="watchToggled:" destination="a28-ie-OMa" eventType="valueChanged" id="IlX-0G-Lt5"/>
                                                     </connections>
                                                 </switch>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Watched?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TT6-gz-icv">
-                                                    <rect key="frame" x="226" y="11" width="77" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Seen?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TT6-gz-icv">
+                                                    <rect key="frame" x="256" y="11" width="47" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -73,21 +73,46 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jSh-dP-GaT">
+                                <rect key="frame" x="0.0" y="68" width="327" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="filterMovies:" destination="0jG-nS-F6E" eventType="editingChanged" id="RD7-fG-wh2"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Keq-1W-YoD">
+                                <rect key="frame" x="335" y="68" width="35" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="35" id="ZcW-TO-Wfo"/>
+                                </constraints>
+                                <state key="normal" title="Filter"/>
+                                <connections>
+                                    <action selector="filterMovies:" destination="0jG-nS-F6E" eventType="touchUpInside" id="3J5-dz-ftQ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="hxj-8H-WFy" firstAttribute="leading" secondItem="bL5-WB-ajt" secondAttribute="leading" id="1U5-bo-dYo"/>
+                            <constraint firstItem="jSh-dP-GaT" firstAttribute="leading" secondItem="bL5-WB-ajt" secondAttribute="leading" id="7fC-eW-TDE"/>
+                            <constraint firstItem="jSh-dP-GaT" firstAttribute="top" secondItem="Keq-1W-YoD" secondAttribute="top" id="CEw-95-jpn"/>
                             <constraint firstAttribute="trailing" secondItem="hxj-8H-WFy" secondAttribute="trailing" id="IF9-b4-2q2"/>
-                            <constraint firstItem="hxj-8H-WFy" firstAttribute="top" secondItem="bL5-WB-ajt" secondAttribute="bottom" id="IXP-2q-497"/>
+                            <constraint firstItem="hxj-8H-WFy" firstAttribute="top" secondItem="bL5-WB-ajt" secondAttribute="bottom" constant="39" id="IXP-2q-497"/>
                             <constraint firstItem="bL5-WB-ajt" firstAttribute="top" secondItem="zAz-7V-grn" secondAttribute="top" id="LCM-kQ-sfm"/>
                             <constraint firstItem="hxj-8H-WFy" firstAttribute="bottom" secondItem="zAz-7V-grn" secondAttribute="bottom" id="PS6-Ps-LzR"/>
                             <constraint firstItem="hxj-8H-WFy" firstAttribute="trailing" secondItem="bL5-WB-ajt" secondAttribute="trailing" id="XWa-hD-PYI"/>
                             <constraint firstItem="hxj-8H-WFy" firstAttribute="leading" secondItem="Io4-Tz-WPk" secondAttribute="leading" id="ZL1-XD-BXi"/>
+                            <constraint firstItem="Keq-1W-YoD" firstAttribute="leading" secondItem="jSh-dP-GaT" secondAttribute="trailing" constant="8" symbolic="YES" id="bmK-SV-S7z"/>
+                            <constraint firstItem="jSh-dP-GaT" firstAttribute="top" secondItem="bL5-WB-ajt" secondAttribute="bottom" constant="4" id="tFv-Vg-Qcq"/>
+                            <constraint firstItem="zAz-7V-grn" firstAttribute="trailing" secondItem="Keq-1W-YoD" secondAttribute="trailing" constant="5" id="v9q-cQ-40k"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="zAz-7V-grn"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="List" image="Clapboard" id="dT2-GF-LoO"/>
                     <connections>
+                        <outlet property="filterField" destination="jSh-dP-GaT" id="3aW-sc-TYM"/>
                         <outlet property="table" destination="hxj-8H-WFy" id="CJh-jr-HUj"/>
                     </connections>
                 </viewController>
@@ -117,6 +142,9 @@
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="addMovie:" destination="soh-Av-eR6" eventType="primaryActionTriggered" id="F6w-vQ-DyI"/>
+                                        </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xrj-1u-FTh">
                                         <rect key="frame" x="157.5" y="91" width="30" height="30"/>

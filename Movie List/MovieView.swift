@@ -49,6 +49,7 @@ class MovieCell: UITableViewCell
 
 class MovieListVC: UIViewController, MovieConsumer, UITableViewDataSource, UITableViewDelegate, MovieCellDelegate
 {
+	var filtering:Bool = false
 	@IBOutlet weak var table: UITableView!
 	var movieController: MovieController!
 	func onWatchToggled(_ movie: Movie, state:Bool)
@@ -73,6 +74,9 @@ class MovieListVC: UIViewController, MovieConsumer, UITableViewDataSource, UITab
 
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
 	{
+		if filtering {
+			return movieController.filteredMovies.count
+		}
 		return movieController.movies.count
 	}
 
@@ -82,7 +86,11 @@ class MovieListVC: UIViewController, MovieConsumer, UITableViewDataSource, UITab
 		let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell") as! MovieCell
 
 		cell.delegate = self
-		cell.movie = movieController.movies[indexPath.row]
+		if filtering {
+			cell.movie = movieController.filteredMovies[indexPath.row]
+		} else {
+			cell.movie = movieController.movies[indexPath.row]
+		}
 		return cell
 	}
 
@@ -94,8 +102,16 @@ class MovieListVC: UIViewController, MovieConsumer, UITableViewDataSource, UITab
 		}
 	}
 
-
-
+	@IBOutlet weak var filterField: UITextField!
+	@IBAction func filterMovies(_ sender: Any) {
+		if filterField.text == "" || filterField.text == nil {
+			filtering = false
+		} else {
+			filtering = true
+			movieController.updateFilter(filterField.text!)
+			table.reloadData()
+		}
+	}
 
 }
 
@@ -108,5 +124,6 @@ class MovieAddVC: UIViewController, MovieConsumer
 	@IBAction func addMovie(_ sender: Any) {
 		guard let name = nameField.text, name != "" else {return}
 		movieController.create(name)
+		nameField.text = nil
 	}
 }
