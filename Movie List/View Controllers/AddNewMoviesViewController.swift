@@ -15,23 +15,14 @@ class AddNewMoviesViewController: UIViewController, MovieControllerProtocol {
 
         
     }
-
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
     
     var movieController: MovieController?
     
     @IBAction func addNewButtonTapped(_ sender: Any) {
         
+        guard let movieTitle = movieTitleTextField.text else { return }
+        
+        movieController?.addMovie(title: movieTitle, isSeen: false)
     }
     
     @IBOutlet weak var movieTitleTextField: UITextField!
