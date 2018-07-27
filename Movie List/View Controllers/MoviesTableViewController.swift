@@ -10,7 +10,7 @@ import UIKit
 
 class MoviesTableViewController: UIViewController, UITableViewDataSource, MovieTableViewCellDelegate {
     
-    let movieController: MovieController?
+    let movieController: MovieController? = nil
     
     @IBOutlet var tableView: UITableView!
     
@@ -24,7 +24,7 @@ class MoviesTableViewController: UIViewController, UITableViewDataSource, MovieT
     // MARK: - UITableViewDataSource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return movieController.movies.count ?? 0
+        return movieController?.movies.count ?? 0
         
     }
     
@@ -33,9 +33,8 @@ class MoviesTableViewController: UIViewController, UITableViewDataSource, MovieT
         
         guard let movieCell = cell as? MovieTableViewCell else { return cell }
         
-        let movie = movieController.movies[indexPath.row]
+        let movie = movieController?.movies[indexPath.row]
         movieCell.movie = movie
-        
         movieCell.delegate = self
         
         return movieCell
@@ -47,8 +46,8 @@ class MoviesTableViewController: UIViewController, UITableViewDataSource, MovieT
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            let movie = movieController.movies[indexPath.row]
-            movieController.delete(movie: movie)
+            guard let movie = movieController?.movies[indexPath.row] else { return }
+            movieController?.delete(movie: movie)
         }
     }
     
@@ -57,9 +56,9 @@ class MoviesTableViewController: UIViewController, UITableViewDataSource, MovieT
     func seenButtonWasTapped(on cell: MovieTableViewCell) {
         guard let index = tableView.indexPath(for: cell) else { return }
         
-        let movie = movieController.movies[index.row]
+        guard let movie = movieController?.movies[index.row] else { return }
         
-        movieController.toggleIsSeen(for: movie)
+        movieController?.toggleIsSeen(for: movie)
         
         tableView.reloadRows(at: [index], with: .automatic)
     }
