@@ -8,13 +8,16 @@
 
 import UIKit
 
-class AddMoviesViewController: UIViewController {
+class AddMoviesViewController: UIViewController, MovieProtocolDelegate {
+    
+    var movieController: MovieController?
     
     @IBOutlet weak var addMovieLabel: UILabel!
     
     @IBOutlet weak var addMovieTextField: UITextField!
     
     @IBAction func addMovieButton(_ sender: Any) {
+        
     }
 
     override func viewDidLoad() {
