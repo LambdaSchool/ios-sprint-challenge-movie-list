@@ -22,6 +22,9 @@ class AddMovieViewController: UIViewController {
     }
     
     @IBAction func addMovie(_ sender: Any) {
+        guard let movieTitle = movieTitleLabel.text else  {return}
+        movieController?.createMovie(withTitle: movieTitle)
+        movieTitleLabel.text = ""
     }
     
     /*
@@ -37,6 +40,7 @@ class AddMovieViewController: UIViewController {
     
     //MARK: - Properties
     
+    var movieController: MovieController?
     @IBOutlet weak var movieTitleLabel: UITextField!
     
 }

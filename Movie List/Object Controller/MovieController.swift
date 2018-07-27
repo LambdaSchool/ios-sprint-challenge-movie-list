@@ -25,6 +25,11 @@ class MovieController {
         
     }
     
+    func reportSeen(movie:Movie)->String{
+        let hasSeen = movie.hasSeen ? "Seen" : "Not Seen"
+        return hasSeen
+    }
+    
     func deleteMovie(movie:Movie){
         guard let index = movieList.index(of: movie) else {return}
         movieList.remove(at: index)

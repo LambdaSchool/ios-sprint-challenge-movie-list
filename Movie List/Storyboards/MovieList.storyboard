@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -29,39 +30,55 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gkS-gd-zow">
-                                                    <rect key="frame" x="0.0" y="0.0" width="42" height="20.5"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gkS-gd-zow">
+                                                    <rect key="frame" x="0.0" y="0.0" width="42" height="21"/>
                                                 </stackView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="00N-x4-qGP">
-                                                    <rect key="frame" x="15" y="12" width="42" height="20.5"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="00N-x4-qGP">
+                                                    <rect key="frame" x="15" y="12" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dq2-Io-0Qt">
+                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dq2-Io-0Qt">
                                                     <rect key="frame" x="314" y="7" width="46" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" title="Button"/>
                                                     <connections>
                                                         <action selector="hasSeenButton:" destination="CKh-KH-IR2" eventType="touchUpInside" id="hNB-kS-ILs"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="gkS-gd-zow" secondAttribute="bottom" constant="12" id="E0k-ft-bSB"/>
+                                                <constraint firstAttribute="trailing" secondItem="gkS-gd-zow" secondAttribute="trailing" constant="333" id="EAd-yO-KEL"/>
+                                                <constraint firstItem="00N-x4-qGP" firstAttribute="centerY" secondItem="dq2-Io-0Qt" secondAttribute="centerY" id="VPC-Zy-SGn"/>
+                                                <constraint firstItem="00N-x4-qGP" firstAttribute="bottom" secondItem="OqO-eJ-NqC" secondAttribute="bottomMargin" id="YgZ-sF-8DW"/>
+                                                <constraint firstItem="gkS-gd-zow" firstAttribute="leading" secondItem="OqO-eJ-NqC" secondAttribute="leading" id="ZN4-m7-8uN"/>
+                                                <constraint firstItem="00N-x4-qGP" firstAttribute="leading" secondItem="OqO-eJ-NqC" secondAttribute="leadingMargin" constant="-1" id="lGk-x9-6Fw"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="dq2-Io-0Qt" secondAttribute="trailing" constant="-1" id="vz7-VH-umL"/>
+                                                <constraint firstItem="gkS-gd-zow" firstAttribute="top" secondItem="OqO-eJ-NqC" secondAttribute="top" id="x8h-CI-LDh"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="hasSeenButtonLabel" destination="dq2-Io-0Qt" id="zRc-Fu-cYw"/>
                                             <outlet property="titleLabel" destination="00N-x4-qGP" id="T4g-tn-1wZ"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Movies" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i8I-Sz-Bxa">
+                                <rect key="frame" x="16" y="46" width="131" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="i8I-Sz-Bxa" firstAttribute="top" secondItem="Va8-0o-qXd" secondAttribute="top" constant="26" id="1X4-03-ZCi"/>
                             <constraint firstItem="N5c-nK-qEW" firstAttribute="top" secondItem="Va8-0o-qXd" secondAttribute="top" constant="55" id="2y1-5t-whT"/>
                             <constraint firstItem="N5c-nK-qEW" firstAttribute="bottom" secondItem="Va8-0o-qXd" secondAttribute="bottom" id="7VN-x8-jsD"/>
                             <constraint firstItem="N5c-nK-qEW" firstAttribute="leading" secondItem="YL9-8B-6Fz" secondAttribute="leading" id="Elo-Ft-a0H"/>
+                            <constraint firstItem="i8I-Sz-Bxa" firstAttribute="leading" secondItem="YL9-8B-6Fz" secondAttribute="leadingMargin" id="egq-Be-mQE"/>
                             <constraint firstAttribute="trailing" secondItem="N5c-nK-qEW" secondAttribute="trailing" id="oJC-IL-fMP"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Va8-0o-qXd"/>

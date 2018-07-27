@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MovieListViewController: UIViewController {
+class MovieListViewController: UIViewController, UITableViewDataSource {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,9 +16,16 @@ class MovieListViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return movieController.movieList.count
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "movieCell", for: indexPath) as? MovieTableViewCell else
+        {return UITableViewCell() }
+        let movie = movieController.movieList[indexPath.row]
+        cell.titleLabel.text = movie.title
+        cell.hasSeenButtonLabel.setTitle(movieController.reportSeen(movie: movie), for: .normal)
+        return cell
     }
     
 
@@ -31,5 +38,8 @@ class MovieListViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    
+    //Mark: Properties
+    
+    var movieController = MovieController()
 }
