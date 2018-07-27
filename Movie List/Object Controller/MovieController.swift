@@ -10,7 +10,7 @@ import Foundation
 
 class MovieController {
     //Mark: Methods
-    func createMovie(withTitle title:String, hasSeen:Bool = true){
+    func createMovie(withTitle title:String, hasSeen:Bool = false){
         let newMovie = Movie(title: title, hasSeen: hasSeen)
         movieList.append(newMovie)
     }

@@ -10,25 +10,40 @@ import UIKit
 
 
 
-class MovieListViewController: UIViewController, UITableViewDataSource, MovieControllerProtocol {
+class MovieListViewController: UIViewController, UITableViewDataSource, MovieTableViewCellDelegate, MovieControllerProtocol{
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+
         tableView.reloadData()
+    }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        tableView.dataSource = self
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
         return movieController?.movieList.count ?? 0
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "movieCell", for: indexPath) as? MovieTableViewCell else {return UITableViewCell() }
-        guard let movie = movieController?.movieList[indexPath.row] else {return UITableViewCell()}
-        cell.titleLabel.text = movie.title
-        cell.hasSeenButtonLabel.setTitle(movieController?.reportSeen(movie: movie), for: .normal)
         
+        cell.movie = movieController?.movieList[indexPath.row]
+//        cell.delegate = self // why not do this earlier
         return cell
     }
     
+    func toggleHasSeen(for cell: MovieTableViewCell) {
+//                guard var movie = movie else { return}
+//                if movie.hasSeen{
+//                    hasSeenButtonLabel.setTitle("Not Seen", for: .normal)
+//                    movie.hasSeen = false
+//                } else {
+//                    hasSeenButtonLabel.setTitle("Seen", for: .normal)
+//                    movie.hasSeen = true
+//                }
+    }
     
     //Mark: - Properties
     
