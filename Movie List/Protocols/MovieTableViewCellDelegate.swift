@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol MovieTableViewCellDelegate {
-    func seenButtonWasPressed()
+protocol MovieTableViewCellDelegate: class {
+    func seenButtonWasPressed(on cell: MovieTableViewCell)
 }

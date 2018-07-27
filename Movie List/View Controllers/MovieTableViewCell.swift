@@ -16,11 +16,12 @@ class MovieTableViewCell: UITableViewCell {
     }
     
     @IBAction func toggleSeen(_ sender: Any) {
-        
+        delegate?.seenButtonWasPressed(on: self)
     }
     
     @IBOutlet var movieLabelText: UILabel!
     @IBOutlet var hasBeenSeenButton: UIButton!
+    weak var delegate: MovieTableViewCellDelegate?
     
     
     var movie: Movie? {

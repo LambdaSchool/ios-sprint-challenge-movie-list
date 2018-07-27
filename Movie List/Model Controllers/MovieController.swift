@@ -13,5 +13,14 @@ class MovieController {
         movies.append(Movie(movieName: movieName, isSeen: isSeen))
     }
     
+    func toggleSeenStatus(for movie: Movie) {
+        var movie = movie
+        if (movie.isSeen == "Seen") {
+            movie.isSeen = "Not seen"
+        } else {
+            movie.isSeen = "Seen"
+        }
+    }
+    
     var movies: [Movie] = []
 }
