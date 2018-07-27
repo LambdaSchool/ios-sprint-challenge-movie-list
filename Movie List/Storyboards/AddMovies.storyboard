@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="tcO-9m-JZx">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Add a new movie to the list-->
+        <scene sceneID="bYg-EU-NSQ">
+            <objects>
+                <viewController id="ziL-GX-wc2" customClass="AddMovieViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wJT-J5-39E">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter the movie's title:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WIN-hu-HRu">
+                                <rect key="frame" x="0.0" y="81" width="359" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YzX-Qy-mGe">
+                                <rect key="frame" x="151" y="119" width="73" height="30"/>
+                                <state key="normal" title="Add Movie"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="WIN-hu-HRu" firstAttribute="top" secondItem="JvB-N3-u2A" secondAttribute="top" constant="17" id="CUc-ty-mcu"/>
+                            <constraint firstItem="WIN-hu-HRu" firstAttribute="trailing" secondItem="wJT-J5-39E" secondAttribute="trailingMargin" id="Das-On-bF0"/>
+                            <constraint firstItem="YzX-Qy-mGe" firstAttribute="top" secondItem="WIN-hu-HRu" secondAttribute="bottom" constant="8" symbolic="YES" id="FvE-jp-o9B"/>
+                            <constraint firstItem="YzX-Qy-mGe" firstAttribute="centerX" secondItem="wJT-J5-39E" secondAttribute="centerX" id="tJd-Dm-ChO"/>
+                            <constraint firstItem="WIN-hu-HRu" firstAttribute="leading" secondItem="wJT-J5-39E" secondAttribute="leading" id="tOq-Gs-fns"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="JvB-N3-u2A"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Add New Movies" image="Plus" id="XMC-zm-ekq"/>
+                    <navigationItem key="navigationItem" title="Add a new movie to the list" id="rP0-70-9rB"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ETg-IE-Wku" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="960.79999999999995" y="172.26386806596702"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="5Hq-au-SOq">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="tcO-9m-JZx" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="OVd-nZ-ohG">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ziL-GX-wc2" kind="relationship" relationship="rootViewController" id="bfD-d4-2Ts"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lK5-JR-fHC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="21.600000000000001" y="172.26386806596702"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Plus" width="28" height="28"/>
+    </resources>
+</document>
