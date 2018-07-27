@@ -11,35 +11,32 @@ import UIKit
 class MovieLIstViewController: UIViewController, UITabBarDelegate, UITableViewDataSource, AddMovieCellDelegate {
 
     @IBOutlet weak var tableView: UITableView!
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+    let movieController = MovieController()
+    let movies: [Movie] = []
     
-    func didTapSeenButton(_ sender: AddMovieCell) {
-        guard let tappedIndexPath = self.tableView.indexPath(for: sender) else {return}
+    func didTapSeenButton(cell: AddMovieCell) {
+        guard let indexPath = tableView.indexPath(for: cell) else {return}
+        let movie = movieController.movies[indexPath.row]
+        movieController.toggleHasSeen(movie: movie)
         
-        
-        print(tappedIndexPath)
+        tableView.reloadRows(at: [indexPath], with: .fade)
     }
         
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return movieController.movies.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "AddMovieCell", for: indexPath) as! AddMovieCell
         
-        cell.movieNameLabel.text = "This is cell \(indexPath.row)"
+        let movie = movieController.movies[indexPath.row]
+        
+        cell.movieNameLabel.text = movie.movieName
         cell.delegate = self
+      
+        print("This is cell \(indexPath.row)")
         
         
         return cell

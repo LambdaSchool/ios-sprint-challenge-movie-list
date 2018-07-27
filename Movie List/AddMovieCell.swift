@@ -10,7 +10,7 @@ import UIKit
 
 protocol AddMovieCellDelegate: class {
     
-    func didTapSeenButton(_ sender: AddMovieCell)
+    func didTapSeenButton(cell: AddMovieCell)
 }
 
 class AddMovieCell: UITableViewCell {
@@ -21,9 +21,27 @@ class AddMovieCell: UITableViewCell {
     
     weak var delegate: AddMovieCellDelegate?
     
+    var movie: Movie? {
+        didSet {
+            updateViews()
+        }
+    }
+    
     @IBAction func toggleSeenButton(_ sender: UIButton) {
-        delegate?.didTapSeenButton(self)
+        delegate?.didTapSeenButton(cell: self)
+    }
+    
+    private func updateViews() {
+        guard let movie  = movie else {return}
         
+        var seenbuttonTitle: String
         
+        if !movie.hasSeen {
+            seenbuttonTitle = "Seen"
+        } else {
+            seenbuttonTitle = "UnSeen"
+        }
+        
+        seenButton.setTitle(seenbuttonTitle, for: .normal)
     }
 }
