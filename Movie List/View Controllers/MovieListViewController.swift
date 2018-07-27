@@ -8,38 +8,31 @@
 
 import UIKit
 
-class MovieListViewController: UIViewController, UITableViewDataSource {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+class MovieListViewController: UIViewController, UITableViewDataSource,MovieControllerProtocol {
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
     }
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return movieController.movieList.count
+        return movieController?.movieList.count ?? 0
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "movieCell", for: indexPath) as? MovieTableViewCell else
-        {return UITableViewCell() }
-        let movie = movieController.movieList[indexPath.row]
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "movieCell", for: indexPath) as? MovieTableViewCell else {return UITableViewCell() }
+        guard let movie = movieController?.movieList[indexPath.row] else {return UITableViewCell()}
         cell.titleLabel.text = movie.title
-        cell.hasSeenButtonLabel.setTitle(movieController.reportSeen(movie: movie), for: .normal)
+        cell.hasSeenButtonLabel.setTitle(movieController?.reportSeen(movie: movie), for: .normal)
+        
         return cell
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
     
-    //Mark: Properties
+    //Mark: - Properties
     
-    var movieController = MovieController()
+    var movieController: MovieController?
+  
+    @IBOutlet weak var tableView: UITableView!
 }
