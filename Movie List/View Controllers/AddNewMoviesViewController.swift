@@ -16,8 +16,6 @@ class AddNewMoviesViewController: UIViewController, MovieControllerProtocol {
         
     }
     
-    var movieController: MovieController?
-    
     @IBAction func addNewButtonTapped(_ sender: Any) {
         
         guard let movieTitle = movieTitleTextField.text else { return }
@@ -25,6 +23,8 @@ class AddNewMoviesViewController: UIViewController, MovieControllerProtocol {
         movieController?.addMovie(title: movieTitle, isSeen: false)
     }
     
+    
     @IBOutlet weak var movieTitleTextField: UITextField!
     
+    var movieController: MovieController?
 }

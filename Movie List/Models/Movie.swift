@@ -8,7 +8,12 @@
 
 import Foundation
 
-struct Movie: Equatable {
+class Movie {
     var title: String
     var isSeen: Bool
+    
+    init(title: String, isSeen: Bool) {
+        self.title = title
+        self.isSeen = isSeen
+    }
 }
