@@ -14,7 +14,7 @@
         <!--Movies-->
         <scene sceneID="6kn-uX-4g1">
             <objects>
-                <viewController id="sbu-xz-KGE" sceneMemberID="viewController">
+                <viewController id="sbu-xz-KGE" customClass="MovieLIstViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="34m-CE-RkU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -25,11 +25,11 @@
                                     <navigationItem title="Movies" id="gWt-dG-zK4"/>
                                 </items>
                             </navigationBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="l83-46-jYN">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="l83-46-jYN">
                                 <rect key="frame" x="0.0" y="116" width="375" height="502"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="60" id="d0g-Ok-vDu">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AddMovieCell" rowHeight="60" id="d0g-Ok-vDu" customClass="AddMovieCell" customModule="Movie_List" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="d0g-Ok-vDu" id="OMO-mD-81A">
@@ -42,6 +42,7 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="uV2-8c-hzm">
                                                             <rect key="frame" x="0.0" y="0.0" width="265" height="32"/>
                                                             <constraints>
+                                                                <constraint firstAttribute="height" constant="32" id="7ik-hV-pJ9"/>
                                                                 <constraint firstAttribute="width" constant="265" id="BZt-WP-qvX"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
@@ -50,10 +51,16 @@
                                                         </label>
                                                         <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7t1-5c-4Bo">
                                                             <rect key="frame" x="270" y="0.0" width="75" height="32"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="32" id="vSc-kf-1gq"/>
+                                                            </constraints>
                                                             <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
                                                             <state key="normal" title="Not Seen">
                                                                 <color key="titleColor" red="0.4860512018" green="0.4898700714" blue="0.51057106259999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             </state>
+                                                            <connections>
+                                                                <action selector="toggleSeenButton:" destination="d0g-Ok-vDu" eventType="touchUpInside" id="TRb-6u-Lkl"/>
+                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                 </stackView>
@@ -64,8 +71,16 @@
                                                 <constraint firstItem="PhR-kM-yEm" firstAttribute="leading" secondItem="OMO-mD-81A" secondAttribute="leadingMargin" id="cUw-Jz-LEc"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="movieNameLabel" destination="uV2-8c-hzm" id="2eC-FE-mLm"/>
+                                            <outlet property="seenButton" destination="7t1-5c-4Bo" id="NXr-6R-hHK"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="sbu-xz-KGE" id="iWI-Lc-Zjp"/>
+                                    <outlet property="delegate" destination="sbu-xz-KGE" id="Dt9-tu-Ojk"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -81,6 +96,9 @@
                         <viewLayoutGuide key="safeArea" id="nsA-LP-STP"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Movies" selectedImage="Clapboard" id="uQc-4B-P0e"/>
+                    <connections>
+                        <outlet property="tableView" destination="l83-46-jYN" id="oFQ-56-Y80"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vxf-5b-ewS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -89,7 +107,7 @@
         <!--Add A New Movie To The List-->
         <scene sceneID="YHI-Ya-ryY">
             <objects>
-                <viewController id="GcO-Ub-MSB" sceneMemberID="viewController">
+                <viewController id="GcO-Ub-MSB" customClass="AddMovieViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vd4-fv-rHW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -107,6 +125,9 @@
                                 <rect key="frame" x="144" y="186" width="86" height="48"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                 <state key="normal" title="Add Movie"/>
+                                <connections>
+                                    <action selector="addMovie:" destination="GcO-Ub-MSB" eventType="touchUpInside" id="20N-tY-1ga"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -122,6 +143,9 @@
                         <viewLayoutGuide key="safeArea" id="IMx-Jh-hh9"/>
                     </view>
                     <navigationItem key="navigationItem" title="Add A New Movie To The List" id="eb0-1e-zwc"/>
+                    <connections>
+                        <outlet property="addMovieTextfield" destination="OQf-XG-6oF" id="gup-uu-byT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HrD-xb-mzL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
