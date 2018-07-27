@@ -69,7 +69,7 @@ class MovieListViewController: UIViewController, UITableViewDataSource, MovieCon
         if editingStyle == .delete {
             guard let movie = movieController?.movies[indexPath.row] else { return }
             movieController?.deleteMovie(movie: movie)
-            tableView.deleteRows(at: [indexPath], with: .fade)
+            movieListTableView.deleteRows(at: [indexPath], with: .fade)
             
         } /*else if editingStyle == .insert {
          // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
