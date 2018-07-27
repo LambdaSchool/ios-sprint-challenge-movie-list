@@ -13,7 +13,6 @@ class MoviesListViewController: UIViewController, UITableViewDelegate, UITableVi
     // Properties
     @IBOutlet weak var tableView: UITableView!
     
-    let movie : Movie? = nil
     var movieController : MovieController?
     
     // Actions
@@ -30,15 +29,15 @@ class MoviesListViewController: UIViewController, UITableViewDelegate, UITableVi
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MoviesCell
         
-        let movies = movieController?.movies[indexPath.row]
-        
+        let movie = movieController?.movies[indexPath.row]
         cell.showMovieLabel.text = movie?.title
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        <#code#>
+//        guard let movie = movieController?.movies[indexPath.row] else { return }
+        
     }
 
     override func viewDidLoad() {
