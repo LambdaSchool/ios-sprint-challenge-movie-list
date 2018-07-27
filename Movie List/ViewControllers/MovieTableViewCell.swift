@@ -9,8 +9,8 @@
 import UIKit
 
 class MovieTableViewCell: UITableViewCell, MovieControllerProtocol, MovieCellDelegate {
-
-    private func updateViews () {
+    
+    private func updateViews() {
         guard let movie = movie else { return }
         titleTextLabel.text = movie.title
         

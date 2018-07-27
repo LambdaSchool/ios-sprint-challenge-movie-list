@@ -12,14 +12,25 @@ protocol MovieControllerProtocol: class {
     var movieController: MovieController? { get set }
 }
 
-class HomeTabBarViewController: UITabBarController, MovieControllerProtocol {
-
+class HomeTabBarViewController: UITabBarController {
+    
+    func passMovieControllerToChildViewControllers () {
+        guard let viewControllers = viewControllers else { return }
+        
+        for childVC in viewControllers {
+            if let vc = childVC as? MovieControllerProtocol {
+                vc.movieController = movieController
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        passMovieControllerToChildViewControllers()
+        
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -38,6 +49,6 @@ class HomeTabBarViewController: UITabBarController, MovieControllerProtocol {
     
     // MARK: - Properties
     
-    var movieController: MovieController? = MovieController()
+    var movieController = MovieController()
 
 }

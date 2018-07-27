@@ -14,6 +14,12 @@ protocol MovieCellDelegate: class {
 
 class MovieListViewController: UIViewController, UITableViewDataSource, MovieControllerProtocol, MovieCellDelegate {
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        movieListTableView.reloadData()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -46,9 +52,14 @@ class MovieListViewController: UIViewController, UITableViewDataSource, MovieCon
         let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath)
         
         guard let movieCell = cell as? MovieTableViewCell else { return cell }
-        movieCell.titleTextLabel.text = movieController?.movies[indexPath.row].title
+        // movieCell.titleTextLabel.text = movieController?.movies[indexPath.row].title
         
-        return cell
+        let movie = movieController?.movies[indexPath.row]
+        movieCell.movie = movie
+        
+        movieCell.delegate = self
+        
+        return movieCell
     }
     
     
