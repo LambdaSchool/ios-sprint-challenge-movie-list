@@ -10,6 +10,12 @@ import UIKit
 
 class MovieTableViewCell: UITableViewCell {
 
+    // MARK: - Properties
+    
+    @IBOutlet weak var movieTitleLabel: UILabel!
+    @IBOutlet weak var toogleSeenButton: UIButton!
     
 
+    @IBAction func toggleSeenButton(_ sender: Any) {
+    }
 }

@@ -9,6 +9,11 @@
 import UIKit
 
 class AddMovieViewController: UIViewController {
+    
+    // MARK: - Properties
+    
+    @IBOutlet weak var movieTitleTextField: UITextField!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,10 +21,9 @@ class AddMovieViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBAction func addMovie(_ sender: Any) {
     }
+    
     
 
     /*

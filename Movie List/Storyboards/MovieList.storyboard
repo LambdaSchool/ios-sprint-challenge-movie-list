@@ -39,6 +39,9 @@
                                                 <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p8n-8e-GO7">
                                                     <rect key="frame" x="296" y="6" width="64" height="30"/>
                                                     <state key="normal" title="Not Seen"/>
+                                                    <connections>
+                                                        <action selector="toggleSeenButton:" destination="eSQ-h0-IX3" eventType="touchUpInside" id="VAr-dJ-swr"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -49,6 +52,10 @@
                                                 <constraint firstItem="p8n-8e-GO7" firstAttribute="centerY" secondItem="1e2-7n-nis" secondAttribute="centerY" id="o57-qU-UKA"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="movieTitleLabel" destination="Xbr-Sy-ziJ" id="loa-U1-6cN"/>
+                                            <outlet property="toogleSeenButton" destination="p8n-8e-GO7" id="67w-tC-GnX"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -64,6 +71,9 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Movies" image="Clapboard" id="wYy-Kx-yDI"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="tableView" destination="c7O-HQ-TaQ" id="ecm-Ed-bXh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2QI-Jx-yfc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
