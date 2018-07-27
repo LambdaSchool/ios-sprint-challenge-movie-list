@@ -8,17 +8,19 @@
 
 import UIKit
 
-class MoviesListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class MoviesListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MovieProtocol {
     
     // Properties
     @IBOutlet weak var tableView: UITableView!
     
     var movieController : MovieController?
     
-    // Actions
-    @IBAction func showButtonStatus(_ sender: Any) {
+    // Runtime
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        tableView.reloadData()
     }
-    
     
     // Data source
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
