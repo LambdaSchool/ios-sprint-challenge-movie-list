@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddMovieViewController: UIViewController {
+class AddMovieViewController: UIViewController, MovieControllerProtocol {
 
     var movieController: MovieController?
     

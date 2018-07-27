@@ -8,9 +8,9 @@
 
 import UIKit
 
-class MoviesTableViewController: UIViewController, UITableViewDataSource, MovieTableViewCellDelegate {
+class MoviesTableViewController: UIViewController, UITableViewDataSource, MovieTableViewCellDelegate, MovieControllerProtocol {
     
-    let movieController: MovieController? = nil
+    var movieController: MovieController?
     
     @IBOutlet var tableView: UITableView!
     
@@ -19,6 +19,12 @@ class MoviesTableViewController: UIViewController, UITableViewDataSource, MovieT
         super.viewDidLoad()
 
         tableView.dataSource = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        tableView.reloadData()
     }
 
     // MARK: - UITableViewDataSource
@@ -48,6 +54,7 @@ class MoviesTableViewController: UIViewController, UITableViewDataSource, MovieT
         if editingStyle == .delete {
             guard let movie = movieController?.movies[indexPath.row] else { return }
             movieController?.delete(movie: movie)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
         }
     }
     
