@@ -12,6 +12,7 @@ class MovieListTableViewController: UITableViewController, MovieControllerProtoc
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.dataSource = self
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -21,10 +22,13 @@ class MovieListTableViewController: UITableViewController, MovieControllerProtoc
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath)
+        guard let movieCell = cell as? MovieTableViewCell else { return cell }
         let movie = movieController?.movies[indexPath.row]
-        cell.textLabel?.text = movie?.movieName
+        
+        movieCell.movie = movie
+        
 
-        return cell
+        return movieCell
     }
 
     // MARK: - Properties
