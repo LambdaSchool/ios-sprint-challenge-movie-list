@@ -8,28 +8,29 @@
 
 import UIKit
 
-class MovieViewController: UIViewController {
+class MovieViewController: UIViewController, MovieNameControllerProtocol {
 
+    var movieNameController: MovieNameController?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+ 
+   
+    //addmovie takes the text creates an instance of movie name
+    @IBAction func addMovie(_ sender: Any) {
+        func movieView(name: String){
+            guard let movie = movieTextField.text else {return}
+            movieNameController?.CreateMovieName(name: movie)
+        }
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    //the textField where movie choice is typed
+    @IBOutlet weak var movieTextField: UITextField!
+    
 
 }

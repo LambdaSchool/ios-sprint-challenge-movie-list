@@ -7,3 +7,8 @@
 //
 
 import Foundation
+
+protocol MovieNameControllerProtocol {
+    
+    var movieNameController: MovieNameController? {get set}
+}
