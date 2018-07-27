@@ -14,7 +14,7 @@ class TabBarViewController: UITabBarController {
         super.viewDidLoad()
 
         guard let viewControllers = viewControllers else { return }
-
+        
         for vc in viewControllers {
             if let vc = vc as? MovieControllerProtocol {
                 vc.movieController = movieController

@@ -30,36 +30,36 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="53.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gmx-D8-wuK">
-                                                    <rect key="frame" x="15" y="11" width="278" height="32"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gmx-D8-wuK">
+                                                    <rect key="frame" x="15" y="11" width="257" height="32"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="biH-O0-saq">
-                                                    <rect key="frame" x="307" y="13" width="35" height="30"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="biH-O0-saq">
+                                                    <rect key="frame" x="280" y="13" width="80" height="30"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="35" id="3KL-ne-ogH"/>
+                                                        <constraint firstAttribute="width" constant="80" id="3KL-ne-ogH"/>
                                                     </constraints>
                                                     <state key="normal" title="Seen"/>
                                                     <connections>
-                                                        <action selector="toggleSeenMovie:" destination="iYP-EV-rJo" eventType="touchUpInside" id="6NW-jO-FKd"/>
+                                                        <action selector="toggleSeenMovie:" destination="YlO-R0-XGD" eventType="touchUpInside" id="mmK-NW-aOB"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="biH-O0-saq" firstAttribute="top" secondItem="ysG-3V-rUf" secondAttribute="topMargin" constant="2" id="92t-Uz-Qlx"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="biH-O0-saq" secondAttribute="trailing" constant="17" id="D0h-O0-XCA"/>
-                                                <constraint firstItem="biH-O0-saq" firstAttribute="leading" secondItem="Gmx-D8-wuK" secondAttribute="trailing" constant="14" id="Fk8-m8-P2J"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="biH-O0-saq" secondAttribute="trailing" id="D0h-O0-XCA"/>
+                                                <constraint firstItem="biH-O0-saq" firstAttribute="leading" secondItem="Gmx-D8-wuK" secondAttribute="trailing" constant="8" id="Fk8-m8-P2J"/>
                                                 <constraint firstItem="Gmx-D8-wuK" firstAttribute="bottom" secondItem="biH-O0-saq" secondAttribute="bottom" id="Ibk-IR-To8"/>
-                                                <constraint firstItem="Gmx-D8-wuK" firstAttribute="leading" secondItem="ysG-3V-rUf" secondAttribute="leadingMargin" constant="-1" id="Lcd-qO-9Dr"/>
+                                                <constraint firstItem="Gmx-D8-wuK" firstAttribute="leading" secondItem="ysG-3V-rUf" secondAttribute="leadingMargin" id="Lcd-qO-9Dr"/>
                                                 <constraint firstItem="Gmx-D8-wuK" firstAttribute="bottom" secondItem="ysG-3V-rUf" secondAttribute="bottomMargin" id="Vha-9e-AdY"/>
                                                 <constraint firstItem="Gmx-D8-wuK" firstAttribute="top" secondItem="ysG-3V-rUf" secondAttribute="topMargin" id="Vxl-Zq-gQw"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="movieTitleLabelText" destination="Gmx-D8-wuK" id="6gI-Wf-Rbi"/>
-                                            <outlet property="seenMovieButtonText" destination="biH-O0-saq" id="NOA-rH-E4A"/>
+                                            <outlet property="seenMovieButtonText" destination="biH-O0-saq" id="vdH-d5-NHC"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -106,6 +106,9 @@
                                     <constraint firstAttribute="height" constant="30" id="q9i-ju-Uqs"/>
                                 </constraints>
                                 <state key="normal" title="Add Movie"/>
+                                <connections>
+                                    <action selector="createNewMovie:" destination="jkh-Jx-J5x" eventType="touchUpInside" id="eoz-bS-9mE"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -123,15 +126,18 @@
                         <viewLayoutGuide key="safeArea" id="4ee-aF-6Sh"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Add New Movies" image="Plus" id="9kx-8D-G9H"/>
+                    <connections>
+                        <outlet property="movieTitleTextField" destination="Frl-Ft-InJ" id="Syr-Mj-e0M"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d4r-vv-Lqh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="484" y="-16.641679160419791"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Tab Bar View Controller-->
         <scene sceneID="P2d-7a-sX0">
             <objects>
-                <tabBarController id="yPZ-ld-CDK" sceneMemberID="viewController">
+                <tabBarController id="yPZ-ld-CDK" customClass="TabBarViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="oS9-Lb-g8t">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>

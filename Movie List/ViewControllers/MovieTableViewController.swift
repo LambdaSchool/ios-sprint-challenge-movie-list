@@ -8,7 +8,11 @@
 
 import UIKit
 
-class MovieTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, MovieControllerProtocol {
+class MovieTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, MovieControllerProtocol, MovieTableViewCellProtocol {
+    
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,13 +28,17 @@ class MovieTableViewController: UIViewController, UITableViewDataSource, UITable
         let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath)
         
         guard let movieCell = cell as? MovieTableViewCell else { return cell }
-        movieCell.movieController = movieController
+        guard let movie = movieController?.movies[indexPath.row] else { return cell }
+        movieCell.movie = movie
+        
+        movieCell.delegate = self
         
         return movieCell
     }
     
-    @IBAction func toggleSeenMovie(_ sender: Any) {
-        
+    func seenMovieButtonWasTapped(on cell: MovieTableViewCell) {
+        guard let movie = cell.movie else { return }
+        movieController?.toggleSeen(movie: movie)
     }
     
     // MARK: - Properties

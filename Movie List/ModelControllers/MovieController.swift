@@ -13,6 +13,7 @@ class MovieController {
     func create(title: String, seen: Bool = false) {
         let movie = Movie(title: title, seen: seen)
         movies.append(movie)
+        print(movies)
     }
     
     func delete(movie: Movie) {
@@ -24,6 +25,9 @@ class MovieController {
         guard let index = movies.index(of: movie) else { return }
         var movie = movies[index]
         movie.seen = !movie.seen
+        
+        movies.remove(at: index)
+        movies.insert(movie, at: index)
     }
     
     private(set) var movies: [Movie] = []

@@ -8,14 +8,22 @@
 
 import UIKit
 
+protocol MovieTableViewCellProtocol {
+    func seenMovieButtonWasTapped(on cell: MovieTableViewCell)
+}
+
 class MovieTableViewCell: UITableViewCell {
 
     func updateViews() {
         guard let movie = movie else { return }
         movieTitleLabelText.text = movie.title
-        movie.seen == true
+        movie.seen == false
             ? seenMovieButtonText.setTitle("Seen", for: .normal)
             : seenMovieButtonText.setTitle("Unseen", for: .normal)
+    }
+    
+    @IBAction func toggleSeenMovie(_ sender: Any) {
+        delegate?.seenMovieButtonWasTapped(on: self)
     }
     
     // MARK: - Properties
@@ -25,6 +33,8 @@ class MovieTableViewCell: UITableViewCell {
             updateViews()
         }
     }
+    
+    var delegate: MovieTableViewCellProtocol?
     @IBOutlet weak var movieTitleLabelText: UILabel!
     @IBOutlet weak var seenMovieButtonText: UIButton!
     

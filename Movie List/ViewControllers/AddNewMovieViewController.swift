@@ -17,10 +17,16 @@ class AddNewMovieViewController: UIViewController, MovieControllerProtocol {
         
     }
     
+    @IBAction func createNewMovie(_ sender: Any) {
+        guard let movieTitle = movieTitleTextField.text else { return }
+        movieController?.create(title: movieTitle)
+        print(movieController?.movies)
+    }
     
         
     // MARK: - Properties
     
     var movieController: MovieController?
-
+    @IBOutlet weak var movieTitleTextField: UITextField!
+    
 }
