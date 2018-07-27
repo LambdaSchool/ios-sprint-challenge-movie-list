@@ -8,11 +8,14 @@
 
 import UIKit
 
-class AddMovieViewController: UIViewController {
+class AddMovieViewController: UIViewController, MovieControllerProtocol {
+    
+    
     
     // MARK: - Properties
     
     @IBOutlet weak var movieTitleTextField: UITextField!
+    var movieController: MovieController?
     
 
     override func viewDidLoad() {
@@ -22,18 +25,10 @@ class AddMovieViewController: UIViewController {
     }
 
     @IBAction func addMovie(_ sender: Any) {
+        guard let movie = movieTitleTextField.text,
+        let movieController = movieController else { return }
+        
+        
+        movieController.create(title: movie)
     }
-    
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
