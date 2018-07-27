@@ -20,8 +20,26 @@ class MovieTableViewCell: UITableViewCell {
         delegate?.seenButtonWasTapped(onCell: self)
     }
     
+    private func updateViews() {
+        guard let movie = movie else { return }
+        
+        movieTitleLabel.text = movie.title
+        
+        if movie.isSeen == true {
+            seenButton.setTitle("Seen", for: .normal)
+        } else {
+            seenButton.setTitle("Not seen", for: .normal)
+        }
+    }
+    
     @IBOutlet weak var movieTitleLabel: UILabel!
+    @IBOutlet weak var seenButton: UIButton!
     
     weak var delegate : MovieTableViewCellDelegate?
-    var movie: Movie?
+    
+    var movie: Movie? {
+        didSet {
+            updateViews()
+        }
+    }
 }
