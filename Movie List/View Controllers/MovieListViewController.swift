@@ -30,19 +30,17 @@ class MovieListViewController: UIViewController, UITableViewDataSource, MovieTab
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "movieCell", for: indexPath) as? MovieTableViewCell else {return UITableViewCell() }
         
         cell.movie = movieController?.movieList[indexPath.row]
-//        cell.delegate = self // why not do this earlier
+        cell.delegate = self // why not do this earlier
         return cell
     }
     
     func toggleHasSeen(for cell: MovieTableViewCell) {
-//                guard var movie = movie else { return}
-//                if movie.hasSeen{
-//                    hasSeenButtonLabel.setTitle("Not Seen", for: .normal)
-//                    movie.hasSeen = false
-//                } else {
-//                    hasSeenButtonLabel.setTitle("Seen", for: .normal)
-//                    movie.hasSeen = true
-//                }
+        guard let indexpath = tableView.indexPath(for: cell) else {return}
+        guard let movie = movieController?.movieList[indexpath.row] else {return}
+        
+        let seenStatus = movieController?.changeSeenStatus(movie: movie)
+        tableView.reloadRows(at: [indexpath], with: .automatic
+        )
     }
     
     //Mark: - Properties

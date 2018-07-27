@@ -14,23 +14,14 @@ protocol MovieTableViewCellDelegate: class{
 class MovieTableViewCell: UITableViewCell {
 
     
-    @IBAction func hasSeenToggleAction(_ sender: Any) {
+    @IBAction func toggleHasSeen(_ sender: Any) {
         delegate?.toggleHasSeen(for: self)
-//        guard var movie = movie else { return}
-//        if movie.hasSeen{
-//            hasSeenButtonLabel.setTitle("Not Seen", for: .normal)
-//            movie.hasSeen = false
-//        } else {
-//            hasSeenButtonLabel.setTitle("Seen", for: .normal)
-//            movie.hasSeen = true
-//        }
     }
     
     private func updateViews(){
         guard let movie = movie else {return}
         titleLabel.text = movie.title
-        let hasSeenStr = movie.hasSeen ? "Seen" : "Not See"
-        print(hasSeenStr)
+        let hasSeenStr = movie.hasSeen ? "Seen" : "Not Seen"
         hasSeenButtonLabel.setTitle(hasSeenStr, for: .normal)
     }
     
@@ -38,7 +29,6 @@ class MovieTableViewCell: UITableViewCell {
     
     var movie: Movie? {
         didSet{
-            print("Did Set")
             updateViews()
         }
     }

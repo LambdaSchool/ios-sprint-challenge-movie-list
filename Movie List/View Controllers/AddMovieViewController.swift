@@ -21,7 +21,7 @@ class AddMovieViewController: UIViewController, MovieControllerProtocol {
         guard let movieTitle = movieTitleLabel.text else  {return}
         movieController?.createMovie(withTitle: movieTitle)
         movieTitleLabel.text = ""
-        print("addMovie \( movieController?.movieList)")
+
     }
     
   
