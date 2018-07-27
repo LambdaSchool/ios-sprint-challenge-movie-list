@@ -15,6 +15,11 @@ class MovieController {
     func addMovie(title: String, isSeen: Bool) {
         let movie = Movie(title: title, isSeen: isSeen)
         movies.append(movie)
+        
+        // Stores the alphabetical version of the array
+        let alphabeticalMovies = movies.sorted { $0.title < $1.title }
+        // Reassigns movies to be alphabetical
+        movies = alphabeticalMovies
     }
     
     // Function to delete a movie

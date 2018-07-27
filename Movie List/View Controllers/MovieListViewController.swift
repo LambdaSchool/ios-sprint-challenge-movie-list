@@ -43,7 +43,7 @@ class MovieListViewController: UIViewController, UITableViewDataSource, MovieCon
     
     
     
-    // Getting the information to display the cells
+    // Getting the information to display in the cells
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let movieCount = movieController?.movies.count else { fatalError("No movieController var") }
@@ -59,7 +59,10 @@ class MovieListViewController: UIViewController, UITableViewDataSource, MovieCon
         // If not crash the app with a message
         guard let cell = optionalCell as? MovieTableViewCell else { fatalError("Cell is not a MovieTableViewCell")}
         
-        let movie = movieController?.movies[indexPath.row]
+        // Probably unneeded but whatever
+        guard let unwrappedMovieController = movieController else { fatalError("No movieController") }
+        
+        let movie = unwrappedMovieController.movies[indexPath.row]
         
         // Assigns the cell's movie variable as the movie in movies array that corresponds to the cells indexPath.row
         cell.movie = movie
