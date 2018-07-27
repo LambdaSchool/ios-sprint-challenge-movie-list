@@ -8,7 +8,10 @@
 
 import UIKit
 
-class MovieListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, MovieControllerProtocol {
+class MovieListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, MovieControllerProtocol, MovieTableViewCellDelegate {
+    
+    
+    
     
     // MARK: - Properties
     
@@ -29,6 +32,16 @@ class MovieListViewController: UIViewController, UITableViewDataSource, UITableV
         tableView.delegate = self
         
         
+        
+    }
+    
+    func toggleIsSeen(for cell: MovieTableViewCell) {
+        let indexPath = tableView.indexPath(for: cell)
+        guard let movie = movieController?.movies[(indexPath?.row)!] else { return }
+        movieController?.toogleSeen(movie: movie)
+        
+        tableView.reloadRows(at: [indexPath!], with: .fade)
+        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -41,15 +54,16 @@ class MovieListViewController: UIViewController, UITableViewDataSource, UITableV
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as? MovieTableViewCell else { return MovieTableViewCell()}
         
+        cell.delegate = self
+        
         // Configure the cell
         
+        let title: String
+        title = (movieController?.movies[indexPath.row].seen)! ? "Seen" : "Not seen"
+        
         cell.movieTitleLabel.text = movieController?.movies[indexPath.row].title
-        
-        cell.toogleSeenButton.tag = indexPath.row
-        
-        
-        
-        
+        cell.toogleSeenButton.setTitle(title, for: .normal)
+    
         return cell
     }
     

@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol MovieTableViewCellDelegate: class {
+    func toggleIsSeen(for cell: MovieTableViewCell)
+}
+
 class MovieTableViewCell: UITableViewCell, MovieControllerProtocol {
     
     
@@ -17,22 +21,13 @@ class MovieTableViewCell: UITableViewCell, MovieControllerProtocol {
     @IBOutlet weak var movieTitleLabel: UILabel!
     @IBOutlet weak var toogleSeenButton: UIButton!
     
+    weak var delegate: MovieTableViewCellDelegate?
+    
     var movieController: MovieController?
-    var title = ""
+    
     
     @IBAction func toggleSeen(_ sender: UIButton) {
-        let index = (sender.tag)
-        guard let movie = movieController?.movies[index] else { return }
-        movieController?.toogleSeen(movie: movie)
-        
-        if movie.seen {
-            title = "Not Seen"
-        } else {
-            title = "Seen"
-        }
-        
-         toogleSeenButton.setTitle(title, for: .normal)
-        
+        delegate?.toggleIsSeen(for: self)
     }
     
 }
