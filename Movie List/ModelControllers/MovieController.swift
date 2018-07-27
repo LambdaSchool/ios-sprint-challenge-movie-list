@@ -13,7 +13,6 @@ class MovieController {
     func create(title: String, seen: Bool = false) {
         let movie = Movie(title: title, seen: seen)
         movies.append(movie)
-        print(movies)
     }
     
     func delete(movie: Movie) {

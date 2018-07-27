@@ -36,6 +36,14 @@ class MovieTableViewController: UIViewController, UITableViewDataSource, UITable
         return movieCell
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            guard let movieController = movieController else { return }
+            movieController.delete(movie: movieController.movies[indexPath.row])
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
+    
     func seenMovieButtonWasTapped(on cell: MovieTableViewCell) {
         guard let movie = cell.movie else { return }
         movieController?.toggleSeen(movie: movie)
