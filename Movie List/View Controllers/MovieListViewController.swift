@@ -26,6 +26,7 @@ class MovieListViewController: UIViewController, UITableViewDataSource, MovieTab
         
         return movieController?.movieList.count ?? 0
     }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "movieCell", for: indexPath) as? MovieTableViewCell else {return UITableViewCell() }
         
@@ -34,13 +35,19 @@ class MovieListViewController: UIViewController, UITableViewDataSource, MovieTab
         return cell
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            movieController?.deleteMovie(atIndex: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
+    
     func toggleHasSeen(for cell: MovieTableViewCell) {
         guard let indexpath = tableView.indexPath(for: cell) else {return}
         guard let movie = movieController?.movieList[indexpath.row] else {return}
         
         let seenStatus = movieController?.changeSeenStatus(movie: movie)
-        tableView.reloadRows(at: [indexpath], with: .automatic
-        )
+        tableView.reloadRows(at: [indexpath], with: .automatic)
     }
     
     //Mark: - Properties

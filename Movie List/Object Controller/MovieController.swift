@@ -15,25 +15,18 @@ class MovieController {
         movieList.append(newMovie)
     }
     
-    func changeSeenStatus(movie:Movie) ->String {
-        guard let index = movieList.index(of: movie) else {return "OOps"}
+    func changeSeenStatus(movie:Movie){
+        guard let index = movieList.index(of: movie) else {return}
         if movie.hasSeen {
             movieList[index].hasSeen = false
-            return "Not Seen"
         } else {
             movieList[index].hasSeen = true
-            return "Seen"
         }
         
     }
     
-    func reportSeen(movie:Movie)->String{
-        let hasSeen = movie.hasSeen ? "Seen" : "Not Seen"
-        return hasSeen
-    }
     
-    func deleteMovie(movie:Movie){
-        guard let index = movieList.index(of: movie) else {return}
+    func deleteMovie(atIndex index:Int){
         movieList.remove(at: index)
     }
     
