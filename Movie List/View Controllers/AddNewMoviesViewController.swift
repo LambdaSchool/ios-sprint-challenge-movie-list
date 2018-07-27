@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddNewMoviesViewController: UITabBarController {
+class AddNewMoviesViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,5 +31,11 @@ class AddNewMoviesViewController: UITabBarController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    
+    @IBAction func addNewButtonTapped(_ sender: Any) {
+        
+    }
+    
+    @IBOutlet weak var movieTitleTextField: UITextField!
+    
 }

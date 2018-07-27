@@ -32,4 +32,7 @@ class MoviesListViewController: UITabBarController {
     }
     */
 
+    @IBOutlet weak var tableView: UITableView!
+    
+    
 }
