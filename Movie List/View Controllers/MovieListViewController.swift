@@ -11,6 +11,12 @@ import UIKit
 class MovieListViewController: UIViewController, UITableViewDataSource, MovieControllerProtocol, MovieTableViewCellDelegate {
     
 
+    /* override func viewWillAppear(_ animated: Bool) {
+        viewWillAppear(animated)
+        
+        tableView.reloadData()
+    } */
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -31,6 +37,10 @@ class MovieListViewController: UIViewController, UITableViewDataSource, MovieCon
         guard let movie = movieController?.movies[index] else { return }
         
         movieController?.toggleIsSeen(forMovie: movie)
+        
+        // UIView.setAnimationsEnabled(false)
+        tableView.reloadRows(at: [unwrappedIndexPath], with: .automatic)
+        // UIView.setAnimationsEnabled(true)
     }
     
     
