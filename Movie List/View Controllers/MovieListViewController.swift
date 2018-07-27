@@ -8,31 +8,61 @@
 
 import UIKit
 
-class MovieListViewController: UITabBarController {
+class MovieListViewController: UIViewController, UITableViewDataSource, MovieControllerProtocol, MovieTableViewCellDelegate {
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        // Tells the table view that its data source is this MovieListVC every time the VC loads
+        tableView.dataSource = self
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    
+    // Function that's being delegate from the cell
+    func seenButtonWasTapped(onCell: MovieTableViewCell) {
+        
+        // Sets the index path to the index path for the cell that was tapped
+        let optionalIndexPath = tableView.indexPath(for: onCell)
+        guard let unwrappedIndexPath = optionalIndexPath else { return }
+        let index = unwrappedIndexPath.row
+        
+        guard let movie = movieController?.movies[index] else { return }
+        
+        movieController?.toggleIsSeen(forMovie: movie)
     }
-    */
+    
+    
+    
+    // Getting the information to display the cells
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        guard let movieCount = movieController?.movies.count else { fatalError("No movieController var") }
+        return movieCount
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        // Compiler thinks the cell might not have an identifier of MovieCell
+        let optionalCell = tableView.dequeueReusableCell(withIdentifier: "MovieCell")
+        
+        // If the cell has a class of MovieTableViewCell -- assign it to the constant called cell
+        // If not crash the app with a message
+        guard let cell = optionalCell as? MovieTableViewCell else { fatalError("Cell is not a MovieTableViewCell")}
+        
+        let movie = movieController?.movies[indexPath.row]
+        
+        // Assigns the cell's movie variable as the movie in movies array that corresponds to the cells indexPath.row
+        cell.movie = movie
+        
+        // Sets the delegate of the cell to this MovieListViewController
+        cell.delegate = self
+        
+        return cell
+    }
 
     @IBOutlet weak var tableView: UITableView!
     
-    
+    var movieController: MovieController?
 }

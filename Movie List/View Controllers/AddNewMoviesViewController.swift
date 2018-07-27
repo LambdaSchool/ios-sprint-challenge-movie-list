@@ -8,18 +8,14 @@
 
 import UIKit
 
-class AddNewMoviesViewController: UIViewController {
+class AddNewMoviesViewController: UIViewController, MovieControllerProtocol {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
 
     /*
@@ -31,6 +27,8 @@ class AddNewMoviesViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    var movieController: MovieController?
     
     @IBAction func addNewButtonTapped(_ sender: Any) {
         
