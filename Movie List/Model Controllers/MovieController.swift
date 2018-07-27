@@ -17,8 +17,26 @@ class MovieController {
         movies.append(movie)
     }
     
+    // Function to delete a movie
+    func deleteMovie(movie: Movie) {
+        
+        guard let movieIndex = movies.index(of: movie) else { return }
+        
+        movies.remove(at: movieIndex)
+    }
+    
     // Function to change the value for isSeen attribute of an instance of Movie
     func toggleIsSeen(forMovie: Movie) {
-        forMovie.isSeen = !forMovie.isSeen
+        
+        // forMovie is a let constant
+        var movie = forMovie
+        movie.isSeen = !movie.isSeen
+        
+        // Now I have to replace forMovie in movies array with movie
+        if let indexOfForMovie = movies.index(of: forMovie) {
+            movies[indexOfForMovie] = movie
+        }
+        
+        // forMovie.isSeen = !forMovie.isSeen
     }
 }

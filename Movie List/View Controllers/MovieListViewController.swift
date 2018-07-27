@@ -26,7 +26,7 @@ class MovieListViewController: UIViewController, UITableViewDataSource, MovieCon
     
     
     
-    // Function that's being delegate from the cell
+    // Function that's being delegated from the cell
     func seenButtonWasTapped(onCell: MovieTableViewCell) {
         
         // Sets the index path to the index path for the cell that was tapped
@@ -38,9 +38,7 @@ class MovieListViewController: UIViewController, UITableViewDataSource, MovieCon
         
         movieController?.toggleIsSeen(forMovie: movie)
         
-        // UIView.setAnimationsEnabled(false)
         tableView.reloadRows(at: [unwrappedIndexPath], with: .automatic)
-        // UIView.setAnimationsEnabled(true)
     }
     
     
