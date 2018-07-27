@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item 2-->
+        <!--List-->
         <scene sceneID="riC-r9-z8T">
             <objects>
                 <viewController id="0jG-nS-F6E" customClass="MovieListVC" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
@@ -31,56 +31,71 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MovieCell" id="a28-ie-OMa">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MovieCell" id="a28-ie-OMa" customClass="MovieCell" customModule="Movie_List" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="a28-ie-OMa" id="ZXU-X4-24e">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mI6-Me-2Mh">
-                                                    <rect key="frame" x="15" y="12" width="42" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mI6-Me-2Mh">
+                                                    <rect key="frame" x="14" y="12" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qyh-L4-mAa">
-                                                    <rect key="frame" x="311" y="6" width="49" height="31"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qyh-L4-mAa">
+                                                    <rect key="frame" x="311" y="6" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="watchToggled:" destination="a28-ie-OMa" eventType="valueChanged" id="IlX-0G-Lt5"/>
+                                                    </connections>
                                                 </switch>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Seen?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TT6-gz-icv">
-                                                    <rect key="frame" x="256" y="11" width="47" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Watched?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TT6-gz-icv">
+                                                    <rect key="frame" x="226" y="11" width="77" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="qyh-L4-mAa" firstAttribute="centerY" secondItem="ZXU-X4-24e" secondAttribute="centerY" id="Apd-rT-dRL"/>
+                                                <constraint firstItem="TT6-gz-icv" firstAttribute="centerY" secondItem="ZXU-X4-24e" secondAttribute="centerY" id="LPT-Pb-hfk"/>
+                                                <constraint firstItem="mI6-Me-2Mh" firstAttribute="leading" secondItem="ZXU-X4-24e" secondAttribute="leading" constant="14" id="mNY-LK-fVJ"/>
+                                                <constraint firstAttribute="trailing" secondItem="qyh-L4-mAa" secondAttribute="trailing" constant="15" id="nt8-uZ-Eb4"/>
+                                                <constraint firstItem="qyh-L4-mAa" firstAttribute="leading" secondItem="TT6-gz-icv" secondAttribute="trailing" constant="8" id="tgH-FA-feA"/>
+                                                <constraint firstItem="mI6-Me-2Mh" firstAttribute="centerY" secondItem="ZXU-X4-24e" secondAttribute="centerY" id="vVo-iV-eqK"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="nameLabel" destination="mI6-Me-2Mh" id="z78-y6-R4d"/>
+                                            <outlet property="watchedSwitch" destination="qyh-L4-mAa" id="EH8-6P-mdu"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="bL5-WB-ajt" firstAttribute="leading" secondItem="hxj-8H-WFy" secondAttribute="leading" id="2Zb-y4-mNX"/>
-                            <constraint firstItem="hxj-8H-WFy" firstAttribute="trailing" secondItem="zAz-7V-grn" secondAttribute="trailing" id="32W-lR-sYK"/>
-                            <constraint firstItem="hxj-8H-WFy" firstAttribute="top" secondItem="bL5-WB-ajt" secondAttribute="bottom" id="6n0-dB-8P4"/>
-                            <constraint firstItem="hxj-8H-WFy" firstAttribute="bottom" secondItem="zAz-7V-grn" secondAttribute="bottom" id="E93-cr-Y5m"/>
-                            <constraint firstItem="bL5-WB-ajt" firstAttribute="trailing" secondItem="hxj-8H-WFy" secondAttribute="trailing" id="ECs-RN-ZH5"/>
+                            <constraint firstItem="hxj-8H-WFy" firstAttribute="leading" secondItem="bL5-WB-ajt" secondAttribute="leading" id="1U5-bo-dYo"/>
+                            <constraint firstAttribute="trailing" secondItem="hxj-8H-WFy" secondAttribute="trailing" id="IF9-b4-2q2"/>
+                            <constraint firstItem="hxj-8H-WFy" firstAttribute="top" secondItem="bL5-WB-ajt" secondAttribute="bottom" id="IXP-2q-497"/>
                             <constraint firstItem="bL5-WB-ajt" firstAttribute="top" secondItem="zAz-7V-grn" secondAttribute="top" id="LCM-kQ-sfm"/>
-                            <constraint firstItem="hxj-8H-WFy" firstAttribute="leading" secondItem="zAz-7V-grn" secondAttribute="leading" id="ewz-ya-Mct"/>
+                            <constraint firstItem="hxj-8H-WFy" firstAttribute="bottom" secondItem="zAz-7V-grn" secondAttribute="bottom" id="PS6-Ps-LzR"/>
+                            <constraint firstItem="hxj-8H-WFy" firstAttribute="trailing" secondItem="bL5-WB-ajt" secondAttribute="trailing" id="XWa-hD-PYI"/>
+                            <constraint firstItem="hxj-8H-WFy" firstAttribute="leading" secondItem="Io4-Tz-WPk" secondAttribute="leading" id="ZL1-XD-BXi"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="zAz-7V-grn"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="dT2-GF-LoO"/>
+                    <tabBarItem key="tabBarItem" title="List" image="Clapboard" id="dT2-GF-LoO"/>
+                    <connections>
+                        <outlet property="table" destination="hxj-8H-WFy" id="CJh-jr-HUj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5fY-Ue-hkW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="13.6" y="219.94002998500753"/>
         </scene>
-        <!--Item 1-->
+        <!--Add Movies-->
         <scene sceneID="0bB-D9-jM6">
             <objects>
                 <viewController id="soh-Av-eR6" customClass="MovieAddVC" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
@@ -125,7 +140,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="z5o-xn-AF4"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="rLX-UJ-5mZ"/>
+                    <tabBarItem key="tabBarItem" title="Add Movies" image="Plus" id="rLX-UJ-5mZ"/>
                     <connections>
                         <outlet property="nameField" destination="hJH-Kz-p6v" id="JWe-wU-q4D"/>
                     </connections>
@@ -134,10 +149,10 @@
             </objects>
             <point key="canvasLocation" x="15" y="-445"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Movie Tab BarVC-->
         <scene sceneID="154-eH-FFr">
             <objects>
-                <tabBarController id="F88-er-157" sceneMemberID="viewController">
+                <tabBarController id="F88-er-157" customClass="MovieTabBarVC" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="13N-EE-1pP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -153,4 +168,8 @@
             <point key="canvasLocation" x="-937" y="-113"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Clapboard" width="28" height="28"/>
+        <image name="Plus" width="28" height="28"/>
+    </resources>
 </document>

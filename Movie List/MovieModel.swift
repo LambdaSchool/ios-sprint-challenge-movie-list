@@ -12,18 +12,9 @@ struct Movie:Comparable
 {
 	var name:String
 	var watched:Bool
-	var index:Int
 
 	static func <(lhs:Movie, rhs:Movie) -> Bool
 	{
-		if lhs.watched || rhs.watched {
-			if lhs.watched && rhs.watched {
-				return lhs.name < rhs.name
-			} else {
-				// the lesser here is the one we've seen, right?
-				return lhs.watched
-			}
-		}
 		return lhs.name < rhs.name
 	}
 }
@@ -39,17 +30,23 @@ class MovieController
 
 	func add(_ movie:Movie)
 	{
-		var mcopy = movie
-		mcopy.index = movies.count
-		movies.append(mcopy)
+		movies.append(movie)
 		movies.sort()
 	}
 
 	@discardableResult
 	func create(_ name: String) -> Movie
 	{
-		let movie = Movie(name:name, watched:false, index:0)
+		let movie = Movie(name:name, watched:false)
 		add(movie)
 		return movie
+	}
+
+	func delete(index: Int)
+	{
+		// my gut tells me this should be much better than calling remove
+		movies[index] = movies[movies.count - 1]
+		movies.removeLast()
+		movies.sort()
 	}
 }
