@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="HHr-Qq-etP">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Movies-->
+        <scene sceneID="DYV-NW-RRW">
+            <objects>
+                <viewController id="HHr-Qq-etP" customClass="MovieListViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="NR0-wA-kzd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="c7O-HQ-TaQ">
+                                <rect key="frame" x="0.0" y="20" width="375" height="598"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MovieCell" id="eSQ-h0-IX3" customClass="MovieTableViewCell" customModule="Movie_List" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eSQ-h0-IX3" id="1e2-7n-nis">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xbr-Sy-ziJ">
+                                                    <rect key="frame" x="15" y="11" width="293" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p8n-8e-GO7">
+                                                    <rect key="frame" x="296" y="6" width="64" height="30"/>
+                                                    <state key="normal" title="Not Seen"/>
+                                                    <connections>
+                                                        <action selector="toggleSeen:" destination="eSQ-h0-IX3" eventType="touchUpInside" id="Efa-bo-Jwz"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Xbr-Sy-ziJ" firstAttribute="centerY" secondItem="p8n-8e-GO7" secondAttribute="centerY" id="1Eb-ml-3WZ"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="p8n-8e-GO7" secondAttribute="trailing" constant="-1" id="4sL-O7-Ymb"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Xbr-Sy-ziJ" secondAttribute="trailing" constant="51" id="Bfk-uZ-2yR"/>
+                                                <constraint firstItem="Xbr-Sy-ziJ" firstAttribute="leading" secondItem="1e2-7n-nis" secondAttribute="leadingMargin" constant="-1" id="N5S-fC-jiZ"/>
+                                                <constraint firstItem="p8n-8e-GO7" firstAttribute="centerY" secondItem="1e2-7n-nis" secondAttribute="centerY" id="o57-qU-UKA"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="movieTitleLabel" destination="Xbr-Sy-ziJ" id="loa-U1-6cN"/>
+                                            <outlet property="toogleSeenButton" destination="p8n-8e-GO7" id="67w-tC-GnX"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="c7O-HQ-TaQ" firstAttribute="bottom" secondItem="pp6-1v-rb4" secondAttribute="bottom" id="3H6-C7-uoF"/>
+                            <constraint firstItem="c7O-HQ-TaQ" firstAttribute="top" secondItem="pp6-1v-rb4" secondAttribute="top" id="ANI-JQ-VNf"/>
+                            <constraint firstAttribute="trailing" secondItem="c7O-HQ-TaQ" secondAttribute="trailing" id="AY8-eH-1hF"/>
+                            <constraint firstItem="c7O-HQ-TaQ" firstAttribute="leading" secondItem="NR0-wA-kzd" secondAttribute="leading" id="fqB-bO-T4c"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="pp6-1v-rb4"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Movies" image="Clapboard" id="wYy-Kx-yDI"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="tableView" destination="c7O-HQ-TaQ" id="ecm-Ed-bXh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2QI-Jx-yfc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-95.200000000000003" y="167.76611694152925"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Clapboard" width="28" height="28"/>
+    </resources>
+</document>
