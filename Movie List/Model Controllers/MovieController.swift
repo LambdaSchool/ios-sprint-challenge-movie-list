@@ -28,7 +28,7 @@ class MovieController {
     // Function to change the value for isSeen attribute of an instance of Movie
     func toggleIsSeen(forMovie: Movie) {
         
-        // forMovie is a let constant
+        // forMovie is a let constant since Movie model is a struct
         var movie = forMovie
         movie.isSeen = !movie.isSeen
         
@@ -36,7 +36,5 @@ class MovieController {
         if let indexOfForMovie = movies.index(of: forMovie) {
             movies[indexOfForMovie] = movie
         }
-        
-        // forMovie.isSeen = !forMovie.isSeen
     }
 }

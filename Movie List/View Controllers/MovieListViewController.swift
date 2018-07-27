@@ -69,6 +69,19 @@ class MovieListViewController: UIViewController, UITableViewDataSource, MovieCon
         
         return cell
     }
+    
+    
+    // To enable editing of the cells (So I can tell it to delete the cell)
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        
+        guard let movie = movieController?.movies[indexPath.row] else { return }
+        
+        // Delete the movie in the movie controller
+        movieController?.deleteMovie(movie: movie)
+        
+        // THEN delete the cell
+        tableView.deleteRows(at: [indexPath], with: .fade)
+    }
 
     @IBOutlet weak var tableView: UITableView!
     
