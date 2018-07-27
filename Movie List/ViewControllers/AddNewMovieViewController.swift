@@ -10,20 +10,13 @@ import UIKit
 
 class AddNewMovieViewController: UIViewController, MovieControllerProtocol {
     
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        
-    }
+    // MARK: - Methods
     
     @IBAction func createNewMovie(_ sender: Any) {
         guard let movieTitle = movieTitleTextField.text else { return }
         movieController?.create(title: movieTitle)
-        print(movieController?.movies)
     }
     
-        
     // MARK: - Properties
     
     var movieController: MovieController?

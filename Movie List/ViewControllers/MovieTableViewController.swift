@@ -10,6 +10,8 @@ import UIKit
 
 class MovieTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, MovieControllerProtocol, MovieTableViewCellProtocol {
     
+    // MARK: - Methods
+    
     override func viewWillAppear(_ animated: Bool) {
         tableView.reloadData()
     }
@@ -48,6 +50,10 @@ class MovieTableViewController: UIViewController, UITableViewDataSource, UITable
         guard let movie = cell.movie else { return cell.movie! }
         guard let updatedMovie = movieController?.toggleSeen(movie: movie) else { return cell.movie! }
         return updatedMovie
+    }
+    
+    private func sortMoviesAlphabetically(for movies: [Movie]) -> [Movie] {
+        return movies.sorted(by: {$0.title < $1.title} )
     }
     
     // MARK: - Properties

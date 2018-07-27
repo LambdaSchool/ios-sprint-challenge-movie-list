@@ -14,12 +14,14 @@ protocol MovieTableViewCellProtocol {
 
 class MovieTableViewCell: UITableViewCell {
 
+    // MARK: - Methods
+    
     func updateViews() {
         guard let movie = movie else { return }
         movieTitleLabelText.text = movie.title
         movie.seen == false
-            ? seenMovieButtonText.setTitle("Seen", for: .normal)
-            : seenMovieButtonText.setTitle("Unseen", for: .normal)
+            ? seenMovieButtonText.setTitle("Unseen", for: .normal)
+            : seenMovieButtonText.setTitle("Seen", for: .normal)
     }
     
     @IBAction func toggleSeenMovie(_ sender: Any) {
