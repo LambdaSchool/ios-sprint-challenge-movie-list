@@ -8,38 +8,41 @@
 
 import UIKit
 
-class MovieLIstViewController: UIViewController, UITabBarDelegate, UITableViewDataSource, AddMovieCellDelegate {
-
+class MovieLIstViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, AddMovieCellDelegate, MovieControllerProtocol  {
+    
     @IBOutlet weak var tableView: UITableView!
-    let movieController = MovieController()
+    var movieController: MovieController?
     let movies: [Movie] = []
     
-    func didTapSeenButton(cell: AddMovieCell) {
+    func seenButtonWasTapped(on cell: AddMovieCell) {
         guard let indexPath = tableView.indexPath(for: cell) else {return}
-        let movie = movieController.movies[indexPath.row]
-        movieController.toggleHasSeen(movie: movie)
+        let movie = movieController?.movies[indexPath.row]
+        movieController?.toggleHasSeen(for: movie!)
         
         tableView.reloadRows(at: [indexPath], with: .fade)
     }
-        
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return movieController.movies.count
+        return movieController?.movies.count ?? 0
+        //return 5
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "AddMovieCell", for: indexPath) as! AddMovieCell
         
-        let movie = movieController.movies[indexPath.row]
-        
-        cell.movieNameLabel.text = movie.movieName
-        cell.delegate = self
-      
+        let movie = movieController?.movies[indexPath.row]
+        cell.movie = movie 
+        //cell.movieNameLabel?.text = movie?.movieName
+        //cell.movieNameLabel?.text = "HEY!"
         print("This is cell \(indexPath.row)")
         
         
         return cell
     }
-
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60
+    }
+    
 }

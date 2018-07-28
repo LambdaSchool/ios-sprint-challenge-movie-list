@@ -14,8 +14,8 @@ class Movie {
     var hasSeen: Bool
     
     init(movieName: String, hasSeen: Bool = false) {
-        
         self.movieName = movieName
         self.hasSeen = hasSeen
     }
+    
 }

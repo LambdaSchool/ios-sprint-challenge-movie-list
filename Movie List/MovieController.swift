@@ -12,10 +12,13 @@ class MovieController {
     
     var movies: [Movie] = []
     var movie: Movie?
-    
-    func toggleHasSeen(movie: Movie) {
-        
+
+    func toggleHasSeen(for movie: Movie) {
         movie.hasSeen = !movie.hasSeen
     }
     
+    func createMovie(with movieName: String) {
+        let movie = Movie(movieName: movieName)
+        movies.append(movie)
+    }
 }

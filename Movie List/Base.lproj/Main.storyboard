@@ -19,12 +19,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" largeTitles="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jQX-hg-xlC">
-                                <rect key="frame" x="0.0" y="20" width="375" height="96"/>
-                                <items>
-                                    <navigationItem title="Movies" id="gWt-dG-zK4"/>
-                                </items>
-                            </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="l83-46-jYN">
                                 <rect key="frame" x="0.0" y="116" width="375" height="502"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -36,39 +30,33 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="PhR-kM-yEm">
-                                                    <rect key="frame" x="15" y="11" width="345" height="32"/>
-                                                    <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="uV2-8c-hzm">
-                                                            <rect key="frame" x="0.0" y="0.0" width="265" height="32"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" constant="32" id="7ik-hV-pJ9"/>
-                                                                <constraint firstAttribute="width" constant="265" id="BZt-WP-qvX"/>
-                                                            </constraints>
-                                                            <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7t1-5c-4Bo">
-                                                            <rect key="frame" x="270" y="0.0" width="75" height="32"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" constant="32" id="vSc-kf-1gq"/>
-                                                            </constraints>
-                                                            <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
-                                                            <state key="normal" title="Not Seen">
-                                                                <color key="titleColor" red="0.4860512018" green="0.4898700714" blue="0.51057106259999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            </state>
-                                                            <connections>
-                                                                <action selector="toggleSeenButton:" destination="d0g-Ok-vDu" eventType="touchUpInside" id="TRb-6u-Lkl"/>
-                                                            </connections>
-                                                        </button>
-                                                    </subviews>
-                                                </stackView>
+                                                <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7t1-5c-4Bo">
+                                                    <rect key="frame" x="300" y="17" width="59" height="32"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
+                                                    <state key="normal" title="Not Seen">
+                                                        <color key="titleColor" red="0.4860512018" green="0.4898700714" blue="0.51057106259999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="seen:" destination="d0g-Ok-vDu" eventType="touchUpInside" id="uOc-fz-yEN"/>
+                                                    </connections>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="uV2-8c-hzm">
+                                                    <rect key="frame" x="14" y="17" width="278" height="32"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="278" id="ph1-qv-aJk"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="PhR-kM-yEm" firstAttribute="top" secondItem="OMO-mD-81A" secondAttribute="topMargin" id="0aW-fn-GJE"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="PhR-kM-yEm" secondAttribute="trailing" id="2dI-jU-Bva"/>
-                                                <constraint firstItem="PhR-kM-yEm" firstAttribute="leading" secondItem="OMO-mD-81A" secondAttribute="leadingMargin" id="cUw-Jz-LEc"/>
+                                                <constraint firstItem="uV2-8c-hzm" firstAttribute="bottom" secondItem="7t1-5c-4Bo" secondAttribute="bottom" id="U5I-TM-fkb"/>
+                                                <constraint firstItem="7t1-5c-4Bo" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="uV2-8c-hzm" secondAttribute="trailing" constant="8" symbolic="YES" id="XvP-nC-L1O"/>
+                                                <constraint firstItem="uV2-8c-hzm" firstAttribute="leading" secondItem="OMO-mD-81A" secondAttribute="leadingMargin" constant="-1" id="hQU-3B-WP7"/>
+                                                <constraint firstItem="uV2-8c-hzm" firstAttribute="top" secondItem="7t1-5c-4Bo" secondAttribute="top" id="ilU-v5-bOG"/>
+                                                <constraint firstAttribute="trailing" secondItem="7t1-5c-4Bo" secondAttribute="trailing" constant="16" id="s6J-yc-g73"/>
+                                                <constraint firstItem="uV2-8c-hzm" firstAttribute="bottom" secondItem="OMO-mD-81A" secondAttribute="bottomMargin" id="tWF-Tu-11d"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -85,24 +73,21 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="l83-46-jYN" firstAttribute="trailing" secondItem="nsA-LP-STP" secondAttribute="trailing" id="Gke-YD-EhB"/>
-                            <constraint firstItem="jQX-hg-xlC" firstAttribute="top" secondItem="nsA-LP-STP" secondAttribute="top" id="HUH-Lx-H49"/>
-                            <constraint firstItem="jQX-hg-xlC" firstAttribute="leading" secondItem="nsA-LP-STP" secondAttribute="leading" id="K0w-NJ-Rq1"/>
-                            <constraint firstItem="l83-46-jYN" firstAttribute="top" secondItem="jQX-hg-xlC" secondAttribute="bottom" id="O05-4j-336"/>
-                            <constraint firstItem="l83-46-jYN" firstAttribute="leading" secondItem="nsA-LP-STP" secondAttribute="leading" id="mwv-o2-P1q"/>
-                            <constraint firstItem="nsA-LP-STP" firstAttribute="bottom" secondItem="l83-46-jYN" secondAttribute="bottom" id="nfs-kr-Muq"/>
-                            <constraint firstItem="jQX-hg-xlC" firstAttribute="trailing" secondItem="nsA-LP-STP" secondAttribute="trailing" id="rWr-dh-XEP"/>
+                            <constraint firstItem="l83-46-jYN" firstAttribute="leading" secondItem="nsA-LP-STP" secondAttribute="leading" id="PqO-bD-FbB"/>
+                            <constraint firstItem="l83-46-jYN" firstAttribute="trailing" secondItem="nsA-LP-STP" secondAttribute="trailing" id="e0b-dG-mZQ"/>
+                            <constraint firstItem="l83-46-jYN" firstAttribute="top" secondItem="nsA-LP-STP" secondAttribute="top" id="eOp-cV-RJx"/>
+                            <constraint firstItem="l83-46-jYN" firstAttribute="bottom" secondItem="nsA-LP-STP" secondAttribute="bottom" id="mLw-DN-DFm"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="nsA-LP-STP"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Movies" selectedImage="Clapboard" id="uQc-4B-P0e"/>
+                    <navigationItem key="navigationItem" title="Movies" id="VU5-2g-s72"/>
                     <connections>
                         <outlet property="tableView" destination="l83-46-jYN" id="oFQ-56-Y80"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vxf-5b-ewS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="349.60000000000002" y="160.56971514242881"/>
+            <point key="canvasLocation" x="1288.8" y="160.56971514242881"/>
         </scene>
         <!--Add A New Movie To The List-->
         <scene sceneID="YHI-Ya-ryY">
@@ -151,10 +136,10 @@
             </objects>
             <point key="canvasLocation" x="1288.8" y="-503.29835082458777"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Movie Tab Bar View Controller-->
         <scene sceneID="cyZ-Pb-O86">
             <objects>
-                <tabBarController id="65G-Jb-NkC" sceneMemberID="viewController">
+                <tabBarController id="65G-Jb-NkC" customClass="MovieTabBarViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="mLj-2T-lHg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -162,7 +147,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="f4o-bp-9HK" kind="relationship" relationship="viewControllers" id="ylG-8h-MEf"/>
-                        <segue destination="sbu-xz-KGE" kind="relationship" relationship="viewControllers" id="RoD-cD-iUc"/>
+                        <segue destination="Zec-qK-pNb" kind="relationship" relationship="viewControllers" id="RoD-cD-iUc"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bH3-mK-Y3G" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -173,7 +158,7 @@
         <scene sceneID="85a-Sf-NIu">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="f4o-bp-9HK" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Add New Movies" selectedImage="Plus" id="AbM-Qe-zAh"/>
+                    <tabBarItem key="tabBarItem" title="Add New Movies" image="Plus" selectedImage="Plus" id="AbM-Qe-zAh"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="7Rv-XO-J8z">
                         <rect key="frame" x="0.0" y="20" width="375" height="96"/>
@@ -187,6 +172,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0VC-gQ-yiO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="349.60000000000002" y="-503.29835082458777"/>
+        </scene>
+        <!--Movies-->
+        <scene sceneID="hx7-qF-ZyO">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Zec-qK-pNb" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Movies" image="Clapboard" selectedImage="Clapboard" id="uQc-4B-P0e"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="BFO-Nd-Gba">
+                        <rect key="frame" x="0.0" y="20" width="375" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="sbu-xz-KGE" kind="relationship" relationship="rootViewController" id="uED-JN-JJO"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Haw-FJ-E4N" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="349.60000000000002" y="160.56971514242881"/>
         </scene>
     </scenes>
     <resources>
