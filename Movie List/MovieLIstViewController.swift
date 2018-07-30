@@ -45,4 +45,11 @@ class MovieLIstViewController: UIViewController, UITableViewDelegate, UITableVie
         return 60
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        
+        let movie = movieController?.movies[indexPath.row]
+        movieController?.deleteMovie(movie: movie!)
+        tableView.deleteRows(at: [indexPath], with: .fade)
+    }
+    
 }
