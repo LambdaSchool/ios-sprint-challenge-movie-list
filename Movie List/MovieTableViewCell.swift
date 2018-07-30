@@ -16,11 +16,11 @@ class MovieTableViewCell: UITableViewCell {
     
     weak var delegate: MovieTableViewCellDelegate?
     
-    var movie: Movie? {
-        didSet {
-            update()
-        }
-    }
+//    var movie: Movie? {
+//        didSet {
+//            update()
+//        }
+//    }
     
     
     @IBOutlet var nameLabel: UILabel!
@@ -28,19 +28,17 @@ class MovieTableViewCell: UITableViewCell {
     
     @IBAction func isSeenButtonTapped(_ sender: Any) {
         delegate?.seenButtonWasTapped(on: self)
-        
-        update()
     }
     
-    func update() {
-        guard let movie = movie else { return }
-        
-        nameLabel.text =  movie.name
-        
-        if movie.isSeen {
-            isSeenButton.setTitle("Seen", for: .normal)
-        } else if !movie.isSeen {
-            isSeenButton.setTitle("Not Seen", for: .normal)
-        }
-    }
+//    func update() {
+//        guard let movie = movie else { return }
+//        
+//        nameLabel.text =  movie.name
+//        
+//        if movie.isSeen {
+//            isSeenButton.setTitle("Seen", for: .normal)
+//        } else if !movie.isSeen {
+//            isSeenButton.setTitle("Not Seen", for: .normal)
+//        }
+//    }
 }

@@ -40,7 +40,17 @@ class MoviesTableViewController: UIViewController, UITableViewDataSource, MovieT
         guard let movieCell = cell as? MovieTableViewCell else { return cell }
         
         let movie = movieController?.movies[indexPath.row]
-        movieCell.movie = movie
+//        movieCell.movie = movie
+        
+        movieCell.nameLabel.text =  movie!.name
+        
+        if movie!.isSeen {
+            movieCell.isSeenButton.setTitle("Seen", for: .normal)
+        } else {
+            movieCell.isSeenButton.setTitle("Not Seen", for: .normal)
+            
+        }
+        
         movieCell.delegate = self
         
         return movieCell
