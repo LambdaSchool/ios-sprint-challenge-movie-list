@@ -1,11 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LDZ-AL-Urk">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <scenes/>
+    <scenes>
+        <!--Movies Tab Bar View Controller-->
+        <scene sceneID="yJE-ik-zeV">
+            <objects>
+                <tabBarController id="LDZ-AL-Urk" customClass="MoviesTabBarViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="V60-7G-Okq">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="uSM-9b-ZvN" kind="relationship" relationship="viewControllers" id="VbF-Qm-Tzr"/>
+                        <segue destination="OIk-Av-37e" kind="relationship" relationship="viewControllers" id="75F-qP-nCN"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3KT-w0-5VC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-394" y="6"/>
+        </scene>
+        <!--MovieList-->
+        <scene sceneID="2Q1-tj-ae5">
+            <objects>
+                <viewControllerPlaceholder storyboardName="MovieList" id="OIk-Av-37e" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Movie List" image="Clapboard" selectedImage="Clapboard" id="bgD-Tg-XQz"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4E6-gE-aGm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="159" y="190"/>
+        </scene>
+        <!--AddMovies-->
+        <scene sceneID="yNf-ya-RXV">
+            <objects>
+                <viewControllerPlaceholder storyboardName="AddMovies" id="uSM-9b-ZvN" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Add Movies" image="Plus" selectedImage="Plus" id="2DG-dZ-Dxs"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bxo-Ya-DnR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="166" y="-204"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Clapboard" width="28" height="28"/>
+        <image name="Plus" width="28" height="28"/>
+    </resources>
 </document>
