@@ -26,8 +26,6 @@ class AddMovieCell: UITableViewCell {
         }
     }
     
-    
-
     @IBAction func seen(_ sender: Any) {
 
         delegate?.seenButtonWasTapped(on: self)
@@ -39,11 +37,15 @@ class AddMovieCell: UITableViewCell {
         guard let movie  = movie else {return}
         movieNameLabel.text = movie.movieName
         var seenbuttonTitle: String
-
-        if !movie.hasSeen {
+        
+        
+        if movie.hasSeen {
             seenbuttonTitle = "Seen"
+            seenButton.setTitleColor(UIColor.blue, for: .normal)
+            
         } else {
             seenbuttonTitle = "UnSeen"
+            seenButton.setTitleColor(UIColor.gray, for: .normal)
         }
 
         seenButton.setTitle(seenbuttonTitle, for: .normal)

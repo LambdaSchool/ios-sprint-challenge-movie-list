@@ -11,8 +11,8 @@ import UIKit
 class AddMovieViewController: UIViewController, MovieControllerProtocol {
 
     @IBOutlet weak var addMovieTextfield: UITextField!
+    
     var movieController: MovieController?
-    var movie = Movie(movieName: "")
 
     @IBAction func addMovie(_ sender: Any) {
         
@@ -21,7 +21,6 @@ class AddMovieViewController: UIViewController, MovieControllerProtocol {
         movieController?.createMovie(with: name )
         print(name)
         addMovieTextfield.text = ""
-        movieController?.toggleHasSeen(for: movie)
         addMovieTextfield.resignFirstResponder()
     }
     

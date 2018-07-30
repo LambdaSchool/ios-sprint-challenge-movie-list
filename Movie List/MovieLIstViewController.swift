@@ -14,7 +14,9 @@ class MovieLIstViewController: UIViewController, UITableViewDelegate, UITableVie
     var movieController: MovieController?
     let movies: [Movie] = []
     
+    
     func seenButtonWasTapped(on cell: AddMovieCell) {
+        print("button tapped")
         guard let indexPath = tableView.indexPath(for: cell) else {return}
         let movie = movieController?.movies[indexPath.row]
         movieController?.toggleHasSeen(for: movie!)
@@ -33,10 +35,8 @@ class MovieLIstViewController: UIViewController, UITableViewDelegate, UITableVie
         
         let movie = movieController?.movies[indexPath.row]
         cell.movie = movie 
-        //cell.movieNameLabel?.text = movie?.movieName
-        //cell.movieNameLabel?.text = "HEY!"
+        cell.delegate = self
         print("This is cell \(indexPath.row)")
-        
         
         return cell
     }
