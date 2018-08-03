@@ -36,8 +36,7 @@ class MovieListViewController: UIViewController, UITableViewDataSource, MovieNam
     
     
     
-    @IBAction func seen(_ sender: Any) {
-    }
+    
     
     
 
