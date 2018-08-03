@@ -17,7 +17,11 @@ class MovieTableViewCell: UITableViewCell {
     }
     
     
-    var movieName: MovieName?
+    var movieName: MovieName? {
+        didSet{
+            updateView()
+        }
+    }
         
     
     @IBOutlet weak var movieLabel: UILabel!
