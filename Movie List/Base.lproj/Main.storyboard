@@ -14,7 +14,7 @@
         <!--Movies-->
         <scene sceneID="kyE-ma-1TC">
             <objects>
-                <viewController id="jNR-MT-K5q" sceneMemberID="viewController">
+                <viewController id="jNR-MT-K5q" customClass="MovieListViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZcD-9s-mw1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -63,7 +63,7 @@
         <!--Add New Movies-->
         <scene sceneID="8Iu-Qh-dZq">
             <objects>
-                <viewController id="YYc-s3-BeO" sceneMemberID="viewController">
+                <viewController id="YYc-s3-BeO" customClass="MovieViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ykg-3D-d3e">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -86,6 +86,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nt4-0o-Xw9">
                                 <rect key="frame" x="151" y="133" width="73" height="30"/>
                                 <state key="normal" title="Add Movie"/>
+                                <connections>
+                                    <action selector="addMovie:" destination="YYc-s3-BeO" eventType="touchUpInside" id="CrA-oq-OiN"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -102,6 +105,9 @@
                         <viewLayoutGuide key="safeArea" id="0EY-7e-v2U"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Add New Movies" image="Plus" id="j1F-DI-xoU"/>
+                    <connections>
+                        <outlet property="movieTextField" destination="abq-Sh-IPY" id="ZrO-ym-0oe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e7k-Ye-ZVZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -22,15 +22,17 @@ class MovieViewController: UIViewController, MovieNameControllerProtocol {
    
     //addmovie takes the text creates an instance of movie name
     @IBAction func addMovie(_ sender: Any) {
-        func movieView(name: String){
-            guard let movie = movieTextField.text else {return}
-            movieNameController?.CreateMovieName(name: movie)
-        }
+        guard let movie = movieTextField.text else {return}
+        
+        movieNameController?.CreateMovieName(name: movie)
+        
+        movieTextField.text = ""
         
     }
     
+    
     //the textField where movie choice is typed
+    
     @IBOutlet weak var movieTextField: UITextField!
     
-
 }
