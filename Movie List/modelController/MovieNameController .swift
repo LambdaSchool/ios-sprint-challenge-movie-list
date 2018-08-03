@@ -15,6 +15,15 @@ class MovieNameController {
         movieNames.append(movie)
     }
     
+    //function to detemine when seen button is touched
+    func toggleIsSeen(name: MovieName){
+        if name.isSeen == false{
+         name.isSeen = true
+        } else {
+            name.isSeen = false
+        }
+    }
+    
     var movieNames: [MovieName] = []
     
     func delete(movie: MovieName) {

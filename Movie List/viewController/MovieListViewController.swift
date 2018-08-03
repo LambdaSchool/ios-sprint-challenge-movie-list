@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MovieListViewController: UIViewController, UITableViewDataSource, MovieNameControllerProtocol {
+class MovieListViewController: UIViewController, UITableViewDataSource, MovieNameControllerProtocol, MovieListViewCellDelegate, UITableViewDelegate {
     
     
     var movieNameController: MovieNameController?
@@ -23,14 +23,24 @@ class MovieListViewController: UIViewController, UITableViewDataSource, MovieNam
         let movie = movieNameController?.movieNames[indexPath.row]
         
         newCell.movieName = movie
-        return newCell
+        newCell.delegate = self
+        return newCell 
         
+    }
+    
+    func seenButtonWasTapped(on cell: MovieTableViewCell) {
+        guard let indexPath = tableView.indexPath(for: cell) else { return }
+        guard let movie = cell.movieName else { return }
+        
+        movieNameController?.toggleIsSeen(name: movie)
+        tableView.reloadRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
     }
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        tableView.dataSource = self
+        tableView.delegate = self
         // Do any additional setup after loading the view.
         
     }

@@ -7,6 +7,18 @@
 //
 
 import Foundation
-struct MovieName: Equatable {
+class MovieName: Equatable {
     var name: String
+    var isSeen: Bool = false
+    
+    init(name: String){
+        self.name = name
+    }
+    
+    static func == (lhs: MovieName, rhs: MovieName) -> Bool {
+        return lhs.name == rhs.name &&
+            lhs.isSeen == rhs.isSeen
+    }
+    
+    
 }
