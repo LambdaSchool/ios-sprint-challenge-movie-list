@@ -34,6 +34,16 @@ class MovieListViewController: UIViewController, UITableViewDataSource, MovieNam
         // Do any additional setup after loading the view.
         
     }
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            //Delete the model object before we delete cell
+            let movie = movieNameController?.movieNames[indexPath.row]
+            MovieNameController.delete(movie: movie)
+            
+            //the use is swiping to delete a cell
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
+    }
     
     @IBOutlet weak var tableView: UITableView!
     
