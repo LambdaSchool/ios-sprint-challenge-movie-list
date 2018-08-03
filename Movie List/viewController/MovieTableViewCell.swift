@@ -15,7 +15,7 @@ class MovieTableViewCell: UITableViewCell {
         movieLabel.text = movie.text
     }
     
-    var movie: MovieName {
+    var movie: MovieName? {
         didSet{
             updateView()
         }

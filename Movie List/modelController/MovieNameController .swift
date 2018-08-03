@@ -10,10 +10,15 @@ import Foundation
 
 class MovieNameController {
     
-    func CreateMovieName(name: String){
-        let movieName = MovieName(name: name)
-        movieNames.append(movieName)
+    func createMove(name: String){
+        let movie = MovieName(name: name)
+        movieNames.append(movie)
     }
     
     var movieNames: [MovieName] = []
+    
+    func delete(movie: MovieName) {
+        guard let index = movieNames.index(of: movie) else {return}
+        movieNames.remove(at: index)
+    }
 }

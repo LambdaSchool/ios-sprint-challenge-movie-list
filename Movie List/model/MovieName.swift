@@ -7,10 +7,6 @@
 //
 
 import Foundation
-
-stuct MovieName: Equatable {
-    let name: String
-    var isSeen: Bool
-    
-    }
+struct MovieName: Equatable {
+    var name: String
 }
