@@ -19,11 +19,11 @@ class MovieListViewController: UIViewController, UITableViewDataSource, MovieNam
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath)
-        
+        guard let newCell = cell as? MovieTableViewCell else {return cell}
         let movie = movieNameController?.movieNames[indexPath.row]
-        let newMovie = movie?.name
-        cell.textLabel?.text = newMovie
-        return cell 
+        
+        newCell.movieName = movie
+        return newCell
         
     }
     
@@ -37,8 +37,8 @@ class MovieListViewController: UIViewController, UITableViewDataSource, MovieNam
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             //Delete the model object before we delete cell
-            let movie = movieNameController?.movieNames[indexPath.row]
-            MovieNameController.delete(movie: movie)
+            guard let movie = movieNameController?.movieNames[indexPath.row] else {return}
+            movieNameController?.delete(movie: movie)
             
             //the use is swiping to delete a cell
             tableView.deleteRows(at: [indexPath], with: .automatic)

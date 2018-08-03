@@ -24,7 +24,7 @@ class MovieViewController: UIViewController, MovieNameControllerProtocol {
     @IBAction func addMovie(_ sender: Any) {
         guard let movie = movieTextField.text else {return}
         
-        movieNameController?.CreateMovieName(name: movie)
+        movieNameController?.createMove(name: movie)
         
         movieTextField.text = ""
         
