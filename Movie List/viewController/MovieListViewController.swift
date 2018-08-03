@@ -21,7 +21,8 @@ class MovieListViewController: UIViewController, UITableViewDataSource, MovieNam
         let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath)
         
         let movie = movieNameController?.movieNames[indexPath.row]
-        cell.textLabel?.text = movie?.name
+        let newMovie = movie?.name
+        cell.textLabel?.text = newMovie
         return cell 
         
     }
@@ -34,6 +35,7 @@ class MovieListViewController: UIViewController, UITableViewDataSource, MovieNam
         
     }
     
+    @IBOutlet weak var tableView: UITableView!
     
     
     

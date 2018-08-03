@@ -23,15 +23,22 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="609"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MovieCell" rowHeight="74" id="QDi-XQ-LFr" customClass="MovieTableViewCell" customModule="Movie_List" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="74"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MovieCell" rowHeight="80" id="QDi-XQ-LFr" customClass="MovieTableViewCell" customModule="Movie_List" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QDi-XQ-LFr" id="UX1-gK-35b">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="73.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="79.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="odo-ji-YCf">
-                                                    <rect key="frame" x="315" y="21" width="46" height="30"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Egj-CA-Wzr">
+                                                    <rect key="frame" x="8" y="5" width="299" height="64"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="odo-ji-YCf">
+                                                    <rect key="frame" x="321" y="21" width="46" height="37.5"/>
                                                     <state key="normal" title="Button"/>
                                                 </button>
                                             </subviews>
@@ -43,6 +50,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="ButtonLabel" destination="odo-ji-YCf" id="0lq-pg-Rn5"/>
+                                            <outlet property="movieLabel" destination="Egj-CA-Wzr" id="9HB-Rp-Ntk"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -58,6 +66,9 @@
                         <viewLayoutGuide key="safeArea" id="ubR-IC-EjH"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Movies" image="Clapboard" id="CVQ-FM-x0w"/>
+                    <connections>
+                        <outlet property="tableView" destination="obG-t4-dQv" id="qZR-Lg-U2g"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HaB-xn-6QT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

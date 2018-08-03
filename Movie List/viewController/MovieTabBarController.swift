@@ -11,6 +11,12 @@ import UIKit
 class MovieTabBarController: UITabBarController {
 
    let movieNameController = MovieNameController()
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        passVoteControllerToChild()
+        // Do any additional setup after loading the view.
+    }
+
     
     func passVoteControllerToChild(){
         for childVc in childViewControllers {
@@ -18,5 +24,6 @@ class MovieTabBarController: UITabBarController {
                 childVc.movieNameController = movieNameController
             }
         }
+    
 
 }

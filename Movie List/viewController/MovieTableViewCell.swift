@@ -10,6 +10,16 @@ import UIKit
 
 class MovieTableViewCell: UITableViewCell {
     
- 
-    @IBOutlet weak var ButtonLabel: UIButton!
+    private func updateView() {
+        guard let movie = movie else {return}
+        movieLabel.text = movie.text
+    }
+    
+    var movie: MovieName {
+        didSet{
+            updateView()
+        }
+    }
+    
+    @IBOutlet weak var movieLabel: UILabel!
 }
