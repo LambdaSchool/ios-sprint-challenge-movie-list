@@ -11,15 +11,14 @@ import UIKit
 class MovieTableViewCell: UITableViewCell {
     
     private func updateView() {
-        guard let movie = movie else {return}
-        movieLabel.text = movie.text
+        guard let movie = movieName else {return}
+        
+        movieLabel.text = movie.name
     }
     
-    var movie: MovieName? {
-        didSet{
-            updateView()
-        }
-    }
+    
+    var movieName: MovieName?
+        
     
     @IBOutlet weak var movieLabel: UILabel!
 }
