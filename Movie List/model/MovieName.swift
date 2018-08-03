@@ -9,9 +9,6 @@
 import Foundation
 
 struct MovieName {
-    var name: String
-    
-    init(name:String) {
-        self.name = name
-    }
+    let name: String
+
 }
