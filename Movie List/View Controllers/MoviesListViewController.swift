@@ -61,7 +61,7 @@ class MoviesListViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        moviesToShow = searchText.isEmpty ? moviesSorted : moviesSorted.filter({(movie) -> Bool in
+        moviesToShow = searchText.isEmpty ? moviesSorted : moviesSorted.filter({ (movie) -> Bool in
             return movie.title.range(of: searchText, options: .caseInsensitive) != nil
         })
         tableView.reloadData()
