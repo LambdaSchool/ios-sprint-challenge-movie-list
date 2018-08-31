@@ -30,8 +30,9 @@ class MoviesListViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func seenButtonWasTapped(on cell: MovieTableViewCell) {
-        guard let indexPath = tableView.indexPath(for: cell),
-              let movie = movieController?.movies[indexPath.row] else { return }
+        guard let indexPath = tableView.indexPath(for: cell) else { return }
+            
+        let movie = moviesToShow[indexPath.row]
         
         movieController?.toggleHasSeen(movie)
         tableView.reloadRows(at: [indexPath], with: .automatic)
