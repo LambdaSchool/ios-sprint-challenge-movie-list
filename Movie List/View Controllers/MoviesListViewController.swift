@@ -65,7 +65,6 @@ class MoviesListViewController: UIViewController, UITableViewDelegate, UITableVi
         moviesToShow = searchText.isEmpty ? moviesSorted : moviesSorted.filter({ (movie) -> Bool in
             return movie.title.range(of: searchText, options: .caseInsensitive) != nil
         })
-        tableView.reloadData()
     }
     
     
@@ -84,6 +83,7 @@ class MoviesListViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        tableView.reloadData()
         if editingStyle == .delete {
             movieController?.deleteMovie(at: indexPath.row)
             sortTitlesAlphabetically()
