@@ -35,6 +35,8 @@ class MovieListViewController: UIViewController, UITableViewDataSource, UITableV
         
         //Sort movies and reload the table view's data before it appears
         movieContoller?.sortMoviesAlphabetically()
+        filteredMovies = movieContoller?.movies
+        searchController.searchBar.text = ""
         tableView.reloadData()
     }
     
