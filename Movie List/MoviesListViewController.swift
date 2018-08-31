@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MoviesListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, MovieControllerProtocol {
+class MoviesListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, MovieControllerProtocol, MovieTableViewCellDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,20 +16,43 @@ class MoviesListViewController: UIViewController, UITableViewDelegate, UITableVi
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        sortTitlesAlphabetically()
+        tableView.reloadData()
+    }
+    
+    func sortTitlesAlphabetically() {
+        guard let movies = movieController?.movies else { return }
+        moviesSorted = movies.sorted { $0.title < $1.title }
+    }
+    
+    func seenButtonWasTapped(on cell: MovieTableViewCell) {
+        guard let indexPath = tableView.indexPath(for: cell),
+              let movie = movieController?.movies[indexPath.row] else { return }
         
+        movieController?.toggleHasSeen(movie)
+        tableView.reloadRows(at: [indexPath], with: .automatic)
+        
+        let hapticFeedback = UIImpactFeedbackGenerator(style: .medium)
+        hapticFeedback.impactOccurred()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return movieController?.movies.count ?? 0
+        return moviesSorted.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as? MovieTableViewCell else { return UITableViewCell() }
+        
+        cell.delegate = self
+        cell.movie = moviesSorted[indexPath.row]
+        
+        return cell
     }
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
     var movieController: MovieController?
+    var moviesSorted: [Movie] = []
     
 }

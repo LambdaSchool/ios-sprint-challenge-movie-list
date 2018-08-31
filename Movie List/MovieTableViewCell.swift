@@ -14,12 +14,15 @@ protocol MovieTableViewCellDelegate: class {
 
 class MovieTableViewCell: UITableViewCell {
     
+    @IBAction func seenButtonTapped(_ sender: Any) {
+        delegate?.seenButtonWasTapped(on: self)
+    }
     
-
     func updateViews() {
         guard let movie = movie else { return }
         movieTitleLabel.text = movie.title
         let buttonText = movie.hasSeen ? "Not Seen" : "Seen"
+        seenButton.setTitle(buttonText, for: .normal)
     }
 
     var movie: Movie? { didSet { updateViews() }}
