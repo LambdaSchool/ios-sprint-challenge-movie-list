@@ -21,14 +21,8 @@ class MovieController {
     }
     
     func changeStatusOfTheMovie(movie: Movie){
-        
-        guard let index = movies.index(of: movie) else {return}
-        
-        if movie.isSeen {
-            movies[index].isSeen = false
-        } else {
-            movies[index].isSeen = true
-        }
+
+        movie.isSeen = !movie.isSeen
     }
     
     func deleteMovie(index: Int) {
