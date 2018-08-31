@@ -12,6 +12,13 @@ class MoviesListViewController: UIViewController, UITableViewDataSource,UITableV
     
     
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        tableView.dataSource = self
+    }
+    
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return movieController.movies.count
     }
@@ -35,18 +42,10 @@ class MoviesListViewController: UIViewController, UITableViewDataSource,UITableV
 
 
     
+    @IBOutlet weak var tableView: UITableView!
     
     
-    
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        // Get the new view controller using segue.destinationViewController.
-//        // Pass the selected object to the new view controller.
-//    }
-
-
+   
     
     let movieController = MovieController()
 
