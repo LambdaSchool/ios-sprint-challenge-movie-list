@@ -35,6 +35,18 @@ class MovieListViewController: UIViewController, UITableViewDataSource, UITableV
         return cell
     }
     
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if(editingStyle == .delete) {
+            guard let movie = movieController?.movies[indexPath.row] else { return }
+            movieController?.delete(movie: movie)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
+    }
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()

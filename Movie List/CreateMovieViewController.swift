@@ -24,7 +24,7 @@ class CreateMovieViewController: UIViewController, MovieControllerProtocol {
         guard let title = movieTextField.text else { return }
         movieController?.createNewMovie(title: title)
         print(movieController?.movies.count)
-        //movieTextField.text = ""
+        movieTextField.text = ""
     }
     
     @IBOutlet weak var addMovieButton: UIButton!
