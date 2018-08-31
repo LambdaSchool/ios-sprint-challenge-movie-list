@@ -8,20 +8,15 @@
 
 import UIKit
 
-class AddNewMoviesViewController: UIViewController {
+class AddNewMoviesViewController: UIViewController, MovieControllerProtocol {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
     
     @IBAction func addNewMovie(_ sender: Any) {
         guard let name = nameTextField.text else {return}
         
         movieController?.createAMovie(name: name)
         
-         view.endEditing(true)
+        view.endEditing(true)
     }
     
     @IBOutlet weak var nameTextField: UITextField!

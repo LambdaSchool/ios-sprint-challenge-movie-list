@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol MovieTableCellDelegate: class {
+    func updateCell(for cell: MoviesTableViewCell)
+}
+
 class MoviesTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
@@ -15,8 +19,22 @@ class MoviesTableViewCell: UITableViewCell {
         // Initialization code
     }
     
-    @IBAction func changeSeenStatus(_ sender: Any) {
+    func updateViews() {
+        guard let movie = movie else {return}
+        movieName.text = movie.name
     }
+    
+    @IBAction func changeSeenStatus(_ sender: Any) {
+        delegate?.updateCell(for: self)
+    }
+    
+   var movie: Movie? {
+        didSet {
+            updateViews()
+        }
+    }
+    
+    weak var delegate: MovieTableCellDelegate?
     
     @IBOutlet weak var movieName: UILabel!
     @IBOutlet weak var hasBeenSeen: UIButton!

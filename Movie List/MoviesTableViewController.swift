@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MoviesTableViewController: UITableViewController {
+class MoviesTableViewController: UITableViewController, MovieControllerProtocol, MovieTableCellDelegate {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -16,7 +16,8 @@ class MoviesTableViewController: UITableViewController {
         tableView.reloadData()
     }
     
-    
+    func updateCell(for cell: MoviesTableViewCell) {
+    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
@@ -24,12 +25,22 @@ class MoviesTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as? MoviesTableViewCell else {return UITableViewCell()}
         let movie = movieController?.movies[indexPath.row]
         
         cell.textLabel?.text = movie?.name
-
+        cell.delegate = self
+        
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            guard let movie = movieController?.movies[indexPath.row] else {return}
+            movieController?.deleteMovie(movie: movie)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+            
+        }
     }
     
     var movieController: MovieController?
