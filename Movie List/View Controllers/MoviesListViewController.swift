@@ -53,18 +53,21 @@ class MoviesListViewController: UIViewController, UITableViewDelegate, UITableVi
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         searchBar.setShowsCancelButton(false, animated: true)
-        viewWasTapped()
+        searchBar.endEditing(true)
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.endEditing(true)
-        viewWasTapped()
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         moviesToShow = searchText.isEmpty ? moviesSorted : moviesSorted.filter({ (movie) -> Bool in
             return movie.title.range(of: searchText, options: .caseInsensitive) != nil
         })
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.endEditing(true)
     }
     
     
