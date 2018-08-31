@@ -21,7 +21,7 @@ class MovieTableViewCell: UITableViewCell {
     func updateViews() {
         guard let movie = movie else { return }
         movieTitleLabel.text = movie.title
-        let buttonText = movie.hasSeen ? "Not Seen" : "Seen"
+        let buttonText = movie.hasSeen ? "NOT SEEN" : "SEEN"
         seenButton.setTitle(buttonText, for: .normal)
     }
 
