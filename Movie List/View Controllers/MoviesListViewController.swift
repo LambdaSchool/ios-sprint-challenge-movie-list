@@ -13,17 +13,20 @@ class MoviesListViewController: UIViewController, UITableViewDelegate, UITableVi
     // Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        searchBar.delegate = self
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(viewWasTapped(sender:)))
+        view.addGestureRecognizer(tapGestureRecognizer)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         sortTitlesAlphabetically()
-        tableView.reloadData()
     }
     
     func sortTitlesAlphabetically() {
         guard let movies = movieController?.movies else { return }
         moviesSorted = movies.sorted { $0.title < $1.title }
+        moviesToShow = moviesSorted
     }
     
     func seenButtonWasTapped(on cell: MovieTableViewCell) {
@@ -37,17 +40,44 @@ class MoviesListViewController: UIViewController, UITableViewDelegate, UITableVi
         hapticFeedback.impactOccurred()
     }
     
+    @objc func viewWasTapped(sender: UITapGestureRecognizer? = nil) {
+        searchBar.endEditing(true)
+    }
+    
+    
+    // UISearchBarDelegate methods
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchBar.setShowsCancelButton(true, animated: true)
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        searchBar.setShowsCancelButton(false, animated: true)
+        viewWasTapped()
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.endEditing(true)
+        viewWasTapped()
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        moviesToShow = searchText.isEmpty ? moviesSorted : moviesSorted.filter({(movie) -> Bool in
+            return movie.title.range(of: searchText, options: .caseInsensitive) != nil
+        })
+        tableView.reloadData()
+    }
+    
     
     // UITableViewDataSource methods
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return moviesSorted.count
+        return moviesToShow.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as? MovieTableViewCell else { return UITableViewCell() }
         
         cell.delegate = self
-        cell.movie = moviesSorted[indexPath.row]
+        cell.movie = moviesToShow[indexPath.row]
         
         return cell
     }
@@ -67,5 +97,6 @@ class MoviesListViewController: UIViewController, UITableViewDelegate, UITableVi
     
     var movieController: MovieController?
     var moviesSorted: [Movie] = []
+    var moviesToShow: [Movie] = [] { didSet { tableView.reloadData() }}
     
 }
