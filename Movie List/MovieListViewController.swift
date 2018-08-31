@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MovieListViewController: UIViewController, UITableViewDataSource {
+class MovieListViewController: UIViewController, UITableViewDataSource, MovieControllerProtocol {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,6 +17,7 @@ class MovieListViewController: UIViewController, UITableViewDataSource {
     }
 
     @IBOutlet weak var tableView: UITableView!
+    var movieContoller: MovieController?
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
