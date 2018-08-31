@@ -7,3 +7,35 @@
 //
 
 import Foundation
+
+
+class MovieController {
+    
+  //  init(){}
+    
+    
+    func creatMovie( title: String, hasBeenSeen: Bool = false ){
+        
+        let movie = Movie(title: title,hasBeenSeen: hasBeenSeen)
+        
+        movies.append(movie)
+    }
+    
+    
+    
+    
+    //C-R-U-D
+    
+    
+    
+    func deleteMovie(movie: Movie){
+        
+        guard let movieIndex = movies.index(of: movie) else {return}
+        
+        movies.remove(at: movieIndex)
+        
+    
+    }
+    var movies: [Movie] = []
+    
+}

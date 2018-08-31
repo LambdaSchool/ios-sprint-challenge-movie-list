@@ -8,9 +8,9 @@
 
 import Foundation
 
-struct movie: Equatable{
+struct Movie: Equatable{
     
-    let name: String
+    let title: String
     var hasBeenSeen: Bool
     
     

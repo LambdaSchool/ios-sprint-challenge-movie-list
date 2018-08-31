@@ -16,11 +16,16 @@ class AddNewMovieViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
+    
+    @IBAction func addMovie(_ sender: Any){
+        guard let movieTitle = moviesToAddTextField.text
+            else {return}
+        
+        movieController.creatMovie(title: movieTitle)
+        view.endEditing(true)
+    }
+
 
     /*
     // MARK: - Navigation
@@ -32,4 +37,6 @@ class AddNewMovieViewController: UIViewController {
     }
     */
 
+    @IBOutlet weak var moviesToAddTextField: UITextField!
+    let movieController = MovieController()
 }
