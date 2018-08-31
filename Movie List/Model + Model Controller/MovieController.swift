@@ -19,8 +19,12 @@ class MovieController {
         movie.hasSeen = !movie.hasSeen
     }
 
-    func deleteMovie(at index: Int) {
-        movies.remove(at: index)
+    func deleteMovie(_ movie: Movie) {
+        for i in 0...movies.count {
+            if movies[i].title == movie.title {
+                movies.remove(at: i)
+            }
+        }
     }
  
     var movies: [Movie] = []
