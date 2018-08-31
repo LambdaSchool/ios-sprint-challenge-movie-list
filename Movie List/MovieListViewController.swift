@@ -8,12 +8,13 @@
 
 import UIKit
 
-class MovieListViewController: UIViewController, UITableViewDataSource, MovieControllerProtocol, MovieTableViewCellDelegate {
+class MovieListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, MovieControllerProtocol, MovieTableViewCellDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         tableView.dataSource = self
+        tableView.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -41,6 +42,19 @@ class MovieListViewController: UIViewController, UITableViewDataSource, MovieCon
         cell.delegate = self
         
         return cell
+    }
+    
+    //MARK: - Table view delegate
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let delete = UITableViewRowAction(style: .normal, title: "Delete") { action, index in
+            guard let movie = self.movieContoller?.movies[indexPath.row] else { return }
+            self.movieContoller?.deleteMovie(movie)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
+        delete.backgroundColor = .red
+        
+        return [delete]
     }
     
     // MARK: - Movie table view cell delegate

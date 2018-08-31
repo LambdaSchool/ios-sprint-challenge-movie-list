@@ -10,7 +10,7 @@ import Foundation
 
 class MovieController {
 
-    private(set) var movies: [Movie] = []
+    private(set) var movies: [Movie] = [Movie(title: "The Dark Knight"), Movie(title: "The Last Jedi"), Movie(title: "Avengers")]
     
     //Create new movie from title and add to array
     func createMovie(title: String) {
