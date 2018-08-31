@@ -45,6 +45,7 @@ class MovieListViewController: UIViewController, UITableViewDataSource, UITableV
     var movieContoller: MovieController?
     var filteredMovies: [Movie]!
     var searchController: UISearchController!
+    let red = UIColor(red: 219/255, green: 20/255, blue: 16/255, alpha: 1)
     
     
     // MARK: - Table view data source
@@ -76,7 +77,7 @@ class MovieListViewController: UIViewController, UITableViewDataSource, UITableV
             //Delete the row from the table view
             tableView.deleteRows(at: [indexPath], with: .automatic)
         }
-        delete.backgroundColor = .red
+        delete.backgroundColor = red
         
         return [delete]
     }
