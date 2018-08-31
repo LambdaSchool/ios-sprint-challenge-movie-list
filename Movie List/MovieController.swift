@@ -12,18 +12,21 @@ class MovieController {
 
     private(set) var movies: [Movie] = []
     
+    //Create new movie from title and add to array
     func createMovie(title: String) {
         let movie = Movie(title: title)
         
         movies.append(movie)
     }
     
+    //Toggle is seen property on movie
     func toggleIsSeen(on movie: Movie) {
         guard let index = movies.index(of: movie) else { return }
         
         movies[index].isSeen = !movies[index].isSeen
     }
     
+    //Delete movie from array
     func deleteMovie(_ movie: Movie) {
         guard let index = movies.index(of: movie) else { return }
         
