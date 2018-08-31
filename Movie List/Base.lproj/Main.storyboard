@@ -36,11 +36,11 @@
                                 <color key="tintColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ueO-1I-kSm">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" estimatedRowHeight="80" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ueO-1I-kSm">
                                 <rect key="frame" x="0.0" y="191" width="375" height="427"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="80" id="kaH-bd-ZTw">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieCell" rowHeight="80" id="kaH-bd-ZTw" customClass="MovieTableViewCell" customModule="Movie_List" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kaH-bd-ZTw" id="GU3-Ar-J7f">
@@ -62,11 +62,21 @@
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Kc-AR-taV">
+                                                    <rect key="frame" x="280" y="19" width="80" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="80" id="4Bn-wD-zdJ"/>
+                                                        <constraint firstAttribute="height" constant="40" id="dYV-ov-pyn"/>
+                                                    </constraints>
+                                                    <state key="normal" title="Not Seen"/>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="yI6-1Q-gdL" firstAttribute="bottom" secondItem="GU3-Ar-J7f" secondAttribute="bottomMargin" constant="-10" id="06L-8l-Lbb"/>
                                                 <constraint firstItem="yI6-1Q-gdL" firstAttribute="top" secondItem="GU3-Ar-J7f" secondAttribute="topMargin" constant="10" id="Avh-f9-lFC"/>
+                                                <constraint firstItem="8Kc-AR-taV" firstAttribute="trailing" secondItem="GU3-Ar-J7f" secondAttribute="trailingMargin" id="Tax-nz-Me5"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="yI6-1Q-gdL" secondAttribute="trailing" constant="88" id="Y7c-7q-5ht"/>
+                                                <constraint firstItem="8Kc-AR-taV" firstAttribute="centerY" secondItem="GU3-Ar-J7f" secondAttribute="centerY" id="dDQ-hO-grY"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="H4V-Ac-LMn" secondAttribute="bottom" constant="8" id="fFj-rV-xXZ"/>
                                                 <constraint firstItem="yI6-1Q-gdL" firstAttribute="leading" secondItem="H4V-Ac-LMn" secondAttribute="trailing" constant="6" id="tj6-FO-Tkg"/>
                                                 <constraint firstItem="H4V-Ac-LMn" firstAttribute="top" secondItem="GU3-Ar-J7f" secondAttribute="topMargin" constant="8" id="wpv-vv-p8d"/>
