@@ -20,14 +20,15 @@ class AddMovieViewController: UIViewController, MovieControllerProtocol {
         
     }
     
-    @IBAction func AddMovie(_ sender: Any) {
+    @IBAction func addMovie(_ sender: Any) {
         guard let name = movieTextField.text else { return }
         
         movieContoller?.Create(with: name, watched: false)
         
+        movieTextField.text = ""
+        
         view.endEditing(true)
     }
-    
     
     
     /*
