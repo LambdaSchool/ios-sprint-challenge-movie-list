@@ -88,8 +88,7 @@ class MoviesListViewController: UIViewController, UITableViewDelegate, UITableVi
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         tableView.reloadData()
         if editingStyle == .delete {
-            let movie = moviesToShow[indexPath.row]
-            movieController?.deleteMovie(movie)
+            movieController?.deleteMovie(at: indexPath.row)
             sortTitlesAlphabetically()
         }
     }
