@@ -10,11 +10,18 @@ import Foundation
 
 class MovieController {
     
-    func createAMovie (name: String, hasBeenSeen: Bool) {
-        let movie = Movie(name: name, hasBeenSeen: hasBeenSeen)
+    //create
+    func createAMovie (name: String) {
+        let movie = Movie(name: name)
         movies.append(movie)
     }
     
-    var movies: [Movie] = []
+    //read
+    private(set) var movies: [Movie] = []
+    
+    //update
+    
+    
+    //delete
     
 }

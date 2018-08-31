@@ -11,4 +11,9 @@ import Foundation
 struct Movie {
     let name: String
     var hasBeenSeen: Bool
+    
+    init (name: String) {
+        self.name = name
+        self.hasBeenSeen = false
+    }
 }
