@@ -17,10 +17,10 @@ class MoviesTableViewController: UITableViewController, MovieControllerProtocol,
     }
     
     func updateCell(for cell: MoviesTableViewCell) {
+        guard let 
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return movieController?.movies.count ?? 0
     }
 
