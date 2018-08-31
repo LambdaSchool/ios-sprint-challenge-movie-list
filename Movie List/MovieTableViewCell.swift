@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol MovieTableViewCellDelegate: class {
+    func toggleIsSeen(on cell: MovieTableViewCell)
+}
+
 class MovieTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
@@ -18,8 +22,26 @@ class MovieTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var isSeenButton: UIButton!
     
-    @IBAction func isSeenTapped(_ sender: UIButton) {
+    weak var delegate: MovieTableViewCellDelegate?
+    
+    var movie: Movie? {
+        didSet {
+            updateViews()
+        }
+    }
+    
+    func updateViews() {
+        guard let movie = movie else { return }
         
+        //Put the data from the movie into the cell
+        titleLabel.text = movie.title
+        isSeenButton.setTitle(movie.isSeen ? "Seen" : "Not Seen", for: .normal)
+        isSeenButton.setTitleColor(movie.isSeen ? .green : .red , for: .normal)
+        
+    }
+    
+    @IBAction func isSeenTapped(_ sender: UIButton) {
+        delegate?.toggleIsSeen(on: self)
     }
     
 }
