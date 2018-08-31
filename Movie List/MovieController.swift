@@ -33,4 +33,11 @@ class MovieController {
         movies.remove(at: index)
     }
     
+    //Sort movies alphabetically
+    func sortMoviesAlphabetically() {
+        movies.sort { (movie1, movie2) -> Bool in
+            return movie1.title < movie2.title
+        }
+    }
+    
 }

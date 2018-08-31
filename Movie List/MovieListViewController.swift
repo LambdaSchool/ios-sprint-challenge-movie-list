@@ -22,7 +22,8 @@ class MovieListViewController: UIViewController, UITableViewDataSource, UITableV
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        //Reload the table view's data before it appears
+        //Sort movies and reload the table view's data before it appears
+        movieContoller?.sortMoviesAlphabetically()
         tableView.reloadData()
     }
     

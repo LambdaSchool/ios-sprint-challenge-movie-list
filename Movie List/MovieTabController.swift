@@ -14,6 +14,8 @@ class MovieTabController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        //Sort sample movies
+        movieController.sortMoviesAlphabetically()
         //Pass the movie controller to the child views
         passMovieControllerToChildViewControllers()
     }
