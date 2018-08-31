@@ -8,8 +8,13 @@
 
 import UIKit
 
-class AddMovieViewController: UIViewController {
-
+class AddMovieViewController: UIViewController, MoviePresenter {
+    
+    var movieController: MovieController?
+    @IBOutlet weak var titleField: UITextField!
+    let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -20,6 +25,21 @@ class AddMovieViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    @IBAction func submitMovie(_ sender: Any) {
+        
+        guard let movieTitle = titleField.text else {return}
+        movieController?.createMovie(name: movieTitle, seenState: false)
+//        print(movieTitle)
+//        print(movieController?.movies)
+        view.endEditing(true)
+        
+        // Changes the tab controller to the table view (aka next tab)
+        tabBarController?.selectedIndex = 1
+        
+    }
+    
+  
     
 
     /*

@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Dax-34-3j8">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -40,6 +39,9 @@
                                     <constraint firstAttribute="height" constant="30" id="ANs-an-BVn"/>
                                 </constraints>
                                 <state key="normal" title="Submit"/>
+                                <connections>
+                                    <action selector="submitMovie:" destination="2j5-Nl-OM3" eventType="touchUpInside" id="wZU-6X-PMz"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -57,6 +59,9 @@
                         <viewLayoutGuide key="safeArea" id="B2J-Ss-oKr"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Add New Movie" image="Plus" id="yqc-n7-Xqm"/>
+                    <connections>
+                        <outlet property="titleField" destination="jp9-Bq-fBr" id="e6g-ws-c0n"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GcQ-wK-Wvw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -83,13 +88,13 @@
         <!--Movies-->
         <scene sceneID="AHj-7R-vWK">
             <objects>
-                <tableViewController id="Uyf-j5-39K" customClass="MovieTableViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="MovieTableStoryBoard" id="Uyf-j5-39K" customClass="MovieTableViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="2iE-JZ-rWP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="zC8-dE-lF1">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieCell" id="zC8-dE-lF1" customClass="MovieTableViewCell" customModule="Movie_List" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zC8-dE-lF1" id="FKZ-3I-vdC">
@@ -108,9 +113,16 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                             <state key="normal" title="🐵"/>
+                                            <connections>
+                                                <action selector="seenSwitch:" destination="zC8-dE-lF1" eventType="touchUpInside" id="ps7-qS-Neh"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="movieTitle" destination="2Na-Ww-D2S" id="bc5-B6-S6Y"/>
+                                    <outlet property="seenButton" destination="N3Y-UM-hLg" id="OBE-Ha-oex"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

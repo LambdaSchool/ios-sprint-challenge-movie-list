@@ -8,16 +8,17 @@
 
 import UIKit
 
-class MovieTableViewController: UITableViewController {
-
+class MovieTableViewController: UITableViewController, MoviePresenter, MovieTableViewCellDelegate {
+    
+    var movieController: MovieController?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -27,25 +28,36 @@ class MovieTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        guard let rows = movieController?.movies.count else {return 0}
+        return rows
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as? MovieTableViewCell else {return UITableViewCell()}
+        
         // Configure the cell...
 
+        let movie = movieController?.movies[indexPath.row]
+        cell.movie = movie
+        cell.delegate = self
+        
         return cell
     }
-    */
+    
+    func seenSwitch(on cell: MovieTableViewCell) {
+        
+        guard let indexPath = tableView.indexPath(for: cell) else {return}
+        
+        guard let movie = movieController?.movies[indexPath.row] else {return}
+        
+        movieController?.toggleIsSeen(for: movie)
+        
+        tableView.reloadRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
+        
+    }
 
     /*
     // Override to support conditional editing of the table view.

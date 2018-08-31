@@ -17,10 +17,13 @@ class MovieController{
     func createMovie(name: String, seenState: Bool) {
         
         let movie = Movie(title: name, isSeen: seenState)
-
+        
         movies.append(movie)
-        
-        
     }
+    
+    func toggleIsSeen (for movie: Movie) {
+        movie.isSeen = !(movie.isSeen)
+    }
+
     
 }
