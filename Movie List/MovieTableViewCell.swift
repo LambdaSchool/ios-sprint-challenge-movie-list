@@ -29,9 +29,9 @@ class MovieTableViewCell: UITableViewCell {
         movieTitle.text = movie.title
         
         if movie.isSeen {
-            seenButton.setTitle("🐵 Seen", for: UIControlState.normal)
+            seenButton.setTitle("🙈", for: UIControlState.normal)
         } else {
-            seenButton.setTitle("🙈 Not Seen", for: UIControlState.normal)
+            seenButton.setTitle("🐵", for: UIControlState.normal)
         }
         
         

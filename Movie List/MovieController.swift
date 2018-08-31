@@ -24,6 +24,12 @@ class MovieController{
     func toggleIsSeen (for movie: Movie) {
         movie.isSeen = !(movie.isSeen)
     }
+    
+    func deleteMovie (movie: Movie){
+        guard let index = movies.index(of: movie) else {return}
+        movies.remove(at: index)
+        
+    }
 
     
 }
