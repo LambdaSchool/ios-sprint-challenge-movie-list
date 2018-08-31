@@ -10,15 +10,11 @@ import UIKit
 
 class AddMovieViewController: UIViewController, MovieControllerProtocol {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
+    // MARK: - Properties
     @IBOutlet weak var titleTextField: UITextField!
     var movieContoller: MovieController?
     
+    // MARK: - UI Methods
     @IBAction func addMovie(_ sender: UIButton) {
         //Make sure there is a title in the field
         guard let title = titleTextField.text, title != "" else { return }
@@ -32,10 +28,9 @@ class AddMovieViewController: UIViewController, MovieControllerProtocol {
         //Refresh UI
         updateViews()
     }
-    
+
+    // MARK: - Utility Methods
     func updateViews() {
         titleTextField.text = ""
     }
-    
-    
 }

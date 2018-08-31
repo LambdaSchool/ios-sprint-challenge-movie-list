@@ -8,6 +8,7 @@
 
 import Foundation
 
+//Protocol to ensure that a view controller has a movie controller variable
 protocol MovieControllerProtocol: class {
     var movieContoller: MovieController? { get set }
 }

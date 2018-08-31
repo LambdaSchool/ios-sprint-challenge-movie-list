@@ -14,11 +14,7 @@ protocol MovieTableViewCellDelegate: class {
 
 class MovieTableViewCell: UITableViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
+    // MARK: - Properties
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var isSeenButton: UIButton!
     
@@ -30,6 +26,12 @@ class MovieTableViewCell: UITableViewCell {
         }
     }
     
+    // MARK: - UI Methods
+    @IBAction func isSeenTapped(_ sender: UIButton) {
+        delegate?.toggleIsSeen(on: self)
+    }
+    
+    // MARK: - Utility Methods
     func updateViews() {
         guard let movie = movie else { return }
         
@@ -38,10 +40,6 @@ class MovieTableViewCell: UITableViewCell {
         isSeenButton.setTitle(movie.isSeen ? "Seen" : "Not Seen", for: .normal)
         isSeenButton.setTitleColor(movie.isSeen ? .green : .red , for: .normal)
         
-    }
-    
-    @IBAction func isSeenTapped(_ sender: UIButton) {
-        delegate?.toggleIsSeen(on: self)
     }
     
 }
