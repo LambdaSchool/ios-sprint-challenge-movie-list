@@ -20,8 +20,11 @@ class MovieListTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    @IBAction func movieListSeenUnseenAction(_ sender: Any) {
+    
+    @IBAction func seenUnseenAction(_ sender: Any) {
+        
     }
     
     @IBOutlet weak var movieListLabel: UILabel!
+    @IBOutlet weak var seenUnseenButton: UIButton!
 }

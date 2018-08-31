@@ -1,5 +1,5 @@
 //
-//  Movie.swift
+//  MovieControllerProtocol.swift
 //  Movie List
 //
 //  Created by Ilgar Ilyasov on 8/31/18.
@@ -8,8 +8,7 @@
 
 import Foundation
 
-struct Movie: Equatable {
+protocol MovieControllerProtocol: class {
     
-    var movieName: String
-    var isSeen : Bool
+    var movieController: MovieController? { get set }
 }
