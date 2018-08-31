@@ -16,10 +16,10 @@ class AddNewMoviesViewController: UIViewController, MovieControllerProtocol {
         
         movieController?.createNewMovie(title: title)
         
-        view.endEditing(true)
-        
         let hapticFeedback = UIImpactFeedbackGenerator(style: .medium)
         hapticFeedback.impactOccurred()
+        
+        view.endEditing(true)
     }
     
     
