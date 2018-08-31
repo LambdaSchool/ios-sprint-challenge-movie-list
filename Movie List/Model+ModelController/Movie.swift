@@ -13,7 +13,7 @@ class Movie {
     let title: String
     var hasSeen: Bool
 
-    init(title: String, hasSeen: Bool = false) {
+    init(title: String, hasSeen: Bool = true) {
         self.title = title
         self.hasSeen = hasSeen
     }

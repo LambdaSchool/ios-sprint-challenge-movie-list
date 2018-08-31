@@ -17,12 +17,15 @@ class MovieTableViewCell: UITableViewCell {
     
 
     func updateViews() {
-        
+        guard let movie = movie else { return }
+        movieTitleLabel.text = movie.title
+        let buttonText = movie.hasSeen ? "Not Seen" : "Seen"
     }
 
     var movie: Movie? { didSet { updateViews() }}
     weak var delegate: MovieTableViewCellDelegate?
     
-    
+    @IBOutlet weak var movieTitleLabel: UILabel!
+    @IBOutlet weak var seenButton: UIButton!
     
 }

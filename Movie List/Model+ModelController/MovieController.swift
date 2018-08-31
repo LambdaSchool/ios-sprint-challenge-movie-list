@@ -10,7 +10,7 @@ import Foundation
 
 class MovieController {
     
-    func createNewMovie(title: String, hasSeen: Bool = false) {
+    func createNewMovie(title: String, hasSeen: Bool = true) {
         let movie = Movie(title: title, hasSeen: hasSeen)
         movies.append(movie)
     }
