@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -46,21 +47,31 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="79.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="🍿" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H4V-Ac-LMn">
-                                                    <rect key="frame" x="15" y="19" width="38" height="41"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🍿" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H4V-Ac-LMn">
+                                                    <rect key="frame" x="15" y="19" width="40" height="42"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="40" id="WLX-a7-ieV"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="34"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yI6-1Q-gdL">
-                                                    <rect key="frame" x="61" y="11" width="212" height="58"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Harry Potter and the Half-Blood Prince" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="yI6-1Q-gdL">
+                                                    <rect key="frame" x="61" y="21" width="211" height="38"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="yI6-1Q-gdL" firstAttribute="bottom" secondItem="GU3-Ar-J7f" secondAttribute="bottomMargin" constant="-10" id="06L-8l-Lbb"/>
+                                                <constraint firstItem="yI6-1Q-gdL" firstAttribute="top" secondItem="GU3-Ar-J7f" secondAttribute="topMargin" constant="10" id="Avh-f9-lFC"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="yI6-1Q-gdL" secondAttribute="trailing" constant="88" id="Y7c-7q-5ht"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="H4V-Ac-LMn" secondAttribute="bottom" constant="8" id="fFj-rV-xXZ"/>
+                                                <constraint firstItem="yI6-1Q-gdL" firstAttribute="leading" secondItem="H4V-Ac-LMn" secondAttribute="trailing" constant="6" id="tj6-FO-Tkg"/>
+                                                <constraint firstItem="H4V-Ac-LMn" firstAttribute="top" secondItem="GU3-Ar-J7f" secondAttribute="topMargin" constant="8" id="wpv-vv-p8d"/>
+                                                <constraint firstItem="H4V-Ac-LMn" firstAttribute="leading" secondItem="GU3-Ar-J7f" secondAttribute="leadingMargin" id="zwc-TW-wCq"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
