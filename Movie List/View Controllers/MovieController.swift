@@ -10,7 +10,7 @@ import Foundation
 
 class MovieController {
     
-    func createMovie(with name:String, response: String){
+    func createMovie(with name:String){
         
         let movie = Movie(name: name)
         
