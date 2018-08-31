@@ -14,7 +14,7 @@
         <!--Add New Movies-->
         <scene sceneID="0V5-8N-t7L">
             <objects>
-                <viewController id="nkv-KK-W8Q" sceneMemberID="viewController">
+                <viewController id="nkv-KK-W8Q" customClass="AddNewMoviesViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CUZ-fU-ef4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -76,16 +76,16 @@
         <!--Movies-->
         <scene sceneID="YIC-5h-7y4">
             <objects>
-                <tableViewController id="JB5-PX-JMc" sceneMemberID="viewController">
+                <tableViewController id="JB5-PX-JMc" customClass="MoviesTableViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Hgk-sr-1GT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="edl-XI-Zin">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="edl-XI-Zin" customClass="MoviesTableViewCell" customModule="Movie_List" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="edl-XI-Zin" id="F8j-Ax-SlK">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="edl-XI-Zin" id="F8j-Ax-SlK" customClass="MoviesTableViewCell" customModule="Movie_List" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
@@ -100,9 +100,16 @@
                                             <rect key="frame" x="301" y="6" width="64" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal" title="Not Seen"/>
+                                            <connections>
+                                                <action selector="changeSeenStatus:" destination="edl-XI-Zin" eventType="touchUpInside" id="jlt-jb-v3P"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="hasBeenSeen" destination="7sp-8c-Wut" id="JlO-5N-GNQ"/>
+                                    <outlet property="movieName" destination="fQo-gD-AWU" id="Rl0-OZ-o4I"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
