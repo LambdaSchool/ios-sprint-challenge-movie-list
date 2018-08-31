@@ -87,7 +87,6 @@ class MoviesListViewController: UIViewController, UITableViewDelegate, UITableVi
         if editingStyle == .delete {
             movieController?.deleteMovie(at: indexPath.row)
             sortTitlesAlphabetically()
-            tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
     
