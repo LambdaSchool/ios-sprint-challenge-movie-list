@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MovieListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, MovieControllerProtocol, MovieTableViewCellDelegate {
+class MovieListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchResultsUpdating, MovieControllerProtocol, MovieTableViewCellDelegate {
 
     // MARK: - Lifecycle Methods
     override func viewDidLoad() {
@@ -17,6 +17,17 @@ class MovieListViewController: UIViewController, UITableViewDataSource, UITableV
         //Set table view's data source and delegate
         tableView.dataSource = self
         tableView.delegate = self
+        filteredMovies = movieContoller?.movies
+        
+        //Set up search controller
+        searchController = UISearchController(searchResultsController: nil)
+        searchController.searchResultsUpdater = self
+        searchController.dimsBackgroundDuringPresentation = false
+        
+        searchController.searchBar.sizeToFit()
+        tableView.tableHeaderView = searchController.searchBar
+        
+        definesPresentationContext = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -30,17 +41,19 @@ class MovieListViewController: UIViewController, UITableViewDataSource, UITableV
     // MARK - Properties
     @IBOutlet weak var tableView: UITableView!
     var movieContoller: MovieController?
+    var filteredMovies: [Movie]!
+    var searchController: UISearchController!
     
     
     // MARK: - Table view data source
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return movieContoller?.movies.count ?? 0
+        return filteredMovies.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //Get a cell and the movie associated with the index path.
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as? MovieTableViewCell,
-            let movie = movieContoller?.movies[indexPath.row] else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as? MovieTableViewCell else { return UITableViewCell() }
+        let movie = filteredMovies[indexPath.row]
         
         //Pass the movie to the cell so it can set itself up, and set its delegate.
         cell.movie = movie
@@ -54,15 +67,26 @@ class MovieListViewController: UIViewController, UITableViewDataSource, UITableV
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let delete = UITableViewRowAction(style: .normal, title: "Delete") { action, index in
             //Make sure there is a movie at the index path
-            guard let movie = self.movieContoller?.movies[indexPath.row] else { return }
+            guard let movie = self.movieContoller?.movies[indexPath.row], let index = self.filteredMovies.index(of: movie) else { return }
             //Delete the movie from the movies array
             self.movieContoller?.deleteMovie(movie)
+            self.filteredMovies.remove(at: index)
             //Delete the row from the table view
             tableView.deleteRows(at: [indexPath], with: .automatic)
         }
         delete.backgroundColor = .red
         
         return [delete]
+    }
+    
+    // MARK: - Search results updating
+    func updateSearchResults(for searchController: UISearchController) {
+        if let searchText = searchController.searchBar.text {
+            //If there is text in the search bar, filter the presented movies by that text
+            filteredMovies = searchText.isEmpty ? movieContoller?.movies : movieContoller?.filterBy(string: searchText)
+        }
+        
+        tableView.reloadData()
     }
     
     // MARK: - Movie table view cell delegate
@@ -72,6 +96,7 @@ class MovieListViewController: UIViewController, UITableViewDataSource, UITableV
         
         //Toggle is seen on the movie
         movieContoller?.toggleIsSeen(on: movie)
+        filteredMovies[indexPath.row].isSeen = !filteredMovies[indexPath.row].isSeen
         //Reload the row 
         tableView.reloadRows(at: [indexPath], with: .fade)
     }

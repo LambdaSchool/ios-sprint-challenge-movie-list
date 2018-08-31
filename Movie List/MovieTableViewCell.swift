@@ -13,7 +13,12 @@ protocol MovieTableViewCellDelegate: class {
 }
 
 class MovieTableViewCell: UITableViewCell {
-
+    //Struct for holding colors
+    struct Colors {
+        static let green = UIColor(red: 35/255, green: 158/255, blue: 56/255, alpha: 1)
+        static let red = UIColor(red: 219/255, green: 20/255, blue: 16/255, alpha: 1)
+    }
+    
     // MARK: - Properties
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var isSeenButton: UIButton!
@@ -38,7 +43,7 @@ class MovieTableViewCell: UITableViewCell {
         //Put the data from the movie into the cell
         titleLabel.text = movie.title
         isSeenButton.setTitle(movie.isSeen ? "Seen" : "Not Seen", for: .normal)
-        isSeenButton.setTitleColor(movie.isSeen ? .green : .red , for: .normal)
+        isSeenButton.setTitleColor(movie.isSeen ? Colors.green : Colors.red , for: .normal)
         
     }
     

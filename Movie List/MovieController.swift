@@ -40,4 +40,15 @@ class MovieController {
         }
     }
     
+    //Filter movies by string
+    func filterBy(string: String) -> [Movie] {
+        var filteredMovies: [Movie] = []
+        
+        filteredMovies = movies.filter({ (movie) -> Bool in
+            return movie.title.range(of: string, options: .caseInsensitive) != nil
+        })
+        
+        return filteredMovies
+    }
+    
 }
