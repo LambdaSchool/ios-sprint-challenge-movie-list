@@ -10,6 +10,7 @@ import UIKit
 
 class MovieListTabBarController: UITabBarController {
 
+    // Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -20,6 +21,8 @@ class MovieListTabBarController: UITabBarController {
         }
     }
     
+    
+    // Properties
     let movieController = MovieController()
     
 }

@@ -17,6 +17,7 @@ class AddNewMoviesViewController: UIViewController, MovieControllerProtocol {
         view.addGestureRecognizer(tapGestureRecognizer)
     }
     
+    
     // IBActions & Logic
     @IBAction func submitMovie(_ sender: Any) {
         guard let title = titleTextField.text else { return }
@@ -34,6 +35,7 @@ class AddNewMoviesViewController: UIViewController, MovieControllerProtocol {
     @objc func viewWasTapped(sender: UITapGestureRecognizer? = nil) {
         view.endEditing(true)
     }
+    
     
     // IBOutlets & Properties
     @IBOutlet weak var titleTextField: UITextField!

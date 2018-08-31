@@ -10,6 +10,7 @@ import UIKit
 
 class MoviesListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, MovieControllerProtocol, MovieTableViewCellDelegate {
 
+    // Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -36,6 +37,8 @@ class MoviesListViewController: UIViewController, UITableViewDelegate, UITableVi
         hapticFeedback.impactOccurred()
     }
     
+    
+    // UITableViewDataSource methods
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return moviesSorted.count
     }
@@ -49,6 +52,16 @@ class MoviesListViewController: UIViewController, UITableViewDelegate, UITableVi
         return cell
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            movieController?.deleteMovie(at: indexPath.row)
+            sortTitlesAlphabetically()
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
+    
+    
+    // IBOutlets & Properties
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
