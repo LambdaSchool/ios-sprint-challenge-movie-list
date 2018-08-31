@@ -22,6 +22,11 @@ class MoviesTableViewCell: UITableViewCell {
     func updateViews() {
         guard let movie = movie else {return}
         movieName.text = movie.name
+        if movie.hasBeenSeen == true {
+            hasBeenSeen.setTitle("Seen", for: .normal)
+        } else {
+            hasBeenSeen.setTitle("Unseen", for: .normal)
+        }
     }
     
     @IBAction func changeSeenStatus(_ sender: Any) {

@@ -95,22 +95,30 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fQo-gD-AWU">
-                                            <rect key="frame" x="16" y="11" width="42" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7sp-8c-Wut">
-                                            <rect key="frame" x="301" y="6" width="64" height="30"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal" title="Not Seen"/>
-                                            <connections>
-                                                <action selector="changeSeenStatus:" destination="edl-XI-Zin" eventType="touchUpInside" id="jlt-jb-v3P"/>
-                                            </connections>
-                                        </button>
+                                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="all-md-yQh">
+                                            <rect key="frame" x="16" y="6" width="343" height="30"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fQo-gD-AWU">
+                                                    <rect key="frame" x="0.0" y="0.0" width="279" height="30"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7sp-8c-Wut">
+                                                    <rect key="frame" x="279" y="0.0" width="64" height="30"/>
+                                                    <state key="normal" title="Not Seen"/>
+                                                    <connections>
+                                                        <action selector="changeSeenStatus:" destination="edl-XI-Zin" eventType="touchUpInside" id="jlt-jb-v3P"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                        </stackView>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="all-md-yQh" firstAttribute="centerY" secondItem="F8j-Ax-SlK" secondAttribute="centerY" id="eMi-Xg-kah"/>
+                                        <constraint firstItem="all-md-yQh" firstAttribute="leading" secondItem="F8j-Ax-SlK" secondAttribute="leadingMargin" id="fPW-II-yuu"/>
+                                        <constraint firstItem="all-md-yQh" firstAttribute="trailing" secondItem="F8j-Ax-SlK" secondAttribute="trailingMargin" id="omC-2M-Dsc"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="hasBeenSeen" destination="7sp-8c-Wut" id="JlO-5N-GNQ"/>
@@ -127,7 +135,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DHw-eG-Eha" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="645" y="631"/>
+            <point key="canvasLocation" x="644" y="630.13493253373315"/>
         </scene>
     </scenes>
     <resources>
