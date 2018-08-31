@@ -13,6 +13,7 @@ class MoviesListTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //Pass model controller to child view controllers as long as they conform to the protocol
         for childVC in childViewControllers {
             if let childVC = childVC as? MovieControllerProtocol {
                 childVC.movieController = movieController
@@ -20,5 +21,6 @@ class MoviesListTabBarController: UITabBarController {
         }
     }
     
+    //Create an instance of MovieController
     let movieController = MovieController()
 }

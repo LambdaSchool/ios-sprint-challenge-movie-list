@@ -8,12 +8,8 @@
 
 import Foundation
 
+//Set up movie model
 struct Movie: Equatable {
     let name: String
     var hasBeenSeen: Bool
-    
-    init (name: String) {
-        self.name = name
-        self.hasBeenSeen = false
-    }
 }

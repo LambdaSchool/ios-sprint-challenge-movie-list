@@ -16,9 +16,15 @@ class MoviesTableViewController: UITableViewController, MovieControllerProtocol,
         tableView.reloadData()
     }
     
+    //Updates cell information after cell notifies TVC an action has happened
     func updateCell(for cell: MoviesTableViewCell) {
-        guard let 
-    }
+        guard let indexPath = tableView.indexPath(for: cell),
+            let movie = movieController?.movies[indexPath.row] else {return}
+        
+        movieController?.update(movie: movie)
+        tableView.reloadRows(at: [indexPath], with: .automatic)
+        
+        }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return movieController?.movies.count ?? 0
@@ -26,9 +32,18 @@ class MoviesTableViewController: UITableViewController, MovieControllerProtocol,
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as? MoviesTableViewCell else {return UITableViewCell()}
-        let movie = movieController?.movies[indexPath.row]
+        guard let movie = movieController?.movies[indexPath.row] else {return UITableViewCell()}
         
-        cell.textLabel?.text = movie?.name
+        print(cell.textLabel?.text)
+        cell.movieName?.text = movie.name
+        print(cell.textLabel?.text)
+        
+        if movie.hasBeenSeen == true {
+            cell.hasBeenSeen.setTitle("Seen", for: .normal)
+        } else {
+            cell.hasBeenSeen.setTitle("Unseen", for: .normal)
+        }
+        //cell.updateViews()
         cell.delegate = self
         
         return cell
