@@ -13,27 +13,23 @@ protocol MovieTableCellDelegate: class {
 }
 
 class MoviesTableViewCell: UITableViewCell {
-    /*
-    func updateViews() {
-        guard let movie = movie else {return}
+    
+    func updateViews(movie: Movie) {
+       
+        //Set button label to correct status
+        movieName.text = movie.name
         if movie.hasBeenSeen == true {
             hasBeenSeen.setTitle("Seen", for: .normal)
         } else {
             hasBeenSeen.setTitle("Unseen", for: .normal)
         }
     }
-    */
     
+    //Inform delegate(TVC) to update the cell once button is clicked
     @IBAction func changeSeenStatus(_ sender: Any) {
         delegate?.updateCell(for: self)
     }
-    
-   //var movie: Movie? {
-     //   didSet {
-            //updateViews()
-       // }
-    //}
-    
+ 
     weak var delegate: MovieTableCellDelegate?
     
     @IBOutlet weak var movieName: UILabel!

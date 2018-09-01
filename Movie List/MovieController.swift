@@ -16,11 +16,11 @@ class MovieController {
         movies.append(movie)
     }
     
-    //Update movie model 
+    //Update movie model .
     func update(movie: Movie) {
         guard let index = movies.index(of: movie) else {return}
         
-        //temp movie variable
+        //Create temp movie variable.
         let oldStatus = movie.hasBeenSeen
         let newStatus = !oldStatus
         let tempMovie = Movie(name: movie.name, hasBeenSeen: newStatus)
@@ -29,13 +29,13 @@ class MovieController {
         movies.insert(tempMovie, at: index)
     }
     
-    //Delete movie model
+    //Delete movie model.
     func deleteMovie(movie: Movie) {
         guard let index = movies.index(of: movie) else {return}
         movies.remove(at: index)
     }
     
-    //Read
+    //Read.
     private(set) var movies: [Movie] = []
     
 }

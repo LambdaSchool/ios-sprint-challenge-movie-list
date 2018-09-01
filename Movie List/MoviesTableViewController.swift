@@ -21,40 +21,40 @@ class MoviesTableViewController: UITableViewController, MovieControllerProtocol,
         guard let indexPath = tableView.indexPath(for: cell),
             let movie = movieController?.movies[indexPath.row] else {return}
         
+        //Calls movie Controller to update movie object after cell has been clicked.
         movieController?.update(movie: movie)
         tableView.reloadRows(at: [indexPath], with: .automatic)
-        
-        }
+    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return movieController?.movies.count ?? 0
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as? MoviesTableViewCell else {return UITableViewCell()}
-        guard let movie = movieController?.movies[indexPath.row] else {return UITableViewCell()}
         
-        print(cell.textLabel?.text)
-        cell.movieName?.text = movie.name
-        print(cell.textLabel?.text)
+        //Unwrap cell and movie to update the cell.
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as? MoviesTableViewCell,
+            let movie = movieController?.movies[indexPath.row] else {return UITableViewCell()}
         
-        if movie.hasBeenSeen == true {
-            cell.hasBeenSeen.setTitle("Seen", for: .normal)
-        } else {
-            cell.hasBeenSeen.setTitle("Unseen", for: .normal)
-        }
-        //cell.updateViews()
+        //Call cell to update itself.
+        cell.updateViews(movie: movie)
+        
+        //Set up delegate relationship with cell.
         cell.delegate = self
         
         return cell
     }
     
+    //Delete cell functionality.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             guard let movie = movieController?.movies[indexPath.row] else {return}
-            movieController?.deleteMovie(movie: movie)
-            tableView.deleteRows(at: [indexPath], with: .automatic)
             
+            //Deletes movie from movie controller.
+            movieController?.deleteMovie(movie: movie)
+            
+            //Deletes cell on the table view controller.
+            tableView.deleteRows(at: [indexPath], with: .automatic)
         }
     }
     
