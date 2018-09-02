@@ -13,13 +13,13 @@
         <!--Movies-->
         <scene sceneID="cIG-Eg-iP7">
             <objects>
-                <tableViewController id="UoQ-RW-zHS" sceneMemberID="viewController">
+                <tableViewController id="UoQ-RW-zHS" customClass="MovieListTableVC" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="T42-2y-HYZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TableViewCell" id="fYm-np-U0m">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TableViewCell" id="fYm-np-U0m" customClass="MovieListTableViewCell" customModule="Movie_List" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fYm-np-U0m" id="8xl-6E-s93">
@@ -39,6 +39,9 @@
                                                     <rect key="frame" x="296" y="0.0" width="47" height="37"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="18"/>
                                                     <state key="normal" title="SEEN"/>
+                                                    <connections>
+                                                        <action selector="seenUnseenButtonTapped:" destination="fYm-np-U0m" eventType="touchUpInside" id="YTn-qO-w37"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </stackView>
@@ -49,6 +52,10 @@
                                         <constraint firstItem="Ytc-Kq-VkF" firstAttribute="top" secondItem="8xl-6E-s93" secondAttribute="top" constant="12" id="hXO-Fl-okJ"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="movieListLabel" destination="blO-Ku-Sgv" id="nCZ-id-lHB"/>
+                                    <outlet property="seenUnseenButton" destination="E7k-aa-fUL" id="yL6-k3-7na"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

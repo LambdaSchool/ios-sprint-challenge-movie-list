@@ -14,7 +14,7 @@
         <!--Add New Movie-->
         <scene sceneID="iW0-HV-vCw">
             <objects>
-                <viewController id="xzL-iY-Bjy" sceneMemberID="viewController">
+                <viewController id="xzL-iY-Bjy" customClass="AddMovieVC" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fE9-30-eKM">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -41,6 +41,9 @@
                                                 <rect key="frame" x="0.0" y="40" width="343" height="40"/>
                                                 <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
                                                 <state key="normal" title="SUBMIT"/>
+                                                <connections>
+                                                    <action selector="submitButtonTapped:" destination="xzL-iY-Bjy" eventType="touchUpInside" id="vmD-MU-gmc"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -57,6 +60,11 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Add New Movie" image="Plus" id="1mD-au-b7f"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="addANewMovieLabel" destination="Yf8-Aq-hSf" id="oY0-WA-qBy"/>
+                        <outlet property="submitButton" destination="CeO-p5-j1i" id="XL4-H5-f2m"/>
+                        <outlet property="textField" destination="BMt-hl-NjT" id="T4x-oa-Ark"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="03f-b4-Ora" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
