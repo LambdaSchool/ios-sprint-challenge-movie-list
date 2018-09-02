@@ -8,6 +8,11 @@
 
 import UIKit
 
+protocol AddMovieProtocol: class {
+    
+    func submitButtonAction(title: String, seen:Bool)
+}
+
 class AddMovieVC: UIViewController {
 
     override func viewDidLoad() {
@@ -16,10 +21,15 @@ class AddMovieVC: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    var delegate: AddMovieProtocol?
+    
     @IBOutlet weak var addANewMovieLabel: UILabel!
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var submitButton: UIButton!
+    
     @IBAction func submitButtonTapped(_ sender: Any) {
+        
+        
     }
     
     

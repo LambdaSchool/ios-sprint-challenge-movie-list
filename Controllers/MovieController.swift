@@ -15,14 +15,25 @@ class MovieController {
     // CRUD
     // MARK: - Create movie function
     func createMovie(title: String, hasSeen: Bool = false) {
-        
         let newMovie = Movie(movieTitle: title)
         movies.append(newMovie)
     }
     
     // MARK: - Update status
     func updateStatus(hasSeen: Bool) {
+        var seen = hasSeen
         
+        if seen == true {
+            seen = false
+        } else {
+            seen = true
+        }
+    }
+    
+    // MARK: - Delete movie
+    func deleteMovie(index: Int){
+        let indexOfMovie = index
+        movies.remove(at: indexOfMovie)
     }
     
     
