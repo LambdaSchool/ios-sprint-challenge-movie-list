@@ -23,14 +23,6 @@ class MovieController {
     func changeStatus(for movie: Movie) {
         
         movie.hasSeen = !movie.hasSeen
-        
-//        var movieStatus = movie.hasSeen
-//
-//        if movieStatus == true {
-//           movieStatus = false
-//        } else {
-//            movieStatus = true
-//        }
     }
     
     // MARK: - Delete movie
