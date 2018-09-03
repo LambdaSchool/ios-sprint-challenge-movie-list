@@ -21,7 +21,7 @@ class MainTabBarVC: UITabBarController {
         guard let viewControllers = viewControllers.self else { return }
         
         for viewController in viewControllers {
-            if let viewController = viewController as? MovieControllerProtocol {
+            if let viewController = viewController as? MovieControllerDelegate {
                 viewController.movieController = movieController
             }
         }

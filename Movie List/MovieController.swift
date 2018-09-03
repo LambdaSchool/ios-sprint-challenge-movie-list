@@ -19,14 +19,15 @@ class MovieController {
         movies.append(newMovie)
     }
     
-    // MARK: - Update status
-    func updateStatus(hasSeen: Bool) {
-        var seen = hasSeen
+    // MARK: - Change status
+    func changeStatus(for movie: Movie) {
         
-        if seen == true {
-            seen = false
+        var movieStatus = movie.hasSeen
+
+        if movieStatus == true {
+           movieStatus = false
         } else {
-            seen = true
+            movieStatus = true
         }
     }
     

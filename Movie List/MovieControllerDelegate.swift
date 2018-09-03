@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol MovieControllerProtocol: class {
+protocol MovieControllerDelegate: class {
     var movieController: MovieController? { get set }
 }

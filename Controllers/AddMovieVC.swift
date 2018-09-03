@@ -8,40 +8,23 @@
 
 import UIKit
 
-protocol AddMovieProtocol: class {
-    
-    func submitButtonAction(title: String, seen:Bool)
-}
-
-class AddMovieVC: UIViewController {
+class AddMovieVC: UIViewController, MovieControllerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
     }
     
-    var delegate: AddMovieProtocol?
+    var movieController: MovieController?
     
     @IBOutlet weak var addANewMovieLabel: UILabel!
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var submitButton: UIButton!
     
+    // MARK: - submitButton Action
+    
     @IBAction func submitButtonTapped(_ sender: Any) {
-        
-        
+        guard let text = textField.text else { return }
+        movieController?.createMovie(title: text)
     }
-    
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
