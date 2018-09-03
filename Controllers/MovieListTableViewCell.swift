@@ -12,18 +12,16 @@ protocol MovieListTableViewCellDelegate: class {
     func seenUnseenTapped(for cell: MovieListTableViewCell)
 }
 
-class MovieListTableViewCell: UITableViewCell, MovieControllerDelegate {
+class MovieListTableViewCell: UITableViewCell {
     
     func updateView() {
         
         guard let movie = movie else { return }
         movieListLabel.text = movie.movieTitle
         
-        let seenUnseenButtonText = movie.hasSeen ? "SEEN" : "UNSEEN"
+        let seenUnseenButtonText = movie.hasSeen != false ? "SEEN" : "UNSEEN"
         seenUnseenButton.setTitle(seenUnseenButtonText, for: .normal)
     }
-    
-    var movieController: MovieController?
 
     var movie: Movie? {
         didSet {

@@ -10,7 +10,7 @@ import Foundation
 
 class MovieController {
     
-    var movies: [Movie] = []
+    private(set) var movies: [Movie] = []
     
     // CRUD
     // MARK: - Create movie function
@@ -22,19 +22,20 @@ class MovieController {
     // MARK: - Change status
     func changeStatus(for movie: Movie) {
         
-        var movieStatus = movie.hasSeen
-
-        if movieStatus == true {
-           movieStatus = false
-        } else {
-            movieStatus = true
-        }
+        movie.hasSeen = !movie.hasSeen
+        
+//        var movieStatus = movie.hasSeen
+//
+//        if movieStatus == true {
+//           movieStatus = false
+//        } else {
+//            movieStatus = true
+//        }
     }
     
     // MARK: - Delete movie
     func deleteMovie(index: Int){
-        let indexOfMovie = index
-        movies.remove(at: indexOfMovie)
+        movies.remove(at: index)
     }
     
     

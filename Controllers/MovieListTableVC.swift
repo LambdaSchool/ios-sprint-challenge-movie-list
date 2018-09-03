@@ -15,10 +15,10 @@ class MovieListTableVC: UITableViewController, MovieControllerDelegate, MovieLis
     }
     
     func seenUnseenTapped(for cell: MovieListTableViewCell) {
-        
+
         guard let indexPath = tableViewOutlet.indexPath(for: cell) else { return }
               let movie = movieController?.movies[indexPath.row]
-        
+
         guard let theMovie = movie else { return }
         movieController?.changeStatus(for: theMovie)
         tableViewOutlet.reloadRows(at: [indexPath], with: .automatic)
@@ -53,19 +53,8 @@ class MovieListTableVC: UITableViewController, MovieControllerDelegate, MovieLis
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            self.movieController?.movies.remove(at: indexPath.row)
+            self.movieController?.deleteMovie(index: indexPath.row)
             tableViewOutlet.deleteRows(at: [indexPath], with: .fade)
         }
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

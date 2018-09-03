@@ -15,7 +15,7 @@ class MainTabBarVC: UITabBarController {
         passViewControllerToChildController()
     }
     
-    var movieController = MovieController()
+    let movieController = MovieController()
     
     func passViewControllerToChildController() {
         guard let viewControllers = viewControllers.self else { return }
