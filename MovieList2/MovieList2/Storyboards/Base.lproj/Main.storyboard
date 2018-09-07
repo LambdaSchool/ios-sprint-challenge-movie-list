@@ -98,20 +98,33 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4aC-jE-AxZ">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4aC-jE-AxZ">
                                             <rect key="frame" x="31" y="11" width="42" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Q2-h7-hhj">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Q2-h7-hhj">
                                             <rect key="frame" x="293" y="6" width="46" height="30"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal" title="Button"/>
+                                            <connections>
+                                                <action selector="seenToggle:" destination="PZd-9t-OWc" eventType="touchUpInside" id="1FP-X4-hUx"/>
+                                            </connections>
                                         </button>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="4aC-jE-AxZ" firstAttribute="leading" secondItem="E7p-5f-zxA" secondAttribute="leadingMargin" constant="15" id="3hX-hL-LHX"/>
+                                        <constraint firstItem="4aC-jE-AxZ" firstAttribute="centerY" secondItem="9Q2-h7-hhj" secondAttribute="centerY" id="4t1-xQ-3aS"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="4aC-jE-AxZ" secondAttribute="bottom" constant="1" id="JVW-Ah-KRL"/>
+                                        <constraint firstItem="4aC-jE-AxZ" firstAttribute="top" secondItem="E7p-5f-zxA" secondAttribute="topMargin" id="ThO-Zj-UpF"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="9Q2-h7-hhj" secondAttribute="trailing" constant="20" id="jDq-rc-EyI"/>
+                                        <constraint firstItem="9Q2-h7-hhj" firstAttribute="top" secondItem="E7p-5f-zxA" secondAttribute="topMargin" constant="-5" id="uh9-Dy-uwC"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="movieName" destination="4aC-jE-AxZ" id="4Eg-SD-UyP"/>
+                                    <outlet property="seenButton" destination="9Q2-h7-hhj" id="wDj-Qf-04I"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
