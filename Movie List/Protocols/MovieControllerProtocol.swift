@@ -1,5 +1,5 @@
 //
-//  Movie.swift
+//  MovieControllerProtocol.swift
 //  Movie List
 //
 //  Created by Jordy on 9/7/18.
@@ -8,11 +8,6 @@
 
 import Foundation
 
-struct Movie {
-    
-    let name: String
-    init(name: String) {
-        
-        self.name = name
-    }
+protocol MovieControllerProtocol: class {
+    var movieController: MovieController? {get set}
 }
