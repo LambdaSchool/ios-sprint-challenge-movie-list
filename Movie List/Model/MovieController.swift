@@ -20,6 +20,5 @@ class MovieController {
     
     func toggleHasSeen(for movie: Movie) {
         movie.hasSeen = !movie.hasSeen
-        
     }
 }

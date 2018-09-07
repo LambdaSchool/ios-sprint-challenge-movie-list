@@ -19,7 +19,7 @@ class MovieListTableViewCell: UITableViewCell {
     
     @IBAction func seenButtonToggle(_ sender: Any) {
         
-        //delegate?.
+        delegate?.seenButtonWasTapped(on: self)
     }
     
     func updateViews () {
