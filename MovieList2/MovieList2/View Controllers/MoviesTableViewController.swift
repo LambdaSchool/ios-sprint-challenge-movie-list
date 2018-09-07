@@ -12,6 +12,7 @@ class MoviesTableViewController: UITableViewController, MovieListProtocol, Movie
     
     var movieController: MovieController?
     
+    // method to update custom movie cell
     func updateMovieCell(for cell: MoviesTableViewCell) {
         guard let indexPath = tableView.indexPath(for: cell),
             let movie = movieController?.movies[indexPath.row] else {return}
@@ -32,19 +33,21 @@ class MoviesTableViewController: UITableViewController, MovieListProtocol, Movie
 
     // MARK: - Table view data source
     
+    // references array to see how many rows
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return movieController?.movies.count ?? 0
     }
 
-    
+    // grabs the cell.. so that you can customize it
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as? MoviesTableViewCell,
         let movie = movieController?.movies[indexPath.row] else {return UITableViewCell()}
         
         // Configure the cell...
         cell.movie = movie
-        cell.delegate = self
+        cell.delegate = self  // gets instructions from delegate
 
+        // updates its own cell
         cell.updateViews()
         return cell
     }

@@ -8,6 +8,7 @@
 
 import Foundation
 
+// this is going to pass a list of rules to each class
 protocol MovieListProtocol:class {
     var movieController: MovieController? {get set}
 }

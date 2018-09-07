@@ -17,6 +17,12 @@ class AddMovieViewController: UIViewController, MovieListProtocol {
         super.viewDidLoad()
     }
     
+    // Remove Keyboard when not being touched
+    override func touchesBegan(_: Set<UITouch>, with: UIEvent?){
+        nameTextField.resignFirstResponder()
+        
+    }
+    
     // allows user to enter text
     @IBOutlet weak var nameTextField: UITextField!
 
