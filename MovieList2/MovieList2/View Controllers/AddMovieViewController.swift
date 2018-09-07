@@ -20,7 +20,6 @@ class AddMovieViewController: UIViewController, MovieListProtocol {
     // Remove Keyboard when not being touched
     override func touchesBegan(_: Set<UITouch>, with: UIEvent?){
         nameTextField.resignFirstResponder()
-        
     }
     
     // allows user to enter text
@@ -31,7 +30,5 @@ class AddMovieViewController: UIViewController, MovieListProtocol {
         guard let name = nameTextField.text else {return}
         
         movieController?.createAMovie(name: name, isSeen: false)
-        
     }
-
 }
