@@ -15,15 +15,15 @@ class MovieController {
     func createMovie(with name: String, isSeen: Bool) {
         let movie = Movie(name: name, isSeen: false)
         movies.append(movie)
-        print(movies)
     }
     
     func toggleIsSeen(for movie: Movie) {
-//        movie.isSeen = !movie.isSeen
+        movie.isSeen = !movie.isSeen
     }
     
     func deleteMovie(movie: Movie) {
-        
+        guard let index = movies.index(of: movie) else { return }
+        movies.remove(at: index)
     }
     
 }

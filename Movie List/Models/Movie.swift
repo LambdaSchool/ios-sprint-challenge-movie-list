@@ -8,18 +8,24 @@
 
 import Foundation
 
-//class Movie {
-//    let name: String
-//    var isSeen: Bool = false
-//
-//    init(name: String, isSeen: Bool) {
-//        self.name = name
-//        self.isSeen = isSeen
-//    }
-//}
-
-
-struct Movie: Equatable {
+class Movie {
     let name: String
     var isSeen: Bool
+
+    init(name: String, isSeen: Bool = false) {
+        self.name = name
+        self.isSeen = isSeen
+    }
 }
+
+extension Movie: Equatable {
+    static func == (lhs: Movie, rhs: Movie) -> Bool {
+        return lhs.name == rhs.name && lhs.isSeen == rhs.isSeen
+    }
+}
+
+
+//struct Movie: Equatable {
+//    let name: String
+//    var isSeen: Bool
+//}

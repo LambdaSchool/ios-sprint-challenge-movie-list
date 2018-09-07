@@ -29,7 +29,9 @@ class MoviesViewController: UIViewController, UITableViewDataSource, MovieContro
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as? MovieTableViewCell else { return UITableViewCell() }
         
         let movie = movieController?.movies[indexPath.row]
-        cell.textLabel?.text = movie?.name
+        
+        cell.movie = movie
+        cell.delegate = self
         
         return cell
     }
@@ -51,6 +53,7 @@ class MoviesViewController: UIViewController, UITableViewDataSource, MovieContro
         if editingStyle == .delete {
             guard let movie = movieController?.movies[indexPath.row] else { return }
             movieController?.deleteMovie(movie: movie)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
         }
     }
 
