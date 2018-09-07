@@ -18,7 +18,7 @@ func createMovie( movieName: String, hasSeen: Bool = false) {
     movies.append(movie)
 }
 
-func toggleSeen( movie: Movie) {
+func toggleHasSeen( movie: Movie) {
      movie.hasSeen = !movie.hasSeen
    // Pass by reference ***** remember next time *** struct created proclem because it's a copy
 }

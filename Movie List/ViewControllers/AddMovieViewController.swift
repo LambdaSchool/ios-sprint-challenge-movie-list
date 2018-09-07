@@ -10,6 +10,7 @@ import UIKit
 
 class AddMovieViewController: UIViewController, MovieControllerProtocol {
 
+    @IBOutlet var table: UIView!
     
     // MARK: - Outlets and Properties
     @IBOutlet weak var enterMovieTextField: UITextField!

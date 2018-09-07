@@ -10,7 +10,7 @@ import UIKit
 
 class MovieListTabBarController: UITabBarController {
     
-    let movie
+    let movieController = MovieController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,10 +18,8 @@ class MovieListTabBarController: UITabBarController {
         for childVC in childViewControllers {
             if let childVC = childVC as? MovieControllerProtocol {
                 childVC.movieController = movieController
-            // All this is making so much sense now.  This part is allowing all the child views capable of referencing the same movie controller--HELL YEAH!!
+            //  This part is allowing all the child views capable of referencing the same movie controller--
             }
-            }
+        }
     }
-
-  
 }
