@@ -15,6 +15,6 @@ struct Movie {
     init(name: String) {
         
         self.name = name
-        self.hasBeenSeen = hasBeenSeen
+        self.hasBeenSeen = false
     }
 }
