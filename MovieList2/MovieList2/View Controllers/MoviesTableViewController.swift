@@ -20,7 +20,6 @@ class MoviesTableViewController: UITableViewController, MovieListProtocol, Movie
             tableView.reloadRows(at: [indexPath], with: .automatic)
     }
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -28,8 +27,6 @@ class MoviesTableViewController: UITableViewController, MovieListProtocol, Movie
     override func viewDidAppear(_ animated: Bool) {
         tableView.reloadData()
     }
-
-   
 
     // MARK: - Table view data source
     
@@ -52,11 +49,12 @@ class MoviesTableViewController: UITableViewController, MovieListProtocol, Movie
         return cell
     }
     
+    // Function to delete Cells
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             guard let movie = movieController?.movies[indexPath.row] else {return}
             
-            //will Delete movie
+            //will Delete movie name
             movieController?.deleteMovie(movie: movie)
             
             //Deletes the cell
