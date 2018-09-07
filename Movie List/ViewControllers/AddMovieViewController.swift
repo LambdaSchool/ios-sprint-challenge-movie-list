@@ -10,10 +10,20 @@ import UIKit
 
 class AddMovieViewController: UIViewController {
 
+    
+    // MARK: - Outlets and Properties
+    @IBOutlet weak var enterMovieTextField: UITextField!
+   
+    var movieController: MovieController?
+    
+    
+    
+    
+    
+    // MARK: - Methods
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -22,14 +32,18 @@ class AddMovieViewController: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    
+    
+    
+    @IBAction func addMovieButton(_ sender: Any) {
+    
+        guard let text = enterMovieTextField.text else {return}
+        movieController?.createMovie(movieName: text)
+        enterMovieTextField.text = ""
+        
     }
-    */
-
+    
+    
+    
 }
