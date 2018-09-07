@@ -22,11 +22,16 @@ class MoviesTableViewCell: UITableViewCell {
             
             movieName.text = movie.name
         
-        if movie.isSeen {
-            seenButton.setTitle("Seen", for: .normal)
-        } else {
-            seenButton.setTitle("Not Seen Yet", for: .normal)
-        }
+        
+        movie.isSeen ? seenButton.setTitle("Seen ", for: .normal) : seenButton.setTitle("Not Seen", for: .normal)
+        
+//        if movie.isSeen {
+//            seenButton.setTitle("Seen", for: .normal)
+//        } else {
+//            seenButton.setTitle("Not Seen Yet", for: .normal)
+//        }
+        
+        
     }
     
     var movie: Movie? {

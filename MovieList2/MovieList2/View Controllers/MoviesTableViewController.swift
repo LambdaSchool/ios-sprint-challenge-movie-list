@@ -9,14 +9,13 @@
 import UIKit
 
 class MoviesTableViewController: UITableViewController, MovieListProtocol, MovieTableCellDelegate {
+    
     var movieController: MovieController?
     
     func updateMovieCell(for cell: MoviesTableViewCell) {
         guard let indexPath = tableView.indexPath(for: cell),
             let movie = movieController?.movies[indexPath.row] else {return}
-        
-            movieController?.toggleIsSeen(for: movie)
-        
+        movieController?.toggleIsSeen(movie: movie)
             tableView.reloadRows(at: [indexPath], with: .automatic)
     }
     
@@ -34,8 +33,7 @@ class MoviesTableViewController: UITableViewController, MovieListProtocol, Movie
     // MARK: - Table view data source
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let rows = movieController?.movies.count else {return 0}
-        return rows
+        return movieController?.movies.count ?? 0
     }
 
     
@@ -47,6 +45,7 @@ class MoviesTableViewController: UITableViewController, MovieListProtocol, Movie
         cell.movie = movie
         cell.delegate = self
 
+        cell.updateViews()
         return cell
     }
     

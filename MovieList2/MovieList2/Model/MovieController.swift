@@ -23,9 +23,25 @@ class MovieController {
     
     // UPDATE
     
-    func toggleIsSeen (for movie: Movie) {
-        guard case movie.isSeen = !(movie.isSeen) else {return}
+    // This function is just copying the old cell - Does Not Work
+    
+//    func toggleIsSeen (for movie: Movie) {
+//        print("HEY")
+//        movie.isSeen = !(movie.isSeen)
+//    }
+    
+    // create a scratch method.
+    func toggleIsSeen(movie: Movie) {
+        
+        guard let index = movies.index(of: movie) else {return}
+        
+        let scratchMovie = !movie.isSeen
+        let newMovieState = Movie(name: movie.name, isSeen: scratchMovie)
+        
+        movies.remove(at: index)
+        movies.insert(newMovieState, at: index)
     }
+    
     
     // DELETE
     func deleteMovie (movie: Movie) {
