@@ -8,19 +8,24 @@
 
 import UIKit
 
-class AddMovieViewController: UIViewController {
+class AddMovieViewController: UIViewController, MovieListProtocol {
 
+    // conform to protocol
+    var movieController: MovieController?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
+    // allows user to enter text
+    @IBOutlet weak var nameTextField: UITextField!
 
+    // creates new movie label
+    @IBAction func addMovie(_ sender: Any) {
+        guard let name = nameTextField.text else {return}
+        
+        movieController?.createAMovie(name: name, isSeen: false)
+        
+    }
 
 }
