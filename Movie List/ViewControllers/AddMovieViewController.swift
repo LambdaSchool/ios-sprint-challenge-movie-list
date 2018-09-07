@@ -8,15 +8,13 @@
 
 import UIKit
 
-class AddMovieViewController: UIViewController {
+class AddMovieViewController: UIViewController, MovieControllerProtocol {
 
     
     // MARK: - Outlets and Properties
     @IBOutlet weak var enterMovieTextField: UITextField!
    
     var movieController: MovieController?
-    
-    
     
     
     
@@ -30,12 +28,7 @@ class AddMovieViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 
-    
-    
-    
-    
     @IBAction func addMovieButton(_ sender: Any) {
     
         guard let text = enterMovieTextField.text else {return}
@@ -43,7 +36,5 @@ class AddMovieViewController: UIViewController {
         enterMovieTextField.text = ""
         
     }
-    
-    
     
 }
