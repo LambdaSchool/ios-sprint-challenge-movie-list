@@ -9,12 +9,13 @@
 import UIKit
 
 class AddMovieViewController: UIViewController, MovieControllerProtocol {
-    
+
     var movieController: MovieController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
     @IBOutlet weak var movieTextField: UITextField!
     
     @IBAction func saveButtonTapped(_ sender: Any) {
@@ -22,5 +23,4 @@ class AddMovieViewController: UIViewController, MovieControllerProtocol {
         
         movieController?.createNewMovie(with: name)
     }
-    
 }
