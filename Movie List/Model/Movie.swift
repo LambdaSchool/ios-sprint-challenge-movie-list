@@ -11,8 +11,10 @@ import Foundation
 struct Movie {
     
     let name: String
+    let hasBeenSeen: Bool
     init(name: String) {
         
         self.name = name
+        self.hasBeenSeen = hasBeenSeen
     }
 }
