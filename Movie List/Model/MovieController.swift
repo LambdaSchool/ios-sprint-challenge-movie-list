@@ -13,7 +13,7 @@ class MovieController {
     
 var movies: [Movie] = []
     
-func createMovie( movieName: String, hasSeen: Bool = false) {
+func createMovie( movieName: String, hasSeen: Bool = true) {
     let movie = Movie(movieName: movieName, hasSeen: hasSeen)
     movies.append(movie)
 }

@@ -31,7 +31,7 @@ class MovieListViewController: UIViewController, MovieControllerProtocol, UITabl
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        
+        tableView.dataSource = self
         tableView.reloadData()
         
         // Uncomment the following line to preserve selection between presentations
@@ -61,7 +61,7 @@ class MovieListViewController: UIViewController, MovieControllerProtocol, UITabl
         
         movieController?.toggleHasSeen(movie: movie!)
         tableView.reloadData()
-        //tableView.reloadRows(at: [index], with: .automatic)
+        tableView.reloadRows(at: [index], with: .automatic)
         
     }
     
