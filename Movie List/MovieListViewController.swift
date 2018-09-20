@@ -17,6 +17,7 @@ class MovieListViewController: UIViewController, UITableViewDataSource, UITableV
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         movieList.reloadData()
     }
     
@@ -29,7 +30,6 @@ class MovieListViewController: UIViewController, UITableViewDataSource, UITableV
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as? MovieTableViewCell else { return UITableViewCell() }
         guard let movie = movieController?.movies[indexPath.row] else { return UITableViewCell() }
-        print(movie.title)
         cell.delegate = self
         cell.movie = movie
         return cell

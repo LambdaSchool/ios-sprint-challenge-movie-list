@@ -27,6 +27,7 @@ class MovieTableViewCell: UITableViewCell  {
     }
     
     
+    
     weak var delegate: MovieTableViewCellDelegate?
     
     
