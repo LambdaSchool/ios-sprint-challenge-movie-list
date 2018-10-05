@@ -43,6 +43,7 @@ class MovieModel: NSObject, UITableViewDataSource, MovieTableViewCellDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MovieTableViewCell
+        cell.delegate = self
 
         let movie = movies[indexPath.row]
         if movie.seen {

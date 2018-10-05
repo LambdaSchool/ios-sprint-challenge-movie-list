@@ -30,7 +30,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="xav-Uo-q7o">
-                                                    <rect key="frame" x="0.0" y="20" width="375" height="3.5"/>
+                                                    <rect key="frame" x="230" y="20" width="145" height="3.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FXi-e4-nnX">
                                                             <rect key="frame" x="0.0" y="0.0" width="50" height="3.5"/>
@@ -39,21 +39,27 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kg4-VT-dAU">
-                                                            <rect key="frame" x="70" y="0.0" width="305" height="3.5"/>
-                                                            <state key="normal" title="Button"/>
+                                                            <rect key="frame" x="70" y="0.0" width="75" height="3.5"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="75" id="gnC-Nm-S0G"/>
+                                                                <constraint firstAttribute="height" constant="25" id="s8N-CA-feD"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                             <connections>
                                                                 <action selector="seenButtonPressed:" destination="rOp-pX-Zq0" eventType="touchUpInside" id="1Ds-zd-8Gp"/>
                                                                 <action selector="seenButtonPressed:" destination="q8A-KH-Wb2" eventType="touchUpInside" id="Moc-Sq-Cm3"/>
                                                             </connections>
                                                         </button>
                                                     </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="kg4-VT-dAU" secondAttribute="trailing" constant="8" id="LWf-9N-m2b"/>
+                                                    </constraints>
                                                 </stackView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="xav-Uo-q7o" secondAttribute="bottom" constant="20" id="gPI-FS-aLN"/>
                                                 <constraint firstItem="xav-Uo-q7o" firstAttribute="top" secondItem="787-VS-APJ" secondAttribute="top" constant="20" id="hBq-5o-6WZ"/>
                                                 <constraint firstAttribute="trailing" secondItem="xav-Uo-q7o" secondAttribute="trailing" id="q8U-UX-YR7"/>
-                                                <constraint firstItem="xav-Uo-q7o" firstAttribute="leading" secondItem="787-VS-APJ" secondAttribute="leading" id="xct-t0-FUS"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
