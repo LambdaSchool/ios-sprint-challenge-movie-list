@@ -24,14 +24,10 @@ class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let item = UITableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: "moviecell")
         //Connects the cells in the table view to the prototype cell via the reuse identifier
         item.textLabel?.text = movieCollection[indexPath.row].title
-        return item
         
-    }
-    @IBAction func seenToggle(_ sender: Any) {
-      
-    }
-    
-    
+        return item
+
+            }
     
     //Lets you delete movies
     
@@ -44,13 +40,25 @@ class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
     }
     
+    //Change the Status of the Movie when Button is pressed
     
+    @IBAction func seenStatus(_ sender: UIButton) {
+    
+        if movieCollection[0].seen == true {
+                sender.setTitle("Seen", for: .selected)
+                
+            }
+        }
+
+    
+    //Refresh the view to show updated list
     override func viewDidAppear(_ animated: Bool) {
         movieTable.reloadData()
     }
+ 
     
-//Default code below
     
+//Yeah, I'm not going to touch this
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
