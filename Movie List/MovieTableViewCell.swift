@@ -7,5 +7,8 @@ protocol MovieTableCellDelegate: class {
 class MovieTableViewCell: UITableViewCell {
     
 
-    
+    @IBAction func changeSeenStatus(_ sender: Any) {
+    }
+    @IBOutlet weak var movieName: UILabel!
+    @IBOutlet weak var hasBeenSeen: UIButton!
 }
