@@ -28,9 +28,7 @@ class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
     }
     @IBAction func seenToggle(_ sender: Any) {
-        movieCollection[indexPath.row].seen = true
-        
-    
+      
     }
     
     
