@@ -24,4 +24,10 @@ class MovieViewController: UIViewController, MovieProtocol {
         movieController?.createMovie(name: name, isSeen: false)
     }
     
+    // Remove Keyboard when not being touched
+    override func touchesBegan(_: Set<UITouch>, with: UIEvent?){
+        movieTextField.resignFirstResponder()
+    }
+    
+    
 }
