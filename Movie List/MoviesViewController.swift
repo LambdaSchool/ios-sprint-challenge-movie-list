@@ -23,6 +23,7 @@ class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         let item = UITableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: "moviecell")
         //Connects the cells in the table view to the prototype cell via the reuse identifier
+        item.textLabel?.text = movieCollection[indexPath.row].title
         return item
         
     }
