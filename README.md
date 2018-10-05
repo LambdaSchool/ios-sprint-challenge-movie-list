@@ -29,3 +29,4 @@ Good luck!
 
 - Add functionality to let the user to search for movies.
 - Sort the movies alphabetically.
+Test
