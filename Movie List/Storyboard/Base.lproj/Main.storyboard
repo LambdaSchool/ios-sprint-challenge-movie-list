@@ -25,7 +25,7 @@
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="gxG-PY-brc" customClass="MoviesTableViewCell" customModule="Movie_List" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gxG-PY-brc" id="xWw-Fd-9OJ">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gxG-PY-brc" id="xWw-Fd-9OJ" customClass="MoviesTableViewCell" customModule="Movie_List" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
@@ -40,9 +40,16 @@
                                                     <rect key="frame" x="305" y="6" width="46" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" title="Button"/>
+                                                    <connections>
+                                                        <action selector="isSeenToggle:" destination="gxG-PY-brc" eventType="touchUpInside" id="Xbg-Vx-g9D"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="isSeenButton" destination="iPO-fl-pJW" id="pYQ-bH-blD"/>
+                                            <outlet property="movieNameLabel" destination="RFh-G2-fMJ" id="TyK-20-xTQ"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -57,6 +64,9 @@
                         <viewLayoutGuide key="safeArea" id="V9e-fO-Gqn"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Movies" image="Clapboard" id="k5n-BQ-uEG"/>
+                    <connections>
+                        <outlet property="tableView" destination="bpf-x3-tt8" id="wWM-ih-5sn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a4e-oE-DX8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

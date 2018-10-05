@@ -9,5 +9,5 @@
 import Foundation
 
 protocol MovieProtocol: class {
-    
+    var movieController: MovieController? {get set}
 }

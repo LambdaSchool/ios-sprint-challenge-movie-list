@@ -9,12 +9,19 @@
 import Foundation
 import UIKit
 
-class MovieViewController: UIViewController {
+class MovieViewController: UIViewController, MovieProtocol {
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
+    var movieController:  MovieController?
     
     @IBOutlet weak var movieTextField: UITextField!
     
-    
     @IBAction func addMovieButton(_ sender: Any) {
+        guard let name = movieTextField.text else {return}
+        movieController?.createMovie(name: name, isSeen: false)
     }
     
 }
