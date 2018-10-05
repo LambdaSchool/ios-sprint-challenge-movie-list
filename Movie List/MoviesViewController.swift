@@ -9,7 +9,7 @@
 import UIKit
 
 class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
+    
     @IBOutlet weak var movieTable: UITableView!
     
     //Determines the number of rows to display
@@ -27,6 +27,13 @@ class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return item
         
     }
+    @IBAction func seenToggle(_ sender: Any) {
+        movieCollection[indexPath.row].seen = true
+        
+    
+    }
+    
+    
     
     //Lets you delete movies
     
