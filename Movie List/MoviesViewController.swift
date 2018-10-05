@@ -39,9 +39,9 @@ class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     
-    
-    
-    
+    override func viewDidAppear(_ animated: Bool) {
+        movieTable.reloadData()
+    }
     
 //Default code below
     
