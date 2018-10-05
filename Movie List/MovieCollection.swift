@@ -1,0 +1,12 @@
+//
+//  MovieCollection.swift
+//  Movie List
+//
+//  Created by Lotanna Igwe-Odunze on 10/5/18.
+//  Copyright © 2018 Lotanna. All rights reserved.
+//
+
+import Foundation
+
+var movieCollection: [Movie] = []
+
