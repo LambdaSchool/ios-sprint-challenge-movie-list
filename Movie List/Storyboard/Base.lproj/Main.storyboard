@@ -13,6 +13,7 @@
         <!--Movies-->
         <scene sceneID="aol-Mw-cgo">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="a4e-oE-DX8" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="Ryu-T1-Tl9" customClass="ResultsMovieViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MIL-dd-yel">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -29,22 +30,28 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RFh-G2-fMJ">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RFh-G2-fMJ">
                                                     <rect key="frame" x="27" y="11" width="42" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iPO-fl-pJW">
+                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iPO-fl-pJW">
                                                     <rect key="frame" x="305" y="6" width="46" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" title="Button"/>
                                                     <connections>
                                                         <action selector="isSeenToggle:" destination="gxG-PY-brc" eventType="touchUpInside" id="Xbg-Vx-g9D"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="RFh-G2-fMJ" firstAttribute="centerY" secondItem="iPO-fl-pJW" secondAttribute="centerY" id="1X4-dd-2te"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="iPO-fl-pJW" secondAttribute="trailing" constant="8" id="5A7-wb-p9C"/>
+                                                <constraint firstItem="RFh-G2-fMJ" firstAttribute="leading" secondItem="xWw-Fd-9OJ" secondAttribute="leadingMargin" constant="11" id="PU8-L9-xvj"/>
+                                                <constraint firstItem="RFh-G2-fMJ" firstAttribute="top" secondItem="xWw-Fd-9OJ" secondAttribute="topMargin" constant="-20" id="Qq8-c2-nim"/>
+                                                <constraint firstItem="iPO-fl-pJW" firstAttribute="centerY" secondItem="xWw-Fd-9OJ" secondAttribute="centerY" id="sdR-TN-uzO"/>
+                                                <constraint firstItem="iPO-fl-pJW" firstAttribute="top" secondItem="xWw-Fd-9OJ" secondAttribute="topMargin" constant="-25" id="w0b-8l-tNh"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="isSeenButton" destination="iPO-fl-pJW" id="pYQ-bH-blD"/>
@@ -52,6 +59,10 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Ryu-T1-Tl9" id="M9B-d7-81A"/>
+                                    <outlet property="delegate" destination="Ryu-T1-Tl9" id="fNm-lt-Htp"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -65,10 +76,9 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Movies" image="Clapboard" id="k5n-BQ-uEG"/>
                     <connections>
-                        <outlet property="tableView" destination="bpf-x3-tt8" id="wWM-ih-5sn"/>
+                        <outlet property="tableView" destination="bpf-x3-tt8" id="Qha-hB-QVT"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="a4e-oE-DX8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="101.59999999999999" y="166.8665667166417"/>
         </scene>
