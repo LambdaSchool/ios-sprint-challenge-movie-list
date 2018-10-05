@@ -19,29 +19,37 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="8iW-Qd-0Te" customClass="MoviesTableViewCell" customModule="Movie_List" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="8iW-Qd-0Te" customClass="MoviesTableViewCell" customModule="Movie_List" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8iW-Qd-0Te" id="2Q6-3g-Wat">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dj1-K4-O0Q">
-                                            <rect key="frame" x="38" y="11" width="42" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dj1-K4-O0Q">
+                                            <rect key="frame" x="38" y="11.5" width="42" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wa9-E9-oF1">
-                                            <rect key="frame" x="296" y="6" width="46" height="30"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wa9-E9-oF1">
+                                            <rect key="frame" x="248" y="6" width="94" height="30"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="94" id="2XC-hO-amZ"/>
+                                            </constraints>
                                             <state key="normal" title="Button"/>
                                             <connections>
                                                 <action selector="isSeenToggle:" destination="8iW-Qd-0Te" eventType="touchUpInside" id="KXA-Ua-LhV"/>
                                             </connections>
                                         </button>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottomMargin" secondItem="wa9-E9-oF1" secondAttribute="bottom" constant="-3" id="5Xl-jD-YfS"/>
+                                        <constraint firstItem="wa9-E9-oF1" firstAttribute="centerY" secondItem="Dj1-K4-O0Q" secondAttribute="centerY" id="c3S-4l-JbW"/>
+                                        <constraint firstItem="Dj1-K4-O0Q" firstAttribute="leading" secondItem="2Q6-3g-Wat" secondAttribute="leadingMargin" constant="22" id="ggN-wJ-8DC"/>
+                                        <constraint firstItem="wa9-E9-oF1" firstAttribute="centerY" secondItem="2Q6-3g-Wat" secondAttribute="centerY" id="gtR-HR-4EM"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="wa9-E9-oF1" secondAttribute="trailing" constant="17" id="w0N-XP-xbL"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="isSeenButton" destination="wa9-E9-oF1" id="IZG-jf-iAg"/>
@@ -61,7 +69,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A3e-BP-D3Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="102" y="222"/>
+            <point key="canvasLocation" x="101.59999999999999" y="221.73913043478262"/>
         </scene>
         <!--Add New Movies-->
         <scene sceneID="KSn-ce-gGr">
@@ -131,10 +139,10 @@
             </objects>
             <point key="canvasLocation" x="101.59999999999999" y="-498.80059970014997"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Movie List Tab Bar Controller-->
         <scene sceneID="6Zl-9j-3qV">
             <objects>
-                <tabBarController id="cNf-J8-qgn" sceneMemberID="viewController">
+                <tabBarController id="cNf-J8-qgn" customClass="MovieListTabBarController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="INU-id-bTB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>

@@ -16,9 +16,7 @@ class MoviesTableViewCell: UITableViewCell {
 
     weak var delegate: MovieTableCellDelegate?
     
-    var movie: Movie? {
-        didSet {updateViews()}
-    }
+    
     
     func updateViews() {
         guard let movie = movie else {return}
@@ -28,6 +26,10 @@ class MoviesTableViewCell: UITableViewCell {
 
     @IBAction func isSeenToggle(_ sender: Any) {
         delegate?.updateMovieCell(for: self)
+    }
+    
+    var movie: Movie? {
+        didSet {updateViews()}
     }
     
     @IBOutlet weak var movieNameLabel: UILabel!
