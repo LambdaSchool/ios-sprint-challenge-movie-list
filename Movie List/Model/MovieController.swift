@@ -12,14 +12,14 @@ class MovieController {
     
     private(set) var movieList: [Movie] = []
     
-    func AddMovie(name: String, hasWatched: Bool){
+    func addMovie(name: String, hasWatched: Bool){
         let movie = Movie(named: name, hasWatched: hasWatched)
         movieList.append(movie)
     }
     
-    func deleteMovie(movie: Movie){
-        guard let indexOfMovieToDelete = movieList.index(of: movie) else{return}
-        movieList.remove(at: indexOfMovieToDelete)
+    func deleteMovie(at index: Int){
+       
+        movieList.remove(at: index)
     }
     
     func changeHasWatched(of movie: Movie){

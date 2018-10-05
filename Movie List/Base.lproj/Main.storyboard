@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="B4o-gu-tqL">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -13,7 +13,7 @@
         <!--Movie List-->
         <scene sceneID="PtC-9b-CeD">
             <objects>
-                <viewController id="64Q-9l-UIJ" sceneMemberID="viewController">
+                <viewController id="64Q-9l-UIJ" customClass="MovieListViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DWf-ao-Kzf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -22,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="598"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="X4T-Ln-LxA">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="X4T-Ln-LxA" customClass="MovieTableViewCell" customModule="Movie_List" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="X4T-Ln-LxA" id="nPF-G5-RqM">
@@ -30,10 +30,13 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7CL-bD-B33">
-                                                    <rect key="frame" x="296" y="6" width="64" height="30"/>
+                                                    <rect key="frame" x="236" y="6" width="124" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="15"/>
                                                     <state key="normal" title="Watched"/>
+                                                    <connections>
+                                                        <action selector="watchedButtonTapped:" destination="X4T-Ln-LxA" eventType="touchUpInside" id="pDZ-AL-TTM"/>
+                                                    </connections>
                                                 </button>
                                                 <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="NXA-aI-kqZ">
                                                     <rect key="frame" x="10" y="9" width="200" height="23.5"/>
@@ -52,6 +55,10 @@
                                                 </stackView>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="movieLabel" destination="b2K-qQ-dN4" id="Xeh-a3-zsM"/>
+                                            <outlet property="watchedButton" destination="7CL-bD-B33" id="QS6-Qd-9Ag"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -66,15 +73,18 @@
                         <viewLayoutGuide key="safeArea" id="oqq-i7-qrW"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Movie List" image="Clapboard" id="ZGj-Nw-Gq2"/>
+                    <connections>
+                        <outlet property="tableView" destination="oIb-gh-Pyq" id="nMc-yG-ZiH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D08-pz-1Ry" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="166" y="145"/>
+            <point key="canvasLocation" x="829.60000000000002" y="77.811094452773617"/>
         </scene>
         <!--Add Movie-->
         <scene sceneID="41g-s8-WTf">
             <objects>
-                <viewController id="uij-Kb-De0" sceneMemberID="viewController">
+                <viewController id="uij-Kb-De0" customClass="AddMovieViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lrv-ib-LCH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -86,6 +96,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b8k-qs-muT">
+                                <rect key="frame" x="144" y="215" width="78" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Add Button"/>
+                                <connections>
+                                    <action selector="addMovie:" destination="uij-Kb-De0" eventType="touchUpInside" id="3Bu-PZ-zat"/>
+                                </connections>
+                            </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter the movies title:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QX0-fL-UIA">
                                 <rect key="frame" x="16" y="126" width="335" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -93,25 +111,23 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b8k-qs-muT">
-                                <rect key="frame" x="144" y="215" width="78" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Add Button"/>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="jLJ-5u-JHr"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Add Movie" image="Plus" id="tox-ZD-oR1"/>
+                    <connections>
+                        <outlet property="movieTitleTextField" destination="QX0-fL-UIA" id="TJd-wj-JpL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HOa-Wi-d1J" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="106" y="-506"/>
+            <point key="canvasLocation" x="802" y="-734"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Movie List Tab Bar View Controller-->
         <scene sceneID="BcA-ee-SR8">
             <objects>
-                <tabBarController id="B4o-gu-tqL" sceneMemberID="viewController">
+                <tabBarController id="B4o-gu-tqL" customClass="MovieListTabBarViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="7He-uh-Dzz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
