@@ -4,10 +4,6 @@ class PaintingModel: UIViewController, UITableViewDataSource, MovieTableViewCell
     
     var movies: [Movie] = []
     
-    override init() {
-        for
-    }
-    
     weak var tableView: UITableView?
     
     let reuseIdentifier = "cell"
@@ -36,7 +32,7 @@ class PaintingModel: UIViewController, UITableViewDataSource, MovieTableViewCell
         cell.delegate = self
         
         cell.textField.text = movies[indexPath.row].title
-        
+        movies.append(Movie(title: cell.textField.text))
         let title = "👁"
         cell.seenButton?.setTitle(title, for: .normal)
         cell.seenButton.alpha = movies[indexPath.row].isSeen ? 1.0 : 0.33
