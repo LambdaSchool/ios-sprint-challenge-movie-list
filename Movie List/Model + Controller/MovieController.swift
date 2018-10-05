@@ -26,8 +26,10 @@ class MovieController {
         guard let index = movies.index(of: movie) else {return}
         let tempMovie = !movie.isSeen
         let newMovie = Movie(name: movie.name, isSeen: tempMovie)
-        movies.insert(newMovie, at: index)
+        
         movies.remove(at: index)
+        movies.insert(newMovie, at: index)
+        
         
     }
 }
