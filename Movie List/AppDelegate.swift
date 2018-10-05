@@ -1,11 +1,3 @@
-//
-//  AppDelegate.swift
-//  Movie List
-//
-//  Created by Spencer Curtis on 7/10/18.
-//  Copyright © 2018 Lambda School. All rights reserved.
-//
-
 import UIKit
 
 @UIApplicationMain
