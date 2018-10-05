@@ -51,6 +51,6 @@ class ResultsMovieViewController: UIViewController, UITableViewDataSource, UITab
     }
 }
 
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet var tableView: UITableView!
     
 }
