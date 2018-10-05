@@ -20,7 +20,7 @@ class TabBarViewController: UITabBarController {
     let movieModel = MovieModel()
     
     func passMovieModelToChildViews() {
-        guard let viewControllers = tabBarController?.viewControllers else {return}
+        guard let viewControllers = self.viewControllers else {return}
         for view in viewControllers {
             if let viewController = view as? MovieModelProtocol {
                 viewController.moviewModel = self.movieModel

@@ -8,13 +8,16 @@
 
 import UIKit
 
-class MovieListViewController: UIViewController {
-    
+class MovieListViewController: UIViewController, MovieModelProtocol {
+    var moviewModel: MovieModel?
+
     @IBOutlet weak var tableView: UITableView!
-    
-    
+    // Set the DataSource of it's tableView to the movieModel
+
     override func viewWillAppear(_ animated: Bool) {
         tableView.reloadData()
+        tableView.dataSource = moviewModel!
+        
     }
     
     

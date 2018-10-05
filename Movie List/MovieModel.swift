@@ -11,7 +11,6 @@ import UIKit
 
 class MovieModel: NSObject, UITableViewDataSource, MovieTableViewCellDelegate {
 
-
     @IBOutlet weak var tableView: UITableView!
     var movies = [Movie]()
     
@@ -43,8 +42,8 @@ class MovieModel: NSObject, UITableViewDataSource, MovieTableViewCellDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        // cell.delegate = self
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MovieTableViewCell
+
         let movie = movies[indexPath.row]
         if movie.seen {
             cell.seenButton.setTitle("Seen", for: .normal)
@@ -52,7 +51,7 @@ class MovieModel: NSObject, UITableViewDataSource, MovieTableViewCellDelegate {
             cell.seenButton.setTitle("Not Seen", for: .normal)
         }
         
-        cell.movieLabel.text = movie.name
+        cell.textLabel?.text = movie.name
         cell.indexPath = indexPath
         
         return cell
@@ -61,7 +60,7 @@ class MovieModel: NSObject, UITableViewDataSource, MovieTableViewCellDelegate {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             movies.remove(at: indexPath.row)
-            
+            tableView.reloadData()
         }
     }
     
