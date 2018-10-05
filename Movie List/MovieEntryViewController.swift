@@ -7,11 +7,10 @@ class MovieEntryViewController: UIViewController {
     
     @IBAction func submitMovie(_ sender: Any) {
         
-        
-        
-    }
-    
-    
-    
-    
-}
+        guard let text = field.text, !text.isEmpty  else { return }
+                let entry = Movie(name: text, isSeen: false)
+                //MovieController.movies.append(entry)
+            }
+        }
+
+
