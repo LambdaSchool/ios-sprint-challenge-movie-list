@@ -1,12 +1,12 @@
 import UIKit
 
-protocol MovieTableCellDelegate: class {
+protocol MovieTableViewCellDelegate: class {
     func updateCell(for cell: MovieTableViewCell)
 }
 
 class MovieTableViewCell: UITableViewCell {
     
-    weak var delegate: MovieTableCellDelegate?
+    weak var delegate: MovieTableViewCellDelegate?
     
     func updateViews() {
         guard let movie = movie else { return }

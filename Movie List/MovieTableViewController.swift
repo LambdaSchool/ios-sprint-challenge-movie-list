@@ -1,28 +1,22 @@
 import UIKit
 
-class MoviesTableViewController: UITableViewController, MovieControllerProtocol, MovieTableCellDelegate {
+class MovieTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MovieControllerProtocol, MovieTableViewCellDelegate {
     var movieController: MovieController?
     
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        tableView.reloadData()
-    }
-    
     func updateCell(for cell: MovieTableViewCell) {
-        guard let indexPath = tableView.indexPath(for: cell),
+        guard let indexPath = movieTableView.indexPath(for: cell),
             let movie = movieController?.movies[indexPath.row] else {return}
         
         movieController?.updateMovie(movie: movie)
-        tableView.reloadRows(at: [indexPath], with: .automatic)
+        movieTableView.reloadRows(at: [indexPath], with: .automatic)
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return movieController?.movies.count ?? 0
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? MovieTableViewCell,
             let movie = movieController?.movies[indexPath.row] else {return UITableViewCell()}
@@ -32,15 +26,20 @@ class MoviesTableViewController: UITableViewController, MovieControllerProtocol,
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        movieTableView.dataSource = self
+        movieTableView.delegate = self
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             guard let movie = movieController?.movies[indexPath.row] else {return}
-            
             movieController?.deleteMovie(movie: movie)
-            
             tableView.deleteRows(at: [indexPath], with: .automatic)
         }
     }
     
+    @IBOutlet weak var movieTableView: UITableView!
     
 }
