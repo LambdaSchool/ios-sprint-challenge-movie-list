@@ -9,7 +9,7 @@ class MovieController {
         movies.append(movie)
     }
     
-    func update(movie: Movie) {
+    func updateMovie(movie: Movie) {
         guard let index = movies.index(of: movie) else { return }
         
         let oldStatus = movie.hasBeenSeen

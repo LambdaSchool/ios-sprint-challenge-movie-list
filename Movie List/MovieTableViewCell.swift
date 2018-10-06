@@ -8,8 +8,8 @@ class MovieTableViewCell: UITableViewCell {
     
     weak var delegate: MovieTableCellDelegate?
     
-    func updateViews(movie: Movie) {
-        
+    func updateViews() {
+        guard let movie = movie else { return }
         movieName.text = movie.name
         if movie.hasBeenSeen == true {
             hasBeenSeen.setTitle("Seen", for: .normal)
@@ -20,6 +20,12 @@ class MovieTableViewCell: UITableViewCell {
     
     @IBAction func changeSeenStatus(_ sender: Any) {
         delegate?.updateCell(for: self)
+    }
+    
+    var movie: Movie? {
+        didSet {
+            updateViews()
+        }
     }
     
     @IBOutlet weak var movieName: UILabel!

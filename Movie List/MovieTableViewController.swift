@@ -14,7 +14,7 @@ class MoviesTableViewController: UITableViewController, MovieControllerProtocol,
         guard let indexPath = tableView.indexPath(for: cell),
             let movie = movieController?.movies[indexPath.row] else {return}
         
-        movieController?.update(movie: movie)
+        movieController?.updateMovie(movie: movie)
         tableView.reloadRows(at: [indexPath], with: .automatic)
     }
     
@@ -26,8 +26,6 @@ class MoviesTableViewController: UITableViewController, MovieControllerProtocol,
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? MovieTableViewCell,
             let movie = movieController?.movies[indexPath.row] else {return UITableViewCell()}
-        
-        cell.updateViews(movie: movie)
         
         cell.delegate = self
         
