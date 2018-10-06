@@ -4,7 +4,7 @@ class MovieTableViewController: UIViewController, UITableViewDelegate, UITableVi
     var movieController: MovieController?
     
     
-    func updateCell(for cell: MovieTableViewCell) {
+    func updateCell(on cell: MovieTableViewCell) {
         guard let indexPath = movieTableView.indexPath(for: cell),
             let movie = movieController?.movies[indexPath.row] else {return}
         
@@ -17,13 +17,15 @@ class MovieTableViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath)
         
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? MovieTableViewCell,
-            let movie = movieController?.movies[indexPath.row] else {return UITableViewCell()}
+        guard let movieCell = cell as? MovieTableViewCell else { return cell }
         
-        cell.delegate = self
+        let movie = movieController?.movies[indexPath.row]
+        movieCell.movie = movie
+        movieCell.delegate = self
         
-        return cell
+        return movieCell
     }
     
     override func viewDidLoad() {

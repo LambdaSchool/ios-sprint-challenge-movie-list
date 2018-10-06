@@ -1,7 +1,7 @@
 import UIKit
 
 protocol MovieTableViewCellDelegate: class {
-    func updateCell(for cell: MovieTableViewCell)
+    func updateCell(on cell: MovieTableViewCell)
 }
 
 class MovieTableViewCell: UITableViewCell {
@@ -19,7 +19,7 @@ class MovieTableViewCell: UITableViewCell {
     }
     
     @IBAction func changeSeenStatus(_ sender: Any) {
-        delegate?.updateCell(for: self)
+        delegate?.updateCell(on: self)
     }
     
     var movie: Movie? {
