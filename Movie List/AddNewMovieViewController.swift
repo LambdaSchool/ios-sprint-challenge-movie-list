@@ -20,5 +20,5 @@ class AddNewMovieViewController: UIViewController, MovieControllerProtocol {
     }
     
     @IBOutlet weak var movieTextField: UITextField!
-
+    
 }

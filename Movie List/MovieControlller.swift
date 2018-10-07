@@ -6,6 +6,8 @@ class MovieController {
     
     func createMovie (name: String) {
         let movie = Movie(name: name, hasBeenSeen: false)
+        
+        print(movies.count)
         movies.append(movie)
     }
     
