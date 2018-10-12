@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="39u-LE-3ax">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Add Movie View Controller-->
+        <scene sceneID="RK5-7p-D7C">
+            <objects>
+                <viewController id="39u-LE-3ax" customClass="AddMovieViewController" customModule="Movie_List" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="feQ-zZ-Yln">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="100" translatesAutoresizingMaskIntoConstraints="NO" id="CJk-4g-rDx">
+                                <rect key="frame" x="22" y="127" width="331" height="234"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="46" translatesAutoresizingMaskIntoConstraints="NO" id="I7M-eV-0LH">
+                                        <rect key="frame" x="22" y="0.0" width="287" height="106"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a new movie to the list" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZQb-lU-Qyh">
+                                                <rect key="frame" x="0.0" y="0.0" width="287" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter the movie title:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="24o-7D-gW8">
+                                                <rect key="frame" x="66.5" y="76" width="154.5" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3eQ-XC-ej3">
+                                        <rect key="frame" x="151.5" y="206" width="28" height="28"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <state key="normal" backgroundImage="Plus"/>
+                                        <connections>
+                                            <action selector="saveButtonTapped:" destination="39u-LE-3ax" eventType="touchUpInside" id="mmp-cO-Bav"/>
+                                            <action selector="saveButtonTapped:" destination="gbk-Ff-Xqr" eventType="touchUpInside" id="rXz-mR-8fF"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="kX2-dK-5cS" firstAttribute="trailing" secondItem="CJk-4g-rDx" secondAttribute="trailing" constant="22" id="H0f-hq-z8c"/>
+                            <constraint firstItem="CJk-4g-rDx" firstAttribute="top" secondItem="kX2-dK-5cS" secondAttribute="top" constant="107" id="NVc-S7-51R"/>
+                            <constraint firstItem="CJk-4g-rDx" firstAttribute="leading" secondItem="kX2-dK-5cS" secondAttribute="leading" constant="22" id="prW-rd-gKz"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="kX2-dK-5cS"/>
+                    </view>
+                    <connections>
+                        <outlet property="movieTextField" destination="24o-7D-gW8" id="KTj-8E-VHK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Obs-Zr-XXV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="gbk-Ff-Xqr" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="140" y="116.49175412293854"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Plus" width="28" height="28"/>
+    </resources>
+</document>
