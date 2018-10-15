@@ -3,6 +3,9 @@ import UIKit
 
 class MovieModel: NSObject, UITableViewDataSource, MovieTableViewCellDelegate {
     
+    // C.R.U.D.
+    
+    //READ
     var movies: [Movie] = []
     
     
@@ -22,11 +25,8 @@ class MovieModel: NSObject, UITableViewDataSource, MovieTableViewCellDelegate {
     }
     
     
-    
-    let reuseIdentifierCell = "cell"
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifierCell) as? MovieTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as? MovieTableViewCell else {
             fatalError("Could not instantiate guranteed cell type")
         }
         // code for cells interation.
