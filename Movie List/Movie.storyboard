@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qgr-pE-1fz">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Add New Movies-->
+        <scene sceneID="9aa-H8-SRA">
+            <objects>
+                <viewController id="qgr-pE-1fz" customClass="MovieViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="GdS-o1-fEv">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a new movie to the list" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Cr-ps-aeD">
+                                <rect key="frame" x="49.5" y="78" width="276" height="29"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zq4-Tx-JEf">
+                                <rect key="frame" x="8" y="126" width="359" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cHc-U4-zbg">
+                                <rect key="frame" x="151" y="176" width="73" height="30"/>
+                                <state key="normal" title="Add Movie"/>
+                                <connections>
+                                    <action selector="submitButton:" destination="qgr-pE-1fz" eventType="touchUpInside" id="Khk-rW-kqk"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Zq4-Tx-JEf" firstAttribute="top" secondItem="GdS-o1-fEv" secondAttribute="top" constant="126" id="POU-NY-s4P"/>
+                            <constraint firstItem="cHc-U4-zbg" firstAttribute="top" secondItem="Zq4-Tx-JEf" secondAttribute="bottom" constant="20" id="YDj-Yu-PKL"/>
+                            <constraint firstItem="Zq4-Tx-JEf" firstAttribute="top" secondItem="9Cr-ps-aeD" secondAttribute="bottom" constant="19" id="gJ1-Jm-bgk"/>
+                            <constraint firstItem="Zq4-Tx-JEf" firstAttribute="centerX" secondItem="cHc-U4-zbg" secondAttribute="centerX" id="ifG-Ya-W8E"/>
+                            <constraint firstItem="Zq4-Tx-JEf" firstAttribute="leading" secondItem="Mf2-wA-jfE" secondAttribute="leading" constant="8" id="qoy-pn-nYk"/>
+                            <constraint firstItem="Mf2-wA-jfE" firstAttribute="trailing" secondItem="Zq4-Tx-JEf" secondAttribute="trailing" constant="8" id="wHr-Fi-pyP"/>
+                            <constraint firstItem="Zq4-Tx-JEf" firstAttribute="centerX" secondItem="9Cr-ps-aeD" secondAttribute="centerX" id="wY5-fY-C9U"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Mf2-wA-jfE"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Add New Movies" image="Plus" id="0Hg-e3-HPk"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="name" destination="Zq4-Tx-JEf" id="P7P-FT-ncA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jfK-KR-zY4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="432.80000000000001" y="-177.66116941529236"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Plus" width="28" height="28"/>
+    </resources>
+</document>
