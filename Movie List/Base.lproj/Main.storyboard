@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Wz0-0I-PNB">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,16 +10,16 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item 2-->
+        <!--Movies-->
         <scene sceneID="QhL-7h-E7I">
             <objects>
-                <viewController id="eFU-wh-mzu" sceneMemberID="viewController">
+                <viewController id="eFU-wh-mzu" customClass="MovieViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="SWI-Fa-BO7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="TE4-Gy-Ebb">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="movieCell" id="TE4-Gy-Ebb">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TE4-Gy-Ebb" id="hZx-1e-CGc">
@@ -49,16 +49,16 @@
                             </tableViewCell>
                         </prototypes>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Item 2" image="Clapboard" id="8RF-lt-4oR"/>
+                    <tabBarItem key="tabBarItem" title="Movies" image="Clapboard" id="8RF-lt-4oR"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BUI-wV-Xeb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="360.80000000000001" y="248.72563718140933"/>
         </scene>
-        <!--Item 1-->
+        <!--Add New Movies-->
         <scene sceneID="IDB-sF-7dY">
             <objects>
-                <viewController id="VJa-Nb-8Qd" sceneMemberID="viewController">
+                <viewController id="VJa-Nb-8Qd" customClass="MovieViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Fua-5N-eXp">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -86,6 +86,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ger-oA-YQw">
                                         <rect key="frame" x="141" y="87" width="77" height="30"/>
                                         <state key="normal" title="Add Movie:"/>
+                                        <connections>
+                                            <action selector="add:" destination="VJa-Nb-8Qd" eventType="touchUpInside" id="jg4-G3-8XB"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -107,7 +110,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Q2i-eQ-jDc"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" image="Plus" id="8h0-G1-EPX"/>
+                    <tabBarItem key="tabBarItem" title="Add New Movies" image="Plus" id="8h0-G1-EPX"/>
+                    <connections>
+                        <outlet property="movieText" destination="i2X-yM-S7M" id="sRF-gX-dts"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DJi-LO-NOn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
