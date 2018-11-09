@@ -13,8 +13,6 @@ class MovieListViewController: UIViewController, UITableViewDataSource, UITableV
     
     @IBOutlet weak var tableView: UITableView!
     
-    let reuseIdentifier = "cell"
-    
     override func viewWillAppear(_ animated: Bool){
         super.viewWillAppear(animated)
         
@@ -35,6 +33,8 @@ class MovieListViewController: UIViewController, UITableViewDataSource, UITableV
         tableView.reloadData()
         
     }
+    
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return Model.shared.itemCount()
@@ -63,14 +63,5 @@ class MovieListViewController: UIViewController, UITableViewDataSource, UITableV
         tableView.moveRow(at: sourceIndexPath, to: destinationIndexPath)
     }
     
-    @IBAction func editTable(_ sender: Any) {
-        tableView.setEditing(true, animated: true)
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(stopEditingTable(_:)))
-    }
     
-    @objc
-    func stopEditingTable(_ sender: Any) {
-        tableView.setEditing(false, animated: true)
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editTable(_:)))
-    }
 }
