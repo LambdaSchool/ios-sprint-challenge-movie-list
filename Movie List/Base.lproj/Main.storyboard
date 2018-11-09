@@ -1,11 +1,112 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <scenes/>
+    <scenes>
+        <!--Add New Movie-->
+        <scene sceneID="wOG-LU-HQe">
+            <objects>
+                <viewController id="alX-Ax-PRh" customClass="ViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lXY-4D-pFF">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Xgk-lp-p88">
+                                <rect key="frame" x="8" y="28" width="359" height="30"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ecU-Hs-N62">
+                                        <rect key="frame" x="0.0" y="0.0" width="321" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dja-0P-N00">
+                                        <rect key="frame" x="329" y="0.0" width="30" height="30"/>
+                                        <state key="normal" title="Add"/>
+                                        <connections>
+                                            <action selector="add:" destination="alX-Ax-PRh" eventType="touchUpInside" id="ygE-1h-VHN"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Xgk-lp-p88" firstAttribute="top" secondItem="OhM-gB-kOv" secondAttribute="top" constant="8" id="TYl-zu-MGG"/>
+                            <constraint firstItem="OhM-gB-kOv" firstAttribute="trailing" secondItem="Xgk-lp-p88" secondAttribute="trailing" constant="8" id="mAG-Rw-QoL"/>
+                            <constraint firstItem="Xgk-lp-p88" firstAttribute="leading" secondItem="OhM-gB-kOv" secondAttribute="leading" constant="8" id="nAa-rF-i2d"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="OhM-gB-kOv"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Add New Movie" image="Plus" id="Tph-Rb-vhB"/>
+                    <connections>
+                        <outlet property="textField" destination="ecU-Hs-N62" id="hBb-Ni-tFb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="l41-Rl-Zcj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="591.20000000000005" y="178.56071964017991"/>
+        </scene>
+        <!--Movie List-->
+        <scene sceneID="Chh-5i-W3y">
+            <objects>
+                <viewController id="mZO-Tk-B78" customClass="ViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6zL-aw-aRn">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="s4t-Tw-iuY">
+                                <rect key="frame" x="8" y="28" width="359" height="582"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="s4t-Tw-iuY" firstAttribute="leading" secondItem="x0i-Gn-aUI" secondAttribute="leading" constant="8" id="4m1-yJ-JZo"/>
+                            <constraint firstItem="x0i-Gn-aUI" firstAttribute="trailing" secondItem="s4t-Tw-iuY" secondAttribute="trailing" constant="8" id="Dun-fc-e4z"/>
+                            <constraint firstItem="s4t-Tw-iuY" firstAttribute="top" secondItem="x0i-Gn-aUI" secondAttribute="top" constant="8" id="SjQ-sV-ZPO"/>
+                            <constraint firstItem="x0i-Gn-aUI" firstAttribute="bottom" secondItem="s4t-Tw-iuY" secondAttribute="bottom" constant="8" id="W1v-lf-mui"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="x0i-Gn-aUI"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Movie List" image="Clapboard" id="ark-VJ-Lgh"/>
+                    <connections>
+                        <outlet property="tableView" destination="s4t-Tw-iuY" id="Mby-vr-b1x"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JFr-Bh-08h" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1268" y="178.56071964017991"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="Hqe-y1-M9q">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="f38-hx-TmG" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="glW-1N-txz">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="alX-Ax-PRh" kind="relationship" relationship="viewControllers" id="k8s-dV-0DN"/>
+                        <segue destination="mZO-Tk-B78" kind="relationship" relationship="viewControllers" id="gwe-zz-7rl"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EPx-a0-kYM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="930" y="-589"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Clapboard" width="28" height="28"/>
+        <image name="Plus" width="28" height="28"/>
+    </resources>
 </document>
