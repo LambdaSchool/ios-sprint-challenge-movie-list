@@ -5,6 +5,11 @@ class Model {
     private init() {}
     
     private var items: [String] = []
+    func loadData() {
+        if let items = NSArray(contentsOf: fileURL) as? [String] {
+            self.items = items
+        }
+    }
     
     func addItem(_ item: String) {
         items.append(item)
@@ -39,9 +44,5 @@ class Model {
         try! (items as NSArray).write(to: fileURL)
     }
     
-    func loadData() {
-        if let items = NSArray(contentsOf: fileURL) as? [String] {
-            self.items = items
-        }
-    }
+    
 }

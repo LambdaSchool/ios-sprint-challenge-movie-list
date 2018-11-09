@@ -21,4 +21,9 @@ class AddMovieViewController: UIViewController {
         //tableView.insertRows(at: [IndexPath(row: Model.shared.itemCount() - 1, section: 0)], with: .top)
         
     }
+    override func viewWillAppear(_ animated: Bool){
+        super.viewWillAppear(animated)
+        Model.shared.loadData()
+        
+    }
 }
