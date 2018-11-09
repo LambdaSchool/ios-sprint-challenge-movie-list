@@ -40,6 +40,10 @@ class MovieViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.reloadData()
     }
     @IBAction func edit(_ sender: Any) {
         tableView.setEditing(true, animated: true)
