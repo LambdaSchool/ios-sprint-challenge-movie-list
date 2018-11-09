@@ -29,5 +29,10 @@ class Model {
          return movies[index]
     }
     
+    func editMovie(_ index: Int, movie: String) -> String {
+        movies.insert(movie, at: index)
+        return movies[index]
+    }
+    
     
 }

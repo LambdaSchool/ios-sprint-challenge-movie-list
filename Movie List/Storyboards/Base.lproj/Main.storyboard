@@ -89,7 +89,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="E15-iT-DWp">
-                                <rect key="frame" x="20" y="40" width="335" height="558"/>
+                                <rect key="frame" x="20" y="90" width="335" height="508"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieCell" id="Ccc-Wz-oVl" customClass="MovieListTableViewCell" customModule="Movie_List" customModuleProvider="target">
@@ -99,15 +99,20 @@
                                             <rect key="frame" x="0.0" y="0.0" width="335" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YNm-OX-wfF">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YNm-OX-wfF">
                                                     <rect key="frame" x="265" y="6" width="64" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" title="Not Seen"/>
                                                     <connections>
                                                         <action selector="seenButton:" destination="Ccc-Wz-oVl" eventType="touchUpInside" id="8d3-UL-HaF"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="YNm-OX-wfF" secondAttribute="bottom" constant="7.5" id="4ky-rW-wfR"/>
+                                                <constraint firstItem="YNm-OX-wfF" firstAttribute="leading" relation="lessThanOrEqual" secondItem="0dK-iH-bJl" secondAttribute="leading" constant="265" id="evQ-pt-gkC"/>
+                                                <constraint firstAttribute="trailing" secondItem="YNm-OX-wfF" secondAttribute="trailing" constant="6" id="gv3-5l-4NA"/>
+                                                <constraint firstItem="YNm-OX-wfF" firstAttribute="top" secondItem="0dK-iH-bJl" secondAttribute="top" constant="6" id="hGy-op-FHM"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="seenButtonTitle" destination="YNm-OX-wfF" id="u23-A1-wqm"/>
@@ -115,18 +120,40 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="02K-xC-K0m">
+                                <rect key="frame" x="20" y="40" width="335" height="30"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="245" verticalHuggingPriority="248" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RY8-H3-1Yr">
+                                        <rect key="frame" x="0.0" y="0.0" width="297" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="swA-av-Rp9">
+                                        <rect key="frame" x="305" y="0.0" width="30" height="30"/>
+                                        <state key="normal" title="Edit"/>
+                                        <connections>
+                                            <action selector="editMovieButton:" destination="Lbs-Zg-zhM" eventType="touchUpInside" id="gwy-Qr-rT1"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="ykZ-G9-AiG" firstAttribute="trailing" secondItem="E15-iT-DWp" secondAttribute="trailing" constant="20" id="J4H-Ds-ORv"/>
-                            <constraint firstItem="E15-iT-DWp" firstAttribute="leading" secondItem="ykZ-G9-AiG" secondAttribute="leading" constant="20" id="Ucl-VQ-Mdt"/>
-                            <constraint firstItem="ykZ-G9-AiG" firstAttribute="bottom" secondItem="E15-iT-DWp" secondAttribute="bottom" constant="20" id="VZo-V7-iZs"/>
-                            <constraint firstItem="E15-iT-DWp" firstAttribute="top" secondItem="ykZ-G9-AiG" secondAttribute="top" constant="20" id="rKv-XP-ovp"/>
+                            <constraint firstItem="ykZ-G9-AiG" firstAttribute="bottom" secondItem="E15-iT-DWp" secondAttribute="bottom" constant="20" id="3np-2f-JC5"/>
+                            <constraint firstItem="E15-iT-DWp" firstAttribute="top" secondItem="02K-xC-K0m" secondAttribute="bottom" constant="20" id="CRJ-Vc-5la"/>
+                            <constraint firstItem="E15-iT-DWp" firstAttribute="leading" secondItem="ykZ-G9-AiG" secondAttribute="leading" constant="20" id="aMt-A1-6oc"/>
+                            <constraint firstItem="ykZ-G9-AiG" firstAttribute="trailing" secondItem="E15-iT-DWp" secondAttribute="trailing" constant="20" id="bml-S0-zcl"/>
+                            <constraint firstItem="02K-xC-K0m" firstAttribute="leading" secondItem="ykZ-G9-AiG" secondAttribute="leading" constant="20" id="gy4-yD-B9A"/>
+                            <constraint firstItem="02K-xC-K0m" firstAttribute="top" secondItem="ykZ-G9-AiG" secondAttribute="top" constant="20" id="man-Az-mSE"/>
+                            <constraint firstItem="ykZ-G9-AiG" firstAttribute="trailing" secondItem="02K-xC-K0m" secondAttribute="trailing" constant="20" id="rcY-JH-e50"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ykZ-G9-AiG"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Movies" image="Movie" id="u59-gp-uAi"/>
                     <connections>
+                        <outlet property="editMovieTextField" destination="RY8-H3-1Yr" id="j5N-4f-hBD"/>
                         <outlet property="tableView" destination="E15-iT-DWp" id="N7P-mo-ujG"/>
                     </connections>
                 </viewController>

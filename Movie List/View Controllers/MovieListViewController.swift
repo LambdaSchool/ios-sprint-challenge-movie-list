@@ -34,15 +34,25 @@ class MovieListViewController: UIViewController, UITableViewDelegate, UITableVie
         }
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        var edit = Model.shared.movie(indexPath.row)
+    // MARK - This implementation works but does not return movie at original index.
+    
+    @IBOutlet weak var editMovieTextField: UITextField!
+    
+    @IBAction func editMovieButton(_ sender: Any) {
+        guard let text = editMovieTextField.text, !text.isEmpty else { return }
         
-        guard let editMovie = addMovieViewController?.addMovieTextField.text else { return }
-        edit = editMovie
-        addMovieViewController?.addMovieTextField.text = edit
+        Model.shared.addMovie(text)
+        editMovieTextField.text = nil
+        tableView.reloadData()
+    }
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let edit = Model.shared.movie(indexPath.row)
+        editMovieTextField.text = edit
         Model.shared.deleteMovie(indexPath.row)
         
     }
     
-    let addMovieViewController: AddMovieViewController? = nil
+    
 }
