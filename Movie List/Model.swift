@@ -10,7 +10,7 @@ class Model {
     private var movies: [String] = []
     
     //Adding our movies
-    func addMove(_ movie: String) {
+    func addMovie(_ movie: String) {
         movies.append(movie)
         saveData()
     }
@@ -25,24 +25,26 @@ class Model {
         movies.insert(movie, at: destinationIndex)
         saveData()
     }
-    
+    //Returning the movie count
     func movieCount() -> Int {
         return movies.count
     }
-    
+    //Returning the movie array at the index
     func movie(at index: Int) -> String {
         return movies[index]
     }
     
     let fileURL = URL(fileURLWithPath: NSHomeDirectory())
     .appendingPathComponent("plist")
-    
+    .appendingPathComponent("Library")
+    .appendingPathComponent("Films")
+    //Saving the data from the URL
     func saveData() {
         try! (movies as NSArray).write(to: fileURL)
         
         
     }
-    
+    //Loading the data form the URL
     func loadData() {
         if let movies = NSArray(contentsOf: fileURL) as? [String] {
             self.movies = movies

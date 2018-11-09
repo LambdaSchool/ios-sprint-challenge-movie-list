@@ -3,17 +3,16 @@ import UIKit
 
 class MovieViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    @IBOutlet weak var movieText: UITextField!
+    @IBOutlet weak var tableView: UITableView!
     
-    @IBOutlet var tableView: UITableView!
-    
-    @IBAction func add(_ sender: Any) {
+
+    //delegate
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
-        guard let text = movieText.text, !text.isEmpty else { return }
-        
-        Model.shared.addMove(text)
-        
-        movieText.text = nil
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.reloadData()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -38,13 +37,6 @@ class MovieViewController: UIViewController, UITableViewDelegate, UITableViewDat
         tableView.deleteRows(at: [indexPath], with: .fade)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        tableView.dataSource = self
-        tableView.delegate = self
-        tableView.reloadData()
-    }
     @IBAction func edit(_ sender: Any) {
         tableView.setEditing(true, animated: true)
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(stopEditingTable(_:)))
@@ -55,8 +47,11 @@ class MovieViewController: UIViewController, UITableViewDelegate, UITableViewDat
         tableView.setEditing(false, animated: true)
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(edit(_:)))
     }
-
     
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        Model.shared.moveMovie(at: sourceIndexPath.row, to: destinationIndexPath.row)
+        tableView.moveRow(at: sourceIndexPath, to: destinationIndexPath)
+    }
     
     
     
