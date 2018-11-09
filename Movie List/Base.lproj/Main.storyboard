@@ -13,59 +13,41 @@
         <!--MovieListViewController-->
         <scene sceneID="ivL-tr-wlG">
             <objects>
-                <viewController title="MovieListViewController" id="vLe-sR-ANE" sceneMemberID="viewController">
+                <viewController title="MovieListViewController" id="vLe-sR-ANE" customClass="MovieListViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cad-ly-e8z">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="oLP-Qf-WPX">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="JL1-25-8WE">
                                 <rect key="frame" x="0.0" y="20" width="375" height="598"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="WWg-uT-gLa">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="WWg-uT-gLa" id="UzZ-P8-2YU">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="k2o-fv-vxV">
-                                                    <rect key="frame" x="23" y="19" width="329" height="14"/>
-                                                    <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WPK-yy-tl3">
-                                                            <rect key="frame" x="0.0" y="0.0" width="275" height="14"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lWn-3n-TfJ">
-                                                            <rect key="frame" x="283" y="0.0" width="46" height="14"/>
-                                                            <state key="normal" title="Button"/>
-                                                        </button>
-                                                    </subviews>
-                                                </stackView>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="k2o-fv-vxV" firstAttribute="top" secondItem="UzZ-P8-2YU" secondAttribute="topMargin" constant="8" id="MCx-D1-QaL"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="k2o-fv-vxV" secondAttribute="trailing" constant="8" id="POV-Rt-4Ae"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="k2o-fv-vxV" secondAttribute="bottom" id="cE2-4b-rn4"/>
-                                                <constraint firstItem="k2o-fv-vxV" firstAttribute="leading" secondItem="UzZ-P8-2YU" secondAttribute="leadingMargin" constant="8" id="cnW-iQ-wEz"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
+                                <label key="tableFooterView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jEw-Lg-h5G">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yfp-Cv-fmc">
+                                <rect key="frame" x="327" y="27" width="35" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Seen"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="CEG-zM-I5k" firstAttribute="trailing" secondItem="oLP-Qf-WPX" secondAttribute="trailing" id="D6m-pE-iKd"/>
-                            <constraint firstItem="CEG-zM-I5k" firstAttribute="bottom" secondItem="oLP-Qf-WPX" secondAttribute="bottom" id="Qg0-hl-2Gj"/>
-                            <constraint firstItem="oLP-Qf-WPX" firstAttribute="top" secondItem="CEG-zM-I5k" secondAttribute="top" id="Z3R-jB-Edl"/>
-                            <constraint firstItem="oLP-Qf-WPX" firstAttribute="leading" secondItem="CEG-zM-I5k" secondAttribute="leading" id="hvq-e0-q0X"/>
+                            <constraint firstItem="JL1-25-8WE" firstAttribute="top" secondItem="CEG-zM-I5k" secondAttribute="top" id="0sN-Fi-DFA"/>
+                            <constraint firstItem="JL1-25-8WE" firstAttribute="leading" secondItem="CEG-zM-I5k" secondAttribute="leading" id="WRs-Ya-57G"/>
+                            <constraint firstItem="CEG-zM-I5k" firstAttribute="bottom" secondItem="JL1-25-8WE" secondAttribute="bottom" id="gRy-pB-M4a"/>
+                            <constraint firstItem="CEG-zM-I5k" firstAttribute="trailing" secondItem="JL1-25-8WE" secondAttribute="trailing" id="glC-CU-VhS"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="CEG-zM-I5k"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Movies" image="Clapboard" id="Pxo-aS-fr9"/>
+                    <connections>
+                        <outlet property="tableView" destination="JL1-25-8WE" id="aQ4-ki-kt7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hc7-KQ-Edm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -74,48 +56,49 @@
         <!--AddMovieViewController-->
         <scene sceneID="4WE-OK-KZt">
             <objects>
-                <viewController title="AddMovieViewController" id="aD6-xG-57R" sceneMemberID="viewController">
+                <viewController title="AddMovieViewController" id="aD6-xG-57R" customClass="AddMovieViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="M62-we-X4P">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="DGn-SJ-YeI">
-                                <rect key="frame" x="8" y="28" width="359" height="122.5"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="x8d-iY-aMz">
+                                <rect key="frame" x="8" y="28" width="359" height="96.5"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a new movie to the list" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Wr-b2-aeP">
-                                        <rect key="frame" x="8" y="0.0" width="343" height="20.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a new movie to the list" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gLW-3U-6gW">
+                                        <rect key="frame" x="0.0" y="0.0" width="359" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter the movie's title:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zyw-Ga-nQO">
-                                        <rect key="frame" x="8" y="41.5" width="343" height="30"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter the movie's title:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yFO-xJ-cbX">
+                                        <rect key="frame" x="0.0" y="28.5" width="359" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L9l-aj-KMA">
-                                        <rect key="frame" x="143" y="92.5" width="73" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="byQ-ty-dy2">
+                                        <rect key="frame" x="0.0" y="66.5" width="359" height="30"/>
                                         <state key="normal" title="Add Movie"/>
+                                        <connections>
+                                            <action selector="add:" destination="aD6-xG-57R" eventType="touchUpInside" id="wVP-ri-G3E"/>
+                                        </connections>
                                     </button>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="0Wr-b2-aeP" secondAttribute="trailing" constant="8" id="GkA-w7-IcS"/>
-                                    <constraint firstItem="zyw-Ga-nQO" firstAttribute="leading" secondItem="DGn-SJ-YeI" secondAttribute="leading" constant="8" id="McX-qa-BPm"/>
-                                    <constraint firstItem="0Wr-b2-aeP" firstAttribute="leading" secondItem="DGn-SJ-YeI" secondAttribute="leading" constant="8" id="PYW-DS-hQZ"/>
-                                    <constraint firstAttribute="trailing" secondItem="zyw-Ga-nQO" secondAttribute="trailing" constant="8" id="vI0-eS-tjk"/>
-                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="DGn-SJ-YeI" firstAttribute="top" secondItem="sGt-Ge-xYb" secondAttribute="top" constant="8" id="g9D-DU-8YH"/>
-                            <constraint firstItem="DGn-SJ-YeI" firstAttribute="leading" secondItem="sGt-Ge-xYb" secondAttribute="leading" constant="8" id="jV5-sw-B4o"/>
-                            <constraint firstItem="sGt-Ge-xYb" firstAttribute="trailing" secondItem="DGn-SJ-YeI" secondAttribute="trailing" constant="8" id="lRm-AM-vRp"/>
+                            <constraint firstItem="x8d-iY-aMz" firstAttribute="top" secondItem="sGt-Ge-xYb" secondAttribute="top" constant="8" id="ddd-yT-AEo"/>
+                            <constraint firstItem="x8d-iY-aMz" firstAttribute="leading" secondItem="sGt-Ge-xYb" secondAttribute="leading" constant="8" id="omj-oN-Ldz"/>
+                            <constraint firstItem="sGt-Ge-xYb" firstAttribute="trailing" secondItem="x8d-iY-aMz" secondAttribute="trailing" constant="8" id="prn-lx-RXo"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="sGt-Ge-xYb"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Add New Movies" image="Plus" id="arY-Y1-GlF"/>
+                    <connections>
+                        <outlet property="label" destination="gLW-3U-6gW" id="9Dc-nf-bBt"/>
+                        <outlet property="textField" destination="yFO-xJ-cbX" id="jVz-8n-BU6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="afB-it-Hyw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
