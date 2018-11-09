@@ -22,7 +22,7 @@
                                 <rect key="frame" x="20" y="40" width="335" height="558"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="mmH-e4-dY2">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="mmH-e4-dY2">
                                         <rect key="frame" x="0.0" y="28" width="335" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mmH-e4-dY2" id="wkT-Uy-dHR">
@@ -60,23 +60,27 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="add your favorite movie to the list" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YBz-qB-T2G">
-                                <rect key="frame" x="60" y="150" width="255" height="161.5"/>
+                                <rect key="frame" x="60" y="120" width="255" height="161.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="45"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="jPb-YD-Ktw">
-                                <rect key="frame" x="60" y="381.5" width="255" height="62"/>
+                                <rect key="frame" x="60" y="321.5" width="255" height="79"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="enter movie title here ..." textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Txz-mc-SJP">
-                                        <rect key="frame" x="37.5" y="0.0" width="180.5" height="23"/>
+                                        <rect key="frame" x="27.5" y="0.0" width="200" height="40"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="82q-OU-gbz"/>
+                                            <constraint firstAttribute="height" constant="40" id="fE4-nX-9in"/>
+                                        </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dvi-yU-OCt">
-                                        <rect key="frame" x="85.5" y="28" width="84" height="34"/>
+                                        <rect key="frame" x="85.5" y="45" width="84" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <state key="normal" title="add movie"/>
                                         <connections>
@@ -88,12 +92,12 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="YBz-qB-T2G" firstAttribute="top" secondItem="3bp-Ex-fLR" secondAttribute="top" constant="130" id="1tR-oR-DQV"/>
+                            <constraint firstItem="YBz-qB-T2G" firstAttribute="top" secondItem="3bp-Ex-fLR" secondAttribute="top" constant="100" id="1tR-oR-DQV"/>
                             <constraint firstItem="jPb-YD-Ktw" firstAttribute="centerX" secondItem="iZd-v1-7KE" secondAttribute="centerX" id="DQe-9I-JY2"/>
                             <constraint firstItem="3bp-Ex-fLR" firstAttribute="trailing" secondItem="jPb-YD-Ktw" secondAttribute="trailing" constant="60" id="Q6m-BJ-wSO"/>
                             <constraint firstItem="YBz-qB-T2G" firstAttribute="leading" secondItem="3bp-Ex-fLR" secondAttribute="leading" constant="60" id="aSP-0C-SIh"/>
                             <constraint firstItem="jPb-YD-Ktw" firstAttribute="leading" secondItem="3bp-Ex-fLR" secondAttribute="leading" constant="60" id="j88-IJ-FJT"/>
-                            <constraint firstItem="jPb-YD-Ktw" firstAttribute="top" secondItem="YBz-qB-T2G" secondAttribute="bottom" constant="70" id="qpt-aZ-3hm"/>
+                            <constraint firstItem="jPb-YD-Ktw" firstAttribute="top" secondItem="YBz-qB-T2G" secondAttribute="bottom" constant="40" id="qpt-aZ-3hm"/>
                             <constraint firstAttribute="trailing" secondItem="YBz-qB-T2G" secondAttribute="trailing" constant="60" id="uIk-GQ-6Vx"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="3bp-Ex-fLR"/>

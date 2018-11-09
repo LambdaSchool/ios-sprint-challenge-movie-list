@@ -2,6 +2,7 @@ import UIKit
 
 class AddMovieViewController: UIViewController {
     
+    //outlets
     @IBOutlet weak var label: UILabel!
     
     @IBOutlet weak var textField: UITextField!
@@ -10,7 +11,7 @@ class AddMovieViewController: UIViewController {
         guard let text = textField.text,
             !text.isEmpty else {return}
         
-        Model.shared.addMovie(movie: text)
+        Model.shared.addMovie(text)
         textField.text = nil
     }
     

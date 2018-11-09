@@ -12,7 +12,7 @@ class Model {
     }
     
     //add movies to array
-    func addMovie(movie: String) {
+    func addMovie(_ movie: String) {
         movies.append(movie)
         saveData()
     }
@@ -38,8 +38,8 @@ class Model {
     
     let fileURL = URL(fileURLWithPath: NSHomeDirectory())
         .appendingPathComponent("Library")
-        .appendingPathComponent("Movies")
-        .appendingPathComponent("plist")
+        .appendingPathComponent("Films")
+        .appendingPathExtension("plist")
     
     //how we are saving the movie titles entered on app
     func saveData() {
@@ -49,7 +49,7 @@ class Model {
     //loads what is saved
     func loadData() {
         if let movies = NSArray(contentsOf: fileURL) as? [String] {
-            let movies = movies
+            let _ = movies
         }
     }
 }
