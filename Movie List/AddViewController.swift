@@ -3,6 +3,9 @@ import UIKit
 
 class AddViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    
+    @IBOutlet weak var tableView: UITableView!
+    
     @IBOutlet weak var textField: UITextField!
     
     @IBAction func add(_ sender: Any) {
@@ -10,6 +13,13 @@ class AddViewController: UIViewController, UITableViewDataSource, UITableViewDel
         Model.shared.addItem(text)
         textField.text = nil
        // UITableView.reloadData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.reloadData()
     }
     
     let reuseIdentifier = "cell"
@@ -24,5 +34,16 @@ class AddViewController: UIViewController, UITableViewDataSource, UITableViewDel
         return cell
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        guard editingStyle == .delete else { return }
+        Model.shared.removeValue(at: indexPath.row)
+        tableView.deleteRows(at: [indexPath], with: .fade)
+        
+    }
     
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        Model.shared.moveItem(from: sourceIndexPath.row, to: destinationIndexPath.row)
+        tableView.moveRow(at: sourceIndexPath, to: destinationIndexPath)
+    }
+
 }
