@@ -11,6 +11,25 @@ import UIKit
 class addMovieViewController: UIViewController {
 
     
-
-
+    @IBOutlet weak var textField: UITextField!
+    
+    @IBAction func add(_ sender: Any) {
+        guard let text = textField.text, !text.isEmpty else {return}
+        // add to model
+        Model.shared.addMovie(text)
+        
+        // remove the entry from the text field
+        textField.text = nil
+        
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }
