@@ -34,6 +34,37 @@ class ListController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         Model.shared.loadData()
     }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        guard editingStyle == .delete else { return }
+        
+        Model.shared.removeMovie(index: indexPath.row)
+        
+        tableView.deleteRows(at: [indexPath], with: .fade)
+    }
+    
+    @IBAction func editTable(_ sender: Any) {
+        
+        tableView.setEditing(true, animated: true)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(stopEditingTable(_:)))
+    }
+    
+    @objc
+    func stopEditingTable(_ sender: Any) {
+        tableView.setEditing(false, animated: true)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editTable(_:)))
+    }
+    
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        Model.shared.moveMovie(indexOrigin: sourceIndexPath.row, indexDestination: destinationIndexPath.row)
+        tableView.moveRow(at: sourceIndexPath, to: destinationIndexPath)
+        
+    }
 }
+
+
+
+
 
 

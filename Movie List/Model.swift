@@ -16,10 +16,18 @@ class Model {
     func addMovie(movie: String) {
         print ("appended")
         movies.append(movie)
+        saveData()
     }
     
     func removeMovie(index: Int) {
         movies.remove(at: index)
+        saveData()
+    }
+    
+    func moveMovie (indexOrigin: Int, indexDestination: Int) {
+        let value = movies.remove(at: indexOrigin)
+        movies.insert(value, at: indexDestination)
+        print("item moved")
     }
     
     func moviesCount () -> Int {
@@ -45,4 +53,7 @@ class Model {
         }
     
     }
+    
+    
+    
 }
