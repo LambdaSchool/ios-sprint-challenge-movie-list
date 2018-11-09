@@ -9,24 +9,12 @@
 import Foundation
 import UIKit
 
-class MovieListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class MovieListViewController: UIViewController, UIActivityItemSource, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     
     override func viewWillAppear(_ animated: Bool){
         super.viewWillAppear(animated)
-        
-        // Delegation pattern - allows you to establish another class that
-        // handles responsiblity that you cannot determine at the time you
-        // design your source class
-        // In this case, our source class is UITableView
-        // And our delegate class is ViewController
-        
-        // Table views use two kinds of delegation to pass on responsibility:
-        // -- Data Source -- tells the table view what kind of things to put
-        // in its cells and how many cells it has
-        // -- Delegate -- responds to user interactions; table passes
-        // responsibility for user touches
         
         tableView.dataSource = self
         tableView.delegate = self
@@ -34,7 +22,20 @@ class MovieListViewController: UIViewController, UITableViewDataSource, UITableV
         
     }
     
-    
+    // Share data
+    @IBAction func share(_ sender: Any) {
+        
+        var items: String = ""
+        
+        for item in 0..<(Model.shared.itemCount()-1){
+            items += "\(Model.shared.item(at:item)), "
+        }
+        items += " \(Model.shared.item(at: Model.shared.itemCount()-1))"
+        let list = [items]
+        
+        let ac = UIActivityViewController(activityItems: list, applicationActivities: nil)
+        present(ac, animated: true)
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return Model.shared.itemCount()
@@ -63,5 +64,11 @@ class MovieListViewController: UIViewController, UITableViewDataSource, UITableV
         tableView.moveRow(at: sourceIndexPath, to: destinationIndexPath)
     }
     
+    func activityViewControllerPlaceholderItem(_ activityViewController: UIActivityViewController) -> Any {
+        return ""
+    }
     
+    func activityViewController(_ activityViewController: UIActivityViewController, itemForActivityType activityType: UIActivity.ActivityType?) -> Any? {
+        return ""
+    }
 }
