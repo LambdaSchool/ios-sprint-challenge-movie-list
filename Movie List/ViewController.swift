@@ -60,6 +60,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
         tableView.setEditing(true, animated: true)
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(stopEditingTable(_:)))
+        Model.shared.moveMovie(from: sourceIndexPath.row, to: destinationIndexPath.row)
+        
     }
 
         // fun barButton stuff
@@ -72,6 +74,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func stopEditingTable(_ sender: Any) {
         tableView.setEditing(false, animated: true)
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editTable(_:)))
+        
     }
     
     

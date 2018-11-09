@@ -6,7 +6,7 @@ class Model {
     static let shared = Model()
     private init(){}
     
-    private var movies: [String] = ["Fight Club", "Free Willy", "Jaws"]
+    private var movies: [String] = []
     
     func addMovie(_ movie: String){
         movies.append(movie)
@@ -20,8 +20,9 @@ class Model {
     
     func moveMovie(from index: Int, to destinationIndex: Int) {
         let movie = movies.remove(at: index)
-        movies.insert(movie, at: index)
+        movies.insert(movie, at: destinationIndex)
         saveData()
+        //print(movies)
     }
     
     func movieCount() -> Int {
