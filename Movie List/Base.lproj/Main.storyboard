@@ -18,37 +18,48 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a new movie to the list" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DUC-eo-Su1">
-                                <rect key="frame" x="20" y="40" width="335" height="32.5"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="27"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter the movie's title:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bHf-1D-b8Y">
-                                <rect key="frame" x="20" y="80.5" width="335" height="30"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M9I-4f-P1t">
-                                <rect key="frame" x="20" y="118.5" width="335" height="30"/>
-                                <state key="normal" title="Add Movie"/>
-                                <connections>
-                                    <action selector="add:" destination="YM9-Q2-zLS" eventType="touchUpInside" id="nKa-L3-ufj"/>
-                                </connections>
-                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4X1-lf-VFf">
+                                <rect key="frame" x="0.0" y="243.5" width="375" height="180"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.82545664612676062" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="180" id="ImW-VQ-ZMY"/>
+                                </constraints>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="2Im-7K-nV1">
+                                <rect key="frame" x="20.5" y="279.5" width="334.5" height="108.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a new movie to the list" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DUC-eo-Su1">
+                                        <rect key="frame" x="0.0" y="0.0" width="334.5" height="32.5"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="27"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter the movie's title:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bHf-1D-b8Y">
+                                        <rect key="frame" x="0.0" y="40.5" width="334.5" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M9I-4f-P1t">
+                                        <rect key="frame" x="0.0" y="78.5" width="334.5" height="30"/>
+                                        <state key="normal" title="Add Movie">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="add:" destination="YM9-Q2-zLS" eventType="touchUpInside" id="nKa-L3-ufj"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Q0C-sZ-oSf" firstAttribute="trailing" secondItem="DUC-eo-Su1" secondAttribute="trailing" constant="20" id="CCP-nq-4UO"/>
-                            <constraint firstItem="bHf-1D-b8Y" firstAttribute="leading" secondItem="Q0C-sZ-oSf" secondAttribute="leading" constant="20" id="G8S-go-3jd"/>
-                            <constraint firstItem="DUC-eo-Su1" firstAttribute="leading" secondItem="Q0C-sZ-oSf" secondAttribute="leading" constant="20" id="IAO-jy-Z4Y"/>
-                            <constraint firstItem="Q0C-sZ-oSf" firstAttribute="trailing" secondItem="bHf-1D-b8Y" secondAttribute="trailing" constant="20" id="IXv-At-66E"/>
-                            <constraint firstItem="M9I-4f-P1t" firstAttribute="leading" secondItem="Q0C-sZ-oSf" secondAttribute="leading" constant="20" id="SjR-EX-wA9"/>
-                            <constraint firstItem="DUC-eo-Su1" firstAttribute="top" secondItem="Q0C-sZ-oSf" secondAttribute="top" constant="20" id="bev-6b-fOc"/>
-                            <constraint firstItem="Q0C-sZ-oSf" firstAttribute="trailing" secondItem="M9I-4f-P1t" secondAttribute="trailing" constant="20" id="ezE-zn-SRX"/>
-                            <constraint firstItem="bHf-1D-b8Y" firstAttribute="top" secondItem="DUC-eo-Su1" secondAttribute="bottom" constant="8" id="glY-mw-k41"/>
-                            <constraint firstItem="M9I-4f-P1t" firstAttribute="top" secondItem="bHf-1D-b8Y" secondAttribute="bottom" constant="8" id="yzi-nZ-0ML"/>
+                            <constraint firstItem="2Im-7K-nV1" firstAttribute="centerY" secondItem="fZ3-0p-kHb" secondAttribute="centerY" id="0uV-Gb-L7s"/>
+                            <constraint firstItem="4X1-lf-VFf" firstAttribute="centerX" secondItem="fZ3-0p-kHb" secondAttribute="centerX" id="R2g-F2-JOy"/>
+                            <constraint firstItem="4X1-lf-VFf" firstAttribute="leading" secondItem="Q0C-sZ-oSf" secondAttribute="leading" id="bFI-1M-say"/>
+                            <constraint firstItem="Q0C-sZ-oSf" firstAttribute="trailing" secondItem="4X1-lf-VFf" secondAttribute="trailing" id="eO3-Ot-dAw"/>
+                            <constraint firstItem="2Im-7K-nV1" firstAttribute="centerX" secondItem="fZ3-0p-kHb" secondAttribute="centerX" id="iQy-mg-SlL"/>
+                            <constraint firstItem="4X1-lf-VFf" firstAttribute="centerY" secondItem="fZ3-0p-kHb" secondAttribute="centerY" id="x8x-pS-rNc"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Q0C-sZ-oSf"/>
                     </view>
@@ -59,7 +70,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UBY-4g-gGr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="700" y="118"/>
+            <point key="canvasLocation" x="700" y="117.39130434782609"/>
         </scene>
         <!--Movie List View Controller-->
         <scene sceneID="u0K-NM-gBI">

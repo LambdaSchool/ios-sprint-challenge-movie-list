@@ -1,35 +1,32 @@
-//
-//  addMovieViewController.swift
-//  Movie List
-//
-//  Created by Ivan Caldwell on 11/9/18.
-//  Copyright © 2018 Lambda School. All rights reserved.
-//
-
 import UIKit
 
 class addMovieViewController: UIViewController {
+    
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
+        backgroundImage.image = UIImage(named: "background.png")
+        backgroundImage.contentMode = UIView.ContentMode.scaleAspectFill
+        self.view.insertSubview(backgroundImage, at: 0)
+        
+        // Didn't have time to play around with the image view.
+        //self.view.backgroundColor = UIColor(patternImage: UIImage(named: "background.png")!)
+    }
+    
 
     
     @IBOutlet weak var textField: UITextField!
     
+    // Add Movie Button Function
     @IBAction func add(_ sender: Any) {
         guard let text = textField.text, !text.isEmpty else {return}
-        // add to model
+        
+        // Add to model
         Model.shared.addMovie(text)
         
-        // remove the entry from the text field
+        // Remove the entry from the text field
         textField.text = nil
-        
-        
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
 }
