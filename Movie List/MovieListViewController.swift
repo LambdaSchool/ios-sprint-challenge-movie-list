@@ -24,6 +24,7 @@ class MovieListViewController: UIViewController, UIActivityItemSource, UITableVi
     }
     
     // Share data
+    // THIS Functionality may cause errors on iPAD
     @IBAction func share(_ sender: Any) {
         
         var items: String = ""
