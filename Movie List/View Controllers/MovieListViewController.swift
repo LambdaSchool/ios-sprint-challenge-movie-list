@@ -34,4 +34,15 @@ class MovieListViewController: UIViewController, UITableViewDelegate, UITableVie
         }
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        var edit = Model.shared.movie(indexPath.row)
+        
+        guard let editMovie = addMovieViewController?.addMovieTextField.text else { return }
+        edit = editMovie
+        addMovieViewController?.addMovieTextField.text = edit
+        Model.shared.deleteMovie(indexPath.row)
+        
+    }
+    
+    let addMovieViewController: AddMovieViewController? = nil
 }
