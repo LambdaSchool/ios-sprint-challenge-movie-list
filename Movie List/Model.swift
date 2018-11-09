@@ -20,6 +20,17 @@ class Model {
         saveData()
     }
     
+    // ability to move items into a different order
+    func moveItem(from index: Int, to destinationIndex: Int) {
+        // assign the index of the removed item to 'item'
+        let item = items.remove(at: index)
+        
+        // insert the item according to destinationIndex
+        items.insert(item, at: destinationIndex)
+        
+        saveData()
+    }
+    
     // return number of items entered into the array
     func itemCount() -> Int {
         return items.count
