@@ -31,7 +31,7 @@ class Model {
     
     let fileURL = URL(fileURLWithPath: NSHomeDirectory())
         .appendingPathComponent("Library")
-        .appendingPathComponent("ToDo")
+        .appendingPathComponent("AddMovie")
         .appendingPathExtension("plist")
     
     func saveData() {
