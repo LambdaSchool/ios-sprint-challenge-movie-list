@@ -46,6 +46,21 @@
                                     <constraint firstItem="vBQ-S3-MCp" firstAttribute="leading" secondItem="g56-5w-fGg" secondAttribute="leading" id="vu8-km-CPe"/>
                                 </constraints>
                             </stackView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IxB-9c-sWR">
+                                <rect key="frame" x="16" y="161" width="343" height="452"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="Ypz-yn-8ts">
+                                        <rect key="frame" x="0.0" y="28" width="343" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ypz-yn-8ts" id="5pT-BX-bfU">
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -55,8 +70,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="7b4-3F-66n"/>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="more" id="cCZ-Ad-Jgn"/>
+                    <tabBarItem key="tabBarItem" image="Plus" id="cCZ-Ad-Jgn"/>
                     <connections>
+                        <outlet property="tableView" destination="IxB-9c-sWR" id="M7W-Xk-6zg"/>
                         <outlet property="textField" destination="vBQ-S3-MCp" id="jNm-KD-i6k"/>
                     </connections>
                 </viewController>
@@ -72,16 +88,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="VdP-EI-naW">
-                                <rect key="frame" x="16" y="20" width="343" height="567"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="VdP-EI-naW">
+                                <rect key="frame" x="8" y="154" width="359" height="456"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="rOo-PT-c2E">
-                                        <rect key="frame" x="0.0" y="28" width="343" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="359" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rOo-PT-c2E" id="UmO-aq-zOq">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="359" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -89,16 +104,19 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="VdP-EI-naW" firstAttribute="top" secondItem="n6G-yk-I4l" secondAttribute="top" constant="8" id="dIN-FZ-Hsq"/>
+                            <constraint firstItem="n6G-yk-I4l" firstAttribute="trailing" secondItem="VdP-EI-naW" secondAttribute="trailing" constant="8" id="dRR-qE-oKp"/>
+                            <constraint firstItem="VdP-EI-naW" firstAttribute="leading" secondItem="n6G-yk-I4l" secondAttribute="leading" constant="8" id="n57-Ob-mLb"/>
+                            <constraint firstItem="n6G-yk-I4l" firstAttribute="bottom" secondItem="VdP-EI-naW" secondAttribute="bottom" constant="8" id="yPr-Qs-cAE"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="n6G-yk-I4l"/>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="downloads" id="YCF-97-E7Z"/>
-                    <connections>
-                        <outlet property="tableView" destination="VdP-EI-naW" id="odd-OK-FBv"/>
-                    </connections>
+                    <tabBarItem key="tabBarItem" image="Clapboard" id="YCF-97-E7Z"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Om6-ly-SEa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1457" y="151"/>
+            <point key="canvasLocation" x="1456.8" y="150.67466266866569"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="pLz-ga-ecd">
@@ -120,4 +138,8 @@
             <point key="canvasLocation" x="1090" y="-622"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Clapboard" width="28" height="28"/>
+        <image name="Plus" width="28" height="28"/>
+    </resources>
 </document>
