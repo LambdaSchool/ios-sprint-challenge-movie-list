@@ -8,6 +8,7 @@ class Model {
     
     func addItem(_ item: String) {
         items.append(item)
+        saveData()
     }
     
     func itemCount() -> Int {
@@ -24,7 +25,7 @@ class Model {
     }
     
     func saveData() {
-        try! (items as NSArray).write(to: fileURL)
+        try? (items as NSArray).write(to: fileURL)
     }
     
     let fileURL = URL(fileURLWithPath: NSHomeDirectory())
@@ -37,5 +38,11 @@ class Model {
         let item = items.remove(at: index)
         items.insert(item, at: destinationIndex)
         saveData()
+    }
+    
+    func loadData() {
+        if let items = NSArray(contentsOf: fileURL) as? [String] {
+            self.items = items
+        }
     }
 }

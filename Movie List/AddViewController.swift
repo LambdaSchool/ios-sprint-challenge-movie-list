@@ -12,7 +12,7 @@ class AddViewController: UIViewController, UITableViewDataSource, UITableViewDel
         guard let text = textField.text, !text.isEmpty else { return }
         Model.shared.addItem(text)
         textField.text = nil
-       // UITableView.reloadData()
+        tableView.reloadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
