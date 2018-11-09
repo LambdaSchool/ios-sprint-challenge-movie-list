@@ -15,6 +15,9 @@ class Model {
         movieList.remove(at: index)
     }
     
+    func numberOfRows() -> Int {
+        return (movieList.count - 1)
+    }
     
     
     
