@@ -4,7 +4,7 @@ class MovieListViewController: UIViewController, UITableViewDelegate, UITableVie
     
     @IBOutlet weak var tableView: UITableView!
     
-    //establishing delegate
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -14,7 +14,7 @@ class MovieListViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     let reuseIdentifier = "cell"
     
-    //table functions
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return Model.shared.movieCount()
     }
@@ -26,7 +26,7 @@ class MovieListViewController: UIViewController, UITableViewDelegate, UITableVie
         return cell
     }
     
-    //table functions for editing
+    
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         Model.shared.moveMovie(at: sourceIndexPath.row, to: destinationIndexPath.row)
         tableView.moveRow(at: sourceIndexPath, to: destinationIndexPath)
@@ -38,17 +38,9 @@ class MovieListViewController: UIViewController, UITableViewDelegate, UITableVie
         tableView.deleteRows(at: [indexPath], with: .fade)
     }
     
-    //objective c functions that use #selector makes it fancy
-    @IBAction func editTable(_ sender: Any) {
-        tableView.setEditing(true, animated: true)
-        navigationItem.rightBarButtonItem =
-            UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(stopEditingTable(_:)))
+    
+    
     }
     
-    @objc
-    func stopEditingTable(_ sender: Any) {
-        tableView.setEditing(false, animated: true)
-        navigationItem.rightBarButtonItem =
-            UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editTable(_:)))
-    }
-}
+
+
