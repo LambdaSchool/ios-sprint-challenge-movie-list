@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  AddViewController.swift
 //  Movie List
 //
 //  Created by Stuart on 11/9/18.
