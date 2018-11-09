@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="f38-hx-TmG">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -13,25 +13,25 @@
         <!--Add New Movie-->
         <scene sceneID="wOG-LU-HQe">
             <objects>
-                <viewController id="alX-Ax-PRh" customClass="ViewController" sceneMemberID="viewController">
+                <viewController id="alX-Ax-PRh" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lXY-4D-pFF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Xgk-lp-p88">
+                            <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="500" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Xgk-lp-p88">
                                 <rect key="frame" x="8" y="28" width="359" height="30"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ecU-Hs-N62">
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ecU-Hs-N62">
                                         <rect key="frame" x="0.0" y="0.0" width="321" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dja-0P-N00">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dja-0P-N00">
                                         <rect key="frame" x="329" y="0.0" width="30" height="30"/>
                                         <state key="normal" title="Add"/>
                                         <connections>
-                                            <action selector="add:" destination="alX-Ax-PRh" eventType="touchUpInside" id="ygE-1h-VHN"/>
+                                            <action selector="add:" destination="l41-Rl-Zcj" eventType="touchUpInside" id="Gir-7f-6vx"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -44,11 +44,11 @@
                             <constraint firstItem="Xgk-lp-p88" firstAttribute="leading" secondItem="OhM-gB-kOv" secondAttribute="leading" constant="8" id="nAa-rF-i2d"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="OhM-gB-kOv"/>
+                        <connections>
+                            <outlet property="textField" destination="ecU-Hs-N62" id="2U0-gU-NVN"/>
+                        </connections>
                     </view>
                     <tabBarItem key="tabBarItem" title="Add New Movie" image="Plus" id="Tph-Rb-vhB"/>
-                    <connections>
-                        <outlet property="textField" destination="ecU-Hs-N62" id="hBb-Ni-tFb"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l41-Rl-Zcj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -57,7 +57,7 @@
         <!--Movie List-->
         <scene sceneID="Chh-5i-W3y">
             <objects>
-                <viewController id="mZO-Tk-B78" customClass="ViewController" sceneMemberID="viewController">
+                <viewController id="mZO-Tk-B78" customClass="ListController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6zL-aw-aRn">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -88,7 +88,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Movie List" image="Clapboard" id="ark-VJ-Lgh"/>
                     <connections>
-                        <outlet property="tableView" destination="s4t-Tw-iuY" id="Mby-vr-b1x"/>
+                        <outlet property="tableView" destination="s4t-Tw-iuY" id="3Pp-vR-gSM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JFr-Bh-08h" userLabel="First Responder" sceneMemberID="firstResponder"/>

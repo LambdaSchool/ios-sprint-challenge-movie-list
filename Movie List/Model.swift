@@ -3,11 +3,13 @@ import UIKit
 class Model {
     
     static let shared = Model()
+    private init() {}
     
-    private var movieList: [String] = []
+    private var movieList: [String] = ["k", "p"]
     
     func addMovie(_ movie: String) {
         movieList.append(movie)
+        print(movieList)
         
     }
     
@@ -15,11 +17,14 @@ class Model {
         movieList.remove(at: index)
     }
     
-    func numberOfRows() -> Int {
-        return (movieList.count - 1)
+    func numberOfMovies() -> Int {
+        print(movieList.count)
+        return (movieList.count)
+
     }
-    
-    
-    
+
+    func movie(index: Int) -> String {
+        return movieList[index]
+    }
     
 }
