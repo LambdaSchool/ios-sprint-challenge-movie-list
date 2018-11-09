@@ -7,7 +7,7 @@ class MovieListViewController: UIViewController, UITableViewDelegate, UITableVie
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+         
         tableView.delegate = self
         tableView.dataSource = self
         tableView.reloadData()
