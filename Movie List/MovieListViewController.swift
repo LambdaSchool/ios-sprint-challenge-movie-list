@@ -76,8 +76,6 @@ class MovieListViewController: UIViewController, UIActivityItemSource, UITableVi
     }
     
     
-    
-    
     func activityViewControllerPlaceholderItem(_ activityViewController: UIActivityViewController) -> Any {
         return ""
     }
