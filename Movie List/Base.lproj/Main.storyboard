@@ -13,7 +13,7 @@
         <!--Add New Movie-->
         <scene sceneID="wOG-LU-HQe">
             <objects>
-                <viewController id="alX-Ax-PRh" sceneMemberID="viewController">
+                <viewController id="alX-Ax-PRh" customClass="AddController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lXY-4D-pFF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -31,7 +31,7 @@
                                         <rect key="frame" x="329" y="0.0" width="30" height="30"/>
                                         <state key="normal" title="Add"/>
                                         <connections>
-                                            <action selector="add:" destination="l41-Rl-Zcj" eventType="touchUpInside" id="Gir-7f-6vx"/>
+                                            <action selector="add:" destination="alX-Ax-PRh" eventType="touchUpInside" id="rIl-KS-tys"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -44,11 +44,11 @@
                             <constraint firstItem="Xgk-lp-p88" firstAttribute="leading" secondItem="OhM-gB-kOv" secondAttribute="leading" constant="8" id="nAa-rF-i2d"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="OhM-gB-kOv"/>
-                        <connections>
-                            <outlet property="textField" destination="ecU-Hs-N62" id="2U0-gU-NVN"/>
-                        </connections>
                     </view>
                     <tabBarItem key="tabBarItem" title="Add New Movie" image="Plus" id="Tph-Rb-vhB"/>
+                    <connections>
+                        <outlet property="textField" destination="ecU-Hs-N62" id="EWd-e4-jbN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l41-Rl-Zcj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -88,7 +88,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Movie List" image="Clapboard" id="ark-VJ-Lgh"/>
                     <connections>
-                        <outlet property="tableView" destination="s4t-Tw-iuY" id="3Pp-vR-gSM"/>
+                        <outlet property="tableView" destination="s4t-Tw-iuY" id="f9c-Ae-g5x"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JFr-Bh-08h" userLabel="First Responder" sceneMemberID="firstResponder"/>

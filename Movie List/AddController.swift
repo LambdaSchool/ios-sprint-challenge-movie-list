@@ -7,21 +7,19 @@
 //
 
 import UIKit
-class AddController: UIViewController {
 
+class AddController: UIViewController {
     
     @IBOutlet weak var textField: UITextField!
     
-    
-    
     @IBAction func add(_ sender: Any) {
-    guard let movie = textField.text, !movie.isEmpty else {return}
-    Model.shared.addMovie(movie)
-    //tableView.insertRows(at: [IndexPath(row: Model.shared.numberOfRows() - 1, section: 0)], with: .fade )
-    textField.text = nil
-        tableView.insertRows(at: [IndexPath(row: Model.shared.numberOfMovies() - 1, section: 0)], with: .top)
+        guard let movie = textField.text, !movie.isEmpty else {return}
+        Model.shared.addMovie(movie: movie)
+        print("Added")
+        Model.shared.saveData()
+        
+    }
     
     
-}
-
+    
 }
