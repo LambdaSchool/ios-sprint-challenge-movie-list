@@ -18,9 +18,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <navigationBar key="tableHeaderView" contentMode="scaleToFill" id="lPe-a5-Fo3">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <items>
+                                <navigationItem id="gTO-HF-kWi">
+                                    <barButtonItem key="rightBarButtonItem" title="Edit" id="wvY-GJ-Sha">
+                                        <connections>
+                                            <action selector="edit:" destination="eFU-wh-mzu" id="XtE-fB-dbh"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </navigationItem>
+                            </items>
+                        </navigationBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="movieCell" id="TE4-Gy-Ebb">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="72" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TE4-Gy-Ebb" id="hZx-1e-CGc">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -50,6 +63,9 @@
                         </prototypes>
                     </tableView>
                     <tabBarItem key="tabBarItem" title="Movies" image="Clapboard" id="8RF-lt-4oR"/>
+                    <connections>
+                        <outlet property="tableView" destination="SWI-Fa-BO7" id="Cds-9A-pvL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BUI-wV-Xeb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
