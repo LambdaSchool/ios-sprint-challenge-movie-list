@@ -13,6 +13,7 @@ class MovieListViewController: UIViewController, UIActivityItemSource, UITableVi
     
     @IBOutlet weak var tableView: UITableView!
     
+    // load the table and set delegation
     override func viewWillAppear(_ animated: Bool){
         super.viewWillAppear(animated)
         
@@ -37,6 +38,8 @@ class MovieListViewController: UIViewController, UIActivityItemSource, UITableVi
         present(ac, animated: true)
     }
     
+    
+    // protocol stubs
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return Model.shared.itemCount()
     }
@@ -59,11 +62,13 @@ class MovieListViewController: UIViewController, UIActivityItemSource, UITableVi
         tableView.deleteRows(at: [indexPath], with: .fade)
     }
     
+    // move row
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         Model.shared.moveItem(from: sourceIndexPath.row, to: destinationIndexPath.row)
         tableView.moveRow(at: sourceIndexPath, to: destinationIndexPath)
     }
     
+    // edit table (next two functions)
     @IBAction func editTable(_ sender: Any) {
         tableView.setEditing(true, animated: true)
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(stopEditingTable(_:)))
@@ -75,7 +80,7 @@ class MovieListViewController: UIViewController, UIActivityItemSource, UITableVi
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editTable(_:)))
     }
     
-    
+    // Activity View Controller protocol stubs
     func activityViewControllerPlaceholderItem(_ activityViewController: UIActivityViewController) -> Any {
         return ""
     }
