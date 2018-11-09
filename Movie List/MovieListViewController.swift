@@ -2,8 +2,10 @@ import UIKit
 
 class MovieListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+   
     @IBOutlet weak var tableView: UITableView!
     
+     let reuseIdentifier = "cell"
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -12,7 +14,7 @@ class MovieListViewController: UIViewController, UITableViewDelegate, UITableVie
         tableView.dataSource = self
         tableView.reloadData()
     }
-    let reuseIdentifier = "cell"
+   
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -38,8 +40,8 @@ class MovieListViewController: UIViewController, UITableViewDelegate, UITableVie
         tableView.deleteRows(at: [indexPath], with: .fade)
     }
     
-    
-    
+ 
+  
     }
     
 
