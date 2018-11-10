@@ -1,9 +1,18 @@
-//
-//  AddViewController.swift
-//  iOS4-Sprint1
-//
-//  Created by Vijay Das on 11/9/18.
-//  Copyright © 2018 Vijay Das. All rights reserved.
-//
-
 import Foundation
+import UIKit
+
+class AddViewController: UIViewController {
+    
+    
+    @IBOutlet weak var textField: UITextField!
+    
+    @IBAction func add(_ sender: Any) {
+        guard let text = textField.text, !text.isEmpty else { return }
+        Model.shared.addMovie(text)
+        textField.text = nil
+     }
+}
+    
+    
+
+
