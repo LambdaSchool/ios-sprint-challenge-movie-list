@@ -35,19 +35,21 @@ class Model {
     }
     
     let fileURL = URL(fileURLWithPath: NSHomeDirectory())
-    .appendingPathComponent("plist")
     .appendingPathComponent("Library")
     .appendingPathComponent("Films")
+    .appendingPathExtension("plist")
     //Saving the data from the URL
     func saveData() {
         try! (movies as NSArray).write(to: fileURL)
         
         
     }
-    //Loading the data form the URL
+    //Loading the data from the URL
     func loadData() {
         if let movies = NSArray(contentsOf: fileURL) as? [String] {
             self.movies = movies
         }
     }
 }
+
+

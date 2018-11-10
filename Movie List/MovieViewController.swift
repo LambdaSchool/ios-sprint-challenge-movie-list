@@ -14,6 +14,7 @@ class MovieViewController: UIViewController, UITableViewDelegate, UITableViewDat
         tableView.dataSource = self
         tableView.reloadData()
     }
+
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return Model.shared.movieCount()
@@ -28,12 +29,15 @@ class MovieViewController: UIViewController, UITableViewDelegate, UITableViewDat
         return cell
     }
     
-    private func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowat indexPath: IndexPath) {
-        
-        guard editingStyle == .delete else { return }
-        
+    private func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        Model.shared.moveMovie(at: sourceIndexPath.row, to: destinationIndexPath.row)
+        tableView.moveRow(at: sourceIndexPath, to: destinationIndexPath)
+    }
+
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        guard editingStyle == .delete else {return}
         Model.shared.removeMovie(at: indexPath.row)
-        
         tableView.deleteRows(at: [indexPath], with: .fade)
     }
     
@@ -48,10 +52,6 @@ class MovieViewController: UIViewController, UITableViewDelegate, UITableViewDat
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(edit(_:)))
     }
     
-    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        Model.shared.moveMovie(at: sourceIndexPath.row, to: destinationIndexPath.row)
-        tableView.moveRow(at: sourceIndexPath, to: destinationIndexPath)
-    }
     
     
     
