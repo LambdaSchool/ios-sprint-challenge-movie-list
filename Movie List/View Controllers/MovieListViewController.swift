@@ -37,6 +37,7 @@ class MovieListViewController: UIViewController, UITableViewDelegate, UITableVie
     // MARK - This implementation works but does not return movie at original index.
     
     @IBOutlet weak var editMovieTextField: UITextField!
+    @IBOutlet weak var editButtonTitle: UIButton!
     
     @IBAction func editMovieButton(_ sender: Any) {
         guard let text = editMovieTextField.text, !text.isEmpty else { return }
@@ -44,15 +45,37 @@ class MovieListViewController: UIViewController, UITableViewDelegate, UITableVie
         Model.shared.addMovie(text)
         editMovieTextField.text = nil
         tableView.reloadData()
+        
+        let editButton = Model.shared.edit ? "Done" : "Edit"
+        editButtonTitle.setTitle(editButton, for: .normal)
     }
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
         let edit = Model.shared.movie(indexPath.row)
         editMovieTextField.text = edit
         Model.shared.deleteMovie(indexPath.row)
         
     }
     
+    // MARK - Move Row Method
+    
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        
+        Model.shared.moveMovie(sourceIndexPath.row, destinationIndex: destinationIndexPath.row)
+        tableView.moveRow(at: sourceIndexPath, to: destinationIndexPath)
+    }
+    
+    @IBAction func editTable(_ sender: Any) {
+        tableView.setEditing(true, animated: true)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(stopEditingTable(_:)))
+    }
+    
+    @objc
+    func stopEditingTable(_ sender: Any) {
+        tableView.setEditing(false, animated: true)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editTable(_:)))
+    }
     
 }

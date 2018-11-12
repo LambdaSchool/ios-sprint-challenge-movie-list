@@ -8,6 +8,7 @@ class Model {
     var movies: [String] = []
     
     var seen = false
+    var edit = false
     
     func addMovie(_ movie: String) {
         movies.append(movie)
@@ -29,10 +30,15 @@ class Model {
          return movies[index]
     }
     
-    func editMovie(_ index: Int, movie: String) -> String {
+    func moveMovie(_ sourceIndex: Int, destinationIndex: Int ) {
+        let movie = movies.remove(at: sourceIndex)
+        movies.insert(movie, at: destinationIndex)
+    }
+    
+    func editMovie(movie: Int, _ index: Int) -> String {
+        let movie = movies[index]
         movies.insert(movie, at: index)
         return movies[index]
     }
-    
     
 }
