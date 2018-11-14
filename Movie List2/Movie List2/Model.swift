@@ -42,7 +42,35 @@ class Model {
         if let items = NSArray(contentsOf: fileURL) as? [String] {
             movies = items
         }
+        
+    }
     
     
+    
+    
+    
+    
+    
+    func movieComments() -> String {
+       
+        let commentArray : [String] = ["I don't know that one.", "Do you have any popcorn?", "Why no Elvis movies?", "No thanks, I'll stick with Crocodile Hunter.", "You've gotta see The Princess Bride... way better than that movie!", "Shh! The movie is coming on!", "Nothing can beat Muppet Treasure Island... it's a classic!", "Why would you ever want to watch that?", "That movies alright I guess.", "I don't even know you anymore.", "What a charming personality you must have."]
+        let randomNumber = arc4random_uniform(UInt32(commentArray.count))
+        var newString : String = ""
+        for movie in movies {
+            switch movie {
+            case "The Princess Bride" :
+                newString = "You have excellent taste in movies!"
+            case "The Testaments" :
+                newString =  "That is one of the best movies of all time!"
+            case "Elf" :
+                newString = "Will Ferrell was hilarious in that movie!"
+            default:
+                newString = commentArray[Int(randomNumber)]
+            }
+            
+        }
+        return newString
+    }
+    
 }
-}
+

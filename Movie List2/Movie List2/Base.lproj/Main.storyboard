@@ -38,23 +38,36 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="DAX-To-yKC">
+                                <rect key="frame" x="20" y="269" width="335" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="HiraMinProN-W3" family="Hiragino Mincho ProN" pointSize="24"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="DAX-To-yKC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="9u4-yf-7Lx"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="2b7-Jx-gSe" secondAttribute="trailing" id="BNE-7c-94B"/>
                             <constraint firstItem="2b7-Jx-gSe" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="O0a-g3-7KN"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="DAX-To-yKC" secondAttribute="trailing" constant="20" id="UEu-fR-p4R"/>
+                            <constraint firstItem="DAX-To-yKC" firstAttribute="top" secondItem="2b7-Jx-gSe" secondAttribute="bottom" constant="199" id="VbB-kZ-9Q6"/>
+                            <constraint firstItem="DAX-To-yKC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="caj-zn-1qt"/>
                             <constraint firstItem="2b7-Jx-gSe" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="fO4-9C-DHK"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="DAX-To-yKC" secondAttribute="bottom" constant="221" id="jcf-uU-6Yd"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="DAX-To-yKC" secondAttribute="trailing" constant="20" id="rzi-fH-bpb"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Add" image="Plus" id="cU1-UQ-Xtn" userLabel="Add"/>
                     <connections>
                         <outlet property="textField" destination="3Pp-qH-dA5" id="aQQ-2z-F46"/>
+                        <outlet property="textLabel" destination="DAX-To-yKC" id="Akf-iw-Lf0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="57" y="922"/>
+            <point key="canvasLocation" x="56.799999999999997" y="921.58920539730138"/>
         </scene>
         <!--Title-->
         <scene sceneID="Kuo-Uq-b3j">
@@ -68,25 +81,37 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="CpZ-hm-9or">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="CpZ-hm-9or" customClass="TableViewCellController" customModule="Movie_List2" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="CpZ-hm-9or" id="C7U-Vc-pso">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="38r-2p-oXW">
-                                                    <rect key="frame" x="15" y="11" width="345" height="22"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="149" translatesAutoresizingMaskIntoConstraints="NO" id="5Ad-Sh-hvq">
+                                                    <rect key="frame" x="0.0" y="8" width="375" height="35.5"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="38r-2p-oXW">
+                                                            <rect key="frame" x="0.0" y="0.0" width="176" height="35.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6xg-En-9KP">
+                                                            <rect key="frame" x="325" y="0.0" width="50" height="30"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="H2W-9r-4q4"/>
+                                                            </constraints>
+                                                            <state key="normal" title="Button"/>
+                                                        </button>
+                                                    </subviews>
+                                                </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailingMargin" secondItem="38r-2p-oXW" secondAttribute="trailing" id="46T-dW-tI3"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="38r-2p-oXW" secondAttribute="bottom" id="4tm-rN-9Ll"/>
-                                                <constraint firstItem="38r-2p-oXW" firstAttribute="leading" secondItem="C7U-Vc-pso" secondAttribute="leadingMargin" id="OM2-Qv-eHE"/>
-                                                <constraint firstItem="38r-2p-oXW" firstAttribute="top" secondItem="C7U-Vc-pso" secondAttribute="topMargin" id="xh2-ko-GPY"/>
+                                                <constraint firstAttribute="trailing" secondItem="5Ad-Sh-hvq" secondAttribute="trailing" id="7ii-na-aFj"/>
+                                                <constraint firstItem="5Ad-Sh-hvq" firstAttribute="leading" secondItem="C7U-Vc-pso" secondAttribute="leading" id="O26-6J-ZoO"/>
+                                                <constraint firstItem="5Ad-Sh-hvq" firstAttribute="top" secondItem="C7U-Vc-pso" secondAttribute="top" constant="8" id="gZD-EK-EKD"/>
+                                                <constraint firstAttribute="bottom" secondItem="5Ad-Sh-hvq" secondAttribute="bottom" id="mrA-LP-bMs"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
