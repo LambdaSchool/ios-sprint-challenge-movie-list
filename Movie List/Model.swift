@@ -19,14 +19,14 @@ class Model {
         return movies[index]
     }
     
-    func removeMovie(at index: Int) {
+    func removeMovie(index: Int) {
         movies.remove(at: index)
         saveData()
     }
     
-    func moveMovie(at index: Int, to newIndex: Int){
-        let movie = movies.remove(at: index)
-        movies.insert(movie, at: newIndex)
+    func moveMovie (indexOrigin: Int, indexDestination: Int) {
+        let value = movies.remove(at: indexOrigin)
+        movies.insert(value, at: indexDestination)
         saveData()
     }
     
@@ -40,8 +40,8 @@ class Model {
     }
     
     func loadData() {
-        if let movies = NSArray(contentsOf: fileURL) as? [String] {
-            let _ = movies
+        if let items = NSArray(contentsOf: fileURL) as? [String] {
+            movies = items
         }
     }
 }
