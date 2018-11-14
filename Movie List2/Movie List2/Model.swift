@@ -50,10 +50,9 @@ class Model {
     
     
     
-    
     func movieComments() -> String {
        
-        let commentArray : [String] = ["I don't know that one.", "Do you have any popcorn?", "Why no Elvis movies?", "No thanks, I'll stick with Crocodile Hunter.", "You've gotta see The Princess Bride... way better than that movie!", "Shh! The movie is coming on!", "Nothing can beat Muppet Treasure Island... it's a classic!", "Why would you ever want to watch that?", "That movies alright I guess.", "I don't even know you anymore.", "What a charming personality you must have."]
+        let commentArray : [String] = ["I don't know that one.", "Do you have any popcorn?", "Why no Elvis movies?", "No thanks, I will stick with Crocodile Hunter.", "You've gotta see The Princess Bride... way better than that movie!", "Shh! The movie is coming on!", "Nothing can beat Muppet Treasure Island... it is a classic!", "Why would you ever want to watch that?", "That movie is alright I guess.", "I do not even know you anymore.", "What a charming personality you must have."]
         let randomNumber = arc4random_uniform(UInt32(commentArray.count))
         var newString : String = ""
         for movie in movies {
