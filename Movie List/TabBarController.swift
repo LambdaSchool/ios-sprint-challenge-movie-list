@@ -10,4 +10,19 @@ import UIKit
 
 class TabBarViewController: UITabBarController {
     
+    // Lifecycle Methods
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        for childVC in children {
+            if let childVC = childVC as? MovieControllerProtocol {
+                childVC.movieController = movieController
+            }
+        }
+    }
+    
+    // Properties
+        let movieController = MovieController()
+    
 }
