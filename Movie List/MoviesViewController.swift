@@ -19,6 +19,8 @@ class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         super.viewWillAppear(animated)
         tableView.dataSource = self
         tableView.delegate = self
+        
+        tableView.reloadData()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
