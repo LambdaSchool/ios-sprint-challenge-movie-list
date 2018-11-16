@@ -7,6 +7,17 @@ import UIKit
 
 class MoviesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    /* // attempt to preserve the list of movies between subsequent runs of the application
+    func viewController(withRestorationIdentifierPathidentifierComponents: [Any], coder: NSCoder) -> UIViewController? {
+        let vc = MoviesViewController()
+        
+        vc.restorationIdentifier = identifierComponents.last as? String
+        vc.restorationClass = MoviesViewController.self
+        
+        return vc
+    }
+    */
+    
     let reuseIdentifier = "cell"
     
     @IBOutlet weak var tableView: UITableView!

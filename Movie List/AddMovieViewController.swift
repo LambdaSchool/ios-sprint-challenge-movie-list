@@ -7,8 +7,6 @@ import UIKit
 
 class AddMovieViewController: UIViewController {
     
-    
-    
     @IBAction func addMovieButton(_ sender: Any) {
         
         // guard against an empty text field
@@ -16,6 +14,11 @@ class AddMovieViewController: UIViewController {
         
         // update the model with the new movie
         Model.shared.addMovie(newMovie)
+        
+        // apply insert row animation
+        
+        // remove entered text from the text field so that a new movie can be entered
+        textField.text = ""
         
     }
     
