@@ -65,53 +65,78 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Sov-PE-DEL">
-                                <rect key="frame" x="0.0" y="20" width="375" height="607"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="gbz-4v-odx">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="TheAvengers2012Poster" translatesAutoresizingMaskIntoConstraints="NO" id="81c-Ch-dkm">
-                                        <rect key="frame" x="77.5" y="0.0" width="220" height="211.5"/>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a New Movie To Your List" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pcx-Il-EMt">
-                                        <rect key="frame" x="9" y="219.5" width="357.5" height="32.5"/>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="27"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xzd-ZK-TEQ">
-                                        <rect key="frame" x="0.0" y="260" width="375" height="30"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="VdW-r1-8Ch">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="210.5"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" image="vador" translatesAutoresizingMaskIntoConstraints="NO" id="jmp-FD-0hK">
+                                                <rect key="frame" x="0.0" y="0.0" width="32" height="210.5"/>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="748" image="movie-night-concept-creative-template-450w-1055348723" translatesAutoresizingMaskIntoConstraints="NO" id="M3i-JP-DKi">
+                                                <rect key="frame" x="50" y="0.0" width="0.0" height="210.5"/>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="neo2" translatesAutoresizingMaskIntoConstraints="NO" id="pPM-jQ-aGN">
+                                                <rect key="frame" x="68" y="0.0" width="307" height="210.5"/>
+                                            </imageView>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="VAl-U3-fbN">
+                                        <rect key="frame" x="28.5" y="218.5" width="318.5" height="210"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a New Movie To Your List" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pcx-Il-EMt">
+                                                <rect key="frame" x="0.0" y="0.0" width="318.5" height="124"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C3f-vK-2rT">
+                                                <rect key="frame" x="115" y="132" width="88" height="35"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="35" id="uzj-Ro-0Sx"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                                <state key="normal" title="Add Movie"/>
+                                                <connections>
+                                                    <action selector="addButton:" destination="w8O-pW-goB" eventType="touchUpInside" id="2Th-Uf-hBk"/>
+                                                </connections>
+                                            </button>
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="247" verticalHuggingPriority="247" horizontalCompressionResistancePriority="747" verticalCompressionResistancePriority="747" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xzd-ZK-TEQ">
+                                                <rect key="frame" x="25" y="175" width="268.5" height="35"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="35" id="Nc7-lc-1aN"/>
+                                                </constraints>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="d6y-fm-IR9"/>
+                                            <constraint firstItem="Xzd-ZK-TEQ" firstAttribute="leading" secondItem="VAl-U3-fbN" secondAttribute="leading" constant="25" id="DpV-NI-Num"/>
+                                            <constraint firstAttribute="trailing" secondItem="Xzd-ZK-TEQ" secondAttribute="trailing" constant="25" id="Iu0-rI-6wt"/>
                                         </constraints>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C3f-vK-2rT">
-                                        <rect key="frame" x="143.5" y="298" width="88" height="34"/>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
-                                        <state key="normal" title="Add Movie"/>
-                                        <connections>
-                                            <action selector="addButton:" destination="w8O-pW-goB" eventType="touchUpInside" id="2Th-Uf-hBk"/>
-                                        </connections>
-                                    </button>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="253" verticalHuggingPriority="254" horizontalCompressionResistancePriority="754" verticalCompressionResistancePriority="755" image="venom" translatesAutoresizingMaskIntoConstraints="NO" id="Rbr-9C-WzW">
-                                        <rect key="frame" x="93.5" y="340" width="188" height="267"/>
-                                    </imageView>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zfo-MP-84e">
+                                        <rect key="frame" x="0.0" y="436.5" width="375" height="210.5"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="253" verticalHuggingPriority="254" horizontalCompressionResistancePriority="754" verticalCompressionResistancePriority="755" image="venom" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rbr-9C-WzW">
+                                                <rect key="frame" x="0.0" y="0.0" width="188" height="210.5"/>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="TheAvengers2012Poster" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="81c-Ch-dkm">
+                                                <rect key="frame" x="205" y="0.0" width="170" height="210.5"/>
+                                            </imageView>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="Xzd-ZK-TEQ" secondAttribute="trailing" id="9q4-rp-tZT"/>
-                                    <constraint firstItem="Xzd-ZK-TEQ" firstAttribute="leading" secondItem="Sov-PE-DEL" secondAttribute="leading" id="noA-zS-QpV"/>
-                                    <constraint firstItem="C3f-vK-2rT" firstAttribute="top" secondItem="Xzd-ZK-TEQ" secondAttribute="bottom" constant="8" id="qbj-nZ-xLP"/>
-                                    <constraint firstItem="Xzd-ZK-TEQ" firstAttribute="top" secondItem="pcx-Il-EMt" secondAttribute="bottom" constant="8" id="wEe-ea-o30"/>
-                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="BGD-6A-rDa" firstAttribute="trailing" secondItem="Sov-PE-DEL" secondAttribute="trailing" id="DDd-dI-ffz"/>
-                            <constraint firstItem="Sov-PE-DEL" firstAttribute="leading" secondItem="BGD-6A-rDa" secondAttribute="leading" id="LNg-ad-B8c"/>
-                            <constraint firstAttribute="bottom" secondItem="Sov-PE-DEL" secondAttribute="bottom" constant="40" id="xtX-Qj-Vf0"/>
-                            <constraint firstItem="Sov-PE-DEL" firstAttribute="top" secondItem="BGD-6A-rDa" secondAttribute="top" id="yLK-Vz-bc5"/>
+                            <constraint firstItem="gbz-4v-odx" firstAttribute="leading" secondItem="BGD-6A-rDa" secondAttribute="leading" id="RP5-y4-Ouy"/>
+                            <constraint firstAttribute="bottom" secondItem="gbz-4v-odx" secondAttribute="bottom" id="lb3-hu-vEw"/>
+                            <constraint firstItem="gbz-4v-odx" firstAttribute="top" secondItem="BGD-6A-rDa" secondAttribute="top" id="p1F-8g-TD3"/>
+                            <constraint firstAttribute="trailing" secondItem="gbz-4v-odx" secondAttribute="trailing" id="pFz-u1-bIL"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="BGD-6A-rDa"/>
                     </view>
@@ -166,6 +191,9 @@
         <image name="Clapboard" width="28" height="28"/>
         <image name="Plus" width="28" height="28"/>
         <image name="TheAvengers2012Poster" width="220" height="326"/>
+        <image name="movie-night-concept-creative-template-450w-1055348723" width="76.631523132324219" height="112.90538024902344"/>
+        <image name="neo2" width="307" height="445"/>
+        <image name="vador" width="178" height="284"/>
         <image name="venom" width="188" height="267"/>
     </resources>
 </document>
