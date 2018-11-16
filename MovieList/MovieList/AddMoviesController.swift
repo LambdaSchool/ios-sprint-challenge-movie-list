@@ -13,5 +13,9 @@ class AddMoviesController: UIViewController {
     @IBOutlet weak var textField: UITextField!
     
     @IBAction func addMovieButton(_ sender: UIButton) {
+        guard let newMovie = textField.text, !newMovie.isEmpty else { return }
+        MovieData.shared.addMovie(newMovie)
+        //reload the table
+        textField.text = ""
     }
 }
