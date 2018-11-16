@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Movies-->
+        <!--EditMovies-->
         <scene sceneID="VWi-gn-re0">
             <objects>
-                <viewController id="OsY-ha-RYq" sceneMemberID="viewController">
+                <viewController id="OsY-ha-RYq" userLabel="EditMovies" customClass="EditMovieListController" customModule="MovieList" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BBP-0i-44V">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -29,9 +29,12 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fRe-Az-Z8K">
-                                                    <rect key="frame" x="298" y="3" width="46" height="30"/>
+                                                    <rect key="frame" x="289" y="3" width="64" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" title="Button"/>
+                                                    <state key="normal" title="Not Seen"/>
+                                                    <connections>
+                                                        <action selector="seen:" destination="OsY-ha-RYq" eventType="touchUpInside" id="wc7-2b-ahH"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -49,6 +52,9 @@
                         <viewLayoutGuide key="safeArea" id="iwH-XL-GIc"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Movies" image="Clapboard" id="Ej3-My-BDj"/>
+                    <connections>
+                        <outlet property="tableView" destination="GFl-Vx-vmC" id="tzW-7G-TpA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5y0-ZP-kv4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

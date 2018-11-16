@@ -6,4 +6,13 @@
 //  Copyright © 2018 Sameera Leola. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+class EditMovieListController: UIViewController {
+    
+    @IBOutlet weak var tableView: UITableView!
+    
+    @IBAction func seen(_ sender: UIButton) {
+        
+    }
+}

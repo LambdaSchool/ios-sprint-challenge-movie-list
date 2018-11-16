@@ -6,9 +6,32 @@ class MovieData {
     
     private(set) var movies: [String] = []
     
+    
+    //Reports how many rows
+    func itemCount() -> Int {
+        return movies.count
+    }
+    
     //Crud
     func addMovie(_ movie: String) {
         movies.append(movie)
+        saveData()
+    }
+    
+    //cRud
+    func title(at index: Int) -> String {
+        return movies[index]
+    }
+    
+    //cruD
+    func removeMovie (at index: Int) {
+        movies.remove(at: index)
+        saveData()
+    }
+    
+    func moveMovie(from index: Int, to newIndex: Int) {
+        let movie = movies.remove(at: index)
+        movies.insert(movie, at: newIndex)
         saveData()
     }
     
