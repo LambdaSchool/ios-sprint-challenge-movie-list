@@ -10,4 +10,8 @@ import UIKit
 
 class AddMoviesController: UIViewController {
     
+    @IBOutlet weak var textField: UITextField!
+    
+    @IBAction func addMovieButton(_ sender: UIButton) {
+    }
 }
