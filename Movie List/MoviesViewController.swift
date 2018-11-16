@@ -7,6 +7,9 @@ import UIKit
 
 class MoviesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    var defaultName = UserDefaults.standard
+    
+    
     /* // attempt to preserve the list of movies between subsequent runs of the application
     func viewController(withRestorationIdentifierPathidentifierComponents: [Any], coder: NSCoder) -> UIViewController? {
         let vc = MoviesViewController()
@@ -37,7 +40,9 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         
         // reload data
         tableView.reloadData()
+        
     }
+
     
     // MARK: - Table View Data Source
     // Data Source provides the number of rows that is equal to the number of movies in the Model
@@ -58,6 +63,8 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         
         // return the cell back to the table view
         return cell
+        
+        
     }
     
     // Data Source commits insertion or deletion at a specified row

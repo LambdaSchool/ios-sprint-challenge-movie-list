@@ -67,4 +67,10 @@ class Model {
         }
     }
     
+    //func savePreviousData() {
+        //let defaults = UserDefaults.standard
+        //defaults.set(movies, forKey: "movieList")
+        //let myMovieList = defaults.string(forKey: "movieList")
+    //}
+    
 }

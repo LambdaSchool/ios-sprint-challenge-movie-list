@@ -22,6 +22,7 @@ class AddMovieViewController: UIViewController {
         
     }
     
+   
     
     @IBOutlet weak var textField: UITextField!
     
