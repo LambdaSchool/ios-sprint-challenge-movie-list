@@ -30,4 +30,15 @@ class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         cell.textLabel?.text = Model.shared.item(at: indexPath.row)
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        guard editingStyle == .delete else { return }
+        Model.shared.removeValue(at: indexPath.row)
+        tableView.deleteRows(at: [indexPath], with: .fade)
+    }
+    
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        Model.shared.moveItem(from: sourceIndexPath.row, to: destinationIndexPath.row)
+        tableView.moveRow(at: sourceIndexPath, to: destinationIndexPath)
+    }
 }
