@@ -27,6 +27,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J04-AE-cHe">
                                 <rect key="frame" x="151" y="106" width="73" height="30"/>
                                 <state key="normal" title="Add Movie"/>
+                                <connections>
+                                    <action selector="addMovie:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1g2-6z-66T"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a movie to the list" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jvw-Ds-i6b">
                                 <rect key="frame" x="10" y="30" width="355" height="30"/>
@@ -49,6 +52,9 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Add New Movie" id="Y90-rF-xai"/>
+                    <connections>
+                        <outlet property="textView" destination="oxA-EM-khk" id="kaZ-yK-EFu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -61,10 +67,25 @@
                     <view key="view" contentMode="scaleToFill" id="PBc-Jz-G7T">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4LH-bU-tju">
+                                <rect key="frame" x="0.0" y="20" width="375" height="598"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="AqN-VU-iZ7" firstAttribute="bottom" secondItem="4LH-bU-tju" secondAttribute="bottom" id="7Us-ee-GD0"/>
+                            <constraint firstItem="4LH-bU-tju" firstAttribute="top" secondItem="AqN-VU-iZ7" secondAttribute="top" id="CwU-3C-ASq"/>
+                            <constraint firstItem="4LH-bU-tju" firstAttribute="leading" secondItem="AqN-VU-iZ7" secondAttribute="leading" id="ocd-Ra-I5A"/>
+                            <constraint firstItem="AqN-VU-iZ7" firstAttribute="trailing" secondItem="4LH-bU-tju" secondAttribute="trailing" id="pM2-h4-yay"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="AqN-VU-iZ7"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Movies" id="vzi-f0-vgp"/>
+                    <connections>
+                        <outlet property="tableView" destination="4LH-bU-tju" id="q09-t3-P1Q"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sj8-gD-u12" sceneMemberID="firstResponder"/>
             </objects>
