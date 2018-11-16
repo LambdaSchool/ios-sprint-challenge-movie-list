@@ -13,15 +13,15 @@ class AddMovieViewController: UIViewController {
     @IBOutlet weak var textField: UITextField!
     
     // Action and function to add movie
+ 
+    @IBAction func addMovie(_ sender: Any) {
+        guard let movie = textField.text, !movie.isEmpty else { return }
+        MovieModel.shared.addMovie(movie)
+        textField.text = nil
     
+    }
     
-    
-    
-    
-    
-    
-    
-    
+        
     
     
 }
