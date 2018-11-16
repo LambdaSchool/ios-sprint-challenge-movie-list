@@ -15,4 +15,6 @@ class EditMovieListController: UIViewController {
     @IBAction func seen(_ sender: UIButton) {
         
     }
+    
+    //Add functionality to delete movies from movies array, edit movies
 }
