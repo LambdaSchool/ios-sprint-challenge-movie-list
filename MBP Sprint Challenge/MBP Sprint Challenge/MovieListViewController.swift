@@ -32,5 +32,17 @@ class MovieListViewController: UIViewController, UITableViewDelegate, UITableVie
         Model.shared.removeMovie(at: indexPath.row)
         tableView.deleteRows(at: [indexPath], with: .automatic)
     }
+    
+    @IBAction func editTableView(_ sender: Any) {
+        tableView.setEditing(true, animated: true)
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(stopEditingTable(_:)))
+        navigationItem.rightBarButtonItem = doneButton
+    }
+    
+    @objc func stopEditingTable(_ sender: Any) {
+        tableView.setEditing(false, animated: true)
+        let editButton = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editTableView(_:)))
+        navigationItem.rightBarButtonItem = editButton
+    }
 }
 
