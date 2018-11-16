@@ -19,10 +19,14 @@ class EditMovieListController: UIViewController, UITableViewDataSource, UITableV
         tableView.delegate = self
     }
     
-    @IBAction func seen(_ sender: UIButton) {
-        
-    }
+    var buttonText: String = "Unseen"
     
+//    @IBAction func seen(_ sender: UIButton) {
+//        var buttonText = sender.titleLabel
+//        if (buttonText == "Unseen" {
+//            sender.setTitle("Seen", for: [])}
+//    }
+//
     //Add functionality to delete movies from movies array, edit movies
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -50,21 +54,30 @@ class EditMovieListController: UIViewController, UITableViewDataSource, UITableV
     }
 
     //Edit move functionality
-//    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-//        //Update the model
-//        AnimalModel.shared.moveAnimal(from: sourceIndexPath.row, to: destinationIndexPath.row)
-//        //Update Table View
-//        //This is a more efficient way to update the tableview instead of reloading the entire table
-//        tableView.moveRow(at: sourceIndexPath, to: destinationIndexPath)
-//    }
-    
-    
-    
-    
-    
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        MovieData.shared.moveMovie(from: sourceIndexPath.row, to: destinationIndexPath.row)
+        tableView.moveRow(at: sourceIndexPath, to: destinationIndexPath)
+    }
     
     @IBAction func editMovieList(_ sender: Any) {
+        tableView.setEditing(true, animated: true)
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(stopEditingList(_:)))
+        navigationItem.rightBarButtonItem = doneButton
     }
+    
+    
+    @objc
+    func stopEditingList(_ sender: Any) {
+        tableView.setEditing(false, animated: true)
+        let editButton = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editMovieList(_:)))
+        navigationItem.rightBarButtonItem = editButton
+    }
+    
+    
+    
+    
+    
+    
     
     
 }
