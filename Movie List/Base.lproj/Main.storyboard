@@ -13,7 +13,7 @@
         <!--Movies-->
         <scene sceneID="npI-FR-nu2">
             <objects>
-                <viewController id="zSD-1R-PNq" sceneMemberID="viewController">
+                <viewController id="zSD-1R-PNq" customClass="TableViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="djm-Go-13d">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -22,7 +22,7 @@
                                 <rect key="frame" x="8" y="32" width="359" height="578"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="fof-dj-aCn">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="fof-dj-aCn">
                                         <rect key="frame" x="0.0" y="28" width="359" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fof-dj-aCn" id="kZ2-0h-NDt">
@@ -51,7 +51,7 @@
         <!--Add New Movie-->
         <scene sceneID="H9w-Gi-VZL">
             <objects>
-                <viewController id="RPl-GR-wFZ" sceneMemberID="viewController">
+                <viewController id="RPl-GR-wFZ" customClass="ViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NUj-aT-8gg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -65,6 +65,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nBI-Qd-us4">
                                 <rect key="frame" x="150" y="138" width="75" height="30"/>
                                 <state key="normal" title="Add Movie"/>
+                                <connections>
+                                    <action selector="add:" destination="RPl-GR-wFZ" eventType="touchUpInside" id="scK-31-6Mw"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter the movie’s title..." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="v4M-H8-QzZ">
                                 <rect key="frame" x="30" y="92" width="315" height="30"/>
@@ -91,6 +94,9 @@
                         <viewLayoutGuide key="safeArea" id="2RY-0t-2D3"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Add New Movie" image="Plus" id="xgv-HQ-8XK"/>
+                    <connections>
+                        <outlet property="textField" destination="v4M-H8-QzZ" id="bMn-X6-mEr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="85p-ze-TjI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
