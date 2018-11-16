@@ -72,4 +72,26 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         tableView.moveRow(at: sourceIndexPath, to: destinationIndexPath)
     }
     
+    // MARK: - Interactive Edits
+    // editing mode
+    @IBAction func editTable(_ sender: Any) {
+        tableView.setEditing(true, animated: true)
+        
+        // connect function
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(stopEditingTable(_:)))
+        
+        navigationItem.rightBarButtonItem = doneButton
+    }
+    
+    // stop editing mode
+    @objc func stopEditingTable(_ sender: Any) {
+        tableView.setEditing(false, animated: true)
+        
+        // connect function
+        let editButton = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editTable(_:)))
+        
+        navigationItem.rightBarButtonItem = editButton
+    }
+    
+    
 }
