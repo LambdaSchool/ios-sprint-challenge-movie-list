@@ -44,8 +44,26 @@ class MovieListViewController: UIViewController, UITableViewDataSource, UITableV
         tableView.moveRow(at: sourceIndexPath, to: destinationIndexPath)
     }
     
+// add MAGIC DELETE on SWIPE function in tableView
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        guard editingStyle == .delete else { return }
+        
+        MovieModel.shared.removeMovie(at: indexPath.row)
+        
+        tableView.deleteRows(at: [indexPath], with: .automatic)
+        
 
-}
+        
+        }
+    }
+    
+    
+    
+    
+    
+    
+
 
 
 
