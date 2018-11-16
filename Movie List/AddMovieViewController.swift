@@ -18,7 +18,7 @@ class AddMovieViewController: UIViewController {
         guard let movie = textField.text, !movie.isEmpty else { return }
         MovieModel.shared.addMovie(movie)
         textField.text = nil
-    
+
     }
     
         

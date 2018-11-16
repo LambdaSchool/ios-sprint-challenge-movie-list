@@ -29,6 +29,7 @@ class MovieModel {
     // ADD + SAVE
     func addMovie(_ movie: String) {
         movies.append(movie)
+        saveData()
  
         
     }
@@ -36,7 +37,7 @@ class MovieModel {
     // REMOVE + SAVE
     func removeMovie(at index: Int) {
         movies.remove(at: index)
-        
+        saveData()
         
     }
     
@@ -44,7 +45,7 @@ class MovieModel {
     func moveMovie(from index: Int, to newIndex: Int) {
         let movie = movies.remove(at: index)
         movies.insert(movie, at: newIndex)
-        
+        saveData()
         
     }
     
@@ -53,7 +54,7 @@ class MovieModel {
     let fileURL = URL(fileURLWithPath: NSHomeDirectory())
         .appendingPathComponent("Library")
         .appendingPathComponent("Movies")
-        .appendingPathComponent("plist")
+        .appendingPathExtension("plist")
 
     func saveData() {
         try! (movies as NSArray).write(to: fileURL)
