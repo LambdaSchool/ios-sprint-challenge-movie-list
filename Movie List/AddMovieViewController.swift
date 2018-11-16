@@ -10,9 +10,7 @@ class AddMovieViewController: UIViewController {
     
     // Outlet from textField here:
     
-    
-    
-    
+    @IBOutlet weak var textField: UITextField!
     
     // Action and function to add movie
     
