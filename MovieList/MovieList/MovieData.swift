@@ -8,7 +8,7 @@ class MovieData {
     
     
     //Reports how many rows
-    func itemCount() -> Int {
+    func titleCount() -> Int {
         return movies.count
     }
     
@@ -19,7 +19,7 @@ class MovieData {
     }
     
     //cRud
-    func title(at index: Int) -> String {
+    func itemTitle(at index: Int) -> String {
         return movies[index]
     }
     
