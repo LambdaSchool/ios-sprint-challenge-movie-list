@@ -47,7 +47,6 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         // Update table view
         tableView.deleteRows(at: [indexPath], with: .fade)
     }
-    
     @IBAction func editTable(_ sender: Any) {
         tableView.setEditing(true, animated: true)
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(stopEditingTable(_:)))

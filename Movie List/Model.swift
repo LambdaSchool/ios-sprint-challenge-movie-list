@@ -5,12 +5,12 @@ class Model {
     private init() {}
     
     private var items: [String] = []
-    
+    // Add movie
     func addItem(_ item: String) {
         items.append(item)
         saveData()
     }
-    
+    // Delete movie
     func removeItem(at index: Int) {
         items.remove(at: index)
         saveData()
@@ -18,7 +18,7 @@ class Model {
     
     func moveItem(from index: Int, to destinationIndex: Int) {
         let item = items.remove(at: index)
-        items.remove(at: index)
+//        items.remove(at: index)
         items.insert(item, at: destinationIndex)
         saveData()
     }
