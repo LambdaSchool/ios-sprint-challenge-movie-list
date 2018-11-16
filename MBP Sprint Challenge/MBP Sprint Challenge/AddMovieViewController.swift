@@ -11,12 +11,8 @@ class AddMovieViewController: UIViewController {
         Model.shared.addMovie(text)
         textView.text = ""
     }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
-    
-    
 }
 

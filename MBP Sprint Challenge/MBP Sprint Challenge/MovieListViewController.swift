@@ -22,19 +22,15 @@ class MovieListViewController: UIViewController, UITableViewDelegate, UITableVie
         return cell
     }
     
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        Model.shared.moveMovie(from: sourceIndexPath.row, to: destinationIndexPath.row)
+        tableView.moveRow(at: sourceIndexPath, to: destinationIndexPath)
+    }
+    
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         guard  editingStyle == .delete else { return }
         Model.shared.removeMovie(at: indexPath.row)
-        tableView.deleteRows(at: [indexPath], with: .fade)
-        }
-
-    
-    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        <#code#>
+        tableView.deleteRows(at: [indexPath], with: .automatic)
     }
-    
-    
-    
-    
 }
 

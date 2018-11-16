@@ -13,7 +13,7 @@
         <!--Add New Movie-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MBP_Sprint_Challenge" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="AddMovieViewController" customModule="MBP_Sprint_Challenge" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -28,7 +28,7 @@
                                 <rect key="frame" x="151" y="106" width="73" height="30"/>
                                 <state key="normal" title="Add Movie"/>
                                 <connections>
-                                    <action selector="addMovie:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1g2-6z-66T"/>
+                                    <action selector="addMovie:" destination="BYZ-38-t0r" eventType="touchUpInside" id="K3j-Ip-H1U"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a movie to the list" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jvw-Ds-i6b">
@@ -53,7 +53,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Add New Movie" id="Y90-rF-xai"/>
                     <connections>
-                        <outlet property="textView" destination="oxA-EM-khk" id="kaZ-yK-EFu"/>
+                        <outlet property="textView" destination="oxA-EM-khk" id="6wg-Uf-w3T"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -63,7 +63,7 @@
         <!--Movies-->
         <scene sceneID="z37-h6-PYV">
             <objects>
-                <viewController id="b0I-QQ-zah" customClass="ViewController" customModule="MBP_Sprint_Challenge" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="b0I-QQ-zah" customClass="MovieListViewController" customModule="MBP_Sprint_Challenge" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PBc-Jz-G7T">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -94,7 +94,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Movies" id="vzi-f0-vgp"/>
                     <connections>
-                        <outlet property="tableView" destination="4LH-bU-tju" id="q09-t3-P1Q"/>
+                        <outlet property="tableView" destination="4LH-bU-tju" id="fK6-l8-tyG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sj8-gD-u12" sceneMemberID="firstResponder"/>
@@ -107,11 +107,12 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="xCp-hd-RWa" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="i4c-CA-NCp">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="S6F-5z-ntP"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="aQH-CY-dos"/>
                         <segue destination="b0I-QQ-zah" kind="relationship" relationship="viewControllers" id="UGH-nT-Rgf"/>
                     </connections>
                 </tabBarController>
