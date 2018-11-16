@@ -53,15 +53,33 @@ class MovieListViewController: UIViewController, UITableViewDataSource, UITableV
         
         tableView.deleteRows(at: [indexPath], with: .automatic)
         
-
-        
         }
+  
+    
+    // add EDIT/DONE FUNCTION
+    
+    @IBAction func editTable(_ sender: Any) {
+        tableView.setEditing(true, animated: true)
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(stopEditingTable(_:)))
+        navigationItem.rightBarButtonItem = doneButton
+        
+    }
+    
+    @objc func stopEditingTable(_ sender: Any) {
+        tableView.setEditing(false, animated: true)
+        let editButton = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editTable(_:)))
+        navigationItem.rightBarButtonItem = editButton
     }
     
     
     
     
+    }
     
+
+
+
+
     
 
 
