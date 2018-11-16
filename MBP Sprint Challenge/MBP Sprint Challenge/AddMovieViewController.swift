@@ -7,9 +7,9 @@ class AddMovieViewController: UIViewController {
     
     
     @IBAction func addMovie(_ sender: Any) {
-        guard let text = textField.text, !text.isEmpty else { return }
+        guard let text = textView.text, !text.isEmpty else { return }
         Model.shared.addMovie(text)
-        
+        textView.text = ""
     }
     
     override func viewDidLoad() {
