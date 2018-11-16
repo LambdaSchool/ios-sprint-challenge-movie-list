@@ -26,7 +26,8 @@ class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath )
+        cell.textLabel?.text = Model.shared.item(at: indexPath.row)
+        return cell
     }
-    
 }
