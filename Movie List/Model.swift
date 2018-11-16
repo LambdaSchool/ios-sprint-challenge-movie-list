@@ -8,4 +8,12 @@ class Model {
     func addItem(_ item: String) {
         items.append(item)
     }
+    
+    func itemCount() -> Int {
+        return items.count
+    }
+    
+    func item(at index: Int) -> String {
+        return items[index]
+    }
 }
