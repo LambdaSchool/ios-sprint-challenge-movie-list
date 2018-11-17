@@ -21,23 +21,42 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ZpT-xv-T53">
                                 <rect key="frame" x="8" y="40" width="359" height="570"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <searchBar key="tableHeaderView" contentMode="redraw" id="Zo0-4i-Dbp">
+                                    <rect key="frame" x="0.0" y="0.0" width="359" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </searchBar>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieCell" id="fB8-KW-5t1">
-                                        <rect key="frame" x="0.0" y="28" width="359" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieCell" id="fB8-KW-5t1" customClass="MovieTableViewCell" customModule="Movie_List" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="72" width="359" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fB8-KW-5t1" id="x6I-tN-o2t">
                                             <rect key="frame" x="0.0" y="0.0" width="359" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tRO-HJ-Pln">
-                                                    <rect key="frame" x="15" y="12" width="42" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3ek-4c-26l">
+                                                    <rect key="frame" x="0.0" y="0.0" width="82" height="61"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tRO-HJ-Pln">
+                                                            <rect key="frame" x="8" y="8" width="42" height="20"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="tRO-HJ-Pln" secondAttribute="trailing" constant="8" id="4H4-nR-SWw"/>
+                                                        <constraint firstItem="tRO-HJ-Pln" firstAttribute="leading" secondItem="3ek-4c-26l" secondAttribute="leading" constant="8" id="bS2-xd-hcj"/>
+                                                        <constraint firstAttribute="bottom" secondItem="tRO-HJ-Pln" secondAttribute="bottom" constant="8" id="dzx-Bj-1bX"/>
+                                                        <constraint firstItem="tRO-HJ-Pln" firstAttribute="top" secondItem="3ek-4c-26l" secondAttribute="top" constant="8" id="lR3-0q-VHb"/>
+                                                    </constraints>
+                                                </view>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="movieTitleLabel" destination="tRO-HJ-Pln" id="OWz-Le-vAz"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -53,12 +72,13 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="My Movies" image="Clapboard" id="nkj-Xm-cVM"/>
                     <connections>
-                        <outlet property="tableView" destination="ZpT-xv-T53" id="AtK-cV-r5s"/>
+                        <outlet property="searchBar" destination="Zo0-4i-Dbp" id="AUw-5O-RN3"/>
+                        <outlet property="tableView" destination="ZpT-xv-T53" id="6Lz-Le-m8b"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PlP-HU-Ek1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="170" y="709"/>
+            <point key="canvasLocation" x="168.80000000000001" y="708.39580209895053"/>
         </scene>
         <!--Add Movies-->
         <scene sceneID="2Fg-Hb-UnW">
@@ -81,7 +101,7 @@
                                         <rect key="frame" x="265" y="0.0" width="94" height="90"/>
                                         <state key="normal" title="Submit Movie"/>
                                         <connections>
-                                            <action selector="submitMovie:" destination="7mn-aH-T1m" eventType="touchUpInside" id="GjS-PT-Pbo"/>
+                                            <action selector="submitMovie:" destination="7mn-aH-T1m" eventType="touchUpInside" id="QMY-pf-5Hm"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -99,7 +119,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Add Movies" image="Plus" id="PZt-nb-eiQ"/>
                     <connections>
-                        <outlet property="titleTextField" destination="7bH-gS-Vim" id="Mqq-do-l1y"/>
+                        <outlet property="titleTextField" destination="7bH-gS-Vim" id="Med-6g-0X7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b9a-an-9H5" userLabel="First Responder" sceneMemberID="firstResponder"/>

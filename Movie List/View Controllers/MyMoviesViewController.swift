@@ -6,6 +6,7 @@
 //  Copyright © 2018 Lambda School. All rights reserved.
 //
 
+
 import UIKit
 
 class MyMoviesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, MovieControllerProtocol, MovieTableViewCellDelegate {
@@ -22,11 +23,29 @@ class MyMoviesViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     
+    @objc func viewWasTapped(sender: UITapGestureRecognizer? = nil) {
+        searchBar.endEditing(true)
+    }
+    
+    
+    // Lifecycle Methods
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        searchBar.delegate = self
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(viewWasTapped(sender:)))
+        view.addGestureRecognizer(tapGestureRecognizer)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+    }
+    
     // UITableViewDataSource methods
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return moviesToShow.count
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as? MovieTableViewCell else { return UITableViewCell() }
         

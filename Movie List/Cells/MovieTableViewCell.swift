@@ -19,7 +19,7 @@ class MovieTableViewCell: UITableViewCell {
     func updateViews() {
         guard let movie = movie else { return }
         movieTitleLabel.text = movie.title
-       
+        
     }
     
     var movie: Movie? { didSet { updateViews() }}
