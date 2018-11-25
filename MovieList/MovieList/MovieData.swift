@@ -4,6 +4,7 @@ class MovieData {
     static let shared = MovieData()
     private init() {}
     
+    //Array to hold all the movie titles.
     private(set) var moviesList: [String] = []
     
     
