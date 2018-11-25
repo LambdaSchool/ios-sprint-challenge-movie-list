@@ -20,6 +20,12 @@ class EditMovieListController: UIViewController, UITableViewDataSource, UITableV
         tableView.dataSource = self
         tableView.delegate = self
         
+        //Set the background image
+        let blueSmoothBG = UIImage(named: "bluesmooth.png")
+        let blueSmootBackground = UIImageView(image: blueSmoothBG)
+        self.tableView.backgroundView = blueSmootBackground
+        
+        //Initial load of the movie list
         MovieData.shared.loadData()
     }
     
@@ -28,23 +34,27 @@ class EditMovieListController: UIViewController, UITableViewDataSource, UITableV
         self.tableView.reloadData()
     }
     
-    //Add functionality to delete movies from movies array, edit movies
+    //Get the count of the movie titles in the movieslist array
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return MovieData.shared.titleCount()
     }
     
+    //Populate the tableView cell with the movie titles
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MovieTitle", for: indexPath)
         
-        //Display the movie titles in the tableview
+        //Make the cell background clear so background image will show
+        cell.backgroundColor = .clear
+        
+        //Get the movie title
         let title = MovieData.shared.itemTitle(at: indexPath.row)
         
-        //Add the movie title to the cell
+        //Display the movie title to the cell
         cell.textLabel?.text = title
         return cell
     }
     
-      //Delete functionality
+    //Delete functionality
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         //Make sure we are using the delete editing style
         guard editingStyle == .delete else {return}
@@ -54,7 +64,7 @@ class EditMovieListController: UIViewController, UITableViewDataSource, UITableV
         tableView.deleteRows(at: [indexPath], with: .automatic)
     }
 
-    //Edit move functionality
+    //Move row  functionality
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         MovieData.shared.moveMovie(from: sourceIndexPath.row, to: destinationIndexPath.row)
         tableView.moveRow(at: sourceIndexPath, to: destinationIndexPath)
@@ -66,7 +76,6 @@ class EditMovieListController: UIViewController, UITableViewDataSource, UITableV
         navigationItem.rightBarButtonItem = doneButton
     }
     
-    
     @objc
     func stopEditingList(_ sender: Any) {
         tableView.setEditing(false, animated: true)
@@ -77,6 +86,7 @@ class EditMovieListController: UIViewController, UITableViewDataSource, UITableV
     //Add seen/unseen button to cell
     @IBAction func seenButton(_ sender: UIButton) {
         sender.setTitle("Seen", for: .normal)
+        sender.setTitleColor(.gray, for: .normal)
     }
-
+    
 }
