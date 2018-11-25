@@ -17,4 +17,8 @@ class AddMoviesController: UIViewController {
         MovieData.shared.addMovie(newMovie)
         textField.text = ""
     }
+    
+    @IBAction func resetMovieList(_ sender: Any) {
+        MovieData.shared.resetMovieList()
+    }
 }

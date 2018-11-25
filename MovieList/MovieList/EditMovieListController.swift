@@ -12,34 +12,35 @@ class EditMovieListController: UIViewController, UITableViewDataSource, UITableV
     
     @IBOutlet weak var tableView: UITableView!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //Make this ViewController the UITableView delegate and data source
         tableView.dataSource = self
         tableView.delegate = self
+        
+        MovieData.shared.loadData()
     }
     
-    var buttonText: String = "Unseen"
+    override func viewDidAppear(_ animated: Bool) {
+        //Refresh the movie list in the tableView
+        self.tableView.reloadData()
+    }
     
-//    @IBAction func seen(_ sender: UIButton) {
-//        var buttonText = sender.titleLabel
-//        if (buttonText == "Unseen" {
-//            sender.setTitle("Seen", for: [])}
-//    }
-//
     //Add functionality to delete movies from movies array, edit movies
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return MovieData.shared.titleCount()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MovieTitle", for: indexPath)
+        
+        //Display the movie titles in the tableview
         let title = MovieData.shared.itemTitle(at: indexPath.row)
         
-        //Set up cell with the model
+        //Add the movie title to the cell
         cell.textLabel?.text = title
-        
         return cell
     }
     
@@ -73,11 +74,9 @@ class EditMovieListController: UIViewController, UITableViewDataSource, UITableV
         navigationItem.rightBarButtonItem = editButton
     }
     
-    
-    
-    
-    
-    
-    
-    
+    //Add seen/unseen button to cell
+    @IBAction func seenButton(_ sender: UIButton) {
+        sender.setTitle("Seen", for: .normal)
+    }
+
 }
