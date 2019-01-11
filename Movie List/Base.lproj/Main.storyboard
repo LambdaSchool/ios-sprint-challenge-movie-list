@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Movies-->
+        <!--View Controller-->
         <scene sceneID="5vi-gR-pT9">
             <objects>
                 <viewController id="86F-Wl-DNt" sceneMemberID="viewController">
@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QjQ-fY-PVn">
-                                <rect key="frame" x="0.0" y="20" width="375" height="598"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" textLabel="4H7-X3-WuI" style="IBUITableViewCellStyleDefault" id="QBb-lk-fUE">
@@ -51,11 +51,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="uxl-4z-6Kj"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Movies" selectedImage="Clapboard" id="Q7y-xE-Xbb"/>
+                    <navigationItem key="navigationItem" id="B4L-XE-l8l">
+                        <barButtonItem key="rightBarButtonItem" title="EDIT" id="07m-pF-TPT"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tMb-1A-gLn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="368.80000000000001" y="242.42878560719643"/>
+            <point key="canvasLocation" x="1308" y="242.42878560719643"/>
         </scene>
         <!--Add new movies-->
         <scene sceneID="oa3-Z9-cJ4">
@@ -115,12 +117,31 @@
                     </tabBar>
                     <connections>
                         <segue destination="CSa-D9-NFW" kind="relationship" relationship="viewControllers" id="B1x-Ex-s53"/>
-                        <segue destination="86F-Wl-DNt" kind="relationship" relationship="viewControllers" id="Hge-XN-4EL"/>
+                        <segue destination="hxB-7R-KVU" kind="relationship" relationship="viewControllers" id="Hge-XN-4EL"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LCu-BA-IFl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-583" y="-89"/>
+        </scene>
+        <!--Movies-->
+        <scene sceneID="cy0-mn-6PR">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hxB-7R-KVU" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Movies" selectedImage="Clapboard" id="Q7y-xE-Xbb"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="vWL-v4-vrp">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="86F-Wl-DNt" kind="relationship" relationship="rootViewController" id="MlL-7f-gEE"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rjg-jS-zcd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="368.80000000000001" y="242.42878560719643"/>
         </scene>
     </scenes>
     <resources>

@@ -31,4 +31,9 @@ class Model {
         return movies[index]
     }
     
+    func moveMovie(from index: Int, to destinationIndex: Int) {
+        let element = Model.shared.movies.remove(at: index)
+        Model.shared.movies.insert(element, at: destinationIndex)
+    }
+    
 }
