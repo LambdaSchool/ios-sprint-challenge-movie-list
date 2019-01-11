@@ -28,23 +28,28 @@ class MovieModelController {
         movies.append(movie)
     }
     
-//    
-//    func removeMovie(movie: Movie) {
-//        guard let index = movies.index(of: movie) else { return }
-//        movies.remove(at: index)
-//        
-//    }
-//    
-//    func moveMovie(from index: Int, to destinationIndex: Int) {
-//        
-//        let movie = movies.remove(at: index)
-//        
-//    
-//    
-//    
-//    }
-//    
+    
+    func removeMovie(movie: Movie) {
+        guard let index = movies.index(of: movie) else { return }
+        movies.remove(at: index)
+
+    }
+
+    func moveMovie(from index: Int, to destinationIndex: Int) {
+
+        let movie = movies.remove(at: index)
+
     
     
+    
+    }
+    
+    func movieCount() -> Int {
+        return movies.count
+    }
+    
+    func movieAtIndex(_ index: Int) -> Movie {
+        return movies[index]
+    }
     
 }
