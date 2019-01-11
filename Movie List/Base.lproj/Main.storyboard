@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Add a new movie to the list-->
+        <!--Add a new movie to the list!-->
         <scene sceneID="Oeb-5k-fzu">
             <objects>
                 <viewController id="v58-aC-oJe" customClass="AddMovieViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
@@ -18,14 +18,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vVM-GD-HSr">
+                            <imageView userInteractionEnabled="NO" alpha="0.34999999999999998" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="movie" translatesAutoresizingMaskIntoConstraints="NO" id="r0R-Pi-pDk">
+                                <rect key="frame" x="0.0" y="47" width="375" height="571"/>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Movie" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vVM-GD-HSr">
                                 <rect key="frame" x="10" y="64" width="355" height="30"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sqx-Q0-uYm">
-                                <rect key="frame" x="142" y="102" width="91" height="30"/>
+                                <rect key="frame" x="142" y="102" width="91" height="34"/>
+                                <fontDescription key="fontDescription" name="Kefa-Regular" family="Kefa" pointSize="19"/>
                                 <state key="normal" title="Add Movie"/>
                                 <connections>
                                     <action selector="addMovieButton:" destination="v58-aC-oJe" eventType="touchUpInside" id="A8l-8e-yFI"/>
@@ -35,15 +39,19 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="vVM-GD-HSr" firstAttribute="leading" secondItem="Zwa-Wq-62f" secondAttribute="leading" constant="10" id="CVz-o6-87E"/>
+                            <constraint firstItem="r0R-Pi-pDk" firstAttribute="centerX" secondItem="sqx-Q0-uYm" secondAttribute="centerX" id="E3M-qy-q8c"/>
                             <constraint firstItem="sqx-Q0-uYm" firstAttribute="top" secondItem="vVM-GD-HSr" secondAttribute="bottom" constant="8" id="FaY-Hp-PLC"/>
                             <constraint firstItem="Zwa-Wq-62f" firstAttribute="trailing" secondItem="vVM-GD-HSr" secondAttribute="trailing" constant="10" id="RiZ-mu-OBX"/>
+                            <constraint firstItem="r0R-Pi-pDk" firstAttribute="leading" secondItem="TYm-wu-Js0" secondAttribute="leading" id="bIe-Ta-kKE"/>
+                            <constraint firstItem="r0R-Pi-pDk" firstAttribute="bottom" secondItem="Zwa-Wq-62f" secondAttribute="bottom" id="gRP-07-MhB"/>
                             <constraint firstItem="sqx-Q0-uYm" firstAttribute="leading" secondItem="Zwa-Wq-62f" secondAttribute="leading" constant="142" id="jdE-B2-NvL"/>
                             <constraint firstItem="Zwa-Wq-62f" firstAttribute="trailing" secondItem="sqx-Q0-uYm" secondAttribute="trailing" constant="142" id="nbt-A7-lLQ"/>
                             <constraint firstItem="vVM-GD-HSr" firstAttribute="top" secondItem="Zwa-Wq-62f" secondAttribute="top" id="wMc-oK-OyT"/>
+                            <constraint firstItem="r0R-Pi-pDk" firstAttribute="top" secondItem="TYm-wu-Js0" secondAttribute="topMargin" constant="-17" id="yzU-fa-3pt"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Zwa-Wq-62f"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Add a new movie to the list" id="hlk-P3-P06"/>
+                    <navigationItem key="navigationItem" title="Add a new movie to the list!" id="hlk-P3-P06"/>
                     <connections>
                         <outlet property="movieTextField" destination="vVM-GD-HSr" id="Kvv-rS-FVP"/>
                     </connections>
@@ -147,5 +155,6 @@
     <resources>
         <image name="Clapboard" width="28" height="28"/>
         <image name="Plus" width="28" height="28"/>
+        <image name="movie" width="620" height="412"/>
     </resources>
 </document>

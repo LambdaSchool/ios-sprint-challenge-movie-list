@@ -31,4 +31,9 @@ class MovieController {
         //remove index from the array
         movies.remove(at: index)
     }
+    
+    //edit movie - will have to change struct movie to class movie and implement equatable protocols
+    func edit(movie: Movie, newTitle: String){
+        movie.title = newTitle
+    }
 }

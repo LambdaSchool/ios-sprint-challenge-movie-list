@@ -16,11 +16,13 @@ class DisplayMovieTableViewController: UITableViewController {
     
     //ceate edit button in navigation controller
     @IBAction func edit(_ sender: Any){
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(stopEditing))
+        tableView.isEditing = true
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(stopEditing))
     }
     
     @objc func stopEditing(_ sender: Any){
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(edit(_:)))
+        tableView.isEditing = false
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(edit(_:)))
     }
     
     //reload tableview when user checks displaytalbleViewController mulitple times
@@ -32,7 +34,6 @@ class DisplayMovieTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return MovieController.shared.movies.count
     }
 
@@ -61,11 +62,50 @@ class DisplayMovieTableViewController: UITableViewController {
     }
  
     override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        //get the data model
+        //get the data model within the tableViews' indexpath at specified location
         let toMove = MovieController.shared.movies[sourceIndexPath.row]
-        //remove data model from view
+        
+        //remove data model from object's array at its' index associated with the tableViews' specified location
         MovieController.shared.movies.remove(at: sourceIndexPath.row)
-        //insert data model at new destination on view
+        
+        //insert data model object into the tableViews' index at the new specified location destination
         MovieController.shared.movies.insert(toMove, at: destinationIndexPath.row)
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //create an alert textfield
+        var myTextField: UITextField?
+        
+        //make an alert so that you can edit the text
+        let alert = UIAlertController(title: "Edit", message: "Edit your movie", preferredStyle: .alert)
+        alert.addTextField { (textField) in
+            textField.text = MovieController.shared.movies[indexPath.row].title
+            myTextField = textField
+        }
+        
+        //create update alert action
+        let updateAction = UIAlertAction(title: "UPDATE TITLE", style: .default) { (_) in
+            //need the movie assocaited with the cell selected
+            let movie = MovieController.shared.movies[indexPath.row]
+            
+            //make sure there is text in the textfield
+            guard let title = myTextField?.text, !title.isEmpty else { return }
+            
+            //call the update/edit function
+            MovieController.shared.edit(movie: movie, newTitle: title)
+            
+            //reload tableView
+            tableView.reloadData()
+        }
+        
+        //create cancel alert action
+        let cancelAction = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
+        
+        //add actions
+        alert.addAction(updateAction)
+        alert.addAction(cancelAction)
+        
+        //present alert to view controller
+        present(alert, animated: true, completion: nil)
     }
 }
