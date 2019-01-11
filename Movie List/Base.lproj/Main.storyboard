@@ -13,7 +13,7 @@
         <!--Add New Movies-->
         <scene sceneID="muC-t5-kNe">
             <objects>
-                <viewController id="QmR-vR-kDu" sceneMemberID="viewController">
+                <viewController id="QmR-vR-kDu" customClass="AddMoviesViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hPp-dC-2V0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -30,6 +30,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fVE-yz-Rq0">
                                         <rect key="frame" x="329" y="0.0" width="30" height="30"/>
                                         <state key="normal" title="Add"/>
+                                        <connections>
+                                            <action selector="add:" destination="QmR-vR-kDu" eventType="touchUpInside" id="mAi-M6-oUn"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -43,15 +46,18 @@
                         <viewLayoutGuide key="safeArea" id="yqb-ML-uoU"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Add New Movies" image="Plus" id="3iX-No-cgr"/>
+                    <connections>
+                        <outlet property="textField" destination="8hr-0S-mqJ" id="FY5-w1-BNf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="diZ-Ug-KI0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2249" y="152"/>
         </scene>
-        <!--View Controller-->
+        <!--Movies View Controller-->
         <scene sceneID="lhe-UX-Ue2">
             <objects>
-                <viewController id="DLt-Yy-wHb" sceneMemberID="viewController">
+                <viewController id="DLt-Yy-wHb" customClass="MoviesViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="26n-ub-E8F">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -81,8 +87,15 @@
                         <viewLayoutGuide key="safeArea" id="cW3-mS-G46"/>
                     </view>
                     <navigationItem key="navigationItem" id="2h7-TA-4lh">
-                        <barButtonItem key="rightBarButtonItem" title="Edit" id="Abv-NL-IPX"/>
+                        <barButtonItem key="rightBarButtonItem" title="Edit" id="Abv-NL-IPX">
+                            <connections>
+                                <action selector="editTable:" destination="DLt-Yy-wHb" id="QBy-26-qO6"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="9FG-jH-WJG" id="Nwi-tc-JBp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Zx-oH-fTl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -94,6 +107,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="v16-2T-rXJ" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cfF-x8-8P9">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
