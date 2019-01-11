@@ -14,7 +14,8 @@ class Model {
         movies.remove(at: index)
     }
     
-    func moveMovie() {
-        
+    func moveMovie(from index: Int, to destination: Int) {
+        let value = movies.remove(at: index)
+        movies.insert(value, at: destination)
     }
 }

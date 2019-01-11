@@ -11,11 +11,6 @@ class AddMovieViewController: UIViewController {
         textFieldOutlet.text = nil
     }
     
-    @IBAction func editAction(_ sender: Any) {
-    }
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
