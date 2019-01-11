@@ -8,19 +8,31 @@
 
 import UIKit
 
-class MoviesViewController: UIViewController, UITableViewDelegate/*, UITableViewDataSource*/ {
+class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBAction func editTable(_ sender: Any) {
         
     }
     
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//
-//    }
-//
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//
-//    }
+    // Delagate
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.reloadData()
+    }
+    
+    // Protocol Stubs
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return Model.shared.itemCount()
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath)
+        cell.textLabel?.text = Model.shared.item(at: indexPath.row)
+        return cell
+    }
     
     @IBOutlet weak var tableView: UITableView!
     let reuseIdentifier = "cell"
