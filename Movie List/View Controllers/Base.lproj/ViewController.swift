@@ -15,9 +15,7 @@ class ViewController: UIViewController {
    @IBAction func add(_ sender: Any) {
     guard let text = textField.text, !text.isEmpty else { return }
     List.shared.addItem(text)
-//    tableView.insertRows(at: [IndexPath(row: List.shared.itemCount()-1, section: 0)], with: .right)
     textField.text = nil
-//    tableView.reloadData()
     }
     
     override func viewDidLoad() {
@@ -26,15 +24,5 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

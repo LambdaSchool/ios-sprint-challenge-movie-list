@@ -21,15 +21,7 @@ class MovieViewController: UIViewController, UITableViewDataSource, UITableViewD
         cell.textLabel!.text = List.shared.item(at: indexPath.row)
         return cell
     }
-    @IBAction func add(_ sender: UIButton) {
-        guard let text = textField.text, !text.isEmpty else { return }
-               List.shared.addItem(text)
-               textField.text = nil
-    }
     
-    @IBOutlet weak var textField: UITextField!
-    //    @IBOutlet weak var tableView: UITableView!
-//    @IBOutlet weak var textField: UITextField!
     
     @IBAction func edit(_ sender: UIButton) {
         myBool = !myBool
