@@ -42,7 +42,7 @@
         <!--Add New Movies-->
         <scene sceneID="om9-Ch-G0F">
             <objects>
-                <viewController id="YYq-vP-Ajl" sceneMemberID="viewController">
+                <viewController id="YYq-vP-Ajl" customClass="AddNewMovieViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rA0-vg-I0V">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -56,6 +56,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7ss-Ub-KyB">
                                 <rect key="frame" x="151" y="128" width="73" height="30"/>
                                 <state key="normal" title="Add Movie"/>
+                                <connections>
+                                    <action selector="addMovie:" destination="YYq-vP-Ajl" eventType="touchUpInside" id="kbE-sF-qW8"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter the movies title..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="arr-m1-cV3">
                                 <rect key="frame" x="12" y="90" width="350" height="30"/>
@@ -77,6 +80,9 @@
                         <viewLayoutGuide key="safeArea" id="v6R-Oi-IxT"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Add New Movies" image="Plus" id="Gw0-Cu-Fng"/>
+                    <connections>
+                        <outlet property="textField" destination="arr-m1-cV3" id="6IT-eM-hUU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hWh-PT-c8f" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

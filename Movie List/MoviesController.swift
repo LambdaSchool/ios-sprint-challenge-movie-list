@@ -12,11 +12,10 @@ class MoviesController {
     static let shared = MoviesController()
     private init() {}
     
-    private(set) var movies = [Movie]()
+    private(set) var movies = [String]()
     
-    func addMovie(_ movie: String) {
-        let movieToAdd = Movie(title: movie)
-        movies.append(movieToAdd)
+    func addNewMovie(_ movie: String) {
+        movies.append(movie)
     }
     
     func removeMovie(at index: Int) {
@@ -35,6 +34,6 @@ class MoviesController {
     }
     
     func movie(at index: Int) -> String {
-        return movies[index].title
+        return movies[index]
     }
 }
