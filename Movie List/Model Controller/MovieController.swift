@@ -17,11 +17,19 @@ class MovieController {
     }
     
     func updateMovie(movie: Movie) {
+        guard let index = movies.index(of: movie) else { return }
         
+        let oldStatus = movie.seen
+        let newStatus = !oldStatus
+        let tempMovie = Movie(name: movie.name, seen: newStatus)
+        
+        movies.remove(at: index)
+        movies.insert(tempMovie, at: index)
         
     }
     
     func deleteMovie(movie: Movie) {
-        
+        guard let index = movies.index(of: movie) else { return }
+        movies.remove(at: index)
     }
 }

@@ -6,4 +6,14 @@
 //  Copyright © 2019 Lambda School. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+class MovieTableViewCell: UITableViewCell {
+    @IBOutlet var movieLabel: UILabel!
+    @IBOutlet var seen: UIButton!
+    
+    @IBAction func toggleSeen(_ sender: UIButton) {
+    }
+    
+    
+}

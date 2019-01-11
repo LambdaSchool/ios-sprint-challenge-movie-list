@@ -9,15 +9,20 @@
 import UIKit
 
 class MovieListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    var movieController: MovieController?
     
     let reuseIdentifier = "MovieCell"
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        <#code#>
+        return movieController?.movies.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
+        let cell  = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath)
+        
+        guard let movieCell = cell as? MovieTableViewCell else { return cell }
+        
+        return movieCell
     }
     
     
