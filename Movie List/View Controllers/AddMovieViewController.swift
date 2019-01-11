@@ -21,6 +21,10 @@ class AddMovieViewController: UIViewController {
     
 
     @IBAction func addButton(_ sender: UIButton) {
+        guard let text = textView.text, !text.isEmpty else {return}
+        
+        MovieViewModel.shared.addMovie(text)
+     textView.text = nil
     }
     
 
