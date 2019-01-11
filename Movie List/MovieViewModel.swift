@@ -14,7 +14,7 @@ class MovieViewModel {
     private init() {}
     var list = [Movie]()
     var items: [String] = []
-    var seen = true
+    var seen = false
     
     
     
@@ -37,6 +37,10 @@ class MovieViewModel {
         
         items.remove(at: index)
         items.insert(stringValue, at: destinationIndex)
+    }
+    
+    func changeSeen(value: Bool){
+       seen = value
     }
    
 }

@@ -23,6 +23,16 @@ class MovieTableViewCell: UITableViewCell {
     
     @IBAction func seenButton(_ sender: UIButton) {
         
+        if MovieViewModel.shared.seen {
+           // MovieViewModel.shared.seen = false
+            MovieViewModel.shared.changeSeen(value: false)
+            sender.setTitle("Not Seen", for: .normal)
+            
+        } else {
+           // MovieViewModel.shared.seen = true
+            MovieViewModel.shared.changeSeen(value: true)
+            sender.setTitle("Seen", for: .normal)
+        }
         
     }
     
