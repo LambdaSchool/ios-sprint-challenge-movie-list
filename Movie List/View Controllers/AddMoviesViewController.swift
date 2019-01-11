@@ -11,7 +11,11 @@ import UIKit
 class AddMoviesViewController: UIViewController {
     
     @IBAction func add(_ sender: Any) {
+        guard let text = textField.text, !text.isEmpty else { return }
         
+        Model.shared.addValue(text)
+        
+        textField.text = nil
     }
     
     @IBOutlet weak var textField: UITextField!
