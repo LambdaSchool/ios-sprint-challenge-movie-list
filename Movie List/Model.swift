@@ -26,6 +26,10 @@ class Model {
         }catch{
             print(error)
         }
+        sortRecentMovies()
+    }
+    func sortRecentMovies(){
+        movieArray = movieArray.sorted(by: {$0.timeAdded > $1.timeAdded})
     }
     func saveMovies(){
         do{

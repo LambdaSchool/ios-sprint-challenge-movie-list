@@ -20,7 +20,6 @@ class CustomTableViewController: UIViewController, UITableViewDelegate, UITableV
         tableView.dataSource = self
         tableView.reloadData()
     }
-
     @IBAction func edit(_ sender: Any) {
         tableView.isEditing = true
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(stopEditingTable(_:)))
@@ -31,6 +30,23 @@ class CustomTableViewController: UIViewController, UITableViewDelegate, UITableV
     @objc func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return Model.shared.movieArray.count
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let alert = UIAlertController(title: "Confirm", message: "Would you like to edit this movie title?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: {_ in
+            let alert = UIAlertController(title: "Rename", message: "What would you like to rename this title to?", preferredStyle: .alert)
+            alert.addTextField(configurationHandler: { (textField) in
+                textField.text = Model.shared.movieArray[indexPath.row].name
+                alert.addAction(UIAlertAction(title: "Confirm", style: .default, handler: {_ in
+                    Model.shared.movieArray[indexPath.row].name = textField.text!
+                    tableView.reloadData()
+                    Model.shared.saveMovies()
+                }))
+            })
+            self.present(alert, animated: true)
+        }))
+        alert.addAction(UIAlertAction(title: "No", style: .default))
+        present(alert, animated: true)
     }
 
     

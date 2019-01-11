@@ -11,4 +11,5 @@ import Foundation
 class Movie : Encodable, Decodable{
     var name : String = ""
     var isSeen : Bool = false
+    var timeAdded : Date = Date()
 }

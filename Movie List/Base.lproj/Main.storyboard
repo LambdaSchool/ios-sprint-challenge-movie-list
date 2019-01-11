@@ -121,26 +121,57 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gbv-HI-ezW">
+                                <rect key="frame" x="0.0" y="307" width="375" height="192.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="xdi-vv-OOh">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xdi-vv-OOh" id="o5T-RH-X7U">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="93I-vC-XdN" id="rlH-w0-Wi0"/>
+                                    <outlet property="delegate" destination="93I-vC-XdN" id="QUf-fC-OGi"/>
+                                </connections>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recent Movies" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5OB-t0-YV2">
+                                <rect key="frame" x="112" y="272" width="151.5" height="26.5"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="gbv-HI-ezW" firstAttribute="top" secondItem="5OB-t0-YV2" secondAttribute="bottom" constant="8" id="1Eq-c5-HLF"/>
+                            <constraint firstItem="5OB-t0-YV2" firstAttribute="top" secondItem="TZu-Of-QGb" secondAttribute="bottom" constant="134.5" id="2K7-wg-oqd"/>
                             <constraint firstItem="MnE-ry-Lyc" firstAttribute="trailing" secondItem="aXk-J1-Zv6" secondAttribute="trailing" constant="8" id="Ahn-Ip-knv"/>
                             <constraint firstItem="aXk-J1-Zv6" firstAttribute="leading" secondItem="MnE-ry-Lyc" secondAttribute="leading" constant="8" id="BZi-iv-89a"/>
                             <constraint firstItem="MnE-ry-Lyc" firstAttribute="trailing" secondItem="TZu-Of-QGb" secondAttribute="trailing" constant="8" id="Jq0-Wu-qe6"/>
                             <constraint firstItem="aXk-J1-Zv6" firstAttribute="top" secondItem="MnE-ry-Lyc" secondAttribute="top" constant="8" id="OPH-sg-1ce"/>
+                            <constraint firstItem="gbv-HI-ezW" firstAttribute="trailing" secondItem="MnE-ry-Lyc" secondAttribute="trailing" id="PqQ-Gx-UEe"/>
                             <constraint firstItem="TZu-Of-QGb" firstAttribute="leading" secondItem="MnE-ry-Lyc" secondAttribute="leading" constant="8" id="qfe-4o-0dQ"/>
+                            <constraint firstItem="MnE-ry-Lyc" firstAttribute="bottom" secondItem="gbv-HI-ezW" secondAttribute="bottom" constant="118.5" id="uCc-Qk-tqt"/>
                             <constraint firstItem="TZu-Of-QGb" firstAttribute="top" secondItem="aXk-J1-Zv6" secondAttribute="bottom" constant="8" id="xAc-26-ybT"/>
+                            <constraint firstItem="5OB-t0-YV2" firstAttribute="centerX" secondItem="SO4-Ha-7fP" secondAttribute="centerX" id="y9Z-ZB-sxn"/>
+                            <constraint firstItem="gbv-HI-ezW" firstAttribute="leading" secondItem="MnE-ry-Lyc" secondAttribute="leading" id="yfL-u3-ISe"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="MnE-ry-Lyc"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Add New Movies" selectedImage="Plus" id="XwR-Zi-LAA"/>
                     <connections>
+                        <outlet property="tableView" destination="gbv-HI-ezW" id="4hp-dY-3xS"/>
                         <outlet property="textField" destination="z6n-H7-kt0" id="XRx-0k-sGU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jw2-b8-VBH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="191" y="-414"/>
+            <point key="canvasLocation" x="189.59999999999999" y="-414.24287856071965"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="auc-wJ-qN2">
