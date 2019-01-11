@@ -9,18 +9,13 @@
 import UIKit
 
 class MainTabBarVC: UITabBarController {
+    
+    let movieController = MovieController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        passViewControllerToChildController()
-    }
-    
-    let movieController = MovieController()
-    
-    func passViewControllerToChildController() {
-        guard let viewControllers = viewControllers.self else { return }
         
-        for viewController in viewControllers {
+        for viewController in childViewControllers {
             if let viewController = viewController as? MovieControllerDelegate {
                 viewController.movieController = movieController
             }

@@ -9,11 +9,6 @@
 import UIKit
 
 class AddMovieVC: UIViewController, MovieControllerDelegate {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-    }
     
     var movieController: MovieController?
     

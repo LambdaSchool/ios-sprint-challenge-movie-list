@@ -21,7 +21,6 @@ class MovieController {
     
     // MARK: - Change status
     func changeStatus(for movie: Movie) {
-        
         movie.hasSeen = !movie.hasSeen
     }
     
@@ -29,7 +28,4 @@ class MovieController {
     func deleteMovie(index: Int){
         movies.remove(at: index)
     }
-    
-    
-    
 }

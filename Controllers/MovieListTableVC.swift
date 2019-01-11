@@ -25,10 +25,6 @@ class MovieListTableVC: UITableViewController, MovieControllerDelegate, MovieLis
     }
 
     @IBOutlet var tableViewOutlet: UITableView!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
 
     // MARK: - moviewController Protocol
     
