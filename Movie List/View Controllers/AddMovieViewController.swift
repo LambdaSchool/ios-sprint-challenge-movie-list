@@ -24,7 +24,7 @@ class AddMovieViewController: UIViewController {
         guard let text = textView.text, !text.isEmpty else {return}
         
         MovieViewModel.shared.addMovie(text)
-     textView.text = nil
+        textView.text = nil
     }
     
 

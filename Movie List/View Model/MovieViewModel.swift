@@ -15,9 +15,7 @@ class MovieViewModel {
     var list = [Movie]()
     var items: [String] = []
     var seen = false
-    
-    
-    
+   
     func addMovie(_ title: String ){
         let movie = Movie(title: title)
         items.append(movie.title)
