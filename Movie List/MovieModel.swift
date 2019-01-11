@@ -38,6 +38,8 @@ class MovieModel {
         return movies[index]
     }
     
+    // Persistence
+    
     let fileURL = URL(fileURLWithPath: NSHomeDirectory())
         .appendingPathComponent("Library")
         .appendingPathComponent("ToDo")

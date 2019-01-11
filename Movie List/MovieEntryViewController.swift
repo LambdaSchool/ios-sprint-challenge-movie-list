@@ -9,16 +9,11 @@
 import UIKit
 
 class MovieEntryViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
     
     @IBOutlet weak var textField: UITextField!
     @IBAction func add(_ sender: Any) {
-        guard let text = textField.text, !text.isEmpty else { return }
-        MovieModel.shared.addMovie(text)
+        guard let movieTitle = textField.text, !movieTitle.isEmpty else { return }
+        MovieModel.shared.addMovie(movieTitle)
         textField.text = ""
     }
-
 }

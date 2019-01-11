@@ -44,7 +44,6 @@ class MovieListTableViewController: UITableViewController {
         
         MovieModel.shared.moveMovie(from: sourceIndexPath.row, to: destinationIndexPath.row)
         tableView.moveRow(at: sourceIndexPath, to: destinationIndexPath)
-        
     }
     
     @IBAction func editTable(_ sender: Any) {
@@ -57,6 +56,4 @@ class MovieListTableViewController: UITableViewController {
         tableView.setEditing(false, animated: true)
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editTable(_:)))
     }
-
-
 }
