@@ -20,6 +20,11 @@ class MovieListViewController: UIViewController, UITableViewDataSource, UITableV
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        movieTableView.reloadData()
+    }
+    
     func updateCell(on cell: MovieTableViewCell) {
         guard let indexPath = movieTableView.indexPath(for: cell),
             let movie = movieController?.movies[indexPath.row] else { return }
@@ -43,6 +48,21 @@ class MovieListViewController: UIViewController, UITableViewDataSource, UITableV
         
         return movieCell
     }
+    
+//    @IBAction func editTable(_ sender: Any) {
+//        movieTableView.setEditing(true, animated: true)
+//        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(stopEditingTable(_sender:)))
+//    }
+//
+//    @objc func stopEditingTable( _sender: Any) {
+//        movieTableView.setEditing(false, animated: true)
+//        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editTable(_:)))
+//    }
+    
+//    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+//        movieController?.moveItem(from: sourceIndexPath.row, to: destinationIndexPath.row)
+//    }
+    
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {

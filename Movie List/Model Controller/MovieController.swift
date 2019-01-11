@@ -32,4 +32,12 @@ class MovieController {
         guard let index = movies.index(of: movie) else { return }
         movies.remove(at: index)
     }
+    
+//    func moveItem(from index: Int, to destinationIndex: Int) {
+//        let movie = movies[index]
+//        let movieAtDestination = movies[destinationIndex]
+//        movies[index] = movieAtDestination
+//        movies[destinationIndex] = movie
+//    }
+    
 }
