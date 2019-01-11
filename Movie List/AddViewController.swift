@@ -10,22 +10,24 @@ import UIKit
 
 class AddViewController: UIViewController {
     
+    @IBOutlet weak var pageTitle: UILabel!
+    
+    @IBOutlet weak var textField: UITextField!
+    
+    
+    
     @IBAction func shouldAdd(_ sender: UIButton) {
-        //let text = textField.text ?? ""
+        guard let text = textField.text else {return}
         
-        
-        /*if !text.isEmpty {
-            movieController.movies.append(text)
-           // textField.text = ""
-            let joined = movieController.movies.joined(separator: "\n")
-           // movieViewController.label.text = joined
+        if !text.isEmpty {
+            MovieController.shared.addMovie(textMovie: text)
+            textField.text = nil
         }
     }
     
-    let movieController = MovieController()
-    let movieViewController = MovieViewController()
-    */
-    }
+    /*let movieController = MovieController()
+    let movieViewController = MovieViewController()*/
+    
     
     
 }

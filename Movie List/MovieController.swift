@@ -21,8 +21,8 @@ class MovieController {
     
     func removeMovie(movie: Movie) {
         // fill this in
-        /*guard let index = movies.index(of: movie) else {return}
-        movies.remove(at: index)*/
+        guard let index = movies.index(of: movie) else {return}
+        movies.remove(at: index)
     }
     
     func moveMovie(from index: Int, to destinationIndex: Int) {

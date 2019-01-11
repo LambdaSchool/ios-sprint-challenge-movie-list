@@ -17,8 +17,6 @@ class MovieViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     @IBOutlet weak var tableView: UITableView!
     
-    @IBOutlet weak var seenButton: UIButton!
-    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
@@ -68,10 +66,10 @@ class MovieViewController: UIViewController, UITableViewDelegate, UITableViewDat
     @IBAction func toggleSeen(_ sender: UIButton) {
         if MovieController.shared.seen == false {
             MovieController.shared.seen = true
-            seenButton.setTitle("Seen", for: .normal)
+            sender.setTitle("Seen", for: .normal)
         } else {
             MovieController.shared.seen = false
-            seenButton.setTitle("Not Seen", for: .normal)
+            sender.setTitle("Not Seen", for: .normal)
         }
         
     }
