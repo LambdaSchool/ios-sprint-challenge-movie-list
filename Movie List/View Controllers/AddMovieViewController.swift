@@ -14,11 +14,18 @@ class AddMovieViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-  
     }
     
     @IBAction func addMovieButton(_ sender: UIButton) {
+        //check to see if there's text in the textfield
+        guard let text = movieTextField.text, !text.isEmpty else { return }
+        
+        //add movie to array
+        MovieController.shared.addMovie(with: text)
+        
+        //clear textField
+        movieTextField.text = nil
+        
     }
 
 }
