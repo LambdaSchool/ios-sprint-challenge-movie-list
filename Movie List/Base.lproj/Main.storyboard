@@ -13,7 +13,7 @@
         <!--View Controller-->
         <scene sceneID="5vi-gR-pT9">
             <objects>
-                <viewController id="86F-Wl-DNt" sceneMemberID="viewController">
+                <viewController id="86F-Wl-DNt" customClass="ViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ery-SG-FLS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -54,6 +54,9 @@
                     <navigationItem key="navigationItem" id="B4L-XE-l8l">
                         <barButtonItem key="rightBarButtonItem" title="EDIT" id="07m-pF-TPT"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="QjQ-fY-PVn" id="Yus-Zl-XEw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tMb-1A-gLn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -62,7 +65,7 @@
         <!--Add new movies-->
         <scene sceneID="oa3-Z9-cJ4">
             <objects>
-                <viewController id="CSa-D9-NFW" sceneMemberID="viewController">
+                <viewController id="CSa-D9-NFW" customClass="ViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="h7J-aV-jUe">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -85,6 +88,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q9Y-22-z61">
                                         <rect key="frame" x="0.0" y="38" width="359" height="30"/>
                                         <state key="normal" title="ADD MOVIE"/>
+                                        <connections>
+                                            <action selector="addMovieButton:" destination="CSa-D9-NFW" eventType="touchUpInside" id="36p-ZB-lzI"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -101,6 +107,10 @@
                         <viewLayoutGuide key="safeArea" id="CWh-Dc-DRL"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Add new movies" selectedImage="Plus" id="ZoT-KE-IxE"/>
+                    <connections>
+                        <outlet property="newMovieLabel" destination="gSK-fm-fs2" id="2Lj-IL-8FU"/>
+                        <outlet property="textField" destination="dnE-l7-WV6" id="xZD-HN-rDN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tsf-RP-rUM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
