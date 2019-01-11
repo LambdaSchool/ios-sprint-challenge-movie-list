@@ -36,37 +36,44 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="KZd-qv-cf7">
-                                <rect key="frame" x="8" y="44" width="398" height="74"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="398-Wb-Tif">
+                                <rect key="frame" x="8" y="44" width="398" height="156"/>
                                 <subviews>
-                                    <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3B2-K2-N4x">
-                                        <rect key="frame" x="0.0" y="0.0" width="398" height="44"/>
-                                        <items>
-                                            <navigationItem title="Add a new movie to the list" id="iWv-Ee-0lF"/>
-                                        </items>
-                                    </navigationBar>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter movie name here:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="baI-fB-8nr">
-                                        <rect key="frame" x="0.0" y="44" width="398" height="30"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="KZd-qv-cf7">
+                                        <rect key="frame" x="0.0" y="0.0" width="398" height="126"/>
+                                        <subviews>
+                                            <navigationBar contentMode="scaleToFill" largeTitles="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3B2-K2-N4x">
+                                                <rect key="frame" x="0.0" y="0.0" width="398" height="96"/>
+                                                <items>
+                                                    <navigationItem title="Add a new movie to the list" id="iWv-Ee-0lF"/>
+                                                </items>
+                                            </navigationBar>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter movie name here:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="baI-fB-8nr">
+                                                <rect key="frame" x="0.0" y="96" width="398" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TUZ-4H-0g6">
+                                        <rect key="frame" x="184" y="126" width="30" height="30"/>
+                                        <state key="normal" title="Add"/>
+                                        <connections>
+                                            <action selector="add:" destination="sWY-EO-XkU" eventType="touchUpInside" id="5Kq-ma-2HB"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="KZd-qv-cf7" firstAttribute="leading" secondItem="398-Wb-Tif" secondAttribute="leading" id="wML-15-TD4"/>
+                                </constraints>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TUZ-4H-0g6">
-                                <rect key="frame" x="192" y="126" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Add"/>
-                                <connections>
-                                    <action selector="add:" destination="sWY-EO-XkU" eventType="touchUpInside" id="5Kq-ma-2HB"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="KZd-qv-cf7" firstAttribute="leading" secondItem="Jmh-ag-Yx9" secondAttribute="leading" constant="8" id="1rK-mn-ssD"/>
-                            <constraint firstItem="Jmh-ag-Yx9" firstAttribute="trailing" secondItem="KZd-qv-cf7" secondAttribute="trailing" constant="8" id="U63-p7-LGt"/>
-                            <constraint firstItem="KZd-qv-cf7" firstAttribute="top" secondItem="Jmh-ag-Yx9" secondAttribute="top" id="mpm-pV-tBu"/>
+                            <constraint firstItem="398-Wb-Tif" firstAttribute="top" secondItem="Jmh-ag-Yx9" secondAttribute="top" id="7SI-PU-GFO"/>
+                            <constraint firstItem="398-Wb-Tif" firstAttribute="centerX" secondItem="I4q-cu-Qle" secondAttribute="centerX" id="9uP-aZ-Lhr"/>
+                            <constraint firstItem="398-Wb-Tif" firstAttribute="leading" secondItem="Jmh-ag-Yx9" secondAttribute="leading" constant="8" id="K61-FD-FcG"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Jmh-ag-Yx9"/>
                     </view>
