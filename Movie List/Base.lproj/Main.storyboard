@@ -17,14 +17,65 @@
                     <view key="view" contentMode="scaleToFill" id="YMJ-Jp-xr6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="0ow-0g-3A7">
+                                <rect key="frame" x="66" y="75" width="243" height="136"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Lambda_Logo_Full" translatesAutoresizingMaskIntoConstraints="NO" id="Kqm-2H-p7u">
+                                        <rect key="frame" x="71.5" y="0.0" width="100" height="100"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="100" id="7yW-Jt-d8a"/>
+                                            <constraint firstAttribute="width" constant="100" id="vu7-ed-xzP"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lamda Movie List" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ry4-00-LMY">
+                                        <rect key="frame" x="0.0" y="100" width="243" height="36"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="eQF-VX-99C">
+                                <rect key="frame" x="40" y="277.5" width="295" height="112"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a new movie to the list" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n6W-B0-qdQ">
+                                        <rect key="frame" x="0.0" y="0.0" width="295" height="24"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                        <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hMS-51-yWb">
+                                        <rect key="frame" x="0.0" y="32" width="295" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H2M-Es-Ier">
+                                        <rect key="frame" x="0.0" y="70" width="295" height="42"/>
+                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="25"/>
+                                        <state key="normal" title="Add Movie">
+                                            <color key="titleColor" red="0.38511451060000002" green="0.77732268920000003" blue="0.53312187310000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="0ow-0g-3A7" firstAttribute="centerX" secondItem="YMJ-Jp-xr6" secondAttribute="centerX" id="8Gn-BV-rR7"/>
+                            <constraint firstItem="eQF-VX-99C" firstAttribute="leading" secondItem="cja-Ek-U25" secondAttribute="leading" constant="40" id="N2A-wP-ipN"/>
+                            <constraint firstItem="cja-Ek-U25" firstAttribute="trailing" secondItem="eQF-VX-99C" secondAttribute="trailing" constant="40" id="hLk-bb-i4A"/>
+                            <constraint firstItem="eQF-VX-99C" firstAttribute="centerY" secondItem="YMJ-Jp-xr6" secondAttribute="centerY" id="iQm-0x-6ZC"/>
+                            <constraint firstItem="0ow-0g-3A7" firstAttribute="top" secondItem="YMJ-Jp-xr6" secondAttribute="top" constant="75" id="jfp-k2-rba"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="cja-Ek-U25"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Add New Movies" image="Plus" selectedImage="Plus" id="dex-AM-8eH"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8AI-He-kdB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="270" y="-437"/>
+            <point key="canvasLocation" x="269.60000000000002" y="-437.63118440779613"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yvb-5R-RDp">
@@ -37,14 +88,14 @@
                     </tabBar>
                     <connections>
                         <segue destination="dhK-wr-Tkb" kind="relationship" relationship="viewControllers" id="Mov-4d-Na9"/>
-                        <segue destination="bcO-cg-i3m" kind="relationship" relationship="viewControllers" id="gaI-Sb-FeO"/>
+                        <segue destination="GNW-pt-BST" kind="relationship" relationship="viewControllers" id="gaI-Sb-FeO"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xNQ-VS-0Pi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-682" y="-104"/>
         </scene>
-        <!--Movies-->
+        <!--Table View Controller-->
         <scene sceneID="N3x-IC-QyA">
             <objects>
                 <tableViewController id="bcO-cg-i3m" sceneMemberID="viewController">
@@ -67,15 +118,37 @@
                             <outlet property="delegate" destination="bcO-cg-i3m" id="jqF-M6-AFM"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Movies" image="Clapboard" selectedImage="Clapboard" id="F2g-pd-TEO"/>
+                    <navigationItem key="navigationItem" id="rad-4h-m3q">
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="DMe-mr-Ibt"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7t5-4s-k4N" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="270" y="260"/>
+            <point key="canvasLocation" x="1208.8" y="259.52023988005999"/>
+        </scene>
+        <!--Movies-->
+        <scene sceneID="e48-Fh-cst">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="GNW-pt-BST" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Movies" image="Clapboard" selectedImage="Clapboard" id="F2g-pd-TEO"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="hRD-zK-1NY">
+                        <rect key="frame" x="0.0" y="20" width="375" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="bcO-cg-i3m" kind="relationship" relationship="rootViewController" id="SGt-7r-qcq"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kNH-pd-r2e" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="269.60000000000002" y="259.52023988005999"/>
         </scene>
     </scenes>
     <resources>
         <image name="Clapboard" width="28" height="28"/>
+        <image name="Lambda_Logo_Full" width="574" height="249"/>
         <image name="Plus" width="28" height="28"/>
     </resources>
 </document>
