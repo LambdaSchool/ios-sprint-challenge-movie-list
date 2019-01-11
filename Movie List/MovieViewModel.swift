@@ -25,13 +25,18 @@ class MovieViewModel {
     }
     
     func itemCount() -> Int {
-      //  print("*****", items.count)
         return items.count
     }
     
     func removeMoview(at index: Int) {
-        // fill this in
+       
         items.remove(at: index)
+    }
+    
+    func moveItem(from index: Int, to destinationIndex: Int, stringValue: String) {
+        
+        items.remove(at: index)
+        items.insert(stringValue, at: destinationIndex)
     }
    
 }

@@ -25,6 +25,16 @@ class MovieListViewController: UIViewController {
         print(MovieViewModel.shared.itemCount())
     }
     
+    @IBAction func move(_ sender: UIButton) {
+        tableView.setEditing(true, animated: true)
+        sender.addTarget(self, action: #selector(stopEditingTable(_:)), for: .touchUpInside)
+
+    }
+    
+    @objc
+    func stopEditingTable(_ sender: Any) {
+        tableView.setEditing(false, animated: true)
+    }
     
     
 }
@@ -54,5 +64,16 @@ extension MovieListViewController: UITableViewDelegate, UITableViewDataSource {
         tableView.reloadData()
     }
     
+    
+    
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        
+        
+        let item = MovieViewModel.shared.items[sourceIndexPath.row]
+        
+        MovieViewModel.shared.moveItem(from: sourceIndexPath.row, to: destinationIndexPath.row, stringValue: item)
+        
+        
+    }
     
 }
