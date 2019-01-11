@@ -11,6 +11,7 @@ import UIKit
 class CustomTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var currentIndexPath : Int = 0
+    @IBOutlet weak var editButton: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
@@ -20,10 +21,14 @@ class CustomTableViewController: UIViewController, UITableViewDelegate, UITableV
         tableView.reloadData()
     }
 
+    @IBAction func edit(_ sender: Any) {
+        tableView.isEditing = true
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(stopEditingTable(_:)))
+    }
     // MARK: - Table view data source
 
 
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    @objc func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return Model.shared.movieArray.count
     }
@@ -43,6 +48,14 @@ class CustomTableViewController: UIViewController, UITableViewDelegate, UITableV
         }
         
         return cell
+    }
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        Model.shared.moveMovie(from: sourceIndexPath.row, to: destinationIndexPath.row)
+    }
+    @objc
+    func stopEditingTable(_ sender: Any) {
+        tableView.setEditing(false, animated: true)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(edit(_:)))
     }
 
     

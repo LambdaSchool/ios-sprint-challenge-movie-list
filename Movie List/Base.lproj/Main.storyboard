@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Movies-->
+        <!--Custom Table View Controller-->
         <scene sceneID="4X9-vf-dh8">
             <objects>
                 <viewController id="8Xl-Sh-15C" customClass="CustomTableViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="uja-of-61F">
-                                <rect key="frame" x="0.0" y="20" width="375" height="598"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="0gc-Tv-dNy" customClass="CustomTableViewCell" customModule="Movie_List" customModuleProvider="target">
@@ -73,14 +73,21 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6pc-IW-NUf"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Movies" selectedImage="Clapboard" id="LKo-gA-h4h"/>
+                    <navigationItem key="navigationItem" id="hfL-G4-OKi">
+                        <barButtonItem key="rightBarButtonItem" title="Edit" id="pW7-OM-lYH">
+                            <connections>
+                                <action selector="edit:" destination="8Xl-Sh-15C" id="6uc-zB-kaL"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="editButton" destination="pW7-OM-lYH" id="ScH-p5-6uA"/>
                         <outlet property="tableView" destination="uja-of-61F" id="1zS-Mz-5Tm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fJS-ur-zKP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="189.59999999999999" y="251.42428785607197"/>
+            <point key="canvasLocation" x="1128.8" y="251.42428785607197"/>
         </scene>
         <!--Add New Movies-->
         <scene sceneID="wAr-qW-EDf">
@@ -146,12 +153,31 @@
                     </tabBar>
                     <connections>
                         <segue destination="93I-vC-XdN" kind="relationship" relationship="viewControllers" id="dGg-6n-zwo"/>
-                        <segue destination="8Xl-Sh-15C" kind="relationship" relationship="viewControllers" id="iek-g1-R85"/>
+                        <segue destination="4vV-Nz-mUh" kind="relationship" relationship="viewControllers" id="iek-g1-R85"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Xc-Ea-MrJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-761" y="-81"/>
+        </scene>
+        <!--Movies-->
+        <scene sceneID="MWA-cd-MEW">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4vV-Nz-mUh" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Movies" selectedImage="Clapboard" id="LKo-gA-h4h"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="bOt-fE-mzU">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="8Xl-Sh-15C" kind="relationship" relationship="rootViewController" id="9Ip-rv-Wvn"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fMx-O5-4Pf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="189.59999999999999" y="251.42428785607197"/>
         </scene>
     </scenes>
     <resources>

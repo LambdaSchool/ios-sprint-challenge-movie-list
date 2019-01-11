@@ -44,6 +44,5 @@ class Model {
         movieArray[to] = movieArray[from]
         movieArray[from] = movieHolder
         saveMovies()
-        tableViewController.tableView.reloadData()
     }
 }
