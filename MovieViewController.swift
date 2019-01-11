@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class MovieViewController: UIViewController, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var textField: UITextField!
@@ -20,12 +20,8 @@ class ViewController: UIViewController {
     }
 
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-    }
-    
+
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 0
@@ -54,6 +50,7 @@ class ViewController: UIViewController {
         let movie = MovieController.shared.movies[indexPath.row]
         MovieController.shared.removeMovies(movie)
     }
-
-
 }
+
+
+
