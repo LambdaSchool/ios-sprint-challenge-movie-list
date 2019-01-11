@@ -13,7 +13,7 @@
         <!--Add New Movies-->
         <scene sceneID="HQf-2F-fPO">
             <objects>
-                <viewController id="PxX-6Z-lfb" sceneMemberID="viewController">
+                <viewController id="PxX-6Z-lfb" customClass="AddNewMovieViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7Yf-8K-2fS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -36,6 +36,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xjn-8X-IVw">
                                         <rect key="frame" x="156.5" y="82" width="46" height="30"/>
                                         <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="addNewMovie:" destination="PxX-6Z-lfb" eventType="touchUpInside" id="8bi-0Y-jh4"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -55,6 +58,11 @@
                         <viewLayoutGuide key="safeArea" id="se4-t9-vyw"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Add New Movies" image="Plus" selectedImage="Plus" id="b2h-SU-7lS"/>
+                    <connections>
+                        <outlet property="addNewMovie" destination="Xjn-8X-IVw" id="Qoa-UQ-UZI"/>
+                        <outlet property="movieLabel" destination="AOR-VL-1XG" id="Ks5-AU-hDX"/>
+                        <outlet property="movieTextField" destination="I2x-fw-YGn" id="Boz-aZ-keg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="br2-M5-dwY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -63,7 +71,7 @@
         <!--Movies-->
         <scene sceneID="N0k-kj-SoT">
             <objects>
-                <viewController id="fUz-dV-vDS" sceneMemberID="viewController">
+                <viewController id="fUz-dV-vDS" customClass="MovieListViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FIA-2t-K5M">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -118,6 +126,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="cwW-cG-01x" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Myz-Io-jQa">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
