@@ -26,6 +26,14 @@ class AddMovieViewController: UIViewController {
         //clear textField
         movieTextField.text = nil
         
+        //dismiss keyboard
+        movieTextField.resignFirstResponder()
+        
+    }
+    
+    //dismiss the keyboard when user touches outside of the textField
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        movieTextField.resignFirstResponder()
     }
 
 }
