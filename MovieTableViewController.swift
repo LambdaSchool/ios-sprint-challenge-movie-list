@@ -11,10 +11,14 @@ import UIKit
 class MovieTableViewController: UITableViewController {
     
     let reuseIdentifier = "movieCell"
+    
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        tableView.reloadData()
    }
 
     // MARK: - Table view data source
@@ -30,12 +34,12 @@ class MovieTableViewController: UITableViewController {
     }
 
     
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath)
         let movie = MovieModelController.shared.movieAtIndex(indexPath.row)
         
         cell.textLabel?.text = movie.movie
+//        tableView.reloadData()
 
         // Configure the cell...
 
@@ -45,13 +49,16 @@ class MovieTableViewController: UITableViewController {
     
     // MAGIC DELETE
     
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         guard editingStyle == .delete else { return }
         
         MovieModelController.shared.removeMovie(at: indexPath.row)
         
         tableView.deleteRows(at: [indexPath], with: .automatic)
-        
+    }
+    
+    override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        MovieModelController.shared.moveMovie(from: sourceIndexPath.row, to: destinationIndexPath.row)
     }
     
     

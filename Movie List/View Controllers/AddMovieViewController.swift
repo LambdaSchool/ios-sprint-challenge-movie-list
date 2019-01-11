@@ -12,7 +12,7 @@ class AddMovieViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
     }
     
     @IBOutlet weak var textField: UITextField!
@@ -24,6 +24,5 @@ class AddMovieViewController: UIViewController {
         textField.text = nil
         
     }
-    
-
+ 
 }
