@@ -5,13 +5,16 @@ class Model {
     private init() {}
     
     private(set) var movies: [String] = []
-    private(set) var movie: String
     
-    func addMovie(_: movie) {
+    func addMovie(_ movie: String) {
         movies.append(movie)
     }
     
-    func deleteMovie() {
+    func deleteMovie(at index: Int) {
+        movies.remove(at: index)
+    }
+    
+    func moveMovie() {
         
     }
 }
