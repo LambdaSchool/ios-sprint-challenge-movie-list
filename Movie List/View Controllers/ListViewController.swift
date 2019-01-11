@@ -10,7 +10,6 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    let reuseIdentifier = "cell"
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return Model.shared.movieCount()
@@ -28,16 +27,20 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
     }
     
+    let reuseIdentifier = "cell"
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        tableView.dataSource = self
-        tableView.delegate = self
+        
         tableView.reloadData()
         
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.dataSource = self
+        tableView.delegate = self
         
     }
     
@@ -63,6 +66,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBOutlet weak var textField: UITextField!
     
     @IBAction func addMovieButton(_ sender: UIButton) {
+        
         guard let text = textField.text, !text.isEmpty else { return }
         
         Model.shared.addMovie(text)
