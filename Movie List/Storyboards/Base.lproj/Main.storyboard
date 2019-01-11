@@ -28,7 +28,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="245" height="59"/>
                                     </imageView>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Movies Title:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TW7-OI-Il2">
-                                        <rect key="frame" x="52.5" y="67" width="140.5" height="30"/>
+                                        <rect key="frame" x="0.0" y="67" width="245" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -41,6 +41,10 @@
                                         </connections>
                                     </button>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="TW7-OI-Il2" firstAttribute="leading" secondItem="glU-m7-0C7" secondAttribute="leading" id="4gi-pt-ZPG"/>
+                                    <constraint firstAttribute="trailing" secondItem="TW7-OI-Il2" secondAttribute="trailing" id="n46-X1-Skr"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -80,6 +84,16 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="H0b-Uf-ZE9" id="reC-Va-YYa">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ERx-cB-4Jr">
+                                            <rect key="frame" x="214" y="3" width="62" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" title="Not seen"/>
+                                            <connections>
+                                                <action selector="seenOrNotAction:" destination="lm1-kw-kS8" eventType="touchUpInside" id="hg8-xB-DHo"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -97,6 +111,7 @@
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="klR-NM-N4x" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="lm1-kw-kS8" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1633" y="909"/>
         </scene>
@@ -106,6 +121,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="AdG-ZT-fzk" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="hEA-vz-iVk">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
