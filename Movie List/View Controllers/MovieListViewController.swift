@@ -10,6 +10,7 @@ import UIKit
 
 class MovieListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, MovieControllerProtocol, MovieTableViewCellDelegate {
     var movieController: MovieController?
+    let reuseIdentifier = "MovieCell"
     
     @IBOutlet var movieTableView: UITableView!
     
@@ -49,26 +50,28 @@ class MovieListViewController: UIViewController, UITableViewDataSource, UITableV
         return movieCell
     }
     
-//    @IBAction func editTable(_ sender: Any) {
-//        movieTableView.setEditing(true, animated: true)
-//        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(stopEditingTable(_sender:)))
-//    }
-//
-//    @objc func stopEditingTable( _sender: Any) {
-//        movieTableView.setEditing(false, animated: true)
-//        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editTable(_:)))
-//    }
+    @IBAction func editTable(_ sender: Any) {
+        movieTableView.setEditing(true, animated: true)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(stopEditingTable(_sender:)))
+    }
+
+    @objc func stopEditingTable( _sender: Any) {
+        movieTableView.setEditing(false, animated: true)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editTable(_:)))
+    }
     
-//    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-//        movieController?.moveItem(from: sourceIndexPath.row, to: destinationIndexPath.row)
-//    }
-    
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        let fromIndex = sourceIndexPath.row
+        let toIndex = destinationIndexPath.row
+        movieController?.moveMovie(from: fromIndex, to: toIndex)
+        
+    }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             guard let movie = movieController?.movies[indexPath.row] else { return }
             movieController?.deleteMovie(movie: movie)
-            tableView.deleteRows(at: [indexPath], with: .automatic)
+            movieTableView.deleteRows(at: [indexPath], with: .automatic)
         }
     }
     

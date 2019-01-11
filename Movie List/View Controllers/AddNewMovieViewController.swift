@@ -19,7 +19,5 @@ class AddNewMovieViewController: UIViewController, MovieControllerProtocol {
         movieController?.createMovie(name: name)
         view.endEditing(true)
     }
-    
-    
-    
+
 }

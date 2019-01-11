@@ -33,11 +33,11 @@ class MovieController {
         movies.remove(at: index)
     }
     
-//    func moveItem(from index: Int, to destinationIndex: Int) {
-//        let movie = movies[index]
-//        let movieAtDestination = movies[destinationIndex]
-//        movies[index] = movieAtDestination
-//        movies[destinationIndex] = movie
-//    }
+    func moveMovie(from index: Int, to destinationIndex: Int) {
+        let movie = movies[index]
+        let movieAtDestination = movies[destinationIndex]
+        movies[index] = movieAtDestination
+        movies[destinationIndex] = movie
+    }
     
 }
