@@ -15,7 +15,7 @@
         <scene sceneID="oed-eJ-nRN">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9k8-7j-1vY" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController id="57r-K7-1wx" sceneMemberID="viewController">
+                <viewController id="57r-K7-1wx" customClass="MovieEntryViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MhH-4t-fca">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -23,6 +23,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7kB-Rn-v4I">
                                 <rect key="frame" x="151" y="214" width="73" height="30"/>
                                 <state key="normal" title="Add Movie"/>
+                                <connections>
+                                    <action selector="add:" destination="57r-K7-1wx" eventType="touchUpInside" id="xKf-2q-Lq6"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="B2z-DH-g0z">
                                 <rect key="frame" x="8" y="40" width="359" height="74"/>
@@ -53,6 +56,9 @@
                         <viewLayoutGuide key="safeArea" id="S3f-ap-PPU"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Add New Movie" image="Plus" selectedImage="Plus" id="YzD-xA-VOd"/>
+                    <connections>
+                        <outlet property="textField" destination="mg7-RS-Fzl" id="VaY-dy-Eo8"/>
+                    </connections>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="471" y="-572"/>
