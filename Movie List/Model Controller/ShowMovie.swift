@@ -8,7 +8,8 @@
 
 import Foundation
 
-struct WrittenMovie {
+class showMovie {
     var textMovie = String()
+    
 }
 

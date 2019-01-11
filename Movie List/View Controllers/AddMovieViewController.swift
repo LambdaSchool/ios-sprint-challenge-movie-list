@@ -10,25 +10,14 @@ import UIKit
 
 class AddMovieViewController: UIViewController {
     
-    var movie = String()
+    
     
     @IBOutlet weak var writtenMovie: UITextField!
     
     
     @IBAction func addMovie(_ sender: Any) {
         
-        movie = writtenMovie.text ?? ""
-        
-        if movie == "" {
-            
-        } else {
-            
-            
-            writtenMovie.text = nil
-        }
-        
-        
-        
+        writtenMovie.text = nil
         
     }
     
