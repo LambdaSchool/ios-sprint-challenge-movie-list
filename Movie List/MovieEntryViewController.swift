@@ -10,7 +10,14 @@ import UIKit
 
 class MovieEntryViewController: UIViewController {
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        addButton.layer.cornerRadius = 4
+    }
+    
     @IBOutlet weak var textField: UITextField!
+    @IBOutlet weak var addButton: UIButton!
+    
     @IBAction func add(_ sender: Any) {
         guard let movieTitle = textField.text, !movieTitle.isEmpty else { return }
         MovieModel.shared.addMovie(movieTitle)
