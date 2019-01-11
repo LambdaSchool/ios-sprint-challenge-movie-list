@@ -11,16 +11,7 @@ import UIKit
 class MovieViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var myBool : Bool = false
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return List.shared.itemCount()
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "moviecell", for: indexPath)
-        
-        cell.textLabel!.text = List.shared.item(at: indexPath.row)
-        return cell
-    }
+
     
     
     @IBAction func edit(_ sender: UIButton) {
@@ -41,6 +32,17 @@ class MovieViewController: UIViewController, UITableViewDataSource, UITableViewD
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.tableView.reloadData()
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return List.shared.itemCount()
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "moviecell", for: indexPath)
+        
+        cell.textLabel!.text = List.shared.item(at: indexPath.row)
+        return cell
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
