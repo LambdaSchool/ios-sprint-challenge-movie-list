@@ -39,7 +39,7 @@ class List {
     
     let fileURL = URL(fileURLWithPath: NSHomeDirectory())
         .appendingPathComponent("Library")
-        .appendingPathComponent("ToDo")
+        .appendingPathComponent("MovieList")
         .appendingPathExtension("plist")
     
     func saveData() {

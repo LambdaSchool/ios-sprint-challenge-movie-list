@@ -20,8 +20,8 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="OWg-2t-OoP" kind="relationship" relationship="viewControllers" id="Rne-eC-XV4"/>
-                        <segue destination="aTM-nL-w0e" kind="relationship" relationship="viewControllers" id="AKS-Fk-dNT"/>
+                        <segue destination="sWY-EO-XkU" kind="relationship" relationship="viewControllers" id="ZAG-DI-wQ0"/>
+                        <segue destination="aTM-nL-w0e" kind="relationship" relationship="viewControllers" id="F1H-lo-mgm"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vzb-dn-5cd" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -29,57 +29,59 @@
             <point key="canvasLocation" x="-1219" y="82"/>
         </scene>
         <!--Add New Movies-->
-        <scene sceneID="WAL-HF-QIG">
+        <scene sceneID="eP7-fK-x2a">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="oN1-ZF-lnK" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController id="OWg-2t-OoP" customClass="ViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="r0s-VW-jgy">
+                <viewController id="sWY-EO-XkU" customClass="ViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="I4q-cu-Qle">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="cUp-p0-hQW">
-                                <rect key="frame" x="8" y="52" width="398" height="164"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="KZd-qv-cf7">
+                                <rect key="frame" x="8" y="44" width="398" height="74"/>
                                 <subviews>
-                                    <navigationBar contentMode="scaleToFill" largeTitles="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5jm-Hd-abs">
-                                        <rect key="frame" x="0.0" y="0.0" width="398" height="96"/>
+                                    <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3B2-K2-N4x">
+                                        <rect key="frame" x="0.0" y="0.0" width="398" height="44"/>
                                         <items>
-                                            <navigationItem title="Add a new movie to the list" id="vDn-3o-0ps"/>
+                                            <navigationItem title="Add a new movie to the list" id="iWv-Ee-0lF"/>
                                         </items>
                                     </navigationBar>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter the movie title:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ttj-aU-dOY">
-                                        <rect key="frame" x="0.0" y="100" width="398" height="30"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter movie name here:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="baI-fB-8nr">
+                                        <rect key="frame" x="0.0" y="44" width="398" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LCd-95-F7D">
-                                        <rect key="frame" x="0.0" y="134" width="398" height="30"/>
-                                        <state key="normal" title="Add Movie"/>
-                                        <connections>
-                                            <action selector="add:" destination="OWg-2t-OoP" eventType="touchUpInside" id="xuB-LC-qRD"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TUZ-4H-0g6">
+                                <rect key="frame" x="192" y="126" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Add"/>
+                                <connections>
+                                    <action selector="add:" destination="sWY-EO-XkU" eventType="touchUpInside" id="5Kq-ma-2HB"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="cUp-p0-hQW" firstAttribute="centerX" secondItem="r0s-VW-jgy" secondAttribute="centerX" id="9ZP-07-7gl"/>
-                            <constraint firstItem="cUp-p0-hQW" firstAttribute="top" secondItem="0nq-WG-9RK" secondAttribute="top" constant="8" id="Yn0-CV-iaf"/>
-                            <constraint firstItem="cUp-p0-hQW" firstAttribute="leading" secondItem="0nq-WG-9RK" secondAttribute="leading" constant="8" id="mvo-ff-9RK"/>
-                            <constraint firstItem="0nq-WG-9RK" firstAttribute="trailing" secondItem="cUp-p0-hQW" secondAttribute="trailing" constant="8" id="rpK-FU-M9g"/>
+                            <constraint firstItem="KZd-qv-cf7" firstAttribute="leading" secondItem="Jmh-ag-Yx9" secondAttribute="leading" constant="8" id="1rK-mn-ssD"/>
+                            <constraint firstItem="Jmh-ag-Yx9" firstAttribute="trailing" secondItem="KZd-qv-cf7" secondAttribute="trailing" constant="8" id="U63-p7-LGt"/>
+                            <constraint firstItem="KZd-qv-cf7" firstAttribute="top" secondItem="Jmh-ag-Yx9" secondAttribute="top" id="mpm-pV-tBu"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="0nq-WG-9RK"/>
+                        <viewLayoutGuide key="safeArea" id="Jmh-ag-Yx9"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Add New Movies" id="jDI-Yd-9ki"/>
+                    <tabBarItem key="tabBarItem" title="Add New Movies" id="4Vm-VR-Q2r"/>
+                    <connections>
+                        <outlet property="textField" destination="baI-fB-8nr" id="6Rw-ad-OpC"/>
+                    </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xhO-2K-TWp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-307" y="-336"/>
+            <point key="canvasLocation" x="-291.304347826087" y="-336.16071428571428"/>
         </scene>
         <!--Movies-->
         <scene sceneID="O4j-g6-diq">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="kbJ-Fe-mNj" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="aTM-nL-w0e" customClass="MovieViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="KXh-mQ-rWn">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -101,7 +103,11 @@
                         </connections>
                     </tableView>
                     <tabBarItem key="tabBarItem" title="Movies" id="sc3-vj-bea"/>
+                    <connections>
+                        <outlet property="tableView" destination="KXh-mQ-rWn" id="Yo1-09-4in"/>
+                    </connections>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kbJ-Fe-mNj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-307" y="380"/>
         </scene>

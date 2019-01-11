@@ -9,8 +9,15 @@
 import UIKit
 
 class ViewController: UIViewController {
-    
+
+    @IBOutlet weak var textField: UITextField!
+
    @IBAction func add(_ sender: Any) {
+    guard let text = textField.text, !text.isEmpty else { return }
+    List.shared.addItem(text)
+//    tableView.insertRows(at: [IndexPath(row: List.shared.itemCount()-1, section: 0)], with: .right)
+    textField.text = nil
+//    tableView.reloadData()
     }
     
     override func viewDidLoad() {
