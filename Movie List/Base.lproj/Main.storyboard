@@ -81,10 +81,10 @@
             </objects>
             <point key="canvasLocation" x="-481" y="-240"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Movie List Table View Controller-->
         <scene sceneID="Oy6-jx-36s">
             <objects>
-                <tableViewController id="44d-0G-vlt" sceneMemberID="viewController">
+                <tableViewController id="44d-0G-vlt" customClass="MovieListTableViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="k1f-aq-nD6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -105,7 +105,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="hns-kP-y7D">
-                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="muC-l3-UEu"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="muC-l3-UEu">
+                            <connections>
+                                <action selector="editTable:" destination="44d-0G-vlt" id="eVS-XT-Cbo"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Fh-xu-uBt" userLabel="First Responder" sceneMemberID="firstResponder"/>

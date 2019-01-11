@@ -16,20 +16,17 @@ class MovieModel {
     
     func addMovie(_ movie: String) {
         movies.append(movie)
-        
         saveData()
     }
     
     func removeMovie(at index: Int) {
         movies.remove(at: index)
-        
         saveData()
     }
     
-    func moveItem(from index: Int, to destinationIndex: Int) {
+    func moveMovie(from index: Int, to destinationIndex: Int) {
         let movie = movies.remove(at: index)
         movies.insert(movie, at: destinationIndex)
-        
         saveData()
     }
     
