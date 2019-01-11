@@ -45,7 +45,11 @@ class MovieListViewController: UIViewController, UITableViewDataSource, UITableV
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        <#code#>
+        if editingStyle == .delete {
+            guard let movie = movieController?.movies[indexPath.row] else { return }
+            movieController?.deleteMovie(movie: movie)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
     }
     
     

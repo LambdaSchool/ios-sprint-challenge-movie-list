@@ -8,13 +8,16 @@
 
 import UIKit
 
-class AddNewMovieViewController: UIViewController {
+class AddNewMovieViewController: UIViewController, MovieControllerProtocol {
+    var movieController: MovieController?
+
     @IBOutlet var movieTextField: UITextField!
-    
-    
-    
+
     @IBAction func addNewMovie(_ sender: UIButton) {
+        guard let name = movieTextField.text else { return }
         
+        movieController?.createMovie(name: name)
+        view.endEditing(true)
     }
     
     
