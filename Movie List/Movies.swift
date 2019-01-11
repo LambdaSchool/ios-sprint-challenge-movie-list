@@ -1,5 +1,5 @@
 //
-//  MoviesController.swift
+//  Movies.swift
 //  Movie List
 //
 //  Created by Nathanael Youngren on 1/11/19.
@@ -8,8 +8,8 @@
 
 import Foundation
 
-class MoviesController {
-    static let shared = MoviesController()
+class Movies {
+    static let shared = Movies()
     private init() {}
     
     private(set) var movies = [String]()

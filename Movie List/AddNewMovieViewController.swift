@@ -16,11 +16,10 @@ class AddNewMovieViewController: UIViewController {
     
     @IBAction func addMovie(_ sender: UIButton) {
         guard let movieTitle = textField.text else { return }
-        MoviesController.addNewMovie(movieTitle)
+        Movies.shared.addNewMovie(movieTitle)
+        textField.text = nil
     }
     
     @IBOutlet weak var textField: UITextField!
-    
-
 
 }
