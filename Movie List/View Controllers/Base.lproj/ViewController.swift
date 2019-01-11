@@ -10,8 +10,8 @@ import UIKit
 
 class ViewController: UIViewController {
     
-//    @IBAction func add(_ sender: Any) {
-//    }
+   @IBAction func add(_ sender: Any) {
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
