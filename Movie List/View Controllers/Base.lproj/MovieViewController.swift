@@ -10,6 +10,7 @@ import UIKit
 
 class MovieViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    var myBool : Bool = false
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return List.shared.itemCount()
     }
@@ -23,35 +24,26 @@ class MovieViewController: UIViewController, UITableViewDataSource, UITableViewD
     @IBAction func add(_ sender: UIButton) {
         guard let text = textField.text, !text.isEmpty else { return }
                List.shared.addItem(text)
-        //        tableView.insertRows(at: [IndexPath(row: List.shared.itemCount()-1, section: 0)], with: .right)
                textField.text = nil
-        //        tableView.reloadData()
     }
     
     @IBOutlet weak var textField: UITextField!
     //    @IBOutlet weak var tableView: UITableView!
 //    @IBOutlet weak var textField: UITextField!
     
+    @IBAction func edit(_ sender: UIButton) {
+        myBool = !myBool
+        tableView.setEditing(myBool, animated: true)
+        if myBool {
+            sender.setTitle("Done", for: .normal)
+        } else {
+            sender.setTitle("Edit", for: .normal)
+        }
+        
+    }
     @IBOutlet var tableView: UITableView!
-    @IBAction func editTable(_ sender: UIBarButtonItem) {
-        //        self.tableView.isEditing = !self.tableView.isEditing  // Simple Edit implementation
-        //        sender.title = self.tableView.isEditing ? "Done" : "Edit"
-        tableView.setEditing(true, animated: true)
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(stopEditingTable(_:)))
-    }
-    @objc
-    func stopEditingTable(_ sender: Any) {
-        tableView.setEditing(false, animated: true)
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editTable(_:)))
-    }
     
-//    @IBAction func add(_ sender: UIButton) {
-//        guard let text = textField.text, !text.isEmpty else { return }
-//        List.shared.addItem(text)
-//        tableView.insertRows(at: [IndexPath(row: List.shared.itemCount()-1, section: 0)], with: .right)
-//        textField.text = nil
-//        tableView.reloadData()
-//    }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         self.tableView.delegate = self
