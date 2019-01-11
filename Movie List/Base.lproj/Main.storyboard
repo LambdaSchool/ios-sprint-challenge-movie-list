@@ -29,11 +29,11 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="6z2-Or-1lF">
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="6z2-Or-1lF">
                                                     <rect key="frame" x="8" y="8" width="359" height="27.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0KY-bK-GnQ">
-                                                            <rect key="frame" x="0.0" y="0.0" width="305" height="27.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="263" height="27.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -58,6 +58,10 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="8Xl-Sh-15C" id="YDc-0R-JHM"/>
+                                    <outlet property="delegate" destination="8Xl-Sh-15C" id="lek-QW-qre"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -70,6 +74,9 @@
                         <viewLayoutGuide key="safeArea" id="6pc-IW-NUf"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Movies" selectedImage="Clapboard" id="LKo-gA-h4h"/>
+                    <connections>
+                        <outlet property="tableView" destination="uja-of-61F" id="1zS-Mz-5Tm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fJS-ur-zKP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

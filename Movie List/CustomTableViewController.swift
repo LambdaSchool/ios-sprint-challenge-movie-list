@@ -8,39 +8,57 @@
 
 import UIKit
 
-class CustomTableViewController: UITableViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
+class CustomTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    var currentIndexPath : Int = 0
+    @IBOutlet weak var tableView: UITableView!
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        Model.shared.loadMovies()
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.reloadData()
     }
 
     // MARK: - Table view data source
 
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return movieArray.count
+        return Model.shared.movieArray.count
     }
 
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CustomTableViewCell
-        cell.label.text = movieArray[indexPath.row].name
-        if(movieArray[indexPath.row].isSeen == true){
-            cell.button.titleLabel?.text = "Seen"
+        if(Model.shared.movieArray.count > 0){
+        cell.label.text = Model.shared.movieArray[indexPath.row].name
+        }
+        cell.button.tag = indexPath.row
+        cell.button.addTarget(self, action: #selector(changeSeen(sender:)), for: .touchUpInside)
+        if(Model.shared.movieArray[indexPath.row].isSeen == true){
+            cell.button.setTitle("Seen", for: .normal)
         }else{
-            cell.button.titleLabel?.text = "Not seen"
+            cell.button.setTitle("Not seen", for: .normal)
         }
         
         return cell
     }
 
     
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            tableView.deleteRows(at: [indexPath], with: .fade)
             Model.shared.deleteMovie(indexPath: indexPath.row)
+            tableView.reloadData()
         }
+    }
+    @objc public func changeSeen(sender : AnyObject){
+        if(Model.shared.movieArray[sender.tag].isSeen == false){
+            Model.shared.movieArray[sender.tag].isSeen = true
+        }else{
+            Model.shared.movieArray[sender.tag].isSeen = false
+        }
+        tableView.reloadData()
     }
 
 }

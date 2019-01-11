@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Movie{
+class Movie : Encodable, Decodable{
     var name : String = ""
     var isSeen : Bool = false
 }

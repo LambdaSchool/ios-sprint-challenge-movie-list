@@ -14,5 +14,10 @@ class AddMovieViewController : UIViewController{
     @IBAction func AddMovie(_ sender: Any) {
         let movie = Movie()
         movie.name = textField.text!
+        Model.shared.addMovie(movieToAdd: movie)
+        textField.text = ""
+    }
+    override func viewDidLoad() {
+        Model.shared.loadMovies()
     }
 }

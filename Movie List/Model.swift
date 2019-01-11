@@ -9,19 +9,31 @@
 import Foundation
 
 
-var movieArray : [Movie] = []
 
 class Model {
+    var movieArray : [Movie] = []
+    var serializedArray : Data = Data()
+    let tableViewController = CustomTableViewController()
     static let shared = Model()
     func addMovie(movieToAdd : Movie){
         movieArray.append(movieToAdd)
         saveMovies()
     }
     func loadMovies(){
-        movieArray = UserDefaults.standard.object(forKey: "MoviesSave") as? [Movie] ?? []
+        serializedArray = UserDefaults.standard.object(forKey: "MoviesSave") as! Data
+        do{
+            movieArray = try JSONDecoder().decode([Movie].self, from: serializedArray)
+        }catch{
+            print(error)
+        }
     }
     func saveMovies(){
-        UserDefaults.standard.set(movieArray, forKey: "MoviesSave")
+        do{
+            serializedArray = try JSONEncoder().encode(movieArray)
+            UserDefaults.standard.set(serializedArray, forKey: "MoviesSave")
+        }catch{
+            print(error)
+        }
     }
     func deleteMovie(indexPath: Int){
         movieArray.remove(at: indexPath)
@@ -32,5 +44,6 @@ class Model {
         movieArray[to] = movieArray[from]
         movieArray[from] = movieHolder
         saveMovies()
+        tableViewController.tableView.reloadData()
     }
 }
