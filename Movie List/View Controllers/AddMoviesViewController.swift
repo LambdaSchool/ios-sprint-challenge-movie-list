@@ -18,5 +18,10 @@ class AddMoviesViewController: UIViewController {
         textField.text = nil
     }
     
+    // Large Title
+    override func viewDidLoad() {
+        navigationController?.navigationBar.prefersLargeTitles = true
+    }
+    
     @IBOutlet weak var textField: UITextField!
 }

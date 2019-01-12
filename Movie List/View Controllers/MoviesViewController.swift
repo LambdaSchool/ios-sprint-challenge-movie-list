@@ -15,7 +15,12 @@ class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(stopEditingTable(_:)))
     }
     
-    // Delagate
+    // Large Title
+    override func viewDidLoad() {
+        navigationController?.navigationBar.prefersLargeTitles = true
+    }
+    
+    // Delegate
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
