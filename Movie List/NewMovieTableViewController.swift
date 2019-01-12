@@ -10,7 +10,14 @@ import UIKit
 
 class NewMovieTableViewController: UITableViewController {
 
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var textField: UITextField!
+    @IBAction func addMovie(_ sender: Any) {
+        guard let movie = textField.text else { return }
+        MovieController.shared.addMovie(movie)
+        tableView.reloadData()
+    }
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
 

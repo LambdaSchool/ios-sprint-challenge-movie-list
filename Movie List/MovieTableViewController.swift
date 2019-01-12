@@ -11,7 +11,7 @@ import UIKit
 class MovieTableViewController: UITableViewController {
 
   
-    @IBOutlet weak var movieTableView: UITableView!
+    
 
 
     override func viewDidLoad() {
