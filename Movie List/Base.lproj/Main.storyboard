@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Movie List View Controller-->
         <scene sceneID="5vi-gR-pT9">
             <objects>
-                <viewController id="86F-Wl-DNt" customClass="ViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="86F-Wl-DNt" customClass="MovieListViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ery-SG-FLS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -56,10 +56,14 @@
                         <viewLayoutGuide key="safeArea" id="uxl-4z-6Kj"/>
                     </view>
                     <navigationItem key="navigationItem" id="B4L-XE-l8l">
-                        <barButtonItem key="rightBarButtonItem" title="EDIT" id="07m-pF-TPT"/>
+                        <barButtonItem key="rightBarButtonItem" title="EDIT" id="07m-pF-TPT">
+                            <connections>
+                                <action selector="editMovieList:" destination="86F-Wl-DNt" id="chc-SL-VYU"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="tableView" destination="QjQ-fY-PVn" id="Yus-Zl-XEw"/>
+                        <outlet property="tableView" destination="QjQ-fY-PVn" id="PWT-T9-C9a"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tMb-1A-gLn" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -69,7 +73,7 @@
         <!--Add new movies-->
         <scene sceneID="oa3-Z9-cJ4">
             <objects>
-                <viewController id="CSa-D9-NFW" customClass="ViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="CSa-D9-NFW" customClass="AddMoviesViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="h7J-aV-jUe">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -93,7 +97,7 @@
                                         <rect key="frame" x="0.0" y="38" width="359" height="30"/>
                                         <state key="normal" title="ADD MOVIE"/>
                                         <connections>
-                                            <action selector="addMovieButton:" destination="CSa-D9-NFW" eventType="touchUpInside" id="36p-ZB-lzI"/>
+                                            <action selector="addMovieButton:" destination="CSa-D9-NFW" eventType="touchUpInside" id="ZaH-Gt-niz"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -112,8 +116,8 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Add new movies" selectedImage="Plus" id="ZoT-KE-IxE"/>
                     <connections>
-                        <outlet property="newMovieLabel" destination="gSK-fm-fs2" id="2Lj-IL-8FU"/>
-                        <outlet property="textField" destination="dnE-l7-WV6" id="xZD-HN-rDN"/>
+                        <outlet property="newMovieLabel" destination="gSK-fm-fs2" id="2zf-kR-ghS"/>
+                        <outlet property="textField" destination="dnE-l7-WV6" id="AHT-GD-BeH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tsf-RP-rUM" userLabel="First Responder" sceneMemberID="firstResponder"/>

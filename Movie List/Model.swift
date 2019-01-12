@@ -17,6 +17,7 @@ class Model {
     
     func addMovie(_ item: String) {
         Model.shared.movies.append(item)
+        
     }
     
     func removeMovie(at index: Int) {
