@@ -33,6 +33,19 @@ class MovieController {
         movies.remove(at: index)
     }
     
+    func movieCount() -> Int {
+        return movies.count
+    }
+    
+    func movie(at index: Int) -> Movie {
+        return movies[index]
+    }
+    
+    func edit(movie: String, at index: Int){
+        let newMovie = Movie(name: movie)
+        movies[index] = newMovie
+    }
+    
     func moveMovie(from index: Int, to destinationIndex: Int) {
         let movie = movies[index]
         let movieAtDestination = movies[destinationIndex]

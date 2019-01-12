@@ -18,6 +18,7 @@ class MovieListViewController: UIViewController, UITableViewDataSource, UITableV
         super.viewDidLoad()
         movieTableView.dataSource = self
         movieTableView.delegate = self
+        movieTableView.reloadData()
         
     }
     
