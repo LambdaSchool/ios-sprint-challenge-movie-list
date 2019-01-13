@@ -49,7 +49,18 @@ class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     // Editing & row-reording
     @IBAction func editTable(_ sender: Any) {
-        
+        tableView.setEditing(true, animated: true)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(stopEditingTable(_:)))
+    }
+    
+    @objc
+    func stopEditingTable(_ sender: Any) {
+        tableView.setEditing(false, animated: true)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editTable(_:)))
+    }
+    
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        MovieController.shared.moveRow(at: sourceIndexPath.row, to: destinationIndexPath.row)
     }
     
     // IBOutlets & Properties

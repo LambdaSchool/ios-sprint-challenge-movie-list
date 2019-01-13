@@ -29,5 +29,10 @@ class MovieController {
         movies.remove(at: index)
     }
     
+    func moveRow(at index: Int, to newIndex: Int) {
+        let movie = movies.remove(at: index)
+        movies.insert(movie, at: newIndex)
+    }
+    
     var movies: [Movie] = []
 }
