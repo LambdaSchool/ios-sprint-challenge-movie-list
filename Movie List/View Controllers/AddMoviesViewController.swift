@@ -10,18 +10,20 @@ import UIKit
 
 class AddMoviesViewController: UIViewController {
     
-    @IBAction func add(_ sender: Any) {
-        guard let text = textField.text, !text.isEmpty else { return }
-        
-        Model.shared.addValue(text)
-        
-        textField.text = nil
-    }
-    
     // Large Title
     override func viewDidLoad() {
         navigationController?.navigationBar.prefersLargeTitles = true
     }
     
+    // IBActions & Logic
+    @IBAction func add(_ sender: Any) {
+        guard let title = textField.text, !title.isEmpty else { return }
+        
+        MovieController.shared.createMovie(title: title)
+
+        textField.text = nil
+    }
+    
+    // IBOutlets & Properties
     @IBOutlet weak var textField: UITextField!
 }
