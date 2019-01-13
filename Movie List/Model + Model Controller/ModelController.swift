@@ -27,7 +27,6 @@ class MovieController {
     
     func deleteMovie(at index: Int) {
         movies.remove(at: index)
-        
     }
     
     var movies: [Movie] = []

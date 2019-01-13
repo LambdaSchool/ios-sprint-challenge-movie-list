@@ -10,11 +10,12 @@ import UIKit
 
 class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    // Large Title
+    // Large Titles
     override func viewDidLoad() {
         navigationController?.navigationBar.prefersLargeTitles = true
     }
     
+    // Delegate
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -38,12 +39,20 @@ class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return cell
     }
     
+    // Swipe-to-delete
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        guard editingStyle == .delete else { return }
+        
+        MovieController.shared.deleteMovie(at: indexPath.row)
+        tableView.deleteRows(at: [indexPath], with: .automatic)
+    }
     
-    
+    // Editing & row-reording
     @IBAction func editTable(_ sender: Any) {
         
     }
     
+    // IBOutlets & Properties
     @IBOutlet weak var tableView: UITableView!
     
     let reuseIdentifier = "movieCell"
