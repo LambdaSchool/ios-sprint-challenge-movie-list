@@ -11,8 +11,8 @@ import UIKit
 class MovieController {
     private (set) var movies: [Movie] = []
     
-    func createMovie(name: String) {
-        let movie = Movie(name: name, seen: false)
+    func createMovie(title: String) {
+        let movie = Movie(title: title, seen: false)
         movies.append(movie)
     }
     
@@ -21,15 +21,14 @@ class MovieController {
         
         let oldStatus = movie.seen
         let newStatus = !oldStatus
-        let tempMovie = Movie(name: movie.name, seen: newStatus)
+        let tempMovie = Movie(title: movie.title, seen: newStatus)
         
         movies.remove(at: index)
         movies.insert(tempMovie, at: index)
         
     }
     
-    func deleteMovie(movie: Movie) {
-        guard let index = movies.index(of: movie) else { return }
+    func deleteMovie(at index: Int) {
         movies.remove(at: index)
     }
     
@@ -42,7 +41,7 @@ class MovieController {
     }
     
     func edit(movie: String, at index: Int){
-        let newMovie = Movie(name: movie)
+        let newMovie = Movie(title: movie)
         movies[index] = newMovie
     }
     

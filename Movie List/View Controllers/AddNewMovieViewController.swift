@@ -14,10 +14,12 @@ class AddNewMovieViewController: UIViewController, MovieControllerProtocol {
     @IBOutlet var movieTextField: UITextField!
 
     @IBAction func addNewMovie(_ sender: Any) {
-        guard let name = movieTextField.text else { return }
+        guard let text = movieTextField.text, !text.isEmpty else { return }
         
-        movieController?.createMovie(name: name)
+         movieController?.createMovie(title: text)
         view.endEditing(true)
+        
+        
     }
 
 }
