@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddMovieTableViewController: UITableViewController {
+class AddMovieViewController: UIViewController {
 
 
     @IBOutlet weak var textField: UITextField!
@@ -18,6 +18,5 @@ class AddMovieTableViewController: UITableViewController {
         guard let movie = textField.text else { return }
         MovieController.shared.addMovie(movie)
         textField.text = nil
-        tableView.reloadData()
     }
 }
