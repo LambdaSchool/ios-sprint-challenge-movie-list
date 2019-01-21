@@ -26,7 +26,8 @@ class MovieListTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath)
-        cell.textLabel?.text = MovieModel.shared.movie(at: indexPath.row)
+        let movie = MovieModel.shared.movie(at: indexPath.row)
+        cell.textLabel?.text = movie.title
         
         return cell
     }

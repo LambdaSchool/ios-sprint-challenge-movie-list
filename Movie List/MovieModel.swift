@@ -12,9 +12,8 @@ class MovieModel {
     static let shared = MovieModel()
     private init() {}
     
-    private var movies: [String] = []
-    
-    func addMovie(_ movie: String) {
+    func addMovie(_ title: String) {
+        let movie = Movie(title: title)
         movies.append(movie)
         saveData()
     }
@@ -34,7 +33,7 @@ class MovieModel {
         return movies.count
     }
     
-    func movie(at index: Int) -> String {
+    func movie(at index: Int) -> Movie {
         return movies[index]
     }
     
@@ -42,16 +41,31 @@ class MovieModel {
     
     let fileURL = URL(fileURLWithPath: NSHomeDirectory())
         .appendingPathComponent("Library")
-        .appendingPathComponent("ToDo")
+        .appendingPathComponent("MovieList")
         .appendingPathExtension("plist")
     
     func saveData() {
-        try! (movies as NSArray).write(to: fileURL)
+        let encoder = PropertyListEncoder()
+        do {
+            let moviesData = try encoder.encode(movies)
+            try moviesData.write(to: fileURL)
+        } catch {
+            print(error)
+        }
     }
     
     func loadData() {
-        if let movies = NSArray(contentsOf: fileURL) as? [String] {
-            self.movies = movies
+        let decoder = PropertyListDecoder()
+        do {
+            let data = try Data(contentsOf: fileURL)
+            let decodedMovies = try decoder.decode([Movie].self, from: data)
+            movies = decodedMovies
+        } catch {
+            print(error)
         }
     }
+    
+    //MARK: - Properties
+    
+    private(set) var movies: [Movie] = []
 }

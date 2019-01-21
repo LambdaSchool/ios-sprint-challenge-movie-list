@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Movie {
+class Movie: Codable {
     var title: String
     var isSeen: Bool
     
