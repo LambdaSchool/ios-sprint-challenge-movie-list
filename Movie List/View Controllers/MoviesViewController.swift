@@ -32,12 +32,11 @@ class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath)
         
-        guard let movieCell = cell as? MovieCell else { return cell }
-        
 //        let movieTitle = MovieController.shared.movieToShow(at: indexPath.row)
 //
-//        movieCell.textLabel?.text = movieTitle
+//        cell.textLabel?.text = movieTitle
         
+        guard let movieCell = cell as? MovieCell else { return cell }
         let movie = MovieController.shared.movies[indexPath.row]
         movieCell.movie = movie
         movieCell.delegate = self
