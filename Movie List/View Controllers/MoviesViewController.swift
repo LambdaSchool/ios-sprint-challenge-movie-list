@@ -15,7 +15,7 @@ class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         navigationController?.navigationBar.prefersLargeTitles = true
     }
     
-    // Delegate
+    // Lifecycle Methods
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -30,13 +30,15 @@ class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath)
+        
+        guard let movieCell = cell as? MovieCell else { return cell }
         
         let movieTitle = MovieController.shared.movieToShow(at: indexPath.row)
         
-        cell.textLabel?.text = movieTitle
+        movieCell.textLabel?.text = movieTitle
         
-        return cell
+        return movieCell
     }
     
     // Swipe-to-delete
@@ -65,6 +67,4 @@ class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     // IBOutlets & Properties
     @IBOutlet weak var tableView: UITableView!
-    
-    let reuseIdentifier = "movieCell"
 }

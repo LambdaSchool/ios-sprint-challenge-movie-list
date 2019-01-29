@@ -52,9 +52,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="diZ-Ug-KI0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3188" y="151.57421289355324"/>
+            <point key="canvasLocation" x="1538" y="917"/>
         </scene>
-        <!--Movie List-->
+        <!--Movies-->
         <scene sceneID="lhe-UX-Ue2">
             <objects>
                 <viewController id="DLt-Yy-wHb" customClass="MoviesViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
@@ -66,7 +66,7 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="movieCell" rowHeight="75" id="fGW-dK-dmC">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieCell" rowHeight="75" id="fGW-dK-dmC" customClass="MovieCell" customModule="Movie_List" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="75"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fGW-dK-dmC" id="bf0-jh-txI">
@@ -75,6 +75,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="DLt-Yy-wHb" id="Hur-ha-S8k"/>
+                                    <outlet property="delegate" destination="DLt-Yy-wHb" id="ABn-kz-saM"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -86,7 +90,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="cW3-mS-G46"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Movie List" largeTitleDisplayMode="always" id="2h7-TA-4lh">
+                    <navigationItem key="navigationItem" title="Movies" largeTitleDisplayMode="always" id="2h7-TA-4lh">
                         <barButtonItem key="rightBarButtonItem" title="Edit" id="Abv-NL-IPX">
                             <connections>
                                 <action selector="editTable:" destination="DLt-Yy-wHb" id="QBy-26-qO6"/>
@@ -99,7 +103,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Zx-oH-fTl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1580" y="896.40179910044981"/>
+            <point key="canvasLocation" x="2297" y="918"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="MLa-fX-GKE">
@@ -137,7 +141,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sbP-l4-6hO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1580" y="152.47376311844079"/>
+            <point key="canvasLocation" x="2297" y="174"/>
         </scene>
         <!--Add Movies-->
         <scene sceneID="60a-Zu-SKW">
@@ -156,7 +160,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d1I-h3-6y8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2248.8000000000002" y="151.57421289355324"/>
+            <point key="canvasLocation" x="1538" y="173"/>
         </scene>
     </scenes>
     <resources>

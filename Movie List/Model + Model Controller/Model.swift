@@ -9,7 +9,6 @@
 import Foundation
 
 class Movie {
-    
     let title: String
     var hasSeen: Bool
     
