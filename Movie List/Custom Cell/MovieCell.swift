@@ -8,6 +8,23 @@
 
 import UIKit
 
+protocol MovieCellDelegate: class {
+    
+}
+
 class MovieCell: UITableViewCell {
     
+    private func updateViews() {
+        guard let movie = movie else { return }
+        
+        textLabel?.text = movie.title
+    }
+    
+    weak var delegate: MovieCellDelegate?
+    
+    var movie: Movie? {
+        didSet { // didSet Property Observer
+            updateViews()
+        }
+    }
 }

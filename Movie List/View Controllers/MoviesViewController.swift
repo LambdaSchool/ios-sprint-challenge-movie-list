@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MovieCellDelegate {
 
     // Large Titles
     override func viewDidLoad() {
@@ -34,9 +34,13 @@ class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         guard let movieCell = cell as? MovieCell else { return cell }
         
-        let movieTitle = MovieController.shared.movieToShow(at: indexPath.row)
+//        let movieTitle = MovieController.shared.movieToShow(at: indexPath.row)
+//
+//        movieCell.textLabel?.text = movieTitle
         
-        movieCell.textLabel?.text = movieTitle
+        let movie = MovieController.shared.movies[indexPath.row]
+        movieCell.movie = movie
+        movieCell.delegate = self
         
         return movieCell
     }
