@@ -15,15 +15,18 @@ protocol MovieListViewCellDelegate: class {
 class MovieTableViewCell: UITableViewCell {
     
     private func updateView() {
+        
         guard let movie = movieName else {return}
+        print("\(String(movie.name))")
         if movie.isSeen == false {
             seenButton.setTitle("Not Seen", for: .normal)
         } else {
             seenButton.setTitle("Seen", for: .normal)
         }
-        
         movieLabel.text = movie.name
     }
+    
+
     
     @IBAction func buttonTapped(_ sender: Any) {
         delegate?.seenButtonWasTapped(on: self)

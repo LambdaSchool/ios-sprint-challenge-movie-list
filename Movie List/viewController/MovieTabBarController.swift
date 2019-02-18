@@ -10,20 +10,21 @@ import UIKit
 
 class MovieTabBarController: UITabBarController {
 
-   let movieNameController = MovieNameController()
+   
     override func viewDidLoad() {
         super.viewDidLoad()
-        passVoteControllerToChild()
+        passMovieControllerToChild()
         // Do any additional setup after loading the view.
     }
 
     
-    func passVoteControllerToChild(){
-        for childVc in childViewControllers {
-            guard var childVc = childVc as? MovieNameControllerProtocol else {return}
-                childVc.movieNameController = movieNameController
+    func passMovieControllerToChild() {
+        for childVC in childViewControllers {
+            if var childVC = childVC as? MovieNameControllerProtocol {
+                childVC.movieNameController = movieNameController
             }
         }
+    }
     
-
+let movieNameController = MovieNameController()
 }

@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="KSR-UX-vOj">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="KSR-UX-vOj">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -37,24 +36,24 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="odo-ji-YCf">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="odo-ji-YCf">
                                                     <rect key="frame" x="321" y="21" width="46" height="37.5"/>
                                                     <state key="normal" title="Button"/>
                                                     <connections>
-                                                        <action selector="buttonTapped:" destination="QDi-XQ-LFr" eventType="touchUpInside" id="1Yf-Yy-a6d"/>
+                                                        <action selector="buttonTapped:" destination="QDi-XQ-LFr" eventType="touchUpInside" id="N37-7C-8aQ"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="odo-ji-YCf" firstAttribute="top" secondItem="UX1-gK-35b" secondAttribute="topMargin" constant="10" id="6Nk-0R-78r"/>
+                                                <constraint firstAttribute="trailing" secondItem="odo-ji-YCf" secondAttribute="trailing" constant="8" id="8Fs-1r-r38"/>
                                                 <constraint firstItem="odo-ji-YCf" firstAttribute="centerY" secondItem="UX1-gK-35b" secondAttribute="centerY" id="PS4-So-nKB"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="odo-ji-YCf" secondAttribute="trailing" constant="-1" id="QG8-Bg-uxg"/>
+                                                <constraint firstAttribute="bottom" secondItem="odo-ji-YCf" secondAttribute="bottom" constant="21" id="tIH-40-tEQ"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="ButtonLabel" destination="odo-ji-YCf" id="0lq-pg-Rn5"/>
                                             <outlet property="movieLabel" destination="Egj-CA-Wzr" id="9HB-Rp-Ntk"/>
-                                            <outlet property="seenButton" destination="odo-ji-YCf" id="bpn-qt-Ff5"/>
+                                            <outlet property="seenButton" destination="odo-ji-YCf" id="WII-vC-off"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -131,10 +130,10 @@
             </objects>
             <point key="canvasLocation" x="-420" y="-781.25937031484261"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Movie Tab Bar Controller-->
         <scene sceneID="C4H-3s-xJ1">
             <objects>
-                <tabBarController id="KSR-UX-vOj" sceneMemberID="viewController">
+                <tabBarController id="KSR-UX-vOj" customClass="MovieTabBarController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="mvy-f1-1SO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>

@@ -18,13 +18,11 @@ class MovieListViewController: UIViewController, UITableViewDataSource, MovieNam
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath)
-        guard let newCell = cell as? MovieTableViewCell else {return cell}
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as? MovieTableViewCell else {return UITableViewCell()}
         let movie = movieNameController?.movieNames[indexPath.row]
-        
-        newCell.movieName = movie
-        newCell.delegate = self
-        return newCell 
+        cell.movieName = movie
+        cell.delegate = self
+        return cell
         
     }
     
@@ -41,6 +39,7 @@ class MovieListViewController: UIViewController, UITableViewDataSource, MovieNam
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.reloadData()
         // Do any additional setup after loading the view.
         
     }

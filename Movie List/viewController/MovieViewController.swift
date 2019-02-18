@@ -14,8 +14,6 @@ class MovieViewController: UIViewController, MovieNameControllerProtocol {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     
  
@@ -23,11 +21,8 @@ class MovieViewController: UIViewController, MovieNameControllerProtocol {
     //addmovie takes the text creates an instance of movie name
     @IBAction func addMovie(_ sender: Any) {
         guard let movie = movieTextField.text else {return}
-        
         movieNameController?.createMove(name: movie)
-        
         movieTextField.text = ""
-        
     }
     
     
