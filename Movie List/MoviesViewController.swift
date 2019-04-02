@@ -25,6 +25,13 @@ class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         //Connects the cells in the table view to the prototype cell via the reuse identifier
         item.textLabel?.text = movieCollection[indexPath.row].title
         
+        //Change the Status of the Movie when Button is pressed
+        
+        if movieCollection[indexPath.row].seen == true {
+            
+        }
+        
+        
         return item
 
             }
@@ -39,16 +46,6 @@ class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDa
             movieTable.reloadData() //refresh after deleting
         }
     }
-    
-    //Change the Status of the Movie when Button is pressed
-    
-    @IBAction func seenStatus(_ sender: UIButton) {
-    
-        if movieCollection[0].seen == true {
-                sender.setTitle("Seen", for: .selected)
-                
-            }
-        }
 
     
     //Refresh the view to show updated list
