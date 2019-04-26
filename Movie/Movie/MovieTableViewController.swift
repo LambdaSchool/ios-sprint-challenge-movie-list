@@ -15,7 +15,7 @@ class MovieTableViewController: UIViewController, UITableViewDataSource, UITable
     }
 
     var movieController: MovieController?
-    @IBOutlet weak var tableView: UITableView!
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +25,7 @@ class MovieTableViewController: UIViewController, UITableViewDataSource, UITable
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        tableView.reloadData()
+        
     }
 
     // MARK: - Table view data source

@@ -8,6 +8,11 @@
 
 import UIKit
 
+
+protocol MovieTableViewCellDelegate: class {
+    func wasSeenButtonTapped(on cell: MovieTableViewCell)
+}
+
 class MovieTableViewCell: UITableViewCell, MoviePresenter {
 
 
