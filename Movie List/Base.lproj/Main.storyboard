@@ -76,7 +76,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieCell" rowHeight="72" id="brf-lA-nlx">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieCell" rowHeight="72" id="brf-lA-nlx" customClass="MovieTableViewCell" customModule="Movie_List" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="72"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="brf-lA-nlx" id="hDP-pf-aRX">
@@ -84,17 +84,20 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="248" translatesAutoresizingMaskIntoConstraints="NO" id="eWX-Dr-Asa">
-                                            <rect key="frame" x="25" y="21" width="325" height="30"/>
+                                            <rect key="frame" x="24" y="21" width="327.5" height="30"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YLA-Sr-IKa">
-                                                    <rect key="frame" x="0.0" y="0.0" width="42" height="30"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="44.5" height="30"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GDV-gd-kry">
-                                                    <rect key="frame" x="290" y="0.0" width="35" height="30"/>
+                                                    <rect key="frame" x="292.5" y="0.0" width="35" height="30"/>
                                                     <state key="normal" title="Seen"/>
+                                                    <connections>
+                                                        <action selector="seenButtonPressed:" destination="brf-lA-nlx" eventType="touchUpInside" id="k0e-f6-FzX"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </stackView>
@@ -104,6 +107,9 @@
                                         <constraint firstItem="eWX-Dr-Asa" firstAttribute="centerX" secondItem="hDP-pf-aRX" secondAttribute="centerX" id="iYn-PR-YyS"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="movieTitleLabel" destination="YLA-Sr-IKa" id="xHY-bd-ouB"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
