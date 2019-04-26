@@ -18,6 +18,11 @@ class MovieController {
     }
     
     func delete(movie: Movie){
-//        guard let movieToDelete = 
+        //get the movie at it's index
+        guard let movieToDelete = movies.index(of: movie) else { return }
+        
+        //now that we have the index of movie, we can use that to remove  it from the array
+        movies.remove(at: movieToDelete)
     }
+    
 }
