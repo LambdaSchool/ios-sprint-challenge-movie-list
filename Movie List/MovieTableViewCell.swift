@@ -13,13 +13,14 @@ class MovieTableViewCell: UITableViewCell {
 	@IBOutlet var movieTitleLabel: UILabel!
 	var movie: Movie? {
 		didSet {
-			
+			updateViews()
 		}
 	}
 
 
 	func updateViews() {
-		
+		// no need to unwrap cuz text is also optional
+		movieTitleLabel.text = movie?.movieName
 	}
 
 }
