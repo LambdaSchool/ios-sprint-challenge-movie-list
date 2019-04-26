@@ -14,6 +14,12 @@ class MovieTabBarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        for childViewController in children {
+            if let childViewController = childViewController as? MoviesPresenter {
+                childViewController.movieController = movieController
+            }
+        }
 
 
     }
