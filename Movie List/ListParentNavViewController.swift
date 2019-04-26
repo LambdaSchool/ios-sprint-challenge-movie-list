@@ -18,7 +18,6 @@ class ListParentNavViewController: UINavigationController, MovieControllerProtoc
 	
     override func viewDidLoad() {
         super.viewDidLoad()
-//		updateChildren()
     }
 	
 	func updateChildren() {
