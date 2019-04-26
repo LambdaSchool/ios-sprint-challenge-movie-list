@@ -13,7 +13,7 @@
         <!--Add New Movie-->
         <scene sceneID="zTj-tk-YGY">
             <objects>
-                <viewController id="3Y0-j1-MoR" sceneMemberID="viewController">
+                <viewController id="3Y0-j1-MoR" customClass="MovieViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FpP-fY-XKV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -39,6 +39,10 @@
                                     </button>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="VcQ-dD-4VU" firstAttribute="centerX" secondItem="rEp-Nh-980" secondAttribute="centerX" id="2eB-5F-S0g"/>
+                                    <constraint firstItem="VcQ-dD-4VU" firstAttribute="top" secondItem="rEp-Nh-980" secondAttribute="bottom" constant="14" id="2wm-gX-che"/>
+                                    <constraint firstAttribute="trailing" secondItem="VcQ-dD-4VU" secondAttribute="trailing" constant="100.5" id="5zh-oD-3Z8"/>
+                                    <constraint firstItem="VcQ-dD-4VU" firstAttribute="leading" secondItem="CDr-oI-8jo" secondAttribute="leading" constant="100.5" id="EdB-S3-Xjp"/>
                                     <constraint firstItem="rEp-Nh-980" firstAttribute="width" secondItem="CDr-oI-8jo" secondAttribute="width" id="qsp-3G-Qoi"/>
                                 </constraints>
                             </stackView>
@@ -60,13 +64,13 @@
         <!--Movies-->
         <scene sceneID="FjE-61-p74">
             <objects>
-                <tableViewController id="lbI-h2-L6h" sceneMemberID="viewController">
+                <tableViewController id="lbI-h2-L6h" customClass="MovieTableViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="q3f-Yj-0xK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="72" id="brf-lA-nlx">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieCell" rowHeight="72" id="brf-lA-nlx">
                                 <rect key="frame" x="0.0" y="28" width="375" height="72"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="brf-lA-nlx" id="hDP-pf-aRX">
@@ -105,12 +109,12 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Vq-oM-ynj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-92" y="577.06146926536735"/>
+            <point key="canvasLocation" x="-92" y="607"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Movie Tab Bar Controller-->
         <scene sceneID="z0s-VU-bNl">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="6pZ-Fg-Vbz" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="6pZ-Fg-Vbz" customClass="MovieTabBarController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="JQ4-tY-Xfu">
                         <autoresizingMask key="autoresizingMask"/>
