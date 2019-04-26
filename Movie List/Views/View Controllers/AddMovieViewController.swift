@@ -40,7 +40,7 @@ class AddMovieViewController: UIViewController {
         
         //pass the movieController over to the movie list scene
         if segue.identifier == "toMovieSegue" {
-            let movieVC = segue.destination as! MovieTableViewController
+            let movieVC = segue.destination as! MovieListViewController
             movieVC.movieController = movieController
         }
     }

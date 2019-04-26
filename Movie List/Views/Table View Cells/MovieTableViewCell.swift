@@ -14,7 +14,11 @@ protocol MovieTableViewCellDelegate: class {
 
 class MovieTableViewCell: UITableViewCell {
 
-    var movie: Movie?
+    var movie: Movie?{
+        didSet {
+            updateViews()
+        }
+    }
     weak var delegate: MovieTableViewCellDelegate?
     
     @IBOutlet weak var movieTitleLabel: UILabel!
@@ -23,6 +27,7 @@ class MovieTableViewCell: UITableViewCell {
     @IBAction func seenButtonPressed(_ sender: UIButton) {
         //alert our delegate that somethng has happened. i.e. this button was pressed.
         delegate?.tappedSeenButton(on: self)
+        
     }
     
     private func updateViews(){
