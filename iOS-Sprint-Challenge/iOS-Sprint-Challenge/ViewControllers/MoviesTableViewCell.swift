@@ -21,17 +21,12 @@ class MoviesTableViewCell: UITableViewCell {
 //            updateViews()
 //        }
 //    }
-//
+
 //    private func updateViews() {
 //        guard let movie = movie else { return }
-       // if movie.isSeen {
-       //     seenButton.setTitle("Seen", for .normal)
-       // } else {
-       //     seenButton.setTitle("Not Seen", for .normal)
-       // }
-    //}
-    
-    }
+//
+//
+//    }
 
 //}
 
@@ -45,3 +40,4 @@ class MoviesTableViewCell: UITableViewCell {
 //
 //        // Configure the view for the selected state
 //    }
+}
