@@ -10,6 +10,8 @@ import UIKit
 
 class MovieTableViewCell: UITableViewCell {
 
+    var movie: Movie?
+    
     @IBOutlet weak var movieTitleLabel: UILabel!
     @IBOutlet weak var seenButtonProperties: UIButton!
 

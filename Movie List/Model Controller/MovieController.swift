@@ -25,4 +25,7 @@ class MovieController {
         movies.remove(at: movieToDelete)
     }
     
+    func toggle(movie hasSeen: Movie){
+        hasSeen.hasSeen = !hasSeen.hasSeen
+    }
 }
