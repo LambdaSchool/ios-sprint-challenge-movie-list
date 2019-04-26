@@ -81,7 +81,7 @@
         <!--MovieListViewController-->
         <scene sceneID="7Za-V2-tG0">
             <objects>
-                <viewController title="MovieListViewController" id="1fX-me-kx9" sceneMemberID="viewController">
+                <viewController title="MovieListViewController" id="1fX-me-kx9" customClass="MoviesViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MZp-5O-ViY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -91,7 +91,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="SlI-qe-Gom">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieCell" id="SlI-qe-Gom" customClass="MovieTableViewCell" customModule="Movie_List" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SlI-qe-Gom" id="LMy-bg-4eS">
@@ -110,6 +110,9 @@
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NrE-FV-JEu">
                                                             <rect key="frame" x="295" y="0.0" width="64" height="27.5"/>
                                                             <state key="normal" title="Not Seen"/>
+                                                            <connections>
+                                                                <action selector="seenOrNotButtonPressed:" destination="SlI-qe-Gom" eventType="touchUpInside" id="Hk1-dg-X2p"/>
+                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                 </stackView>
@@ -123,6 +126,9 @@
                                                 <constraint firstItem="hFQ-wk-q4c" firstAttribute="top" secondItem="LMy-bg-4eS" secondAttribute="top" constant="8" id="vVc-pu-c58"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="movieTitleLabel" destination="cxV-wU-Kbh" id="Wwe-Tn-BHq"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -131,6 +137,9 @@
                         <viewLayoutGuide key="safeArea" id="YbZ-ZX-ZSX"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Movies" id="sDj-os-l4H"/>
+                    <connections>
+                        <outlet property="tableView" destination="K2z-CD-Rsd" id="PIC-Xb-cPs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mcd-cb-vuO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -11,7 +11,11 @@ import Foundation
 class MovieController {
     var movies: [Movie] = []
     
-    func addMovie(title: String, hasBeenSeen: Bool) {
+    init() {
+        addMovie(title: "StarWars")
+    }
+    
+    func addMovie(title: String, hasBeenSeen: Bool = false) {
         let movie = Movie(title: title)
         
         movies.append(movie)

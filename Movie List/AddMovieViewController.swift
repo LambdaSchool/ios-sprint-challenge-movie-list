@@ -9,7 +9,7 @@
 import UIKit
 
 class AddMovieViewController: UIViewController {
-
+    var movieController: MovieController?
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -19,8 +19,11 @@ class AddMovieViewController: UIViewController {
     @IBOutlet weak var newMovieTitleTextField: UITextField!
     
     @IBAction func addMovieButtonPressed(_ sender: Any) {
+        
+        guard let title = newMovieTitleTextField.text else { return }
+        movieController?.addMovie(title: title)
+        
     }
-    
     
     
     /*
