@@ -10,20 +10,55 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Add New Movies View Controller-->
+        <!--Add New Movies-->
         <scene sceneID="gB3-sF-lMp">
             <objects>
                 <viewController id="37S-j2-2uP" customClass="AddNewMoviesViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="U8a-hQ-uQX">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="P4h-l1-znk">
+                                <rect key="frame" x="21.5" y="69" width="371" height="120"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a new movie to the list" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hFQ-Mn-xX1">
+                                        <rect key="frame" x="0.0" y="0.0" width="371" height="36"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter the movie's title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="An9-5w-gA7">
+                                        <rect key="frame" x="0.0" y="48" width="371" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sgo-nF-bT0">
+                                        <rect key="frame" x="0.0" y="90" width="371" height="30"/>
+                                        <state key="normal" title="Add Movie"/>
+                                        <connections>
+                                            <action selector="addMovieButtonPressed:" destination="37S-j2-2uP" eventType="touchUpInside" id="8M9-fC-JVc"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Nm6-4z-Hsu"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Add New Movies" image="Plus" id="6KY-Bd-9aG"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="enterMovieTextField" destination="An9-5w-gA7" id="cBU-6q-fI2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pfd-zu-Y54" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-91" y="125"/>
+            <point key="canvasLocation" x="-91.304347826086968" y="124.55357142857142"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Plus" width="28" height="28"/>
+    </resources>
 </document>

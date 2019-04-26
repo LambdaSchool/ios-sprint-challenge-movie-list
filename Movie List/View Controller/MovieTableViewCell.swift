@@ -10,15 +10,30 @@ import UIKit
 
 class MovieTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var seenOrNotSeenButtonPressed: UIButton!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
 
+    
+    //Change the Not Seen/Seen Button
+    @IBAction func seenOrNotSeenButtonPressed(_ sender: Any) {
+        let button = sender as! UIButton
+        
+        if button.titleLabel?.text == "Not Seen"
+        {
+            button.setTitle("Seen", for: .normal)
+        }
+        else
+        {
+            button.setTitle("Not Seen", for: .normal)
+        }
+        
+    }
+    
 }

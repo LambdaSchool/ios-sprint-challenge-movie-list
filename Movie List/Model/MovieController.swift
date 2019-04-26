@@ -9,7 +9,11 @@
 import Foundation
 
 class MovieController {
-    var movies: [Movie] = []
+    var movies: [Movie] = [] {
+        didSet {
+            print("The movies array was updated")
+        }
+    }
     
     //Dummy Data to make sure our table is populated
     init() {
