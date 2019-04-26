@@ -9,12 +9,11 @@
 import UIKit
 
 class MoviesTableViewController: UITableViewController, MovieControllerProtocol {
-    
-    
-    
     var movieController: MovieController?
     
-   
+    override func viewDidLoad() {
+        tableView.reloadData()
+    }
 
     
     override func viewWillAppear(_ animated: Bool) {
@@ -29,7 +28,7 @@ class MoviesTableViewController: UITableViewController, MovieControllerProtocol 
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
        
         
         let movie = movieController?.movies[indexPath.row]

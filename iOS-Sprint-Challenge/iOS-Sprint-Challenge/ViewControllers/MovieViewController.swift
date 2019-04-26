@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MovieViewController: UIViewController {
+class MovieViewController: UIViewController, MovieControllerProtocol {
 
     var movieController: MovieController?
     
@@ -16,7 +16,6 @@ class MovieViewController: UIViewController {
         super.viewDidLoad()
         
     }
-    
 
     @IBAction func addMovieTapped(_ sender: Any) {
     
