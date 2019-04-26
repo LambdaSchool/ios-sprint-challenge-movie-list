@@ -35,6 +35,8 @@ class MovieViewController: UIViewController, MoviesPresenter {
         guard let title = movieTitleTextFiled.text else { return }
         
         movieController?.createMovie(movieTitle: title)
+        
+        movieTitleTextFiled.text = ""
     }
     
 }

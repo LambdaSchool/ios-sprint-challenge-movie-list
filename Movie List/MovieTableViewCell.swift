@@ -24,5 +24,6 @@ class MovieTableViewCell: UITableViewCell {
     }
 
     @IBAction func seenButtonPressed(_ sender: Any) {
+        print("I've been seen")
     }
 }

@@ -66,6 +66,12 @@ class MovieTableViewController: UITableViewController, MoviesPresenter {
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+        tableView.reloadData()
+    }
 
     /*
     // Override to support rearranging the table view.
