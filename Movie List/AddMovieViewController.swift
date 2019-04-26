@@ -10,9 +10,9 @@ import UIKit
 
 class AddMovieViewController: UIViewController {
     var movieController: MovieController?
+    var moviesViewController: MoviesViewController?
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
     
@@ -22,6 +22,9 @@ class AddMovieViewController: UIViewController {
         
         guard let title = newMovieTitleTextField.text else { return }
         movieController?.addMovie(title: title)
+        
+        moviesViewController?.tableView.reloadData()
+        newMovieTitleTextField.text = ""
         
     }
     

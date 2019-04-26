@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MovieTableViewCell: UITableViewCell, MovieControllerProtocol {
+class MovieTableViewCell: UITableViewCell {
     var movieController: MovieController?
     
     private func updateViews() {
