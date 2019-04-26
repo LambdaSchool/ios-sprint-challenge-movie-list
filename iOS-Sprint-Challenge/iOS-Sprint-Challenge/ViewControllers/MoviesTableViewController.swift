@@ -25,12 +25,12 @@ class MoviesTableViewController: UITableViewController, MovieControllerProtocol 
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MoviesCell", for: indexPath)
-
+        var cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath)
+        
         let movie = movieController?.movies[indexPath.row]
         cell.textLabel?.text = movie?.name
-    
-
+        
+        
         return cell
     }
     

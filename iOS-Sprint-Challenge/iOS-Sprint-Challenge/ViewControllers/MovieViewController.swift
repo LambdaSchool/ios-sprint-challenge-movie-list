@@ -21,7 +21,7 @@ class MovieViewController: UIViewController {
     }
     
 
-    @IBAction func addMovie(_ sender: Any) {
+    @IBAction func addMovieTapped(_ sender: Any) {
         guard let name = nameTextField.text, !name.isEmpty
         else { return }
         movieController?.createMovie(with: name)
