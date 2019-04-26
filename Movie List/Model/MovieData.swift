@@ -10,6 +10,9 @@ import UIKit
 
 class MovieData {
     
+    static let shared = MovieData()
+    private init() {}
+    
     private(set) var moviesList: [String] = []
     
     //Report number of rows
