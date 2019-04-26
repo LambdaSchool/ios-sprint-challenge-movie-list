@@ -8,12 +8,26 @@
 
 import UIKit
 
-class MovieTableViewController: UITableViewController, MoviesPresenter {
+class MovieTableViewController: UITableViewController, MoviesPresenter, CellDelegate {
+    
+    func cellButtonTapped(cell: MovieTableViewCell) {
+        let indexRow = tableView.indexPath(for: cell)
+        
+        guard let index = indexRow?.row else { return }
+        guard let buttonBoolValue = movieController?.movies[index].isSeen else { return }
+        
+        if buttonBoolValue {
+            movieController?.movies[index].isSeen = false
+            cell.seenButton.setTitle("Unseen", for: .normal)
+        } else {
+            cell.seenButton.setTitle("Seen", for: .normal)
+            movieController?.movies[index].isSeen = true
+        }
+        
+        
+    }
+    
     var movieController: MovieController?
-    
-    
-
-    
     
 
     override func viewDidLoad() {
@@ -40,11 +54,14 @@ class MovieTableViewController: UITableViewController, MoviesPresenter {
 
         guard let movieCell = cell as? MovieTableViewCell else { return cell }
         
+        movieCell.delegate = self
         let movie = movieController?.movies[indexPath.row]
         movieCell.movieTitleLabel.text = movie?.movieTitle
         
         return cell
     }
+    
+    
 
 
     /*
@@ -99,3 +116,8 @@ class MovieTableViewController: UITableViewController, MoviesPresenter {
     */
 
 }
+
+protocol CellDelegate: class {
+    func cellButtonTapped(cell: MovieTableViewCell)
+}
+

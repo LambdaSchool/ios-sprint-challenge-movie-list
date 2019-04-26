@@ -8,22 +8,30 @@
 
 import UIKit
 
-class MovieTableViewCell: UITableViewCell {
+
+
+class MovieTableViewCell: UITableViewCell, MoviesPresenter {
+    var movieController: MovieController?
+    var delegate: CellDelegate?
+    
 
     @IBOutlet weak var movieTitleLabel: UILabel!
+    @IBOutlet weak var seenButton: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
 
+    @IBAction func seenButtonPressed(_ sender: Any) {
+        delegate?.cellButtonTapped(cell: self)
+    }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
     }
 
-    @IBAction func seenButtonPressed(_ sender: Any) {
-        print("I've been seen")
-    }
 }
+
+
