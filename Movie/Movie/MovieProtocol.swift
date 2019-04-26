@@ -11,3 +11,7 @@ import Foundation
 protocol MovieTableViewCellDelegate: class {
     func wasSeenButtonTapped(on cell: MovieTableViewCell)
 }
+
+protocol MoviePresenter: AnyObject {
+    var movieController: MovieController? {set get}
+}

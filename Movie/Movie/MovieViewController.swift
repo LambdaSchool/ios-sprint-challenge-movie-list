@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MovieViewController: UIViewController {
+class MovieViewController: UIViewController, MoviePresenter {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +36,9 @@ class MovieViewController: UIViewController {
 
         if segue.identifier == "toAddedMovie" {
             guard let MovieTV = segue.destination as? MovieTableViewController else { return }
-            movieController = MovieTV.movieController
+            MovieTV.movieController = movieController
+
+
 
         }
     }

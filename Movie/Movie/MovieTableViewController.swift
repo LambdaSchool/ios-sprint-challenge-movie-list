@@ -8,12 +8,14 @@
 
 import UIKit
 
-class MovieTableViewController: UITableViewController, MovieTableViewCellDelegate {
+class MovieTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, MovieTableViewCellDelegate, MoviePresenter {
+
     func wasSeenButtonTapped(on cell: MovieTableViewCell) {
         cell.movie?.wasSeen.toggle()
     }
 
-    let movieController = MovieController()
+    var movieController: MovieController?
+    @IBOutlet weak var tableView: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,17 +32,17 @@ class MovieTableViewController: UITableViewController, MovieTableViewCellDelegat
 
 
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return movieController.movies.count
+        return movieController?.movies.count ?? 0
     }
 
 
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as! MovieTableViewCell
 
-        let movie = movieController.movies[indexPath.row]
-        cell.movieLabel.text = movie.movie
+        let movie = movieController?.movies[indexPath.row]
+        cell.movieLabel.text = movie?.movie
 
         // Configure the cell...
 
@@ -51,32 +53,16 @@ class MovieTableViewController: UITableViewController, MovieTableViewCellDelegat
 
 
     // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
-            let movie = movieController.movies[indexPath.row]
-            movieController.delete(movie: movie)
+            guard let movie = movieController?.movies[indexPath.row] else { return }
+            movieController?.delete(movie: movie)
             tableView.reloadData()
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        }
     }
-
-
-
-    
-
-
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-
-        
-    }
-
-
 }
+
