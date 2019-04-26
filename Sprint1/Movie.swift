@@ -9,7 +9,7 @@
 import Foundation
 
 //movie object
-struct Movie {
+struct Movie: Equatable {
     var name: String
     
     init(name: String) {

@@ -47,4 +47,14 @@ class MovieTableViewController: UITableViewController, MoviePresenter {
         
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        //delete movie before deleting cell
+        if editingStyle == .delete {
+            guard let movieController = movieController else {return}
+            let movie = movieController.movies[indexPath.row]
+            movieController.delete(movie: movie)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
 }
