@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1DJ-lH-622">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jW2-QG-xhR">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -21,7 +21,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="SRU-Yg-zyp" kind="relationship" relationship="viewControllers" id="G6Y-IG-RCj"/>
-                        <segue destination="tPj-k5-jIX" kind="relationship" relationship="viewControllers" id="wkx-jF-6o0"/>
+                        <segue destination="1DJ-lH-622" kind="relationship" relationship="viewControllers" id="oQv-QT-9OT"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MKh-JB-NyL" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -55,8 +55,8 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Add Movie"/>
                                 <connections>
-                                    <action selector="addMovieTapped:" destination="SRU-Yg-zyp" eventType="touchUpInside" id="HkZ-ge-u5z"/>
-                                    <segue destination="tPj-k5-jIX" kind="show" id="EcF-Hg-Nkx"/>
+                                    <action selector="addMovieTapped:" destination="SRU-Yg-zyp" eventType="touchUpInside" id="Eee-el-3ND"/>
+                                    <segue destination="1DJ-lH-622" kind="show" id="pcT-Hq-Dge"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -77,31 +77,14 @@
         <scene sceneID="FI8-Yo-Lud">
             <objects>
                 <tableViewController id="tPj-k5-jIX" customClass="MoviesTableViewController" customModule="iOS_Sprint_Challenge" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Sdb-nf-hpv">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieCell" id="bbe-aw-EiW" customClass="MoviesTableViewCell" customModule="iOS_Sprint_Challenge" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bbe-aw-EiW" id="cKw-Bf-GDz">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="tPj-k5-jIX" id="Gwv-hM-9Xc"/>
-                            <outlet property="delegate" destination="tPj-k5-jIX" id="mj6-t3-r4T"/>
-                        </connections>
-                    </tableView>
                     <tabBarItem key="tabBarItem" title="Add Movies" image="Clapboard" id="934-Vu-53o"/>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" title="Movies" id="yRo-JF-IqA"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mQx-J9-mek" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2416" y="-642"/>
+            <point key="canvasLocation" x="2415.9420289855075" y="-642.1875"/>
         </scene>
         <!--Movies-->
         <scene sceneID="MQr-El-Dnn">
@@ -115,7 +98,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="tPj-k5-jIX" kind="relationship" relationship="rootViewController" id="wbi-WL-wPh"/>
+                        <segue destination="tPj-k5-jIX" kind="relationship" relationship="rootViewController" id="WZz-BU-LRc"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z2b-AO-tTy" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -128,6 +111,6 @@
         <image name="Clapboard" width="28" height="28"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="EcF-Hg-Nkx"/>
+        <segue reference="oQv-QT-9OT"/>
     </inferredMetricsTieBreakers>
 </document>

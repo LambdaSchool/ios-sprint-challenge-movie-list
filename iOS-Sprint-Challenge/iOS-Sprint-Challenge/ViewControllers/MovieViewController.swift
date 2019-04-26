@@ -15,18 +15,18 @@ class MovieViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-
-        // Do any additional setup after loading the view.
     }
     
 
     @IBAction func addMovieTapped(_ sender: Any) {
+    
         guard let name = nameTextField.text, !name.isEmpty
+            
         else { return }
+        
         movieController?.createMovie(with: name)
         
-        nameTextField.text = ""
+        
     }
     
 
