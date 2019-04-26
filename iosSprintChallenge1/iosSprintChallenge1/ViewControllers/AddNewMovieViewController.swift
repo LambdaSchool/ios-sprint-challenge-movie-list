@@ -8,11 +8,11 @@
 
 import UIKit
 
-class AddNewMovieViewController: UIViewController{
+class AddNewMovieViewController: UIViewController, MoviesPresenter{
     
     var movieController: MovieController?
     
-    @IBOutlet weak var addNewMovieTextField: UILabel!
+    @IBOutlet weak var addNewMovieTextField: UITextField!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,12 +33,13 @@ class AddNewMovieViewController: UIViewController{
 
     @IBAction func addMovieButtonPressed(_ sender: Any) {
         
-        print("Movie Added")
+        //print("Movie Added")
         
         guard let movie = addNewMovieTextField.text else { return }
         
-        movieController?.createMovie(movie: movie)
+        movieController?.createMovie(title: title!)
         
         
     }
+    
 }

@@ -1,5 +1,5 @@
 //
-//  Movies.swift
+//  MoviePresenter.swift
 //  iosSprintChallenge1
 //
 //  Created by Jonathan Ferrer on 4/26/19.
@@ -8,15 +8,8 @@
 
 import Foundation
 
-struct Movie: Equatable{
+protocol MoviesPresenter: AnyObject {
     
-    let title: String
-    
-    init(title: String) {
-        self.title  = title
-        
-    }
-    
-    
+    var movieController: MovieController? {set get}
     
 }

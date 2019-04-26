@@ -10,13 +10,18 @@ import Foundation
 
 class MovieController {
     
-    var movies: [Movie] = []
+    var movies: [Movie] = [Movie]()
+    
+    init(){
+        createMovie(title: "Pineapple Express")
+        createMovie(title: "Superbad")
+    }
     
     
     //Creates a new movie and adds it to the array of movies
-    func createMovie(movie: String) {
+    func createMovie(title: String) {
         
-        let movieToBeAdded = Movie(movie: movie)
+        let movieToBeAdded = Movie(title: title)
         
         movies.append(movieToBeAdded)
         
