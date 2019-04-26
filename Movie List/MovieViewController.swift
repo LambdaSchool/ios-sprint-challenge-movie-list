@@ -11,7 +11,8 @@ import UIKit
 class MovieViewController: UIViewController, MoviesPresenter {
     var movieController: MovieController?
     
-
+    @IBOutlet weak var movieTitleTextFiled: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -28,5 +29,12 @@ class MovieViewController: UIViewController, MoviesPresenter {
         // Pass the selected object to the new view controller.
     }
     */
-
+    
+    @IBAction func addMovieButtonPressed(_ sender: Any) {
+        
+        guard let title = movieTitleTextFiled.text else { return }
+        
+        movieController?.createMovie(movieTitle: title)
+    }
+    
 }
