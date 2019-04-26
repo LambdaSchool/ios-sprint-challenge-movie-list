@@ -11,12 +11,12 @@ import Foundation
 
 class MovieController {
     var movies: [Movie] = []
-    
+    // creates data source for tableview
     func createMovie(withMovie name: String) {
         let newMovie = Movie(name: name)
     
         movies.append(newMovie)
-    
+    // creates element and appends data source
     }
 
     
