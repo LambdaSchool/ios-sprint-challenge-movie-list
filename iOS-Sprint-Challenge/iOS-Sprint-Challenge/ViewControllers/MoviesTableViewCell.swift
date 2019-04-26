@@ -16,24 +16,24 @@ class MoviesTableViewCell: UITableViewCell {
 
     weak var delegate: MoviesTableViewCellDelegate?
     
-    var movie: Movie? {
-        didSet {
-            updateViews()
-        }
-    }
-
-    private func updateViews() {
-        guard let movie = movie else { return }
-        if movie.isSeen {
-            seenButton.setTitle("Seen", for .normal)
-        } else {
-            seenButton.setTitle("Not Seen", for .normal)
-        }
-    }
+//    var movie: Movie? {
+//        didSet {
+//            updateViews()
+//        }
+//    }
+//
+//    private func updateViews() {
+//        guard let movie = movie else { return }
+       // if movie.isSeen {
+       //     seenButton.setTitle("Seen", for .normal)
+       // } else {
+       //     seenButton.setTitle("Not Seen", for .normal)
+       // }
+    //}
     
-}
+    }
 
-
+//}
 
 //    override func awakeFromNib() {
 //        super.awakeFromNib()

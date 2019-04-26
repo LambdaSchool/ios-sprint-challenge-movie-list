@@ -10,6 +10,8 @@ import UIKit
 
 class MoviesTableViewController: UITableViewController, MovieControllerProtocol {
     
+    
+    
     var movieController: MovieController?
     
     override func viewDidLoad() {
@@ -26,10 +28,10 @@ class MoviesTableViewController: UITableViewController, MovieControllerProtocol 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath)
-        guard let movieCell = cell as? MoviesTableViewCell else { return cell }
+        //guard let movieCell = cell as? MoviesTableViewCell else { return cell }
         
         let movie = movieController?.movies[indexPath.row]
-        movieCell.movie = movie
+        //movieCell.movie = movie
         cell.textLabel?.text = movie?.name
         
         

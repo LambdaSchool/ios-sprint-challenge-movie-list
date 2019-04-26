@@ -26,7 +26,7 @@ class MovieViewController: UIViewController {
         
         movieController?.createMovie(with: name)
         
-        
+        nameTextField.text = ""
     }
     
 

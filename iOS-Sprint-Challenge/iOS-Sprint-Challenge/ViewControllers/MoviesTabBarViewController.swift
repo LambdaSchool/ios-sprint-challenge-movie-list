@@ -13,7 +13,7 @@ class MoviesTabBarViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         passMovieControllerToChildViewControllers()
-        // Do any additional setup after loading the view.
+       
     }
     
     func passMovieControllerToChildViewControllers() {

@@ -10,9 +10,11 @@ import Foundation
 
 class Movie {
     
-    let name: String
+    var name: String
+//    var isSeen: Bool
     
     init(name: String) {
     self.name = name
+    
     }
 }
