@@ -12,6 +12,11 @@ class MovieController {
     
     var movies: [Movie] = []
     
+    init() {
+        
+        createMovie(with: "Jurrassic Park")
+    }
+    
     func createMovie(with text: String) {
         let movie = Movie(text: text)
         
