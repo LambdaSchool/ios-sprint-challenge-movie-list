@@ -13,7 +13,16 @@ class AddMoviesViewController: UIViewController {
     @IBOutlet weak var movieTitleTextField: UITextField!
     
     @IBAction func addMovieButtonTapped(_ sender: Any) {
+        guard let newMovie = movieTitleTextField.text, !newMovie.isEmpty else { return }
+        MovieData.shared.addMovie(newMovie)
+        movieTitleTextField.text = ""
+        
     }
+    
+    @IBAction func resetMovieDataButtonTapped(_ sender: Any) {
+        MovieData.shared.resetMovieList()
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
