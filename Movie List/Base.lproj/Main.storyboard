@@ -79,21 +79,31 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="254" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vjh-ul-gg8">
-                                            <rect key="frame" x="16" y="11" width="343" height="22"/>
+                                            <rect key="frame" x="16" y="11" width="286" height="22"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JKt-Fp-Z37">
+                                            <rect key="frame" x="310" y="19" width="51" height="6"/>
+                                            <connections>
+                                                <action selector="hasWatchedToggled:" destination="G3T-Fr-v3n" eventType="valueChanged" id="r8R-tf-oPM"/>
+                                            </connections>
+                                        </switch>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="trailingMargin" secondItem="Vjh-ul-gg8" secondAttribute="trailing" id="43U-4x-Rto"/>
+                                        <constraint firstItem="JKt-Fp-Z37" firstAttribute="top" secondItem="3gu-3f-g58" secondAttribute="topMargin" constant="8" id="1fo-eL-QcE"/>
                                         <constraint firstItem="Vjh-ul-gg8" firstAttribute="top" secondItem="3gu-3f-g58" secondAttribute="topMargin" id="6De-Eh-Vxa"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="JKt-Fp-Z37" secondAttribute="trailing" id="91a-55-jtq"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="JKt-Fp-Z37" secondAttribute="bottom" constant="8" id="L0s-oy-rxp"/>
+                                        <constraint firstItem="JKt-Fp-Z37" firstAttribute="leading" secondItem="Vjh-ul-gg8" secondAttribute="trailing" constant="8" id="N82-Ks-Lx9"/>
                                         <constraint firstItem="Vjh-ul-gg8" firstAttribute="leading" secondItem="3gu-3f-g58" secondAttribute="leadingMargin" id="q7l-eU-SR1"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="Vjh-ul-gg8" secondAttribute="bottom" id="udc-Ys-Bgr"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                                 <connections>
+                                    <outlet property="hasWatchedSwitch" destination="JKt-Fp-Z37" id="pC3-em-7W0"/>
                                     <outlet property="movieTitleLabel" destination="Vjh-ul-gg8" id="8XV-nh-D98"/>
                                 </connections>
                             </tableViewCell>

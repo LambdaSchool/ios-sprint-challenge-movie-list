@@ -45,6 +45,11 @@ class MovieController {
 		let movie = movies.remove(at: movieIndex)
 		movies.insert(movie, at: index)
 	}
+	
+	func setWatchedValueOn(movie: Movie, to watched: Bool) {
+		guard let movieIndex = movies.firstIndex(of: movie) else { return }
+		movies[movieIndex].watched = watched
+	}
 }
 
 

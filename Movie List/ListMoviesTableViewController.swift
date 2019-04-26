@@ -36,6 +36,7 @@ class ListMoviesTableViewController: UITableViewController, MovieControllerProto
 		guard let movieCell = cell as? MovieTableViewCell else { return cell }
 		
 		movieCell.movie = movieController?.movies[indexPath.row]
+		movieCell.delegate = self
 		
 		return movieCell
 	}
@@ -53,5 +54,17 @@ class ListMoviesTableViewController: UITableViewController, MovieControllerProto
 		guard let movie = movieController?.movies[fromIndexPath.row] else { return }
 		movieController?.moveMovie(movie: movie, toIndex: to.row)
 		
+	}
+}
+
+
+extension ListMoviesTableViewController: MovieTableViewCellDelegate {
+	func movieTableViewCell(cell: MovieTableViewCell, updatedWatchedValue: Bool) {
+		guard let indexPath = tableView.indexPath(for: cell),
+		let movie = cell.movie
+			else { return }
+		movieController?.setWatchedValueOn(movie: movie, to: updatedWatchedValue)
+		
+		tableView.reloadRows(at: [indexPath], with: .automatic)
 	}
 }
