@@ -35,11 +35,16 @@ class ListMoviesTableViewController: UITableViewController, MovieControllerProto
 	override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
 		if editingStyle == .delete {
 			// Delete the row from the data source
+			guard let movie = movieController?.movies[indexPath.row] else { return }
+			movieController?.deleteMovie(movie: movie)
 			tableView.deleteRows(at: [indexPath], with: .fade)
 		}
 	}
 
 	override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
+		
+		guard let movie = movieController?.movies[fromIndexPath.row] else { return }
+		movieController?.moveMovie(movie: movie, toIndex: to.row)
+		
 	}
 }
