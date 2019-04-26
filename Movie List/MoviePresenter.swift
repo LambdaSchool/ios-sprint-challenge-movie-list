@@ -1,5 +1,5 @@
 //
-//  Movie.swift
+//  MoviePresenter.swift
 //  Movie List
 //
 //  Created by Steven Leyva on 4/26/19.
@@ -8,14 +8,11 @@
 
 import Foundation
 
-struct Movie: Equatable {
-    var text: String
+protocol MoviePresenter: AnyObject {
     
-    init(text: String) {
-        self.text = text
-    }
-}
+    var movieController: MovieController? { set get }
 
+}
 
 
 

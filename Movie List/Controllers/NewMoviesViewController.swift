@@ -1,5 +1,5 @@
 //
-//  AddMovieViewController.swift
+//  NewMoviesViewController.swift
 //  Movie List
 //
 //  Created by Steven Leyva on 4/26/19.
@@ -8,7 +8,8 @@
 
 import UIKit
 
-class AddMovieViewController: UIViewController {
+class NewMoviesViewController: UIViewController, MoviePresenter {
+    var movieController: MovieController?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,11 +17,7 @@ class AddMovieViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    @IBAction func addMovieButtonPressed(_ sender: Any) {
-        
-    }
-    
-    
+
     /*
     // MARK: - Navigation
 
