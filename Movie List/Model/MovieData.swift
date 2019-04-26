@@ -21,10 +21,7 @@ class MovieData {
     }
     
     func addMovie(_ movie: String) {
-        print ("Number of movie titles = \(moviesList.count) has been added")
         moviesList.append(movie)
-        print ("The movie title \(movie) has been added")
-        print ("The number of movie titles added = \(moviesList.count)")
         saveData()
     }
     
