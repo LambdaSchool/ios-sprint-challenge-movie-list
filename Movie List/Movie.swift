@@ -9,7 +9,7 @@
 import Foundation
 
 struct Movie: Codable, Equatable {
-	let movieName: String
+	var movieName: String
 	var watched = false
 	
 	init(movieName: String) {

@@ -23,6 +23,15 @@ class ListMoviesTableViewController: UITableViewController, MovieControllerProto
 		super.viewWillAppear(animated)
 		tableView.reloadData()
 	}
+	
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		if segue.identifier == "EditMovie" {
+			guard let dest = segue.destination as? EditMovieViewController else { return }
+			guard let cell = sender as? MovieTableViewCell else { return }
+			dest.movieController = movieController
+			dest.movie = cell.movie
+		}
+	}
 
 	// MARK: - Table view data source
 

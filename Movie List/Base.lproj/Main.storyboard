@@ -60,13 +60,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jJ2-Yy-SZI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="244" y="-426.83658170914543"/>
+            <point key="canvasLocation" x="244" y="-406"/>
         </scene>
         <!--List Movies Table View Controller-->
         <scene sceneID="TgW-FO-OtR">
             <objects>
                 <tableViewController id="O4G-Sb-kuv" customClass="ListMoviesTableViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="eql-AU-QOg">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="eql-AU-QOg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
@@ -105,6 +105,7 @@
                                 <connections>
                                     <outlet property="hasWatchedSwitch" destination="JKt-Fp-Z37" id="pC3-em-7W0"/>
                                     <outlet property="movieTitleLabel" destination="Vjh-ul-gg8" id="8XV-nh-D98"/>
+                                    <segue destination="atW-zk-qQc" kind="show" identifier="EditMovie" id="OsC-dw-KDV"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -156,6 +157,57 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TaP-rE-jYm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="244" y="354"/>
+        </scene>
+        <!--Edit Movie-->
+        <scene sceneID="cnW-jf-1UC">
+            <objects>
+                <viewController title="Edit Movie" id="atW-zk-qQc" customClass="EditMovieViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="MwX-yg-l22">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MYw-Bq-lDj">
+                                <rect key="frame" x="123" y="364.5" width="129" height="30"/>
+                                <state key="normal" title="Update Movie Title">
+                                    <color key="titleColor" red="1" green="0.44783021810000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="updateMovieTitleButtonPressed:" destination="atW-zk-qQc" eventType="touchUpInside" id="2z2-g6-jiI"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Movie Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gty-vU-NGC">
+                                <rect key="frame" x="16" y="318.5" width="343" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Update Movie Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="fSK-VD-tY4">
+                                <rect key="frame" x="16" y="80" width="343" height="32"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="fSK-VD-tY4" firstAttribute="top" secondItem="puY-Kh-qtq" secondAttribute="top" constant="16" id="9T9-dE-KUY"/>
+                            <constraint firstItem="puY-Kh-qtq" firstAttribute="trailing" secondItem="Gty-vU-NGC" secondAttribute="trailing" constant="16" id="Ams-kb-9tr"/>
+                            <constraint firstItem="fSK-VD-tY4" firstAttribute="leading" secondItem="puY-Kh-qtq" secondAttribute="leading" constant="16" id="Sgo-pk-kao"/>
+                            <constraint firstItem="Gty-vU-NGC" firstAttribute="leading" secondItem="puY-Kh-qtq" secondAttribute="leading" constant="16" id="VSe-WD-qmS"/>
+                            <constraint firstItem="MYw-Bq-lDj" firstAttribute="centerX" secondItem="MwX-yg-l22" secondAttribute="centerX" id="aFA-Y0-fFu"/>
+                            <constraint firstItem="MYw-Bq-lDj" firstAttribute="top" secondItem="Gty-vU-NGC" secondAttribute="bottom" constant="16" id="drB-5L-iNW"/>
+                            <constraint firstItem="Gty-vU-NGC" firstAttribute="centerY" secondItem="MwX-yg-l22" secondAttribute="centerY" id="jBb-YO-xVH"/>
+                            <constraint firstItem="puY-Kh-qtq" firstAttribute="trailing" secondItem="fSK-VD-tY4" secondAttribute="trailing" constant="16" id="l6D-1s-den"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="puY-Kh-qtq"/>
+                    </view>
+                    <connections>
+                        <outlet property="movieTitleTextField" destination="Gty-vU-NGC" id="VQY-an-yTL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vkv-le-4aK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2572" y="354"/>
         </scene>
     </scenes>
     <resources>

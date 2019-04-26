@@ -50,6 +50,11 @@ class MovieController {
 		guard let movieIndex = movies.firstIndex(of: movie) else { return }
 		movies[movieIndex].watched = watched
 	}
+	
+	func updateMovie(movie: Movie, withNewName name: String) {
+		guard let movieIndex = movies.firstIndex(of: movie) else { return }
+		movies[movieIndex].movieName = name
+	}
 }
 
 
