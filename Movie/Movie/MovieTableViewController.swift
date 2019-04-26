@@ -8,7 +8,11 @@
 
 import UIKit
 
-class MovieTableViewController: UITableViewController {
+class MovieTableViewController: UITableViewController, MovieTableViewCellDelegate {
+    func wasSeenButtonTapped(on cell: MovieTableViewCell) {
+        cell.movie?.wasSeen.toggle()
+    }
+
     let movieController = MovieController()
 
     override func viewDidLoad() {

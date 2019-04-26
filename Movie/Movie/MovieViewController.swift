@@ -33,6 +33,12 @@ class MovieViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+
+        if segue.identifier == "toAddedMovie" {
+            guard let MovieTV = segue.destination as? MovieTableViewController else { return }
+            movieController = MovieTV.movieController
+
+        }
     }
 
 
