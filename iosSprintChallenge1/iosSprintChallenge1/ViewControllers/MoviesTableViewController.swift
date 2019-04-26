@@ -41,10 +41,12 @@ class MoviesTableViewController: UITableViewController, MoviesPresenter {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MoviesCell", for: indexPath)
         
-        //get a place for the row index
-        let place = movieController?.movies[indexPath.row]
+        // get a movie for the row index
+        let movie = movieController?.movies[indexPath.row]
         
         cell.textLabel?.text = movie?.title
+        
+        
         
         return cell
     }

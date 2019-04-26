@@ -1,5 +1,5 @@
 //
-//  MoviesTableViewCell.swift
+//  MovieTableViewCell.swift
 //  iosSprintChallenge1
 //
 //  Created by Jonathan Ferrer on 4/26/19.
@@ -8,7 +8,12 @@
 
 import UIKit
 
-class MoviesTableViewCell: UITableViewCell {
+class MovieTableViewCell: UITableViewCell {
+    
+    protocol <#name#> {
+        <#requirements#>
+    }
+    
 
     override func awakeFromNib() {
         super.awakeFromNib()

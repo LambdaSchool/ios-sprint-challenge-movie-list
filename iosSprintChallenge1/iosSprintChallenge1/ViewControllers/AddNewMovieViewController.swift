@@ -35,9 +35,9 @@ class AddNewMovieViewController: UIViewController, MoviesPresenter{
         
         //print("Movie Added")
         
-        guard let movie = addNewMovieTextField.text else { return }
+        guard let title = addNewMovieTextField.text else { return }
         
-        movieController?.createMovie(title: title!)
+        movieController?.createMovie(title: title)
         
         
     }
