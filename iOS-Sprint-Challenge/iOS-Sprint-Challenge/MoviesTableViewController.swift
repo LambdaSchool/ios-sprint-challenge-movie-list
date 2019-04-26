@@ -8,34 +8,28 @@
 
 import UIKit
 
-class MoviesTableViewController: UITableViewController {
+class MoviesTableViewController: UITableViewController, MovieControllerProtocol {
     
+    var movieController: MovieController?
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-         //self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
-    
-
-   
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        
+        return movieController?.movies.count ?? 0
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MoviesCell", for: indexPath)
 
-        // Configure the cell...
+        let movie = movieController?.movies[indexPath.row]
+        cell.textLabel?.text = movie?.name
+    
 
         return cell
     }
