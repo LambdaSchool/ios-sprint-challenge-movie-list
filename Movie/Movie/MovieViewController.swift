@@ -35,6 +35,7 @@ class MovieViewController: UIViewController, MoviePresenter {
         if segue.identifier == "toAddedMovie" {
             guard let MovieTV = segue.destination as? MovieTableViewController else { return }
             MovieTV.movieController = movieController
+            
         }
     }
 

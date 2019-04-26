@@ -45,7 +45,7 @@ class MovieTableViewController: UIViewController, UITableViewDataSource, UITable
         cell.movieLabel.text = movie?.movie
 
         // Configure the cell...
-
+        cell.delegate = self
         return cell
     }
 
