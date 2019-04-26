@@ -29,14 +29,31 @@ class MovieViewController: UIViewController {
         //creates a new movie from movieTextInput
     }
     
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "addMovie" {
+            guard let DetailVC = segue.destination as? MovieViewController,
+                let cell = sender as? MovieTableViewController else { return }
+            
+            DetailVC.movieController.movies = cell.movieController.movies
+        }
+//
+//        }
+//        if segue.identifier == "addMovie" {
+//            guard let DetailVC = segue.destination as? MovieTableViewController,
+//                let cell = sender as? MovieViewController else { return }
+//
+//            movieDetailVC.movieController.movies = cell.movies
+//        }
+        
         // Get the new view controller using segue.destination.
+        
+        
         // Pass the selected object to the new view controller.
     }
-    */
+    
 
 }
