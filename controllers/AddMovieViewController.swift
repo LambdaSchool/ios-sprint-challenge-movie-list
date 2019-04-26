@@ -10,6 +10,20 @@ import UIKit
 
 class AddMovieViewController: UIViewController {
 
+   
+    
+    
+    @IBOutlet weak var enteredMovie: UITextField!
+    
+    @IBAction func addMovieButtonPressed(_ sender: Any) {
+        
+      
+        }
+       
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -26,5 +40,6 @@ class AddMovieViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+
 
 }

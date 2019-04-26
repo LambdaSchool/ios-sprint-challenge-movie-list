@@ -34,12 +34,15 @@
                                 <state key="normal" title="add movie">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="addMovieButtonPressed:" destination="6QL-Lw-jnT" eventType="touchUpInside" id="p5c-Pp-zj1"/>
+                                </connections>
                             </button>
-                            <textField opaque="NO" alpha="0.84999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="enter movie." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zwh-bh-1ri">
+                            <textField opaque="NO" alpha="0.84999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="enter movie." textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="zwh-bh-1ri">
                                 <rect key="frame" x="68" y="117" width="270" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -58,6 +61,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="VKT-s5-Lp0"/>
                     </view>
+                    <connections>
+                        <outlet property="enteredMovie" destination="zwh-bh-1ri" id="VeV-au-qL7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N2g-G2-6TB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
