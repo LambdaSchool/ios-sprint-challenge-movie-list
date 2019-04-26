@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6QL-Lw-jnT">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Add Movie View Controller-->
+        <scene sceneID="kvY-tS-1Bt">
+            <objects>
+                <viewController id="6QL-Lw-jnT" customClass="AddMovieViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="UEb-Kz-T5l">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="star wars last jedi second poster" translatesAutoresizingMaskIntoConstraints="NO" id="K3a-Pk-Tg8">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label userInteractionEnabled="NO" alpha="0.65000000000000002" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Movie to the list" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xVe-Gi-c4I">
+                                <rect key="frame" x="76.5" y="44" width="261" height="37"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="olJ-eT-nLq">
+                                <rect key="frame" x="171.5" y="177" width="71" height="30"/>
+                                <state key="normal" title="add movie">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="addMovieButtonPressed:" destination="6QL-Lw-jnT" eventType="touchUpInside" id="p5c-Pp-zj1"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" alpha="0.84999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="enter movie." textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="zwh-bh-1ri">
+                                <rect key="frame" x="68" y="117" width="270" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="zwh-bh-1ri" firstAttribute="leading" secondItem="VKT-s5-Lp0" secondAttribute="leading" constant="68" id="82t-C5-xtX"/>
+                            <constraint firstItem="xVe-Gi-c4I" firstAttribute="top" secondItem="VKT-s5-Lp0" secondAttribute="top" id="BaB-Vo-sOU"/>
+                            <constraint firstItem="olJ-eT-nLq" firstAttribute="leading" secondItem="VKT-s5-Lp0" secondAttribute="leading" constant="171.5" id="FZZ-nX-Av0"/>
+                            <constraint firstItem="olJ-eT-nLq" firstAttribute="top" secondItem="zwh-bh-1ri" secondAttribute="bottom" constant="30" id="Fne-Hp-syW"/>
+                            <constraint firstItem="xVe-Gi-c4I" firstAttribute="leading" secondItem="VKT-s5-Lp0" secondAttribute="leading" constant="76.5" id="Isl-mm-JZS"/>
+                            <constraint firstItem="zwh-bh-1ri" firstAttribute="top" secondItem="xVe-Gi-c4I" secondAttribute="bottom" constant="36" id="Y2I-E7-GIa"/>
+                            <constraint firstItem="VKT-s5-Lp0" firstAttribute="trailing" secondItem="xVe-Gi-c4I" secondAttribute="trailing" constant="76.5" id="Yh9-hG-48D"/>
+                            <constraint firstItem="olJ-eT-nLq" firstAttribute="centerX" secondItem="UEb-Kz-T5l" secondAttribute="centerX" id="bHT-Fc-55N"/>
+                            <constraint firstItem="xVe-Gi-c4I" firstAttribute="centerX" secondItem="UEb-Kz-T5l" secondAttribute="centerX" id="ijk-EL-LP0"/>
+                            <constraint firstItem="VKT-s5-Lp0" firstAttribute="trailing" secondItem="olJ-eT-nLq" secondAttribute="trailing" constant="171.5" id="n8U-tD-Ky9"/>
+                            <constraint firstItem="VKT-s5-Lp0" firstAttribute="trailing" secondItem="zwh-bh-1ri" secondAttribute="trailing" constant="76" id="xkM-g1-QGK"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="VKT-s5-Lp0"/>
+                    </view>
+                    <connections>
+                        <outlet property="enteredMovie" destination="zwh-bh-1ri" id="VeV-au-qL7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="N2g-G2-6TB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="163.768115942029" y="5.3571428571428568"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="star wars last jedi second poster" width="891" height="1401"/>
+    </resources>
+</document>
