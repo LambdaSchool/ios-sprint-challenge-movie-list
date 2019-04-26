@@ -15,16 +15,14 @@ class MoviesTabViewController: UITabBarController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
-		// Do any additional setup after loading the view.
+		configureChildren()
 	}
 	
-
-	// MARK: - Navigation
-	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-		
-		// I'm aware I'm ignoring the identifier - in the limited scope of this project, we really only need to know if the destination conforms to the protocol
-		if let vc = segue.destination as? MovieControllerProtocol {
-			vc.movieController = movieController
+	func configureChildren() {
+		for child in children {
+			if let vc = child as? MovieControllerProtocol {
+				vc.movieController = movieController
+			}
 		}
 	}
 }
