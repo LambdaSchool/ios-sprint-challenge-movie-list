@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MovieTableViewCell: UITableViewCell {
+class MovieTableViewCell: UITableViewCell, MoviePresenter {
 
 
 
@@ -20,9 +20,16 @@ class MovieTableViewCell: UITableViewCell {
     }
 
     private func updateView() {
-        guard let movie = movie else { return }
-        movieLabel.text = movie.movie
 
+        guard let movieText = movieLabel.text else { return }
+
+        if let movie = movie {
+            movieController?.update(movie: movie, film: movieText)
+        } else {
+            movieController?.create(movie: movieText)
+        }
+
+        guard let movie = movie else { return }
         if movie.wasSeen == true {
             wasSeenButton.setTitle("notSeen", for: .normal)
         } else {
@@ -37,7 +44,7 @@ class MovieTableViewCell: UITableViewCell {
     @IBOutlet weak var movieLabel: UILabel!
     var delegate: MovieTableViewCellDelegate?
     @IBOutlet weak var wasSeenButton: UIButton!
-    
+    var movieController: MovieController?
     var movie: Movie? {
         didSet {
             updateView()
