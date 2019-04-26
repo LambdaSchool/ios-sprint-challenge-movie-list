@@ -18,7 +18,7 @@ class MoviesTabBarViewController: UITabBarController {
     
     func passMovieControllerToChildViewControllers() {
         for childViewController in children {
-            guard let childViewController = childViewController as? MovieController else { return }
+            guard let childViewController = childViewController as? MovieControllerProtocol else { return }
             childViewController.movieController = movieController
         }
         

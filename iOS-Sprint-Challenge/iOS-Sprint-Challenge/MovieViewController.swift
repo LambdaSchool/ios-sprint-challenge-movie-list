@@ -21,14 +21,15 @@ class MovieViewController: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func addMovie(_ sender: Any) {
+        guard let name = nameTextField.text, !name.isEmpty
+        else { return }
+        movieController?.createMovie(with: name)
+        
+        nameTextField.text = ""
     }
-    */
+    
 
+    @IBOutlet var nameTextField: UITextField!
+ 
 }
