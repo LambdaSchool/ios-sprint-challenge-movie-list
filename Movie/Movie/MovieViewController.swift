@@ -25,8 +25,6 @@ class MovieViewController: UIViewController, MoviePresenter {
     }
 
     
-
-    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -37,9 +35,6 @@ class MovieViewController: UIViewController, MoviePresenter {
         if segue.identifier == "toAddedMovie" {
             guard let MovieTV = segue.destination as? MovieTableViewController else { return }
             MovieTV.movieController = movieController
-
-
-
         }
     }
 
