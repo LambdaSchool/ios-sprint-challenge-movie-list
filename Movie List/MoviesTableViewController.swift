@@ -56,7 +56,11 @@ class MoviesTableViewController: UITableViewController, MovieControllerProtocol 
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if (editingStyle == .delete) {
-          
+            if let currentMovie = self.movieController?.movies[indexPath.row] {
+                movieController?.deleteMovie(movie: currentMovie)
+                tableView.deleteRows(at: [indexPath], with: .fade)
+            }
+            
         }
     }
         }
