@@ -9,38 +9,52 @@
 import UIKit
 
 class EditMoviesTableViewController: UITableViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        //Set the tableView source and delegate
+        tableView.dataSource = self
+        
+        //Set the background image
+        let blueSmoothBG = UIImage(named: "bluesmooth.png")
+        let blueSmootBackground = UIImageView(image: blueSmoothBG)
+        self.tableView.backgroundView = blueSmootBackground
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        //Refresh the movie list in the tableView
+        self.tableView.reloadData()
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return MovieData.shared.titleCount()
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MovieTitle", for: indexPath)
+        
+        //Make the cell background clear so background image will show
+        cell.backgroundColor = .clear
+        
+        //Get the movie title
+        let title = MovieData.shared.itemTitle(at: indexPath.row)
+        
+        //Display the movie title to the cell
+        cell.textLabel?.text = title
 
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
