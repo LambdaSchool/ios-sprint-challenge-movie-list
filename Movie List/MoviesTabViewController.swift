@@ -21,6 +21,8 @@ class MoviesTabViewController: UITabBarController {
 
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		
+		// I'm aware I'm ignoring the identifier - in the limited scope of this project, we really only need to know if the destination conforms to the protocol
 		if let vc = segue.destination as? MovieControllerProtocol {
 			vc.movieController = movieController
 		}
