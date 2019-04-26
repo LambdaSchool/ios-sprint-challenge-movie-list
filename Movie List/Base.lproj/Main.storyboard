@@ -13,7 +13,7 @@
         <!--Add New Movies-->
         <scene sceneID="uCJ-UP-LyX">
             <objects>
-                <viewController id="XEw-KQ-Bkq" sceneMemberID="viewController">
+                <viewController id="XEw-KQ-Bkq" customClass="AddMovieViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lGU-mk-ETj">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -36,6 +36,9 @@
                                 <rect key="frame" x="171" y="170" width="73" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Add Movie"/>
+                                <connections>
+                                    <action selector="addMovieButtonPressed:" destination="XEw-KQ-Bkq" eventType="touchUpInside" id="MsC-7V-aUm"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -52,7 +55,7 @@
         <!--Movies-->
         <scene sceneID="DJt-6v-r77">
             <objects>
-                <tableViewController id="Wu8-WQ-l1l" sceneMemberID="viewController">
+                <tableViewController id="Wu8-WQ-l1l" customClass="MoviesTableViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="PoJ-Dx-PEd">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -69,6 +72,9 @@
                                             <rect key="frame" x="340" y="6" width="64" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal" title="Not Seen"/>
+                                            <connections>
+                                                <action selector="unseenButtonPressed:" destination="Wu8-WQ-l1l" eventType="touchUpInside" id="dy0-sU-ayQ"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                 </tableViewCellContentView>
@@ -85,12 +91,13 @@
             </objects>
             <point key="canvasLocation" x="2096" y="612"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Movies Tab Bar View Controller-->
         <scene sceneID="vnN-uS-T02">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="lVN-LO-REI" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="lVN-LO-REI" customClass="MoviesTabBarViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="CKj-1o-zhb">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>

@@ -20,6 +20,9 @@ class MoviesTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
+    @IBAction func unseenButtonPressed(_ sender: Any) {
+        print("seen")
+    }
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
