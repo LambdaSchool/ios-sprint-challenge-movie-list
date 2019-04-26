@@ -10,6 +10,6 @@ import Foundation
 
 protocol MovieControllerProtocol: AnyObject {
     
-    var movieController: MovieController? { set get }
+    var movieController: MovieController? { get set }
     
 }

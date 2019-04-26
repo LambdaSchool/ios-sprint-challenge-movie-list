@@ -8,12 +8,10 @@
 
 import Foundation
 
+
+
 class MovieController {
     var movies: [Movie] = []
-    
-    init() {
-        createMovie(with: "Star Wars")
-    }
     
     
     func createMovie(with name: String) {
@@ -23,9 +21,15 @@ class MovieController {
     }
 
     func deleteMovie(movie: Movie) {
-        if let indexOfMovie = movies.firstIndex(of: movie) {
+        guard let indexOfMovie = movies.index(of: movie) else { return }
             movies.remove(at: indexOfMovie)
         }
+    
+    func updateSeen(forMovie movie: Movie) {
+        guard let indexOfMovie = movies.index(of: movie) else { return }
+        movies[indexOfMovie].hasSeen = !movie.hasSeen
+   
+    }
     }
 
-}
+

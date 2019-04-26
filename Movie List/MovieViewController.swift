@@ -21,7 +21,7 @@ class MovieViewController: UIViewController, MovieControllerProtocol {
         
         movieController?.createMovie(with: movieName)
         addMovieTextField.text = ""
-        print("button tapped!")
+        
     }
     
        

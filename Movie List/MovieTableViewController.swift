@@ -10,24 +10,14 @@ import UIKit
 
 
 
-class MovieTableViewController: UITableViewController {
+class MovieTableViewController: UITableViewController, MovieControllerProtocol {
     var movieController: MovieController?
 
     
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-//        tableView.reloadData()
-    
-    
-    }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         
         tableView.reloadData()
-        
     
     }
 

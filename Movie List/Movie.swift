@@ -10,9 +10,11 @@ import Foundation
 
 struct Movie: Equatable {
     
-    let name: String
+    var name: String
+    var hasSeen: Bool
     
-    init(name: String) {
+    init(name: String, hasSeen: Bool = false) {
         self.name = name
+        self.hasSeen = hasSeen
     }
 }

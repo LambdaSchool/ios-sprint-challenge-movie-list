@@ -8,29 +8,17 @@
 
 import UIKit
 
-class DisplayMoviesViewController: UIViewController {
+class DisplayMoviesViewController: UIViewController, MovieControllerProtocol {
     var movieController: MovieController?
     
-    var movieTableViewController: MovieTableViewController?
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-    }
-    
-
-    
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "MovieTableView" {
-            guard let movieTVC = segue.destination as? MovieTableViewController else { return }
+            if let movieTVC = segue.destination as? MovieControllerProtocol {
             movieTVC.movieController = movieController
+        }
             
-            movieTableViewController = movieTVC
         }
         
     }
