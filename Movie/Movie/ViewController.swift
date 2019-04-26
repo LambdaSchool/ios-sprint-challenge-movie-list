@@ -1,8 +1,8 @@
 //
 //  ViewController.swift
-//  MovieList2
+//  Movie
 //
-//  Created by Diante Lewis-Jolley on 1/18/19.
+//  Created by Diante Lewis-Jolley on 4/26/19.
 //  Copyright © 2019 Diante Lewis-Jolley. All rights reserved.
 //
 
