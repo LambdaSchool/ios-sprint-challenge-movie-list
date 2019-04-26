@@ -8,23 +8,35 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+var movies = ["Scott Pilgrim vs. the World", "Avengers: Endgame", "Black Panther"]
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    @IBOutlet weak var moviesTableView: UITableView!
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return movies.count
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: "addMovieCell")
+        cell.textLabel?.text = movies[indexPath.row]
+        return(cell)
     }
-    */
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == UITableViewCell.EditingStyle.delete {
+            movies.remove(at: indexPath.row)
+            moviesTableView.reloadData()
+            
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        moviesTableView.reloadData()
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
 
 }
