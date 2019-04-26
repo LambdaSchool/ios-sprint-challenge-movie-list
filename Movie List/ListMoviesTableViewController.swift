@@ -14,6 +14,8 @@ class ListMoviesTableViewController: UITableViewController, MovieControllerProto
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		
+		navigationItem.rightBarButtonItem = editButtonItem
 
 	}
 	
