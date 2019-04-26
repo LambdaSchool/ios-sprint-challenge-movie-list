@@ -18,25 +18,24 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieCell" id="QOP-1L-8G8" customClass="MovieTableViewCell" customModule="Movie_List" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieCell" rowHeight="68" id="QOP-1L-8G8" customClass="MovieTableViewCell" customModule="Movie_List" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="68"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QOP-1L-8G8" id="euo-cR-fN0">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="67.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="299" translatesAutoresizingMaskIntoConstraints="NO" id="4Xw-V5-eqb">
-                                            <rect key="frame" x="8" y="6" width="413" height="50"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="tID-aR-gNc">
+                                            <rect key="frame" x="20" y="11" width="374" height="46"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gWZ-fF-lRc">
-                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="302" height="46"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="47D-Qk-TXN">
-                                                    <rect key="frame" x="349" y="0.0" width="64" height="50"/>
+                                                <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="47D-Qk-TXN">
+                                                    <rect key="frame" x="310" y="0.0" width="64" height="46"/>
                                                     <state key="normal" title="Not Seen"/>
                                                     <connections>
                                                         <action selector="seenOrNotSeenButtonPressed:" destination="QOP-1L-8G8" eventType="touchUpInside" id="u28-gj-B0M"/>
@@ -45,6 +44,12 @@
                                             </subviews>
                                         </stackView>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="tID-aR-gNc" firstAttribute="top" secondItem="euo-cR-fN0" secondAttribute="topMargin" id="0Z7-Lf-HAV"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="tID-aR-gNc" secondAttribute="trailing" id="4mQ-ux-tn9"/>
+                                        <constraint firstItem="tID-aR-gNc" firstAttribute="leading" secondItem="euo-cR-fN0" secondAttribute="leadingMargin" id="mCL-7V-tLU"/>
+                                        <constraint firstItem="tID-aR-gNc" firstAttribute="bottom" secondItem="euo-cR-fN0" secondAttribute="bottomMargin" id="qOT-o3-RaT"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="seenOrNotSeenButtonPressed" destination="47D-Qk-TXN" id="rUS-Aj-Lkz"/>
