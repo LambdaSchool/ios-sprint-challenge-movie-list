@@ -10,4 +10,9 @@ import Foundation
 
 struct Movie: Codable, Equatable {
 	let movieName: String
+	var watched = false
+	
+	init(movieName: String) {
+		self.movieName = movieName
+	}
 }

@@ -18,13 +18,17 @@ class MovieController {
 	}
 	
 	init() {
-		let tempMovies = defaults.object(forKey: "movies") as? [String] ?? [String]()
-		movies = tempMovies.map{ Movie(movieName: $0) }
+		movies = []
+		guard let data = defaults.object(forKey: "movies-json") as? Data else { return }
+		let jsonDecoder = JSONDecoder()
+		guard let moviesArray = try? jsonDecoder.decode([Movie].self, from: data) else { return }
+		movies = moviesArray
 	}
 	
 	func updateDefaults() {
-		let movieNames: [String] = movies.map{ $0.movieName }
-		defaults.setValue(movieNames, forKey: "movies")
+		let jsonEncoder = JSONEncoder()
+		let json = try? jsonEncoder.encode(movies)
+		defaults.setValue(json, forKey: "movies-json")
 	}
 	
 	func addNewMovie(named name: String) {
