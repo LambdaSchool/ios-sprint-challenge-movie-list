@@ -8,13 +8,14 @@
 
 import UIKit
 
-//protocol AddStudentDelegate {
-//   func newStudentWasAdded(with name: String)
+protocol MovieSelectionDelegate: AnyObject {
+    func newMovieWasAdded(movie: Movie)
 
 
 class MoviesTableViewController: UITableViewController, MoviePresenter {
-    
+
     var movieController: MovieController?
+   weak var delegate: MovieSelectionDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,10 +46,15 @@ class MoviesTableViewController: UITableViewController, MoviePresenter {
     
         return cell
     }
-
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        guard let place = placeController?
+    }
 
 
 }
 
 //extension TestTableViewController: AddStudentDelegate
 //  func newStudentWasAdded(with name: String) {
+}
