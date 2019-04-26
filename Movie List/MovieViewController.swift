@@ -16,19 +16,21 @@ class MovieViewController: UIViewController, MovieControllerProtocol {
         super.viewDidLoad()
     }
     
-    
     @IBAction func addMovieButtonTapped(_ sender: Any) {
-        
         guard let movieName = addMovieTextField.text else { return }
         
         movieController?.createMovie(with: movieName)
         addMovieTextField.text = ""
-       
+        print("button tapped!")
     }
     
-    @IBOutlet weak var addMovieLabel: UILabel!
-    
+       
+    @IBOutlet weak var movieLabel: UILabel!
     @IBOutlet weak var addMovieTextField: UITextField!
-    
 
 }
+    
+
+    
+
+

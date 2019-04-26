@@ -11,6 +11,11 @@ import Foundation
 class MovieController {
     var movies: [Movie] = []
     
+    init() {
+        createMovie(with: "Star Wars")
+    }
+    
+    
     func createMovie(with name: String) {
         let movie = Movie(name: name)
         

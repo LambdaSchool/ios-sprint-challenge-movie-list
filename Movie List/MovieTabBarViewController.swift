@@ -9,11 +9,21 @@
 import UIKit
 
 class MovieTabBarViewController: UITabBarController {
-
+    
+    let movieController = MovieController()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        
+        for childViewController in children {
+            
+            if let childViewController = childViewController as? MovieControllerProtocol {
+                childViewController.movieController = movieController
+            }
+        }
+        
     }
     
 }
