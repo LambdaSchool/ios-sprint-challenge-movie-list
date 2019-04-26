@@ -26,6 +26,12 @@ class AddMoviesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Set a background
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named:"darkblue.png")!)
+        
+       
+        //setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:"darkblue.png"]
 
         // Do any additional setup after loading the view.
     }
