@@ -11,16 +11,21 @@ import Foundation
 class MovieController {
 	let defaults = UserDefaults.standard
 	
-	var movies: [Movie] = []
-//	{
-//		get {
-//			return defaults.object(forKey: "movies") as? [Movie] ?? [Movie]()
-//		}
-//
-//		set {
-//			defaults.setValue(newValue, forKey: "movies")
-//		}
-//	}
+	var movies: [Movie] {
+		didSet {
+			updateDefaults()
+		}
+	}
+	
+	init() {
+		let tempMovies = defaults.object(forKey: "movies") as? [String] ?? [String]()
+		movies = tempMovies.map{ Movie(movieName: $0) }
+	}
+	
+	func updateDefaults() {
+		let movieNames: [String] = movies.map{ $0.movieName }
+		defaults.setValue(movieNames, forKey: "movies")
+	}
 	
 	func addNewMovie(named name: String) {
 		movies.append(Movie(movieName: name))
