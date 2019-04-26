@@ -7,3 +7,7 @@
 //
 
 import Foundation
+
+struct Movie: Equatable {
+    var movieName: String
+}

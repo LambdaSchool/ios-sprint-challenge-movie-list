@@ -7,3 +7,18 @@
 //
 
 import Foundation
+
+class MovieController {
+    
+    init() {
+        //I'm going to put tests here as sanity check
+    }
+    
+    var movies: [Movie] = [] //An array of movies
+    
+    
+    func createMovie(movieName: String) {
+        let movie = Movie(movieName: movieName)
+        movies.append(movie)
+    }
+}
