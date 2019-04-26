@@ -8,6 +8,10 @@
 
 import UIKit
 
+extension Notification.Name {
+    static let addMovieTextField = Notification.Name("MovieCell")
+    
+}
 class AddMovieViewController: UIViewController, MovieControllerProtocol {
     var movieController: MovieController?
     
@@ -20,6 +24,9 @@ class AddMovieViewController: UIViewController, MovieControllerProtocol {
     
     @IBAction func addMovieButtonPressed(_ sender: Any) {
         self.movieController?.create(name: addMovieTextField.text ?? "")
+        addMovieTextField.text = nil
+        
+        
     }
     
     /*
