@@ -61,8 +61,14 @@ class MoviesTableViewController: UITableViewController, MoviePresenter {
         delegate?.newMovieWasAdded(movie: movie)
     }
 
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        guard let movie = movieController?.movies[indexPath.row] else { return }
+        if editingStyle == .delete {
+            
+            movieController?.deleteMovie(movie: movie)
+            tableView.deleteRows(at: [indexPath], with: .fade)}
+
 
 }
-//extension TestTableViewController: AddStudentDelegate
-//  func newStudentWasAdded(with name: String) {
-
+}

@@ -13,10 +13,14 @@ class AddMovieViewController: UIViewController, MoviePresenter {
 
     @IBOutlet var movieText: UITextField!
     
+    
     //var delegate: AddsStudentDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+    
+        
 
        
     }
@@ -24,6 +28,7 @@ class AddMovieViewController: UIViewController, MoviePresenter {
     @IBAction func addMovieButtonPressed(_ sender: Any) {
         
         guard let text = movieText.text
+        
         
         else { return }
         
@@ -33,7 +38,4 @@ class AddMovieViewController: UIViewController, MoviePresenter {
         
     }
     }
-    
-    
-    
 
