@@ -31,6 +31,6 @@ class MovieTableViewCell: UITableViewCell {
     }
     
     @IBAction func movieStatusButtonTapped(_ sender: Any) {
-        print("YourMOm")
+       
 }
 }

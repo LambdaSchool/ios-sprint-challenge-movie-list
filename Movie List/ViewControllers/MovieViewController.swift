@@ -26,6 +26,7 @@ class MovieViewController: UIViewController {
         
         movieControler.createMovie(withMovie: name)
             print(movies)
+            
         }
         
         //creates a new movie from movieTextInput
