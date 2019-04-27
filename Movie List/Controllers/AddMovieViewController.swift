@@ -13,6 +13,7 @@ class AddMovieViewController: UIViewController, MoviePresenter {
 
     @IBOutlet var movieText: UITextField!
     
+
     
     //var delegate: AddsStudentDelegate
     
@@ -20,19 +21,18 @@ class AddMovieViewController: UIViewController, MoviePresenter {
         super.viewDidLoad()
         
     
-        
-
        
     }
     
     @IBAction func addMovieButtonPressed(_ sender: Any) {
         
-        guard let text = movieText.text
-        
-        
-        else { return }
+       guard let text = movieText.text
+            
+            
+            else { return }
         
         movieController?.createMovie(with: text )
+        
         
         
         
