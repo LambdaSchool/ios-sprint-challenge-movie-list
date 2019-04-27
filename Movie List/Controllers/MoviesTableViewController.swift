@@ -11,6 +11,7 @@ import UIKit
 protocol MovieSelectionDelegate: AnyObject {
     func newMovieWasAdded(movie: Movie)
 
+}
 
 class MoviesTableViewController: UITableViewController, MoviePresenter {
 
@@ -26,11 +27,17 @@ class MoviesTableViewController: UITableViewController, MoviePresenter {
     @IBAction func unseenButtonPressed(_ sender: Any) {
         print("seen")
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        tableView.reloadData()
+    }
+    
     // MARK: - Table view data source
 
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
     
         return movieController?.movies.count ?? 0
     }
@@ -49,12 +56,13 @@ class MoviesTableViewController: UITableViewController, MoviePresenter {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        guard let place = placeController?
+        guard let movie = movieController?.movies[indexPath.row] else { return }
+        
+        delegate?.newMovieWasAdded(movie: movie)
     }
 
 
 }
-
 //extension TestTableViewController: AddStudentDelegate
 //  func newStudentWasAdded(with name: String) {
-}
+
