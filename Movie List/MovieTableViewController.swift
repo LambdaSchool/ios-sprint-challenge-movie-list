@@ -1,65 +1,54 @@
 //
 //  MovieTableViewController.swift
-//  Movie List
 //
 //  Created by Alex Perse on 4/26/19.
 //  Copyright © 2019 Lambda School. All rights reserved.
 //
 
+
 import UIKit
 
+protocol AddMovieDelegate {
+    func newMovieWasAdded(movieName: String)
+}
+
 class MovieTableViewController: UITableViewController {
+
+    // things that happen just after the view appears on the screen
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        tableView.delegate = self
-        tableView.dataSource = self
-    
+        tableView.reloadData()
     }
     
-    
-    @IBAction func addMovieButtonPressed(_ sender: Any) {
-        if movieNameTextField.text?.isEmpty ?? true {
-            print("No movie name has been entered.")
-        } else {
-            guard let movieName = movieNameTextField.text else { return }
-            movieController.createMovie(movieName: movieName)
-        }
-            // guard let function not working here "Value of type 'UITextField?' has no member 'isEmpty'"
+    // things that happen just before the view appears on the screen
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
+        // making sure the table view is using the SAME copy of the moviesController instance
         
+        moviesController = MoviesController.shared
+        tableView.reloadData()
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "MovieCell" {
-            guard let movieVC = segue.destination as? MovieController,
-                let cell = sender as? MovieTableViewController else { return }
-            
-            movieVC.movie = cell.movie
-            
-        }
-    }
+    // the table view expects a moviescontroller
+    var moviesController: MoviesController?
     
-    let movieController = MovieController()
-    
+    // this controls how many rows the tableView will have
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-
-//      numberOfRowsInSection
-//         return noteController.notes.count
-//        Should return the count of the array or dictionary that holds the information I want to display in the table view
-//        return MovieController.movies.count
-        return 5
+        return moviesController?.movies.count ?? 0
+//        return 1 sanity check
     }
     
+    //tells the tableView what information to show inside the cell 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-// cellForRowAt
-//        must return a UITableViewCell; declare a cell using tableview.dequeReusableCell and make sure the reuse identifier matches what you type in Interface Builder
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath)
         
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath)
+        // Configure the cell...
+        cell.textLabel?.text = moviesController?.movies[indexPath.row]
         
+//        cell.textLabel?.text = "Sanity check"
+        return cell
     }
-    @IBOutlet weak var movieNameTextField: UITextField!
+    
 }
-
-
