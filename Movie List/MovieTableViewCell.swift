@@ -13,9 +13,12 @@ let movieController = MovieController()
 
 
 class MovieTableViewCell: UITableViewCell {
+   
     @IBOutlet var movieNameLabel: UILabel!
     
     @IBOutlet var movieStatusButton: UIButton!
+     
+    
 
     var movie: Movie? {
         didSet {
@@ -30,7 +33,21 @@ class MovieTableViewCell: UITableViewCell {
  
     }
     
+    
     @IBAction func movieStatusButtonTapped(_ sender: Any) {
+        
+        
+        
+        movieStatusButton.titleLabel?.text = "Watched" ?? "Not Watched"
+   
+        
+    
+}
+}
+        
+
+
        
-}
-}
+
+
+

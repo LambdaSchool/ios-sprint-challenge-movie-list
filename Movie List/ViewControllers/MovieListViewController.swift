@@ -10,18 +10,58 @@ import UIKit
 
 class MovieListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-   
+    @IBOutlet var editButton: UIToolbar!
+    
    
     
     let movieController = MovieController()
     
     @IBOutlet var movieTableView: UITableView!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         movieTableView.reloadData()
-        
+//        self.movieTableView.isEditing = true
     }
+   
+//    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+//        return .none
+//    }
+//    
+//    func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
+//        return false
+//    }
+//    
+//   func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+//    let movedObject = movies[sourceIndexPath.row]
+//        movies.remove(at: sourceIndexPath.row)
+//        movies.insert(movedObject, at: destinationIndexPath.row)
+//    }
+    func tableView(_tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        let movedObject = movies[sourceIndexPath.row]
+            movies.remove(at: sourceIndexPath.row)
+            movies.insert(movedObject, at: destinationIndexPath.row)
+    }
+        func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+            return .none
+        }
+
+    
+        
+    @IBAction func editButtonClicked(_ sender: Any) {
+        movieTableView.isEditing = !movieTableView.isEditing
+    }
+        
+    
+    
+    //toggles editing ability
+
+    
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
