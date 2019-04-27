@@ -13,6 +13,17 @@ class AddMovieViewController: UIViewController {
     
     
     
+    @IBOutlet weak var movieEntered: UITextField!
+    
+    @IBAction func addMoviePressed(_ sender: Any) {
+        
+        if let movie = movieEntered.text {
+            
+        print(movie)
+        } else {
+            print("there is nothing here")
+        }
+    }
     
 
     override func viewDidLoad() {

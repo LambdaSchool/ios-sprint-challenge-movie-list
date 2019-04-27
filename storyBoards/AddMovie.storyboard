@@ -13,7 +13,7 @@
         <!--Add Movie-->
         <scene sceneID="Gr8-l6-giU">
             <objects>
-                <viewController title="Add Movie" id="4em-ig-y3G" sceneMemberID="viewController">
+                <viewController title="Add Movie" id="4em-ig-y3G" customClass="AddMovieViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LOd-jm-dQa">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -39,6 +39,9 @@
                                 <state key="normal" title="Add Movie">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="addMoviePressed:" destination="4em-ig-y3G" eventType="touchUpInside" id="x7n-Py-nFO"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -62,6 +65,9 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="add Movie" image="Plus" id="Eoo-pi-QN3"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="movieEntered" destination="NfF-17-fvd" id="JSz-mE-Rnc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n6t-nu-TLy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
