@@ -10,13 +10,28 @@ import UIKit
 
 class MovieViewController: UIViewController {
 
+    let movieControler = MovieController()
+    
+    
+    @IBOutlet var movieNameTextField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
-
+    @IBAction func addMovieButtonTapped(_ sender: Any) {
+        
+        if let name = movieNameTextField.text{
+        
+        movieControler.createMovie(withMovie: name)
+            print(movies)
+        }
+        
+        //creates a new movie from movieTextInput
+        
+    }
+    
     /*
     // MARK: - Navigation
 
@@ -26,5 +41,6 @@ class MovieViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+
 
 }
