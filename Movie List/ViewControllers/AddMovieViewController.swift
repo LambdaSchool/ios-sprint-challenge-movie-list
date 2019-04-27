@@ -11,6 +11,7 @@ import UIKit
 class AddMovieViewController: UIViewController, MovieControllerProtocol {
     
     var movieController: MovieController?
+    
     @IBOutlet var movieTitleTextField: UITextField!
     
     override func viewDidLoad() {

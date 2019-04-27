@@ -12,9 +12,6 @@ class MoviesTableViewController: UITableViewController, MovieControllerProtocol 
     
     var movieController: MovieController?
     
-    
-    
-    
     override func viewWillAppear(_ animated: Bool) {
         tableView.reloadData()
     }
@@ -33,5 +30,12 @@ class MoviesTableViewController: UITableViewController, MovieControllerProtocol 
         cell.textLabel?.text = movie?.title
 
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == UITableViewCell.EditingStyle.delete {
+            movieController?.movies.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
     }
 }

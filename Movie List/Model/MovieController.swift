@@ -12,6 +12,7 @@ class MovieController {
     var movies: [Movie] = []
     
     func createMovie(with title: String) {
+        
         let movie = Movie(title: title)
         
         movies.append(movie)
