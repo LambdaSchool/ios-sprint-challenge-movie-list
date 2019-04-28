@@ -10,18 +10,18 @@ import UIKit
 
 class MovieListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    @IBOutlet var editButton: UIToolbar!
-    
-   
+
+    @IBOutlet var editButton: UIBarButtonItem!
     
     let movieController = MovieController()
     
     @IBOutlet var movieTableView: UITableView!
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         movieTableView.reloadData()
+    
+        
 //        self.movieTableView.isEditing = true
     }
    
@@ -50,17 +50,21 @@ class MovieListViewController: UIViewController, UITableViewDataSource, UITableV
             return .none
         }
 
-    
-        
-    @IBAction func editButtonClicked(_ sender: Any) {
-        movieTableView.isEditing = !movieTableView.isEditing
-    }
-        
-    
-    
-    //toggles editing ability
 
-    
+
+    @IBAction func editButtonPressed(_ sender: Any) {
+        
+            movieTableView.isEditing = !movieTableView.isEditing
+        
+            switch movieTableView.isEditing {
+            case true:
+            editButton.title = "Done"
+            case false:
+            editButton.title = "Edit"
+        
+    }
+    }
+
     
     
     override func viewWillAppear(_ animated: Bool) {
@@ -86,4 +90,7 @@ class MovieListViewController: UIViewController, UITableViewDataSource, UITableV
         return cell
     }
  
+
 }
+
+

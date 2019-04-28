@@ -9,16 +9,14 @@
 import UIKit
 
 
+
 let movieController = MovieController()
 
 
 class MovieTableViewCell: UITableViewCell {
    
+    @IBOutlet weak var movieToggleButton: UIButton!
     @IBOutlet var movieNameLabel: UILabel!
-    
-    @IBOutlet var movieStatusButton: UIButton!
-     
-    
 
     var movie: Movie? {
         didSet {
@@ -33,21 +31,28 @@ class MovieTableViewCell: UITableViewCell {
  
     }
     
+    var watched = true
     
-    @IBAction func movieStatusButtonTapped(_ sender: Any) {
+    @IBAction func movieToggleButtonPressed(_ sender: Any) {
+        
+        watched = !watched
+        
+        switch watched == false {
+        case false:
+         movieToggleButton.titleLabel!.text  = "Watched"
+        case true:
+            movieToggleButton.titleLabel!.text = "Not Watched"
         
         
-        
-        movieStatusButton.titleLabel?.text = "Watched" ?? "Not Watched"
+    }
+    
+          
    
         
     
 }
-}
+
         
 
-
-       
-
-
+}
 
