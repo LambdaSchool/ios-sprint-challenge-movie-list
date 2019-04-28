@@ -20,7 +20,6 @@ class MovieListViewController: UIViewController, UITableViewDataSource, UITableV
     override func viewDidLoad() {
         super.viewDidLoad()
         //updates list after adding multiple movies
-        movieTableView.reloadData()
     }
      //allows for editing Cells
     func tableView(_tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
@@ -50,11 +49,6 @@ class MovieListViewController: UIViewController, UITableViewDataSource, UITableV
     }
     }
 
-    
-
-    
-    
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         movieTableView.reloadData()

@@ -38,12 +38,11 @@ class MovieTableViewCell: UITableViewCell {
     
        watched = !watched
 
-        switch watched == false {
+        switch watched == true {
         case false:
-        movieWatchedToggleButton.titleLabel?.text  = "Watched"
+        movieWatchedToggleButton.setTitle("Watched", for: [])
         case true:
-            movieWatchedToggleButton.titleLabel!.text = "Not Watched"
-
+        movieWatchedToggleButton.setTitle("Not Watched", for: [])
 
     }
         
