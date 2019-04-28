@@ -14,8 +14,8 @@ let movieController = MovieController()
 
 
 class MovieTableViewCell: UITableViewCell {
-   
-    @IBOutlet weak var movieToggleButton: UIButton!
+    
+    @IBOutlet weak var movieWatchedToggleButton: UIButton!
     @IBOutlet var movieNameLabel: UILabel!
 
     var movie: Movie? {
@@ -30,29 +30,30 @@ class MovieTableViewCell: UITableViewCell {
         movieNameLabel.text = movie.name
  
     }
-    
+    //almost toggles watched button
     var watched = true
+
+        
+    @IBAction func movieWatchedToggleButtonPressed(_ sender: Any) {
     
-    @IBAction func movieToggleButtonPressed(_ sender: Any) {
-        
-        watched = !watched
-        
+       watched = !watched
+
         switch watched == false {
         case false:
-         movieToggleButton.titleLabel!.text  = "Watched"
+        movieWatchedToggleButton.titleLabel?.text  = "Watched"
         case true:
-            movieToggleButton.titleLabel!.text = "Not Watched"
-        
-        
+            movieWatchedToggleButton.titleLabel!.text = "Not Watched"
+
+
     }
-    
+        
           
-   
+    }
         
     
 }
 
         
 
-}
+
 

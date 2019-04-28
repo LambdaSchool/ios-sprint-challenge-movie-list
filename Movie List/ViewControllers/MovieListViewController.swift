@@ -19,25 +19,10 @@ class MovieListViewController: UIViewController, UITableViewDataSource, UITableV
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        //updates list after adding multiple movies
         movieTableView.reloadData()
-    
-        
-//        self.movieTableView.isEditing = true
     }
-   
-//    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
-//        return .none
-//    }
-//    
-//    func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
-//        return false
-//    }
-//    
-//   func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-//    let movedObject = movies[sourceIndexPath.row]
-//        movies.remove(at: sourceIndexPath.row)
-//        movies.insert(movedObject, at: destinationIndexPath.row)
-//    }
+     //allows for editing Cells
     func tableView(_tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
         return true
     }
@@ -50,7 +35,7 @@ class MovieListViewController: UIViewController, UITableViewDataSource, UITableV
             return .none
         }
 
-
+        //toggles edit button on table view
 
     @IBAction func editButtonPressed(_ sender: Any) {
         
@@ -65,6 +50,9 @@ class MovieListViewController: UIViewController, UITableViewDataSource, UITableV
     }
     }
 
+    
+
+    
     
     
     override func viewWillAppear(_ animated: Bool) {
@@ -92,5 +80,7 @@ class MovieListViewController: UIViewController, UITableViewDataSource, UITableV
  
 
 }
+
+
 
 
