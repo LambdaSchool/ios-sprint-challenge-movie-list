@@ -8,7 +8,9 @@
 
 import UIKit
 
-class AddMovieViewController: UIViewController {
+class AddMovieViewController: UIViewController, MoviePresenter {
+    var movieController: MovieController?
+    
     
     
     @IBOutlet weak var enteredMovieTextField: UITextField!
@@ -18,7 +20,7 @@ class AddMovieViewController: UIViewController {
         
         guard let movie = enteredMovieTextField.text else   { return }
         
-       
+       MoviePresenter
         
     }
     
