@@ -8,12 +8,10 @@
 
 import UIKit
 
-class MovieListTableTableViewController: UITableViewController,MoviePresenter {
+class MovieListTableTableViewController: UITableViewController{
     
-    var movieController: MovieController?
+    let movieList = MovieController()
     
-    
-
     override func viewDidLoad() {
         super.viewDidLoad()
      
@@ -24,15 +22,15 @@ class MovieListTableTableViewController: UITableViewController,MoviePresenter {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return movieController?.movie.count ?? 0
+        return movieList.movie.count
     }
 
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath)
 
-        let movie = movieController?.movie[indexPath.row]
-        cell.textLabel?.text = movie?.movie
+        let movie = movieList.movie[indexPath.row]
+        cell.textLabel?.text = movie.movie
         return cell
     }
     
