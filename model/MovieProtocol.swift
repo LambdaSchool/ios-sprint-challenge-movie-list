@@ -8,5 +8,6 @@
 
 import Foundation
 protocol MoviePresenter: AnyObject {
+    
     var movieController: MovieController? {set get}
 }

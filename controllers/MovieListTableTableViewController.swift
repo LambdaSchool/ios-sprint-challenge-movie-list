@@ -9,6 +9,7 @@
 import UIKit
 
 class MovieListTableTableViewController: UITableViewController,MoviePresenter {
+    
     var movieController: MovieController?
     
     
@@ -17,29 +18,21 @@ class MovieListTableTableViewController: UITableViewController,MoviePresenter {
         super.viewDidLoad()
      
      self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return movieController?.movie.count ?? 0
     }
 
-    
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath)
 
-        // Configure the cell...
-
+        let movie = movieController?.movie[indexPath.row]
+        cell.textLabel?.text = movie?.movie
         return cell
     }
     
