@@ -20,7 +20,7 @@ class AddMovieViewController: UIViewController, MoviePresenter {
         
         guard let movie = enteredMovieTextField.text else   { return }
         
-       MoviePresenter
+       movieController?.assignMovie(with: movie)
         
     }
     
