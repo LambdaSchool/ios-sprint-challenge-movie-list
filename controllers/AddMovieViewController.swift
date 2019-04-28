@@ -11,8 +11,19 @@ import UIKit
 class AddMovieViewController: UIViewController {
     
     
+    @IBOutlet weak var enteredMovieTextField: UITextField!
+    
 
-    override func viewDidLoad() {
+    @IBAction func AddMovieButtonPressed(_ sender: Any) {
+        
+        guard let movie = enteredMovieTextField.text else   { return }
+        
+       
+        
+    }
+    
+    
+override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.

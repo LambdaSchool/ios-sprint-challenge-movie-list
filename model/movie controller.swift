@@ -13,8 +13,8 @@ class MovieController {
     var movie: [Movie] = []
     
     
-    func assignMovie( with name: String) {
-      let film = Movie(movie: name)
+    func assignMovie( with title: String) {
+      let film = Movie(movie: title)
         movie.append(film)
     
     }
