@@ -17,7 +17,8 @@ class AddMovieViewController: UIViewController {
     @IBOutlet weak var movieTextField: UITextField!
     
     @IBAction func addMovieButtonPressed(_ sender: Any) {
-        guard let movie = movieTextField.text else { return }
+        guard let movie = movieTextField.text,
+        movie != "" else { return }
         
         movieController?.createMovie(name: movie)
         navigationController?.popViewController(animated: true)
