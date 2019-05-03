@@ -9,7 +9,7 @@
 import Foundation
 
 struct Movie: Equatable {
-    let name: String
+    var name: String
     var isSeen: Bool
     
     init(name: String, isSeen: Bool = false) {

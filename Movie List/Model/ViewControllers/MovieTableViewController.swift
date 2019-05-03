@@ -13,12 +13,14 @@ class MovieTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableView.reloadData()
+        
+        tableView.delegate = self
     }
 
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
+        
         return movieController.movies.count
     }
     
@@ -26,7 +28,9 @@ class MovieTableViewController: UITableViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as? MovieTableViewCell else { return UITableViewCell() }
         
         let movie = movieController.movies[indexPath.row]
+        
         cell.movie = movie
+        cell.delegate = self
         
         return cell
     }
@@ -54,4 +58,17 @@ class MovieTableViewController: UITableViewController {
     }
     
     var movieController = MovieController()
+}
+
+
+extension MovieTableViewController: MovieTableViewCellDelegate {
+    func movieButtonWasPressed(on cell: MovieTableViewCell) {
+        
+        guard let indexPath = tableView.indexPath(for: cell) else { return }
+        let movie = movieController.movies[indexPath.row]
+        
+        movieController.toggleIsSeen(for: movie)
+        
+        tableView.reloadRows(at: [indexPath], with: .automatic)
+    }
 }

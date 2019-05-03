@@ -13,19 +13,20 @@ protocol MovieTableViewCellDelegate: class {
 }
 
 class MovieTableViewCell: UITableViewCell {
-
+    
     func updateViews() {
         guard let movie = movie else { return }
-        let movieButtonTitle = movie.isSeen ? "Not Seen" : "Seen"
+        let movieButtonTitle = movie.isSeen ? "Seen" : "Not Seen"
         isSeenButton.setTitle(movieButtonTitle, for: .normal)
         
         movieLabel.text = movie.name
     }
-
+    
     @IBOutlet weak var isSeenButton: UIButton!
     @IBOutlet weak var movieLabel: UILabel!
     
     @IBAction func isSeenButtonPressed(_ sender: Any) {
+        print("Button Tapped")
         delegate?.movieButtonWasPressed(on: self)
     }
     
