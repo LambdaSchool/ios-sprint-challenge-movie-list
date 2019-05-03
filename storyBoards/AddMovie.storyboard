@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4em-ig-y3G">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8md-MQ-seF">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,72 +10,56 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Add Movie-->
-        <scene sceneID="Gr8-l6-giU">
+        <!--Add Movie View Controller-->
+        <scene sceneID="wIo-uh-s3H">
             <objects>
-                <viewController title="Add Movie" id="4em-ig-y3G" customClass="AddMovieViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="LOd-jm-dQa">
+                <viewController id="8md-MQ-seF" customClass="AddMovieViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xE0-NK-XES">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="deadpool" translatesAutoresizingMaskIntoConstraints="NO" id="h64-EV-I7S">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="deadpool" translatesAutoresizingMaskIntoConstraints="NO" id="TWE-Op-QrE">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a new movie to the list" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UL1-yl-UnA">
-                                <rect key="frame" x="41.5" y="71" width="331" height="35"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="29"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField alpha="0.80000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="enter movie" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NfF-17-fvd">
-                                <rect key="frame" x="20" y="522" width="374" height="31"/>
+                            <textField opaque="NO" alpha="0.75" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter movie" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="V0u-qJ-b8j">
+                                <rect key="frame" x="10" y="647" width="394" height="30"/>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" enablesReturnKeyAutomatically="YES" textContentType="name"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vhU-sk-xkO">
-                                <rect key="frame" x="124" y="587" width="167" height="40"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RIH-oa-TZO">
+                                <rect key="frame" x="145" y="758" width="125" height="45"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                 <state key="normal" title="Add Movie">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="AddMovieButtonPressed:" destination="4em-ig-y3G" eventType="touchUpInside" id="gz0-g4-ch6"/>
+                                    <action selector="addMovieButtonPressed:" destination="8md-MQ-seF" eventType="touchUpInside" id="2jo-bF-YvO"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="vhU-sk-xkO" firstAttribute="leading" secondItem="mHw-ND-T5X" secondAttribute="leading" constant="124" id="4Zv-c5-YbW"/>
-                            <constraint firstItem="NfF-17-fvd" firstAttribute="leading" secondItem="mHw-ND-T5X" secondAttribute="leading" constant="20" id="5b8-ME-s6m"/>
-                            <constraint firstItem="h64-EV-I7S" firstAttribute="top" secondItem="LOd-jm-dQa" secondAttribute="top" id="5vw-b1-G5n"/>
-                            <constraint firstItem="UL1-yl-UnA" firstAttribute="leading" secondItem="mHw-ND-T5X" secondAttribute="leading" constant="41.5" id="9Wa-fd-HLT"/>
-                            <constraint firstAttribute="bottom" secondItem="h64-EV-I7S" secondAttribute="bottom" id="DZ4-2D-jmF"/>
-                            <constraint firstItem="h64-EV-I7S" firstAttribute="trailing" secondItem="mHw-ND-T5X" secondAttribute="trailing" id="N0N-uD-50V"/>
-                            <constraint firstItem="vhU-sk-xkO" firstAttribute="top" secondItem="NfF-17-fvd" secondAttribute="bottom" constant="34" id="Z8F-WX-HkO"/>
-                            <constraint firstItem="h64-EV-I7S" firstAttribute="leading" secondItem="mHw-ND-T5X" secondAttribute="leading" id="bbO-0K-Roa"/>
-                            <constraint firstItem="mHw-ND-T5X" firstAttribute="bottom" secondItem="UL1-yl-UnA" secondAttribute="bottom" constant="707" id="ep7-QG-0J8"/>
-                            <constraint firstItem="mHw-ND-T5X" firstAttribute="bottom" secondItem="vhU-sk-xkO" secondAttribute="bottom" constant="186" id="jno-EK-FDN"/>
-                            <constraint firstItem="mHw-ND-T5X" firstAttribute="trailing" secondItem="vhU-sk-xkO" secondAttribute="trailing" constant="123" id="p9O-9h-8WU"/>
-                            <constraint firstItem="UL1-yl-UnA" firstAttribute="centerX" secondItem="LOd-jm-dQa" secondAttribute="centerX" id="uiZ-Yj-tzR"/>
-                            <constraint firstItem="mHw-ND-T5X" firstAttribute="trailing" secondItem="NfF-17-fvd" secondAttribute="trailing" constant="20" id="utE-kN-VR8"/>
-                            <constraint firstItem="mHw-ND-T5X" firstAttribute="trailing" secondItem="UL1-yl-UnA" secondAttribute="trailing" constant="41.5" id="ybj-Xg-XiZ"/>
+                            <constraint firstItem="03z-6z-kt6" firstAttribute="trailing" secondItem="RIH-oa-TZO" secondAttribute="trailing" constant="144" id="0IE-BG-zXy"/>
+                            <constraint firstItem="V0u-qJ-b8j" firstAttribute="top" secondItem="03z-6z-kt6" secondAttribute="top" constant="603" id="6Pi-dQ-WQ0"/>
+                            <constraint firstItem="V0u-qJ-b8j" firstAttribute="leading" secondItem="03z-6z-kt6" secondAttribute="leading" constant="10" id="FA2-aj-1b6"/>
+                            <constraint firstItem="03z-6z-kt6" firstAttribute="trailing" secondItem="V0u-qJ-b8j" secondAttribute="trailing" constant="10" id="b6y-Kf-O2T"/>
+                            <constraint firstItem="RIH-oa-TZO" firstAttribute="leading" secondItem="03z-6z-kt6" secondAttribute="leading" constant="145" id="skx-kd-eeQ"/>
+                            <constraint firstItem="RIH-oa-TZO" firstAttribute="top" secondItem="V0u-qJ-b8j" secondAttribute="bottom" constant="81" id="tCO-CK-CzN"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="mHw-ND-T5X"/>
+                        <viewLayoutGuide key="safeArea" id="03z-6z-kt6"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="add Movie" image="Plus" id="Eoo-pi-QN3"/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="enteredMovieTextField" destination="NfF-17-fvd" id="PYw-gC-EVb"/>
+                        <outlet property="enterNameTextFIeld" destination="V0u-qJ-b8j" id="o3b-bH-C51"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="n6t-nu-TLy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="r4n-GG-XDL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="0.0" y="47.544642857142854"/>
+            <point key="canvasLocation" x="-434.78260869565219" y="-4.0178571428571423"/>
         </scene>
     </scenes>
     <resources>
-        <image name="Plus" width="28" height="28"/>
         <image name="deadpool" width="1080" height="1920"/>
     </resources>
 </document>
