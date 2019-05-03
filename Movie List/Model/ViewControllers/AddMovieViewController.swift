@@ -20,6 +20,7 @@ class AddMovieViewController: UIViewController {
         guard let movie = movieTextField.text else { return }
         
         movieController?.createMovie(name: movie)
+        navigationController?.popViewController(animated: true)
     }
     
     var movieController: MovieController?
