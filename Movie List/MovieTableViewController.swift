@@ -11,7 +11,7 @@ import Foundation
 import UIKit
 
 class MovieTableViewController: UITableViewController {
- 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.reloadData()
@@ -21,7 +21,15 @@ class MovieTableViewController: UITableViewController {
         tableView.reloadData()
     }
     
+    
+    
+    var newMovies: [String] = []
+    
+    
+    
+   
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
         return newMovies.count
     }
     
@@ -30,15 +38,16 @@ class MovieTableViewController: UITableViewController {
         cell.textLabel?.text = newMovies[indexPath.row]
         return cell
     }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "ClassicSegue" {
+        if segue.identifier == "addMovieSegue" {
             let detailVC = segue.destination as! MovieDetailViewController
             detailVC.tableViewController = self
         }
     }
     
     
-var newMovies: [String] = []
+    
     
     
 }
