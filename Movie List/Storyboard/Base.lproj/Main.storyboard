@@ -13,19 +13,49 @@
         <!--Movie List-->
         <scene sceneID="mwS-YR-3pf">
             <objects>
-                <tableViewController id="t1c-YL-764" sceneMemberID="viewController">
+                <tableViewController id="t1c-YL-764" customClass="MovieTableViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="EFd-cw-HQp">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="IlI-P1-YQz">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="IlI-P1-YQz" customClass="MovieTableViewCell" customModule="Movie_List" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="IlI-P1-YQz" id="PEK-lD-UFk">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="12v-OY-Cip">
+                                            <rect key="frame" x="8" y="6" width="398" height="30"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UWK-q2-Bjy">
+                                                    <rect key="frame" x="0.0" y="0.0" width="344" height="30"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bNH-6D-XT2">
+                                                    <rect key="frame" x="352" y="0.0" width="46" height="30"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <connections>
+                                                        <action selector="isSeenButtonPressed:" destination="IlI-P1-YQz" eventType="touchUpInside" id="vGN-ga-rh4"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="12v-OY-Cip" firstAttribute="leading" secondItem="PEK-lD-UFk" secondAttribute="leading" constant="8" id="HJY-Tx-AX8"/>
+                                        <constraint firstAttribute="bottom" secondItem="12v-OY-Cip" secondAttribute="bottom" constant="7.5" id="JOP-7E-Xkp"/>
+                                        <constraint firstItem="12v-OY-Cip" firstAttribute="top" secondItem="PEK-lD-UFk" secondAttribute="top" constant="6" id="bxI-Ee-cmU"/>
+                                        <constraint firstAttribute="trailing" secondItem="12v-OY-Cip" secondAttribute="trailing" constant="8" id="oax-Ge-4Kl"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="isSeenButton" destination="bNH-6D-XT2" id="2NO-DE-sW8"/>
+                                    <outlet property="movieLabel" destination="UWK-q2-Bjy" id="Yn4-1j-6zF"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -43,12 +73,12 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ujy-6Y-ydd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="930" y="40"/>
+            <point key="canvasLocation" x="928.98550724637687" y="39.508928571428569"/>
         </scene>
-        <!--View Controller-->
+        <!--Add Movie View Controller-->
         <scene sceneID="Axb-kq-DLC">
             <objects>
-                <viewController id="Vxy-Fg-kkI" sceneMemberID="viewController">
+                <viewController id="Vxy-Fg-kkI" customClass="AddMovieViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZNA-EG-WOr">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
