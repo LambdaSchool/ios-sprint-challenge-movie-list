@@ -8,21 +8,32 @@
 
 import UIKit
 
+protocol MovieTableViewCellDelegate: AnyObject {
+    func toggleSeenStatus(for cell: MovieTableViewCell)
+}
+
 class MovieTableViewCell: UITableViewCell {
     @IBOutlet weak var movieTitleLabel: UILabel!
-    @IBOutlet weak var SeenStatusButton: UIButton!
+    @IBOutlet weak var seenStatusButton: UIButton!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    
+    var movie: Movie? {
+        didSet {
+            updateViews()
+        }
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
+    
+    weak var delegate: MovieTableViewCellDelegate?
+    
 
     @IBAction func toggleSeenButtonTapped(_ sender: Any) {
+        delegate?.toggleSeenStatus(for: self)
+    }
+    
+    private func updateViews() {
+        guard let movie = movie else { return }
+        movieTitleLabel.text = movie.title
+        let buttonTitle = movie.watched ? "Seen" : "Not Seen"
+        seenStatusButton.setTitle(buttonTitle, for: .normal)
     }
 }
