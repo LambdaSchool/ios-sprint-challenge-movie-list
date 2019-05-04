@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MovieListTableViewController: UIViewController, UITableViewDataSource {
+class MovieListTableViewController: UIViewController, UITableViewDataSource, MovieListTableViewCellDelegate {
     
 
     @IBOutlet weak var tableView: UITableView!
@@ -36,6 +36,7 @@ class MovieListTableViewController: UIViewController, UITableViewDataSource {
         guard let movieListTableCell = cell as? MovieListTableViewCell else {return cell}
         let index = movieController.names[indexPath.row]
         movieListTableCell.names = index
+        movieListTableCell.delegate = self
         return cell
     }
     
@@ -49,8 +50,15 @@ class MovieListTableViewController: UIViewController, UITableViewDataSource {
         }
     }
     
-    @IBAction func addButtonTapped(_ sender: Any) {
-    }
     
-
+    func seenButtonAction(for cell: MovieListTableViewCell) {
+        guard let index = tableView.indexPath(for: cell) else {return}
+        let selectedRow = movieController.names[index.row]
+        if selectedRow.seen == false {
+            cell.seenButton.setTitle("Unseen", for: .normal)
+        } else {
+            cell.seenButton.setTitle("Seen", for: .normal)
+        }
+        movieController.toggleSeen(for: selectedRow)
+    }
 }
