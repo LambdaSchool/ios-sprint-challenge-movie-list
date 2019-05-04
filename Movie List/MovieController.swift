@@ -14,9 +14,16 @@ class movieController {
     var movieList: [Movie] = []
     
     func AddMovie(title: String){
+        
         let newMovie = Movie(title: title, isSeen: false)
         
         movieList.append(newMovie)
+    }
+    
+    func tapIsSeen(movie: Movie){
+        
+        movie.isSeen = !movie.isSeen
+        
     }
     
     /*func DeleteMovie(movie: Movie){
