@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MovieListViewController: UIViewController, MovieDataControllerDelegate {
+class MovieListViewController: UIViewController {
     
     
 
@@ -46,8 +46,6 @@ extension MovieListViewController: UITableViewDataSource {
     }
     
     
-    func updateMovieList(for cell: MovieTableViewCell) {
-        
-    }
+
     
 }

@@ -30,8 +30,7 @@ class AddMovieViewController: UIViewController {
         guard let movie = addMovieTextField.text else { return }
         print(movie)
         movieDataController.addMovieToList(movieToAdd: movie, seenMovie: false)
-        addMovieTextField.text = nil
-        movieDelegate.updateMovieList(for: MovieTableViewCell())
+        movieDelegate.updateMovieList(movieName: movie, seenMovie: false)
     }
     
     

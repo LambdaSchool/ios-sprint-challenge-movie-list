@@ -9,7 +9,7 @@
 import Foundation
 
 protocol MovieDataControllerDelegate {
-    func updateMovieList(for cell: MovieTableViewCell)
+    func updateMovieList(movieName: String, seenMovie: Bool)
 }
 
 class MovieDataController {

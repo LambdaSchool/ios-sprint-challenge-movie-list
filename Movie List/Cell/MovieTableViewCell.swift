@@ -31,11 +31,21 @@ class MovieTableViewCell: UITableViewCell {
     }
     
     private func updateViews() {
-        guard let movie = self.movie else { return }
-        self.movieLbl.text = movie.movieName
-        print(movieLbl.text)
-        guard let seen = self.seen else { return }
-        self.seenBtn.setTitle("Unseen", for: .normal)
+     
     }
+    
+}
+
+extension MovieTableViewCell: MovieDataControllerDelegate {
+    func updateMovieList(movieName: String, seenMovie: Bool) {
+        movieLbl.text = movieName
+        if seenMovie {
+            seenBtn.setTitle("Seen", for: .normal)
+        } else {
+            seenBtn.setTitle("Unseen", for: .normal)
+        }
+    }
+    
+    
     
 }
