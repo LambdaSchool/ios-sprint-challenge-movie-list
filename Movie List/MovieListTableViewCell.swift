@@ -19,13 +19,10 @@ class MovieListTableViewCell: UITableViewCell {
         }
     }
     
-    
-    
-    
-    
-    
+    var delegate : MovieListTableViewCellDelegate?
     
     @IBAction func seenButtonTapped(_ sender: Any) {
+        self.delegate?.seenButtonAction(for: self)
     }
 
     
