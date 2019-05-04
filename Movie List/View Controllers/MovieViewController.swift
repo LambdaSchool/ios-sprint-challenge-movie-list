@@ -12,12 +12,28 @@ class MovieViewController: UIViewController {
 
     @IBOutlet weak var movieTitleTextField: UITextField!
     @IBOutlet weak var addMovieButton: UIButton!
+    @IBOutlet weak var addEditLabel: UILabel!
     
     var movieController: MovieController?
+    var movie: Movie? {
+        didSet {
+            updateViews()
+        }
+    }
+    var movieIndex: Int?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        updateViews()
+    }
+    
+    private func updateViews() {
+        guard let movie = movie, isViewLoaded else { return }
+        addMovieButton.setTitle("Edit Movie", for: .normal)
+        addEditLabel.text = "Edit Movie Title"
+        movieTitleTextField.text = movie.title
+        
     }
     
 
@@ -25,7 +41,13 @@ class MovieViewController: UIViewController {
         guard let movieTitle = movieTitleTextField.text, !movieTitle.isEmpty,
         let movieController = movieController else { return }
         
-        movieController.createMovie(withTitle: movieTitle)
+        if let _ = movie,
+            let movieIndex = movieIndex {
+            movieController.editMovie(at: movieIndex, withNewTitle: movieTitle)
+        } else {
+            movieController.createMovie(withTitle: movieTitle)
+            
+        }
         
         navigationController?.popViewController(animated: true)
     }

@@ -22,24 +22,24 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MovieCell" id="7FJ-rK-CiC" customClass="MovieTableViewCell" customModule="Movie_List" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MovieCell" id="7FJ-rK-CiC" customClass="MovieTableViewCell" customModule="Movie_List" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7FJ-rK-CiC" id="AP0-96-VHJ">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vwY-6u-ovg">
-                                                    <rect key="frame" x="8" y="8" width="359" height="27.5"/>
+                                                    <rect key="frame" x="8" y="8" width="326" height="27.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ygn-ca-lrz">
-                                                            <rect key="frame" x="0.0" y="0.0" width="295" height="27.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="262" height="27.5"/>
                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A3k-iS-B8F">
-                                                            <rect key="frame" x="295" y="0.0" width="64" height="27.5"/>
+                                                            <rect key="frame" x="262" y="0.0" width="64" height="27.5"/>
                                                             <state key="normal" title="Not Seen"/>
                                                             <connections>
                                                                 <action selector="toggleSeenButtonTapped:" destination="7FJ-rK-CiC" eventType="touchUpInside" id="KUR-MH-J6C"/>
@@ -58,6 +58,7 @@
                                         <connections>
                                             <outlet property="movieTitleLabel" destination="ygn-ca-lrz" id="5Zm-8V-PGn"/>
                                             <outlet property="seenStatusButton" destination="A3k-iS-B8F" id="PXZ-kF-CJJ"/>
+                                            <segue destination="DTH-tW-xtE" kind="show" identifier="editMovie" id="5HT-Ye-Mxv"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -129,6 +130,7 @@
                         <viewLayoutGuide key="safeArea" id="nH3-U2-2IO"/>
                     </view>
                     <connections>
+                        <outlet property="addEditLabel" destination="Lqz-tB-UKO" id="oBB-K9-55a"/>
                         <outlet property="addMovieButton" destination="Ynj-i9-R53" id="bff-85-HWq"/>
                         <outlet property="movieTitleTextField" destination="uLn-MJ-eQU" id="HVk-yM-0ex"/>
                     </connections>
@@ -156,4 +158,7 @@
             <point key="canvasLocation" x="109.59999999999999" y="152.47376311844079"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="5HT-Ye-Mxv"/>
+    </inferredMetricsTieBreakers>
 </document>

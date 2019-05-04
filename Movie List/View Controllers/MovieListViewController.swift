@@ -63,5 +63,18 @@ class MovieListViewController: UIViewController, UITableViewDataSource, UITableV
             
             addMovieVC.movieController = movieController
         }
+        
+        if segue.identifier == "editMovie" {
+            guard let editMovieVC = segue.destination as? MovieViewController else { return }
+            
+            guard let indexPath = tableview.indexPathForSelectedRow else { return }
+            let movie = movieController.movies[indexPath.row]
+    
+            
+            editMovieVC.movieController = movieController
+            editMovieVC.movie = movie
+            editMovieVC.movieIndex = indexPath.row
+            
+        }
     }
 }
