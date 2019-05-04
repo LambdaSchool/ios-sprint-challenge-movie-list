@@ -43,9 +43,10 @@ class MovieListTableViewController: UIViewController, UITableViewDataSource, Mov
     
     //delete method
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        movieController.names.remove(at: indexPath.row)
+        movieController.delete(indexPath: indexPath)
+        //movieController.names.remove(at: indexPath.row)
         let selectedRow = [indexPath]
-        tableView.deleteRows(at: selectedRow, with: .automatic)
+        tableView.deleteRows(at: selectedRow, with: .fade)
     }
 
     
