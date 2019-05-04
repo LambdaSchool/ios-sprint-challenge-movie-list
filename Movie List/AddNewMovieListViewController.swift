@@ -17,10 +17,9 @@ class AddNewMovieListViewController: UIViewController {
     var movieController : MovieController?
     
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     
 
@@ -36,6 +35,8 @@ class AddNewMovieListViewController: UIViewController {
     @IBAction func addMovieButtonTapped(_ sender: Any) {
         guard let input = movieNameTextField.text else {return}
         movieController?.addMovieName(name: input)
+        movieNameTextField.text = ""
+        navigationController?.popViewController(animated: true)
     }
     
 }

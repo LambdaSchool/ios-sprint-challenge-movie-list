@@ -15,6 +15,10 @@ class MovieListTableViewController: UIViewController, UITableViewDataSource {
     
     var movieController = MovieController()
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.tableView.reloadData()
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()

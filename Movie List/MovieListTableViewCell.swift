@@ -13,7 +13,11 @@ class MovieListTableViewCell: UITableViewCell {
     
     @IBOutlet weak var seenButton: UIButton!
     
-    var names: Movie?
+    var names: Movie? {
+        didSet {
+            updateView()
+        }
+    }
     
     
     
@@ -25,7 +29,9 @@ class MovieListTableViewCell: UITableViewCell {
     }
 
     
-    
-    
+    func updateView() {
+        guard let movieNames = names?.name else {return}
+        movieNameLabel.text = movieNames
+    }
     
 }
