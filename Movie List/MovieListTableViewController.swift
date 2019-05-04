@@ -39,7 +39,10 @@ class MovieListTableViewController: UIViewController, UITableViewDataSource {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
- 
+        if segue.identifier == "ToAddNewMovieVC" {
+            guard let addNewMovieListVC = segue.destination as? AddNewMovieListViewController else {return}
+            addNewMovieListVC.movieController = movieController
+        }
         
     }
     

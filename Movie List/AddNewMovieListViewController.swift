@@ -12,6 +12,11 @@ class AddNewMovieListViewController: UIViewController {
     @IBOutlet weak var addNewMovieLabel: UILabel!
     
     @IBOutlet weak var movieNameTextField: UITextField!
+    
+    
+    var movieController : MovieController?
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
