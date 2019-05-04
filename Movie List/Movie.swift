@@ -8,7 +8,8 @@
 
 import Foundation
 
-class Movie {
+class Movie/*: Equatable*/ {
+    
     var title: String
     var isSeen: Bool = false
     
