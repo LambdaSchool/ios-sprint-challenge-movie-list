@@ -29,22 +29,32 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="56.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iMc-zI-QEV">
-                                                    <rect key="frame" x="293" y="13" width="67" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iMc-zI-QEV">
+                                                    <rect key="frame" x="290" y="13" width="70" height="31"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="70" id="3mN-Gj-mKG"/>
+                                                    </constraints>
                                                     <state key="normal" title="Seen"/>
                                                     <connections>
                                                         <action selector="seenButtonTapped:" destination="hgx-BW-a51" eventType="touchUpInside" id="Hgd-eA-T0w"/>
                                                     </connections>
                                                 </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IoM-33-9dN">
-                                                    <rect key="frame" x="22" y="13" width="247" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IoM-33-9dN">
+                                                    <rect key="frame" x="15" y="13" width="247" height="31"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="iMc-zI-QEV" firstAttribute="top" secondItem="wN2-tL-8o0" secondAttribute="topMargin" constant="2" id="9Lx-82-33n"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="IoM-33-9dN" secondAttribute="bottom" constant="2" id="MR8-Ka-IGf"/>
+                                                <constraint firstItem="IoM-33-9dN" firstAttribute="top" secondItem="wN2-tL-8o0" secondAttribute="topMargin" constant="2" id="TAh-gn-COV"/>
+                                                <constraint firstItem="iMc-zI-QEV" firstAttribute="leading" secondItem="IoM-33-9dN" secondAttribute="trailing" constant="28" id="WtD-Wt-eNQ"/>
+                                                <constraint firstItem="iMc-zI-QEV" firstAttribute="trailing" secondItem="wN2-tL-8o0" secondAttribute="trailingMargin" id="wW4-Yw-gPJ"/>
+                                                <constraint firstItem="IoM-33-9dN" firstAttribute="leading" secondItem="wN2-tL-8o0" secondAttribute="leadingMargin" id="wmp-SU-iuz"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="iMc-zI-QEV" secondAttribute="bottom" constant="2" id="xlJ-tq-DUS"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="movieNameLabel" destination="IoM-33-9dN" id="QTE-h0-Ftg"/>
@@ -87,22 +97,22 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="BZT-6B-QGs">
-                                <rect key="frame" x="5" y="133" width="365" height="137"/>
+                                <rect key="frame" x="5" y="133" width="365" height="133.66666666666663"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a new movie to the list" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="133-hv-H2i">
-                                        <rect key="frame" x="0.0" y="0.0" width="365" height="37"/>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="31"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="365" height="33.666666666666664"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter the movie's title:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TJj-2F-cfB">
-                                        <rect key="frame" x="0.0" y="57" width="365" height="30"/>
+                                        <rect key="frame" x="0.0" y="53.666666666666657" width="365" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uGe-HT-Nns">
-                                        <rect key="frame" x="0.0" y="107" width="365" height="30"/>
+                                        <rect key="frame" x="0.0" y="103.66666666666666" width="365" height="30"/>
                                         <state key="normal" title="Add Movie"/>
                                         <connections>
                                             <action selector="addMovieButtonTapped:" destination="eoa-Gx-lKx" eventType="touchUpInside" id="BIP-wh-cgW"/>
