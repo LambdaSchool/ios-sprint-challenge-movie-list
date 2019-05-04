@@ -8,15 +8,25 @@
 
 import UIKit
 
-class MovieListTableViewController: UIViewController {
+class MovieListTableViewController: UIViewController, UITableViewDataSource {
+    
 
+    @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.tableView.dataSource = self
         // Do any additional setup after loading the view.
     }
     
 
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        <#code#>
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        <#code#>
+    }
     
     // MARK: - Navigation
 
@@ -26,9 +36,8 @@ class MovieListTableViewController: UIViewController {
         
     }
     
-
-    
     @IBAction func addButtonTapped(_ sender: Any) {
     }
     
+
 }
