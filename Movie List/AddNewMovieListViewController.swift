@@ -34,6 +34,8 @@ class AddNewMovieListViewController: UIViewController {
     }
     */
     @IBAction func addMovieButtonTapped(_ sender: Any) {
+        guard let input = movieNameTextField.text else {return}
+        movieController?.addMovieName(name: input)
     }
     
 }

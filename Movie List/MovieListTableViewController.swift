@@ -43,7 +43,6 @@ class MovieListTableViewController: UIViewController, UITableViewDataSource {
             guard let addNewMovieListVC = segue.destination as? AddNewMovieListViewController else {return}
             addNewMovieListVC.movieController = movieController
         }
-        
     }
     
     @IBAction func addButtonTapped(_ sender: Any) {
