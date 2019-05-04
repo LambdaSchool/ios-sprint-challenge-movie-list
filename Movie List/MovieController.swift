@@ -19,4 +19,6 @@ class MovieController {
     func toggleSeen(for movie: Movie) {
         movie.seen = !movie.seen
     }
+    
+    
 }
