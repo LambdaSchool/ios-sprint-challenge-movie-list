@@ -9,7 +9,7 @@
 import Foundation
 
 
-class movieController {
+class MovieController {
     //movieList holds all movie data
     var movieList: [Movie] = []
     
