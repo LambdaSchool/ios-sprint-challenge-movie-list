@@ -13,6 +13,8 @@ class MovieListTableViewCell: UITableViewCell {
     
     @IBOutlet weak var seenButton: UIButton!
     
+    var names: Movie?
+    
     
     
     
@@ -22,4 +24,8 @@ class MovieListTableViewCell: UITableViewCell {
     @IBAction func seenButtonTapped(_ sender: Any) {
     }
 
+    
+    
+    
+    
 }

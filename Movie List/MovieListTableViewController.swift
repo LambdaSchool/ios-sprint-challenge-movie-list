@@ -13,6 +13,9 @@ class MovieListTableViewController: UIViewController, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
     
+    var movieController = MovieController()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.dataSource = self
@@ -21,11 +24,15 @@ class MovieListTableViewController: UIViewController, UITableViewDataSource {
     
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        <#code#>
+        return movieController.names.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        guard let movieListTableCell = cell as? MovieListTableViewCell else {return cell}
+        let index = movieController.names[indexPath.row]
+        movieListTableCell.names = index
+        return cell
     }
     
     // MARK: - Navigation
