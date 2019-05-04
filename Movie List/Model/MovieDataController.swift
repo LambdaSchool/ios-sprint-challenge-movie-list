@@ -8,10 +8,6 @@
 
 import Foundation
 
-protocol MovieDataControllerDelegate {
-    func updateMovieList(movieName: String, seenMovie: Bool)
-}
-
 class MovieDataController {
   var moviesList: [Movie] = []
     
@@ -19,5 +15,20 @@ class MovieDataController {
         let newMovie = Movie(movieName: movieToAdd, seenMovie: seenMovie)
         moviesList.append(newMovie)
     }
+    
+    func updateMovie(movie: Movie, name: String) {
+        guard let index = moviesList.firstIndex(of: movie) else { return }
+        moviesList[index].movieName = name
+    }
+    
+    func removeMovie(movie: Movie) {
+        guard let index = moviesList.firstIndex(of: movie) else { return }
+        moviesList.remove(at: index)
+    }
+    
+    func toggleSeenMovie(indexPath: IndexPath) {
+        self.moviesList[indexPath.row].seenMovie.toggle()
+    }
+    
 }
 

@@ -16,36 +16,27 @@ class MovieTableViewCell: UITableViewCell {
         }
     }
     
-    var seen: Movie? {
-        didSet {
-            self.updateViews()
-        }
-    }
+    var movieDataDelegate: MovieDataControllerDelegate?
     
     @IBOutlet weak var movieLbl: UILabel!
     @IBOutlet weak var seenBtn: UIButton!
     
-    
-    @IBAction func seenBtnPressed(_ sender: UIButton) {
-        
+    @IBAction func seenBtnPressed(_ sender: Any) {
+      movieDataDelegate?.tappedSeenMovieButton(on: self)
     }
     
+    
+    
     private func updateViews() {
+        guard let movie     = self.movie else { return }
+        self.movieLbl.text  = movie.movieName
+        if movie.seenMovie  == true {
+            self.seenBtn.setTitle("Seen", for: .normal)
+        } else {
+            self.seenBtn.setTitle("Unseen", for: .normal)
+        }
      
     }
     
 }
 
-extension MovieTableViewCell: MovieDataControllerDelegate {
-    func updateMovieList(movieName: String, seenMovie: Bool) {
-        movieLbl.text = movieName
-        if seenMovie {
-            seenBtn.setTitle("Seen", for: .normal)
-        } else {
-            seenBtn.setTitle("Unseen", for: .normal)
-        }
-    }
-    
-    
-    
-}

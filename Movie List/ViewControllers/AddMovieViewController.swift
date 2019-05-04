@@ -10,7 +10,7 @@ import UIKit
 
 class AddMovieViewController: UIViewController {
 
-    let movieDataController = MovieDataController()
+    var movieDataController: MovieDataController?
     
     var movieDelegate: MovieDataControllerDelegate!
     
@@ -27,10 +27,11 @@ class AddMovieViewController: UIViewController {
     }
     
     @IBAction func addMovieBtnPressed(_ sender: UIButton) {
-        guard let movie = addMovieTextField.text else { return }
-        print(movie)
-        movieDataController.addMovieToList(movieToAdd: movie, seenMovie: false)
-        movieDelegate.updateMovieList(movieName: movie, seenMovie: false)
+        guard let movieName = addMovieTextField.text else { return }
+        if movieName != "" {
+            self.movieDataController?.addMovieToList(movieToAdd: movieName, seenMovie: false)
+            navigationController?.popViewController(animated: true)
+        }
     }
     
     
