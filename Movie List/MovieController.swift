@@ -20,5 +20,12 @@ class MovieController {
         movie.seen = !movie.seen
     }
     
-    
+    /* still working on it
+    func delete (for movie: Movie, indexPath: IndexPath) {
+        let selectedRow = names[indexPath.row]
+        let index = names.index(of: selectedRow)
+        names.remove(at: index)
+    }
+ 
+ */
 }

@@ -10,6 +10,7 @@ import UIKit
 
 class MovieListTableViewController: UIViewController, UITableViewDataSource, MovieListTableViewCellDelegate {
     
+    
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -39,6 +40,16 @@ class MovieListTableViewController: UIViewController, UITableViewDataSource, Mov
         movieListTableCell.delegate = self
         return cell
     }
+    
+    //delete method
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        movieController.names.remove(at: indexPath.row)
+        let selectedRow = [indexPath]
+        tableView.deleteRows(at: selectedRow, with: .automatic)
+    }
+
+    
+    
     
     // MARK: - Navigation
 
