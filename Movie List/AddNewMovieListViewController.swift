@@ -34,9 +34,12 @@ class AddNewMovieListViewController: UIViewController {
     */
     @IBAction func addMovieButtonTapped(_ sender: Any) {
         guard let input = movieNameTextField.text else {return}
-        movieController?.addMovieName(name: input)
+        if input != "" {
+                movieController?.addMovieName(name: input)
         movieNameTextField.text = ""
         navigationController?.popViewController(animated: true)
+        } else {
+        movieNameTextField.text = "Please add input"
     }
-    
+  }
 }
