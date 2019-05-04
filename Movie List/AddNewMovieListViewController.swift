@@ -9,7 +9,9 @@
 import UIKit
 
 class AddNewMovieListViewController: UIViewController {
-
+    @IBOutlet weak var addNewMovieLabel: UILabel!
+    
+    @IBOutlet weak var movieNameTextField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -26,5 +28,7 @@ class AddNewMovieListViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    @IBAction func addMovieButtonTapped(_ sender: Any) {
+    }
+    
 }
