@@ -54,11 +54,15 @@ class MovieListTableViewController: UIViewController, UITableViewDataSource, Mov
     func seenButtonAction(for cell: MovieListTableViewCell) {
         guard let index = tableView.indexPath(for: cell) else {return}
         let selectedRow = movieController.names[index.row]
+       /*
+         this also works without reloadRows but default level title value for label should set as Not Seen
         if selectedRow.seen == false {
-            cell.seenButton.setTitle("Unseen", for: .normal)
+            cell.seenButton.setTitle("Not Seen", for: .normal)
         } else {
             cell.seenButton.setTitle("Seen", for: .normal)
         }
+         */
         movieController.toggleSeen(for: selectedRow)
+        tableView.reloadRows(at: [index], with: .none)
     }
 }

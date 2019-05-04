@@ -29,6 +29,13 @@ class MovieListTableViewCell: UITableViewCell {
     func updateView() {
         guard let movieNames = names?.name else {return}
         movieNameLabel.text = movieNames
+        
+         if names?.seen == false {
+         self.seenButton.setTitle("Not seen", for: .normal)
+         } else {
+         self.seenButton.setTitle("Seen", for: .normal)
+         }
+
     }
     
 }

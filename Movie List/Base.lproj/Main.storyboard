@@ -30,7 +30,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iMc-zI-QEV">
-                                                    <rect key="frame" x="260" y="16" width="100" height="30"/>
+                                                    <rect key="frame" x="293" y="13" width="67" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" title="Seen"/>
                                                     <connections>
@@ -38,9 +38,9 @@
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IoM-33-9dN">
-                                                    <rect key="frame" x="22" y="13" width="251" height="30"/>
+                                                    <rect key="frame" x="22" y="13" width="247" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -86,37 +86,36 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a new movie to the list" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="133-hv-H2i">
-                                <rect key="frame" x="5" y="108" width="365" height="20.333333333333343"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TJj-2F-cfB">
-                                <rect key="frame" x="5" y="148.33333333333334" width="365" height="30"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uGe-HT-Nns">
-                                <rect key="frame" x="5" y="198.33333333333334" width="365" height="30"/>
-                                <state key="normal" title="Add Movie"/>
-                                <connections>
-                                    <action selector="addMovieButtonTapped:" destination="eoa-Gx-lKx" eventType="touchUpInside" id="BIP-wh-cgW"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="BZT-6B-QGs">
+                                <rect key="frame" x="5" y="133" width="365" height="137"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a new movie to the list" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="133-hv-H2i">
+                                        <rect key="frame" x="0.0" y="0.0" width="365" height="37"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="31"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TJj-2F-cfB">
+                                        <rect key="frame" x="0.0" y="57" width="365" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uGe-HT-Nns">
+                                        <rect key="frame" x="0.0" y="107" width="365" height="30"/>
+                                        <state key="normal" title="Add Movie"/>
+                                        <connections>
+                                            <action selector="addMovieButtonTapped:" destination="eoa-Gx-lKx" eventType="touchUpInside" id="BIP-wh-cgW"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="TJj-2F-cfB" firstAttribute="leading" secondItem="ck4-HB-jX9" secondAttribute="leading" constant="5" id="2Eq-hD-4Q8"/>
-                            <constraint firstItem="133-hv-H2i" firstAttribute="leading" secondItem="ck4-HB-jX9" secondAttribute="leading" constant="5" id="Csz-cJ-WWc"/>
-                            <constraint firstItem="133-hv-H2i" firstAttribute="top" secondItem="ck4-HB-jX9" secondAttribute="top" constant="20" id="Doj-iH-0Cd"/>
-                            <constraint firstItem="ck4-HB-jX9" firstAttribute="trailing" secondItem="uGe-HT-Nns" secondAttribute="trailing" constant="5" id="PPK-sk-chh"/>
-                            <constraint firstItem="ck4-HB-jX9" firstAttribute="trailing" secondItem="133-hv-H2i" secondAttribute="trailing" constant="5" id="fUA-9a-lMg"/>
-                            <constraint firstItem="TJj-2F-cfB" firstAttribute="top" secondItem="133-hv-H2i" secondAttribute="bottom" constant="20" id="iAB-c3-5hh"/>
-                            <constraint firstItem="uGe-HT-Nns" firstAttribute="top" secondItem="TJj-2F-cfB" secondAttribute="bottom" constant="20" id="kcN-gl-yzg"/>
-                            <constraint firstItem="ck4-HB-jX9" firstAttribute="trailing" secondItem="TJj-2F-cfB" secondAttribute="trailing" constant="5" id="mDj-8g-L6H"/>
-                            <constraint firstItem="uGe-HT-Nns" firstAttribute="leading" secondItem="ck4-HB-jX9" secondAttribute="leading" constant="5" id="xbi-hd-x8a"/>
+                            <constraint firstItem="BZT-6B-QGs" firstAttribute="top" secondItem="ck4-HB-jX9" secondAttribute="top" constant="45" id="0ei-b7-ddG"/>
+                            <constraint firstItem="BZT-6B-QGs" firstAttribute="leading" secondItem="ck4-HB-jX9" secondAttribute="leading" constant="5" id="sCq-xD-MXe"/>
+                            <constraint firstItem="ck4-HB-jX9" firstAttribute="trailing" secondItem="BZT-6B-QGs" secondAttribute="trailing" constant="5" id="zba-wS-gYH"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ck4-HB-jX9"/>
                     </view>
