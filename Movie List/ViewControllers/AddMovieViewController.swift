@@ -10,6 +10,10 @@ import UIKit
 
 class AddMovieViewController: UIViewController {
 
+    let movieDataController = MovieDataController()
+    
+    var movieDelegate: MovieDataControllerDelegate!
+    
     @IBOutlet weak var addMovieTextField: UITextField!
     @IBOutlet weak var addMovieBtn: UIButton!
     
@@ -23,6 +27,11 @@ class AddMovieViewController: UIViewController {
     }
     
     @IBAction func addMovieBtnPressed(_ sender: UIButton) {
+        guard let movie = addMovieTextField.text else { return }
+        print(movie)
+        movieDataController.addMovieToList(movieToAdd: movie, seenMovie: false)
+        addMovieTextField.text = nil
+        movieDelegate.updateMovieList(for: MovieTableViewCell())
     }
     
     

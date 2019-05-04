@@ -8,10 +8,13 @@
 
 import UIKit
 
-class MovieListViewController: UIViewController {
+class MovieListViewController: UIViewController, MovieDataControllerDelegate {
+    
+    
 
     @IBOutlet weak var movieTableView: UITableView!
     
+    let movieDataController = MovieDataController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,12 +34,20 @@ extension MovieListViewController: UITableViewDelegate {
 extension MovieListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        <#code#>
+        return movieDataController.moviesList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
+       guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as? MovieTableViewCell else { return UITableViewCell() }
+        let movie = movieDataController.moviesList[indexPath.row]
+        cell.movie = movie
+        
+        return cell
     }
     
+    
+    func updateMovieList(for cell: MovieTableViewCell) {
+        
+    }
     
 }
