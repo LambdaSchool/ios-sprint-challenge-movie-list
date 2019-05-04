@@ -37,6 +37,13 @@ class MovieListViewController: UIViewController, UITableViewDataSource, UITableV
         return movieCell
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            movieController.deleteMovie(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
+    
     func toggleSeenStatus(for cell: MovieTableViewCell) {
         guard let indexPath = tableview.indexPath(for: cell) else { return }
         let movie = movieController.movies[indexPath.row]
