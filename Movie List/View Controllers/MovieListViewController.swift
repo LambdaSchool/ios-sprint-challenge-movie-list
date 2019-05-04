@@ -41,6 +41,7 @@ class MovieListViewController: UIViewController, UITableViewDataSource, UITableV
         if editingStyle == .delete {
             movieController.deleteMovie(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
+            movieController.saveToPersistentStore()
         }
     }
     
@@ -48,6 +49,7 @@ class MovieListViewController: UIViewController, UITableViewDataSource, UITableV
         guard let indexPath = tableview.indexPath(for: cell) else { return }
         let movie = movieController.movies[indexPath.row]
         movie.watched.toggle()
+        movieController.saveToPersistentStore()
         
         tableview.reloadRows(at: [indexPath], with: .automatic)
     }

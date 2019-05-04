@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Movie {
+class Movie: Codable {
     var title: String
     var watched: Bool
     

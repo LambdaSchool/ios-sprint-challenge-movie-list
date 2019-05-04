@@ -44,8 +44,10 @@ class MovieViewController: UIViewController {
         if let _ = movie,
             let movieIndex = movieIndex {
             movieController.editMovie(at: movieIndex, withNewTitle: movieTitle)
+            movieController.saveToPersistentStore()
         } else {
             movieController.createMovie(withTitle: movieTitle)
+            movieController.saveToPersistentStore()
             
         }
         
