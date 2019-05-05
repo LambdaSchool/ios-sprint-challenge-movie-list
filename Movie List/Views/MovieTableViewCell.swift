@@ -9,7 +9,7 @@
 import UIKit
 
 protocol MovieTableViewCellDelegate: class {
-    func seenButtonWasTapped(on cell:MovieTableViewCell)
+    func seenButtonWasTapped(on cell: MovieTableViewCell)
 }
 
 class MovieTableViewCell: UITableViewCell {
@@ -18,27 +18,26 @@ class MovieTableViewCell: UITableViewCell {
         delegate?.seenButtonWasTapped(on: self)
     }
     
+    
     func updateViews() {
         guard let movie = movie else { return }
-        let seenButtonTitle = movie.wasSeen ? "Not seen" : "Seen"
-        //seenButton.setTitle(seenButtonTitle, for: .normal)
         
+        movieLabel.text = movie.movie
+        
+        let buttonTitle = movie.wasSeen ? "Seen" : "Unseen"
+        
+        seenNotSeenButton.setTitle(buttonTitle, for: .normal)
     }
     
-    weak var delegate: MovieTableViewCellDelegate?
-    
-    
-    //Maybe I am getting an error on line 23 because this is an unguarded, wrapped optional.
     
     var movie: Movie? {
         didSet {
             updateViews()
         }
     }
-
-    @IBOutlet weak var seenButton: UIButton!
-    @IBOutlet weak var movieTitleLabel: UILabel!
-    //I need to have this label update from something.
+    
+    @IBOutlet weak var movieLabel: UILabel!
+    @IBOutlet weak var seenNotSeenButton: UIButton!
+    weak var delegate: MovieTableViewCellDelegate?
+    
 }
-
-/* Referenced Paul's Notes project NoteTableViewCell and Julian's ArtGallery PaintingTableViewCell */

@@ -43,13 +43,16 @@
                                                     <state key="normal" title="Seen"/>
                                                     <connections>
                                                         <action selector="seenButtonTapped:" destination="JzC-qD-4vx" eventType="touchUpInside" id="I7T-uW-SQb"/>
+                                                        <action selector="seenButtonTapped:" destination="JG2-hH-KxA" eventType="touchUpInside" id="vuT-yy-jVO"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="movieLabel" destination="wXU-i2-9Jp" id="qe5-nI-9Zz"/>
                                             <outlet property="movieTitleLabel" destination="wXU-i2-9Jp" id="Al5-cD-ITY"/>
                                             <outlet property="seenButton" destination="xPq-eq-D4B" id="IMr-j5-EzG"/>
+                                            <outlet property="seenNotSeenButton" destination="xPq-eq-D4B" id="eGB-d0-N4Z"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -62,18 +65,19 @@
                         <barButtonItem key="backBarButtonItem" title="Movie List" id="82f-Hn-swC"/>
                         <barButtonItem key="rightBarButtonItem" title="Add Movie" image="Plus" id="lfQ-qO-8WA">
                             <connections>
-                                <segue destination="HIV-XM-VRB" kind="show" identifier="ToAddMovie" id="9oe-bp-Tji"/>
+                                <segue destination="HIV-XM-VRB" kind="show" identifier="AddMovie" id="9oe-bp-Tji"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="movieTableView" destination="sTm-H1-ucb" id="ewB-dL-9AZ"/>
                         <outlet property="tableView" destination="sTm-H1-ucb" id="NPs-Rt-asq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dDY-gH-p2c" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="JzC-qD-4vx" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="388" y="-92.203898050974516"/>
+            <point key="canvasLocation" x="388" y="-92"/>
         </scene>
         <!--Add Movie View Controller-->
         <scene sceneID="djj-d5-HNa">
@@ -96,6 +100,7 @@
                                 <state key="normal" title="Add Movie"/>
                                 <connections>
                                     <action selector="addMovieButtonPressed:" destination="HIV-XM-VRB" eventType="touchUpInside" id="gYf-k9-GZg"/>
+                                    <action selector="addMovieButtonTapped:" destination="HIV-XM-VRB" eventType="touchUpInside" id="yZB-Ja-GNj"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -103,6 +108,7 @@
                         <viewLayoutGuide key="safeArea" id="S8q-jt-e0D"/>
                     </view>
                     <connections>
+                        <outlet property="movieTextField" destination="EOg-7N-KmO" id="3I2-ZT-1dd"/>
                         <outlet property="movieTitleTextField" destination="EOg-7N-KmO" id="Aly-MO-o2w"/>
                     </connections>
                 </viewController>

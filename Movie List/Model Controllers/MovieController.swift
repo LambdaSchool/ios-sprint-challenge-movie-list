@@ -10,19 +10,15 @@ import Foundation
 
 class MovieController {
     
-    var movies: [Movie] = [Movie]()
-    
-    init() {
-        createMovie(with: "Die Hard")
-    }
-    
-    func createMovie(with movieTitle: String) {
-        let movie = Movie(movieTitle: movieTitle)
-        
+    func createMovie(with title: String) {
+        let movie = Movie(movie: title)
         movies.append(movie)
     }
     
     func toggleWasSeen(for movie: Movie) {
         movie.wasSeen = !movie.wasSeen
-     }
+    }
+    
+    var movies: [Movie] = [Movie]()
+    
 }

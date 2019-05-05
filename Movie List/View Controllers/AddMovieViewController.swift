@@ -9,25 +9,23 @@
 import UIKit
 
 class AddMovieViewController: UIViewController {
-    
-    var movieController: MovieController?
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-    }
-    
 
-    @IBAction func addMovieButtonPressed(_ sender: Any) {
-        guard let movieString = movieTitleTextField.text else { return }
-        
-        movieController?.createMovie(with: movieString)
     }
     
+    @IBAction func addMovieButtonTapped(_ sender: Any) {
+        guard let title = movieTextField.text,
+            title != "" else { return }
+        
+        movieController.createMovie(with: title)
+        
+        navigationController?.popViewController(animated: true)
+   
+    }
     
-    @IBOutlet weak var movieTitleTextField: UITextField!
-    
+    @IBOutlet weak var movieTextField: UITextField!
+    var movieController: MovieController!
     
 }
-
-/* Referenced Paul's Notes project NotesViewController for help with protocols for the add button functionality. */

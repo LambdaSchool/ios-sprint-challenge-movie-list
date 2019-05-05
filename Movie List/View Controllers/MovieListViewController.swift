@@ -8,52 +8,49 @@
 
 import UIKit
 
-class MovieListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, MovieTableViewCellDelegate {
+class MovieListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MovieTableViewCellDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        tableView.delegate = self
-        tableView.dataSource = self
+        movieTableView.delegate = self
+        movieTableView.dataSource = self
     }
     
-    // MARK: - MovieTableViewCellDelegate
+    override func viewWillAppear(_ animated: Bool) {
+        movieTableView.reloadData()
+    }
     
     func seenButtonWasTapped(on cell: MovieTableViewCell) {
-        
-        guard let indexPath = tableView.indexPath(for: cell) else { return }
-        
-        let movie = movieController.movies[indexPath.row]
-        
-        movieController.toggleWasSeen(for: movie)
-        
-        tableView.reloadRows(at: [indexPath], with: .none)
+        guard let indexPath = movieTableView.indexPath(for: cell) else { return }
+        movieController.movies[indexPath.row].wasSeen.toggle()
+        movieTableView.reloadRows(at: [indexPath], with: .automatic)
     }
-    
-    // MARK: - UITableViewDataSource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return movieController.movies.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as? MovieTableViewCell else { fatalError("Cell must have reuse identifier MovieCell, and be of type MovieTableViewCell") }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as? MovieTableViewCell else { return UITableViewCell() }
         
         let movie = movieController.movies[indexPath.row]
         
         cell.movie = movie
+        
         cell.delegate = self
         
         return cell
     }
     
-    // MARK: - Properties
     
-    let movieController = MovieController()
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "AddMovie" {
+            guard let addMovieVC = segue.destination as? AddMovieViewController else { return }
+            addMovieVC.movieController = movieController
+        }
+    }
     
+    @IBOutlet weak var movieTableView: UITableView!
     
-    @IBOutlet weak var tableView: UITableView!
-    
+    var movieController = MovieController()
 }
-
-/* Replica of Julian's ArtGallery project PaintingListViewController */
