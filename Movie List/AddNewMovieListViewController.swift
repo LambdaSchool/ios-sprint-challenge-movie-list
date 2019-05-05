@@ -38,8 +38,6 @@ class AddNewMovieListViewController: UIViewController {
                 movieController?.addMovieName(name: input)
         movieNameTextField.text = ""
         navigationController?.popViewController(animated: true)
-        } else {
-        movieNameTextField.text = "Please add input"
-    }
+        }
   }
 }
