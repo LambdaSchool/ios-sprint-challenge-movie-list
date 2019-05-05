@@ -26,7 +26,7 @@ class MovieTableViewCell: UITableViewCell {
         
         let buttonTitle = movie.wasSeen ? "Seen" : "Unseen"
         
-        seenNotSeenButton.setTitle(buttonTitle, for: .normal)
+        seenButton.setTitle(buttonTitle, for: .normal)
     }
     
     
@@ -37,7 +37,7 @@ class MovieTableViewCell: UITableViewCell {
     }
     
     @IBOutlet weak var movieLabel: UILabel!
-    @IBOutlet weak var seenNotSeenButton: UIButton!
+    @IBOutlet weak var seenButton: UIButton!
     weak var delegate: MovieTableViewCellDelegate?
     
 }
