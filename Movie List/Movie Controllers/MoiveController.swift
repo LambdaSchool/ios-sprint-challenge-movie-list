@@ -21,17 +21,7 @@ class MovieController {
         movies.append(movie)
     }
     
-    func updateMovie(with movie: Movie, name: String) {
-        // trying to find the index value....does this movie exist in array so we can safely update
-        guard let index = movies.firstIndex(of: movie) else { return }
-        movies[index].name = name
-    }
-    
-    func removeMovie(with movie: Movie) {
-        guard let index = movies.firstIndex(of: movie) else { return }
-        movies.remove(at: index)
-    }
-    
+   
     // Need the toggle to allow the view to switch between isSeen and !isSeen
     func toggledSeen(at indexPath: IndexPath) {
         self.movies[indexPath.row].isSeen = !self.movies[indexPath.row].isSeen
