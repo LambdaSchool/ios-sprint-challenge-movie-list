@@ -23,8 +23,8 @@ class MovieTableViewCell: UITableViewCell {
         }
     }
     func updateViews() {
-        guard let movie = movie else {return}
-        movieLabel.text = movie.name
+        guard let movie = self.movie else {return}
+        self.movieLabel.text = movie.name
         if(movie.isSeen){
             seenButton.setTitle("Not Seen", for: .normal)
         } else {

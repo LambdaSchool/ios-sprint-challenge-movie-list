@@ -22,15 +22,22 @@ class MoviesListViewController: UIViewController, UITableViewDelegate, UITableVi
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return movieController.movies.count
+        return self.movieController.movies.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "Movie", for: indexPath) as? MovieTableViewCell else { return UITableViewCell()}
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as? MovieTableViewCell else { return UITableViewCell()}
         
         let movie = movieController.movies[indexPath.row]
-        cell.movie = movie
+//        cell.movie = movie
+        cell.movieLabel.text = movie.name
+        cell.delegate = self
+        
+        let isSeenText = movie.isSeen ? "Seen" : "Not Seen"
+        cell.seenButton.setTitle(isSeenText, for: .normal)
+        
+        
         return cell
         
 //        let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath)
@@ -51,11 +58,12 @@ class MoviesListViewController: UIViewController, UITableViewDelegate, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         self.movieTableView.dataSource = self
+        self.movieTableView.delegate = self
         // Do any additional setup after loading the view.
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        movieTableView.reloadData()
+        self.movieTableView.reloadData()
     }
     
 

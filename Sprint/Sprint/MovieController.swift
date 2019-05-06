@@ -12,8 +12,8 @@ class MovieController {
     private (set) var movies: [Movie] = []
     
    
-    func createMovie(name: String) {
-            let movie = Movie(name: name)
+    func createMovie(name: String, isSeen: Bool) {
+        let movie = Movie(name: name, isSeen: isSeen)
             movies.append(movie)
             
 
@@ -23,7 +23,7 @@ class MovieController {
         
     }
     
-    init() {
-        createMovie(name: "lord of the ringsprint")
-    }
+//    init() {
+//        self.createMovie(name: "lord of the ringsprint", isSeen: false)
+//    }
 }

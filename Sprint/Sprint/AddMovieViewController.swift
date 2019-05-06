@@ -10,7 +10,7 @@ import UIKit
 
 class AddMovieViewController: UIViewController {
     
-    var movieController: MovieController?
+    var movieController : MovieController?
 
     @IBOutlet weak var movieResponse: UITextField!
     
@@ -23,8 +23,8 @@ class AddMovieViewController: UIViewController {
 
     
     @IBAction func addMovie(_ sender: Any) {
-        guard let name = movieResponse.text else {return}
-        movieController?.createMovie(name: name)
+        guard let name = self.movieResponse.text else {return}
+        self.movieController?.createMovie(name: name, isSeen: false)
 //        movieResponse.text = ""
         navigationController?.popViewController(animated: true)
         
