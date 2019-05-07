@@ -20,10 +20,14 @@ class MovieController {
     }
     func toggleSeen(movie: Movie) {
         movie.isSeen = !movie.isSeen
-        
+    
     }
     
-//    init() {
-//        self.createMovie(name: "lord of the ringsprint", isSeen: false)
-//    }
+    func deleteMovie(indexPath: Int){ //why Int?
+       movies.remove(at: indexPath)
+    }
+    
+    init() {
+        createMovie(name: "lord of the ringsprint", isSeen: false)
+    }
 }

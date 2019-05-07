@@ -22,7 +22,7 @@ class MoviesListViewController: UIViewController, UITableViewDelegate, UITableVi
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.movieController.movies.count
+        return movieController.movies.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -30,8 +30,8 @@ class MoviesListViewController: UIViewController, UITableViewDelegate, UITableVi
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as? MovieTableViewCell else { return UITableViewCell()}
         
         let movie = movieController.movies[indexPath.row]
-//        cell.movie = movie
-        cell.movieLabel.text = movie.name
+        cell.movie = movie
+//        cell.movieLabel.text = movie.name
         cell.delegate = self
         
         let isSeenText = movie.isSeen ? "Seen" : "Not Seen"
@@ -53,19 +53,35 @@ class MoviesListViewController: UIViewController, UITableViewDelegate, UITableVi
 //        return cell
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        if editingStyle == .delete {
+            //         Implement the commit editingStyle method to allow for deleting question cells. (remember to delete a Question before you delete the cell)
+            movieController.deleteMovie(indexPath: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
+    
 
     @IBOutlet weak var movieTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.movieTableView.dataSource = self
-        self.movieTableView.delegate = self
-        // Do any additional setup after loading the view.
+        movieTableView.dataSource = self
+        movieTableView.delegate = self
+     // Do any additional setup after loading the view.
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        self.movieTableView.reloadData()
+        movieTableView.reloadData()
     }
     
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "addMovieSegue") {
+          let destination = segue.destination as! AddMovieViewController
+            destination.movieController = movieController
+        }
+    }
 
     /*
     // MARK: - Navigation
