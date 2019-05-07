@@ -11,6 +11,11 @@ import Foundation
 
 class MovieController {
     //movieList holds all movie data
+    
+    init(){
+        //Debugging
+        //AddMovie(title: "Star Wars")
+    }
     var movieList: [Movie] = []
     
     func AddMovie(title: String){
@@ -29,5 +34,6 @@ class MovieController {
     /*func DeleteMovie(movie: Movie){
         guard movieList.firstIndex(of: movie) != nil else {return}
     }*/
+
 
 }

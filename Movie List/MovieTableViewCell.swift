@@ -16,7 +16,7 @@ class MovieTableViewCell: UITableViewCell {
 
     var movie: Movie? {
         didSet{
-            updateCell()
+            self.updateViews()
         
         }
     }
@@ -26,16 +26,17 @@ class MovieTableViewCell: UITableViewCell {
     weak var delegate: MovieTableViewCellDelegate?
     
     @IBAction func SeenButtonTapped(_ sender: Any) {
-        delegate?.seenButtonTapped(on: self)
+        self.delegate?.seenButtonTapped(on: self)
     }
-    func updateCell(){
-        guard let movie = movie else {return}
-        MovieTitle.text = movie.title
+    private func updateViews(){
+        guard let movie = self.movie else {return}
+        self.MovieTitle.text = movie.title
         if(movie.isSeen) {
             SeenButton.setTitle("Seen", for: .normal)
         }else {
             SeenButton.setTitle("Not Seen", for: .normal)
         }
+        
     }
     
 
