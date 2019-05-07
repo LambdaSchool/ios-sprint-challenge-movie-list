@@ -23,11 +23,11 @@ class MovieController {
     
     }
     
-    func deleteMovie(indexPath: Int){ //why Int?
+    func deleteMovie(indexPath: Int){  
        movies.remove(at: indexPath)
     }
     
     init() {
-        createMovie(name: "lord of the ringsprint", isSeen: false)
+        createMovie(name: "Lord of the Rings", isSeen: false)
     }
 }
