@@ -13,8 +13,6 @@ import UIKit
 protocol MovieCellDelegate: class {
     func seenUnseenButtonTapped(on cell: MovieListTableViewCell)
 }
-
-
 class MovieListTableViewCell: UITableViewCell {
     //
     // MARK: - Outlets
@@ -25,16 +23,18 @@ class MovieListTableViewCell: UITableViewCell {
     // MARK: - Declerations
     //
     weak var delegate: MovieCellDelegate?
-    var setMovie: Movie? {
-        didSet {
-            updateViews()
-        }
-    }
     //
     // MARK: - Actions
     //
     @IBAction func seenUnseenButtonTapped(_ sender: UIButton) {
         self.delegate?.seenUnseenButtonTapped(on: self)
+    }
+    
+    var setMovie: Movie? {
+        didSet {
+            updateViews()
+            print("UpdateViews Ran")
+        }
     }
     //
     // MARK: - Methods
