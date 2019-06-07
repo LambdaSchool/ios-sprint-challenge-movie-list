@@ -16,5 +16,7 @@ class MovieController {
         movies.append(movie)
     }
     
-    
+    func toggleIsSeen(for movie: Movie) {
+        movie.isSeen.toggle()
+    }
 }

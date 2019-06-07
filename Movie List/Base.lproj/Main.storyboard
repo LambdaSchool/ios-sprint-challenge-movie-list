@@ -34,7 +34,7 @@
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3cK-8F-eGS">
                                                             <rect key="frame" x="0.0" y="0.0" width="271" height="30"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -56,8 +56,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="isSeenButton" destination="dBb-IX-UdW" id="eUd-sh-P2M"/>
-                                            <outlet property="isSeenButtonLabel" destination="dBb-IX-UdW" id="9xL-8g-XRd"/>
-                                            <outlet property="movieNameLabel" destination="3WZ-d5-6Ya" id="ANA-fZ-49E"/>
+                                            <outlet property="movieNameLabel" destination="3cK-8F-eGS" id="o8t-FW-j7c"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -75,10 +74,13 @@
                     <navigationItem key="navigationItem" title="Movie List" id="TVc-W4-cYk">
                         <barButtonItem key="rightBarButtonItem" title="Add" id="F9g-m8-3CI">
                             <connections>
-                                <segue destination="h3B-ca-OwT" kind="show" id="TFi-mm-p9V"/>
+                                <segue destination="h3B-ca-OwT" kind="show" identifier="addMovie" id="TFi-mm-p9V"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="h9h-ck-WUJ" id="88j-mb-JDK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oVQ-ud-ZKT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
