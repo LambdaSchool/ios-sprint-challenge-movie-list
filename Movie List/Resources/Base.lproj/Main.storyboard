@@ -41,6 +41,9 @@
                                                         <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="752" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="79N-rd-Ms2">
                                                             <rect key="frame" x="299" y="0.0" width="46" height="30"/>
                                                             <state key="normal" title="Seen"/>
+                                                            <connections>
+                                                                <action selector="seenButtonTapped:" destination="k0I-Ix-11c" eventType="touchUpInside" id="rAC-3F-l0n"/>
+                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                     <constraints>
@@ -54,6 +57,10 @@
                                                 <constraint firstItem="PVh-dn-Jgq" firstAttribute="top" secondItem="j0e-19-0wc" secondAttribute="top" constant="10" id="rw7-at-4a4"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="movieNameLabel" destination="1rJ-64-IYr" id="cZY-w0-Myc"/>
+                                            <outlet property="seenButton" destination="79N-rd-Ms2" id="R3l-SY-9sZ"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -74,6 +81,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="movieTable" destination="F1M-cA-4qr" id="hW9-Rm-gVE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uD4-08-96f" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -88,20 +98,23 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1zs-YH-IbP">
-                                <rect key="frame" x="15" y="156.5" width="345" height="30"/>
+                                <rect key="frame" x="15" y="155.5" width="345" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a new movie to the list" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Vp-J6-0Lo">
-                                <rect key="frame" x="15" y="104" width="345" height="32.5"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="27"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a new movie to the list" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Vp-J6-0Lo">
+                                <rect key="frame" x="15" y="104" width="345" height="31.5"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XZ0-85-Obu">
-                                <rect key="frame" x="151" y="196.5" width="73" height="30"/>
+                                <rect key="frame" x="151" y="195.5" width="73" height="30"/>
                                 <state key="normal" title="Add Movie"/>
+                                <connections>
+                                    <action selector="addMovieTapped:" destination="0Hw-SP-KaA" eventType="touchUpInside" id="a45-gZ-IP0"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -117,6 +130,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="DZF-xd-NGd"/>
                     </view>
+                    <connections>
+                        <outlet property="movieTextInput" destination="1zs-YH-IbP" id="B00-LZ-Xvc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IYx-Kt-fCl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

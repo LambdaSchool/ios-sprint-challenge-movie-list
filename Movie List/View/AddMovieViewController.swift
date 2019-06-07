@@ -9,11 +9,21 @@
 import UIKit
 
 class AddMovieViewController: UIViewController {
+    
+    // MARK: - Outlets and Properties
+    @IBOutlet var movieTextInput: UITextField!
+   
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+    
+    // MARK: - IBActions
+    @IBAction func addMovieTapped(_ sender: Any) {
     }
     
 
