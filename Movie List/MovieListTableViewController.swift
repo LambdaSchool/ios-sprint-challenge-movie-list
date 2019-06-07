@@ -13,8 +13,6 @@ class MovieListTableViewController: UITableViewController {
     @IBOutlet var movieListTableView: UITableView!
     
     var movieController = MovieController()
-    var movie: Movie?
-
     override func viewDidLoad() {
         super.viewDidLoad()
 

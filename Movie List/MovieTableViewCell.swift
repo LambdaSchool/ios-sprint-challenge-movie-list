@@ -14,6 +14,7 @@ class MovieTableViewCell: UITableViewCell {
     @IBOutlet weak var seenButton: UIButton!
     
     var isSeen: Bool = false
+    // In the TableViewController, in the cellForRowAt method, there is a guard let called "cell" that is being casted as this file "MovieTableViewCell. Underneath that guard let is a constant called "movie = movieController.movies[indexPath.row]" which is essentially an element being used to access the correct movie out of the array of movies to display onto each cell via passing in the indexPath.row (which is an Int) value. Underneath that is a line that says cell.movie = movie. Poor variable naming, but what that is saying is cell, casted as the file MovieTableViewCell, cell.movie, so the movie variable below, should equal or be assigned the movie object out of the array of movies kept in the MovieController. 
     var movie: Movie?
     
     @IBAction func notSeenButtonTapped(_ sender: Any) {
