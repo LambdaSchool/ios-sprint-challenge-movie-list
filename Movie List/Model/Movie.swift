@@ -16,7 +16,8 @@ import Foundation
 
 struct Movie: Equatable {
     var name: String
-    var seen: Bool = false
+    var seen: Bool
+    
     
     
 }

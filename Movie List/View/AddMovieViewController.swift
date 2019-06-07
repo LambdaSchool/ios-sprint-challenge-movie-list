@@ -24,6 +24,8 @@ class AddMovieViewController: UIViewController {
     
     // MARK: - IBActions
     @IBAction func addMovieTapped(_ sender: Any) {
+        
+        
     }
     
 

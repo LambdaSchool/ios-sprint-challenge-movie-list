@@ -20,7 +20,7 @@ class MovieTableViewCell: UITableViewCell {
     
     var movie: Movie? {
         didSet {
-            updateView()
+            self.updateView()
         }
     }
     
