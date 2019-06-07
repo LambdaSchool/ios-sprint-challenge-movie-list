@@ -14,20 +14,24 @@ class AddMovieViewController: UIViewController {
     @IBOutlet var movieTextInput: UITextField!
    
     
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        
     }
     
     // MARK: - IBActions
     @IBAction func addMovieTapped(_ sender: Any) {
+        guard movieTextInput.text != nil else { return }
         
+        if let newMovie = movieTextInput.text {
+            let addedMovie = Movie(name: newMovie, seen: false)
+            MovieController().movies.append(addedMovie)
+        }
         
     }
-    
+
 
     /*
     // MARK: - Navigation
