@@ -14,10 +14,22 @@ protocol MovieTableViewCellDelegate: class {
 
 class MovieTableViewCell: UITableViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
-    }
+	
+	var movie: Movie? {
+		didSet {
+			updateViews()
+		}
+	}
+	
+	func updateViews() {
+		if let movieSeen = movie {
+			if movieSeen.hasSeen == true {
+				hasSeenButton.setTitle("Seen", for: .normal)
+			} else if movieSeen.hasSeen == false {
+				hasSeenButton.setTitle("Not Seen", for: .normal)
+			}
+		}
+	}
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
@@ -26,9 +38,7 @@ class MovieTableViewCell: UITableViewCell {
     }
 	
 	
-	
-	
-	
+	@IBOutlet var hasSeenButton: UIButton!
 	@IBOutlet var movieTitleLabel: UILabel!
 	weak var delegate: MovieTableViewCellDelegate?
 	@IBAction func seenButtonTapped(_ sender: UIButton) {
