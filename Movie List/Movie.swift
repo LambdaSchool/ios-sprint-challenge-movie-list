@@ -11,4 +11,9 @@ import Foundation
 struct Movie {
     var title: String
     var isSeen: Bool = false
+    
+    init(title: String, isSeen: Bool = false) {
+        self.title = title
+        self.isSeen = isSeen
+    }
 }

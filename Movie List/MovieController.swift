@@ -16,4 +16,8 @@ class MovieController {
         
         movies.append(movie)
     }
+    
+    func deleteMovie(index: Int) {
+        movies.remove(at: index)
+    }
 }
