@@ -8,7 +8,9 @@
 
 import UIKit
 
-class MoviesViewController: UIViewController, UITableViewDataSource, MovieTableViewCellDelegate {
+class MoviesViewController: UIViewController, UITableViewDataSource, MovieTableViewCellDelegate, AddMovieViewControllerDelegate {
+    
+    
     
     
     // MARK: - Outlets and Properties
@@ -32,8 +34,22 @@ class MoviesViewController: UIViewController, UITableViewDataSource, MovieTableV
         let movie = movieController.movies[indexPath.row]
         movieCell.movie = movie
         
+        movieCell.delegate = self
+        
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let movieName = self.movieController.movies[indexPath.row]
+            self.movieController.deleteMovie(movieToDelete: movieName)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
+    }
+    
+//    func displayMovie(sender: AddMovieViewController) {
+//        
+//    }
  
     func seenButtonTapped(on cell: MovieTableViewCell) {
         guard let movieSeen = cell.movie?.seen else { return }
@@ -50,6 +66,9 @@ class MoviesViewController: UIViewController, UITableViewDataSource, MovieTableV
         self.movieTable.reloadRows(at: [index], with: UITableView.RowAnimation.left)
     }
     
+    func addMovie(to cell: MovieTableViewCell) {
+        self.addMovie(to: MovieTableViewCell)
+    }
 
     /*
     // MARK: - Navigation

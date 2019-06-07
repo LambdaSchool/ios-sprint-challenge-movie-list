@@ -13,6 +13,9 @@ protocol MovieTableViewCellDelegate: class {
 }
 
 class MovieTableViewCell: UITableViewCell {
+   
+    
+    
     
     // MARK: - Outlets and Properties
     @IBOutlet var movieNameLabel: UILabel!
@@ -42,5 +45,8 @@ class MovieTableViewCell: UITableViewCell {
         } else {
             seenButton.setTitle("Not Seen", for: .normal)
         }
+        
     }
+    
+    
 }
