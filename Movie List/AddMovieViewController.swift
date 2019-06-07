@@ -8,10 +8,11 @@
 
 import UIKit
 
+
+
 class AddMovieViewController: UIViewController {
     
     var movieController: MovieController?
-    
     @IBOutlet weak var movieTextField: UITextField!
     
 

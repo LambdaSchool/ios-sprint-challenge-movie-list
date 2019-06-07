@@ -13,6 +13,8 @@ class MovieTableViewCell: UITableViewCell {
     @IBOutlet weak var movieLabel: UILabel!
     @IBOutlet weak var seenButton: UIButton!
     
+    var tableController = MovieListTableViewController()
+    
     var movie: Movie?
     
     @IBAction func notSeenButtonTapped(_ sender: Any) {
@@ -20,6 +22,7 @@ class MovieTableViewCell: UITableViewCell {
             let seenStatus = unwrappedMovie.isSeen ? "Not Seen" : "Seen"
             
             seenButton.setTitle(seenStatus, for: .normal)
+            tableController.reloadInputViews()
         }
     }
     

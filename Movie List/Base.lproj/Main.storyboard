@@ -13,7 +13,7 @@
         <!--Movies List-->
         <scene sceneID="d3B-zf-A7l">
             <objects>
-                <tableViewController id="PmI-tr-het" sceneMemberID="viewController">
+                <tableViewController id="PmI-tr-het" customClass="MovieListTableViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="QaU-vt-8rT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -58,7 +58,6 @@
                                 <connections>
                                     <outlet property="movieLabel" destination="gqq-aj-kp2" id="qJM-2L-wwm"/>
                                     <outlet property="seenButton" destination="Wx0-OX-GGE" id="x6x-jL-1LY"/>
-                                    <outlet property="seenButtonTapped" destination="Wx0-OX-GGE" id="Hg1-Bk-ezb"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -70,10 +69,13 @@
                     <navigationItem key="navigationItem" title="Movies List" id="6fJ-b3-kSy">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="LTZ-OR-OFI">
                             <connections>
-                                <segue destination="NI4-0d-FXJ" kind="show" identifier="addMovieSegue" id="48A-iA-0c5"/>
+                                <segue destination="NI4-0d-FXJ" kind="show" identifier="AddMovieSegue" id="48A-iA-0c5"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="movieListTableView" destination="QaU-vt-8rT" id="E7M-mc-o3e"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zqa-fB-hla" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

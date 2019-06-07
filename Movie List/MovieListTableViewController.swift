@@ -10,13 +10,20 @@ import UIKit
 
 class MovieListTableViewController: UITableViewController {
     
+    @IBOutlet var movieListTableView: UITableView!
+    
     var movieController = MovieController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        tableView.reloadData()
+    }
 
 
     // MARK: - Table view data source
@@ -40,7 +47,7 @@ class MovieListTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             
-            
+            movieController.deleteMovie(index: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
@@ -59,8 +66,8 @@ class MovieListTableViewController: UITableViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        guard let destinationVC = segue.destination as? AddMovieViewController else { return }
+        destinationVC.movieController = movieController
     }
 
 }
