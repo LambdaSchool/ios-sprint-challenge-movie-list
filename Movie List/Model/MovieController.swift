@@ -11,16 +11,17 @@ import Foundation
 class MovieController {
 	var movies: [Movie] = []
 	
-	func addMovie(title: String) {
-		let movie = Movie(movieTitle: title)
+	func addMovie(movieTitle: String) {
+		let movie = Movie(movieTitle: movieTitle)
 		movies.append(movie)
 	}
 	
 	func toggleHasSeen(for movie: Movie) {
-		if movie.hasSeen == false {
-			movie.hasSeen = true
-		} else if movie.hasSeen == true {
-			movie.hasSeen = false
+		guard let index = movies.firstIndex(of: movie) else { return }
+		if movies[index].hasSeen {
+			movies[index].hasSeen = false
+		} else if movies[index].hasSeen == false {
+			movies[index].hasSeen = true
 		}
 	}
 }

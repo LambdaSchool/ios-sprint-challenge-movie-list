@@ -9,14 +9,14 @@
 import UIKit
 
 
-protocol AddMovieDelegate: class {
-	func addMovieButtonTapped()
-}
+//protocol AddMovieDelegate: class {
+//	func addMovieButtonTapped()
+//}
 
 class AddMovieViewController: UIViewController {
 
 	var movieController = MovieController()
-	weak var delegate: AddMovieDelegate?
+//	weak var delegate: AddMovieDelegate?
 	@IBOutlet var addMovieTextField: UITextField!
 	
 
@@ -25,10 +25,11 @@ class AddMovieViewController: UIViewController {
     }
 	
 	@IBAction func addMovieButtonTapped(_ sender: UIButton) {
-		if let movieTitle = addMovieTextField.text {
-		movieController.addMovie(title: movieTitle)
+		if let movie = addMovieTextField.text {
+		movieController.addMovie(movieTitle: movie)
 		}
-		delegate?.addMovieButtonTapped()
+//		delegate?.addMovieButtonTapped()
 		navigationController?.popViewController(animated: true)
+		print(movieController.movies.count)
 	}
 }

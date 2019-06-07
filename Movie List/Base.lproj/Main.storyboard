@@ -29,22 +29,33 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Movie" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o2J-nI-fLm">
-                                                    <rect key="frame" x="29" y="12" width="46" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="udn-xk-DE8">
-                                                    <rect key="frame" x="330" y="6" width="64" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" title="Not Seen"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="udn-xk-DE8">
+                                                    <rect key="frame" x="306" y="7.3333333333333321" width="100" height="29.999999999999996"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="100" id="te2-Yt-HnX"/>
+                                                    </constraints>
+                                                    <state key="normal" title="Unwatched"/>
                                                     <connections>
                                                         <action selector="seenButtonTapped:" destination="9Rg-8Z-WdG" eventType="touchUpInside" id="oxT-NP-ze0"/>
                                                     </connections>
                                                 </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Movie" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o2J-nI-fLm">
+                                                    <rect key="frame" x="29" y="11.999999999999998" width="250" height="20.333333333333329"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="250" id="GLh-Vs-5Tf"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="udn-xk-DE8" firstAttribute="leading" secondItem="o2J-nI-fLm" secondAttribute="trailing" constant="27" id="DgC-Nd-kUe"/>
+                                                <constraint firstItem="o2J-nI-fLm" firstAttribute="top" secondItem="EAa-Jo-I5h" secondAttribute="top" constant="12" id="OMR-mX-QNN"/>
+                                                <constraint firstAttribute="trailing" secondItem="udn-xk-DE8" secondAttribute="trailing" constant="8" id="cCe-aV-UFw"/>
+                                                <constraint firstItem="udn-xk-DE8" firstAttribute="centerY" secondItem="o2J-nI-fLm" secondAttribute="centerY" id="n4O-MU-MwR"/>
+                                                <constraint firstItem="o2J-nI-fLm" firstAttribute="leading" secondItem="EAa-Jo-I5h" secondAttribute="leading" constant="29" id="zBE-sk-BXP"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="hasSeenButton" destination="udn-xk-DE8" id="8p3-EZ-Pv9"/>

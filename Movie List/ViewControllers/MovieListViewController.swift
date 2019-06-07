@@ -18,8 +18,13 @@ class MovieListViewController: UIViewController {
         super.viewDidLoad()
 		tableView.delegate = self
 		tableView.dataSource = self
-        // Do any additional setup after loading the view.
     }
+	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		tableView.reloadData()
+		
+	}
     
 
 
@@ -43,7 +48,7 @@ extension MovieListViewController: UITableViewDataSource, UITableViewDelegate {
 		guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as? MovieTableViewCell else { return UITableViewCell() }
 		
 		let movie = movieController.movies[indexPath.row]
-		cell.movieTitleLabel.text = movie.movieTitle
+		cell.movie = movie
 		cell.delegate = self
 		return cell
 	}
@@ -52,6 +57,7 @@ extension MovieListViewController: UITableViewDataSource, UITableViewDelegate {
 extension MovieListViewController: MovieTableViewCellDelegate {
 	func seenButtonWasTapped(on cell: MovieTableViewCell) {
 		if let indexPath = tableView.indexPath(for: cell) {
+			print(indexPath)
 			movieController.toggleHasSeen(for: movieController.movies[indexPath.row])
 			tableView.reloadRows(at: [indexPath], with: .automatic)
 		}
