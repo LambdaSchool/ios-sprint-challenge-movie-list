@@ -13,7 +13,7 @@
         <!--Movie List-->
         <scene sceneID="PrK-iu-WX1">
             <objects>
-                <viewController id="CEy-aR-fOr" sceneMemberID="viewController">
+                <viewController id="CEy-aR-fOr" customClass="MovieListViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iUX-Ws-SwO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -41,6 +41,9 @@
                                                         <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XXU-71-8sA">
                                                             <rect key="frame" x="299" y="0.0" width="46" height="22"/>
                                                             <state key="normal" title="Button"/>
+                                                            <connections>
+                                                                <action selector="seenButtonTapped:" destination="CEy-aR-fOr" eventType="touchUpInside" id="BGj-dC-KD4"/>
+                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                 </stackView>
@@ -66,12 +69,35 @@
                         <viewLayoutGuide key="safeArea" id="dja-TA-FIe"/>
                     </view>
                     <navigationItem key="navigationItem" title="Movie List" id="nt9-n1-am7">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Mil-s5-ixr"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Mil-s5-ixr">
+                            <connections>
+                                <action selector="addButtonTapped:" destination="CEy-aR-fOr" id="Usd-NL-0rH"/>
+                                <segue destination="w1K-at-vIq" kind="show" id="mwQ-p4-qiM"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="sDS-jP-ZKa" id="yip-OF-D7X"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VfJ-8G-qsS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="840.79999999999995" y="-185.75712143928038"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="ujo-e0-SN2">
+            <objects>
+                <viewController id="w1K-at-vIq" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vGg-EZ-ujH">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="5nU-ki-4qp"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DJc-iL-ecM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1596" y="-186"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="0b6-67-plE">
