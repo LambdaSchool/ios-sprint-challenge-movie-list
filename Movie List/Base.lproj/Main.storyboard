@@ -57,6 +57,7 @@
                                         <connections>
                                             <outlet property="isSeenButton" destination="dBb-IX-UdW" id="eUd-sh-P2M"/>
                                             <outlet property="movieNameLabel" destination="3cK-8F-eGS" id="o8t-FW-j7c"/>
+                                            <segue destination="Be8-YV-oHB" kind="show" identifier="editMovie" id="BCc-Gv-tN1"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -129,7 +130,52 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CXg-ZS-OJN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1692" y="-296"/>
+            <point key="canvasLocation" x="1694" y="-620"/>
+        </scene>
+        <!--Edit Movie-->
+        <scene sceneID="YGd-rP-NqS">
+            <objects>
+                <viewController id="Be8-YV-oHB" customClass="EditMovieViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sMG-1m-lpe">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="hWe-GN-fDu">
+                                <rect key="frame" x="16" y="140" width="343" height="76"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WbJ-f3-lH6">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ID4-dr-bqB">
+                                        <rect key="frame" x="0.0" y="46" width="343" height="30"/>
+                                        <state key="normal" title="Save Changes"/>
+                                        <connections>
+                                            <action selector="saveChangesTapped:" destination="Be8-YV-oHB" eventType="touchUpInside" id="Fev-Bl-3hN"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="txN-b6-kQ2" firstAttribute="trailing" secondItem="hWe-GN-fDu" secondAttribute="trailing" constant="16" id="lIV-WR-0Ob"/>
+                            <constraint firstItem="hWe-GN-fDu" firstAttribute="leading" secondItem="txN-b6-kQ2" secondAttribute="leading" constant="16" id="mSl-9w-bkm"/>
+                            <constraint firstItem="hWe-GN-fDu" firstAttribute="top" secondItem="txN-b6-kQ2" secondAttribute="top" constant="24" id="pkc-yu-GiD"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="txN-b6-kQ2"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Edit Movie" id="x8d-bN-v8H"/>
+                    <connections>
+                        <outlet property="editMovieTextField" destination="WbJ-f3-lH6" id="HOv-Ki-t9a"/>
+                        <outlet property="saveChangesButton" destination="ID4-dr-bqB" id="fuh-Z4-Fg0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mDa-DL-F5D" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1694" y="67"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="DIP-eW-xY1">

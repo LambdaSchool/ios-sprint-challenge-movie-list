@@ -20,6 +20,10 @@ class MovieController {
         movies.remove(at: indexPath.row)
     }
     
+    func editMovieName(for movie: Movie, newName: String) {
+        movie.movieName = newName
+    }
+    
     func toggleIsSeen(for movie: Movie) {
         movie.isSeen.toggle()
     }
