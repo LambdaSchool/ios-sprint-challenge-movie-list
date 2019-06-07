@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="60" id="f1k-Tf-lo8">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="60" id="f1k-Tf-lo8" customClass="MovieTableViewCell" customModule="Movie_List" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="f1k-Tf-lo8" id="F19-aM-Mp8">
@@ -53,7 +53,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="NI4-0d-FXJ" kind="show" id="YyR-xK-xMS"/>
+                                    <outlet property="movieLabel" destination="gqq-aj-kp2" id="a9w-ud-wMj"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -62,16 +62,22 @@
                             <outlet property="delegate" destination="PmI-tr-het" id="X8H-EJ-Pia"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Movies List" id="6fJ-b3-kSy"/>
+                    <navigationItem key="navigationItem" title="Movies List" id="6fJ-b3-kSy">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="LTZ-OR-OFI">
+                            <connections>
+                                <segue destination="NI4-0d-FXJ" kind="show" identifier="addMovieSegue" id="48A-iA-0c5"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zqa-fB-hla" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="992.75362318840587" y="-63.616071428571423"/>
         </scene>
-        <!--View Controller-->
+        <!--Add Movie View Controller-->
         <scene sceneID="W3B-2b-CmQ">
             <objects>
-                <viewController id="NI4-0d-FXJ" sceneMemberID="viewController">
+                <viewController id="NI4-0d-FXJ" customClass="AddMovieViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FAl-J5-Ft8">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -91,6 +97,10 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bkm-9u-H3J">
                                 <rect key="frame" x="170.5" y="240" width="73" height="30"/>
                                 <state key="normal" title="Add Movie"/>
+                                <connections>
+                                    <action selector="addMovieButtonTapped:" destination="NI4-0d-FXJ" eventType="touchUpInside" id="bGl-Lz-h3j"/>
+                                    <action selector="addMovieButtonTapped:" destination="ald-bk-KIM" eventType="touchUpInside" id="ttE-rs-y11"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -110,8 +120,12 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="rLV-QB-sRv"/>
                     </view>
+                    <connections>
+                        <outlet property="movieTextField" destination="qAA-Ou-qij" id="fwr-ro-ej5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qcl-SU-W0A" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="ald-bk-KIM" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1885.5072463768117" y="-64.285714285714278"/>
         </scene>
