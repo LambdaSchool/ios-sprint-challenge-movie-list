@@ -45,5 +45,6 @@ class MovieListTableViewCell: UITableViewCell {
         movieListLabel.text = updatedMovie.movieName
         guard let seenUnseen = updatedMovie.hasSeen ? "seen" : "unseen" else { return }
         seenUnseenButton.setTitle(seenUnseen, for: .normal)
+        
     }
 }

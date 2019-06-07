@@ -22,9 +22,7 @@ class AddMovieViewController: UIViewController {
        
         guard let userMovieName = userMovieTextField.text else { return }
         let userMovie = Movie(movieName: userMovieName)
-        movieController.favoriteMoviesArray.append(userMovie)
-       
-        print("Loded movies in addMovieTapped")
+       movieController.loadEnteredMovie(movie: userMovie)
         _ = navigationController?.popViewController(animated: true)
      
     }

@@ -27,6 +27,7 @@ class MovieListViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableView.reloadData()
+        
     }
 }
 //
@@ -45,6 +46,16 @@ extension MovieListViewController: UITableViewDataSource {
         cell.delegate = self
         return cell
     }
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if (editingStyle == .delete) {
+            movieController.deleteMovie(at: indexPath.row)
+            tableView.reloadData()
+        }
+    }
 }
 extension MovieListViewController: MovieCellDelegate {
     func seenUnseenButtonTapped(on cell: MovieListTableViewCell) {
@@ -52,6 +63,7 @@ extension MovieListViewController: MovieCellDelegate {
             let indexPath = tableView.indexPath(for: cell) else { return }
         movieController.toggleSeenUnseen(for: movie)
         tableView.reloadRows(at: [indexPath], with: .fade)
+        
     }
 }
 

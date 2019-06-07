@@ -15,16 +15,16 @@ class MovieController {
     //
     //MARK: - Methods
     //
-    func loadEnteredMovies() {
-        for movie in favoriteMoviesArray {
-            let unwrappedUserMovie = movie
-            favoriteMoviesArray.append(unwrappedUserMovie)
-        }
+    func loadEnteredMovie(movie: Movie) {
+        let unwrappedUserMovie = movie
+        favoriteMoviesArray.append(unwrappedUserMovie)
+        
     }
     func toggleSeenUnseen(for movie: Movie) {
         movie.hasSeen.toggle()
     }
-    init() {
-        loadEnteredMovies()
+    func deleteMovie(at position: Int) {
+        favoriteMoviesArray.remove(at: position)
     }
+ 
 }
