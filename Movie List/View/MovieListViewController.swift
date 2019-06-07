@@ -9,22 +9,25 @@
 import UIKit
 
 class MovieListViewController: UIViewController {
+    var movieController = MovieController()
     //
     // MARK: - Outlets
     //
     @IBOutlet weak var plusButton: UIBarButtonItem!
+    @IBOutlet weak var tableView: UITableView!
+    
     //
     // MARK: - Actions
     //
-    @IBAction func plusButtonTapped(_ sender: UIBarButtonItem) {
-    }
+   
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        tableView.delegate = self
+        tableView.dataSource = self
     }
     
 
@@ -38,4 +41,21 @@ class MovieListViewController: UIViewController {
     }
     */
 
+}
+
+extension MovieListViewController: UITableViewDelegate {
+    
+}
+extension MovieListViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return movieController.favoriteMoviesArray.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: <#T##IndexPath#>) as? MovieListTableViewCell else { return UITableViewCell() }
+        let movie = movieController.favoriteMoviesArray[indexPath.row]
+        
+    }
+    
+    
 }

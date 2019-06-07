@@ -9,7 +9,26 @@
 import UIKit
 
 class AddMovieViewController: UIViewController {
-
+ var movieController = MovieController()
+    //
+    // MARK: - Outlets
+    //
+    @IBOutlet weak var userMovieTextField: UITextField!
+    //
+    // MARK: - Actions
+    //
+    @IBAction func addMoveTapped(_ sender: UIButton) {
+        if userMovieTextField.text != "" {
+            guard let userMovieName = userMovieTextField.text else { return }
+            let userMovie = Movie(movieName: userMovieName)
+            movieController.loadEnteredMovies(for: userMovie)
+        }else {
+            //add alert
+        }
+    }
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
