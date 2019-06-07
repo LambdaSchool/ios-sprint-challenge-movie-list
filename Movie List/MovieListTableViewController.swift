@@ -13,6 +13,7 @@ class MovieListTableViewController: UITableViewController {
     @IBOutlet var movieListTableView: UITableView!
     
     var movieController = MovieController()
+    var movie: Movie?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +39,7 @@ class MovieListTableViewController: UITableViewController {
         let movie = movieController.movies[indexPath.row]
         
         cell.movie = movie
+        cell.movieLabel.text = movie.title
         return cell
     }
  

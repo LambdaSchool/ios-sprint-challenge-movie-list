@@ -26,7 +26,11 @@ class AddMovieViewController: UIViewController {
         guard let movieController = movieController,
             let unwrappedTextField = movieTextField.text else { return }
         
-        movieController.createMovie(title: unwrappedTextField)
+        if unwrappedTextField != "" {
+            movieController.createMovie(title: unwrappedTextField)
+        } else {
+            movieTextField.text = "Not a valid input"
+        }
         
         navigationController?.popViewController(animated: true)
     }

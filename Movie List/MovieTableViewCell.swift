@@ -13,17 +13,12 @@ class MovieTableViewCell: UITableViewCell {
     @IBOutlet weak var movieLabel: UILabel!
     @IBOutlet weak var seenButton: UIButton!
     
-    var tableController = MovieListTableViewController()
-    
+    var isSeen: Bool = false
     var movie: Movie?
     
     @IBAction func notSeenButtonTapped(_ sender: Any) {
-        if let unwrappedMovie = movie {
-            let seenStatus = unwrappedMovie.isSeen ? "Not Seen" : "Seen"
-            
-            seenButton.setTitle(seenStatus, for: .normal)
-            tableController.reloadInputViews()
-        }
+        isSeen.toggle()
+        seenButton.setTitle(isSeen ? "Not Seen" : "Seen", for: .normal)
     }
     
 }
