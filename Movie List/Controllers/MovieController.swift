@@ -16,6 +16,10 @@ class MovieController {
         movies.append(movie)
     }
     
+    func deleteMovie(at indexPath: IndexPath) {
+        movies.remove(at: indexPath.row)
+    }
+    
     func toggleIsSeen(for movie: Movie) {
         movie.isSeen.toggle()
     }
