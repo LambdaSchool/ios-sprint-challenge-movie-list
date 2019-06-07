@@ -18,6 +18,7 @@ class MovieController {
     func loadEnteredMovies(for movie: Movie) {
         guard let unwrappedUserMovie = userMovie else { return }
         favoriteMoviesArray.append(unwrappedUserMovie)
+        print("controller array \(favoriteMoviesArray)")
     }
     func toggleSeenUnseen(for movie: Movie) {
         movie.hasSeen.toggle()

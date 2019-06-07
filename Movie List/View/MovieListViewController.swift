@@ -29,20 +29,10 @@ class MovieListViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
-
+//
+// MARK: - Extensions
+//
 extension MovieListViewController: UITableViewDelegate {
     
 }
@@ -52,9 +42,19 @@ extension MovieListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: <#T##IndexPath#>) as? MovieListTableViewCell else { return UITableViewCell() }
-        let movie = movieController.favoriteMoviesArray[indexPath.row]
-        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as? MovieListTableViewCell else { return UITableViewCell() }
+        let movieCell = movieController.favoriteMoviesArray[indexPath.row]
+        cell.setMovie = movieCell
+        cell.delegate = self
+        return cell
+    }
+}
+extension MovieListViewController: MovieCellDelegate {
+    func seenUnseenButtonTapped(on cell: MovieListTableViewCell) {
+        guard let movie = cell.setMovie,
+            let indexPath = tableView.indexPath(for: cell) else { return }
+        movieController.toggleSeenUnseen(for: movie)
+        tableView.reloadRows(at: [indexPath], with: .fade)
     }
     
     

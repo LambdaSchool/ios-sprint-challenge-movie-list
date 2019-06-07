@@ -7,6 +7,13 @@
 //
 
 import UIKit
+//
+// MARK: - Protocols
+//
+protocol MovieCellDelegate: class {
+    func seenUnseenButtonTapped(on cell: MovieListTableViewCell)
+}
+
 
 class MovieListTableViewCell: UITableViewCell {
     //
@@ -15,9 +22,28 @@ class MovieListTableViewCell: UITableViewCell {
     @IBOutlet weak var movieListLabel: UILabel!
     @IBOutlet weak var seenUnseenButton: UIButton!
     //
+    // MARK: - Declerations
+    //
+    weak var delegate: MovieCellDelegate?
+    var setMovie: Movie? {
+        didSet {
+            updateViews()
+        }
+    }
+    //
     // MARK: - Actions
     //
-    
     @IBAction func seenUnseenButtonTapped(_ sender: UIButton) {
+        self.delegate?.seenUnseenButtonTapped(on: self)
+    }
+    //
+    // MARK: - Methods
+    //
+    func updateViews() {
+        guard let updatedMovie = setMovie else { return }
+        print("updateViews Running")
+        movieListLabel.text = updatedMovie.movieName
+        guard let seenUnseen = updatedMovie.hasSeen ? "seen" : "unseen" else { return }
+        seenUnseenButton.setTitle(seenUnseen, for: .normal)
     }
 }
