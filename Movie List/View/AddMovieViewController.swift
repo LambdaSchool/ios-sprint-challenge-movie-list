@@ -8,20 +8,17 @@
 
 import UIKit
 
-protocol AddMovieViewControllerDelegate: class {
-    func addMovie(to cell: MovieTableViewCell)
-    
-}
-
-class AddMovieViewController: UIViewController {
+class AddMovieViewController: UIViewController, MovieControllerDelegate {
+   
     
     // MARK: - Outlets and Properties
     @IBOutlet var movieTextInput: UITextField!
+    weak var delegate: MovieControllerDelegate?
     
     
-    weak var delegate: AddMovieViewControllerDelegate?
+    var newMovie: Movie?
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -30,34 +27,35 @@ class AddMovieViewController: UIViewController {
     
     // MARK: - IBActions
     @IBAction func addMovieTapped(_ sender: Any) {
-          
+        addMovie(movieToAppend: movieTextInput.text!)
+        self.navigationController?.popViewController(animated: true)
         
-        guard movieTextInput.text != nil else { return }
-
-        if let newMovie = movieTextInput.text {
-            let addedMovie = Movie(name: newMovie, seen: false)
-            MovieController().movies.append(addedMovie)
-        }
-        navigationController?.popToRootViewController(animated: true)
     }
     
+    func turnStringToMovie(nameOfMovie: String) {
+        if newMovie?.name != nil {
+            newMovie?.name = nameOfMovie
+            newMovie?.seen = false
+        }
+    }
     
+    func addMovie(movieToAppend: String) {
+        movieTextInput.text = movieToAppend
+        turnStringToMovie(nameOfMovie: movieToAppend)
+        newMovie = Movie(name: movieToAppend, seen: false)
+        MovieController().movies.append(newMovie!)
+        
+        
+    }
 
 
    
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "returnToList" {
-//            let moviesVC = segue.destination as! MoviesViewController
-//            moviesVC.callback = { newMovie in
-//                print(newMovie)
-//
-//            }
-//        }
+   
+    //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 //    }
- 
+// 
 
 }
 

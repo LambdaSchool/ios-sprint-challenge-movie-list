@@ -10,6 +10,7 @@ import UIKit
 
 protocol MovieTableViewCellDelegate: class {
     func seenButtonTapped(on cell: MovieTableViewCell)
+    func addMovie(on cell: MovieTableViewCell)
 }
 
 class MovieTableViewCell: UITableViewCell {
@@ -24,6 +25,7 @@ class MovieTableViewCell: UITableViewCell {
     var movie: Movie? {
         didSet {
             self.updateView()
+            
         }
     }
     
@@ -38,13 +40,16 @@ class MovieTableViewCell: UITableViewCell {
     
     // MARK: - Functions
     func updateView() {
-        guard let currentMovie = self.movie else { return }
-        self.movieNameLabel.text = currentMovie.name
+        movieNameLabel.text = movie?.name
+        print()
+//        guard let currentMovie = self.movie else { return }
+//        self.movieNameLabel.text = currentMovie.name
         if self.movie?.seen == true {
             seenButton.setTitle("Seen", for: .normal)
         } else {
             seenButton.setTitle("Not Seen", for: .normal)
         }
+        
         
     }
     

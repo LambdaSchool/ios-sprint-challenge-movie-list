@@ -8,7 +8,9 @@
 
 import UIKit
 
-class MoviesViewController: UIViewController, UITableViewDataSource, MovieTableViewCellDelegate, AddMovieViewControllerDelegate {
+class MoviesViewController: UIViewController, UITableViewDataSource, MovieTableViewCellDelegate {
+    
+    
     
     
     
@@ -20,7 +22,8 @@ class MoviesViewController: UIViewController, UITableViewDataSource, MovieTableV
     override func viewDidLoad() {
         super.viewDidLoad()
         self.movieTable.dataSource = self
-    
+        self.movieTable.reloadData()
+        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -47,9 +50,11 @@ class MoviesViewController: UIViewController, UITableViewDataSource, MovieTableV
         }
     }
     
-//    func displayMovie(sender: AddMovieViewController) {
-//        
-//    }
+    func addMovie(on cell: MovieTableViewCell) {
+        guard let index = movieTable.indexPath(for: cell.self) else { return }
+        print(movieController.movies)
+        self.movieTable.reloadRows(at: [index], with: UITableView.RowAnimation.left)
+    }
  
     func seenButtonTapped(on cell: MovieTableViewCell) {
         guard let movieSeen = cell.movie?.seen else { return }
@@ -66,9 +71,6 @@ class MoviesViewController: UIViewController, UITableViewDataSource, MovieTableV
         self.movieTable.reloadRows(at: [index], with: UITableView.RowAnimation.left)
     }
     
-    func addMovie(to cell: MovieTableViewCell) {
-        self.addMovie(to: MovieTableViewCell)
-    }
 
     /*
     // MARK: - Navigation
