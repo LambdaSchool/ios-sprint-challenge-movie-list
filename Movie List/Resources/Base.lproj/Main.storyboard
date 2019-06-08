@@ -29,32 +29,29 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="257" translatesAutoresizingMaskIntoConstraints="NO" id="PVh-dn-Jgq">
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="130" translatesAutoresizingMaskIntoConstraints="NO" id="UWH-C6-8oB">
                                                     <rect key="frame" x="15" y="10" width="345" height="30"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="752" text="movieNameLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1rJ-64-IYr">
-                                                            <rect key="frame" x="0.0" y="0.0" width="42" height="30"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="180" height="30"/>
                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="752" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="79N-rd-Ms2">
-                                                            <rect key="frame" x="299" y="0.0" width="46" height="30"/>
+                                                        <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" horizontalCompressionResistancePriority="752" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="79N-rd-Ms2">
+                                                            <rect key="frame" x="310" y="0.0" width="35" height="30"/>
                                                             <state key="normal" title="Seen"/>
                                                             <connections>
-                                                                <action selector="seenButtonTapped:" destination="k0I-Ix-11c" eventType="touchUpInside" id="rAC-3F-l0n"/>
+                                                                <action selector="seenButtonPressed:" destination="k0I-Ix-11c" eventType="touchUpInside" id="mh6-0l-knh"/>
                                                             </connections>
                                                         </button>
                                                     </subviews>
-                                                    <constraints>
-                                                        <constraint firstAttribute="trailing" secondItem="1rJ-64-IYr" secondAttribute="trailing" constant="303" id="W9i-4d-bJm"/>
-                                                    </constraints>
                                                 </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="PVh-dn-Jgq" secondAttribute="trailing" constant="15" id="6Sm-IN-7Te"/>
-                                                <constraint firstItem="PVh-dn-Jgq" firstAttribute="leading" secondItem="j0e-19-0wc" secondAttribute="leading" constant="15" id="9if-qz-XST"/>
-                                                <constraint firstItem="PVh-dn-Jgq" firstAttribute="top" secondItem="j0e-19-0wc" secondAttribute="top" constant="10" id="rw7-at-4a4"/>
+                                                <constraint firstItem="UWH-C6-8oB" firstAttribute="top" secondItem="j0e-19-0wc" secondAttribute="top" constant="10" id="5C0-P4-FbN"/>
+                                                <constraint firstAttribute="trailing" secondItem="UWH-C6-8oB" secondAttribute="trailing" constant="15" id="Nay-Ay-YFP"/>
+                                                <constraint firstItem="UWH-C6-8oB" firstAttribute="leading" secondItem="j0e-19-0wc" secondAttribute="leading" constant="15" id="QIg-RR-88m"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -77,7 +74,7 @@
                     <navigationItem key="navigationItem" title="Movie List" id="n6Z-nf-zwx">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="F3c-gG-YAe">
                             <connections>
-                                <segue destination="0Hw-SP-KaA" kind="show" id="3W0-CA-QAh"/>
+                                <segue destination="0Hw-SP-KaA" kind="show" identifier="addMovie" id="3W0-CA-QAh"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

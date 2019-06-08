@@ -11,16 +11,15 @@ import UIKit
 protocol MovieTableViewCellDelegate: class {
     func seenButtonTapped(on cell: MovieTableViewCell)
     func addMovie(on cell: MovieTableViewCell)
+    
 }
 
 class MovieTableViewCell: UITableViewCell {
-   
-    
-    
     
     // MARK: - Outlets and Properties
     @IBOutlet var movieNameLabel: UILabel!
     @IBOutlet var seenButton: UIButton!
+    
     
     var movie: Movie? {
         didSet {
@@ -33,22 +32,29 @@ class MovieTableViewCell: UITableViewCell {
     weak var delegate: MovieTableViewCellDelegate?
     
     // MARK: - IBActions
-    @IBAction func seenButtonTapped(_ sender: Any) {
+    @IBAction func seenButtonPressed(_ sender: Any) {
         delegate?.seenButtonTapped(on: self)
+        
     }
     
     
     // MARK: - Functions
     func updateView() {
-        movieNameLabel.text = movie?.name
-        print()
-//        guard let currentMovie = self.movie else { return }
-//        self.movieNameLabel.text = currentMovie.name
-        if self.movie?.seen == true {
-            seenButton.setTitle("Seen", for: .normal)
-        } else {
+        
+        guard let currentMovie = self.movie else { return }
+        
+        self.movieNameLabel.text = currentMovie.name
+        let seenStatus = movie?.seen
+        if seenStatus == false {
             seenButton.setTitle("Not Seen", for: .normal)
+        } else {
+            seenButton.setTitle("Seen", for: .normal)
         }
+//        if self.movie?.seen == false {
+//            seenButton.setTitle("Not Seen", for: .normal)
+//        } else {
+//            seenButton.setTitle("Seen", for: .normal)
+//        }
         
         
     }

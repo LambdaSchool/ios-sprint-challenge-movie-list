@@ -8,54 +8,33 @@
 
 import UIKit
 
-class AddMovieViewController: UIViewController, MovieControllerDelegate {
+class AddMovieViewController: UIViewController {
    
     
     // MARK: - Outlets and Properties
     @IBOutlet var movieTextInput: UITextField!
-    weak var delegate: MovieControllerDelegate?
+    var movieController: MovieController!
     
     
     var newMovie: Movie?
     
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        
-    }
-    
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//
+//
+//    }
+//
     // MARK: - IBActions
     @IBAction func addMovieTapped(_ sender: Any) {
-        addMovie(movieToAppend: movieTextInput.text!)
+        print(movieTextInput.text)
+        guard let movieName = movieTextInput.text else { return }
+        movieController.updateMovies(withName: movieName)
+
         self.navigationController?.popViewController(animated: true)
-        
     }
     
-    func turnStringToMovie(nameOfMovie: String) {
-        if newMovie?.name != nil {
-            newMovie?.name = nameOfMovie
-            newMovie?.seen = false
-        }
-    }
-    
-    func addMovie(movieToAppend: String) {
-        movieTextInput.text = movieToAppend
-        turnStringToMovie(nameOfMovie: movieToAppend)
-        newMovie = Movie(name: movieToAppend, seen: false)
-        MovieController().movies.append(newMovie!)
-        
-        
-    }
 
-
-   
-    // MARK: - Navigation
-
-   
-    //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//    }
-// 
 
 }
 
