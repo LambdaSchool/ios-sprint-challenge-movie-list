@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import UIKit
 
 class MovieController {
     
@@ -22,9 +22,9 @@ class MovieController {
     
     // A function is needed to toggle the seen button.
     func toggleSeen(for movie: Movie) {
-        let movieToggled = movie
-        var movieSeenStatus = movieToggled.seen
-            movieSeenStatus.toggle()
+        let index = movies.index(of: movie)!
+        
+        movies[index].seen.toggle()
     }
     
     func deleteMovie(movieToDelete: Movie) {

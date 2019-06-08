@@ -17,7 +17,6 @@ class MoviesViewController: UIViewController, UITableViewDataSource, MovieTableV
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//        loadList()
         self.movieTable.dataSource = self
         
     }
@@ -57,34 +56,11 @@ class MoviesViewController: UIViewController, UITableViewDataSource, MovieTableV
     }
  
     func seenButtonTapped(on cell: MovieTableViewCell) {
-        guard let movieSeen = cell.movie?.seen else { return }
-        
         guard let index = movieTable.indexPath(for: cell.self) else { return }
-        
-        if movieSeen == true {
-            movieController.toggleSeen(for: cell.movie!)
-        } else if movieSeen == false {
-            movieController.toggleSeen(for: cell.movie!)
-        } else {
-            return
-        }
+        movieController.toggleSeen(for: cell.movie!)
         self.movieTable.reloadRows(at: [index], with: UITableView.RowAnimation.fade)
     }
-    
-//    private func loadList() {
-//
-//        var indexPathsToReload = [IndexPath]()
-//
-//        for row in movieController.movies.indices {
-//                print(row)
-//            let indexPath = IndexPath(index: row)
-//                indexPathsToReload.append(indexPath)
-//            print(movieController.movies)
-//
-//        }
-//    }
-    
-
+ 
     
     // MARK: - Navigation
 
