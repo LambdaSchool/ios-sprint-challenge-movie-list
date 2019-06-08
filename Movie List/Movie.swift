@@ -8,8 +8,14 @@
 
 import Foundation
 
-struct Movie {
+class Movie {
     let name: String
-    var seen: Bool = false
+    var seen: Bool
+    
+    init(name: String, seen: Bool = false) {
+        self.name = name
+        self.seen = seen
+        
+    }
     
 }

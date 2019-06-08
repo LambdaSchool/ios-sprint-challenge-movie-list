@@ -8,19 +8,38 @@
 
 import UIKit
 
+
+protocol MovieListViewControlerDelegate: class {
+    func seenButton(for view: MovieListViewController)
+}
+
 class MovieListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    var movie: Movie? {
+        didSet {
+            updateViews()
+        }
+    }
     
     var movieList: [Movie] = []
     
+    weak var delegate: MovieListViewControlerDelegate?
+    
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var movieLabel: UILabel!
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return movieList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as? MovieListViewController else { return UITableViewCell() }
+        
+        let movie = movieList[indexPath.row]
+        
+        cell.movie = movie
+        
         return cell
     }
     
@@ -33,12 +52,27 @@ class MovieListViewController: UIViewController, UITableViewDelegate, UITableVie
         tableView.dataSource = self
     }
     
-    
+  
     @IBAction func seenButtonTapped(_ sender: Any) {
+        self.delegate?.seenButton(for: self)
     }
     
     @IBAction func addButtonTapped(_ sender: Any) {
     }
     
+    private func updateViews() {
+        guard let movie = movie else { return }
+        movieLabel.text = movie.name
+    }
+    
 
+}
+
+
+extension MovieListViewController: MovieListViewControlerDelegate {
+    func seenButton(for view: MovieListViewController) {
+        self.title = "Seen"
+    }
+    
+    
 }
