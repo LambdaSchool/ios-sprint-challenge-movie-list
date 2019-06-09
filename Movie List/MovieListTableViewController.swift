@@ -11,8 +11,8 @@ import UIKit
 class MovieListTableViewController: UITableViewController {
     
     @IBOutlet var movieListTableView: UITableView!
-    
     var movieController = MovieController()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

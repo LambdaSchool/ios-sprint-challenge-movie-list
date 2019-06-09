@@ -28,10 +28,9 @@ class AddMovieViewController: UIViewController {
         
         if unwrappedTextField != "" {
             movieController.createMovie(title: unwrappedTextField)
+            navigationController?.popViewController(animated: true)
         } else {
             movieTextField.text = "Not a valid input"
         }
-        
-        navigationController?.popViewController(animated: true)
     }
 }

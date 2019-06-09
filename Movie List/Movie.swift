@@ -10,8 +10,10 @@ import Foundation
 
 struct Movie {
     var title: String
+    var hasSeen: Bool
     
-    init(title: String) {
+    init(title: String, hasSeen: Bool = false) {
         self.title = title
+        self.hasSeen = hasSeen
     }
 }
