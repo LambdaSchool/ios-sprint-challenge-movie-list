@@ -9,7 +9,7 @@
 import Foundation
 
 
-struct Movie {
+class Movie {
     var moviesName: String
     var isSeen: Bool
     

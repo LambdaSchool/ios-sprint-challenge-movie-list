@@ -11,15 +11,15 @@ import Foundation
 class MovieController {
     
    var movies: [Movie] = []
-//
-//    func createMovies() {
-//        let newMovies = movies
-//        movies.append(<#T##newElement: Movie##Movie#>)
-//
-//    }
-//
+
+    func createMovies(moviesName: String) {
+        let newMovies = Movie(moviesName: moviesName)
+        movies.append(newMovies)
+
+    }
+
 //    func deleteMovies() {
 //        movies.remove(at: <#T##Int#>)
 //    }
-//
+
 }
