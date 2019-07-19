@@ -9,11 +9,19 @@
 import UIKit
 
 class MovieListTableVC: UITableViewController {
+	var movies = [Movie]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 		
     }
+	
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		if let addMovieVC = segue.destination as? AddMovieVC {
+			addMovieVC.delegate = self
+		}
+		
+	}
 	
 	@IBAction func addMovieAction(_ sender: Any) {
 		
@@ -21,20 +29,16 @@ class MovieListTableVC: UITableViewController {
 	
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return movies.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+		guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as? MovieCell else {return UITableViewCell()}
+		let movie = movies[indexPath.row]
 
-        // Configure the cell...
+		cell.titleLbl.text = movie.title
 
         return cell
     }
@@ -59,4 +63,12 @@ class MovieListTableVC: UITableViewController {
     }
     */
 
+}
+
+extension MovieListTableVC: AddMovieVCDelegate {
+	func addedNew(movie: Movie) {
+		movies.append(movie)
+		dismiss(animated: true, completion: nil)
+		tableView.reloadData()
+	}
 }

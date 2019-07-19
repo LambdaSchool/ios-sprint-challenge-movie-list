@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="e1Y-YL-iRV">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="L6d-fF-dZR" customClass="MovieCell" customModule="Movie_List" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieCell" id="L6d-fF-dZR" customClass="MovieCell" customModule="Movie_List" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="L6d-fF-dZR" id="tzA-ue-Fei">
@@ -39,7 +39,7 @@
                                                     <rect key="frame" x="274.5" y="0.0" width="68.5" height="22"/>
                                                     <state key="normal" title="UnSeen"/>
                                                     <connections>
-                                                        <action selector="SeenBtnAction:" destination="L6d-fF-dZR" eventType="touchUpInside" id="nc2-0T-xX1"/>
+                                                        <action selector="SeenBtnAction:" destination="L6d-fF-dZR" eventType="touchUpInside" id="koZ-k8-fvG"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -56,20 +56,21 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="seenBtn" destination="2Bs-E6-h57" id="Iv5-jt-I6n"/>
                                     <outlet property="titleLbl" destination="dB1-zt-qYO" id="Kac-tT-VfU"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="VJC-Th-goX" id="EoD-Yo-L3N"/>
-                            <outlet property="delegate" destination="VJC-Th-goX" id="wfk-qp-Vcv"/>
+                            <outlet property="dataSource" destination="VJC-Th-goX" id="ob4-tL-elz"/>
+                            <outlet property="delegate" destination="VJC-Th-goX" id="T7f-sD-jxP"/>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Movie List" id="xwH-jo-KBX">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="vP8-UV-X4i">
                             <connections>
-                                <action selector="addMovieAction:" destination="VJC-Th-goX" id="tVm-Tz-rH1"/>
-                                <segue destination="slu-9K-ALq" kind="show" id="WXx-vD-mno"/>
+                                <action selector="addMovieAction:" destination="VJC-Th-goX" id="cMN-7z-f2A"/>
+                                <segue destination="slu-9K-ALq" kind="presentation" id="WXx-vD-mno"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -87,7 +88,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="KEZ-Vv-Wyf">
-                                <rect key="frame" x="19" y="84" width="337.5" height="126"/>
+                                <rect key="frame" x="19" y="40" width="337.5" height="126"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a new movie to the list" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="XrC-nL-qy5">
                                         <rect key="frame" x="0.0" y="0.0" width="337.5" height="36"/>

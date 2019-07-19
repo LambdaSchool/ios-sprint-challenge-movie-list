@@ -11,6 +11,7 @@ import UIKit
 class MovieCell: UITableViewCell {
 
 	@IBOutlet weak var titleLbl: UILabel!
+	@IBOutlet weak var seenBtn: UIButton!
 	
 	@IBAction func SeenBtnAction(_ sender: UIButton) {
 	}
