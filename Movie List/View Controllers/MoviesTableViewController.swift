@@ -30,5 +30,12 @@ extension MoviesTableViewController: UITableViewDataSource {
         return cell
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "AddMovie" {
+            if let addMovieVC = segue.destination as? AddMovieViewController {
+                addMovieVC.delegate = self
+            }
+        }
+    }
     
 }
