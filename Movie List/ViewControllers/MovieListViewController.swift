@@ -50,10 +50,3 @@ extension MovieListViewController: AddMovieDelegate {
 	
 }
 
-//
-//else if segue.identifier == "ShowMovieDetailSegue" {
-//	if let indexPath = tableView.indexPathForSelectedRow,
-//		let movieDetailVC = segue.destination as? MovieDetailViewController {
-//		movieDetailVC.movie = movies[indexPath.row]
-//	}
-//}

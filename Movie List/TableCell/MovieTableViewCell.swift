@@ -26,7 +26,12 @@ class MovieTableViewCell: UITableViewCell {
 	private func updateViews() {
 		guard let movie = movie else { return }
 		
-		movieTitleLabel.text = "\(movie.title)"
+		var moviesText = ""
+		for movie in movie.title {
+			moviesText += "\(movie)"
+		}
+		
+		movieTitleLabel.text = moviesText
 	}
 	
 }
