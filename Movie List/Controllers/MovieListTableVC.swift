@@ -9,7 +9,7 @@
 import UIKit
 
 class MovieListTableVC: UITableViewController {
-	var movies = [Movie]()
+	private var movies = [Movie]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,10 +20,6 @@ class MovieListTableVC: UITableViewController {
 		if let addMovieVC = segue.destination as? AddMovieVC {
 			addMovieVC.delegate = self
 		}
-		
-	}
-	
-	@IBAction func addMovieAction(_ sender: Any) {
 		
 	}
 	
@@ -38,7 +34,8 @@ class MovieListTableVC: UITableViewController {
 		guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as? MovieCell else {return UITableViewCell()}
 		let movie = movies[indexPath.row]
 
-		cell.titleLbl.text = movie.title
+		cell.delegate = self
+		cell.configCellWith(movie: movie, indexPath: indexPath)
 
         return cell
     }
@@ -65,10 +62,21 @@ class MovieListTableVC: UITableViewController {
 
 }
 
+//MARK: - Add Movie Delegate
+
 extension MovieListTableVC: AddMovieVCDelegate {
 	func addedNew(movie: Movie) {
 		movies.append(movie)
 		dismiss(animated: true, completion: nil)
+		tableView.reloadData()
+	}
+}
+
+//MARK: - Movie Cell Delegate
+
+extension MovieListTableVC: MovieCellDelegate {
+	func toogleIsSeen(movie: Movie, listIndex: Int) {
+		movies[listIndex].isSeen.toggle()
 		tableView.reloadData()
 	}
 }
