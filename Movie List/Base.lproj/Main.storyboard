@@ -30,23 +30,28 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XRg-gK-FlZ">
-                                                    <rect key="frame" x="305" y="3" width="64" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XRg-gK-FlZ">
+                                                    <rect key="frame" x="291" y="7" width="64" height="30"/>
                                                     <state key="normal" title="Not Seen"/>
                                                     <connections>
                                                         <action selector="notSeenSwitch:" destination="uml-Gg-gHm" eventType="touchUpInside" id="Z2E-qu-2c1"/>
                                                         <action selector="notSeenSwitch:" destination="Q8Y-wg-gZG" eventType="touchUpInside" id="x9a-wR-4tJ"/>
                                                     </connections>
                                                 </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Movie" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wdv-hk-jaX">
-                                                    <rect key="frame" x="44" y="7" width="46" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wdv-hk-jaX">
+                                                    <rect key="frame" x="35" y="11.5" width="46" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="XRg-gK-FlZ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Wdv-hk-jaX" secondAttribute="trailing" constant="8" id="6ce-uh-Teh"/>
+                                                <constraint firstAttribute="trailing" secondItem="XRg-gK-FlZ" secondAttribute="trailing" constant="20" id="Rbl-xa-Dx4"/>
+                                                <constraint firstItem="Wdv-hk-jaX" firstAttribute="centerY" secondItem="YsR-P6-ksw" secondAttribute="centerY" id="c7I-A7-IKh"/>
+                                                <constraint firstItem="XRg-gK-FlZ" firstAttribute="centerY" secondItem="YsR-P6-ksw" secondAttribute="centerY" id="sCy-0z-9QN"/>
+                                                <constraint firstItem="Wdv-hk-jaX" firstAttribute="leading" secondItem="YsR-P6-ksw" secondAttribute="leadingMargin" constant="20" id="tNC-w0-HZS"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="movieTitleLabel" destination="Wdv-hk-jaX" id="gVX-oE-Vbn"/>
@@ -102,30 +107,36 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HVX-Km-Q3M">
-                                <rect key="frame" x="139" y="98" width="97" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HVX-Km-Q3M">
+                                <rect key="frame" x="20" y="57" width="335" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qFR-IC-LXA">
-                                <rect key="frame" x="153" y="154" width="73" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qFR-IC-LXA">
+                                <rect key="frame" x="151" y="95" width="73" height="30"/>
                                 <state key="normal" title="Add Movie"/>
                                 <connections>
                                     <action selector="addMovieTapped:" destination="qTx-t3-fc1" eventType="touchUpInside" id="Lqq-IM-EPP"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Add a new movie to the list" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9jl-g7-oAe">
-                                <rect key="frame" x="84" y="31" width="206" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a new movie to the list" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9jl-g7-oAe">
+                                <rect key="frame" x="84.5" y="28" width="206" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="HVX-Km-Q3M" firstAttribute="top" secondItem="9jl-g7-oAe" secondAttribute="bottom" constant="8" id="An6-AI-5EA"/>
+                            <constraint firstItem="kAh-cT-WC0" firstAttribute="trailing" secondItem="HVX-Km-Q3M" secondAttribute="trailing" constant="20" id="FY8-kM-I3H"/>
+                            <constraint firstItem="9jl-g7-oAe" firstAttribute="centerX" secondItem="PSE-j8-nyN" secondAttribute="centerX" id="Zck-3B-5Ka"/>
+                            <constraint firstItem="qFR-IC-LXA" firstAttribute="centerX" secondItem="PSE-j8-nyN" secondAttribute="centerX" id="agn-L4-0if"/>
+                            <constraint firstItem="9jl-g7-oAe" firstAttribute="top" secondItem="kAh-cT-WC0" secondAttribute="top" constant="8" id="e5L-V1-wD6"/>
+                            <constraint firstItem="HVX-Km-Q3M" firstAttribute="leading" secondItem="kAh-cT-WC0" secondAttribute="leading" constant="20" id="mzC-My-HnC"/>
+                            <constraint firstItem="qFR-IC-LXA" firstAttribute="top" secondItem="HVX-Km-Q3M" secondAttribute="bottom" constant="8" id="vr9-at-kAK"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="kAh-cT-WC0"/>
                     </view>
                     <connections>
