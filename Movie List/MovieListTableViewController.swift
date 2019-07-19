@@ -12,7 +12,7 @@ class MovieListTableViewController: UITableViewController {
     
     @IBOutlet var movieListTableView: UITableView!
     var movieController = MovieController()
-    var indexPathRef: Int = 0
+//    var indexPathRef: IndexPath = IndexPath
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +36,6 @@ class MovieListTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as? MovieTableViewCell else { return UITableViewCell() }
         let movie = movieController.movies[indexPath.row]
-        indexPathRef = indexPath.row
         cell.delegate = self
         cell.movie = movie
         cell.movieLabel.text = movie.title
@@ -70,13 +69,15 @@ class MovieListTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let destinationVC = segue.destination as? AddMovieViewController else { return }
         destinationVC.movieController = movieController
+//        indexPathRef = self.tableView.indexPathForSelectedRow
     }
 
 }
 
 extension MovieListTableViewController: SeenDelegate {
     func seenButtonWasTapped() {
-        movieController.movies[indexPathRef].hasSeen = !movieController.movies[indexPathRef].hasSeen
+        guard let  indexPath = self.tableView.indexPathForSelectedRow else { return }
+        movieController.movies[indexPath.row].hasSeen = !movieController.movies[indexPath.row].hasSeen
     }
     
     
