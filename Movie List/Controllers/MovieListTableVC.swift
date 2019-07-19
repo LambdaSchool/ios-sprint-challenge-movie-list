@@ -10,15 +10,23 @@ import UIKit
 
 class MovieListTableVC: UITableViewController {
 	private var movies = [Movie]()
+	private var moviePath: (movie: Movie, indexPath: IndexPath)?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 		
     }
 	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		
+		moviePath = nil
+	}
+	
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-		if let addMovieVC = segue.destination as? AddMovieVC {
+		if let addMovieVC = segue.destination as? ManageMovieVC {
 			addMovieVC.delegate = self
+			addMovieVC.moviePath = moviePath
 		}
 		
 	}
@@ -39,34 +47,37 @@ class MovieListTableVC: UITableViewController {
 
         return cell
     }
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
+	
+	override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+		let edit = UIContextualAction(style: .normal, title: "Edit") { (action, view, nil) in
+			self.moviePath = (self.movies[indexPath.row], indexPath)
+			self.performSegue(withIdentifier: "AddMovieSegue", sender: nil)
+		}
+		
+		edit.backgroundColor = #colorLiteral(red: 0.7254902124, green: 0.4784313738, blue: 0.09803921729, alpha: 1)
+		
+		return UISwipeActionsConfiguration(actions: [edit])
+	}
+	
+	override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+		let delete = UIContextualAction(style: .destructive, title: "Delete") { (action, view, nil) in
+			print("delete")
+		}
+		
+		return UISwipeActionsConfiguration(actions: [delete])
+	}
 
 }
 
 //MARK: - Add Movie Delegate
 
-extension MovieListTableVC: AddMovieVCDelegate {
-	func addedNew(movie: Movie) {
-		movies.append(movie)
+extension MovieListTableVC: ManageMovieVCDelegate {
+	func update(movie: Movie, listIndex: Int?) {
+		if let index = listIndex {
+			movies[index] = movie
+		} else {
+			movies.append(movie)
+		}
 		dismiss(animated: true, completion: nil)
 		tableView.reloadData()
 	}

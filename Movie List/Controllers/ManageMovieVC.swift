@@ -1,5 +1,5 @@
 //
-//  AddMovieVC.swift
+//  ManageMovieVC.swift
 //  Movie List
 //
 //  Created by Jeffrey Santana on 7/19/19.
@@ -8,23 +8,29 @@
 
 import UIKit
 
-protocol AddMovieVCDelegate {
-	func addedNew(movie: Movie)
+protocol ManageMovieVCDelegate {
+	func update(movie: Movie, listIndex: Int?)
 }
 
-class AddMovieVC: UIViewController {
+class ManageMovieVC: UIViewController {
 
 	@IBOutlet weak var titleTextfield: UITextField!
+	@IBOutlet weak var seenSwitch: UISwitch!
 	
-	var delegate: AddMovieVCDelegate?
+	var delegate: ManageMovieVCDelegate?
+	var moviePath: (movie: Movie, indexPath: IndexPath)?
+	var isEditMode: Bool {
+		return moviePath != nil
+	}
 	
 	override func viewDidLoad() {
         super.viewDidLoad()
 
         titleTextfield.becomeFirstResponder()
+		configToEdit()
     }
 	
-	@IBAction func addMovieBtnAction(_ sender: Any) {
+	@IBAction func manageMovieBtnAction(_ sender: Any) {
 		guard let title = titleTextfield.optionalText else {
 			let alert = UIAlertController(title: "Missing Content", message: "Please enter a movie title.", preferredStyle: .alert)
 			
@@ -33,9 +39,15 @@ class AddMovieVC: UIViewController {
 			present(alert, animated: true, completion: nil)
 			return
 		}
-		let newMovie = Movie(title: title, isSeen: false)
+		let movie = Movie(title: title, isSeen: seenSwitch.isOn)
 		
-		delegate?.addedNew(movie: newMovie)
+		delegate?.update(movie: movie, listIndex: moviePath?.indexPath.row)
+	}
+	
+	private func configToEdit() {
+		guard let movie = moviePath?.movie else {return}
+		titleTextfield.text = movie.title
+		seenSwitch.isOn = movie.isSeen
 	}
 	
 }

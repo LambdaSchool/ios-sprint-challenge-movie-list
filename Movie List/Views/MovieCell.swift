@@ -30,7 +30,9 @@ class MovieCell: UITableViewCell {
 		self.movie = movie
 		self.indexPath = indexPath
 		
+		let btnTitle = movie.isSeen ? "Seen" : "UnSeen"
+		
 		titleLbl.text = movie.title
-		seenBtn.titleLabel?.text = movie.isSeen ? "Seen" : "UnSeen"
+		seenBtn.setTitle(btnTitle, for: .normal)
 	}
 }

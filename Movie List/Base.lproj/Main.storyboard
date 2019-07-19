@@ -69,7 +69,7 @@
                     <navigationItem key="navigationItem" title="Movie List" id="xwH-jo-KBX">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="vP8-UV-X4i">
                             <connections>
-                                <segue destination="slu-9K-ALq" kind="presentation" id="WXx-vD-mno"/>
+                                <segue destination="slu-9K-ALq" kind="presentation" identifier="AddMovieSegue" id="WXx-vD-mno"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -78,16 +78,16 @@
             </objects>
             <point key="canvasLocation" x="1424.8" y="-211.84407796101951"/>
         </scene>
-        <!--Add MovieVC-->
+        <!--Manage MovieVC-->
         <scene sceneID="Vxv-pF-GUn">
             <objects>
-                <viewController id="slu-9K-ALq" customClass="AddMovieVC" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="slu-9K-ALq" customClass="ManageMovieVC" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Csw-cr-1KS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="KEZ-Vv-Wyf">
-                                <rect key="frame" x="19" y="40" width="337.5" height="126"/>
+                                <rect key="frame" x="19" y="40" width="337.5" height="172"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a new movie to the list" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="XrC-nL-qy5">
                                         <rect key="frame" x="0.0" y="0.0" width="337.5" height="36"/>
@@ -101,11 +101,26 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Fwe-gR-fFe">
+                                        <rect key="frame" x="0.0" y="96" width="337.5" height="31"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Have you seen this movie yet?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4ZM-3B-FRC">
+                                                <rect key="frame" x="0.0" y="0.0" width="273.5" height="31"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="DM8-ZT-X3u">
+                                                <rect key="frame" x="288.5" y="0.0" width="51" height="31"/>
+                                                <color key="onTintColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </switch>
+                                        </subviews>
+                                    </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZMp-6A-VSt">
-                                        <rect key="frame" x="0.0" y="96" width="337.5" height="30"/>
+                                        <rect key="frame" x="0.0" y="142" width="337.5" height="30"/>
                                         <state key="normal" title="Add Movie"/>
                                         <connections>
-                                            <action selector="addMovieBtnAction:" destination="slu-9K-ALq" eventType="touchUpInside" id="fC5-lL-jdu"/>
+                                            <action selector="manageMovieBtnAction:" destination="slu-9K-ALq" eventType="touchUpInside" id="fC5-lL-jdu"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -120,6 +135,7 @@
                         <viewLayoutGuide key="safeArea" id="enP-aH-7yV"/>
                     </view>
                     <connections>
+                        <outlet property="seenSwitch" destination="DM8-ZT-X3u" id="0DU-PH-ypd"/>
                         <outlet property="titleTextfield" destination="Fnm-vh-opf" id="wvl-vc-dSP"/>
                     </connections>
                 </viewController>
