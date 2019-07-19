@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Movie Detail View Controller-->
         <scene sceneID="3iq-g9-HiG">
             <objects>
-                <viewController id="kkV-iQ-gK7" sceneMemberID="viewController">
+                <viewController id="kkV-iQ-gK7" customClass="MovieDetailViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JmM-nV-PCA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -44,6 +44,9 @@
                                                 </button>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="wai-xi-5yL" kind="show" identifier="ShowMovieDetailSegue" id="jWa-w4-1JZ"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -54,7 +57,7 @@
                     <navigationItem key="navigationItem" id="YhC-LZ-TUY">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="EaB-n1-qSQ">
                             <connections>
-                                <segue destination="qTx-t3-fc1" kind="presentation" identifier="Add" id="srM-LY-nbH"/>
+                                <segue destination="qTx-t3-fc1" kind="presentation" identifier="AddMovieModalSegue" id="srM-LY-nbH"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -63,10 +66,10 @@
             </objects>
             <point key="canvasLocation" x="912.79999999999995" y="169.56521739130437"/>
         </scene>
-        <!--View Controller-->
+        <!--Movie Detail View Controller-->
         <scene sceneID="1Wr-do-roh">
             <objects>
-                <viewController id="wai-xi-5yL" sceneMemberID="viewController">
+                <viewController id="wai-xi-5yL" customClass="MovieDetailViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gtZ-zT-pqy">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -78,10 +81,10 @@
             </objects>
             <point key="canvasLocation" x="1816.8" y="684.10794602698661"/>
         </scene>
-        <!--View Controller-->
+        <!--Add Movie View Controller-->
         <scene sceneID="fvr-hh-0hp">
             <objects>
-                <viewController id="qTx-t3-fc1" sceneMemberID="viewController">
+                <viewController id="qTx-t3-fc1" customClass="AddMovieViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PSE-j8-nyN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
