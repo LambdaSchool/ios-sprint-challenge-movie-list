@@ -13,7 +13,17 @@ class MovieTableViewCell: UITableViewCell {
     @IBOutlet weak var movieName: UILabel!
     @IBOutlet weak var isSeen: UILabel!
     
+    var movie: Movie? {
+        didSet {
+            updateViews()
+        }
+    }
     
+    private func updateViews() {
+        guard let movie = movie else {return}
+        
+        movieName.text = movie.name
+    }
   
-
 }
+
