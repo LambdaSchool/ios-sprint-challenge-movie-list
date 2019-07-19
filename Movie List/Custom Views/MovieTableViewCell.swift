@@ -10,7 +10,7 @@ import UIKit
 
 class MovieTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var movieName: UILabel!
+    @IBOutlet weak var movieNameLabel: UILabel!
     @IBOutlet weak var isSeen: UILabel!
     
     var movie: Movie? {
@@ -22,7 +22,7 @@ class MovieTableViewCell: UITableViewCell {
     private func updateViews() {
         guard let movie = movie else {return}
         
-        movieName.text = movie.name
+        movieNameLabel.text = movie.name
     }
   
 }
