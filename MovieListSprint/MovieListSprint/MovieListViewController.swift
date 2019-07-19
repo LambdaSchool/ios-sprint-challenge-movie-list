@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class MovieListViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
@@ -19,7 +20,16 @@ class MovieListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
         // Do any additional setup after loading the view.
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "AddMovieModalSegue" {
+            if let addMovieVC = segue.destination as? AddMovieViewController {
+                addMovieVC.delegate = self
+            }
+        }
     }
     
 
@@ -34,16 +44,29 @@ class MovieListViewController: UIViewController {
     */
 
 }
+
 extension MovieListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieListCell", for: indexPath) as? MovieListTableViewCell else { return UITableViewCell()}
-        let MovieList = movieList[indexPath.row]
-        cell.MovieList = MovieList
+        let movies = movieList[indexPath.row]
+        cell.Movie = movies
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return movieList.count
+    }
+    
+
+}
+
+
+extension MovieListViewController: AddMovieDelegate {
+    
+    func movieWasAdded( movie: Movie) {
+        movieList.append(movie)
+        dismiss(animated: true, completion: nil)
+        tableView.reloadData()
     }
 }
 
