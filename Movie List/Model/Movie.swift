@@ -9,7 +9,7 @@
 import Foundation
 
 
-struct Moive {
+struct Movie {
     var name: String
     var hasSeen: Bool = false
     
