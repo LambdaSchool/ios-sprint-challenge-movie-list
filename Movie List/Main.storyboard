@@ -74,10 +74,10 @@
             </objects>
             <point key="canvasLocation" x="1205.7971014492755" y="248.4375"/>
         </scene>
-        <!--View Controller-->
+        <!--Add Movie View Controller-->
         <scene sceneID="TVU-RT-pur">
             <objects>
-                <viewController id="Etj-0G-7em" sceneMemberID="viewController">
+                <viewController id="Etj-0G-7em" customClass="AddMovieViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NdD-Y9-Y05">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -93,22 +93,31 @@
                                 <rect key="frame" x="316" y="262" width="56" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Add"/>
+                                <connections>
+                                    <action selector="addMovie:" destination="Etj-0G-7em" eventType="touchUpInside" id="fDM-eC-kty"/>
+                                </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Add a movie:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fF4-Xr-5Z4">
-                                <rect key="frame" x="130" y="219" width="99" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Add a movie:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fF4-Xr-5Z4">
+                                <rect key="frame" x="141" y="239" width="99" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="fF4-Xr-5Z4" firstAttribute="centerY" secondItem="NdD-Y9-Y05" secondAttribute="centerY" id="Sh6-gh-0oq"/>
+                            <constraint firstItem="fF4-Xr-5Z4" firstAttribute="centerX" secondItem="NdD-Y9-Y05" secondAttribute="centerX" id="gBs-ad-5Kb"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="ZqD-fs-oci"/>
                     </view>
+                    <connections>
+                        <outlet property="textField" destination="l9d-vA-AIi" id="BLS-EI-jWI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v8K-Gd-wWi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2051" y="267"/>
+            <point key="canvasLocation" x="1997" y="248"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="biV-vt-f76">
