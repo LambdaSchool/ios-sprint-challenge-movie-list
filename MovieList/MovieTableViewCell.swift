@@ -9,7 +9,7 @@
 import UIKit
 import SwipeCellKit
 
-class MovieTableViewCell: UITableViewCell, SwipeTableViewCell {
+class MovieTableViewCell: SwipeTableViewCell {
     var movie : Movie? {
         didSet{
             updateView()

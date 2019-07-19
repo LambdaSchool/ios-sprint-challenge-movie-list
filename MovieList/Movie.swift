@@ -7,7 +7,9 @@
 //
 
 import Foundation
-struct Movie {
-    let name : String
-    var haveSeen : Bool
+import RealmSwift
+class Movie : Object{
+    @objc dynamic var name : String = ""
+    
+    @objc dynamic var haveSeen : Bool = false
 }

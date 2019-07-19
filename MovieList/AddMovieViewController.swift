@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import RealmSwift
+
 protocol AddMovieDelegate {
     func newMovieAdded(movie: Movie)
 }
@@ -26,7 +28,8 @@ class AddMovieViewController: UIViewController {
 
     @IBAction func addMovieTapped(_ sender: Any) {
         if let movie = movieTextfield.text, !movie.isEmpty {
-            let newMovie = Movie(name: movie, haveSeen: false)
+            let newMovie = Movie()
+            newMovie.name = movie
             delegate?.newMovieAdded(movie: newMovie)
             
             
