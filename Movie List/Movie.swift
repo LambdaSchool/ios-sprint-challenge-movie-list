@@ -8,8 +8,8 @@
 
 import Foundation
 
-struct  AMovie {
-    let TheMovieName: String
+struct  Movie {
+    let TheMoviesName: String
     var HasBeenSeen: Bool
     var HasnotBeenSeen: Bool
 }
