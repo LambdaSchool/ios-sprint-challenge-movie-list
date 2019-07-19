@@ -23,7 +23,6 @@ class AddMovieViewController: UIViewController {
     @IBAction func addMovieButtonTapped(_ sender: Any) {
         guard let movie = enterMovieTextField.text else { return }
         
-        var movie = 
         
     }
 }
