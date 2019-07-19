@@ -31,5 +31,19 @@ class AddMovieViewController: UIViewController {
 		
 	}
 	
+	@IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
+		movieTextField.resignFirstResponder()
+	}
 
+}
+
+extension AddMovieViewController: UITextFieldDelegate {
+	
+	func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+		if let text = textField.text,
+			!text.isEmpty {
+			movieTextField.becomeFirstResponder()
+		}
+		return false
+	}
 }

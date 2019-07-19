@@ -9,7 +9,24 @@
 import UIKit
 
 class MovieTableViewCell: UITableViewCell {
+	
 
-
+	@IBOutlet weak var movieTitleLabel: UILabel!
+	
+	@IBAction func notSeenSwitch(_ sender: UIButton) {
+	}
+	
+	var movie: Movie? {
+		didSet {
+			updateViews()
+		}
+	}
+	
+	private func updateViews() {
+		guard let movie = movie else { return }
+		
+		movieTitleLabel.text = "\(movie.title)"
+	}
+	
 }
 

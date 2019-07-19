@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Lea-9m-CF4">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -23,7 +23,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="uml-Gg-gHm">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieCell" id="uml-Gg-gHm" customClass="MovieTableViewCell" customModule="Movie_List" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uml-Gg-gHm" id="YsR-P6-ksw" customClass="MovieTableViewCell" customModule="Movie_List" customModuleProvider="target">
@@ -34,9 +34,13 @@
                                                     <rect key="frame" x="305" y="3" width="64" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" title="Not Seen"/>
+                                                    <connections>
+                                                        <action selector="notSeenSwitch:" destination="uml-Gg-gHm" eventType="touchUpInside" id="Z2E-qu-2c1"/>
+                                                        <action selector="notSeenSwitch:" destination="Q8Y-wg-gZG" eventType="touchUpInside" id="x9a-wR-4tJ"/>
+                                                    </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Movie" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wdv-hk-jaX">
-                                                    <rect key="frame" x="32" y="0.0" width="46" height="21"/>
+                                                    <rect key="frame" x="44" y="7" width="46" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -45,6 +49,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="movieTitleLabel" destination="Wdv-hk-jaX" id="gVX-oE-Vbn"/>
                                             <segue destination="wai-xi-5yL" kind="show" identifier="ShowMovieDetailSegue" id="jWa-w4-1JZ"/>
                                         </connections>
                                     </tableViewCell>
@@ -70,6 +75,7 @@
                     <navigationItem key="navigationItem" id="YhC-LZ-TUY"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kCE-ar-sqI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Q8Y-wg-gZG" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="912.79999999999995" y="169.56521739130437"/>
         </scene>
@@ -127,6 +133,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jns-pT-MFb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="pk8-ry-pRu">
+                    <connections>
+                        <action selector="dismissKeyboard:" destination="qTx-t3-fc1" id="AhF-IB-GOo"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1762.4000000000001" y="-207.34632683658174"/>
         </scene>

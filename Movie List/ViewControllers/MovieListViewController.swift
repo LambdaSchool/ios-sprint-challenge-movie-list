@@ -23,7 +23,7 @@ extension MovieListViewController: UITableViewDataSource {
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		guard let cell = tableView.dequeueReusableCell(withIdentifier: "AddMovieModalSegue", for: indexPath) as? AddMovieViewController else { return UITableViewCell() }
+		guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as? MovieTableViewCell else { return UITableViewCell() }
 		
 		let movie = movies[indexPath.row]
 		cell.movie = movie
@@ -36,15 +36,24 @@ extension MovieListViewController: UITableViewDataSource {
 			if let addMovieVC = segue.destination as? AddMovieViewController {
 				addMovieVC.delegate = self
 				}
-		} else if segue.identifier == "ShowMovieDetailSegue" {
-			if let indexPath = tableView.indexPathForSelectedRow,
-				let movieDetailVC = segue.destination as? MovieDetailViewController {
-				movieDetailVC.movie = movies[indexPath.row]
 			}
-		}
 	}
 }
 
-extension AddMovieViewController: AddMovieDelegate {
+extension MovieListViewController: AddMovieDelegate {
+	func movieWasAdded(_ movie: Movie) {
+		movies.append(movie)
+		dismiss(animated: true, completion: nil)
+		tableView.reloadData()
+	}
+	
 	
 }
+
+//
+//else if segue.identifier == "ShowMovieDetailSegue" {
+//	if let indexPath = tableView.indexPathForSelectedRow,
+//		let movieDetailVC = segue.destination as? MovieDetailViewController {
+//		movieDetailVC.movie = movies[indexPath.row]
+//	}
+//}
