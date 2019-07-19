@@ -33,6 +33,9 @@
                                                     <rect key="frame" x="294" y="10.5" width="67" height="22.5"/>
                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="10"/>
                                                     <state key="normal" title="SeenNotSeen"/>
+                                                    <connections>
+                                                        <action selector="seenButtonTapped:" destination="MLj-Jk-SeF" eventType="touchUpInside" id="G1F-z5-BU4"/>
+                                                    </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Movie" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ixK-yv-ULe">
                                                     <rect key="frame" x="15" y="12" width="49" height="21"/>
@@ -51,8 +54,15 @@
                                                 <constraint firstItem="nUE-de-SP6" firstAttribute="centerY" secondItem="Nvj-mS-efQ" secondAttribute="centerY" id="uoM-H0-Rqg"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="movieLabel" destination="ixK-yv-ULe" id="4RY-eo-2Uv"/>
+                                            <outlet property="seenButton" destination="nUE-de-SP6" id="KYH-pu-KJp"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="X2Q-2g-M0O" id="p7X-eO-Sqf"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -67,7 +77,7 @@
                     <navigationItem key="navigationItem" title="Movie List" id="zNi-EX-Oye">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="6sn-N3-x4u">
                             <connections>
-                                <segue destination="Q6i-q0-Nui" kind="presentation" identifier="AddMovieModalSegue" id="UEP-N8-y0H"/>
+                                <segue destination="Q6i-q0-Nui" kind="show" identifier="AddMovieModalSegue" id="UEP-N8-y0H"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -88,14 +98,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Movie Title Here:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8nb-yQ-oxB">
-                                <rect key="frame" x="16" y="153" width="343" height="30"/>
+                                <rect key="frame" x="16" y="197" width="343" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Q6i-q0-Nui" id="Iik-5e-nJw"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0gV-fX-fmI">
-                                <rect key="frame" x="151" y="207" width="73" height="30"/>
+                                <rect key="frame" x="151" y="251" width="73" height="30"/>
                                 <state key="normal" title="Add Movie"/>
+                                <connections>
+                                    <action selector="addMovieButtonTapped:" destination="Q6i-q0-Nui" eventType="touchUpInside" id="82u-uC-ZBD"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Add a new movie to the list!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g3M-Ie-ujw">
                                 <rect key="frame" x="52" y="86" width="270" height="26"/>
@@ -117,6 +133,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="FjO-qY-ohm"/>
                     </view>
+                    <connections>
+                        <outlet property="movieTitleTextField" destination="8nb-yQ-oxB" id="dFP-4L-gCf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TZb-Ur-0TS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

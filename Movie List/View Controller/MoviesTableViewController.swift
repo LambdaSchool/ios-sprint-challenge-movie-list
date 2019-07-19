@@ -36,5 +36,22 @@ extension MoviesTableViewController: UITableViewDataSource {
         return cell
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "AddMovieModalSegue" {
+            if let addMovieVC = segue.destination as? AddMovieViewController {
+                addMovieVC.delegate = self
+            }
+        }
+    }
+}
+
+
+extension MoviesTableViewController: AddMovieDelegate {
+    
+    func movieWasCreated(_ movie: Movie) {
+        movies.append(movie)
+        dismiss(animated: true, completion: nil)
+        tableView.reloadData()
+    }
     
 }

@@ -9,7 +9,23 @@
 import UIKit
 
 class MovieTableViewCell: UITableViewCell {
+    @IBOutlet weak var movieLabel: UILabel!
+    @IBOutlet weak var seenButton: UIButton!
+    @IBAction func seenButtonTapped(_ sender: UIButton) {
+        
+    }
     
-    var movie: Movie?
+    var movie: Movie? {
+        didSet {
+            updateViews()
+        }
+    }
+    
+    private func updateViews() {
+        guard let movie = movie else { return }
+        
+        movieLabel.text = movie.movie
+        seenButton.titleLabel?.text = movie.seenNotSeen ? "Seen" : "Not Seen"
+    }
     
 }
