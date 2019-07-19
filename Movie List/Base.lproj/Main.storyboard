@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Movie Detail View Controller-->
+        <!--Movie List View Controller-->
         <scene sceneID="3iq-g9-HiG">
             <objects>
-                <viewController id="kkV-iQ-gK7" customClass="MovieDetailViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="kkV-iQ-gK7" customClass="MovieListViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JmM-nV-PCA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -30,35 +30,32 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XRg-gK-FlZ">
-                                                    <rect key="frame" x="291" y="7" width="64" height="30"/>
-                                                    <state key="normal" title="Not Seen"/>
-                                                    <connections>
-                                                        <action selector="notSeenSwitch:" destination="uml-Gg-gHm" eventType="touchUpInside" id="Z2E-qu-2c1"/>
-                                                        <action selector="notSeenSwitch:" destination="Q8Y-wg-gZG" eventType="touchUpInside" id="x9a-wR-4tJ"/>
-                                                    </connections>
-                                                </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wdv-hk-jaX">
-                                                    <rect key="frame" x="35" y="11.5" width="46" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Movie" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wdv-hk-jaX">
+                                                    <rect key="frame" x="15" y="6" width="288" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="IPd-2g-YfK">
+                                                    <rect key="frame" x="239" y="8" width="121" height="28"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <segments>
+                                                        <segment title="Seen"/>
+                                                        <segment title="Not Seen"/>
+                                                    </segments>
+                                                </segmentedControl>
                                             </subviews>
-                                            <constraints>
-                                                <constraint firstItem="XRg-gK-FlZ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Wdv-hk-jaX" secondAttribute="trailing" constant="8" id="6ce-uh-Teh"/>
-                                                <constraint firstAttribute="trailing" secondItem="XRg-gK-FlZ" secondAttribute="trailing" constant="20" id="Rbl-xa-Dx4"/>
-                                                <constraint firstItem="Wdv-hk-jaX" firstAttribute="centerY" secondItem="YsR-P6-ksw" secondAttribute="centerY" id="c7I-A7-IKh"/>
-                                                <constraint firstItem="XRg-gK-FlZ" firstAttribute="centerY" secondItem="YsR-P6-ksw" secondAttribute="centerY" id="sCy-0z-9QN"/>
-                                                <constraint firstItem="Wdv-hk-jaX" firstAttribute="leading" secondItem="YsR-P6-ksw" secondAttribute="leadingMargin" constant="20" id="tNC-w0-HZS"/>
-                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="movieTitleLabel" destination="Wdv-hk-jaX" id="gVX-oE-Vbn"/>
-                                            <segue destination="wai-xi-5yL" kind="show" identifier="ShowMovieDetailSegue" id="jWa-w4-1JZ"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="kkV-iQ-gK7" id="5vc-Rb-4NH"/>
+                                    <outlet property="delegate" destination="kkV-iQ-gK7" id="0rN-5h-PSb"/>
+                                </connections>
                             </tableView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wrf-LC-2ZZ">
                                 <rect key="frame" x="0.0" y="623" width="375" height="44"/>
@@ -78,26 +75,13 @@
                         <viewLayoutGuide key="safeArea" id="1tB-dc-RsD"/>
                     </view>
                     <navigationItem key="navigationItem" id="YhC-LZ-TUY"/>
+                    <connections>
+                        <outlet property="tableView" destination="rv0-pD-dpO" id="Yxe-Az-1Dk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kCE-ar-sqI" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="Q8Y-wg-gZG" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="912.79999999999995" y="169.56521739130437"/>
-        </scene>
-        <!--Movie Detail View Controller-->
-        <scene sceneID="1Wr-do-roh">
-            <objects>
-                <viewController id="wai-xi-5yL" customClass="MovieDetailViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="gtZ-zT-pqy">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="euw-Jb-Myb"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="OqC-sB-FMM" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1816.8" y="684.10794602698661"/>
         </scene>
         <!--Add Movie View Controller-->
         <scene sceneID="fvr-hh-0hp">
@@ -112,6 +96,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="qTx-t3-fc1" id="qAG-js-wiv"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qFR-IC-LXA">
                                 <rect key="frame" x="151" y="95" width="73" height="30"/>
@@ -150,7 +137,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1762.4000000000001" y="-207.34632683658174"/>
+            <point key="canvasLocation" x="1908" y="170"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="7hb-z6-Ar4">

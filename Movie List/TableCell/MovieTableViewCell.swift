@@ -14,6 +14,7 @@ class MovieTableViewCell: UITableViewCell {
 	@IBOutlet weak var movieTitleLabel: UILabel!
 	
 	@IBAction func notSeenSwitch(_ sender: UIButton) {
+		
 	}
 	
 	var movie: Movie? {
