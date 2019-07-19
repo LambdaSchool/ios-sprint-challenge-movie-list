@@ -22,29 +22,48 @@ class MovieListTableViewController: UIViewController {
         loadMovies()
     }
 
-    func loadMovies(){
-        movies = realm.objects(Movie.self)
-        tableView.reloadData()
-    }
+
     
 
 }
 extension MovieListTableViewController: UITableViewDelegate, UITableViewDataSource, SwipeTableViewCellDelegate{
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
-        guard orientation == .right else { return nil }
-        
-        let deleteAction = SwipeAction(style: .destructive, title: "Delete") { action, indexPath in
-            // handle action by updating model with deletion
+        if orientation == .right {
+           
+            let deleteAction = SwipeAction(style: .destructive, title: "Delete") { action, indexPath in
+                // handle action by updating model with deletion
+                
+                self.deleteMovie(at: indexPath)
+                
+            }
             
-            self.deleteMovie(at: indexPath)
-            
+            return [deleteAction]
+        }else if orientation == .left{
+            let editAction = SwipeAction(style: .default, title: "Edit") { action, indexPath in
+                // handle action by updating model with deletion
+                var textField = UITextField ()
+                let alert = UIAlertController (title: "Change Movie Name", message: "", preferredStyle: .alert)
+                let action = UIAlertAction(title: "Change", style: .default, handler: { (action) in
+                    self.updateName(at: indexPath, newName: textField.text ?? "" )
+                    
+                })
+                let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: { (action) in
+                    //cancel
+                    self.tableView.reloadData()
+                })
+                alert.addAction(action)
+                alert.addAction(cancelAction)
+                alert.addTextField(configurationHandler: { (alertTextField) in
+                    alertTextField.placeholder = "Name of Movie"
+                    textField = alertTextField
+                })
+                
+              self.present(alert, animated: true, completion: nil)
+            }
+            editAction.backgroundColor = .green
+            return[editAction]
         }
-        
-        
-        // customize the action appearance
-        //deleteAction.image = UIImage(named: "delete")
-        
-        return [deleteAction]
+        return nil
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -59,25 +78,88 @@ extension MovieListTableViewController: UITableViewDelegate, UITableViewDataSour
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let movie = movies?[indexPath.row]{
-            do {
-                try realm.write {
-                    movie.haveSeen = !movie.haveSeen
-                }
-                loadMovies()
-            }catch{
-                print("error updating seen status, \(error)")
-            }
+          updateSeenStatus(movie: movie)
         }
     
         tableView.deselectRow(at: indexPath, animated: true)
     }
     func tableView(_ tableView: UITableView, editActionsOptionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> SwipeOptions {
         var options = SwipeOptions()
-        options.expansionStyle = .destructive
-        options.transitionStyle = .border
+        if orientation == .right{
+            options.expansionStyle = .destructive
+            options.transitionStyle = .border
+        }else if orientation == .left{
+            options.expansionStyle = .selection
+            options.backgroundColor = .green
+            options.transitionStyle = .border
+        }
+        
+        
         return options
     }
-    //MARK: - deletion method
+ 
+    
+    
+    
+}
+extension MovieListTableViewController: AddMovieDelegate{
+    func newMovieAdded(movie: Movie) {
+        self.save(movie: movie)
+        self.navigationController?.popViewController(animated: true)
+    }
+
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "AddMovieShowSegue"{
+            guard let addMovieVC = segue.destination as? AddMovieViewController else {return}
+            addMovieVC.delegate = self
+        }
+    }
+}
+extension MovieListTableViewController{
+    //CRUD
+    func save (movie: Movie) {
+        do{
+            try realm.write {
+                realm.add(movie)
+            }
+        }catch{
+            print("error in saving, \(error)")
+        }
+        tableView.reloadData()
+    }
+    
+    func loadMovies(){
+        movies = realm.objects(Movie.self)
+        tableView.reloadData()
+    }
+    
+    func updateSeenStatus(movie: Movie){
+        do {
+            try realm.write {
+                movie.haveSeen = !movie.haveSeen
+            }
+            loadMovies()
+        }catch{
+            print("error updating seen status, \(error)")
+        }
+    
+    }
+    
+    func updateName(at indexPath: IndexPath, newName: String){
+        if let movie = movies?[indexPath.row]{
+            do{
+                try realm.write {
+                    movie.name = newName
+                }
+                loadMovies()
+            }catch{
+                print("error changing name \(error)")
+            }
+        }
+        
+    }
+    
     func deleteMovie (at indexpath: IndexPath) {
         if let movieForDeletion = self.movies?[indexpath.row] {
             do{
@@ -90,31 +172,5 @@ extension MovieListTableViewController: UITableViewDelegate, UITableViewDataSour
             
         }
         
-    }
-    
-    
-    
-}
-extension MovieListTableViewController: AddMovieDelegate{
-    func newMovieAdded(movie: Movie) {
-        self.save(movie: movie)
-        self.navigationController?.popViewController(animated: true)
-    }
-    func save (movie: Movie) {
-        do{
-            try realm.write {
-                realm.add(movie)
-            }
-        }catch{
-            print("error in saving, \(error)")
-        }
-        tableView.reloadData()
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "AddMovieShowSegue"{
-            guard let addMovieVC = segue.destination as? AddMovieViewController else {return}
-            addMovieVC.delegate = self
-        }
     }
 }
