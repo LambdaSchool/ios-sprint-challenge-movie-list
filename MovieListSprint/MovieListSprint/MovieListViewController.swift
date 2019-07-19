@@ -26,7 +26,7 @@ class MovieListViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "AddMovieModalSegue" {
+        if segue.identifier == "AddMovieSegue" {
             if let addMovieVC = segue.destination as? AddMovieViewController {
                 addMovieVC.delegate = self
             }
