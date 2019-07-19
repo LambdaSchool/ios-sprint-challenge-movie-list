@@ -9,6 +9,10 @@
 import UIKit
 
 class AddMovieViewController: UIViewController {
+    
+    @IBOutlet weak var movieTitleTextField: UITextField!
+    @IBOutlet weak var addMovieButton: UIButton!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()

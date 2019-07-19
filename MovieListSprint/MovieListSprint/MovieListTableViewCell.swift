@@ -14,6 +14,18 @@ class MovieListTableViewCell: UITableViewCell {
     @IBAction func seenButton(_ sender: UIButton) {
     }
     
+    // does update views set the information from the "addMovie" to the tableviewcell
+    var Movie: Movie? {
+        didSet {
+            updateViews()
+        }
+    }
+    // seenButton not yet incorporated in this. Not sure how.
+    private func updateViews() {
+        guard let Movie = Movie else { return }
+        titleLabel.text = Movie.movieTitle
+    }
+    
 
     override func awakeFromNib() {
         super.awakeFromNib()
