@@ -11,8 +11,11 @@ import UIKit
 class MovieListViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBAction func addMovieButton(_ sender: UIBarButtonItem) {
+    }
     
-
+    var movieList: [Movie] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -31,3 +34,16 @@ class MovieListViewController: UIViewController {
     */
 
 }
+extension MovieListViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieListCell", for: indexPath) as? MovieListTableViewCell else { return UITableViewCell()}
+        let MovieList = movieList[indexPath.row]
+        cell.MovieList = MovieList
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return movieList.count
+    }
+}
+

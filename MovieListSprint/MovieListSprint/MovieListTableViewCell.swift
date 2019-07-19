@@ -11,8 +11,7 @@ import UIKit
 class MovieListTableViewCell: UITableViewCell {
     
     @IBOutlet weak var titleLabel: UILabel!
-    @IBAction func seenButton(_ sender: UIButton) {
-    }
+
     
     // does update views set the information from the "addMovie" to the tableviewcell
     var Movie: Movie? {
