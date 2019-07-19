@@ -7,7 +7,7 @@
 //
 
 import UIKit
-protocol addMovieDelegate {
+protocol AddMovieDelegate {
     func newMovieAdded(movie: Movie)
 }
 
@@ -15,7 +15,7 @@ class AddMovieViewController: UIViewController {
 
     @IBOutlet weak var movieTextfield: UITextField!
     
-    var delegate : addMovieDelegate?
+    var delegate : AddMovieDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +28,7 @@ class AddMovieViewController: UIViewController {
         if let movie = movieTextfield.text, !movie.isEmpty {
             let newMovie = Movie(name: movie, haveSeen: false)
             delegate?.newMovieAdded(movie: newMovie)
-            self.dismiss(animated: true, completion: nil)
+            
             
         }
         

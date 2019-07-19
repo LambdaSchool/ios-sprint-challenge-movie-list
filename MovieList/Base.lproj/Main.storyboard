@@ -40,7 +40,7 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieCell" textLabel="FG4-Qc-u8B" detailTextLabel="W4j-ew-ifJ" style="IBUITableViewCellStyleValue1" id="mDY-XD-lbI">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieCell" textLabel="FG4-Qc-u8B" detailTextLabel="W4j-ew-ifJ" style="IBUITableViewCellStyleValue1" id="mDY-XD-lbI" customClass="MovieTableViewCell" customModule="MovieList" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mDY-XD-lbI" id="xkT-uY-ge6">
@@ -77,7 +77,11 @@
                         <viewLayoutGuide key="safeArea" id="Wlg-rS-1g6"/>
                     </view>
                     <navigationItem key="navigationItem" title="Movie List" id="Jx8-UX-kQN">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Bs4-sw-J1Z"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Bs4-sw-J1Z">
+                            <connections>
+                                <segue destination="hDs-0A-kPD" kind="show" identifier="AddMovieShowSegue" id="xoT-jc-7Cz"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="o8D-gh-mCt" id="JV7-KC-We1"/>
@@ -96,7 +100,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="XNH-AE-OAp">
-                                <rect key="frame" x="36" y="54" width="342.5" height="136"/>
+                                <rect key="frame" x="36" y="98" width="342.5" height="136"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a new movie to the list" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ANJ-Sc-aYd">
                                         <rect key="frame" x="0.0" y="0.0" width="342.5" height="36"/>
