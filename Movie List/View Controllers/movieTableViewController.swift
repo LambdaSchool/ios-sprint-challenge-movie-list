@@ -13,19 +13,18 @@ class movieTableViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var movieArray: [Movie] = []
+}
     
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-    }
-    
+
+extension movieTableViewController: UITableViewDataSource {
+   
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return movieArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as? movieTableViewCell
+            
             else { return UITableViewCell()}
         
         let movies = movieArray[indexPath.row]
@@ -36,7 +35,7 @@ class movieTableViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "addMovieModelSeque" {
-               if let addMovieVC = segue.destination as? addMovieViewController {
+            if let addMovieVC = segue.destination as? addMovieViewController {
                 addMovieVC.delegate = self
             }
         }
@@ -48,7 +47,5 @@ extension movieTableViewController: addMovieDelegate {
         movieArray.append(movie)
         dismiss(animated: true, completion: nil)
         tableView.reloadData()
-    }
-    
-    
+}
 }

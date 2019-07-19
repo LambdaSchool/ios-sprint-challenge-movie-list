@@ -23,7 +23,7 @@ class addMovieViewController: UIViewController {
     @IBAction func addNewMovieButton(_ sender: UIButton) {
         guard let addNewMovieName = addNewMovieTextField.text, !addNewMovieName.isEmpty else {return}
             
-        let movie = Movie(name: addNewMovieName, hasSeen: false)
+        let movie = Movie(name: addNewMovieName, haveSeen: false)
         
         delegate?.movieWasAdded(movie)
         

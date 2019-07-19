@@ -8,22 +8,23 @@
 
 import UIKit
 
+
 class movieTableViewCell: UITableViewCell {
     
     @IBOutlet weak var movieNameLabel: UILabel!
     
-    @IBAction func hasSeenButton(_ sender: UIButton) {
-        if movie?.hasSeen == false {
-            textLabel?.text = "Unseen"
-        } else {
-            textLabel?.text = "Seen"
-        }
-    }
     
     var movie: Movie? {
         didSet {
             updateViews()
         }
+    }
+    
+    @IBAction func hasSeenButton(_ sender: UIButton) {
+        sender.setTitle("Seen", for: .selected)
+        sender.setTitle("Unseen", for: .normal)
+        
+        
     }
     
     private func updateViews() {
