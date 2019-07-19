@@ -11,7 +11,21 @@ import UIKit
 class MovieListTableViewCell: UITableViewCell {
     
     @IBOutlet weak var titleLabel: UILabel!
-
+    @IBAction func notSeenButton(_ sender: UIButton) {
+        movieSeen = !movieSeen
+        if movieSeen {
+            sender.setTitle("Seen", for: .normal)
+        } else {
+            sender.setTitle("Not Seen", for: .normal)
+        }
+    }
+    @IBAction func addMovieButton(_ sender: UIBarButtonItem) {
+        
+    }
+    
+    var movieSeen = true
+    var movieList: [Movie] = []
+    
     
     // does update views set the information from the "addMovie" to the tableviewcell
     var Movie: Movie? {

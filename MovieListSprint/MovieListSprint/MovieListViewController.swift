@@ -11,14 +11,15 @@ import UIKit
 
 class MovieListViewController: UIViewController {
     
-    @IBOutlet weak var tableView: UITableView!
-    @IBAction func addMovieButton(_ sender: UIBarButtonItem) {
-    }
-    
     var movieList: [Movie] = []
+    
+    @IBOutlet weak var tableView: UITableView!
+
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    
 
         
         // Do any additional setup after loading the view.
