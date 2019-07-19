@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Movie Table View Controller-->
+        <!--Movie List-->
         <scene sceneID="IiD-fl-9Bz">
             <objects>
                 <viewController id="dqA-je-NsA" customClass="movieTableViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
@@ -57,6 +57,9 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="delegate" destination="dqA-je-NsA" id="Mv7-FI-2eS"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -68,7 +71,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="BBT-Ye-KiL"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Lpv-Rb-PAz">
+                    <navigationItem key="navigationItem" title="Movie List" id="Lpv-Rb-PAz">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Yg6-kB-tKI">
                             <connections>
                                 <segue destination="tOE-v5-59l" kind="presentation" identifier="addMovieModelSeque" id="Btq-Pi-1KI"/>
@@ -107,6 +110,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="tOE-v5-59l" id="NV6-AO-Q8J"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bM7-dc-dD5">
                                 <rect key="frame" x="170.66666666666666" y="211" width="73" height="30"/>
