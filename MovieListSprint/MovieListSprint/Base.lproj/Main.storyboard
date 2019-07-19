@@ -24,7 +24,7 @@
                                     <navigationItem title="Movie List" id="iJH-xH-gee">
                                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Y54-04-zLT">
                                             <connections>
-                                                <segue destination="3Ca-Jf-BvX" kind="presentation" id="4Xy-m2-Pge"/>
+                                                <segue destination="3Ca-Jf-BvX" kind="presentation" identifier="AddMovieModalSegue" id="gId-4X-VrJ"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -41,20 +41,26 @@
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XNm-Zi-nca">
-                                                    <rect key="frame" x="20" y="11" width="42" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XNm-Zi-nca">
+                                                    <rect key="frame" x="20" y="11" width="34" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J1m-gX-tvA">
-                                                    <rect key="frame" x="308" y="6" width="46" height="30"/>
+                                                    <rect key="frame" x="314" y="6" width="35" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" title="Button"/>
+                                                    <state key="normal" title="Seen"/>
+                                                    <connections>
+                                                        <action selector="seenButton:" destination="Uat-hH-XKr" eventType="touchUpInside" id="orV-0g-EJ9"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="titleLabel" destination="XNm-Zi-nca" id="Xh3-Vo-See"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -79,6 +85,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="dOg-uV-jkW"/>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="8x0-Ug-bzy" id="Lit-oa-061"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bEN-KB-HUN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
