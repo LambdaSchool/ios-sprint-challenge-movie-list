@@ -12,3 +12,4 @@ class MovieTableViewCell: UITableViewCell {
 
 
 }
+
