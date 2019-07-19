@@ -8,18 +8,21 @@
 
 import UIKit
 
-//protocol SeenDelegate {
-//    func isSeenChanged()
-//}
+protocol SeenDelegate {
+    func isSeenChanged()
+}
 
 class MovieTableViewCell: UITableViewCell {
-    
-    var movieListTableVC = MovieListTableViewController()
     
     @IBOutlet weak var movieTitle: UILabel!
     @IBOutlet weak var seenButtonLabel: UIButton!
     
-//    var delegate: SeenDelegate?
+    var movie: Movie? {
+        didSet {
+            updateViews()
+        }
+    }
+    var delegate: SeenDelegate?
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -33,8 +36,13 @@ class MovieTableViewCell: UITableViewCell {
     }
     
     @IBAction func seenButtonTapped(_ sender: UIButton) {
-        
+        movie?.isSeen.toggle()
+        delegate?.isSeenChanged()
     }
     
-
+    func updateViews() {
+        guard let movie = movie else { return }
+        
+        seenButtonLabel.setTitle(movie.isSeen ? "Seen" : "Not Seen", for: .normal)
+    }
 }

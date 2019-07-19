@@ -11,11 +11,12 @@ import UIKit
 class MovieListTableViewController: UITableViewController {
     
     var movieList: [Movie] = []
+    var movieCell: UITableViewCell?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        tableView.reloadData()
+        updateViews()
+        
     }
 
     // MARK: - Table view data source
@@ -33,15 +34,11 @@ class MovieListTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as? MovieTableViewCell else { return UITableViewCell() }
-        
+        cell.delegate = self
+        movieCell = cell
         let movie = movieList[indexPath.row]
+        cell.movie = movie
         cell.movieTitle.text = movie.title
-        
-        if movie.isSeen {
-            cell.seenButtonLabel.setTitle("Seen", for: .normal)
-        } else if !movie.isSeen {
-            cell.seenButtonLabel.setTitle("Not Seen", for: .normal)
-        }
         
         return cell
     }
@@ -83,7 +80,9 @@ class MovieListTableViewController: UITableViewController {
     */
     
     
-    
+    func updateViews() {
+        tableView.reloadData()
+    }
 
     
     // MARK: - Navigation
@@ -102,5 +101,13 @@ extension MovieListTableViewController: AddMovieDelegate {
     func movieWasCreated(_ movie: Movie) {
         movieList.append(movie)
         self.tableView.reloadData()
+    }
+}
+
+extension MovieListTableViewController: SeenDelegate {
+    func isSeenChanged() {
+        guard let indexPath = self.tableView.indexPathForSelectedRow else { return }
+        movieList[indexPath.row].isSeen.toggle()
+        updateViews()
     }
 }
