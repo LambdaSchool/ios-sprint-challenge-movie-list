@@ -26,4 +26,5 @@ class AddMovieViewController: UIViewController {
         
         delegate?.movieWasCreated(movie)
     }
+
 }

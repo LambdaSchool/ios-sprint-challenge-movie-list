@@ -22,36 +22,37 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MovieCell" id="MLj-Jk-SeF" customClass="MovieTableViewCell" customModule="Movie_List" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MovieCell" rowHeight="62" id="MLj-Jk-SeF" customClass="MovieTableViewCell" customModule="Movie_List" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="62"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MLj-Jk-SeF" id="Nvj-mS-efQ">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="61.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nUE-de-SP6">
-                                                    <rect key="frame" x="294" y="10.5" width="67" height="22.5"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="10"/>
-                                                    <state key="normal" title="SeenNotSeen"/>
+                                                    <rect key="frame" x="304" y="17" width="56" height="28"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="56" id="B3O-oh-uTA"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <state key="normal" title="Not Seen"/>
                                                     <connections>
                                                         <action selector="seenButtonTapped:" destination="MLj-Jk-SeF" eventType="touchUpInside" id="G1F-z5-BU4"/>
                                                     </connections>
                                                 </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Movie" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ixK-yv-ULe">
-                                                    <rect key="frame" x="15" y="12" width="49" height="21"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ixK-yv-ULe">
+                                                    <rect key="frame" x="15" y="19" width="57" height="24"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="ixK-yv-ULe" firstAttribute="bottom" secondItem="nUE-de-SP6" secondAttribute="bottom" id="0Le-0k-wGy"/>
-                                                <constraint firstItem="ixK-yv-ULe" firstAttribute="bottom" secondItem="Nvj-mS-efQ" secondAttribute="bottomMargin" id="1eZ-2w-zVK"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="nUE-de-SP6" secondAttribute="trailing" constant="-1" id="50N-XE-uGd"/>
-                                                <constraint firstItem="nUE-de-SP6" firstAttribute="leading" secondItem="ixK-yv-ULe" secondAttribute="trailing" constant="231" id="GZw-3P-vFi"/>
-                                                <constraint firstItem="ixK-yv-ULe" firstAttribute="leading" secondItem="Nvj-mS-efQ" secondAttribute="leadingMargin" constant="-1" id="P81-IX-Sem"/>
-                                                <constraint firstItem="ixK-yv-ULe" firstAttribute="centerY" secondItem="Nvj-mS-efQ" secondAttribute="centerY" id="ZwV-zH-Enj"/>
-                                                <constraint firstItem="nUE-de-SP6" firstAttribute="centerY" secondItem="Nvj-mS-efQ" secondAttribute="centerY" id="uoM-H0-Rqg"/>
+                                                <constraint firstItem="ixK-yv-ULe" firstAttribute="leading" secondItem="Nvj-mS-efQ" secondAttribute="leadingMargin" id="5J1-N7-QUx"/>
+                                                <constraint firstItem="nUE-de-SP6" firstAttribute="centerY" secondItem="Nvj-mS-efQ" secondAttribute="centerY" id="Zvn-yy-KCh"/>
+                                                <constraint firstItem="ixK-yv-ULe" firstAttribute="centerY" secondItem="Nvj-mS-efQ" secondAttribute="centerY" id="g6F-83-U1I"/>
+                                                <constraint firstItem="nUE-de-SP6" firstAttribute="trailing" secondItem="Nvj-mS-efQ" secondAttribute="trailingMargin" id="gAX-0o-zeU"/>
+                                                <constraint firstItem="nUE-de-SP6" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ixK-yv-ULe" secondAttribute="trailing" constant="20" id="yHw-4p-wbm"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -87,7 +88,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="60e-KQ-nJt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1264.8" y="-116.49175412293854"/>
+            <point key="canvasLocation" x="961" y="-125"/>
         </scene>
         <!--Add Movie View Controller-->
         <scene sceneID="Ra0-io-q4f">
@@ -110,7 +111,7 @@
                                 <rect key="frame" x="151" y="251" width="73" height="30"/>
                                 <state key="normal" title="Add Movie"/>
                                 <connections>
-                                    <action selector="addMovieButtonTapped:" destination="Q6i-q0-Nui" eventType="touchUpInside" id="82u-uC-ZBD"/>
+                                    <action selector="addMovieButtonTapped:" destination="Q6i-q0-Nui" eventType="touchUpInside" id="NHt-y5-fXK"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Add a new movie to the list!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g3M-Ie-ujw">

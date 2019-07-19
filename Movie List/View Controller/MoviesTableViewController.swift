@@ -50,7 +50,7 @@ extension MoviesTableViewController: AddMovieDelegate {
     
     func movieWasCreated(_ movie: Movie) {
         movies.append(movie)
-        dismiss(animated: true, completion: nil)
+        navigationController?.popViewController(animated: true)
         tableView.reloadData()
     }
     
