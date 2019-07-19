@@ -6,12 +6,17 @@
 //  Copyright © 2019 Lambda School. All rights reserved.
 //
 
+protocol AddMovieDelegate {
+    func movieWasCreated(_ movie: Movie)
+}
+
 import UIKit
 
 class AddMovieViewController: UIViewController {
     
     @IBOutlet weak var addMovieTextField: UITextField!
     
+    var delegate: AddMovieDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,7 +25,12 @@ class AddMovieViewController: UIViewController {
     }
     
     @IBAction func addMovieButtonTapped(_ sender: UIButton) {
+        if let movieTitle = addMovieTextField.text, !movieTitle.isEmpty {
+            let newMovie = Movie(title: movieTitle, isSeen: false)
+            delegate?.movieWasCreated(newMovie)
+        }
         
+        navigationController?.popViewController(animated: true)
     }
     
     

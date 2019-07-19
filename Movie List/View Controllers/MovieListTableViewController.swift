@@ -10,34 +10,39 @@ import UIKit
 
 class MovieListTableViewController: UITableViewController {
     
+    var movieList: [Movie] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        tableView.reloadData()
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return movieList.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as? MovieTableViewCell else { return UITableViewCell() }
+        
+        let movie = movieList[indexPath.row]
+        cell.movieTitle.text = movie.title
+        
+        if movie.isSeen {
+            cell.seenButtonLabel.setTitle("Seen", for: .normal)
+        } else if !movie.isSeen {
+            cell.seenButtonLabel.setTitle("Not Seen", for: .normal)
+        }
+        
         return cell
     }
     
@@ -88,9 +93,14 @@ class MovieListTableViewController: UITableViewController {
         if segue.identifier == "AddNewMovieSegue" {
             let addMovieVC = segue.destination as? AddMovieViewController
             
-            
+            addMovieVC?.delegate = self
         }
     }
-    
+}
 
+extension MovieListTableViewController: AddMovieDelegate {
+    func movieWasCreated(_ movie: Movie) {
+        movieList.append(movie)
+        self.tableView.reloadData()
+    }
 }

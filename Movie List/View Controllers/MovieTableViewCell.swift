@@ -8,11 +8,18 @@
 
 import UIKit
 
+//protocol SeenDelegate {
+//    func isSeenChanged()
+//}
+
 class MovieTableViewCell: UITableViewCell {
+    
+    var movieListTableVC = MovieListTableViewController()
     
     @IBOutlet weak var movieTitle: UILabel!
     @IBOutlet weak var seenButtonLabel: UIButton!
     
+//    var delegate: SeenDelegate?
 
     override func awakeFromNib() {
         super.awakeFromNib()
