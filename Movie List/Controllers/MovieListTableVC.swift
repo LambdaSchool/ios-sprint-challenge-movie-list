@@ -49,7 +49,7 @@ class MovieListTableVC: UITableViewController {
     }
 	
 	override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-		let edit = UIContextualAction(style: .normal, title: "Edit") { (action, view, nil) in
+		let edit = UIContextualAction(style: .normal, title: "Edit") { (action, view, handler) in
 			self.moviePath = (self.movies[indexPath.row], indexPath)
 			self.performSegue(withIdentifier: "AddMovieSegue", sender: nil)
 		}
@@ -60,8 +60,10 @@ class MovieListTableVC: UITableViewController {
 	}
 	
 	override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-		let delete = UIContextualAction(style: .destructive, title: "Delete") { (action, view, nil) in
-			print("delete")
+		let delete = UIContextualAction(style: .destructive, title: "Delete") { (action, view, handler) in
+			self.movies.remove(at: indexPath.row)
+			tableView.deleteRows(at: [indexPath], with: .automatic)
+			handler(true)
 		}
 		
 		return UISwipeActionsConfiguration(actions: [delete])
