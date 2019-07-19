@@ -9,7 +9,7 @@
 import UIKit
 
 protocol AddMovieDelegate {
-    func movieWasCreated
+    func movieWasCreated(_ movie: Movie)
 }
 
 class AddMovieViewController: UIViewController {
@@ -18,8 +18,12 @@ class AddMovieViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
-    @IBAction func addMovieButtonPressed(_ sender: Any) {
-        guard let movie = 
-    
+        var delegate: AddMovieDelegate?
+    }
+    @IBAction func addMovieButtonTapped(_ sender: Any) {
+        guard let movie = enterMovieTextField.text else { return }
+        
+        var movie = 
+        
+    }
 }
