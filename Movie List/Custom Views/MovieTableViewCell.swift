@@ -11,7 +11,8 @@ import UIKit
 class MovieTableViewCell: UITableViewCell {
     
     @IBOutlet weak var movieNameLabel: UILabel!
-    @IBOutlet weak var isSeen: UILabel!
+    
+    @IBOutlet weak var hasbeenSeenButtonText: UIButton!
     
     var movie: Movie? {
         didSet {
@@ -25,5 +26,17 @@ class MovieTableViewCell: UITableViewCell {
         movieNameLabel.text = movie.name
     }
   
+    @IBAction func hasBeenSeenButtonTapped(_ sender: UIButton) {
+        
+        sender.isSelected = !sender.isSelected
+
+        if sender.isSelected {
+            hasbeenSeenButtonText.setTitle("Seen", for: .normal)
+        }
+            
+        else {
+            hasbeenSeenButtonText.setTitle("Not Seen", for: .normal)
+        }
+    }
 }
 

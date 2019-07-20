@@ -18,8 +18,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="skU-2d-cBS">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="skU-2d-cBS">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieCell" id="VrJ-dd-o4o" customClass="MovieTableViewCell" customModule="Movie_List" customModuleProvider="target">
@@ -29,15 +30,16 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Movie Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hVP-7M-1uX">
-                                                    <rect key="frame" x="15" y="11" width="96" height="21"/>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yHY-S5-pSY">
+                                                    <rect key="frame" x="269" y="6" width="84" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Has Been Seen?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CCl-AP-2pq">
-                                                    <rect key="frame" x="235" y="12" width="125" height="21"/>
+                                                    <state key="normal" title="?"/>
+                                                    <connections>
+                                                        <action selector="hasBeenSeenButtonTapped:" destination="VrJ-dd-o4o" eventType="touchUpInside" id="BHG-kg-cDb"/>
+                                                    </connections>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Movie Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hVP-7M-1uX">
+                                                    <rect key="frame" x="24" y="6" width="95.5" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -46,7 +48,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="isSeen" destination="CCl-AP-2pq" id="4M6-MY-m64"/>
+                                            <outlet property="hasbeenSeenButtonText" destination="yHY-S5-pSY" id="E4v-mz-2Du"/>
                                             <outlet property="movieNameLabel" destination="hVP-7M-1uX" id="yq4-v6-mzm"/>
                                         </connections>
                                     </tableViewCell>
@@ -55,12 +57,6 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="cwL-YY-pWM" firstAttribute="trailing" secondItem="skU-2d-cBS" secondAttribute="trailing" id="BLQ-yh-gYB"/>
-                            <constraint firstItem="skU-2d-cBS" firstAttribute="top" secondItem="cwL-YY-pWM" secondAttribute="top" id="cI5-jQ-hed"/>
-                            <constraint firstItem="cwL-YY-pWM" firstAttribute="bottom" secondItem="skU-2d-cBS" secondAttribute="bottom" id="hKc-eq-DAP"/>
-                            <constraint firstItem="skU-2d-cBS" firstAttribute="leading" secondItem="cwL-YY-pWM" secondAttribute="leading" id="z6V-WE-NSE"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="cwL-YY-pWM"/>
                     </view>
                     <navigationItem key="navigationItem" id="Yy6-Bm-Fpm">
@@ -86,23 +82,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Add a new movie to the list" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dPK-Ah-h9L">
-                                <rect key="frame" x="38" y="59" width="218" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Add a new movie to the list" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dPK-Ah-h9L">
+                                <rect key="frame" x="78" y="135" width="218" height="21"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Movie Name" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="H2A-qI-9jy">
-                                <rect key="frame" x="38" y="146" width="97" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Movie Name" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="H2A-qI-9jy">
+                                <rect key="frame" x="139" y="214" width="97" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V8I-Jv-wbX">
-                                <rect key="frame" x="50" y="239" width="73" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V8I-Jv-wbX">
+                                <rect key="frame" x="151" y="318" width="73" height="30"/>
                                 <state key="normal" title="Add Movie"/>
                                 <connections>
                                     <action selector="addMovie:" destination="aQr-Sn-FXa" eventType="touchUpInside" id="9YN-NE-YsM"/>
@@ -110,6 +103,18 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="H2A-qI-9jy" firstAttribute="centerX" secondItem="V8I-Jv-wbX" secondAttribute="centerX" id="ElN-dD-Fv8"/>
+                            <constraint firstItem="dPK-Ah-h9L" firstAttribute="centerX" secondItem="8Mc-Qi-5EH" secondAttribute="centerX" id="FiX-IR-xVr"/>
+                            <constraint firstItem="H2A-qI-9jy" firstAttribute="top" secondItem="dPK-Ah-h9L" secondAttribute="bottom" constant="58" id="IPW-pJ-0Oo"/>
+                            <constraint firstItem="H2A-qI-9jy" firstAttribute="leading" secondItem="G8f-3y-ICU" secondAttribute="leading" constant="139" id="IQB-IO-Orc"/>
+                            <constraint firstItem="V8I-Jv-wbX" firstAttribute="centerY" secondItem="8Mc-Qi-5EH" secondAttribute="centerY" id="Ljk-fa-C7v"/>
+                            <constraint firstItem="V8I-Jv-wbX" firstAttribute="top" secondItem="H2A-qI-9jy" secondAttribute="bottom" constant="74" id="QyH-ig-diU"/>
+                            <constraint firstItem="dPK-Ah-h9L" firstAttribute="top" secondItem="G8f-3y-ICU" secondAttribute="top" constant="71" id="Y82-dp-0ea"/>
+                            <constraint firstItem="dPK-Ah-h9L" firstAttribute="centerX" secondItem="H2A-qI-9jy" secondAttribute="centerX" id="bbP-Gd-tqb"/>
+                            <constraint firstItem="dPK-Ah-h9L" firstAttribute="leading" secondItem="G8f-3y-ICU" secondAttribute="leading" constant="78" id="wnZ-dl-7kE"/>
+                            <constraint firstItem="G8f-3y-ICU" firstAttribute="bottom" secondItem="V8I-Jv-wbX" secondAttribute="bottom" constant="319" id="xhU-l0-B2E"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="G8f-3y-ICU"/>
                     </view>
                     <connections>
