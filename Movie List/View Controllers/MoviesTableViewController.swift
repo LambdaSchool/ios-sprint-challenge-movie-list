@@ -13,6 +13,12 @@ class MoviesTableViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var movies: [Movie] = []
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        tableView.dataSource = self // Programmatically connecting to view controller
+        
+    }
 }
 
 extension MoviesTableViewController: UITableViewDataSource {
@@ -34,6 +40,7 @@ extension MoviesTableViewController: UITableViewDataSource {
         if segue.identifier == "AddMovie" {
             if let addMovieVC = segue.destination as? AddMovieViewController {
                 addMovieVC.delegate = self
+                print("Movie delegate was run.")
             }
         }
     }

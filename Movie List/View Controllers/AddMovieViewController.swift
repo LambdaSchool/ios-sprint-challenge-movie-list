@@ -33,14 +33,18 @@ class AddMovieViewController: UIViewController {
     }
 }
 
-//extension AddMovieViewController : UITextFieldDelegate {
-//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-//        if let text = textField.text,
-//            !text.isEmpty {
-//            switch textField {
-//            case movieName:
-//
-//            }
-//        }
-//    }
-//}
+extension AddMovieViewController : UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if let text = textField.text,
+            !text.isEmpty {
+            switch textField {
+            case movieName:
+                textField.resignFirstResponder()
+            default:
+                textField.resignFirstResponder()
+            }
+        }
+
+        return false
+    }
+}
