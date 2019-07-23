@@ -9,7 +9,9 @@
 import UIKit
 
 class MoviesTableViewController: UITableViewController {
+    
     var movies: [Movie] = []
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,11 +23,9 @@ class MoviesTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath)
+        var cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath)
         
-        let movie = movies[indexPath.row]
-        
-        cell.textLabel?.text = movie.name
+        var movie = movies[indexPath.row]
         
         return cell
     }
@@ -40,9 +40,9 @@ class MoviesTableViewController: UITableViewController {
 }
 
 extension MoviesTableViewController: AddMovieDelegate {
-    
-    func movieWasCreated(_ movie: Movie) {
-        movies.append(movie)
+    func movieWasCreated(_ movie: String) {
+        movies.append(Movie)
         dismiss(animated: true, completion: nil)
     }
+
 }
