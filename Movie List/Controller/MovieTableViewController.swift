@@ -58,6 +58,8 @@ extension MovieTableViewController: UITableViewDataSource {
     }
 }
 
+// MARK: - UITableViewDelegate
+
 extension MovieTableViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let editAction = UITableViewRowAction(style: .default, title: "Edit", handler: { (action, indexPath) in
@@ -79,6 +81,10 @@ extension MovieTableViewController: UITableViewDelegate {
         editAction.backgroundColor = .gray
         
         return [deleteAction, editAction]
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 
