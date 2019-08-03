@@ -29,14 +29,18 @@ class MovieTableViewController: UIViewController {
         }
     }
     
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
     // MARK: - TableView editing
     
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            movies.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        }
-    }
+//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+//        if editingStyle == .delete {
+//            movies.remove(at: indexPath.row)
+//            tableView.deleteRows(at: [indexPath], with: .fade)
+//        }
+//    }
 }
 
 // MARK: - UITableViewDataSource
@@ -51,6 +55,30 @@ extension MovieTableViewController: UITableViewDataSource {
         cell.createdMovie = movies[indexPath.row]
         cell.delegate = self
         return cell
+    }
+}
+
+extension MovieTableViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let editAction = UITableViewRowAction(style: .default, title: "Edit", handler: { (action, indexPath) in
+            let alert = UIAlertController(title: "", message: "Edit movie title", preferredStyle: .alert)
+            alert.addTextField(configurationHandler: nil)
+            alert.addAction(UIAlertAction(title: "Update", style: .default, handler: { (updateAction) in
+                self.movies[indexPath.row].name = alert.textFields!.first!.text!
+                self.tableView.reloadRows(at: [indexPath], with: .fade)
+            }))
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            self.present(alert, animated: false)
+        })
+        
+        let deleteAction = UITableViewRowAction(style: .default, title: "Delete", handler: { (action, indexPath) in
+            self.movies.remove(at: indexPath.row)
+            tableView.reloadData()
+        })
+        
+        editAction.backgroundColor = .gray
+        
+        return [deleteAction, editAction]
     }
 }
 
