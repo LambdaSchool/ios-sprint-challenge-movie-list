@@ -49,6 +49,7 @@ extension MoviesTableViewController: UITableViewDataSource {
 extension MoviesTableViewController: AddMovieDelegate {
     func movieWasAdded(_ movie: Movie) {
         movies.append(movie)
+        // remove the top view controller
         self.navigationController?.popViewController(animated: true)
         tableView.reloadData()
     }

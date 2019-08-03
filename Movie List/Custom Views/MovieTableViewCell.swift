@@ -10,6 +10,8 @@ import UIKit
 
 class MovieTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var button: UIButton!
+    
     
     var movie: Movie? {
         didSet {
@@ -21,9 +23,18 @@ class MovieTableViewCell: UITableViewCell {
         guard let movie = movie else { return }
         
         titleLabel.text = movie.title
+        
     }
     
     @IBAction func seenTapped(_ sender: Any) {
+        self.movie?.hasSeen.toggle()
+        
+        // using ternary operator
+        let string = self.movie?.hasSeen == true ? "Seen" : "Not Seen"
+        
+        // setting the button title
+        self.button.setTitle(string, for: .normal)
+        
     }
     
 }

@@ -29,7 +29,7 @@ class AddMovieViewController: UIViewController {
         guard let title = movieTextField.text,
                   !title.isEmpty else { return }
         
-        let movie = Movie(title: title)
+        let movie = Movie(title: title, hasSeen: false)
         
         delegate?.movieWasAdded(movie)
     }
