@@ -9,8 +9,8 @@
 import UIKit
 
 protocol CellButtonDelegate {
-    func onClick(index: Int)
-    func movieWatchedStatus(_ movie: Movie)
+//    func onClick(index: Int)
+    func movieWatchedStatus(_ movie: Movie, index: Int)
 }
 
 class MovieTableViewCell: UITableViewCell {
@@ -37,7 +37,11 @@ class MovieTableViewCell: UITableViewCell {
     private func updateViews() {
         guard let movie = movie else { return }
         movieNameLabel.text = movie.name
-        movieWatchedStatus.isHidden = false
+        if movie.seen == true {
+            movieWatchedStatus.setTitle("Seen", for: .normal)
+        } else if movie.seen == false {
+            movieWatchedStatus.setTitle("Not Seen", for: .normal)
+        }
     }
     
 
@@ -45,14 +49,15 @@ class MovieTableViewCell: UITableViewCell {
     
     @IBAction func movieWatchedTapped(_ sender: Any) {
         guard let movie = movie else { return }
+        var newMovie = movie
         if movie.seen == false {
             movieWatchedStatus.setTitle("Seen", for: .normal)
-            buttonDelegate?.onClick(index: (index?.row)!)
-            buttonDelegate?.movieWatchedStatus(movie)
+            newMovie.seen = true
+            buttonDelegate?.movieWatchedStatus(newMovie, index: (index?.row)!)
         } else if movie.seen == true {
             movieWatchedStatus.setTitle("Not Seen", for: .normal)
-            buttonDelegate?.onClick(index: (index?.row)!)
-            buttonDelegate?.movieWatchedStatus(movie)
+            newMovie.seen = false
+            buttonDelegate?.movieWatchedStatus(newMovie, index: (index?.row)!)
         }
     }
 }

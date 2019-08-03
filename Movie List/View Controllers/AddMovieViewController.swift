@@ -28,15 +28,18 @@ class AddMovieViewController: UIViewController {
         super.viewDidLoad()
     }
     
+    // MARK: - Actions
+    
     @IBAction func addMovieButtonTapped(_ sender: Any) {
         guard let newMovieName = newMovieTextField.text, !newMovieName.isEmpty else { return }
-        
         let newMovie = Movie(name: newMovieName, seen: false)
         delegate?.movieWasAdded(newMovie)
     }
     
 
 }
+
+// MARK: - Extensions
 
 extension AddMovieViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

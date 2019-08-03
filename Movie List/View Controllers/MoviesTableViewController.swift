@@ -61,11 +61,10 @@ extension MoviesTableViewController: AddMovieDelegate {
 }
 
 extension MoviesTableViewController: CellButtonDelegate {
-    func onClick(index: Int) {
-        print("\(index) was clicked")
-    }
-    
-    func movieWatchedStatus(_ movie: Movie) {
-        
+    func movieWatchedStatus(_ movie: Movie, index: Int) {
+        moviesList[index] = movie
+        tableView.reloadData()
     }
 }
+
+
