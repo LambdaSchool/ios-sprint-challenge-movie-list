@@ -9,7 +9,8 @@
 import UIKit
 
 class MovieTableViewCell: UITableViewCell {
-
+    @IBOutlet weak var titleLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -20,5 +21,8 @@ class MovieTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
+    
+    @IBAction func seenTapped(_ sender: Any) {
+    }
+    
 }

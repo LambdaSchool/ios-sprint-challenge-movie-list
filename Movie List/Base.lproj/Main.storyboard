@@ -33,6 +33,9 @@
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wGt-ol-jvk">
                                                     <rect key="frame" x="296" y="7" width="64" height="30"/>
                                                     <state key="normal" title="Not Seen"/>
+                                                    <connections>
+                                                        <action selector="seenTapped:" destination="aEW-Av-t3a" eventType="touchUpInside" id="1oI-e7-7EQ"/>
+                                                    </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ldC-yF-YZB">
                                                     <rect key="frame" x="15" y="11.5" width="90" height="21"/>
@@ -48,6 +51,9 @@
                                                 <constraint firstItem="ldC-yF-YZB" firstAttribute="leading" secondItem="ywV-rw-75s" secondAttribute="leadingMargin" id="glU-nb-599"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="titleLabel" destination="ldC-yF-YZB" id="LDu-gi-R7g"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -93,6 +99,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hpz-vS-p16">
                                 <rect key="frame" x="151" y="200" width="73" height="30"/>
                                 <state key="normal" title="Add Movie"/>
+                                <connections>
+                                    <action selector="addButton:" destination="6S0-li-MOB" eventType="touchUpInside" id="M6F-8g-2i9"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -107,6 +116,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="p8D-XR-Q6Q"/>
                     </view>
+                    <connections>
+                        <outlet property="movieTextField" destination="4c3-ah-Tsn" id="OsI-pe-uB2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="335-5X-fDa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
