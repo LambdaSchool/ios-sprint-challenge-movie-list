@@ -8,19 +8,32 @@
 
 import UIKit
 
+protocol AddMovieDelegate {
+    func movieWasAdded(_ movie: Movie)
+}
+
 class AddMovieViewController: UIViewController {
 
     @IBOutlet weak var movieTextField: UITextField!
+    
+    var delegate: AddMovieDelegate?
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        movieTextField.delegate = self
     }
     
-    @IBAction func addButton(_ sender: Any) {
+    @IBAction func addTapped(_ sender: UIButton) {
+        guard let title = movieTextField.text,
+                  !title.isEmpty else { return }
+        
+        let movie = Movie(title: title)
+        
+        delegate?.movieWasAdded(movie)
     }
+    
     
     /*
     // MARK: - Navigation
@@ -32,4 +45,11 @@ class AddMovieViewController: UIViewController {
     }
     */
 
+}
+
+extension AddMovieViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return false
+    }
 }
