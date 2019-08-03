@@ -13,19 +13,25 @@ class MovieTableViewCell: UITableViewCell {
     @IBOutlet var movieNameLabel: UILabel!
     @IBOutlet var seenNotSeenButton: UIButton!
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    var createdMovie: Movie? {
+        didSet {
+            updateViews()
+        }
     }
     
     @IBAction func seenNotSeenButtonTapped(_ sender: Any) {
-        
+        createdMovie!.seen = !createdMovie!.seen
+    }
+    
+    private func updateViews() {
+        if let movie = createdMovie {
+            movieNameLabel.text = movie.name
+            if movie.seen {
+                seenNotSeenButton.titleLabel?.text = "Seen"
+            } else {
+                seenNotSeenButton.titleLabel?.text = "Not Seen"
+            }
+        }
     }
     
 
