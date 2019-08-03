@@ -32,42 +32,27 @@
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GUE-WU-Dnr">
                                                     <rect key="frame" x="330" y="7" width="64" height="30"/>
                                                     <state key="normal" title="Not Seen"/>
-                                                    <connections>
-                                                        <action selector="notSeenTapped:" destination="19q-rt-mcB" eventType="touchUpInside" id="PzN-zc-Ldj"/>
-                                                        <action selector="notSeenTapped:" destination="qlW-gI-XfL" eventType="touchUpInside" id="oOn-1h-4Ru"/>
-                                                    </connections>
                                                 </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ktk-Rc-QHn">
-                                                    <rect key="frame" x="20" y="11.5" width="42" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="GUE-WU-Dnr" firstAttribute="leading" relation="lessThanOrEqual" secondItem="OV3-zA-QwO" secondAttribute="leading" constant="330" id="72k-5g-AP3"/>
-                                                <constraint firstItem="ktk-Rc-QHn" firstAttribute="leading" secondItem="OV3-zA-QwO" secondAttribute="leading" constant="20" id="8eY-fq-kcA"/>
+                                                <constraint firstItem="GUE-WU-Dnr" firstAttribute="leading" secondItem="OV3-zA-QwO" secondAttribute="leading" constant="330" id="72k-5g-AP3"/>
                                                 <constraint firstItem="GUE-WU-Dnr" firstAttribute="centerY" secondItem="OV3-zA-QwO" secondAttribute="centerY" id="e9l-NO-Qda"/>
-                                                <constraint firstItem="ktk-Rc-QHn" firstAttribute="centerY" secondItem="OV3-zA-QwO" secondAttribute="centerY" id="kUz-eI-mJe"/>
-                                                <constraint firstItem="GUE-WU-Dnr" firstAttribute="leading" relation="lessThanOrEqual" secondItem="ktk-Rc-QHn" secondAttribute="trailing" constant="268" id="qqc-kB-Os9"/>
                                                 <constraint firstAttribute="trailing" secondItem="GUE-WU-Dnr" secondAttribute="trailing" constant="20" id="yXt-Ak-s98"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="movieLabel" destination="ktk-Rc-QHn" id="PzK-wE-x6U"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lxs-Gv-zSX">
-                                <rect key="frame" x="0.0" y="818" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="690" width="60" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="dCG-IK-36o"/>
                                 </constraints>
                                 <items>
                                     <barButtonItem title="Add Movie" image="Plus" id="wkd-jK-hTt">
                                         <connections>
-                                            <action selector="addMovieVCTapped:" destination="qlW-gI-XfL" id="P1g-xU-NQz"/>
+                                            <action selector="addTapped:" destination="qlW-gI-XfL" id="10I-3n-A93"/>
+                                            <segue destination="KCJ-vQ-kGK" kind="show" identifier="AddMovieViewSegue" id="LUa-IU-MRd"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="5HC-fO-8iw"/>
@@ -88,12 +73,8 @@
                         <viewLayoutGuide key="safeArea" id="PKv-4M-ub7"/>
                     </view>
                     <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="b4H-I9-VYq"/>
-                    <connections>
-                        <segue destination="E4X-dg-Gjp" kind="unwind" identifier="unwindToAddMovies" unwindAction="unwindToAddMoviesWithSegue:" id="CZt-eR-Tae"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g8b-Ri-KsW" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="E4X-dg-Gjp" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="4647.826086956522" y="174.77678571428569"/>
         </scene>

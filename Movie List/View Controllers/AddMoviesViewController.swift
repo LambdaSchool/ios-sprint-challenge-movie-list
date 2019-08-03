@@ -9,6 +9,8 @@
 import UIKit
 
 class AddMoviesViewController: UIViewController {
+    
+    var movies: [Movie] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,18 +18,20 @@ class AddMoviesViewController: UIViewController {
         
     }
     
+    
 
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "MoviesViewSegue" {
-            if let addMoviesVC = segue.destination as? AddMoviesViewController {
-                
+            if let moviesVC = segue.destination as? MoviesViewController {
+                moviesVC.movies = movies
             }
         }
     }
     
     @IBAction func addMovieTapped(_ sender: Any) {
+        //Take the information passed in by the user and add it to the array of movies to be shown by the MoviesViewController.
     }
     
 

@@ -20,25 +20,22 @@ class MoviesViewController: UIViewController {
       
     }
     
-    
+    // Need to set the movieCell.text = what the user entered in the AddMoviesViewController.
 
     
     // MARK: - Navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "AddMovieViewSegue" {
-            if let movieVC = segue.destination as? MoviesViewController {
-                
-            }
-        }
+    
+    //Attempting to use Unwind Segue
+    
+    @IBAction func unwindToAddMovies(segue: UIStoryboardSegue) {
         
     }
     
-    @IBAction func addTapped(_ sender: Any) {
+    @IBAction func addMovieVCTapped(_ sender: Any) {
+        self.performSegue(withIdentifier: "unwindToAddMovies", sender: self)
     }
     
-    @IBAction func notSeenTapped(_ sender: Any) {
-    }
-    
+
 }
 
 
