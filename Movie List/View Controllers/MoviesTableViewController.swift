@@ -9,14 +9,21 @@
 import UIKit
 
 class MoviesTableViewController: UIViewController {
-
+    
+    // MARK: - Outlets
+    
+    @IBOutlet weak var tableView: UITableView!
+    
+    //MARK: - Properties
+    
+    var moviesList: [String] = []
+    
+    //MARK: - Functions
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     
-
     /*
     // MARK: - Navigation
 
@@ -26,5 +33,19 @@ class MoviesTableViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+}
 
+// MARK: - Extensions
+
+extension MoviesTableViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return moviesList.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        <#code#>
+    }
+    
+    
 }

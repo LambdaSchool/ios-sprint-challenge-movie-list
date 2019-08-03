@@ -10,6 +10,14 @@ import UIKit
 
 class MovieTableViewCell: UITableViewCell {
 
+    // MARK: - Outlets
+    
+    @IBOutlet weak var movieNameLabel: UILabel!
+    @IBOutlet weak var movieWatchedStatus: UIButton!
+    
+    
+    // MARK: - Functions
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -20,5 +28,11 @@ class MovieTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    // MARK: - Actions
+    
+    @IBAction func movieWatchedTapped(_ sender: Any) {
+    }
+    
 
 }

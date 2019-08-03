@@ -8,3 +8,7 @@
 
 import Foundation
 
+struct Movie {
+    let name: String
+    var seen: Bool = false
+}
