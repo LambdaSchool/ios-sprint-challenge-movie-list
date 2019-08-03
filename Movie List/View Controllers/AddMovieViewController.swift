@@ -1,5 +1,5 @@
 //
-//  MovieDetailViewController.swift
+//  AddMovieViewController.swift
 //  Movie List
 //
 //  Created by Vici Shaweddy on 8/2/19.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MovieDetailViewController: UIViewController {
+class AddMovieViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

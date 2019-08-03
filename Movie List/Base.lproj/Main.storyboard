@@ -29,10 +29,25 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aEW-Av-t3a" id="ywV-rw-75s">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wGt-ol-jvk">
+                                                    <rect key="frame" x="296" y="7" width="64" height="30"/>
+                                                    <state key="normal" title="Not Seen"/>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ldC-yF-YZB">
+                                                    <rect key="frame" x="15" y="11.5" width="90" height="21"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="wGt-ol-jvk" firstAttribute="centerY" secondItem="ywV-rw-75s" secondAttribute="centerY" id="1pU-xU-HsW"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="wGt-ol-jvk" secondAttribute="trailing" id="BQX-kV-ReT"/>
+                                                <constraint firstItem="ldC-yF-YZB" firstAttribute="centerY" secondItem="ywV-rw-75s" secondAttribute="centerY" id="VWe-2Y-vWV"/>
+                                                <constraint firstItem="ldC-yF-YZB" firstAttribute="leading" secondItem="ywV-rw-75s" secondAttribute="leadingMargin" id="glU-nb-599"/>
+                                            </constraints>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="6S0-li-MOB" kind="show" identifier="ShowMovie" id="ovs-6Q-4iD"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -40,20 +55,56 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="ppS-vO-FZ3"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Movie List" id="brH-Ca-kkr"/>
+                    <navigationItem key="navigationItem" title="Movie List" id="brH-Ca-kkr">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="E0i-bf-S5s">
+                            <connections>
+                                <segue destination="6S0-li-MOB" kind="show" identifier="AddMovie" id="wYK-HG-zl7"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="40e-kL-nrS" id="N2A-Eg-PKm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x9T-b5-DqF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="61.600000000000001" y="96.7016491754123"/>
         </scene>
-        <!--Movie Detail View Controller-->
+        <!--Add Movie View Controller-->
         <scene sceneID="Yfa-Yv-5lI">
             <objects>
-                <viewController id="6S0-li-MOB" customClass="MovieDetailViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="6S0-li-MOB" customClass="AddMovieViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nDy-NJ-3zb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a new movie to the list" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d8G-p9-3oL">
+                                <rect key="frame" x="51" y="104" width="273" height="26"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="21"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4c3-ah-Tsn">
+                                <rect key="frame" x="20" y="150" width="335" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hpz-vS-p16">
+                                <rect key="frame" x="151" y="200" width="73" height="30"/>
+                                <state key="normal" title="Add Movie"/>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="d8G-p9-3oL" firstAttribute="top" secondItem="p8D-XR-Q6Q" secondAttribute="top" constant="40" id="0sB-6k-s3A"/>
+                            <constraint firstItem="4c3-ah-Tsn" firstAttribute="top" secondItem="d8G-p9-3oL" secondAttribute="bottom" constant="20" id="19Y-As-tdf"/>
+                            <constraint firstItem="Hpz-vS-p16" firstAttribute="centerX" secondItem="nDy-NJ-3zb" secondAttribute="centerX" id="KUy-Tp-9H6"/>
+                            <constraint firstItem="Hpz-vS-p16" firstAttribute="top" secondItem="4c3-ah-Tsn" secondAttribute="bottom" constant="20" id="Xyy-lW-ijo"/>
+                            <constraint firstItem="p8D-XR-Q6Q" firstAttribute="trailing" secondItem="4c3-ah-Tsn" secondAttribute="trailing" constant="20" id="nic-1G-Cji"/>
+                            <constraint firstItem="4c3-ah-Tsn" firstAttribute="leading" secondItem="p8D-XR-Q6Q" secondAttribute="leading" constant="20" id="wiG-gI-zJn"/>
+                            <constraint firstItem="d8G-p9-3oL" firstAttribute="centerX" secondItem="nDy-NJ-3zb" secondAttribute="centerX" id="zcE-hR-05g"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="p8D-XR-Q6Q"/>
                     </view>
                 </viewController>
