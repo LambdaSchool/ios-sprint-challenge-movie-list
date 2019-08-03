@@ -8,6 +8,11 @@
 
 import UIKit
 
+protocol CellButtonDelegate {
+    func onClick(index: Int)
+    func movieWatchedStatus(_ movie: Movie)
+}
+
 class MovieTableViewCell: UITableViewCell {
 
     // MARK: - Outlets
@@ -16,23 +21,39 @@ class MovieTableViewCell: UITableViewCell {
     @IBOutlet weak var movieWatchedStatus: UIButton!
     
     
+    // MARK: - Properties
+    
+    var buttonDelegate: CellButtonDelegate?
+    var index: IndexPath?
+    
+    var movie: Movie? {
+        didSet {
+            updateViews()
+        }
+    }
+    
     // MARK: - Functions
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    private func updateViews() {
+        guard let movie = movie else { return }
+        movieNameLabel.text = movie.name
+        movieWatchedStatus.isHidden = false
     }
     
+
     // MARK: - Actions
     
     @IBAction func movieWatchedTapped(_ sender: Any) {
+        guard let movie = movie else { return }
+        if movie.seen == false {
+            movieWatchedStatus.setTitle("Seen", for: .normal)
+            buttonDelegate?.onClick(index: (index?.row)!)
+            buttonDelegate?.movieWatchedStatus(movie)
+        } else if movie.seen == true {
+            movieWatchedStatus.setTitle("Not Seen", for: .normal)
+            buttonDelegate?.onClick(index: (index?.row)!)
+            buttonDelegate?.movieWatchedStatus(movie)
+        }
     }
-    
-
 }
+

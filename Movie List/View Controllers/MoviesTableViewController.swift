@@ -16,7 +16,7 @@ class MoviesTableViewController: UIViewController {
     
     //MARK: - Properties
     
-    var moviesList: [String] = []
+    var moviesList: [Movie] = []
     
     //MARK: - Functions
     
@@ -24,28 +24,48 @@ class MoviesTableViewController: UIViewController {
         super.viewDidLoad()
     }
     
-    /*
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "AddMovieSegue" {
+            guard let addMovieVC = segue.destination as? AddMovieViewController else { return }
+            addMovieVC.delegate = self
+        }
     }
-    */
     
 }
 
 // MARK: - Extensions
 
-extension MoviesTableViewController: UITableViewDataSource {
+extension MoviesTableViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return moviesList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as? MovieTableViewCell else { return UITableViewCell() }
+        let movie = moviesList[indexPath.row]
+        cell.movie = movie
+        cell.buttonDelegate = self
+        cell.index = indexPath
+        return cell
+    }
+}
+
+extension MoviesTableViewController: AddMovieDelegate {
+    func movieWasAdded(_ movie: Movie) {
+        moviesList.append(movie)
+        _ = navigationController?.popViewController(animated: true)
+        tableView.reloadData()
+    }
+}
+
+extension MoviesTableViewController: CellButtonDelegate {
+    func onClick(index: Int) {
+        print("\(index) was clicked")
     }
     
-    
+    func movieWatchedStatus(_ movie: Movie) {
+        
+    }
 }

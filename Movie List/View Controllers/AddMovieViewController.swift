@@ -18,7 +18,6 @@ class AddMovieViewController: UIViewController {
     
     @IBOutlet weak var newMovieTextField: UITextField!
     
-    
     // MARK: - Properties
     
     var delegate: AddMovieDelegate?
@@ -30,6 +29,10 @@ class AddMovieViewController: UIViewController {
     }
     
     @IBAction func addMovieButtonTapped(_ sender: Any) {
+        guard let newMovieName = newMovieTextField.text, !newMovieName.isEmpty else { return }
+        
+        let newMovie = Movie(name: newMovieName, seen: false)
+        delegate?.movieWasAdded(newMovie)
     }
     
 
@@ -39,5 +42,6 @@ extension AddMovieViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         // resign first repsonder
         // addMovieTapped()
+        return false
     }
 }
