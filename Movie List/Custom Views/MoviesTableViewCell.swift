@@ -10,24 +10,31 @@ import UIKit
 
 class MoviesTableViewCell: UITableViewCell {
     
-    var movie: Movie?
-    
     @IBOutlet weak var movieListLabel: UILabel!
+    @IBOutlet weak var isSeenLabel: UIButton!
+    
+    var movie: Movie? {
+        didSet{
+            updateViews()
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
     private func updateViews() {
+        
         guard let movie = movie else { return }
         
+        self.movieListLabel.text = movie.moviesName
+        let isSeenString = movie.isSeen ? "Not Seen" : "Seen"
+        self.isSeenLabel.setTitle(isSeenString, for: .normal)
     }
 
 }
