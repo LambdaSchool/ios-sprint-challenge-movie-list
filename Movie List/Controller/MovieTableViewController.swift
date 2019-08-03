@@ -29,19 +29,19 @@ class MovieTableViewController: UIViewController {
         }
     }
     
+    // MARK: - TableView editing
+    
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             movies.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
-
 }
 
 // MARK: - UITableViewDataSource
 
 extension MovieTableViewController: UITableViewDataSource {
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return movies.count
     }
@@ -52,8 +52,9 @@ extension MovieTableViewController: UITableViewDataSource {
         cell.delegate = self
         return cell
     }
-    
 }
+
+// MARK: - AddMovieDelegate
 
 extension MovieTableViewController: AddMovieDelegate {
     func movieWasAdded(_ movie: Movie) {
@@ -63,9 +64,10 @@ extension MovieTableViewController: AddMovieDelegate {
     }
 }
 
+// MARK: - MovieTableViewDelegate
+
 extension MovieTableViewController: MovieTableViewDelegate {
     func seenButtonTapped(cell: MovieTableViewCell) {
-        
         guard let indexPath = tableView.indexPath(for: cell) else { return }
         
         if movies[indexPath.row].seen {
@@ -75,6 +77,5 @@ extension MovieTableViewController: MovieTableViewDelegate {
             cell.seenNotSeenButton.setTitle("Seen", for: .normal)
             movies[indexPath.row].seen = true
         }
-        
     }
 }

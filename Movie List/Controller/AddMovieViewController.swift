@@ -31,8 +31,5 @@ class AddMovieViewController: UIViewController {
         let movie = Movie(name: movieName, seen: false)
         
         delegate?.movieWasAdded(movie)
-        
     }
-    
-
 }
