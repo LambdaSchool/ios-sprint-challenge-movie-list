@@ -8,7 +8,15 @@
 
 import UIKit
 
+protocol AddMovieDelegate {
+    func movieWasAdded (_ movieInstance: Movie)
+}
+
 class AddMovieViewController: UIViewController {
+    
+    @IBOutlet weak var addMovieTextField: UITextField!
+    
+    var delegate: AddMovieDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,15 +24,22 @@ class AddMovieViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func addMovieButtonTapped(_ sender: UIButton) {
+        guard let movieTitle = addMovieTextField.text,
+            !movieTitle.isEmpty else { return }
+        
+        let movieInstance = Movie(name: movieTitle)
+        
+        delegate?.movieWasAdded(movieInstance)
+        
     }
-    */
+}
 
+extension AddMovieViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if let text = textField.text, !text.isEmpty {
+            textField.resignFirstResponder()
+        }
+        return false
+    }
 }
