@@ -24,13 +24,14 @@ class MovieTableViewCell: UITableViewCell {
         guard let movie = movie else { return }
         
         movieTitleLabel.text = movie.name
-        seenButton.titleLabel?.text = "Seen"
+        seenButton.titleLabel?.text = "Not Seen"
     }
     
     
     @IBAction func seenButton(_ sender: UIButton) {
-        
-        
+        if movie?.haveSeen == false {
+            seenButton.titleLabel?.text = "Seen"
+        }
     }
     
 
