@@ -9,6 +9,9 @@
 import UIKit
 
 class MovieTableViewCell: UITableViewCell {
+    
+    @IBOutlet var movieNameLabel: UILabel!
+    @IBOutlet var seenNotSeenButton: UIButton!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -20,5 +23,10 @@ class MovieTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    @IBAction func seenNotSeenButtonTapped(_ sender: Any) {
+        
+    }
+    
 
 }
