@@ -20,7 +20,7 @@ Commit your code regularly and meaningfully. This helps both you (in case you ev
 
 In this challenge, you build an app that tracks and remembers your favorite movies. Your finished project looks something like this:
 
-![](https://user-images.githubusercontent.com/16965587/56839007-c3df5d00-683d-11e9-95d8-b2d4efad47b7.gif)
+![](https://user-images.githubusercontent.com/16965587/56839007-c3df5d00-683d-11e9-95d8 -b2d4efad47b7.gif)
 
 In meeting the minimum viable product (MVP) specifications listed below, your application will be able to add movies to a central model and then present them in a table view in a separate tab.
 
