@@ -50,6 +50,14 @@ extension MoviesTableViewController: UITableViewDataSource, UITableViewDelegate 
         cell.index = indexPath
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == UITableViewCell.EditingStyle.delete {
+            moviesList.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
+        }
+        tableView.reloadData()
+    }
 }
 
 extension MoviesTableViewController: AddMovieDelegate {

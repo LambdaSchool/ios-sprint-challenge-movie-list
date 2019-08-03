@@ -26,25 +26,39 @@ class AddMovieViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        newMovieTextField.delegate = self
     }
     
     // MARK: - Actions
     
     @IBAction func addMovieButtonTapped(_ sender: Any) {
-        guard let newMovieName = newMovieTextField.text, !newMovieName.isEmpty else { return }
+        guard let newMovieName = newMovieTextField.text, !newMovieName.isEmpty else { return needNameofMovie() }
         let newMovie = Movie(name: newMovieName, seen: false)
         delegate?.movieWasAdded(newMovie)
     }
     
 
+    private func needNameofMovie() {
+        let alert = UIAlertController(title: "Complete Required Fields", message: "Please enter a movie title.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
+            NSLog("The \"OK\" alert occured.")
+        }))
+        self.present(alert, animated: true)
+    }
+    
 }
 
 // MARK: - Extensions
 
 extension AddMovieViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        // resign first repsonder
-        // addMovieTapped()
+        switch textField {
+        case newMovieTextField:
+            resignFirstResponder()
+            addMovieButtonTapped(textField)
+        default:
+            resignFirstResponder()
+        }
         return false
     }
 }
