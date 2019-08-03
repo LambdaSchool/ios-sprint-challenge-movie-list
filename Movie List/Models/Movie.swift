@@ -8,12 +8,13 @@
 
 import Foundation
 
-struct Movie {
+struct Movie: Equatable {
     var title: String
     var seen: Bool = false
 }
 
 protocol MovieDelegate {
-    func addMovie(movie _: Movie)
-    func delMovie(movie _: Movie)
+    func addMovie(_ movie: Movie)
+    func delMovie(_ movie: Movie)
+    func toggleSeen(_ movie: Movie) -> Movie?
 }

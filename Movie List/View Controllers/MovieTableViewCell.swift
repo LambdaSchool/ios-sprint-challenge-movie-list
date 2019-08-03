@@ -12,17 +12,29 @@ class MovieTableViewCell: UITableViewCell {
     @IBOutlet weak var lblTitle: UILabel!
     @IBOutlet weak var btnSeen: UIButton!
     
+    var delegate: MovieDelegate?
+    var movie: Movie? {
+        didSet {
+            updateView()
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
 
     @IBAction func seenTapped(_ sender: Any) {
+        guard let movie = movie else { return }
+        self.movie = delegate?.toggleSeen(movie)
+    }
+    
+    func updateView() {
+        guard let movie = movie else { return }
+        lblTitle.text = movie.title
+        btnSeen.setTitle(movie.seen ? "Seen" : "Not Seen", for: .normal)
     }
 }
