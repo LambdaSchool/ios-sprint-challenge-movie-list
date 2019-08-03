@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol MovieTableViewDelegate {
+    func seenButtonTapped(cell: MovieTableViewCell)
+}
+
 class MovieTableViewCell: UITableViewCell {
     
     @IBOutlet var movieNameLabel: UILabel!
@@ -19,18 +23,30 @@ class MovieTableViewCell: UITableViewCell {
         }
     }
     
+    var delegate: MovieTableViewDelegate?
+    
     @IBAction func seenNotSeenButtonTapped(_ sender: Any) {
-        createdMovie!.seen = !createdMovie!.seen
+        guard let movie = createdMovie else { return }
+        
+//        if movie.seen {
+//            createdMovie?.seen = false
+//            seenNotSeenButton.titleLabel?.text = "Not Seen"
+//        } else {
+//            createdMovie?.seen = true
+//            seenNotSeenButton.titleLabel?.text = "Seen"
+//        }
+        
+//        createdMovie?.seen = createdMovie?.seen == true ? false : true
+        
+        delegate?.seenButtonTapped(cell: self)
+        
     }
     
     private func updateViews() {
         if let movie = createdMovie {
             movieNameLabel.text = movie.name
-            if movie.seen {
-                seenNotSeenButton.titleLabel?.text = "Seen"
-            } else {
-                seenNotSeenButton.titleLabel?.text = "Not Seen"
-            }
+            
+//            seenNotSeenButton.titleLabel?.text = movie.seen == true ? "Seen" : "Not Seen"
         }
     }
     

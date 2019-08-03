@@ -42,6 +42,7 @@ extension MovieTableViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as? MovieTableViewCell else { return UITableViewCell() }
         cell.createdMovie = movies[indexPath.row]
+        cell.delegate = self
         return cell
     }
     
@@ -52,5 +53,21 @@ extension MovieTableViewController: AddMovieDelegate {
         movies.append(movie)
         navigationController?.popViewController(animated: true)
         tableView.reloadData()
+    }
+}
+
+extension MovieTableViewController: MovieTableViewDelegate {
+    func seenButtonTapped(cell: MovieTableViewCell) {
+        
+        guard let indexPath = tableView.indexPath(for: cell) else { return }
+        
+        if movies[indexPath.row].seen {
+            cell.seenNotSeenButton.setTitle("Not Seen", for: .normal)
+            movies[indexPath.row].seen = false
+        } else {
+            cell.seenNotSeenButton.setTitle("Seen", for: .normal)
+            movies[indexPath.row].seen = true
+        }
+        
     }
 }
