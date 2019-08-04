@@ -14,7 +14,7 @@ class MovieTableViewCell: UITableViewCell {
     @IBOutlet weak var movieTitle: UILabel!
     
     
-    var friend: Movie? {
+    var movie: Movie? {
         didSet {
             updateViews()
         }
@@ -25,9 +25,9 @@ class MovieTableViewCell: UITableViewCell {
         movieTitle.text = movie.name
         
     }
-    
-}
-@IBAction func seenButton(_ sender: Any) {
-    
-}
 
+@IBAction func seenButton(_ sender: UIButton) {
+    
+    sender.setTitle("Seen", for: .normal)
+}
+}

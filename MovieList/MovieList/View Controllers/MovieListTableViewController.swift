@@ -8,11 +8,11 @@
 
 import UIKit
 
-class MovieListTableViewController: UITableViewController {
+class MovieListTableViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    var friends: [Movie] = []
+    var movies: [Movie] = []
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "AddMovieModalSegue" {
@@ -28,11 +28,8 @@ extension MovieListTableViewController: UITableViewDataSource {
         return movies.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // Two main failure cases:
-        // 1. Dequeue fails because identifiers don't match
-        // 2. Failure to conditionally downcast using as?
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as? MovieTableViewCell else { return UITableViewCell() }
-        //friend constant
+     
         let movie = movies[indexPath.row]
         cell.movie = movie
         
@@ -40,12 +37,20 @@ extension MovieListTableViewController: UITableViewDataSource {
     }
 }
 
-extension MovieListTableViewController: AddMovieViewController {
+extension MovieListTableViewController: AddMovieDelegate {
     func movieWasCreated(_ movie: Movie) {
-        movies.append(friend)
+        movies.append(movie)
         dismiss(animated: true, completion: nil)
         tableView.reloadData()
     }
-    
-    
 }
+extension MovieListTableViewController {
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        movies.remove(at: indexPath.row)
+        tableView.reloadData()
+    }
+}
+
+
+
