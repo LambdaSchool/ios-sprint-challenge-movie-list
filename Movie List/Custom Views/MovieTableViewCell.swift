@@ -9,9 +9,11 @@
 import UIKit
 
 class MovieTableViewCell: UITableViewCell {
-
-    @IBOutlet weak var movieLabel: UILabel!
     
+    @IBOutlet weak var movieTitleLabel: UILabel!
+    
+
+
     var movie: Movie? {
         didSet {
             updateViews()
@@ -21,9 +23,7 @@ class MovieTableViewCell: UITableViewCell {
     private func updateViews() {
         guard let movie = movie else { return }
         
-        movieLabel.text = movie.name
-        
-        
+        movieTitleLabel.text = movie.name
     }
     
     @IBAction func notSeenTapped(_ sender: Any) {
