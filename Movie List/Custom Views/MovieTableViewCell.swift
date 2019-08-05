@@ -17,7 +17,7 @@ class MovieTableViewCell: UITableViewCell {
     //Movie Property to hold value and execute updateViews when value is assigned
     var movie: Movie? {
         didSet {
-            
+            updateViews()
         }
     }
     
