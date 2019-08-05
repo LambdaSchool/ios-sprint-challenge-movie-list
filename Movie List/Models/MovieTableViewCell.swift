@@ -24,19 +24,17 @@ class MovieTableViewCell: UITableViewCell {
         
         movieTitleLabel.text = movie.name
         isSeenButton.isSelected = movie.isSeen
-        //isSeenButton.setTitle("Seen", for: .selected)
-        isSeenButton.setTitle("Seen", for: .selected)
-
-        //isSeenButton.isHighlighted = false
     }
     
     @IBAction func isSeenTapped(_ sender: Any) {
 
         guard let isSeenButton = sender as? UIButton else { return }
-        //isSeenButton.setTitle("Seen", for: .selected)
+        
         isSeenButton.isSelected.toggle()
-        if isSelected == true {
-            isSeenButton.isHighlighted = false
-        }
+        isSeenButton.setTitle("Seen", for: .selected)
+
+//        if isSelected == true {
+//            isSeenButton.isHighlighted = false
+//        }
     }
 }
