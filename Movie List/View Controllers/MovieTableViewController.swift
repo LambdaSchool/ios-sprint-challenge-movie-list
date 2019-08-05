@@ -50,6 +50,13 @@ extension MovieTableViewController: UITableViewDataSource, UITableViewDelegate {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == UITableViewCell.EditingStyle.delete {
+            movieList.remove(at: indexPath.row)
+            tableView.reloadData()
+        }
+    }
+    
 }
 
 //Extends the MovieTableViewController class to conform with the AddMovieDelegate
