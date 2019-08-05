@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="FfK-MJ-qXR">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zg6-L4-e2I">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -45,7 +45,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="addMovie:" destination="XK5-dU-60e" eventType="touchUpInside" id="Uee-r8-Z9Q"/>
+                                    <action selector="addMovie:" destination="XK5-dU-60e" eventType="touchUpInside" id="cYc-Wl-tE2"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -69,9 +69,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nOy-04-lI8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3863.1999999999998" y="-140.77961019490255"/>
+            <point key="canvasLocation" x="4764" y="-139"/>
         </scene>
-        <!--My Movies-->
+        <!--Movies Table View Controller-->
         <scene sceneID="RU1-ZQ-h2X">
             <objects>
                 <viewController id="iQP-qw-I1i" customClass="MoviesTableViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
@@ -80,7 +80,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8K9-b9-glf">
-                                <rect key="frame" x="0.0" y="20" width="375" height="598"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MovieCell" rowHeight="59" id="xcG-q8-kgU" customClass="MovieTableViewCell" customModule="Movie_List" customModuleProvider="target">
@@ -133,55 +133,42 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="107-4y-MX3"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="My Movies" image="Clapboard" id="zGR-yu-ueK"/>
+                    <navigationItem key="navigationItem" id="zaB-EN-U4L">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="wy0-bt-4cA">
+                            <connections>
+                                <segue destination="XK5-dU-60e" kind="show" identifier="AddMovieSegue" id="0MS-1S-IXz"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="8K9-b9-glf" id="6IC-fL-YlD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JNT-R3-Mib" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3863.1999999999998" y="644.52773613193403"/>
+            <point key="canvasLocation" x="4764" y="-860.41979010494754"/>
         </scene>
-        <!--Add New Movies-->
-        <scene sceneID="jdO-Pw-6Td">
+        <!--My Movies-->
+        <scene sceneID="j9d-4W-Ko2">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="WTS-5W-NiY" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Add New Movies" image="Plus" id="EWg-ue-Lkk"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zg6-L4-e2I" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="My Movies" image="Clapboard" id="zGR-yu-ueK"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="puG-nh-FM8">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="FoI-9i-xZu">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="XK5-dU-60e" kind="relationship" relationship="rootViewController" id="pcT-M7-DRz"/>
+                        <segue destination="iQP-qw-I1i" kind="relationship" relationship="rootViewController" id="vuL-NI-Xsy"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="MhV-qW-vmQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ly3-9F-ceg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2924" y="-140.77961019490255"/>
-        </scene>
-        <!--Tab Bar Controller-->
-        <scene sceneID="Ahd-KJ-fOt">
-            <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="FfK-MJ-qXR" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="J6j-9X-6Mu">
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="WTS-5W-NiY" kind="relationship" relationship="viewControllers" id="qbq-la-zu2"/>
-                        <segue destination="iQP-qw-I1i" kind="relationship" relationship="viewControllers" id="1QZ-9I-00s"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4CU-iC-q2W" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1984.8" y="251.42428785607197"/>
+            <point key="canvasLocation" x="3824.8000000000002" y="-860.41979010494754"/>
         </scene>
     </scenes>
     <resources>
         <image name="Clapboard" width="28" height="28"/>
-        <image name="Plus" width="28" height="28"/>
     </resources>
 </document>

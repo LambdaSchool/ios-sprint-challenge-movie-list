@@ -13,13 +13,20 @@ class MoviesTableViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     
-    var movies: [Movie] = []
-    
+    var movies = [Movie]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
         
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "AddMovieSegue" {
+            if let addMovieVC = segue.destination as? AddMovieViewController {
+                addMovieVC.delegate = self
+            }
+        }
     }
 
 }

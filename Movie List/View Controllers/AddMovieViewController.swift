@@ -19,12 +19,12 @@ class AddMovieViewController: UIViewController {
     var delegate: AddMovieDelegate?
     
     
+    
     override func viewDidLoad() {
-        super.viewDidLoad()
-
-        
+        super.viewDidLoad()  
     }
     
+  
     @IBAction func addMovie(_ sender: UIButton) {
         guard let movieTitle = movieTitleTextField.text,
               !movieTitle.isEmpty else { return }
@@ -33,6 +33,7 @@ class AddMovieViewController: UIViewController {
         
         delegate?.movieWasAdded(movie)
     }
+    
     
 }
 
