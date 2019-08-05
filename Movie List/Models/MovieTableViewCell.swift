@@ -11,16 +11,24 @@ import UIKit
 class MovieTableViewCell: UITableViewCell {
 
     @IBOutlet weak var movieTitleLabel: UILabel!
+    @IBOutlet weak var isSeenButton: UIButton!
     
-    var movieTitle: String? {
+    var movie: Movie? {
         didSet {
             updateViews()
         }
     }
     
     private func updateViews() {
-        guard let movieTitle = movieTitle else { return }
+        guard let movie = movie else { return }
         
-        movieTitleLabel.text = movieTitle
+        movieTitleLabel.text = movie.name
+        
+    }
+    
+    @IBAction func isSeenTapped(_ sender: Any) {
+            
+        guard let isSeenButton = sender as? UIButton else { return }
+        isSeenButton.setTitle("Seen", for: .selected)
     }
 }

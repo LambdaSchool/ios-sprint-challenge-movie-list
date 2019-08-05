@@ -22,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="108" width="414" height="734"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="WqT-Ck-KUl" customClass="MovieTableViewCell" customModule="Movie_List" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="movieCell" id="WqT-Ck-KUl" customClass="MovieTableViewCell" customModule="Movie_List" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="WqT-Ck-KUl" id="u9a-L5-nLg">
@@ -32,6 +32,9 @@
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cbV-fL-G8F">
                                                     <rect key="frame" x="342" y="7" width="64" height="30"/>
                                                     <state key="normal" title="Not Seen"/>
+                                                    <connections>
+                                                        <action selector="isSeenTapped:" destination="WqT-Ck-KUl" eventType="touchUpInside" id="its-hJ-RfA"/>
+                                                    </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Dw-On-JzR">
                                                     <rect key="frame" x="8" y="11.5" width="42" height="21"/>
@@ -51,10 +54,14 @@
                                             <constraint firstItem="cbV-fL-G8F" firstAttribute="centerY" secondItem="WqT-Ck-KUl" secondAttribute="centerY" id="TCs-EE-PS0"/>
                                         </constraints>
                                         <connections>
+                                            <outlet property="isSeenButton" destination="cbV-fL-G8F" id="AKv-eB-RlT"/>
                                             <outlet property="movieTitleLabel" destination="1Dw-On-JzR" id="7aM-8g-Omn"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="delegate" destination="6Tg-uh-hu1" id="xco-mu-1Jh"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

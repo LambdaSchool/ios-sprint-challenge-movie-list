@@ -18,10 +18,7 @@ class MovieTableViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
-    
-
     
     // MARK: - Navigation
 
@@ -43,8 +40,11 @@ extension MovieTableViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+        guard let cell = movieListTableView.dequeueReusableCell(withIdentifier: "movieCell")
+                         as? MovieTableViewCell else { return UITableViewCell() }
         
-        
+        let movie = movieList[indexPath.row]
+        cell.movie = movie
         return cell
     }
     
