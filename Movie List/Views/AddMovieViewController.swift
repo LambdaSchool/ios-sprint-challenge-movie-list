@@ -28,12 +28,9 @@ class AddMovieViewController: UIViewController {
         guard let name = addMovieTextField.text,
             !name.isEmpty else {return}
         
-        var movieAdd = Movies(name: name)
+        let movieAdd = Movies(name: name)
         
-        if let enteredText = addMovieTextField.text,
-            !enteredText.isEmpty {
-            movieAdd.name.append(enteredText)
-        }
+      
         delegate?.movieWasCreated(movieAdd)
         
     }
