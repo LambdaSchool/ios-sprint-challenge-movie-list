@@ -21,6 +21,7 @@ class AddMovieViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        movieTitleTextField.delegate = self
         movieTitleTextField.becomeFirstResponder()
 
         // Do any additional setup after loading the view.
@@ -36,5 +37,9 @@ class AddMovieViewController: UIViewController {
         
         delegate?.newMovieWasAdded(movie)
     }
+    
+}
+
+extension AddMovieViewController: UITextFieldDelegate {
     
 }
