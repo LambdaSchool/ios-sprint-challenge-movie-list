@@ -29,10 +29,13 @@ class MovieTableViewCell: UITableViewCell {
     
     // Seen Button Tapped
     @IBAction func seenButtonTapped(_ sender: UIButton) {
+        
         guard let movie = movie else {
+            
             return
             
         }
+        
         self.movie = newDelegate?.toggleButtonSeenNotSeen(movie)
     }
     

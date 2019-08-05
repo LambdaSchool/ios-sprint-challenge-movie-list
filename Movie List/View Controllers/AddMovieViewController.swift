@@ -11,18 +11,19 @@ import UIKit
 var movieSeen: Bool = true
 
 class AddMovieViewController: UIViewController {
-
+    
+    // Adding UITextField and UISegmentedControl
     @IBOutlet weak var txtMovieTitle: UITextField!
     
     @IBOutlet weak var seenNotSeenSegmentedControl: UISegmentedControl!
 
-    var delegate: AddMovieDelegate?
-    
-    
+    var movieDelegate: AddMovieDelegate?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        // There is nothing to do :(
     }
     
     
@@ -51,6 +52,6 @@ class AddMovieViewController: UIViewController {
             
         }
         
-        delegate?.addMovie(Movie(title: movieTitle, seen: movieSeen))
+        movieDelegate?.addMovie(Movie(title: movieTitle, seen: movieSeen))
     }
 }
