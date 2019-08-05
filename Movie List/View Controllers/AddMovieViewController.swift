@@ -40,13 +40,7 @@ class AddMovieViewController: UIViewController {
     
     
     @IBAction func addMovieTapped(_ sender: Any) {
-        
-        if movieSeen == false {
-            self.title = "movie seen"
-        } else {
-            title = "movie not seen"
-        }
-        
+    
         guard let movieTitle = txtMovieTitle.text else {
             return
             

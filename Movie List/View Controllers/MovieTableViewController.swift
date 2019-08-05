@@ -10,6 +10,8 @@ import UIKit
 
 class MovieTableViewController: UIViewController {
 
+    @IBOutlet weak var editMovieTextField: UITextField!
+    
     // Adding tablieView outlet
     @IBOutlet weak var tableView: UITableView!
     
@@ -69,6 +71,7 @@ extension MovieTableViewController: AddMovieDelegate {
         movies.append(movie)
         tableView.reloadData()
         navigationController?.popViewController(animated: true)
+        
     }
     
     // toggleButtonSeenNotSeen required function
@@ -88,4 +91,6 @@ extension MovieTableViewController: AddMovieDelegate {
     func returnIndex(movie: Movie) -> Int? {
         return movies.firstIndex(of: movie)
     }
+    
+    
 }
