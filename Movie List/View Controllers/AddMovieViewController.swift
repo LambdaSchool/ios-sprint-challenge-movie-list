@@ -37,7 +37,7 @@ class AddMovieViewController: UIViewController {
 
     @IBAction func addMovieTapped(_ sender: Any) {
         guard let name = nameTextField.text else { return }
-        let newMovie = Movie(name: name, hasBeenSeen: false)
+        let newMovie = Movie(name: name, hasBeenSeen: false, thoughts: "")
         delegate?.movieWasAdded(newMovie)
         dismiss(animated: true, completion: nil)
     }

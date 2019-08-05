@@ -17,6 +17,7 @@ class MovieTableViewController: UIViewController {
     //String Identifiers
     let movieCellReuseIdentifier: String = "MovieCell"
     let addMovieSegueIdentifier: String = "AddMovieModalSegue"
+    let detailMovieSegueIdentifier: String = "MovieDetailShowSegue"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +29,13 @@ class MovieTableViewController: UIViewController {
         if segue.identifier == addMovieSegueIdentifier {
             guard let addMovieVC = segue.destination as? AddMovieViewController else { return }
             addMovieVC.delegate = self
+        } else if segue.identifier == detailMovieSegueIdentifier {
+            guard let detailVC = segue.destination as? MovieDetailViewController,
+                    let selectedIndexPath = tableView.indexPathForSelectedRow else { return }
+                    let movie = movieList[selectedIndexPath.row]
+                    detailVC.movie = movie
+                    detailVC.movieIndex = selectedIndexPath.row
+                    detailVC.delegate = self
         }
     }
 
@@ -74,6 +82,15 @@ extension MovieTableViewController: MovieCellDelegate {
     func didUpdateSeenStatus(cell: MovieTableViewCell) {
         guard let indexPath = self.tableView.indexPath(for: cell)?.row else { return }
         movieList[indexPath].hasBeenSeen.toggle()
+        tableView.reloadData()
+    }
+}
+
+//Extends the MovieTableViewController class to conform with the MovieDetailDelegate
+extension MovieTableViewController: MovieDetailDelegate {
+    
+    func thoughtsDidChange(_ thoughts: String, _ index: Int) {
+        movieList[index].thoughts = thoughts
         tableView.reloadData()
     }
 }
