@@ -21,7 +21,7 @@ class AddMovieViewController: UIViewController {
     
     
     override func viewDidLoad() {
-        super.viewDidLoad()  
+        super.viewDidLoad()
     }
     
   
@@ -29,7 +29,9 @@ class AddMovieViewController: UIViewController {
         guard let movieTitle = movieTitleTextField.text,
               !movieTitle.isEmpty else { return }
         
+        dismiss(animated: true, completion: nil)
         let movie = Movie(name: movieTitle, haveSeen: false)
+        
         
         delegate?.movieWasAdded(movie)
     }

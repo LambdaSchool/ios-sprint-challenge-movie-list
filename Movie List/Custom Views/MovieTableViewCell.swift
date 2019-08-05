@@ -20,17 +20,24 @@ class MovieTableViewCell: UITableViewCell {
         }
     }
     
+    var notSeen = true
+    
     private func updateViews() {
         guard let movie = movie else { return }
         
         movieTitleLabel.text = movie.name
-        seenButton.titleLabel?.text = "Not Seen"
+        seenButton.tintColor = .red
     }
     
     
     @IBAction func seenButton(_ sender: UIButton) {
-        if movie?.haveSeen == false {
-            seenButton.titleLabel?.text = "Seen"
+        notSeen = !notSeen
+        if notSeen {
+            sender.setTitle("Not Seen", for: .normal)
+            sender.setTitleColor(.red, for: .normal)
+        } else {
+            sender.setTitle("Seen", for: .normal)
+            sender.setTitleColor(.blue, for: .normal)
         }
     }
     
