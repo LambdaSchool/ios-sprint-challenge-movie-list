@@ -10,20 +10,21 @@ import UIKit
 
 class MoviesViewController: UIViewController {
     
+    // Table view outlet
     @IBOutlet weak var moviesTableView: UITableView!
     
-    
+    // Variable to reference the movie struct we created in the model.
     var movies: [Movie] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        
     }
     
-    //Not sure how to display the cells.
     
     
+    // Displays number of rows and number of cells in the table view depending on how many movies are created.
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return movies.count
     }
@@ -41,7 +42,7 @@ class MoviesViewController: UIViewController {
     
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    // segue from the MoviesViewController to AddMoviesViewController.  Trying to implement an Unwind segue as a stretch goal.
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "AddMovieViewSegue" {
             if let addMoviesVC = segue.destination as? AddMoviesViewController {
