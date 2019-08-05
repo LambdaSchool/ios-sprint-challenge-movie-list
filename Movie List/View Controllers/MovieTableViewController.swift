@@ -45,6 +45,7 @@ extension MovieTableViewController: UITableViewDataSource, UITableViewDelegate {
         
         let movie = movieList[indexPath.row]
         cell.movie = movie
+        cell.delegate = self
         
         return cell
     }
@@ -56,6 +57,16 @@ extension MovieTableViewController: AddMovieDelegate {
     func movieWasAdded(_ movie: Movie) {
         movieList.append(movie)
         dismiss(animated: true, completion: nil)
+        tableView.reloadData()
+    }
+}
+
+//Extends the MovieTableViewController class to conform with the MovieCellDelegate
+extension MovieTableViewController: MovieCellDelegate {
+    
+    func didUpdateSeenStatus(cell: MovieTableViewCell) {
+        guard let indexPath = self.tableView.indexPath(for: cell)?.row else { return }
+        movieList[indexPath].hasBeenSeen.toggle()
         tableView.reloadData()
     }
 }

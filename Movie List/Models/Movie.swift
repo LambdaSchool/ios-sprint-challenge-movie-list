@@ -10,5 +10,5 @@ import UIKit
 
 struct Movie {
     let name: String
-    let hasBeenSeen: Bool = false
+    var hasBeenSeen: Bool = false
 }

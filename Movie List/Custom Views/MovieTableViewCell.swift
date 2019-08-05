@@ -8,11 +8,18 @@
 
 import UIKit
 
+protocol MovieCellDelegate {
+    func didUpdateSeenStatus(cell: MovieTableViewCell)
+}
+
 class MovieTableViewCell: UITableViewCell {
     
     //Declare UI Elements for Cell
     @IBOutlet weak var movieNameLabel: UILabel!
     @IBOutlet weak var isSeenButton: UIButton!
+    
+    //Set MovieCellDelegateProperty
+    var delegate: MovieCellDelegate?
     
     //Movie Property to hold value and execute updateViews when value is assigned
     var movie: Movie? {
@@ -36,6 +43,7 @@ class MovieTableViewCell: UITableViewCell {
     }
     
     @IBAction func isSeenTapped(_ sender: Any) {
-        
+        delegate?.didUpdateSeenStatus(cell: self)
     }
+    
 }
