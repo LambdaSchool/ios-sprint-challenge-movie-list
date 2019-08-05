@@ -23,6 +23,7 @@ class MovieTableViewCell: UITableViewCell {
         guard let movie = movie else { return }
         
         movieTitleLabel.text = movie.name
+        isSeenButton.isSelected = movie.isSeen
         
     }
     

@@ -17,6 +17,8 @@ class MovieTableViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
 
     }
     
@@ -40,7 +42,7 @@ extension MovieTableViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        guard let cell = movieListTableView.dequeueReusableCell(withIdentifier: "movieCell")
+        guard let cell = movieListTableView.dequeueReusableCell(withIdentifier: "movieCell", for: indexPath)
                          as? MovieTableViewCell else { return UITableViewCell() }
         
         let movie = movieList[indexPath.row]
@@ -54,7 +56,8 @@ extension MovieTableViewController: UITableViewDataSource {
 extension MovieTableViewController: AddNewMovie {
     func newMovieWasAdded(_ movie: Movie) {
         movieList.append(movie)
-        dismiss(animated: true, completion: nil)
+        self.navigationController?.popViewController(animated: true)
+        //dismiss(animated: true, completion: nil)
         movieListTableView.reloadData()
     }
     

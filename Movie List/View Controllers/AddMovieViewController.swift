@@ -20,12 +20,14 @@ class AddMovieViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        movieTitleTextField.becomeFirstResponder()
 
         // Do any additional setup after loading the view.
     }
     
     
-    @IBAction func addMovieTapped(_ sender: Any) {
+    @IBAction func addMovieTapped(_ sender: UIButton) {
         
         guard let movieTitle = movieTitleTextField.text,
                   !movieTitle.isEmpty else { return }
