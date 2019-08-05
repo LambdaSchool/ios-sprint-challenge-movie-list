@@ -7,3 +7,7 @@
 //
 
 import Foundation
+
+struct Movies {
+    var name: String
+}
