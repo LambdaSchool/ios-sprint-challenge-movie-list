@@ -13,8 +13,4 @@ struct Movie {
     var movie: String
     var hasSeen: Bool
     
-    init(movie: String, hasSeen: Bool = false) {
-        self.movie = movie
-        self.hasSeen = hasSeen
-    }
 }

@@ -48,6 +48,9 @@
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2oL-OR-P2c">
                                                     <rect key="frame" x="307" y="-3" width="64" height="51.5"/>
                                                     <state key="normal" title="Not Seen"/>
+                                                    <connections>
+                                                        <action selector="notSeenButton:" destination="Ln1-tU-uho" eventType="touchUpInside" id="TZO-6t-tOf"/>
+                                                    </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mvg-ba-wWv">
                                                     <rect key="frame" x="15" y="12.5" width="84" height="20.5"/>
@@ -68,7 +71,8 @@
                                         </tableViewCellContentView>
                                         <gestureRecognizers/>
                                         <connections>
-                                            <outletCollection property="gestureRecognizers" destination="Kyt-xc-Ovz" appends="YES" id="RLw-1T-6vr"/>
+                                            <outlet property="movieTitleLabel" destination="mvg-ba-wWv" id="nJ3-bL-MB4"/>
+                                            <outlet property="notSeenButton" destination="2oL-OR-P2c" id="v8y-ym-h2x"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -86,13 +90,15 @@
                     <navigationItem key="navigationItem" title="Movie List" id="Knc-b5-K3G">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="LiP-h3-QjE">
                             <connections>
-                                <segue destination="Vyl-E9-YWL" kind="show" id="gEG-bl-d1R"/>
+                                <segue destination="Vyl-E9-YWL" kind="show" identifier="AddMovieSegue" id="gEG-bl-d1R"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="bOu-42-FDp" id="MPR-D2-g8c"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BgM-nw-Kfo" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <swipeGestureRecognizer direction="right" id="Kyt-xc-Ovz"/>
             </objects>
             <point key="canvasLocation" x="113" y="86"/>
         </scene>
@@ -128,6 +134,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2ji-BT-fvP">
                                 <rect key="frame" x="130" y="175" width="115" height="30"/>
                                 <state key="normal" title="Add Movie"/>
+                                <connections>
+                                    <action selector="addNewMovieButton:" destination="Vyl-E9-YWL" eventType="touchUpInside" id="kbF-Qf-nz4"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -141,6 +150,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="mft-st-kRu"/>
                     </view>
+                    <connections>
+                        <outlet property="newMovieTextField" destination="22b-O5-yxB" id="1TK-i4-q9d"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fid-TC-bzP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
