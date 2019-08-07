@@ -13,6 +13,8 @@ class MoviesTableViewCell: UITableViewCell {
     @IBOutlet weak var movieListLabel: UILabel!
     @IBOutlet weak var isSeenLabel: UIButton!
     
+    var isSeen: Bool = false
+    
     var movie: Movie? {
         didSet{
             updateViews()
@@ -21,20 +23,24 @@ class MoviesTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-    }
+    
     
     private func updateViews() {
         
         guard let movie = movie else { return }
         
-        self.movieListLabel.text = movie.moviesName
-        let isSeenString = movie.isSeen ? "Not Seen" : "Seen"
-        self.isSeenLabel.setTitle(isSeenString, for: .normal)
+        movieListLabel.text = movie.moviesName
     }
-
+    
+    @IBAction func isSeenButtonPressed(_ sender: UIButton) {
+        
+        isSeen.toggle()
+        
+        guard let movie = movie else { return }
+        
+            isSeen.toggle()
+        let isSeenString = movie.isSeen ? "Not Seen" : "Seen"
+            isSeenLabel.setTitle(isSeenString, for: .normal)
+    }
 }

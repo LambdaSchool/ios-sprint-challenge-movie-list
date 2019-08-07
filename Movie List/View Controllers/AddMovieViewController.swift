@@ -23,14 +23,13 @@ class AddMovieViewController: UIViewController {
         super.viewDidLoad()
     }
     
-    
-    
     @IBAction func addMoviesButton(_ sender: UIButton) {
         guard let movieName = enterMoviesTextField.text,
             !movieName.isEmpty else { return }
         
           let movie = Movie(moviesName: movieName)
         delegate?.movieWasCreated(movie)
+        navigationController?.popViewController(animated: true)
     }
 
 }
