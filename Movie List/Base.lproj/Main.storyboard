@@ -13,7 +13,7 @@
         <!--Movie List-->
         <scene sceneID="afI-nl-eVa">
             <objects>
-                <viewController id="E8r-NX-KnR" customClass="MoviesTableViewController" sceneMemberID="viewController">
+                <viewController id="E8r-NX-KnR" customClass="MoviesTableViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uSF-u6-BIP">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -30,7 +30,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="JB3-dO-Ewn">
-                                                    <rect key="frame" x="28" y="11.666666666666666" width="44" height="21.666666666666668"/>
+                                                    <rect key="frame" x="28" y="11.666666666666664" width="44" height="21.666666666666671"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LxS-RW-Lwn">
@@ -44,19 +44,30 @@
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tBW-V9-zDp">
                                                     <rect key="frame" x="371" y="7" width="35" height="30"/>
                                                     <state key="normal" title="Seen"/>
+                                                    <connections>
+                                                        <action selector="seenButtonTapped:" destination="laS-ll-COC" eventType="touchUpInside" id="VKM-wJ-bat"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="tBW-V9-zDp" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="LxS-RW-Lwn" secondAttribute="trailing" constant="8" id="daa-lK-JUg"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <constraints>
+                                            <constraint firstItem="LxS-RW-Lwn" firstAttribute="leading" secondItem="laS-ll-COC" secondAttribute="leading" constant="20" id="CEJ-OT-oLo"/>
+                                            <constraint firstItem="LxS-RW-Lwn" firstAttribute="top" secondItem="laS-ll-COC" secondAttribute="top" constant="20" id="J3X-aZ-qmd"/>
                                             <constraint firstAttribute="trailing" secondItem="tBW-V9-zDp" secondAttribute="trailing" constant="8" id="VHm-Mq-tio"/>
                                             <constraint firstItem="tBW-V9-zDp" firstAttribute="centerY" secondItem="laS-ll-COC" secondAttribute="centerY" id="kva-yM-HLh"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="nameLabel" destination="LxS-RW-Lwn" id="iXN-j6-Bzv"/>
-                                            <outlet property="seenButton" destination="tBW-V9-zDp" id="RyR-2U-aeg"/>
+                                            <outlet property="seenButton" destination="tBW-V9-zDp" id="ZYy-kv-cct"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="E8r-NX-KnR" id="qFD-95-sIX"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -76,7 +87,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="tableView" destination="xNf-yL-Knd" id="eJ2-0b-A9W"/>
+                        <outlet property="tableView" destination="xNf-yL-Knd" id="cRi-RE-hDS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dhl-1x-xfr" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -86,7 +97,7 @@
         <!--Add Movie View Controller-->
         <scene sceneID="fDl-hU-HSY">
             <objects>
-                <viewController id="hjY-Ze-edV" customClass="AddMovieViewController" sceneMemberID="viewController">
+                <viewController id="hjY-Ze-edV" customClass="AddMovieViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jnh-c4-auf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
