@@ -1,31 +1,22 @@
 //
-//  AddMovieViewController.swift
+//  MoviesViewController.swift
 //  Movie List
 //
-//  Created by Chris Gooley on 8/4/19.
-//  Copyright © 2019 Lambda School. All rights reserved.
+//  Created by Chris Gooley on 8/8/19.
+//  Copyright © 2019 Chris Gooley. All rights reserved.
 //
 
 import UIKit
 
-class AddMovieViewController: UIViewController {
+class MoviesViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         // Do any additional setup after loading the view.
     }
     
 
-    @IBAction func cancelTapped(_ sender: UIBarButtonItem) {
-        dismiss(animated: true, completion: nil)
-    }
-    
-    
-    @IBAction func saveTapped(_ sender: UIBarButtonItem) {
-        
-    }
-    
-    
     /*
     // MARK: - Navigation
 
