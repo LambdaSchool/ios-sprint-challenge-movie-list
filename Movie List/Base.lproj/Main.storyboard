@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="KCJ-vQ-kGK">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DXk-kn-Bly">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,17 +10,16 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Movies View Controller-->
+        <!--Movies-->
         <scene sceneID="FfG-Xs-rOW">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="g8b-Ri-KsW" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="qlW-gI-XfL" customClass="MoviesViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Kb4-Xz-yGB">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="SIH-WK-GdF">
-                                <rect key="frame" x="0.0" y="68" width="414" height="750"/>
+                                <rect key="frame" x="0.0" y="68" width="414" height="745"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MovieCell" id="19q-rt-mcB" customClass="MovieTableViewCell" customModule="Movie_List" customModuleProvider="target">
@@ -60,41 +59,31 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lxs-Gv-zSX">
-                                <rect key="frame" x="0.0" y="818" width="414" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="dCG-IK-36o"/>
-                                </constraints>
-                                <items>
-                                    <barButtonItem title="Add Movie" image="Plus" id="4Cf-XB-SbJ">
-                                        <connections>
-                                            <segue destination="KCJ-vQ-kGK" kind="show" identifier="AddMovieViewSegue" id="cYa-Pk-BdQ"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="5HC-fO-8iw"/>
-                                    <barButtonItem title="Movies" image="Clapboard" id="YNE-rR-62S"/>
-                                </items>
-                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="SIH-WK-GdF" firstAttribute="top" secondItem="PKv-4M-ub7" secondAttribute="top" constant="24" id="Dzv-co-WhT"/>
                             <constraint firstItem="SIH-WK-GdF" firstAttribute="leading" secondItem="Kb4-Xz-yGB" secondAttribute="leading" id="Kd3-Bh-vXQ"/>
-                            <constraint firstItem="lxs-Gv-zSX" firstAttribute="bottom" secondItem="PKv-4M-ub7" secondAttribute="bottom" id="P2F-Pp-VuY"/>
-                            <constraint firstItem="lxs-Gv-zSX" firstAttribute="top" secondItem="SIH-WK-GdF" secondAttribute="bottom" id="VVl-sg-G0O"/>
+                            <constraint firstItem="SIH-WK-GdF" firstAttribute="top" secondItem="PKv-4M-ub7" secondAttribute="top" id="OYt-NV-Jrz"/>
                             <constraint firstAttribute="trailing" secondItem="SIH-WK-GdF" secondAttribute="trailing" id="eXp-EH-liH"/>
-                            <constraint firstItem="SIH-WK-GdF" firstAttribute="leading" secondItem="lxs-Gv-zSX" secondAttribute="leading" id="ujv-hK-eEI"/>
-                            <constraint firstItem="SIH-WK-GdF" firstAttribute="trailing" secondItem="lxs-Gv-zSX" secondAttribute="trailing" id="y7p-fP-JC9"/>
+                            <constraint firstItem="PKv-4M-ub7" firstAttribute="bottom" secondItem="SIH-WK-GdF" secondAttribute="bottom" id="nWo-pa-Uxz"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PKv-4M-ub7"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="OYt-NV-Jrz"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Movies" image="Clapboard" id="sYX-uo-dS6"/>
                     <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="b4H-I9-VYq"/>
                     <connections>
                         <outlet property="moviesTableView" destination="SIH-WK-GdF" id="Is6-uD-Vfz"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="g8b-Ri-KsW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4647.826086956522" y="174.77678571428569"/>
+            <point key="canvasLocation" x="4720" y="269"/>
         </scene>
         <!--Add a new movie-->
         <scene sceneID="lNi-Af-hQt">
@@ -105,7 +94,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter the movie's title:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dMJ-Kj-EG8">
-                                <rect key="frame" x="20" y="162" width="374" height="30"/>
+                                <rect key="frame" x="20" y="113" width="374" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -116,22 +105,18 @@
                                 <items>
                                     <barButtonItem title="Add Movie" image="Plus" id="GkD-vF-mMy"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="P0G-eH-0YL"/>
-                                    <barButtonItem title="Movies" image="Clapboard" id="XvE-WU-BZW">
-                                        <connections>
-                                            <segue destination="qlW-gI-XfL" kind="show" identifier="MoviesViewSegue" id="mNM-Gl-jlz"/>
-                                        </connections>
-                                    </barButtonItem>
+                                    <barButtonItem title="Movies" image="Clapboard" id="XvE-WU-BZW"/>
                                 </items>
                             </toolbar>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yyd-kh-Eg4">
-                                <rect key="frame" x="171" y="233" width="73" height="30"/>
+                                <rect key="frame" x="171" y="184" width="73" height="30"/>
                                 <state key="normal" title="Add Movie"/>
                                 <connections>
                                     <action selector="addMovieTapped:" destination="KCJ-vQ-kGK" eventType="touchUpInside" id="kfN-aC-7e5"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a new movie to the list" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kw4-5t-ne1">
-                                <rect key="frame" x="20" y="102" width="374" height="31.5"/>
+                                <rect key="frame" x="20" y="53" width="374" height="31.5"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -151,6 +136,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ZeK-2n-PMv"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Add Movie" image="Plus" id="pN9-EI-0Xm"/>
                     <navigationItem key="navigationItem" title="Add a new movie" id="aE6-fi-874"/>
                     <connections>
                         <outlet property="movieTitleTextField" destination="dMJ-Kj-EG8" id="IPv-yN-Xt4"/>
@@ -158,7 +144,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mgk-KB-mHt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3723.188405797102" y="174.77678571428569"/>
+            <point key="canvasLocation" x="4690" y="-504"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="6sF-2W-PTA">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="DXk-kn-Bly" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="e6a-Sg-p6z">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="KCJ-vQ-kGK" kind="relationship" relationship="viewControllers" id="QFu-Pk-dDz"/>
+                        <segue destination="qlW-gI-XfL" kind="relationship" relationship="viewControllers" id="VN1-uH-aMu"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bJb-5F-uoZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3790" y="-113"/>
         </scene>
     </scenes>
     <resources>
