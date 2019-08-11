@@ -7,14 +7,9 @@
 //
 
 import Foundation
-struct Movie {
-    var name: String
-    var hasSeen: bool
-    init (name: String ,hasSeen:bool = false) {
-        self.name
-        self.hasSeen
-    }
 
+   struct Movie {
+    var movie: String
+    var hasSeen: Bool
+    
 }
-
-
