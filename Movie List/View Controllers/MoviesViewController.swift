@@ -8,6 +8,9 @@
 
 import UIKit
 
+
+
+
 class MoviesViewController: UIViewController {
     
     // Table view outlet
@@ -22,34 +25,29 @@ class MoviesViewController: UIViewController {
         
     }
     
-    
-    
-    // Displays number of rows and number of cells in the table view depending on how many movies are created.
+
+}
+
+extension MoviesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return movies.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as? MovieTableViewCell else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell") as? MovieTableViewCell else { return UITableViewCell() }
         
         let movie = movies[indexPath.row]
         cell.movie = movie
         
         return cell
     }
-    
-
-    
-    // MARK: - Navigation
-
-    // segue from the MoviesViewController to AddMoviesViewController.  Trying to implement an Unwind segue as a stretch goal.
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "AddMovieViewSegue" {
-            if let addMoviesVC = segue.destination as? AddMoviesViewController {
-                addMoviesVC.movies = movies
-            }
-        }
-    }
- 
-
 }
+
+extension MoviesViewController: AddMoviesDelegate {
+    func movieWasCreated(_ movie: Movie) {
+        movies.append(movie)
+        dismiss(animated: true, completion: nil)
+        moviesTableView.reloadData()
+    }
+}
+

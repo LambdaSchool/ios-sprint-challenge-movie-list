@@ -8,30 +8,27 @@
 
 import UIKit
 
+protocol AddMoviesDelegate {
+    func movieWasCreated(_ movie: Movie)
+}
+
 class AddMoviesViewController: UIViewController {
     
     @IBOutlet weak var movieTitleTextField: UITextField!
     
-    
-    var movies: [Movie] = []
+    var delegate: AddMoviesDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        movieTitleTextField.delegate = self as? UITextFieldDelegate
         
     }
     
     
 
-    
-    // MARK: - Navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "MoviesViewSegue" {
-            if let moviesVC = segue.destination as? MoviesViewController {
-                moviesVC.movies = movies
-            }
-        }
-    }
+   
+  
     
     @IBAction func addMovieTapped(_ sender: Any) {
         //Take the information passed in by the user and add it to the array of movies to be shown by the MoviesViewController.
@@ -39,7 +36,7 @@ class AddMoviesViewController: UIViewController {
         
         let newMovie = Movie(name: name, watched: true)
         
-        movies.append(newMovie)
+        delegate?.movieWasCreated(newMovie)
         
         movieTitleTextField.text = ""
         
