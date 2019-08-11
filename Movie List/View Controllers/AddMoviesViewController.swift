@@ -12,7 +12,7 @@ protocol AddMoviesDelegate {
     func movieWasCreated(_ movie: Movie)
 }
 
-class AddMoviesViewController: UIViewController {
+class AddMoviesViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var movieTitleTextField: UITextField!
     
@@ -21,7 +21,7 @@ class AddMoviesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        movieTitleTextField.delegate = self as? UITextFieldDelegate
+        movieTitleTextField.delegate = self 
         
     }
     
@@ -34,23 +34,18 @@ class AddMoviesViewController: UIViewController {
         //Take the information passed in by the user and add it to the array of movies to be shown by the MoviesViewController.
         guard let name = movieTitleTextField.text, !name.isEmpty else { return }
         
-        let newMovie = Movie(name: name, watched: true)
+        let movie = Movie(name: name, watched: true)
         
-        delegate?.movieWasCreated(newMovie)
+        delegate?.movieWasCreated(movie)
         
         movieTitleTextField.text = ""
         
+        navigationController?.popToRootViewController(animated: true)
+        
     }
     
-    // MARK: - Navigation
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "addMovieSegue" {
-            if let addMovieVC = segue.destination as? AddMoviesViewController {
-                addMovieVC.delegate = self as? AddMoviesDelegate
-            }
-        }
-    }
+    
     
 
 }

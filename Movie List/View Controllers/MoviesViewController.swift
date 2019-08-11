@@ -16,19 +16,33 @@ class MoviesViewController: UIViewController {
     // Table view outlet
     @IBOutlet weak var moviesTableView: UITableView!
     
+    
     // Variable to reference the movie struct we created in the model.
     var movies: [Movie] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        moviesTableView.delegate = self
+        moviesTableView.dataSource = self
 
         
+    }
+    
+    // MARK: - Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "addMovieSegue" {
+            if let addMovieVC = segue.destination as? AddMoviesViewController {
+                addMovieVC.delegate = self 
+            }
+        }
     }
     
 
 }
 
-extension MoviesViewController: UITableViewDataSource {
+extension MoviesViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return movies.count
     }

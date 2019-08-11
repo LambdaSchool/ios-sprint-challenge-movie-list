@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="SIH-WK-GdF">
-                                <rect key="frame" x="0.0" y="112" width="414" height="750"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MovieCell" id="19q-rt-mcB" customClass="MovieTableViewCell" customModule="Movie_List" customModuleProvider="target">
@@ -29,32 +29,35 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GUE-WU-Dnr">
-                                                    <rect key="frame" x="330" y="7" width="64" height="30"/>
-                                                    <state key="normal" title="Not Seen"/>
-                                                    <connections>
-                                                        <action selector="notSeenTapped:" destination="19q-rt-mcB" eventType="touchUpInside" id="PzN-zc-Ldj"/>
-                                                        <action selector="notSeenTapped:" destination="qlW-gI-XfL" eventType="touchUpInside" id="oOn-1h-4Ru"/>
-                                                    </connections>
-                                                </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ktk-Rc-QHn">
-                                                    <rect key="frame" x="20" y="11.5" width="42" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Z94-OF-QcX">
+                                                    <rect key="frame" x="20" y="0.0" width="374" height="43.5"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ktk-Rc-QHn">
+                                                            <rect key="frame" x="0.0" y="0.0" width="302" height="43.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GUE-WU-Dnr">
+                                                            <rect key="frame" x="310" y="0.0" width="64" height="43.5"/>
+                                                            <state key="normal" title="Not Seen"/>
+                                                            <connections>
+                                                                <action selector="notSeenTapped:" destination="19q-rt-mcB" eventType="touchUpInside" id="PzN-zc-Ldj"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="GUE-WU-Dnr" firstAttribute="leading" relation="lessThanOrEqual" secondItem="OV3-zA-QwO" secondAttribute="leading" constant="330" id="72k-5g-AP3"/>
-                                                <constraint firstItem="ktk-Rc-QHn" firstAttribute="leading" secondItem="OV3-zA-QwO" secondAttribute="leading" constant="20" id="8eY-fq-kcA"/>
-                                                <constraint firstItem="GUE-WU-Dnr" firstAttribute="centerY" secondItem="OV3-zA-QwO" secondAttribute="centerY" id="e9l-NO-Qda"/>
-                                                <constraint firstItem="ktk-Rc-QHn" firstAttribute="centerY" secondItem="OV3-zA-QwO" secondAttribute="centerY" id="kUz-eI-mJe"/>
-                                                <constraint firstItem="GUE-WU-Dnr" firstAttribute="leading" relation="lessThanOrEqual" secondItem="ktk-Rc-QHn" secondAttribute="trailing" constant="268" id="qqc-kB-Os9"/>
-                                                <constraint firstAttribute="trailing" secondItem="GUE-WU-Dnr" secondAttribute="trailing" constant="20" id="yXt-Ak-s98"/>
+                                                <constraint firstItem="Z94-OF-QcX" firstAttribute="leading" secondItem="OV3-zA-QwO" secondAttribute="leading" constant="20" id="1nk-Vl-A0m"/>
+                                                <constraint firstAttribute="bottom" secondItem="Z94-OF-QcX" secondAttribute="bottom" id="Wcw-B3-1c1"/>
+                                                <constraint firstItem="Z94-OF-QcX" firstAttribute="top" secondItem="OV3-zA-QwO" secondAttribute="top" id="a6z-9B-MbV"/>
+                                                <constraint firstAttribute="trailing" secondItem="Z94-OF-QcX" secondAttribute="trailing" constant="20" id="odi-TU-2h0"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="movieTitleLabel" destination="ktk-Rc-QHn" id="06y-Zn-zlt"/>
+                                            <outlet property="notSeenButton" destination="GUE-WU-Dnr" id="gQB-wU-NBe"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -62,7 +65,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="SIH-WK-GdF" firstAttribute="top" secondItem="PKv-4M-ub7" secondAttribute="top" constant="24" id="Dzv-co-WhT"/>
+                            <constraint firstItem="SIH-WK-GdF" firstAttribute="top" secondItem="PKv-4M-ub7" secondAttribute="top" id="Dzv-co-WhT"/>
                             <constraint firstItem="SIH-WK-GdF" firstAttribute="leading" secondItem="Kb4-Xz-yGB" secondAttribute="leading" id="Kd3-Bh-vXQ"/>
                             <constraint firstItem="SIH-WK-GdF" firstAttribute="top" secondItem="PKv-4M-ub7" secondAttribute="top" id="OYt-NV-Jrz"/>
                             <constraint firstAttribute="trailing" secondItem="SIH-WK-GdF" secondAttribute="trailing" id="eXp-EH-liH"/>

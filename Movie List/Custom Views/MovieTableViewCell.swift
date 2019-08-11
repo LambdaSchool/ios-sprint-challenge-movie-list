@@ -13,6 +13,7 @@ class MovieTableViewCell: UITableViewCell {
     
     // Label that gets updated by the function
     @IBOutlet weak var movieTitleLabel: UILabel!
+    @IBOutlet weak var notSeenButton: UIButton!
     
 
 
@@ -31,10 +32,12 @@ class MovieTableViewCell: UITableViewCell {
     }
     
     // This is where you switch seen to not seen when tapped
-    @IBAction func notSeenTapped(_ sender: Any) {
-        // Unsure about how to switch from "Not Seen" to "Seen"
+    @IBAction func notSeenTapped(_ sender: UIButton) {
+        movie?.watched.toggle()
         if movie?.watched == true {
-            notSeenTapped("Seen")
+            sender.setTitle("Seen", for: .normal)
+        } else {
+            sender.setTitle("Not Seen", for: .normal)
         }
     }
     
