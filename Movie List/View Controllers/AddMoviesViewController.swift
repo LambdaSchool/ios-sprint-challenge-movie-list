@@ -14,9 +14,11 @@ protocol AddMoviesDelegate {
 
 class AddMoviesViewController: UIViewController, UITextFieldDelegate {
     
+    
+    
     @IBOutlet weak var movieTitleTextField: UITextField!
     
-    var delegate: AddMoviesDelegate?
+    var addMovie: AddMoviesDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +38,7 @@ class AddMoviesViewController: UIViewController, UITextFieldDelegate {
         
         let movie = Movie(name: name, watched: true)
         
-        delegate?.movieWasCreated(movie)
+        addMovie?.movieWasCreated(movie)
         
         movieTitleTextField.text = ""
         

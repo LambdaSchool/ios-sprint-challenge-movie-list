@@ -34,7 +34,7 @@ class MoviesViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "addMovieSegue" {
             if let addMovieVC = segue.destination as? AddMoviesViewController {
-                addMovieVC.delegate = self 
+                addMovieVC.addMovie = self 
             }
         }
     }
@@ -60,8 +60,9 @@ extension MoviesViewController: UITableViewDataSource, UITableViewDelegate {
 extension MoviesViewController: AddMoviesDelegate {
     func movieWasCreated(_ movie: Movie) {
         movies.append(movie)
-        dismiss(animated: true, completion: nil)
+        //updating array we created above
         moviesTableView.reloadData()
+        //Talking to Number of rows and cellforrowat to change the view based on the updated array
     }
 }
 

@@ -32,6 +32,7 @@ class MovieTableViewCell: UITableViewCell {
     }
     
     // This is where you switch seen to not seen when tapped
+    // EVERY TIME YOU WORK WITH FUNCTIONS: WHAT IS BEING PASSED IN AND WHAT IS BEING PASSED OUT.
     @IBAction func notSeenTapped(_ sender: UIButton) {
         movie?.watched.toggle()
         if movie?.watched == true {
