@@ -42,5 +42,13 @@ class AddMoviesViewController: UIViewController {
         
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "addMovieSegue" {
+            if let addMovieVC = segue.destination as? AddMoviesViewController {
+                addMovieVC.delegate = self as? AddMoviesDelegate
+            }
+        }
+    }
+    
 
 }
