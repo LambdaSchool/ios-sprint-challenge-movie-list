@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieCell" id="EoM-HW-npf">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieCell" id="EoM-HW-npf" customClass="MoviesTableViewCell" customModule="Movie_List" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="EoM-HW-npf" id="ib4-cR-jvG">
@@ -35,6 +35,9 @@
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qyq-J7-F9S">
                                             <rect key="frame" x="348" y="7" width="46" height="30"/>
                                             <state key="normal" title="Button"/>
+                                            <connections>
+                                                <action selector="viewedButtonTapped:" destination="EoM-HW-npf" eventType="touchUpInside" id="LaG-Ax-YVP"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <constraints>
@@ -44,6 +47,10 @@
                                         <constraint firstItem="Qyq-J7-F9S" firstAttribute="centerY" secondItem="ib4-cR-jvG" secondAttribute="centerY" id="eFv-CZ-e8O"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="movieLabel" destination="0kK-cV-LIU" id="eZj-nj-i0F"/>
+                                    <outlet property="viewedButton" destination="Qyq-J7-F9S" id="EUI-ut-cov"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
