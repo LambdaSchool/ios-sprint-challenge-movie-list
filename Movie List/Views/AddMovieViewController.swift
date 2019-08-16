@@ -12,6 +12,7 @@ class AddMovieViewController: UIViewController {
 
     @IBOutlet weak var movieName: UITextField!
     @IBOutlet weak var movieSeen: UISwitch!
+    var delegate: MovieDelegate?
     
     
     
@@ -22,9 +23,13 @@ class AddMovieViewController: UIViewController {
     }
     
     @IBAction func cancelTapped(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
     }
     
     @IBAction func saveTapped(_ sender: Any) {
+        guard let movieName = movieName.text, !movieName.isEmpty else {return}
+        let movie: Movie = Movie(movieName, movieSeen.isOn)
+        delegate?.addMovie(movie)
     }
     
 }

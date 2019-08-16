@@ -30,32 +30,31 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jo2-Fj-ith">
-                                                    <rect key="frame" x="20" y="2" width="96" height="39.5"/>
+                                                    <rect key="frame" x="20" y="2" width="96" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GB4-dj-9NZ">
-                                                    <rect key="frame" x="274" y="-3" width="53" height="49.5"/>
-                                                    <state key="normal" title="Unseen"/>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Zdj-4O-Bl0">
+                                                    <rect key="frame" x="266" y="-3" width="51" height="49.5"/>
                                                     <connections>
-                                                        <action selector="seenTapped:" destination="o22-wC-N3n" eventType="touchUpInside" id="D7M-rs-9Wy"/>
+                                                        <action selector="movieCellValueChanged:" destination="o22-wC-N3n" eventType="valueChanged" id="tZa-t3-tjS"/>
                                                     </connections>
-                                                </button>
+                                                </switch>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="GB4-dj-9NZ" firstAttribute="centerY" secondItem="jo2-Fj-ith" secondAttribute="centerY" id="3MY-z6-U1R"/>
-                                                <constraint firstItem="GB4-dj-9NZ" firstAttribute="top" secondItem="C1n-s5-dm2" secondAttribute="topMargin" constant="-14" id="GSj-1z-db1"/>
-                                                <constraint firstItem="GB4-dj-9NZ" firstAttribute="centerY" secondItem="C1n-s5-dm2" secondAttribute="centerY" id="W8L-n7-ISE"/>
-                                                <constraint firstItem="GB4-dj-9NZ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="jo2-Fj-ith" secondAttribute="trailing" constant="16" id="d3j-8e-gIx"/>
+                                                <constraint firstAttribute="trailing" secondItem="Zdj-4O-Bl0" secondAttribute="trailing" constant="20" id="46Q-WK-vwB"/>
+                                                <constraint firstItem="Zdj-4O-Bl0" firstAttribute="centerY" secondItem="C1n-s5-dm2" secondAttribute="centerY" id="LFU-r7-utL"/>
+                                                <constraint firstItem="Zdj-4O-Bl0" firstAttribute="top" secondItem="C1n-s5-dm2" secondAttribute="topMargin" constant="-14" id="QkV-zG-T4F"/>
+                                                <constraint firstItem="Zdj-4O-Bl0" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="jo2-Fj-ith" secondAttribute="trailing" constant="8" symbolic="YES" id="SiW-3y-PEm"/>
                                                 <constraint firstItem="jo2-Fj-ith" firstAttribute="top" secondItem="C1n-s5-dm2" secondAttribute="topMargin" constant="-9" id="jDS-b6-ZIz"/>
                                                 <constraint firstItem="jo2-Fj-ith" firstAttribute="leading" secondItem="C1n-s5-dm2" secondAttribute="leading" constant="20" id="nci-AS-C0Z"/>
-                                                <constraint firstAttribute="trailing" secondItem="GB4-dj-9NZ" secondAttribute="trailing" constant="8" id="u4v-u7-n3H"/>
+                                                <constraint firstItem="Zdj-4O-Bl0" firstAttribute="centerY" secondItem="C1n-s5-dm2" secondAttribute="centerY" id="xNz-Kf-ZBe"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="movieName" destination="jo2-Fj-ith" id="C8h-x1-uXu"/>
-                                            <outlet property="movieSeen" destination="GB4-dj-9NZ" id="rN5-R4-qr5"/>
+                                            <outlet property="movieSeen" destination="Zdj-4O-Bl0" id="p4N-DI-ruk"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -73,7 +72,7 @@
                     <navigationItem key="navigationItem" title="Movie List" id="IF7-rn-3tC">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="2m2-JT-0tE">
                             <connections>
-                                <segue destination="GZ3-Fq-Dbs" kind="show" id="HWK-yb-veY"/>
+                                <segue destination="GZ3-Fq-Dbs" kind="show" identifier="AddMovieSeque" id="HWK-yb-veY"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

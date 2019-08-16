@@ -7,5 +7,3 @@
 //
 
 import Foundation
-
-var Movies:[Movie] = []
