@@ -11,9 +11,9 @@ import UIKit
 
 class MovieController {
     
-    var movies: [Movie] = [Movie(name: "Forrest Gump", director: "<#T##String#>", releaseDate: <#T##Date#>, image: <#T##UIImage?#>)]
+    var movies: [Movie] = [Movie(name: "Forrest Gump", director: "Robert Zemeckis", releaseDate: "July 6, 1994", image: UIImage(named: "forrest"))]
     
-    func addMovie(name: String, director: String, date: Date, image: UIImage) {
+    func addMovie(name: String, director: String, date: String, image: UIImage) {
         let movie = Movie(name: name, director: director, releaseDate: date, image: image)
         movies.append(movie)
     }

@@ -12,6 +12,6 @@ import UIKit
 struct Movie {
     var name: String
     var director: String
-    var releaseDate: Date
+    var releaseDate: String
     var image: UIImage?
 }

@@ -18,8 +18,8 @@ class addMovieViewController: UIViewController, UIImagePickerControllerDelegate,
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var directorTextField: UITextField!
     @IBOutlet weak var uploadImageButton: UIButton!
-    @IBOutlet weak var releaseDateLabel: UILabel!
-    @IBOutlet weak var datePicker: UIDatePicker!
+  
+    @IBOutlet weak var releaseDateTextField: UITextField!
     @IBOutlet weak var addMovieButton: UIButton!
     
     override func viewDidLoad() {
@@ -46,13 +46,6 @@ class addMovieViewController: UIViewController, UIImagePickerControllerDelegate,
         addMovieButton.setTitle("ADD MOVIE", for: .normal)
         addMovieButton.setTitleColor(.white, for: .normal)
 
-        
-        datePicker.backgroundColor = .black
-        datePicker.setValue(UIColor.white, forKey: "textColor")
-        
-        releaseDateLabel.text = "RELEASE DATE"
-        releaseDateLabel.textColor = .white
-        releaseDateLabel.font = UIFont(name: "System Bold", size: 30)
         
         
         imageView.backgroundColor = .gray
@@ -106,11 +99,11 @@ class addMovieViewController: UIViewController, UIImagePickerControllerDelegate,
     @IBAction func addMovieButtonTapped(_ sender: UIButton) {
         guard let title = titleTextField.text,
         let director = directorTextField.text,
-            let datePicker = datePicker,
+            let date = releaseDateTextField.text,
             let image = imageView.image else {return}
-        movieController?.addMovie(name: title, director: director, date: datePicker.date, image: image)
+        movieController?.addMovie(name: title, director: director, date: date, image: image)
         tableView?.reloadData()
-        dismiss(animated: true, completion: nil)
+        self.navigationController!.popToRootViewController(animated: true)
         
     }
 }
