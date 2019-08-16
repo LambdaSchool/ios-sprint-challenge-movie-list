@@ -31,13 +31,10 @@ class AddMovieTableViewController: UIViewController {
         guard let movieTitle = addMovieTextField.text,
             !movieTitle.isEmpty else { return }
         
-        var movie = Movie(title: movieTitle, seen: false)
+        let addedMovie = Movie(title: movieTitle, seen: false)
+    
         
-        if let addedMovie = addMovieTextField.text, !addedMovie.isEmpty {
-            movie.title.append(addedMovie)
-        }
-        
-        delegate?.movieWasAdded(movie)
+        delegate?.movieWasAdded(addedMovie)
     }
     
     
