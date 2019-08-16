@@ -35,6 +35,7 @@ class MovieListViewController: UIViewController {
 extension MovieListViewController: MovieDelegate {
     func addMovie(_ movie: Movie) {
         Movies.append(movie)
+        tableView.reloadData()
     }
     
     func updateMovie(_ movie: Movie) {

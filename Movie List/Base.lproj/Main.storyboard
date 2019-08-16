@@ -18,25 +18,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="uTt-GZ-orZ">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="uTt-GZ-orZ">
                                 <rect key="frame" x="20" y="84" width="335" height="563"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="movieCell" id="o22-wC-N3n" customClass="MovieTableViewCell" customModule="Movie_List" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="335" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="movieCell" rowHeight="50" id="o22-wC-N3n" customClass="MovieTableViewCell" customModule="Movie_List" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="335" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="o22-wC-N3n" id="C1n-s5-dm2">
-                                            <rect key="frame" x="0.0" y="0.0" width="335" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="335" height="49.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jo2-Fj-ith">
-                                                    <rect key="frame" x="20" y="2" width="96" height="21"/>
+                                                    <rect key="frame" x="20" y="2" width="96" height="45.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Zdj-4O-Bl0">
-                                                    <rect key="frame" x="266" y="-3" width="51" height="49.5"/>
+                                                    <rect key="frame" x="266" y="9.5" width="51" height="31"/>
                                                     <connections>
                                                         <action selector="movieCellValueChanged:" destination="o22-wC-N3n" eventType="valueChanged" id="tZa-t3-tjS"/>
                                                     </connections>
@@ -44,8 +44,8 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="Zdj-4O-Bl0" secondAttribute="trailing" constant="20" id="46Q-WK-vwB"/>
+                                                <constraint firstItem="Zdj-4O-Bl0" firstAttribute="centerY" secondItem="jo2-Fj-ith" secondAttribute="centerY" id="9ib-ua-KFT"/>
                                                 <constraint firstItem="Zdj-4O-Bl0" firstAttribute="centerY" secondItem="C1n-s5-dm2" secondAttribute="centerY" id="LFU-r7-utL"/>
-                                                <constraint firstItem="Zdj-4O-Bl0" firstAttribute="top" secondItem="C1n-s5-dm2" secondAttribute="topMargin" constant="-14" id="QkV-zG-T4F"/>
                                                 <constraint firstItem="Zdj-4O-Bl0" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="jo2-Fj-ith" secondAttribute="trailing" constant="8" symbolic="YES" id="SiW-3y-PEm"/>
                                                 <constraint firstItem="jo2-Fj-ith" firstAttribute="top" secondItem="C1n-s5-dm2" secondAttribute="topMargin" constant="-9" id="jDS-b6-ZIz"/>
                                                 <constraint firstItem="jo2-Fj-ith" firstAttribute="leading" secondItem="C1n-s5-dm2" secondAttribute="leading" constant="20" id="nci-AS-C0Z"/>
@@ -72,7 +72,7 @@
                     <navigationItem key="navigationItem" title="Movie List" id="IF7-rn-3tC">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="2m2-JT-0tE">
                             <connections>
-                                <segue destination="GZ3-Fq-Dbs" kind="show" identifier="AddMovieSeque" id="HWK-yb-veY"/>
+                                <segue destination="GZ3-Fq-Dbs" kind="presentation" identifier="AddMovieSeque" id="HWK-yb-veY"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -93,25 +93,25 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie to add:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="216-fo-KUv">
-                                <rect key="frame" x="20" y="84" width="104" height="21"/>
+                                <rect key="frame" x="20" y="40" width="104" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8Sg-A6-lbF">
-                                <rect key="frame" x="20" y="113" width="335" height="30"/>
+                                <rect key="frame" x="20" y="69" width="335" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="YSf-Pq-PjH">
-                                <rect key="frame" x="75" y="151" width="51" height="31"/>
+                                <rect key="frame" x="75" y="107" width="51" height="31"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" button="YES" allowsDirectInteraction="YES"/>
                                 </accessibility>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Seen?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6U6-K3-ixx">
-                                <rect key="frame" x="20" y="151" width="47" height="21"/>
+                                <rect key="frame" x="20" y="107" width="47" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>

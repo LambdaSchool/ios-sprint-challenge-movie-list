@@ -18,8 +18,7 @@ class AddMovieViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        movieName.becomeFirstResponder()
     }
     
     @IBAction func cancelTapped(_ sender: Any) {
@@ -30,6 +29,7 @@ class AddMovieViewController: UIViewController {
         guard let movieName = movieName.text, !movieName.isEmpty else {return}
         let movie: Movie = Movie(movieName, movieSeen.isOn)
         delegate?.addMovie(movie)
+        dismiss(animated: true, completion: nil)
     }
     
 }
