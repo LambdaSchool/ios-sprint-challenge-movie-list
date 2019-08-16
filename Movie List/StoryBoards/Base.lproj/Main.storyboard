@@ -88,9 +88,6 @@
                                             <segment title="Yes"/>
                                             <segment title="No"/>
                                         </segments>
-                                        <connections>
-                                            <action selector="yesOrNoTapped:" destination="IkS-I0-PvR" eventType="valueChanged" id="mcN-Xa-dCa"/>
-                                        </connections>
                                     </segmentedControl>
                                 </subviews>
                             </stackView>
@@ -165,22 +162,25 @@
                                             </constraints>
                                         </imageView>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="33" translatesAutoresizingMaskIntoConstraints="NO" id="Qsr-x2-cbv">
-                                            <rect key="frame" x="267" y="31" width="46" height="83.5"/>
+                                            <rect key="frame" x="267" y="31" width="46" height="90"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yIx-wK-cy7">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yIx-wK-cy7">
                                                     <rect key="frame" x="0.0" y="0.0" width="46" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PQJ-WI-MZz">
-                                                    <rect key="frame" x="0.0" y="53.5" width="46" height="30"/>
+                                                    <rect key="frame" x="0.0" y="53.5" width="46" height="36.5"/>
                                                     <state key="normal" title="Button"/>
                                                     <connections>
                                                         <action selector="hasBeenSeenTapped:" destination="zmA-Yp-Zg9" eventType="touchUpInside" id="yjF-YA-ORG"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="PQJ-WI-MZz" firstAttribute="top" relation="greaterThanOrEqual" secondItem="yIx-wK-cy7" secondAttribute="bottom" constant="10" id="i0h-1A-rD6"/>
+                                            </constraints>
                                         </stackView>
                                     </subviews>
                                     <constraints>
@@ -188,6 +188,8 @@
                                         <constraint firstItem="Qsr-x2-cbv" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="85r-0w-waP" secondAttribute="trailing" constant="10" id="OQq-5A-tIg"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="Qsr-x2-cbv" secondAttribute="trailing" constant="20" id="aVK-zC-JyQ"/>
                                         <constraint firstItem="85r-0w-waP" firstAttribute="leading" secondItem="dGI-2M-Om8" secondAttribute="leadingMargin" id="cnj-ei-X0j"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="Qsr-x2-cbv" secondAttribute="bottom" constant="20" id="jkr-A6-Dqb"/>
+                                        <constraint firstItem="85r-0w-waP" firstAttribute="bottom" secondItem="dGI-2M-Om8" secondAttribute="bottomMargin" id="pKk-gx-5lb"/>
                                         <constraint firstItem="85r-0w-waP" firstAttribute="top" secondItem="dGI-2M-Om8" secondAttribute="topMargin" id="w0i-Vb-VCa"/>
                                     </constraints>
                                 </tableViewCellContentView>
@@ -249,36 +251,28 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Tn2-sD-VFx">
-                                <rect key="frame" x="20" y="223" width="335" height="224"/>
+                                <rect key="frame" x="20" y="187.5" width="335" height="224"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Tn2-sD-VFx" secondAttribute="height" multiplier="335:224" id="G9y-ca-6oo"/>
                                 </constraints>
-                                <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="reasons to watch" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xEg-54-Q6q">
-                                <rect key="frame" x="20" y="187.5" width="136.5" height="20.5"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Tn2-sD-VFx" firstAttribute="leading" secondItem="Q80-tQ-aNy" secondAttribute="leading" constant="20" id="Fhp-1o-iDn"/>
-                            <constraint firstItem="xEg-54-Q6q" firstAttribute="leading" secondItem="Q80-tQ-aNy" secondAttribute="leading" constant="20" id="Kig-O3-XBd"/>
                             <constraint firstItem="Q80-tQ-aNy" firstAttribute="trailing" secondItem="Tn2-sD-VFx" secondAttribute="trailing" constant="20" id="ejO-ia-XYe"/>
-                            <constraint firstItem="Tn2-sD-VFx" firstAttribute="top" secondItem="xEg-54-Q6q" secondAttribute="bottom" constant="15" id="i0f-fv-M52"/>
-                            <constraint firstItem="xEg-54-Q6q" firstAttribute="top" secondItem="Y1L-ZU-6eQ" secondAttribute="bottom" constant="20" id="juf-TU-X53"/>
                             <constraint firstItem="Y1L-ZU-6eQ" firstAttribute="top" secondItem="Q80-tQ-aNy" secondAttribute="top" constant="20" id="s90-r8-TXC"/>
                             <constraint firstItem="Y1L-ZU-6eQ" firstAttribute="leading" secondItem="Q80-tQ-aNy" secondAttribute="leading" constant="20" id="vgb-dY-TJz"/>
+                            <constraint firstItem="Tn2-sD-VFx" firstAttribute="top" secondItem="Y1L-ZU-6eQ" secondAttribute="bottom" constant="20" id="vk5-iL-TES"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Q80-tQ-aNy"/>
                     </view>
                     <connections>
-                        <outlet property="movieNameLabel" destination="Y1L-ZU-6eQ" id="Lfh-S9-MTh"/>
+                        <outlet property="ReasonsToWatchLabel" destination="Y1L-ZU-6eQ" id="Lfh-S9-MTh"/>
                         <outlet property="reasonsToWatchTextview" destination="Tn2-sD-VFx" id="E6W-KO-PlY"/>
                     </connections>
                 </viewController>

@@ -12,9 +12,20 @@ class MovieDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        reasonsToWatchTextview.text = ""
+       updateViews()
     }
-    @IBOutlet weak var movieNameLabel: UILabel!
-    
+    //MARK: - Properties
+    @IBOutlet weak var ReasonsToWatchLabel: UILabel!
     @IBOutlet weak var reasonsToWatchTextview: UITextView!
+    var movie: Movie?
+    
+    func updateViews() {
+        guard let movie = movie else {return}
+        title = movie.movieName
+        ReasonsToWatchLabel.text = "Reasons To Watch"
+        for reasonToWatch in movie.reasonsToWatch {
+        reasonsToWatchTextview.text = "\(reasonToWatch) \n"
+        }
+    }
 }

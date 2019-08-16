@@ -23,11 +23,17 @@ class MovieTableViewCell: UITableViewCell {
     
     //MARK: - Actions
     func updateViews() {
+        
         guard let movie = movie else { return }
         movieImage.image = UIImage.init(named:"IMDb.jpg")
         movieNameLabel.text = movie.movieName
-        hasBeenSeenTapped(hasBeenSeenButton)
+        if movie.hasBeenSeen == true {
+            hasBeenSeenButton.setTitle("Seen", for: .normal)
+        } else if movie.hasBeenSeen == false {
+            hasBeenSeenButton.setTitle("NotSeen", for: .normal)
+        }
     }
+    
     @IBAction func hasBeenSeenTapped(_ sender: UIButton) {
         if movie?.hasBeenSeen == false {
             hasBeenSeenButton.setTitle("NotSeen", for: .normal)
