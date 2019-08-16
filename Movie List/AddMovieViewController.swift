@@ -10,8 +10,9 @@ import UIKit
 
 class AddMovieViewController: UITableViewController {
 
-    @IBOutlet weak var MovieTextField: MovieTextField!
    
+    @IBOutlet weak var AddMovieTextField: AddMovieTextField!
+    
     var movieController: MovieController?
     
     override func viewDidLoad() {
@@ -19,7 +20,8 @@ class AddMovieViewController: UITableViewController {
 }
     
     @IBAction func AddMovieTapped( _sender: Any) {
-        guard  let movieName = MovieTextField.text, MovieTextField.text != "" else { return }
+
+        guard  let movieName = AddMovieTextField.text, AddMovieTextField.text != "" else { return }
        movieController?.movies.append(movieName)
         navigationController?.popViewController(animated: true)
         
