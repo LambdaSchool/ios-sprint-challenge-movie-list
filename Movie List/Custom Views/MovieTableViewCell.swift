@@ -22,7 +22,6 @@ class MovieTableViewCell: UITableViewCell {
         guard let movie = movie else { return }
         
         movieTitleLabel.text = movie.movieName
-        // has been seen button needs to be registered in some way
     }
     
     
@@ -38,7 +37,5 @@ class MovieTableViewCell: UITableViewCell {
             hasBeenSeenButton.setTitle("Seen", for: .normal)
 
         }
-        
-        
     }
 }

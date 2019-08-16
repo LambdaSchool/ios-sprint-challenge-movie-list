@@ -29,22 +29,28 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Movie Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="enA-E3-nLZ">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Movie Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="enA-E3-nLZ">
                                                     <rect key="frame" x="15" y="12" width="84" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MdD-WL-VNr">
+                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MdD-WL-VNr">
                                                     <rect key="frame" x="259" y="6" width="101" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" title="Seen/Not seen"/>
                                                     <connections>
                                                         <action selector="hasBeenSeenButtonPressed:" destination="hS2-Pj-DCi" eventType="touchUpInside" id="qAz-LW-81s"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="enA-E3-nLZ" firstAttribute="bottom" secondItem="TcE-00-8LF" secondAttribute="bottomMargin" id="0nn-ZW-cEP"/>
+                                                <constraint firstItem="enA-E3-nLZ" firstAttribute="leading" secondItem="TcE-00-8LF" secondAttribute="leadingMargin" constant="-1" id="70S-Ce-UuT"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="MdD-WL-VNr" secondAttribute="trailing" constant="-1" id="80C-Jl-XAx"/>
+                                                <constraint firstItem="MdD-WL-VNr" firstAttribute="centerY" secondItem="TcE-00-8LF" secondAttribute="centerY" id="AOD-6L-Biz"/>
+                                                <constraint firstItem="MdD-WL-VNr" firstAttribute="top" secondItem="TcE-00-8LF" secondAttribute="topMargin" constant="-25" id="iSu-1J-k1q"/>
+                                                <constraint firstItem="enA-E3-nLZ" firstAttribute="centerY" secondItem="TcE-00-8LF" secondAttribute="centerY" id="ne9-y1-cgb"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="hasBeenSeenButton" destination="MdD-WL-VNr" id="Cgi-IW-pVe"/>
@@ -68,6 +74,7 @@
                         <viewLayoutGuide key="safeArea" id="O7b-4U-Sfl"/>
                     </view>
                     <navigationItem key="navigationItem" id="eyR-WJ-g6d">
+                        <barButtonItem key="backBarButtonItem" title="Movie List" id="pnI-QE-vqf"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="iQA-yA-5ek">
                             <connections>
                                 <segue destination="QMZ-bD-2Bt" kind="show" identifier="AddMovieShowSegue" id="Few-3Z-0FZ"/>
@@ -108,30 +115,37 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ca4-7p-TAN">
+                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter the movie's title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="caA-Cn-uZV">
+                                <rect key="frame" x="71" y="177" width="232" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ca4-7p-TAN">
                                 <rect key="frame" x="151" y="258" width="73" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Add Movie"/>
                                 <connections>
                                     <action selector="addMovieButtonPressed:" destination="QMZ-bD-2Bt" eventType="touchUpInside" id="ZDz-Ec-5GI"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Add a new movie to the list" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CVH-7a-688">
-                                <rect key="frame" x="84" y="88" width="206" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a new movie to the list" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CVH-7a-688">
+                                <rect key="frame" x="56" y="91" width="263" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter the movie's title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="caA-Cn-uZV">
-                                <rect key="frame" x="71" y="177" width="232" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="caA-Cn-uZV" firstAttribute="top" secondItem="CVH-7a-688" secondAttribute="bottom" constant="65" id="3q9-wv-JZk"/>
+                            <constraint firstItem="CVH-7a-688" firstAttribute="centerX" secondItem="caA-Cn-uZV" secondAttribute="centerX" id="6hj-kD-3Kl"/>
+                            <constraint firstItem="caA-Cn-uZV" firstAttribute="centerX" secondItem="1ls-Pg-djq" secondAttribute="centerX" id="UwB-l3-HlL"/>
+                            <constraint firstItem="CVH-7a-688" firstAttribute="top" secondItem="orP-1B-pPW" secondAttribute="top" constant="27" id="W0H-UX-PZl"/>
+                            <constraint firstItem="Ca4-7p-TAN" firstAttribute="top" secondItem="caA-Cn-uZV" secondAttribute="bottom" constant="51" id="b0y-0c-ZUI"/>
+                            <constraint firstItem="CVH-7a-688" firstAttribute="leading" secondItem="orP-1B-pPW" secondAttribute="leading" constant="56" id="h75-aW-AHv"/>
+                            <constraint firstItem="caA-Cn-uZV" firstAttribute="centerX" secondItem="Ca4-7p-TAN" secondAttribute="centerX" id="o9F-UK-DKM"/>
+                            <constraint firstItem="caA-Cn-uZV" firstAttribute="leading" secondItem="orP-1B-pPW" secondAttribute="leading" constant="71" id="qRl-GA-PDg"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="orP-1B-pPW"/>
                     </view>
                     <connections>

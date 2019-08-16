@@ -13,6 +13,11 @@ class MovieTableViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var movies: [Movie] = []
+    
+    
+    override func viewDidLoad() {
+        self.title = "Movie List"
+    }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "AddMovieShowSegue" {
