@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ePH-e8-Wab">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieCell" id="aV7-Qd-zlM">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieCell" id="aV7-Qd-zlM" customClass="MovieTableViewCell" customModule="MovieList" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aV7-Qd-zlM" id="nsF-Rf-WqA">
@@ -33,9 +33,22 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VA9-x4-Vey">
+                                            <rect key="frame" x="341" y="11" width="53" height="30"/>
+                                            <state key="normal" title="Unseen"/>
+                                            <connections>
+                                                <action selector="unseenButtonPressed:" destination="aV7-Qd-zlM" eventType="touchUpInside" id="yrV-BH-pc4"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="VA9-x4-Vey" secondAttribute="trailing" constant="20" id="6ze-Pj-JGM"/>
+                                        <constraint firstItem="VA9-x4-Vey" firstAttribute="top" secondItem="nsF-Rf-WqA" secondAttribute="topMargin" id="uGg-mq-l1P"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="UnseenButton" destination="VA9-x4-Vey" id="VC9-ZY-cQg"/>
+                                    <outlet property="titleLabel" destination="GGO-Jp-VNu" id="pCh-mK-AH5"/>
                                     <segue destination="x5U-6a-qWY" kind="show" identifier="MovieDetailSegue" id="Cj7-GQ-yKj"/>
                                 </connections>
                             </tableViewCell>
@@ -55,13 +68,13 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FCR-gG-vvK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1284.0579710144928" y="165.40178571428569"/>
+            <point key="canvasLocation" x="1282.608695652174" y="164.73214285714286"/>
         </scene>
         <!--Add Movie View Controller-->
         <scene sceneID="QmN-Cf-plv">
             <objects>
                 <viewController id="NCm-hu-JYX" customClass="AddMovieViewController" customModule="MovieList" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Yct-AY-1wm">
+                    <view key="view" contentMode="scaleToFill" id="Yct-AY-1wm" customClass="MovieTableViewCell" customModule="MovieList" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>

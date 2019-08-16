@@ -25,6 +25,7 @@ class MovieDetailViewController: UIViewController {
     func updateViews() {
     guard let movie = movie else {return}
     titleLabel.text = movie.title
+    bodyTextView.text = movie.body
 
     }
 }

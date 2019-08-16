@@ -22,6 +22,11 @@ class AddMovieViewController: UIViewController {
     
     
     @IBAction func addButtonTapped(_ sender: Any) {
+        guard let newTitle = titleTextField.text, titleTextField.text != "" else {return}
+        let newMovie = Movie(title: newTitle, body: newTitle)
+        movieController?.movies.append(newMovie)
+        navigationController?.popViewController(animated: true)
+        }
     }
     
     
@@ -38,4 +43,3 @@ class AddMovieViewController: UIViewController {
     }
     */
 
-}

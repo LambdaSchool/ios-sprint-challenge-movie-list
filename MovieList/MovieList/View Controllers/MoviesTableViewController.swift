@@ -29,7 +29,7 @@ class MoviesTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as? MovieTableViewCell else {return UITableViewCell()}
         let movie = movieController.movies[indexPath.row]
-        
+        cell.titleLabel.text = movie.title
         return cell
     }
     
