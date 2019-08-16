@@ -21,9 +21,6 @@ class MovieListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        
         tableView.reloadData()
     }
     
@@ -33,10 +30,6 @@ class MovieListViewController: UIViewController {
             destVC.delegate = self
         }
     }
-    
-    private func doSomething() {
-        
-    }
 }
 
 extension MovieListViewController: AddMovieDelegate {
@@ -45,5 +38,18 @@ extension MovieListViewController: AddMovieDelegate {
     }
 }
 
-extension MovieListViewController: UI
+extension MovieListViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return movies.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return UITableViewCell()
+    }
+}
+
+extension MovieListViewController: UITableViewDelegate {
+    
+}
 

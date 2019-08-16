@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="pN8-rd-Yo9">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -79,6 +79,9 @@
                                 <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Add Movie"/>
+                                <connections>
+                                    <action selector="addMovieTapped:" destination="zia-bA-CPP" eventType="touchUpInside" id="sPb-lr-XMr"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Movie" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bZz-52-4v3">
                                 <rect key="frame" x="50" y="318" width="275" height="30"/>
@@ -99,10 +102,13 @@
                         <viewLayoutGuide key="safeArea" id="Nvt-SY-3YV"/>
                     </view>
                     <navigationItem key="navigationItem" title="Add Movie" id="7i3-47-tjL">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="dT9-xB-bda"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="dT9-xB-bda">
+                            <connections>
+                                <action selector="cancelTapped:" destination="zia-bA-CPP" id="GTg-HN-EZ4"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="addMovieUI" destination="V5d-M8-eCL" id="sMr-H6-x2K"/>
                         <outlet property="movieTextField" destination="bZz-52-4v3" id="3G7-vw-Y3b"/>
                     </connections>
                 </viewController>
