@@ -47,17 +47,18 @@ class movieTableViewCell: UITableViewCell {
         seenUnseenButton.setTitle("UNSEEN", for: .normal)
         seenUnseenButton.layer.cornerRadius = 8
         seenUnseenButton.setTitleColor(.white, for: .normal)
+
         
     }
     
     @IBAction func seenButtonTapped(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected
-        if sender.isSelected {
+        if seenUnseenButton.isSelected {
+            seenUnseenButton.layer.masksToBounds = true
             seenUnseenButton.setTitle("SEEN", for: .selected)
             seenUnseenButton.setTitleColor(.white, for: .selected)
-        seenUnseenButton.setBackgroundColor(#colorLiteral(red: 0.9989847541, green: 0.006771328859, blue: 0.3470637798, alpha: 1), for: .selected)
-            
-    
+            seenUnseenButton.layer.cornerRadius = 8
+            seenUnseenButton.setBackgroundColor(#colorLiteral(red: 0.9989847541, green: 0.006771328859, blue: 0.3470637798, alpha: 1), for: .selected)
         }
     }
     
