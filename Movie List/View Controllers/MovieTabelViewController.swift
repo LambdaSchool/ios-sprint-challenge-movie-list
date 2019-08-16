@@ -19,40 +19,27 @@ class MovieTabelViewController: UIViewController {
         
         tableView.dataSource = self
         
-//        if (loadData().count > 0) {
-//            movieList = loadData()
-//        }
+        if (loadData().count > 0) {
+            movieList = loadData()
+        }
         
         // Do any additional setup after loading the view.
     }
     
-//    func saveData() {
-//        let defaults = UserDefaults.standard
-//        defaults.set(movieList.count, forKey: "MovieListCount")
-//
-//        var stringArr: [String] = []
-//        var boolArr: [Bool] = []
-//
-//        for x in 0...movieList.count-1 {
-//            stringArr.append(movieList[x].name)
-//            boolArr.append(movieList[x].hasSeen)
-//        }
-//        defaults.set(stringArr, forKey: "StringArray")
-//        defaults.set(boolArr, forKey: "BoolArray")
-//    }
-//
-//    func loadData() -> [Movie] {
-//        let defaults = UserDefaults.standard
-//        let count = UserDefaults.standard.integer(forKey: "MovieListCount")
-//        guard let nameArr: [String] = defaults.array(forKey: "StringArray") as! [String]?, let boolArr: [Bool] = defaults.array(forKey: "BoolArray") as! [Bool]? else { return [] }
-//
-//        var myArray: [Movie] = []
-//
-//        for x in 0...count {
-//            myArray.append(Movie(name: nameArr[x], hasSeen: boolArr[x]))
-//        }
-//        return myArray
-//    }
+    func saveData() {
+        let encodedData = NSKeyedArchiver.archivedData(withRootObject: movieList)
+        UserDefaults.standard.set(encodedData, forKey: "movies")
+        
+    }
+
+    func loadData() -> [Movie] {
+        if let data = UserDefaults.standard.data(forKey: "movies"), let myMovieList = NSKeyedUnarchiver.unarchiveObject(with: data) as? [Movie] {
+            return myMovieList
+        } else {
+            print("There is an issue")
+            return []
+        }
+    }
     
     // MARK: - Navigation
 
@@ -72,7 +59,7 @@ extension MovieTabelViewController: AddMovie {
         movieList.append(movie)
         navigationController?.popViewController(animated: true)
         tableView.reloadData()
-//        saveData()
+        saveData()
     }
 }
 
@@ -93,9 +80,7 @@ extension MovieTabelViewController: UITableViewDataSource {
         if editingStyle == .delete {
             movieList.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
-//            saveData()
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
+            saveData()
         }
     }
 }
