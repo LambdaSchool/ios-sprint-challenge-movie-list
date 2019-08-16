@@ -10,21 +10,23 @@ import UIKit
 
 class EditMovieViewController: UIViewController {
 
+    @IBOutlet var editMovieTextField: UITextField!
+    @IBOutlet var saveChangesButton: UIButton!
+    var movieController: MovieController?
+    var movie: Movie?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        editMovieTextField.text = movie?.movieName
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func saveChangesTapped(_ sender: Any) {
+        guard let editMovieText = editMovieTextField.text,
+            let movie = movie else { return }
+        if editMovieText != "" {
+            movieController?.editMovieName(for: movie, newName: editMovieText)
+            navigationController?.popViewController(animated: true)
+        }
     }
-    */
-
+    
 }

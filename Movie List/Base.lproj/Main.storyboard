@@ -13,12 +13,12 @@
         <!--Movie List-->
         <scene sceneID="XZU-0H-NDn">
             <objects>
-                <viewController id="3AX-o0-TFV" userLabel="Movie List" sceneMemberID="viewController">
+                <viewController id="3AX-o0-TFV" userLabel="Movie List" customClass="MovieListViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZBk-fg-1lo">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fsa-NI-n6a">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fsa-NI-n6a" customClass="Movie">
                                 <rect key="frame" x="0.0" y="116" width="375" height="551"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
@@ -32,13 +32,13 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="A3v-SW-yuo">
                                                     <rect key="frame" x="16" y="7" width="343" height="30"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ob9-B9-g93" userLabel="Movie Name Label">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ob9-B9-g93" userLabel="movieNameLabel">
                                                             <rect key="frame" x="0.0" y="0.0" width="271" height="30"/>
                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="253" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nHg-Id-6bW" userLabel="Is Seen Button">
+                                                        <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="253" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nHg-Id-6bW" userLabel="isSeenButton">
                                                             <rect key="frame" x="279" y="0.0" width="64" height="30"/>
                                                             <state key="normal" title="Not Seen"/>
                                                         </button>
@@ -74,6 +74,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="fsa-NI-n6a" id="TzL-XX-btx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aU5-Jh-MnS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -82,7 +85,7 @@
         <!--Edit Movie-->
         <scene sceneID="aTF-NM-Xgg">
             <objects>
-                <viewController id="fb5-Di-dtZ" userLabel="Edit Movie" sceneMemberID="viewController">
+                <viewController id="fb5-Di-dtZ" userLabel="Edit Movie" customClass="EditMovieViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dqh-RA-C0x">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -99,6 +102,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="19w-3R-dGl">
                                         <rect key="frame" x="0.0" y="46" width="343" height="30"/>
                                         <state key="normal" title="Save Changes"/>
+                                        <connections>
+                                            <action selector="saveChangesTapped:" destination="fb5-Di-dtZ" eventType="touchUpInside" id="ik4-3S-DJB"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -112,6 +118,10 @@
                         <viewLayoutGuide key="safeArea" id="hJ6-6I-5eL"/>
                     </view>
                     <navigationItem key="navigationItem" title="Edit Movie" id="dMG-Q7-Xeb"/>
+                    <connections>
+                        <outlet property="editMovieTextField" destination="oia-GZ-ldk" id="ytw-Pv-V3J"/>
+                        <outlet property="saveChangesButton" destination="19w-3R-dGl" id="25g-bg-e07"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jE7-gt-ccF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -138,7 +148,7 @@
         <!--Add a New Movie Scene-->
         <scene sceneID="Wry-pi-pZa">
             <objects>
-                <viewController id="xDJ-hO-6W7" userLabel="Add a New Movie Scene" sceneMemberID="viewController">
+                <viewController id="xDJ-hO-6W7" userLabel="Add a New Movie Scene" customClass="AddMovieViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1Zp-rN-4LI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -155,6 +165,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ReK-Q5-atm" userLabel="Add Movie Button">
                                         <rect key="frame" x="0.0" y="46" width="343" height="30"/>
                                         <state key="normal" title="Add Movie"/>
+                                        <connections>
+                                            <action selector="addMovieTapped:" destination="xDJ-hO-6W7" eventType="touchUpInside" id="7T4-JC-tcB"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -168,6 +181,10 @@
                         <viewLayoutGuide key="safeArea" id="csf-IF-SRl"/>
                     </view>
                     <navigationItem key="navigationItem" title="Add a New Movie" id="UDy-R9-nMw"/>
+                    <connections>
+                        <outlet property="addMovieButton" destination="ReK-Q5-atm" id="7j8-CL-LfM"/>
+                        <outlet property="movieTitleTextField" destination="xya-aB-Oms" id="1F8-4f-kY7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zAP-mS-gVR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
