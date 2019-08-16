@@ -16,6 +16,7 @@ class movieTableViewCell: UITableViewCell {
         }
     }
     
+    
     @IBOutlet weak var movieImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var releaseDateLabel: UILabel!
@@ -44,7 +45,7 @@ class movieTableViewCell: UITableViewCell {
         
         seenUnseenButton.backgroundColor = #colorLiteral(red: 1, green: 0, blue: 0.3485707641, alpha: 1)
         seenUnseenButton.setTitle("UNSEEN", for: .normal)
-        seenUnseenButton.layer.cornerRadius = 12
+        seenUnseenButton.layer.cornerRadius = 8
         seenUnseenButton.setTitleColor(.white, for: .normal)
         
     }
@@ -53,7 +54,31 @@ class movieTableViewCell: UITableViewCell {
         sender.isSelected = !sender.isSelected
         if sender.isSelected {
             seenUnseenButton.setTitle("SEEN", for: .selected)
+            seenUnseenButton.setTitleColor(.white, for: .selected)
+        seenUnseenButton.setBackgroundColor(#colorLiteral(red: 0.9989847541, green: 0.006771328859, blue: 0.3470637798, alpha: 1), for: .selected)
+            seenUnseenButton.layer.cornerRadius = 8
+    
         }
     }
     
+}
+
+extension UIButton {
+    private func imageWithColor(color: UIColor) -> UIImage? {
+        let rect = CGRect(x: 0.0, y: 0.0, width: 1.0, height: 1.0)
+        UIGraphicsBeginImageContext(rect.size)
+        let context = UIGraphicsGetCurrentContext()
+        
+        context?.setFillColor(color.cgColor)
+        context?.fill(rect)
+        
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return image
+    }
+    
+    func setBackgroundColor(_ color: UIColor, for state: UIControl.State) {
+        self.setBackgroundImage(imageWithColor(color: color), for: state)
+    }
 }
