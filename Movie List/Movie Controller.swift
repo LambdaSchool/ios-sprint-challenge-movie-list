@@ -1,5 +1,5 @@
 //
-//  Movie.swift
+//  Movie Controller.swift
 //  Movie List
 //
 //  Created by Danielle Blackwell on 8/16/19.
@@ -8,8 +8,6 @@
 
 import Foundation
 
-struct Movie {
-    var Name: [String]
-    var seen: Bool = true
-    var unseen: Bool = false
+class MovieController {
+    var movies: [Movie] = []
 }
