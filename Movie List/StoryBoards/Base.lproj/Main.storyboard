@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Add Movie View Controller-->
         <scene sceneID="Q0Z-mm-Fys">
             <objects>
-                <viewController id="IkS-I0-PvR" sceneMemberID="viewController">
+                <viewController id="IkS-I0-PvR" customClass="AddMovieViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qB2-Oo-Gnr">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -88,15 +88,26 @@
                                             <segment title="Yes"/>
                                             <segment title="No"/>
                                         </segments>
+                                        <connections>
+                                            <action selector="yesOrNoTapped:" destination="IkS-I0-PvR" eventType="valueChanged" id="mcN-Xa-dCa"/>
+                                        </connections>
                                     </segmentedControl>
                                 </subviews>
                             </stackView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7ck-We-MxV">
                                 <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                                 <items>
-                                    <barButtonItem systemItem="save" id="WlL-0i-sFS"/>
+                                    <barButtonItem systemItem="save" id="WlL-0i-sFS">
+                                        <connections>
+                                            <action selector="saveTapped:" destination="IkS-I0-PvR" id="z6q-SJ-GAU"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="Byj-LH-yBh"/>
-                                    <barButtonItem systemItem="cancel" id="ZfU-GY-ya1"/>
+                                    <barButtonItem systemItem="cancel" id="ZfU-GY-ya1">
+                                        <connections>
+                                            <action selector="cancelTapped:" destination="IkS-I0-PvR" id="h76-J1-p1a"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                         </subviews>
@@ -118,6 +129,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="JDr-Lh-5QS"/>
                     </view>
+                    <connections>
+                        <outlet property="firstReasonTextfield" destination="kM1-Jg-wCC" id="6Dy-bl-v93"/>
+                        <outlet property="movieNameTextfield" destination="kF0-fy-GRK" id="orR-bK-pzf"/>
+                        <outlet property="secondReasonTextfield" destination="ip9-Zh-8BK" id="phF-8e-FXE"/>
+                        <outlet property="thirdReasonTextfield" destination="0Sg-VF-sAv" id="ZLA-YW-xVk"/>
+                        <outlet property="yesOrNoButton" destination="Dpe-SV-KTC" id="k2D-Wb-1LO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uxc-dH-w2v" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -126,13 +144,13 @@
         <!--Movie List-->
         <scene sceneID="hbc-du-BR2">
             <objects>
-                <tableViewController id="Dw8-Ft-yaf" sceneMemberID="viewController">
+                <tableViewController id="Dw8-Ft-yaf" customClass="MovieListTableViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="lzB-O7-xSl">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MovieCell" rowHeight="152" id="zmA-Yp-Zg9">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MovieCell" rowHeight="152" id="zmA-Yp-Zg9" customClass="MovieTableViewCell" customModule="Movie_List" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="152"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zmA-Yp-Zg9" id="dGI-2M-Om8">
@@ -158,6 +176,9 @@
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PQJ-WI-MZz">
                                                     <rect key="frame" x="0.0" y="53.5" width="46" height="30"/>
                                                     <state key="normal" title="Button"/>
+                                                    <connections>
+                                                        <action selector="hasBeenSeenTapped:" destination="zmA-Yp-Zg9" eventType="touchUpInside" id="yjF-YA-ORG"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </stackView>
@@ -171,6 +192,9 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="hasBeenSeenButton" destination="PQJ-WI-MZz" id="ZKh-pj-90C"/>
+                                    <outlet property="movieImage" destination="85r-0w-waP" id="ffd-4B-yNV"/>
+                                    <outlet property="movieNameLabel" destination="yIx-wK-cy7" id="4Sh-7O-oFL"/>
                                     <segue destination="Le9-jh-liK" kind="show" id="Jm3-1Y-A3w"/>
                                 </connections>
                             </tableViewCell>
@@ -210,10 +234,10 @@
             </objects>
             <point key="canvasLocation" x="-50.399999999999999" y="94.902548725637189"/>
         </scene>
-        <!--View Controller-->
+        <!--Movie Detail View Controller-->
         <scene sceneID="2xa-cH-H1q">
             <objects>
-                <viewController id="Le9-jh-liK" sceneMemberID="viewController">
+                <viewController id="Le9-jh-liK" customClass="MovieDetailViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FaT-qb-bRX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -253,6 +277,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Q80-tQ-aNy"/>
                     </view>
+                    <connections>
+                        <outlet property="movieNameLabel" destination="Y1L-ZU-6eQ" id="Lfh-S9-MTh"/>
+                        <outlet property="reasonsToWatchTextview" destination="Tn2-sD-VFx" id="E6W-KO-PlY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sBR-Nz-TU7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
