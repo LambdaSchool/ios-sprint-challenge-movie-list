@@ -14,7 +14,7 @@ class MovieTableViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
@@ -38,7 +38,7 @@ extension MovieTableViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieTitleCell", for: indexPath) as? MovieTableViewCell else { return UITableViewCell() }
         let movie = movies[indexPath.row]
-        cell.movie = movie
+        cell.movieTitleLabel.text = movie.title
         return cell
     }
 }

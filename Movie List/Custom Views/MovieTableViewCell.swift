@@ -18,14 +18,12 @@ class MovieTableViewCell: UITableViewCell {
     
     @IBOutlet weak var movieTitleLabel: UILabel!
     
+    @IBOutlet weak var seenOrNotLabel: UILabel!
+    
     @IBAction func seenOrNotButtonTapped(_ sender: Any) {
         
         if var unwrappedMovie = movie {
-            if unwrappedMovie.seen == false {
-                unwrappedMovie.seen = true
-            } else {
-                unwrappedMovie.seen = false
-            }
+            unwrappedMovie.seen.toggle()
         }
     }
   

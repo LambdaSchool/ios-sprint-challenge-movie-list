@@ -36,8 +36,8 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Ht-kj-J8b">
-                                                    <rect key="frame" x="290" y="7" width="65" height="30"/>
-                                                    <state key="normal" title="Seen/Not"/>
+                                                    <rect key="frame" x="273" y="7" width="82" height="30"/>
+                                                    <state key="normal" title="Seen or Not"/>
                                                     <connections>
                                                         <action selector="seenOrNotButtonTapped:" destination="J80-Id-SG6" eventType="touchUpInside" id="ZiN-2I-XPp"/>
                                                     </connections>
@@ -53,6 +53,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="movieTitleLabel" destination="ngK-Tb-xBb" id="2Xv-aL-gIH"/>
+                                            <outlet property="seenOrNotLabel" destination="2Ht-kj-J8b" id="gce-VU-hNU"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -68,11 +69,15 @@
                         <viewLayoutGuide key="safeArea" id="NPg-ur-VO1"/>
                     </view>
                     <navigationItem key="navigationItem" title="Movie List" id="dnM-m7-KFQ">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="xEv-MP-y62"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="xEv-MP-y62">
+                            <connections>
+                                <action selector="addMovieButtonTapped:" destination="Hnh-TT-eDh" id="XYU-ml-osE"/>
+                                <segue destination="tI4-9f-OWf" kind="show" identifier="AddMovieSegue" id="ldT-sl-rqz"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="WFy-Vi-aVh" id="k8K-TG-kPS"/>
-                        <segue destination="tI4-9f-OWf" kind="show" identifier="AddMovieSegue" id="ibB-Ez-mKn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dqi-g1-rOn" userLabel="First Responder" sceneMemberID="firstResponder"/>

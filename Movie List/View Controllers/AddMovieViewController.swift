@@ -19,26 +19,27 @@ class AddMovieViewController: UIViewController {
     @IBOutlet weak var enterMovieTextField: UITextField!
     
     @IBAction func addMovieButtonTapped(_ sender: Any) {
+        guard let title = enterMovieTextField.text,
+            !title.isEmpty else { return }
+        
+        let movie = Movie(title: title, seen: false)
+        
+        delegate?.movieWasAdded(movie)
+        self.navigationController?.popViewController(animated: true)
     }
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+         enterMovieTextField.delegate = self
 
-        // Do any additional setup after loading the view.
     }
     
 
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    
+    
 }
 
 // make the current VC conform to the UITextFieldDelegate
