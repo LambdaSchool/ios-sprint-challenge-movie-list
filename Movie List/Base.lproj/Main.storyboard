@@ -22,29 +22,39 @@
                                 <rect key="frame" x="0.0" y="140" width="414" height="722"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MovieCell" textLabel="dwf-1K-wuU" detailTextLabel="e1k-92-gLN" style="IBUITableViewCellStyleValue1" id="vAx-BO-8y8">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MovieCell" rowHeight="50" id="vAx-BO-8y8" customClass="MovieTableViewCell" customModule="Movie_List" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vAx-BO-8y8" id="TWK-IL-9MC">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="49.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dwf-1K-wuU">
-                                                    <rect key="frame" x="20" y="12" width="33.5" height="20.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IRY-w2-Nae">
+                                                    <rect key="frame" x="20" y="12" width="121.5" height="25.5"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="hasSeen" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="e1k-92-gLN">
-                                                    <rect key="frame" x="328" y="12" width="66" height="20.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Has Seen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rAg-Ph-T9v">
+                                                    <rect key="frame" x="321" y="14.5" width="73" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="rAg-Ph-T9v" secondAttribute="trailing" id="J9s-Rg-rCY"/>
+                                                <constraint firstItem="IRY-w2-Nae" firstAttribute="leading" secondItem="TWK-IL-9MC" secondAttribute="leadingMargin" id="KWr-jy-Lo8"/>
+                                                <constraint firstItem="rAg-Ph-T9v" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="IRY-w2-Nae" secondAttribute="trailing" constant="8" id="SqN-XC-o9g"/>
+                                                <constraint firstItem="IRY-w2-Nae" firstAttribute="centerY" secondItem="TWK-IL-9MC" secondAttribute="centerY" id="VNv-bt-2Aq"/>
+                                                <constraint firstItem="rAg-Ph-T9v" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="IRY-w2-Nae" secondAttribute="trailing" constant="8" id="fFb-jh-GEQ"/>
+                                                <constraint firstItem="rAg-Ph-T9v" firstAttribute="centerY" secondItem="TWK-IL-9MC" secondAttribute="centerY" id="q2n-Ur-W39"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="movieLabel" destination="IRY-w2-Nae" id="L3W-4T-oYu"/>
+                                            <outlet property="seenLabel" destination="rAg-Ph-T9v" id="q2f-Gg-gce"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -61,7 +71,7 @@
                     <navigationItem key="navigationItem" title="Movie List" id="EfL-dM-tHK">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="2Uw-fm-ncq">
                             <connections>
-                                <segue destination="iMJ-i0-91d" kind="show" id="6zJ-P6-rcw"/>
+                                <segue destination="iMJ-i0-91d" kind="show" identifier="AddMovieShowSegue" id="6zJ-P6-rcw"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

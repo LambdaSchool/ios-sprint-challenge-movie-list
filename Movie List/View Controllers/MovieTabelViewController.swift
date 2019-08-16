@@ -19,27 +19,30 @@ class MovieTabelViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.dataSource = self
+        
         movieList.append(Movie(name: "Lion King"))
+        movieList.append(Movie(name: "21 Jump Street"))
         // Do any additional setup after loading the view.
     }
     
-
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "AddMovieShowSegue" {
+            if let newMovieVC = segue.destination as? AddMovieViewController {
+                newMovieVC.delegate = self
+            }
+        }
     }
-    */
 
 }
 
 extension MovieTabelViewController: AddMovie {
     func movieAdded(_ movie: Movie) {
         movieList.append(movie)
-        dismiss(animated: true, completion: nil)
+        navigationController?.popViewController(animated: true)
         tableView.reloadData()
     }
 }
@@ -50,16 +53,9 @@ extension MovieTabelViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as? MovieTableViewCell else { return UITableViewCell() }
         
-        let movie = movieList[indexPath.row]
-        
-        cell.textLabel?.text = movie.name
-        if (movie.hasSeen) {
-            cell.detailTextLabel?.text = "Seen"
-        } else {
-            cell.detailTextLabel?.text = "Not Seen"
-        }
+        cell.movie = movieList[indexPath.row]
         
         return cell
     }
