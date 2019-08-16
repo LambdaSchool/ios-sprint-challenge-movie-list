@@ -19,20 +19,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="cJt-B3-GbL" customClass="MovieTableViewCell" customModule="MovieList" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieCell" id="cJt-B3-GbL" customClass="MovieTableViewCell" customModule="MovieList" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cJt-B3-GbL" id="Ooq-fw-3wV">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6V7-3L-Auw">
-                                            <rect key="frame" x="20" y="11" width="42" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                         <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Au-aA-pa8">
                                             <rect key="frame" x="330" y="6" width="64" height="30"/>
                                             <state key="normal" title="Not Seen"/>
@@ -46,9 +39,6 @@
                                         <constraint firstAttribute="trailing" secondItem="0Au-aA-pa8" secondAttribute="trailing" constant="20" id="YVG-oi-xT9"/>
                                     </constraints>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="movieLabel" destination="6V7-3L-Auw" id="uOI-FO-aPa"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -64,7 +54,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="movieLabel" destination="6V7-3L-Auw" id="ssf-cW-XuA"/>
                         <outlet property="tableView" destination="23B-HW-HZc" id="sxh-Px-x6u"/>
                     </connections>
                 </tableViewController>

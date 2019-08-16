@@ -18,8 +18,12 @@ class MovieListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.dataSource = self
 
         // Do any additional setup after loading the view.
+        
+        movies.append(Movie(title: "The silence of the Lambs"))
     }
     
     
@@ -41,9 +45,11 @@ extension MovieListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        
+        guard let cell =   tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as? MovieTableViewCell else {return UITableViewCell()}
+        
+        let movie = movies[indexPath.row]
+        cell.movie = movie
+        return cell
     }
-    
-    
-    
 }
