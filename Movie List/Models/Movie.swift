@@ -8,12 +8,11 @@
 
 import Foundation
 
-class Movie {
+class Movie: Codable {
     var name: String
-    var hasSeen: Bool
+    var hasSeen: Bool = false
     
-    init(name: String) {
+    init(name: String, hasSeen: Bool) {
         self.name = name
-        hasSeen = false
     }
 }
