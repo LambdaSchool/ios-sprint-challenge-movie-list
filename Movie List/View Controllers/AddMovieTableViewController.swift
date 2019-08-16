@@ -10,6 +10,9 @@ import UIKit
 
 class AddMovieTableViewController: UITableViewController {
 
+    @IBOutlet weak var movieTitleTextField: UITextField!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -19,7 +22,9 @@ class AddMovieTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
-
+    @IBAction func addMovieButtonPressed(_ sender: Any) {
+    }
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
