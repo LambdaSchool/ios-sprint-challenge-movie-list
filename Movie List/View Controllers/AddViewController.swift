@@ -9,6 +9,8 @@
 import UIKit
 
 class AddViewController: UIViewController {
+    
+    var moveController: MovieController?
 
     @IBOutlet weak var textField: UITextField!
    
