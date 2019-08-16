@@ -8,19 +8,32 @@
 
 import UIKit
 
+p
 class AddMovieViewController: UITableViewController {
 
+    @IBOutlet weak var newMovieTextField: NewMovieTextField!
+   
+    var movieController: MovieController?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+}
+    
+    @IBAction func AddMovieTapped( _sender: Any) {
+        guard  let movieName = newMovieTextField.text, newMovieTextField.text != "" else { return }
+       movieController?.movies.append(movieName)
+        navigationController?.popViewController(animated: true)
+        
+        
     }
-
+    
+    
+    
+    
+    
     // MARK: - Table view data source
+    
+    
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections

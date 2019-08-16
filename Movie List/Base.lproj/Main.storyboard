@@ -82,16 +82,16 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add New Movie" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0Sc-6B-qUT" customClass="NewMovieTextField">
-                                <rect key="frame" x="20" y="218" width="374" height="30"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AXT-1k-wvJ" customClass="NewMovieAddedButton">
                                 <rect key="frame" x="171" y="269" width="73" height="30"/>
                                 <state key="normal" title="Add Movie"/>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add New Movie" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0Sc-6B-qUT" customClass="NewMovieTextField">
+                                <rect key="frame" x="20" y="215" width="374" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -108,6 +108,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="M9P-Ro-O21"/>
                     </view>
+                    <connections>
+                        <outlet property="AddMovie" destination="AXT-1k-wvJ" id="REN-Mv-pEU"/>
+                        <outlet property="AddMovieButton" destination="AXT-1k-wvJ" id="Kse-1u-RB3"/>
+                        <outlet property="newMovieTextField" destination="0Sc-6B-qUT" id="SXi-l2-qPd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5mG-Am-ZnU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
