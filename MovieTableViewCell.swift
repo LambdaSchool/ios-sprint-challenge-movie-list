@@ -2,7 +2,7 @@
 //  MovieTableViewCell.swift
 //  Movie List
 //
-//  Created by Uptiie on 7/30/19.
+//  Created by Uptiie on 8/16/19.
 //  Copyright © 2019 Lambda School. All rights reserved.
 //
 
@@ -10,11 +10,13 @@ import UIKit
 
 class MovieTableViewCell: UITableViewCell {
     
-    var movie: Movie?{ didSet {updateViews()}}
-
+    var movie: Movie? {
+        didSet {
+            updateViews()
+        }
+    }
     
-    func updateViews() {
-        guard let movie = movie else { return }
-            movieNameLabel.text = movie.title
+    private func updateViews() {
+        
     }
 }

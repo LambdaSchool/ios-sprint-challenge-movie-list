@@ -2,34 +2,32 @@
 //  AddMovieViewController.swift
 //  Movie List
 //
-//  Created by Uptiie on 7/19/19.
+//  Created by Uptiie on 8/16/19.
 //  Copyright © 2019 Lambda School. All rights reserved.
 //
 
 import UIKit
 
-protocol AddMovieDelegate {
-    func movieWasCreated(_ movie: Movie)
-}
-
 class AddMovieViewController: UIViewController {
 
-    @IBOutlet weak var enterMovieTextField: UITextField!
-    
-    var delegate: AddMovieDelegate?
+    @IBOutlet weak var movieTextField: UITextField!
+    @IBOutlet weak var addMovieUI: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
+        // Do any additional setup after loading the view.
     }
     
-    @IBAction func addMovieButtonTapped(_ sender: Any) {
-        guard let movieName = enterMovieTextField.text else { return }
-        
-        var movie = Movie(name: movieName)
-        
-        delegate?.movieWasCreated(movie)
+    @IBAction func cancelTapped(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
+    }
+    @IBAction func addMovieTapped(_ sender: UIButton) {
+        if let text = movieTextField.text,
+            !text.isEmpty {
+            delegate?.movieWasCreated(Movie(title: text))
+        }
     }
     
-    
+
 }

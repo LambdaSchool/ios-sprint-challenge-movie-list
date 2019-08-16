@@ -7,17 +7,3 @@
 //
 
 import Foundation
-
-class MovieController {
-    var movies: [Movie] = []
-    
-    func createMovie(movie: Movie) {
-        let newMovie = Movie(title: movie.title)
-        movies.append(newMovie)
-    }
-    
-    func updateMovie(movie: Movie, data: Data, title: String) {
-        guard let index = movies.firstIndex(of: movie) else { return }
-        movies[index]
-    }
-}
