@@ -10,13 +10,30 @@ import UIKit
 
 class MovieTableViewCell: UITableViewCell {
     
-    var movie: Movie?
-
+    //MARK: - Properties
+    
+    var movie: Movie?{
+        didSet {
+            updateViews()
+        }
+    }
     @IBOutlet weak var movieImage: UIImageView!
     @IBOutlet weak var movieNameLabel: UILabel!
     @IBOutlet weak var hasBeenSeenButton: UIButton!
     
+    //MARK: - Actions
+    func updateViews() {
+        guard let movie = movie else { return }
+        movieImage.image = UIImage.init(named:"IMDb.jpg")
+        movieNameLabel.text = movie.movieName
+        hasBeenSeenTapped(hasBeenSeenButton)
+    }
     @IBAction func hasBeenSeenTapped(_ sender: UIButton) {
+        if movie?.hasBeenSeen == false {
+            hasBeenSeenButton.setTitle("NotSeen", for: .normal)
+        } else {
+            hasBeenSeenButton.setTitle("Seen", for: .normal)
+        }
     }
     
     
