@@ -52,7 +52,6 @@ class movieTableViewCell: UITableViewCell {
     @IBAction func seenButtonTapped(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected
         if sender.isSelected {
-            seenUnseenButton.backgroundColor = #colorLiteral(red: 0.9989847541, green: 0.006771328859, blue: 0.3470637798, alpha: 1)
             seenUnseenButton.setTitle("SEEN", for: .selected)
         }
     }
