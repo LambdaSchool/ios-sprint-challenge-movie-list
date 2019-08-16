@@ -22,8 +22,6 @@ class MovieListViewController: UIViewController {
 			}
 		}
 	}
-
-
 }
 
 extension MovieListViewController: UITableViewDataSource {
@@ -39,7 +37,7 @@ extension MovieListViewController: UITableViewDataSource {
 		cell.movie1 = movie1
 
 		return cell
-		}
+	}
 
 	func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
 		if editingStyle == .delete {
@@ -47,9 +45,7 @@ extension MovieListViewController: UITableViewDataSource {
 			tableView.deleteRows(at: [indexPath], with: .fade)
 		}
 	}
-
-
-	}
+}
 
 extension MovieListViewController: AddMovieDelegate {
 
@@ -58,5 +54,4 @@ extension MovieListViewController: AddMovieDelegate {
 		dismiss(animated: true, completion: nil)
 		tableView.reloadData()
 	}
-
 }
