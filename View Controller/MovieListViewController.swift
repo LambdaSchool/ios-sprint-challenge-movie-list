@@ -15,12 +15,37 @@ class MovieListViewController: UIViewController {
 
 	var movies: [Movie] = []
 
-	override func viewDidLoad() {
-        super.viewDidLoad()
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		if segue.identifier == "AddMovieSegue" {
+			if let addMovieVC = segue.destination as? AddMovieViewController {
+				addMovieVC.delegate = self
+			}
+		}
+	}
+}
 
-    }
-    
+extension MovieListViewController: UITableViewDataSource {
 
+	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+		return movies.count
+	}
 
+	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+		guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as? MovieTableViewCell else { return UITableViewCell() }
+
+		let movie1 = movies[indexPath.row]
+		cell.movie1 = movie1
+
+		return cell
+		}
+	}
+
+extension MovieListViewController: AddMovieDelegate {
+
+	func movieCreated(_ movie: Movie) {
+		movies.append(movie)
+		dismiss(animated: true, completion: nil)
+		tableView.reloadData()
+	}
 
 }

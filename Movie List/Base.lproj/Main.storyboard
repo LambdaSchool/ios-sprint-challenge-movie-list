@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2Fa-Ta-QGQ">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -36,8 +36,8 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jyX-Dk-yaD">
-                                                    <rect key="frame" x="349" y="7" width="35" height="30"/>
-                                                    <state key="normal" title="Seen"/>
+                                                    <rect key="frame" x="331" y="7" width="53" height="30"/>
+                                                    <state key="normal" title="Unseen"/>
                                                     <connections>
                                                         <action selector="seenButtonToggled:" destination="7nb-EK-Fr9" eventType="touchUpInside" id="YQU-6Z-GuQ"/>
                                                     </connections>
@@ -52,9 +52,13 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="movieLabel" destination="gd8-pl-zdF" id="crF-5t-uEI"/>
+                                            <outlet property="seenButton" destination="jyX-Dk-yaD" id="CWB-L0-Yfa"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="si3-WM-LTu" id="SUn-oR-XDg"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
