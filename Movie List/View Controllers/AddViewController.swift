@@ -10,7 +10,7 @@ import UIKit
 
 class AddViewController: UIViewController {
     
-    var moveController: MovieController?
+    var movieController: MovieController?
 
     @IBOutlet weak var textField: UITextField!
    
@@ -21,6 +21,10 @@ class AddViewController: UIViewController {
     }
     
     @IBAction func addNewMovie(_ sender: UIBarButtonItem) {
+        guard let title = textField.text, textField.text != "" else {return}
+        let newMovie = Movie(title: title)
+        movieController?.movies.append(newMovie)
+        navigationController?.popViewController(animated: true)
     }
     
     /*
