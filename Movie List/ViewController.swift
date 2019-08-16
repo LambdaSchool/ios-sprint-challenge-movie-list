@@ -26,7 +26,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "FishCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "", for: indexPath)
         let newMovie = movies[indexPath.row]
         cell.textLabel?.text = newMovie.name
         
