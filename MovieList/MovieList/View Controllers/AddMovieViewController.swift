@@ -10,11 +10,22 @@ import UIKit
 
 class AddMovieViewController: UIViewController {
 
+    @IBOutlet weak var titleTextField: UITextField!
+    
+    var movieController: MovieController?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
+    
+    
+    @IBAction func addButtonTapped(_ sender: Any) {
+    }
+    
+    
+    
     
 
     /*
