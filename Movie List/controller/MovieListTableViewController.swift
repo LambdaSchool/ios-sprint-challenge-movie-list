@@ -7,11 +7,14 @@
 //
 
 import UIKit
+protocol createMovieDelegate {
+    func movieWasCreated(_ movie: Movie)
+}
 
 class MovieListTableViewController: UITableViewController {
     
     // MARK: - properties
-    // var movies: Movie?
+    var movies: [Movie] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,42 +30,47 @@ class MovieListTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return movies.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as? MovieTableViewCell else { return UITableViewCell() }
-
-        // Configure the cell...
-
-        return cell
+            let movie = movies[indexPath.row]
+            cell.movie = movie
+            return cell
     }
  
-
- 
-
-    
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
             tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        }
     }
- 
-
-
     
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "AddMovieModalSegue" {
+            guard let addMovieVC = segue.destination as? AddMovieViewController else {return}
+           addMovieVC.delegate = self
+        } else if segue.identifier == "MovieDetailShowSegue" {
+            guard let movieDetailVC = segue.destination as? MovieDetailViewController else {return}
+            guard let selectedIndexPath = tableView.indexPathForSelectedRow else {return}
+            let movie = movies[selectedIndexPath.row]
+            movieDetailVC.movie = movie
+        }
     }
     
 
+}
+extension MovieListTableViewController: createMovieDelegate {
+    func movieWasCreated(_ movie: Movie) {
+            movies.append(movie)
+            tableView.reloadData()
+            dismiss(animated: true, completion: nil)
+    }
+    
 }
