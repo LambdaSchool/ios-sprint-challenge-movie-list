@@ -38,6 +38,9 @@
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NAA-gb-iqE">
                                                     <rect key="frame" x="348" y="7" width="46" height="30"/>
                                                     <state key="normal" title="Button"/>
+                                                    <connections>
+                                                        <action selector="seenButton:" destination="3XF-uZ-WgS" eventType="touchUpInside" id="02Z-hO-saO"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -48,7 +51,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="titleLabel" destination="qCZ-h2-wb1" id="0VF-k1-l3J"/>
+                                            <outlet property="titleLabel" destination="qCZ-h2-wb1" id="XP8-EF-ONe"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -85,7 +88,7 @@
         <!--Add Movie Table View Controller-->
         <scene sceneID="qSN-vx-XDB">
             <objects>
-                <viewController id="HZy-0l-iu8" customClass="AddMovieTableViewController" sceneMemberID="viewController">
+                <viewController id="HZy-0l-iu8" customClass="AddMovieTableViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="We3-5k-3Cs">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -99,6 +102,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4ct-Ie-lPH">
                                 <rect key="frame" x="170.66666666666666" y="433" width="73" height="30"/>
                                 <state key="normal" title="Add Movie"/>
+                                <connections>
+                                    <action selector="addMovieButton:" destination="HZy-0l-iu8" eventType="touchUpInside" id="zek-Zc-cyC"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a new movie to the list" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SBu-vM-db9">
                                 <rect key="frame" x="36" y="144" width="342.33333333333331" height="36"/>
@@ -120,6 +126,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="zLg-GM-WGg"/>
                     </view>
+                    <connections>
+                        <outlet property="addMovieTextField" destination="gnm-n4-4LA" id="AuE-Nd-squ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ga3-eo-G9Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
