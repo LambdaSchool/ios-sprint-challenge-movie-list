@@ -12,6 +12,7 @@ class AddMovieTableViewController: UITableViewController {
 
     @IBOutlet weak var movieTitleTextField: UITextField!
     
+    var movieController: MovieController
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +24,10 @@ class AddMovieTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     @IBAction func addMovieButtonPressed(_ sender: Any) {
+        guard let newMovie = movieTitleTextField.text, movieTitleTextField.text != "" else { return }
+        let newMovieAdded = MovieList(movieName: newMovie)
+        movieController.movies.append(newMovie)
+        navigationController?.popViewController(animated: true)
     }
     
     // MARK: - Table view data source
