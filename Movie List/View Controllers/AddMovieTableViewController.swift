@@ -26,7 +26,7 @@ class AddMovieTableViewController: UITableViewController {
     @IBAction func addMovieButtonPressed(_ sender: Any) {
         guard let newMovie = movieTitleTextField.text, movieTitleTextField.text != "" else { return }
         let newMovieAdded = MovieList(movieName: newMovie)
-        movieController.movies.append(newMovie)
+        movieController.movies.append(newMovieAdded)
         navigationController?.popViewController(animated: true)
     }
     
