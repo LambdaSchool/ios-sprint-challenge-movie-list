@@ -8,10 +8,11 @@
 
 import UIKit
 
-class AddMovieViewController: UITableViewController {
+class AddMovieViewController: UIViewController {
 
    
-    @IBOutlet weak var AddMovieTextField: AddMovieTextField!
+    @IBOutlet weak var addNewMovie: UITextField!
+    
     
     var movieController: MovieController?
     
@@ -21,8 +22,9 @@ class AddMovieViewController: UITableViewController {
     
     @IBAction func AddMovieTapped( _sender: Any) {
 
-        guard  let movieName = AddMovieTextField.text, AddMovieTextField.text != "" else { return }
-       movieController?.movies.append(movieName)
+        guard  let movieName = addNewMovie.text, addNewMovie.text != "" else { return }
+        let newMovie = Movie(name: movieName, seen: false)
+        movieController?.movies.append(newMovie)
         navigationController?.popViewController(animated: true)
         
         

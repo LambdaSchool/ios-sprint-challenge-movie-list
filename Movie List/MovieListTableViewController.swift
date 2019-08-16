@@ -35,7 +35,7 @@ class MovieListTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as? MovieTableViewCell else { return UITableViewCell() }
         let movie = movieController.movies[indexPath.row]
-        cell.TitleLabel.text = movie.title
+        cell.nameLabel.text = movie.name
         return cell
     }
     
@@ -58,14 +58,9 @@ class MovieListTableViewController: UITableViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "AddMovieSegue" {
-            var AddMovieVC = segue.destination as? AddMovieViewController {
+            let AddMovieVC = segue.destination as? AddMovieViewController
             AddMovieVC?.movieController = movieController
-            } else if segue.identifier == "MovieDetailSegue" {
-                guard let indexPath = tableView.indexPathForSelectedRow else { return }
-                let movieDetailVC = segue.destination as? MovieDetailViewController
-                movieDetailVC?.movie = movieController.movies[indexPath.row]
+            }
+}
+}
 
-}
-}
-}
-}

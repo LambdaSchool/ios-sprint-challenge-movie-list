@@ -6,14 +6,13 @@
 //  Copyright © 2019 Lambda School. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class MovieTableViewCell: UITableViewCell {
+
+    @IBOutlet weak var nameLabel: UILabel!
     
-    @IBOutlet weak var TitleLabel: UILabel!
-    @IBOutlet weak var seenbutton: UIButton!
-    
-    @IBOutlet weak var seenbuttonTapped(_ sender: Any) { seenbutton.setTitle("Seen", for: normal)
-    
-}
+    @IBOutlet weak var seenButton: UIButton!
+    @IBAction func seenButtonTapped(_ sender: Any) {
+            }
 }

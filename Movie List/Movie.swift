@@ -9,7 +9,6 @@
 import Foundation
 
 struct Movie {
-    var Name: [String]
-    var seen: Bool = true
-    var unseen: Bool = false
+    var name: String
+    var seen: Bool = false
 }

@@ -26,15 +26,18 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="59.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YfP-yM-Yqj">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YfP-yM-Yqj">
                                             <rect key="frame" x="20" y="19" width="307" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M4n-yJ-YVM" customClass="seenUnseenButton">
-                                            <rect key="frame" x="348" y="14" width="46" height="30"/>
-                                            <state key="normal" title="Seen"/>
+                                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M4n-yJ-YVM">
+                                            <rect key="frame" x="345" y="14" width="53" height="30"/>
+                                            <state key="normal" title="Unseen"/>
+                                            <connections>
+                                                <action selector="seenButtonTapped:" destination="EBG-lU-bmp" eventType="touchUpInside" id="XpZ-y3-IFr"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <constraints>
@@ -51,9 +54,9 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="TitleLabel" destination="YfP-yM-Yqj" id="n4s-Ec-753"/>
+                                    <outlet property="nameLabel" destination="YfP-yM-Yqj" id="FaC-MP-EnP"/>
+                                    <outlet property="seenButton" destination="M4n-yJ-YVM" id="T7n-K0-bhg"/>
                                     <outlet property="seenbutton" destination="hxf-uq-mjl" id="ymG-WC-HqB"/>
-                                    <outlet property="seenbuttonTapped" destination="M4n-yJ-YVM" id="nNr-hF-iSn"/>
-                                    <segue destination="qLE-mp-cxy" kind="show" identifier="MovieDetailSegue" id="apd-5O-vdE"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -74,44 +77,6 @@
             </objects>
             <point key="canvasLocation" x="988.40579710144937" y="-206.25"/>
         </scene>
-        <!--Movie Detail View Controller-->
-        <scene sceneID="ZTZ-D1-NSm">
-            <objects>
-                <viewController id="qLE-mp-cxy" customClass="MovieDetailViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="7Dm-kn-WjS">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IaJ-Ke-zva">
-                                <rect key="frame" x="20" y="172" width="374" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="S5T-yV-QlX">
-                                <rect key="frame" x="20" y="201" width="374" height="641"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="IaJ-Ke-zva" firstAttribute="leading" secondItem="ZFs-3t-9p8" secondAttribute="leading" constant="20" id="Gb3-Za-Ydm"/>
-                            <constraint firstItem="ZFs-3t-9p8" firstAttribute="trailing" secondItem="S5T-yV-QlX" secondAttribute="trailing" constant="20" id="RJP-rA-XHL"/>
-                            <constraint firstItem="IaJ-Ke-zva" firstAttribute="top" secondItem="ZFs-3t-9p8" secondAttribute="top" constant="32" id="dVS-fv-5ZO"/>
-                            <constraint firstItem="S5T-yV-QlX" firstAttribute="top" secondItem="IaJ-Ke-zva" secondAttribute="bottom" constant="8" id="eUe-R7-YAh"/>
-                            <constraint firstItem="ZFs-3t-9p8" firstAttribute="trailing" secondItem="IaJ-Ke-zva" secondAttribute="trailing" constant="20" id="k5R-5e-3bo"/>
-                            <constraint firstItem="S5T-yV-QlX" firstAttribute="leading" secondItem="ZFs-3t-9p8" secondAttribute="leading" constant="20" id="oZ3-II-6dA"/>
-                            <constraint firstItem="ZFs-3t-9p8" firstAttribute="bottom" secondItem="S5T-yV-QlX" secondAttribute="bottom" constant="20" id="pNg-xG-vga"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="ZFs-3t-9p8"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="bzt-2v-cbh" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1748" y="149"/>
-        </scene>
         <!--Add Movie View Controller-->
         <scene sceneID="36B-s4-jkB">
             <objects>
@@ -130,7 +95,7 @@
                                 <rect key="frame" x="171" y="269" width="73" height="30"/>
                                 <state key="normal" title="Add Movie"/>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add New Movie" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0Sc-6B-qUT" customClass="MovieTextField">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add New Movie" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0Sc-6B-qUT">
                                 <rect key="frame" x="20" y="218" width="374" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -155,10 +120,9 @@
                     <connections>
                         <outlet property="AddMovie" destination="AXT-1k-wvJ" id="REN-Mv-pEU"/>
                         <outlet property="AddMovieButton" destination="AXT-1k-wvJ" id="Kse-1u-RB3"/>
-                        <outlet property="AddMovieTextField" destination="0Sc-6B-qUT" id="97h-Vu-dj5"/>
                         <outlet property="AddMovietapped" destination="AXT-1k-wvJ" id="y5h-ZL-mLy"/>
                         <outlet property="MovieTextField" destination="qAz-fj-oCE" id="Jpu-gd-KVB"/>
-                        <outlet property="newMovieTextField" destination="0Sc-6B-qUT" id="SXi-l2-qPd"/>
+                        <outlet property="addNewMovie" destination="0Sc-6B-qUT" id="XoH-ZF-TOA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5mG-Am-ZnU" userLabel="First Responder" sceneMemberID="firstResponder"/>
