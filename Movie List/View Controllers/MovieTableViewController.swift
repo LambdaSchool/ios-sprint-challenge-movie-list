@@ -10,8 +10,7 @@ import UIKit
 
 class MovieTableViewController: UITableViewController {
 
-    @IBOutlet weak var textLabel: UILabel!
-    @IBOutlet weak var notSeenButton: UIButton!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,8 +21,7 @@ class MovieTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
-    @IBAction func notSeenButtonPressed(_ sender: Any) {
-    }
+   
     
     // MARK: - Table view data source
 
