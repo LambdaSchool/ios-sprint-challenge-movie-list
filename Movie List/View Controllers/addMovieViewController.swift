@@ -35,6 +35,9 @@ class addMovieViewController: UIViewController, UIImagePickerControllerDelegate,
         directorTextField.backgroundColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
         directorTextField.textColor = .white
         
+        releaseDateTextField.backgroundColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
+        releaseDateTextField.textColor = .white
+        
         uploadImageButton.backgroundColor = #colorLiteral(red: 0, green: 0.9343987703, blue: 0.7370827794, alpha: 1)
         uploadImageButton.layer.cornerRadius = 12
         uploadImageButton.setTitle("UPLOAD PHOTO", for: .normal)
