@@ -10,7 +10,12 @@ import UIKit
 
 class AddMovieViewController: UIViewController {
 
+    
+    
     var movieController: MovieController?
+    
+    @IBOutlet weak var titleTextField: UITextField!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,6 +23,13 @@ class AddMovieViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    @IBAction func addMovieButton(_ sender: Any) {
+        guard let newTitle = titleTextField.text, titleTextField.text != "" else{return}
+        
+        let newMovie = Movie(movieTitle: newTitle)
+        movieController?.movie.append(newMovie)
+        navigationController?.popViewController(animated: true)
+    }
 
     /*
     // MARK: - Navigation
