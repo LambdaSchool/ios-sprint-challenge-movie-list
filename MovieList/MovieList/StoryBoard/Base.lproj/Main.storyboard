@@ -19,10 +19,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieCell" id="aV7-Qd-zlM" customClass="MovieTableViewCell" customModule="MovieList" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieCell" id="aV7-Qd-zlM" customClass="MovieTableViewCell" customModule="MovieList">
                                 <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aV7-Qd-zlM" id="nsF-Rf-WqA">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aV7-Qd-zlM" id="nsF-Rf-WqA" customClass="AddMovie">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
@@ -49,7 +49,6 @@
                                 <connections>
                                     <outlet property="UnseenButton" destination="VA9-x4-Vey" id="VC9-ZY-cQg"/>
                                     <outlet property="titleLabel" destination="GGO-Jp-VNu" id="pCh-mK-AH5"/>
-                                    <segue destination="x5U-6a-qWY" kind="show" identifier="MovieDetailSegue" id="Cj7-GQ-yKj"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -61,7 +60,7 @@
                     <navigationItem key="navigationItem" title="Movie List" id="bOg-Yc-EjN">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Gnt-ya-iey">
                             <connections>
-                                <segue destination="NCm-hu-JYX" kind="show" identifier="AddMovieSegue" id="Ayn-88-h0n"/>
+                                <segue destination="NCm-hu-JYX" kind="show" identifier="AddMovieSegue" id="Hjl-8J-fRe"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -134,14 +133,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="1sV-ak-eGS">
-                                <rect key="frame" x="20" y="188" width="374" height="654"/>
+                                <rect key="frame" x="20" y="144" width="374" height="698"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ev0-zK-rsV">
-                                <rect key="frame" x="20" y="108" width="374" height="60"/>
+                                <rect key="frame" x="20" y="64" width="374" height="60"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
