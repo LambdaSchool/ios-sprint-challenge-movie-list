@@ -9,7 +9,7 @@
 import UIKit
 
 protocol AddMovieDelegate {
-    func movieWasCreated(_ movie: String)
+    func movieWasCreated(_ movie: Movie)
 }
 
 class AddMovieViewController: UIViewController {
@@ -28,7 +28,7 @@ class AddMovieViewController: UIViewController {
         
         var movie = Movie(name: movieName)
         
-        delegate?.movieWasCreated(movieName)
+        delegate?.movieWasCreated(movie)
     }
     
     

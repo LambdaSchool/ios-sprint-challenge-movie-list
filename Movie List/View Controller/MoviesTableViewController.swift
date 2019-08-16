@@ -39,7 +39,7 @@ class MoviesTableViewController: UITableViewController {
     }
 }
 
-extension MoviesTableViewController: AddMovieDelegate {
+extension AddMovieViewController: AddMovieDelegate {
     func movieWasCreated(_ movie: String) {
         movies.append(Movie)
         dismiss(animated: true, completion: nil)
