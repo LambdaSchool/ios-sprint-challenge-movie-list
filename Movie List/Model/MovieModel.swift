@@ -9,7 +9,7 @@
 import Foundation
 struct Movie {
     let movieName: String
-    var hasBeenSeen: Bool
+    var hasBeenSeen: Bool?
     var reasonsToWatch: [String]
     init(movieName: String, hasBeenSeen: Bool) {
         self.movieName = movieName

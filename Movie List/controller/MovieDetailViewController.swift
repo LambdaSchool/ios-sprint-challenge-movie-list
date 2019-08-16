@@ -23,9 +23,10 @@ class MovieDetailViewController: UIViewController {
     func updateViews() {
         guard let movie = movie else {return}
         title = movie.movieName
-        ReasonsToWatchLabel.text = "Reasons To Watch"
+        ReasonsToWatchLabel.text = "Reasons To Watch:"
+        
         for reasonToWatch in movie.reasonsToWatch {
-        reasonsToWatchTextview.text = "\(reasonToWatch) \n"
+        reasonsToWatchTextview.text += "∙ \(reasonToWatch) \n"
         }
     }
 }

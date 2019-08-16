@@ -27,31 +27,27 @@ class AddMovieViewController: UIViewController {
     @IBAction func saveTapped(_ sender: UIBarButtonItem) {
         
         guard let movie = movieNameTextfield.text,!movie.isEmpty else{ return }
-        var movieInfo: Movie
-        if yesOrNoButton.isEnabledForSegment(at: 0) {
-            movieInfo = Movie(movieName: movie, hasBeenSeen: true)
-            
-                if let FirstReason = firstReasonTextfield.text,!FirstReason.isEmpty {
-                    movieInfo.reasonsToWatch.append(FirstReason)
-                }
-                if let secondReason = secondReasonTextfield.text,!secondReason.isEmpty {
-                    movieInfo.reasonsToWatch.append(secondReason)
-                }
-                if let thirdReason = thirdReasonTextfield.text,!thirdReason.isEmpty {
-                    movieInfo.reasonsToWatch.append(thirdReason)
-                
-            }
-            delegate?.movieWasCreated(movieInfo)
-            print(movieInfo)
-            
-        } else if yesOrNoButton.isEnabledForSegment(at: 1) {
-            movieInfo = Movie(movieName: movie, hasBeenSeen: false)
-            delegate?.movieWasCreated(movieInfo)
-            print(movieInfo)
+        var movieInfo = Movie(movieName: movie, hasBeenSeen: false)
+        
+        switch yesOrNoButton.selectedSegmentIndex {
+        case 0: movieInfo.hasBeenSeen = true
+        case 1: movieInfo.hasBeenSeen = false
+        default:
+            break
         }
+        
+        if let FirstReason = firstReasonTextfield.text,!FirstReason.isEmpty {
+            movieInfo.reasonsToWatch.append(FirstReason)
+        }
+        if let secondReason = secondReasonTextfield.text,!secondReason.isEmpty {
+            movieInfo.reasonsToWatch.append(secondReason)
+        }
+        if let thirdReason = thirdReasonTextfield.text,!thirdReason.isEmpty {
+            movieInfo.reasonsToWatch.append(thirdReason)
+            
+        }
+        delegate?.movieWasCreated(movieInfo)
     }
-    
-
     
 }
 extension AddMovieViewController {

@@ -35,11 +35,15 @@ class MovieTableViewCell: UITableViewCell {
     }
     
     @IBAction func hasBeenSeenTapped(_ sender: UIButton) {
-        if movie?.hasBeenSeen == false {
+        var movie: Movie?
+        if hasBeenSeenButton.currentTitle == "Seen" {
             hasBeenSeenButton.setTitle("NotSeen", for: .normal)
-        } else {
+             movie?.hasBeenSeen = false
+        } else if hasBeenSeenButton.currentTitle == "NotSeen" {
             hasBeenSeenButton.setTitle("Seen", for: .normal)
+            movie?.hasBeenSeen = true
         }
+     
     }
     
     
