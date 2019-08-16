@@ -7,3 +7,8 @@
 //
 
 import Foundation
+
+class MovieController {
+    
+    var movies: [Movie] = []
+}

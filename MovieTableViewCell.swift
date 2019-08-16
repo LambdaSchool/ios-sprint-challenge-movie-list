@@ -9,14 +9,14 @@
 import UIKit
 
 class MovieTableViewCell: UITableViewCell {
+
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var seenButton: UIButton!
     
-    var movie: Movie? {
-        didSet {
-            updateViews()
-        }
+    @IBAction func studiedButtonPressed(_ sender: Any) {
+        seenButton.setTitle("Seen", for: .normal)
     }
     
-    private func updateViews() {
-        
-    }
+    
+
 }

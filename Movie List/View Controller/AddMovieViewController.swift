@@ -10,34 +10,22 @@ import UIKit
 
 class AddMovieViewController: UIViewController {
 
-    @IBOutlet weak var movieTextField: UITextField!
-    @IBOutlet weak var addMovieUI: UIButton!
+    @IBOutlet weak var MovieTitleTextField: UITextField!
     
-    var delegate: AddMovieDelegate?
+    var movieController: MovieController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
-    @IBAction func cancelTapped(_ sender: UIBarButtonItem) {
-        dismiss(animated: true, completion: nil)
+    
+    @IBAction func addMovieTapped(_ sender: Any) {
+        guard let newTitle = MovieTitleTextField.text, MovieTitleTextField.text != "" else { return }
+        let newMovie = Movie(title: newTitle)
+        movieController?.movies.append(newMovie)
+        navigationController?.popViewController(animated: true)
     }
-    @IBAction func addMovieTapped(_ sender: UIButton) {
-        if let text = movieTextField.text,
-            !text.isEmpty {
-            delegate?.movieWasAdded(Movie(title: text))
-        }
-    }
-}
+    
 
-extension AddMovieViewController: UITextFieldDelegate {
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if let text = textField.text,
-            !text.isEmpty {
-            delegate?.movieWasAdded(Movie(title: text))
-        }
-        
-        return false
-    }
 }
