@@ -8,7 +8,19 @@
 
 import UIKit
 
+protocol AddMovieDelegate {
+    func movieWasAdded(_ movie: Movie)
+}
+
 class AddMovieViewController: UIViewController {
+    
+    var delegate: AddMovieDelegate?
+    
+    @IBOutlet weak var enterMovieTextField: UITextField!
+    
+    @IBAction func addMovieButtonTapped(_ sender: Any) {
+    }
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,4 +39,11 @@ class AddMovieViewController: UIViewController {
     }
     */
 
+}
+
+// make the current VC conform to the UITextFieldDelegate
+extension AddMovieViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        return true
+    }
 }
