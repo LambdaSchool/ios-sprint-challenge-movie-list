@@ -18,15 +18,14 @@ class MovieTableViewCell: UITableViewCell {
     
     @IBOutlet weak var movieTitleLabel: UILabel!
     
-    @IBOutlet weak var seenOrNotLabel: UILabel!
+    @IBOutlet weak var seenOrNotButtonLabel: UIButton!
     
-    @IBAction func seenOrNotButtonTapped(_ sender: Any) {
-        
-        if var unwrappedMovie = movie {
-            unwrappedMovie.seen.toggle()
-        }
+    @IBAction func seenOrNotButton(_ sender: Any) {
+        guard var unwrappedMovie = movie else { return }
+        unwrappedMovie.seen.toggle()
+        movie = unwrappedMovie
     }
-  
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -41,6 +40,8 @@ class MovieTableViewCell: UITableViewCell {
     private func updateViews() {
         guard let movie = movie else { return }
         movieTitleLabel.text = movie.title
+        // Ternary operators FTW
+        seenOrNotButtonLabel.setTitle(movie.seen ? "Seen it" : "Need to watch it", for: .normal)
+        seenOrNotButtonLabel.setTitleColor(movie.seen ? .blue : .red, for: .normal)
     }
-
 }
