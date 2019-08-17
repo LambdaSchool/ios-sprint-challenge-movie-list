@@ -20,8 +20,9 @@ class AddMovieViewController: UIViewController {
 }
     
     
-        @IBAction func AddMovietapped(_ sender: Any) {
-        
+    
+    @IBAction func addButtonTapped(_ sender: UIBarButtonItem) {
+    
         guard  let movieName = addNewMovie.text, addNewMovie.text != "" else { return }
         let newMovie = Movie(name: movieName, seen: false)
         movieController?.movies.append(newMovie)

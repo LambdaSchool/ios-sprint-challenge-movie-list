@@ -14,5 +14,6 @@ class MovieTableViewCell: UITableViewCell {
     
     @IBOutlet weak var seenButton: UIButton!
     @IBAction func seenButtonTapped(_ sender: Any) {
-            }
+            seenButton.setTitle("Seen", for: .normal)
+    }
 }

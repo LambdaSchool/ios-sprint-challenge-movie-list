@@ -16,7 +16,10 @@ class MovieListTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.reloadData()
+        _ = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(addMovie(sender:)))
+    }
+    @objc func addMovie(sender: UIBarButtonItem){
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
