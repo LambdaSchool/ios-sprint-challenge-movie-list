@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol AddMovieDelegate {
+    func MovieWasCreated( _ movie: Movie)
+}
+
 class AddMovieViewController: UIViewController {
 
    
