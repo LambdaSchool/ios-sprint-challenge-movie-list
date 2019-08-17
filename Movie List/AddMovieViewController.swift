@@ -13,20 +13,19 @@ class AddMovieViewController: UIViewController {
    
     @IBOutlet weak var addNewMovie: UITextField!
     
-    
     var movieController: MovieController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 }
     
-    @IBAction func AddMovieTapped( _sender: Any) {
-
+    
+        @IBAction func AddMovietapped(_ sender: Any) {
+        
         guard  let movieName = addNewMovie.text, addNewMovie.text != "" else { return }
         let newMovie = Movie(name: movieName, seen: false)
         movieController?.movies.append(newMovie)
         navigationController?.popViewController(animated: true)
-        
         
     }
 
