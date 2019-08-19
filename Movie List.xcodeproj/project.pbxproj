@@ -12,10 +12,10 @@
 		467E199420F5165900E7FF73 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 467E199320F5165900E7FF73 /* Assets.xcassets */; };
 		8E5B3916218CDD4D00AB9C2B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E5B3914218CDD4D00AB9C2B /* LaunchScreen.storyboard */; };
 		8E5B3917218CDD4D00AB9C2B /* LambdaLogoAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E5B3915218CDD4D00AB9C2B /* LambdaLogoAssets.xcassets */; };
-		AC7AEB102307038300740E22 /* MovieListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7AEB0F2307038300740E22 /* MovieListTableViewController.swift */; };
 		AC7AEB1423070E7B00740E22 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7AEB1323070E7B00740E22 /* Movie.swift */; };
 		ACD70554230719A900648F26 /* Movie Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD70553230719A800648F26 /* Movie Controller.swift */; };
 		ACD7055623071EE800648F26 /* AddMovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD7055523071EE800648F26 /* AddMovieViewController.swift */; };
+		E57CECE3230A771B00D6302B /* MovieListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57CECE2230A771B00D6302B /* MovieListTableViewController.swift */; };
 		E5B2A08C23075BD20026B617 /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B2A08B23075BD20026B617 /* MovieTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -27,10 +27,10 @@
 		467E199820F5165900E7FF73 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8E5B3914218CDD4D00AB9C2B /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8E5B3915218CDD4D00AB9C2B /* LambdaLogoAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = LambdaLogoAssets.xcassets; sourceTree = "<group>"; };
-		AC7AEB0F2307038300740E22 /* MovieListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListTableViewController.swift; sourceTree = "<group>"; };
 		AC7AEB1323070E7B00740E22 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		ACD70553230719A800648F26 /* Movie Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Movie Controller.swift"; sourceTree = "<group>"; };
 		ACD7055523071EE800648F26 /* AddMovieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMovieViewController.swift; sourceTree = "<group>"; };
+		E57CECE2230A771B00D6302B /* MovieListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MovieListTableViewController.swift; path = ../../../Desktop/MovieListTableViewController.swift; sourceTree = "<group>"; };
 		E5B2A08B23075BD20026B617 /* MovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -70,7 +70,7 @@
 				467E199020F5165800E7FF73 /* Main.storyboard */,
 				8E5B3915218CDD4D00AB9C2B /* LambdaLogoAssets.xcassets */,
 				8E5B3914218CDD4D00AB9C2B /* LaunchScreen.storyboard */,
-				AC7AEB0F2307038300740E22 /* MovieListTableViewController.swift */,
+				E57CECE2230A771B00D6302B /* MovieListTableViewController.swift */,
 				ACD7055523071EE800648F26 /* AddMovieViewController.swift */,
 				AC7AEB1323070E7B00740E22 /* Movie.swift */,
 				ACD70553230719A800648F26 /* Movie Controller.swift */,
@@ -111,7 +111,7 @@
 				TargetAttributes = {
 					467E198820F5165700E7FF73 = {
 						CreatedOnToolsVersion = 9.4.1;
-						LastSwiftMigration = 1000;
+						LastSwiftMigration = 1030;
 					};
 				};
 			};
@@ -152,11 +152,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AC7AEB102307038300740E22 /* MovieListTableViewController.swift in Sources */,
 				ACD70554230719A900648F26 /* Movie Controller.swift in Sources */,
 				E5B2A08C23075BD20026B617 /* MovieTableViewCell.swift in Sources */,
 				AC7AEB1423070E7B00740E22 /* Movie.swift in Sources */,
 				467E198D20F5165800E7FF73 /* AppDelegate.swift in Sources */,
+				E57CECE3230A771B00D6302B /* MovieListTableViewController.swift in Sources */,
 				ACD7055623071EE800648F26 /* AddMovieViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -296,13 +296,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VAPVS73T7K;
 				INFOPLIST_FILE = "$(SRCROOT)/Movie List/Info.plist";
+				"INFOPLIST_FILE[sdk=*]" = "$(SRCROOT)/Movie List/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = LambdaSchool.MovieList;
+				PRODUCT_BUNDLE_IDENTIFIER = Dani.MovieList;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -318,9 +319,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = LambdaSchool.MovieList;
+				PRODUCT_BUNDLE_IDENTIFIER = Dani.MovieList;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
