@@ -15,7 +15,7 @@ protocol AddMovieDelegate {
 class AddMovieViewController: UIViewController {
 
    
-    @IBOutlet weak var newMovietitle: UITextField!
+    @IBOutlet weak var newMovieTitle: UITextField!
     
     
     var movieController: MovieController?
@@ -26,10 +26,9 @@ class AddMovieViewController: UIViewController {
    
     
     @IBAction func addButtonTapped(_ sender: UIButton) {
-    guard let movieName = newMovietitle.text, newMovietitle.text != "" else { return }
-        let newMovie = Movie(name: movieName, seen: false)
+    guard let movieName = newMovieTitle.text, newMovieTitle.text != "" else { return }
+        let newMovie = Movie(name: movieName, seen: true)
         movieController?.movies.append(newMovie)
         navigationController?.popViewController(animated: true)
     }
-  
 }
