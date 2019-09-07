@@ -9,10 +9,9 @@
 import UIKit
 
 class MovieTableViewCell: UITableViewCell {
-
+    
     @IBOutlet weak var movieNameLabel: UILabel!
-  
-  
+    
     var movie: Movies? {
         didSet {
             updateViews()
