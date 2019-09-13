@@ -13,7 +13,7 @@
         <!--Movie List-->
         <scene sceneID="uNo-qz-ydg">
             <objects>
-                <viewController id="of6-LF-oBd" sceneMemberID="viewController">
+                <viewController id="of6-LF-oBd" customClass="MovieListViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="c50-5O-Feb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -22,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="88" width="375" height="690"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="tGD-ey-9BX">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieCell" id="tGD-ey-9BX" customClass="MovieTableViewCell" customModule="Movie_List" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tGD-ey-9BX" id="cY5-Q3-evC">
@@ -38,6 +38,9 @@
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tIq-qz-g5k">
                                                     <rect key="frame" x="279" y="7" width="81" height="30"/>
                                                     <state key="normal" title="Seen status"/>
+                                                    <connections>
+                                                        <action selector="seenButtonTapped:" destination="tGD-ey-9BX" eventType="touchUpInside" id="9HD-oM-rHE"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -47,8 +50,15 @@
                                                 <constraint firstItem="REK-rx-KJT" firstAttribute="centerY" secondItem="cY5-Q3-evC" secondAttribute="centerY" id="tXh-B3-7dP"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="nameLabel" destination="REK-rx-KJT" id="Rtd-FN-qJE"/>
+                                            <outlet property="seenButton" destination="tIq-qz-g5k" id="phz-fW-abj"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="of6-LF-oBd" id="luk-RD-Lyu"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -67,6 +77,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="x10-t2-IMY" id="JIU-B6-WgS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eqq-MG-k6r" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
