@@ -9,9 +9,11 @@
 import UIKit
 
 class MovieTableViewCell: UITableViewCell {
-
-    @IBOutlet weak var movieTextField: UITextField!
     
+    var movie: Movie?
+    
+    @IBOutlet weak var movieTextField: UILabel!
+    @IBOutlet weak var seenButton: UIButton!
     
     
     override func awakeFromNib() {
@@ -27,18 +29,15 @@ class MovieTableViewCell: UITableViewCell {
     }
 
     
-    // TODO : - Configure the Seen / Not Seen Button
+    // TODO : - Seen / Not Seen Button  (you might have to do an else statement)
     
     @IBAction func seenButtonPressed(_ sender: Any) {
-//        if let buttonTitle = (sender as AnyObject).currentTitle {
-//            buttonTitle.title
-//            
-//             //buttonTitle.setTitle("Not Seen",for: .normal)
-//            
-//            
-//            
-//           // buttonTitle?.titl = "Seen"
-//           // brain?.setOperator(buttonTitle)
+        
+        if movie?.hasBeenSeen == true {
+            seenButton?.titleLabel?.text = "Seen"
+            
+            
+        //buttonTitle.setTitle("Not Seen",for: .normal)
             
         }
         
