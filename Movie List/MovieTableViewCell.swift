@@ -10,6 +10,9 @@ import UIKit
 
 class MovieTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var movieTextField: UITextField!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -21,4 +24,6 @@ class MovieTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    @IBAction func seenButtonPressed(_ sender: Any) {
+    }
 }

@@ -22,13 +22,43 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="642-Q2-ukd" customClass="MovieTableViewCell" customModule="Movie_List" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieCell" id="642-Q2-ukd" customClass="MovieTableViewCell" customModule="Movie_List" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="642-Q2-ukd" id="hyV-5E-Wm0">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eGw-Vg-19s">
+                                                    <rect key="frame" x="20" y="11" width="300" height="22"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="300" id="o8u-tv-d9Y"/>
+                                                    </constraints>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eQq-E9-wlQ">
+                                                    <rect key="frame" x="320" y="11" width="69" height="22"/>
+                                                    <state key="normal" title="Seen"/>
+                                                    <connections>
+                                                        <action selector="seenButtonPressed:" destination="642-Q2-ukd" eventType="touchUpInside" id="1JV-2R-B74"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="eQq-E9-wlQ" secondAttribute="bottom" id="W4R-HA-EKF"/>
+                                                <constraint firstItem="eQq-E9-wlQ" firstAttribute="leading" secondItem="eGw-Vg-19s" secondAttribute="trailing" id="baM-kB-tdi"/>
+                                                <constraint firstItem="eQq-E9-wlQ" firstAttribute="top" secondItem="hyV-5E-Wm0" secondAttribute="topMargin" id="dKj-34-laf"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="eQq-E9-wlQ" secondAttribute="trailing" constant="5" id="fFu-Z0-50L"/>
+                                                <constraint firstItem="eGw-Vg-19s" firstAttribute="top" secondItem="hyV-5E-Wm0" secondAttribute="topMargin" id="fRB-v9-s6V"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="eGw-Vg-19s" secondAttribute="bottom" id="kFY-gp-11q"/>
+                                                <constraint firstItem="eGw-Vg-19s" firstAttribute="leading" secondItem="hyV-5E-Wm0" secondAttribute="leadingMargin" id="xN2-GU-Q7w"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="movieTextField" destination="eGw-Vg-19s" id="bXe-NM-kXO"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
