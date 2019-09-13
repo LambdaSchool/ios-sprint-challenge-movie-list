@@ -58,6 +58,7 @@
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="of6-LF-oBd" id="luk-RD-Lyu"/>
+                                    <outlet property="delegate" destination="of6-LF-oBd" id="XNh-5Y-Jh8"/>
                                 </connections>
                             </tableView>
                         </subviews>
@@ -73,7 +74,7 @@
                     <navigationItem key="navigationItem" title="Movie List" id="dxD-9F-2hj">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="gfF-BI-p0D">
                             <connections>
-                                <segue destination="9LZ-ck-Ni3" kind="show" id="vFQ-rl-yZq"/>
+                                <segue destination="9LZ-ck-Ni3" kind="show" identifier="AddMovieShowSegue" id="vFQ-rl-yZq"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -85,10 +86,10 @@
             </objects>
             <point key="canvasLocation" x="1484" y="104.92610837438424"/>
         </scene>
-        <!--View Controller-->
+        <!--Add Movie View Controller-->
         <scene sceneID="Nir-HH-0T1">
             <objects>
-                <viewController id="9LZ-ck-Ni3" sceneMemberID="viewController">
+                <viewController id="9LZ-ck-Ni3" customClass="AddMovieViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5sE-aL-vaQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -111,6 +112,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kXO-An-EYf">
                                         <rect key="frame" x="0.0" y="90.333333333333343" width="335" height="30"/>
                                         <state key="normal" title="Add Movie"/>
+                                        <connections>
+                                            <action selector="addMovieTapped:" destination="9LZ-ck-Ni3" eventType="touchUpInside" id="gQ7-Ue-tGk"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -123,6 +127,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="wOK-Ab-3md"/>
                     </view>
+                    <connections>
+                        <outlet property="nameTextField" destination="Zri-1C-XAn" id="KLb-54-BoR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Ke-dF-nlW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

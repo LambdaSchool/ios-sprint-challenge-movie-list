@@ -12,12 +12,18 @@ class MovieListViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    var movies: [Movie] = [Movie(name: "Citizen Kane", seen: false)]
+    var movies: [Movie] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "AddMovieShowSegue" {
+            if let addMovieVC = segue.destination as? AddMovieViewController {
+                addMovieVC.delegate = self
+            }
+        }
     }
 
 }
@@ -34,5 +40,14 @@ extension MovieListViewController: UITableViewDataSource {
         cell.movie = movie
         
         return cell
+    }
+}
+
+
+extension MovieListViewController: AddMovieDelegate {
+    func movieWasCreated(_ movie: Movie) {
+        movies.append(movie)
+        navigationController?.popViewController(animated: true)
+        tableView.reloadData()
     }
 }
