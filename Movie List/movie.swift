@@ -2,7 +2,7 @@
 //  movie.swift
 //  Movie List
 //
-//  Created by Ry Bautista on 7/19/19.
+//  Created by Ry Bautista on 9/13/19.
 //  Copyright © 2019 Lambda School. All rights reserved.
 //
 
