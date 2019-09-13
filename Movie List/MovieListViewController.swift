@@ -23,6 +23,13 @@ class MovieListViewController: UIViewController {
             if let addMovieVC = segue.destination as? AddMovieViewController {
                 addMovieVC.delegate = self
             }
+        } else if segue.identifier == "EditMovieShowSegue" {
+            if let indexPath = tableView.indexPathForSelectedRow,
+                let editMovieVC = segue.destination as? EditMovieViewController {
+                editMovieVC.movie = movies[indexPath.row]
+                editMovieVC.movieIndex = indexPath.row
+                editMovieVC.delegate = self
+            }
         }
     }
     
@@ -54,6 +61,14 @@ extension MovieListViewController: UITableViewDataSource {
 extension MovieListViewController: AddMovieDelegate {
     func movieWasCreated(_ movie: Movie) {
         movies.append(movie)
+        navigationController?.popViewController(animated: true)
+        tableView.reloadData()
+    }
+}
+
+extension MovieListViewController: EditMovieDelegate {
+    func movieWasEdited(movie: Movie, index: Int) {
+        movies[index] = movie
         navigationController?.popViewController(animated: true)
         tableView.reloadData()
     }

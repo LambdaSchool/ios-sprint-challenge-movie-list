@@ -53,6 +53,7 @@
                                         <connections>
                                             <outlet property="nameLabel" destination="REK-rx-KJT" id="Rtd-FN-qJE"/>
                                             <outlet property="seenButton" destination="tIq-qz-g5k" id="phz-fW-abj"/>
+                                            <segue destination="uD6-iN-bhy" kind="show" identifier="EditMovieShowSegue" id="IuP-mp-1EM"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -85,6 +86,55 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eqq-MG-k6r" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1484" y="104.92610837438424"/>
+        </scene>
+        <!--Edit Movie View Controller-->
+        <scene sceneID="ifu-tz-NDp">
+            <objects>
+                <viewController id="uD6-iN-bhy" customClass="EditMovieViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="uQP-LF-p2i">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="HGt-40-crm">
+                                <rect key="frame" x="20" y="108" width="335" height="120.33333333333331"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Edit movie title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ph0-t0-YG8">
+                                        <rect key="frame" x="0.0" y="0.0" width="335" height="20.333333333333332"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter the movie's name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6mp-1n-rg0">
+                                        <rect key="frame" x="0.0" y="40.333333333333343" width="335" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Nl-zg-1iv">
+                                        <rect key="frame" x="0.0" y="90.333333333333343" width="335" height="30"/>
+                                        <state key="normal" title="Save Changes"/>
+                                        <connections>
+                                            <action selector="saveTapped:" destination="uD6-iN-bhy" eventType="touchUpInside" id="TLD-Ee-BHO"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="HGt-40-crm" firstAttribute="leading" secondItem="TjK-F8-X4D" secondAttribute="leading" constant="20" id="Dad-Qk-vdl"/>
+                            <constraint firstItem="TjK-F8-X4D" firstAttribute="trailing" secondItem="HGt-40-crm" secondAttribute="trailing" constant="20" id="Mv9-FO-zvz"/>
+                            <constraint firstItem="HGt-40-crm" firstAttribute="top" secondItem="TjK-F8-X4D" secondAttribute="top" constant="20" id="iMf-Cx-6ND"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="TjK-F8-X4D"/>
+                    </view>
+                    <connections>
+                        <outlet property="nameTextField" destination="6mp-1n-rg0" id="GZa-Nv-DS9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PS8-Pf-pHD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2366" y="360"/>
         </scene>
         <!--Add Movie View Controller-->
         <scene sceneID="Nir-HH-0T1">
@@ -133,7 +183,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Ke-dF-nlW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2314" y="105"/>
+            <point key="canvasLocation" x="2367" y="-322"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="vhx-Gg-URT">
