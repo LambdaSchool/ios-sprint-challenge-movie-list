@@ -45,6 +45,7 @@ extension MovieListViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as? MovieTableViewCell
             else { return UITableViewCell() }
         
+        cell.delegate = self
         cell.movie = movies[indexPath.row]
         return cell
     }
@@ -53,8 +54,31 @@ extension MovieListViewController: UITableViewDataSource {
 extension MovieListViewController: AddMovieDelegate {
     
     func movieWasAdded(_ movie: Movie) {
+        // Do not put duplicate movies
+        var counter = 0
+        while counter < movies.count {
+            if movies[counter].name == movie.name {
+                self.navigationController?.popViewController(animated: true)
+                return
+            }
+            counter += 1
+        }
+        
         movies.append(movie)
         self.navigationController?.popViewController(animated: true)
+        tableView.reloadData()
+    }
+}
+
+extension MovieListViewController: hasBeenSeenDelegate {
+    func hasBeenSeenTabbed(_ movie: Movie) {
+        var counter = 0
+        while counter < movies.count {
+            if movies[counter].name == movie.name {
+                movies[counter].hasBeenSeen = !movie.hasBeenSeen
+            }
+            counter += 1
+        }
         tableView.reloadData()
     }
 }

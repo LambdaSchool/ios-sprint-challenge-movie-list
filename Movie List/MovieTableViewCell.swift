@@ -8,11 +8,16 @@
 
 import UIKit
 
+protocol hasBeenSeenDelegate {
+    func hasBeenSeenTabbed (_ movie: Movie)
+}
+
 class MovieTableViewCell: UITableViewCell {
     
     @IBOutlet weak var movieNameLabel: UILabel!
     @IBOutlet weak var hasBeenSeenButton: UIButton!
-    var hasBeenSeen = false
+    
+    var delegate: hasBeenSeenDelegate?
     
     var movie: Movie? {
         didSet {
@@ -21,13 +26,15 @@ class MovieTableViewCell: UITableViewCell {
     }
 
     @IBAction func hasBeenSeenTabbed(_ sender: UIButton) {
-        hasBeenSeen ? sender.setTitle("Not Seen", for: .normal) : sender.setTitle("Seen", for: .normal)
-        hasBeenSeen = !hasBeenSeen
+        guard let movie = movie else { return }
+        delegate?.hasBeenSeenTabbed(movie)
     }
     
     private func updateViews(){
         guard let movie = movie else { return }
         
         movieNameLabel.text = movie.name
+        movie.hasBeenSeen ? hasBeenSeenButton.setTitle("Seen", for: .normal) : hasBeenSeenButton.setTitle("Not Seen", for: .normal)
+
     }
 }
