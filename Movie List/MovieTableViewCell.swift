@@ -33,6 +33,8 @@ class MovieTableViewCell: UITableViewCell {
         sender.isSelected.toggle()
         if notSeen.isSelected {
             notSeen.setTitle("Seen", for: .normal)
+            guard var movie = movie else { return }
+            movie.seen = true
         }
 
         }

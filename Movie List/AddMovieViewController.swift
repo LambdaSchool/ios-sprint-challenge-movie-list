@@ -31,7 +31,7 @@ class AddMovieViewController: UIViewController {
         guard let movieName = enterMovie.text,
            !movieName.isEmpty else { return }
         
-        let theMovie = Movie(title: movieName)
+        let theMovie = Movie(title: movieName, seen: false)
         
         delegate?.movieWasAdded(theMovie)
 //        dismiss(animated: true, completion: nil)

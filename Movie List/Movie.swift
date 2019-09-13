@@ -10,6 +10,7 @@ import Foundation
 
 struct Movie {
     let title: String
+    var seen: Bool = false
 }
 
 
