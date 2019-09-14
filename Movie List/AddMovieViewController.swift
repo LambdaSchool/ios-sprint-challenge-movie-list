@@ -13,17 +13,18 @@ protocol AddMovieDelegate {
     func movieWasAdded(_ movie: Movie)
 }
 
-class AddMovieViewController: UIViewController {
+class AddMovieViewController: UIViewController, UITextFieldDelegate {
     
     var delegate: AddMovieDelegate?
     
-    
+    //var newMovie: Movie?
+
     
     @IBOutlet weak var movieTextField: UITextField!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
     
@@ -32,13 +33,19 @@ class AddMovieViewController: UIViewController {
     
     @IBAction func addMovieTapped(_ sender: Any) {
         
-        if let newMovie = movieTextField.text {
-            let movie = Movie(name: newMovie, hasBeenSeen: false)
-            
-        }
+        guard let newMovieTitle = movieTextField.text else { return }
+        var newMovie = Movie(name: newMovieTitle, hasBeenSeen: false)
+        
+        delegate?.movieWasAdded(newMovie)
+        
+//        if let newMovieTitle = movieTextField.text {
+//            newMovie = Movie(name: newMovieTitle, hasBeenSeen: false)
+//            delegate?.movieWasAdded(newMovie!)
+//
+//        }
         
 
-        // delegate?.movieWasAdded(movie)
+        
         dismiss(animated: true, completion: nil)
     }
     
@@ -53,3 +60,11 @@ class AddMovieViewController: UIViewController {
     */
 
 }
+
+//extension AddMovieViewController: AddMovieDelegate {
+//    func movieWasAdded(_ movie: Movie) {
+//        
+//    }
+//    
+//    
+//}

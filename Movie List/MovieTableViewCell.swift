@@ -10,14 +10,38 @@ import UIKit
 
 class MovieTableViewCell: UITableViewCell {
     
-    var movie: Movie?
+    //var movie: Movie?
     
     @IBOutlet weak var movieTextField: UILabel!
     @IBOutlet weak var seenButton: UIButton!
     
     
+    var movie: Movie? {
+        didSet {
+            updateViews()
+        }
+    }
+    
+    
+    // private func updateViews
+    private func updateViews() {
+        guard let movie = movie else { return }
+        seenButton?.titleLabel?.text = "Not Seen"
+        
+        movieTextField.text = movie.name
+        
+    }
+    
+    
+    
+    
+    weak var delegate: MoviesTableViewController?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        
+        
         // Initialization code
         //seenButtonPressed.title
     }
@@ -32,6 +56,10 @@ class MovieTableViewCell: UITableViewCell {
     // TODO : - Seen / Not Seen Button  (you might have to do an else statement)
     
     @IBAction func seenButtonPressed(_ sender: Any) {
+        
+        
+        //movieTextField.text = movie.name
+        
         
         if movie?.hasBeenSeen == true {
             seenButton?.titleLabel?.text = "Seen"

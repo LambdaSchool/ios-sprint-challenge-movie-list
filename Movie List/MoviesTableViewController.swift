@@ -9,7 +9,11 @@
 import UIKit
 
 class MoviesTableViewController: UIViewController {
+    
+    var movies: [Movie] = []
 
+    @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -26,7 +30,7 @@ class MoviesTableViewController: UIViewController {
         
         if segue.identifier == "AddMovieSegue" {
             if let addMovieVC = segue.destination as? AddMovieViewController {
-              //  addMovieVC.delegate = self
+                addMovieVC.delegate = self
             }
             
         }
@@ -36,4 +40,34 @@ class MoviesTableViewController: UIViewController {
     }
     
 
+}
+
+
+// Extension to conform to the UITableViewDataSource protocol
+extension MoviesTableViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return movies.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "movieCellPrototype", for: indexPath) as? MovieTableViewCell else { return UITableViewCell() }
+        
+        let movie = movies[indexPath.row]
+        cell.movie = movie
+        
+        return cell
+    }
+}
+
+// Extension to conform to the AddPOIDelegateprotocol
+extension MoviesTableViewController: AddMovieDelegate {
+    func movieWasAdded(_ movie: Movie) {
+        
+        tableView.reloadData()
+        movies.append(movie)
+        dismiss(animated: true, completion: nil)
+       
+    }
+    
 }

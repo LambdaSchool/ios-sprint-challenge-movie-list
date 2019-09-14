@@ -22,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieCell" id="642-Q2-ukd" customClass="MovieTableViewCell" customModule="Movie_List" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="movieCellPrototype" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieCell" id="642-Q2-ukd" customClass="MovieTableViewCell" customModule="Movie_List" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="642-Q2-ukd" id="hyV-5E-Wm0">
@@ -63,6 +63,10 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="r7V-au-V29" id="OiX-DN-Fjg"/>
+                                    <outlet property="delegate" destination="r7V-au-V29" id="dh6-Ky-bbD"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -81,6 +85,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="pyj-e3-n9i" id="peD-o7-KRN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1sd-v3-hgz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -95,7 +102,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="95r-vW-NXt">
-                                <rect key="frame" x="0.0" y="64" width="414" height="160"/>
+                                <rect key="frame" x="0.0" y="64" width="414" height="176"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a new Movie to the list" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eoo-ND-7xN">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
@@ -107,16 +114,19 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="y90-pp-ZnK">
-                                        <rect key="frame" x="0.0" y="78" width="414" height="34"/>
+                                        <rect key="frame" x="0.0" y="78" width="414" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="MRH-EA-7rF"/>
                                         </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="IkD-Aw-jLH" id="wAK-4P-T0S"/>
+                                        </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Svr-kh-E2b">
-                                        <rect key="frame" x="0.0" y="120" width="414" height="40"/>
+                                        <rect key="frame" x="0.0" y="136" width="414" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="BDc-1g-8KQ"/>
                                         </constraints>
@@ -134,7 +144,6 @@
                             <constraint firstItem="zcd-w0-JOe" firstAttribute="trailing" secondItem="95r-vW-NXt" secondAttribute="trailing" id="8QH-cU-Qy3"/>
                             <constraint firstItem="95r-vW-NXt" firstAttribute="top" secondItem="zcd-w0-JOe" secondAttribute="top" constant="20" id="Y8a-9E-D5n"/>
                             <constraint firstItem="95r-vW-NXt" firstAttribute="leading" secondItem="zcd-w0-JOe" secondAttribute="leading" id="ZSF-lL-oKa"/>
-                            <constraint firstItem="zcd-w0-JOe" firstAttribute="bottom" secondItem="95r-vW-NXt" secondAttribute="bottom" constant="610" id="buj-6a-G7H"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="zcd-w0-JOe"/>
                     </view>
