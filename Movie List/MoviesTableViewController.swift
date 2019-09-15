@@ -16,8 +16,8 @@ class MoviesTableViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        tableView.dataSource = self
+        tableView.delegate = self
     }
     
 
@@ -27,31 +27,25 @@ class MoviesTableViewController: UIViewController {
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        
         if segue.identifier == "AddMovieSegue" {
             if let addMovieVC = segue.destination as? AddMovieViewController {
                 addMovieVC.delegate = self
             }
-            
         }
-        
-   
-        // Pass the selected object to the new view controller.
     }
-    
-
 }
 
 
 // Extension to conform to the UITableViewDataSource protocol
-extension MoviesTableViewController: UITableViewDataSource {
+extension MoviesTableViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return movies.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "movieCellPrototype", for: indexPath) as? MovieTableViewCell else { return UITableViewCell() }
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as? MovieTableViewCell else { return UITableViewCell() }
         
         let movie = movies[indexPath.row]
         cell.movie = movie
@@ -64,10 +58,8 @@ extension MoviesTableViewController: UITableViewDataSource {
 extension MoviesTableViewController: AddMovieDelegate {
     func movieWasAdded(_ movie: Movie) {
         
-        tableView.reloadData()
         movies.append(movie)
         dismiss(animated: true, completion: nil)
-       
+        tableView.reloadData()
     }
-    
 }

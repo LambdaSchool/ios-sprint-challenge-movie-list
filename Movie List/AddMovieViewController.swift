@@ -13,7 +13,7 @@ protocol AddMovieDelegate {
     func movieWasAdded(_ movie: Movie)
 }
 
-class AddMovieViewController: UIViewController, UITextFieldDelegate {
+class AddMovieViewController: UIViewController {
     
     var delegate: AddMovieDelegate?
     
@@ -21,11 +21,12 @@ class AddMovieViewController: UIViewController, UITextFieldDelegate {
 
     
     @IBOutlet weak var movieTextField: UITextField!
+    @IBOutlet weak var addMovieButton: UIButton!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+
     }
     
     
@@ -33,38 +34,11 @@ class AddMovieViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func addMovieTapped(_ sender: Any) {
         
-        guard let newMovieTitle = movieTextField.text else { return }
-        var newMovie = Movie(name: newMovieTitle, hasBeenSeen: false)
+        guard let movieTitle = movieTextField.text else { return }
+        var movie = Movie(name: movieTitle, hasBeenSeen: false)
         
-        delegate?.movieWasAdded(newMovie)
-        
-//        if let newMovieTitle = movieTextField.text {
-//            newMovie = Movie(name: newMovieTitle, hasBeenSeen: false)
-//            delegate?.movieWasAdded(newMovie!)
-//
-//        }
-        
+        delegate?.movieWasAdded(movie)
 
-        
-        dismiss(animated: true, completion: nil)
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
-//extension AddMovieViewController: AddMovieDelegate {
-//    func movieWasAdded(_ movie: Movie) {
-//        
-//    }
-//    
-//    
-//}

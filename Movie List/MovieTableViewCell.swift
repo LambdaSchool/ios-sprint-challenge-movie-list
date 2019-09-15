@@ -10,12 +10,10 @@ import UIKit
 
 class MovieTableViewCell: UITableViewCell {
     
-    //var movie: Movie?
-    
     @IBOutlet weak var movieTextField: UILabel!
     @IBOutlet weak var seenButton: UIButton!
     
-    
+ 
     var movie: Movie? {
         didSet {
             updateViews()
@@ -26,48 +24,28 @@ class MovieTableViewCell: UITableViewCell {
     // private func updateViews
     private func updateViews() {
         guard let movie = movie else { return }
-        seenButton?.titleLabel?.text = "Not Seen"
         
         movieTextField.text = movie.name
         
+        checkHasBeenSeen()
     }
-    
-    
-    
+
     
     weak var delegate: MoviesTableViewController?
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
-        
-        
-        // Initialization code
-        //seenButtonPressed.title
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
-    
-    // TODO : - Seen / Not Seen Button  (you might have to do an else statement)
-    
+  
     @IBAction func seenButtonPressed(_ sender: Any) {
         
+        movie?.hasBeenSeen = true
         
-        //movieTextField.text = movie.name
-        
-        
-        if movie?.hasBeenSeen == true {
+        checkHasBeenSeen()
+    }
+    
+    func checkHasBeenSeen() {
+        if movie?.hasBeenSeen == false {
+            seenButton?.titleLabel?.text = "Not Seen"
+        } else {
             seenButton?.titleLabel?.text = "Seen"
             
-            
-        //buttonTitle.setTitle("Not Seen",for: .normal)
-            
         }
-        
     }
 }
