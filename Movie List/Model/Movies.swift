@@ -9,6 +9,6 @@
 import Foundation
 //MARK: - Model
 //created a model
-struct Movies {
+struct Movies: Codable {
     var name: String
 }

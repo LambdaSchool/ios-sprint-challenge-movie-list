@@ -15,6 +15,29 @@ class MovieTableViewController: UIViewController {
     //created a variable to hold an open instance of type Array of our model.
     var movies: [Movies] = []
     
+    var persistentStoreURL: URL! {
+        if let documentURL = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true) {
+            let persistentStoreURL = documentURL.appendingPathComponent("MovieList.plist")
+            return persistentStoreURL
+        }
+        return nil
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        if let data = try? Data(contentsOf: persistentStoreURL),
+            let savedMovies = try? PropertyListDecoder().decode([Movies].self, from: data) {
+            movies = savedMovies
+        }
+    }
+    
+    func save() {
+        if let data = try? PropertyListEncoder().encode(movies){
+            try? data.write(to: persistentStoreURL)
+        }
+    }
+    
     //MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
@@ -30,6 +53,8 @@ class MovieTableViewController: UIViewController {
         if editingStyle == UITableViewCell.EditingStyle.delete {
             movies.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
+            
+            save()
         }
     }
 }
@@ -52,6 +77,8 @@ extension MovieTableViewController: AddMovieDelegate {
         movies.append(movie)
         dismiss(animated: true)
         tableview.reloadData()
+        
+        save()
     }
 }
 
