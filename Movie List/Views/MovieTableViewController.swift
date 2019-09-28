@@ -69,16 +69,16 @@ class MovieTableViewController: UIViewController {
             
             save()
         }
-        
+    }
         func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
             
             indexPathForTappedAccessoryButtonButton = indexPath
             
             performSegue(withIdentifier: "UpdateMovieModalSegue", sender: self)
         }
-        
+    
     }
-}
+
     //MARK: - Data Source
 extension MovieTableViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
