@@ -16,10 +16,11 @@ class MovieTableViewController: UIViewController {
         
         override func viewDidLoad() {
             super.viewDidLoad()
-
+        
+            override func prepare(for: UIStoryboardSegue, sender: <#T##Any?#>){
             
         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return 5
+            return movie.count
         }
         
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

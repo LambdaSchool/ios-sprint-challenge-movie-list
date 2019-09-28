@@ -13,15 +13,22 @@ protocol addMovieDelegate{
 class addMovieViewController: UIViewController {
 
     @IBOutlet weak var addMovieTextField: UITextField!
-    @IBOutlet weak var addMovieButton: UIButton!
+
    
+    var delegate: addMovieDelegate?
     override func viewDidLoad() {
         super.viewDidLoad()
 
        
     }
     
+    @IBAction func addMovieButton(_ sender: UIBarButtonItem) {
+        guard let movieString = addMovieTextField.text, !movieString.isEmpty else {return}
+        let movie = Movie(movieName: movieString)
+            delegate?.movieWasAdded(movie)
 
+    }
+    
  
 
 }
