@@ -14,6 +14,7 @@ class MovieTableViewController: UIViewController {
     //MARK: - Properties
     //created a variable to hold an open instance of type Array of our model.
     var movies: [Movies] = []
+    var  indexPathForTappedAccessoryButtonButton: IndexPath?
     
     var persistentStoreURL: URL! {
         if let documentURL = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true) {
@@ -42,11 +43,24 @@ class MovieTableViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
-        if segue.identifier == "addMovieSegue" {
-            if let addMovieVC = segue.destination as? AddMovieViewController {
+        
+        switch segue.identifier {
+        case "addMovieSegue":
+            if let addMovieVC = segue.destination as? EditMovieViewController {
                 addMovieVC.delegate = self
             }
+        case "UpdateMovieModalSegue":
+            guard let indexPath = indexPathForTappedAccessoryButtonButton,
+                let editMovieVC = segue.destination as? EditMovieViewController else {fatalError()}
+            editMovieVC.delegate = self
+            editMovieVC.oldMovie = movies[indexPath.row]
+        default:
+           if let addMovieVC = segue.destination as? EditMovieViewController {
+               addMovieVC.delegate = self
+           }
         }
+        
+        
     }
     //MARK: - Deleting Cells
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -56,6 +70,14 @@ class MovieTableViewController: UIViewController {
             
             save()
         }
+        
+        func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
+            
+            indexPathForTappedAccessoryButtonButton = indexPath
+            
+            performSegue(withIdentifier: "UpdateMovieModalSegue", sender: self)
+        }
+        
     }
 }
     //MARK: - Data Source
@@ -72,12 +94,20 @@ extension MovieTableViewController: UITableViewDataSource {
     }
 }
     //MARK: - AddMovie Delegation
-extension MovieTableViewController: AddMovieDelegate {
+extension MovieTableViewController: EditMovieDelegate {
     func movieWasCreated(_ movie: Movies) {
         movies.append(movie)
         dismiss(animated: true)
         tableview.reloadData()
         
+        save()
+    }
+    //MARK: - EditMovie Delegation
+    func movie(_ oldMovie: Movies, wasupdated newMovie: Movies) {
+        guard let indexPath = indexPathForTappedAccessoryButtonButton else {return}
+        movies[indexPath.row] = newMovie
+        tableview.reloadRows(at: [indexPath], with: .automatic)
+        dismiss(animated: true, completion: nil)
         save()
     }
 }
