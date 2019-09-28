@@ -35,6 +35,10 @@ class MovieTableViewController: UIViewController {
         }
  
 extension MovieTableViewController: UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return movies.count
     }
@@ -44,7 +48,7 @@ extension MovieTableViewController: UITableViewDataSource {
                 return UITableViewCell()}
 
             mCell.movie = movies[indexPath.row]
-            mCell.delegate = (self as! MovieTableViewCellDelegate)
+            mCell.delegate = self
             return mCell
         }
 }
@@ -60,9 +64,10 @@ extension MovieTableViewController: addMovieDelegate {
     
 }
 
-//    extension MovieTableViewController: MovieTableViewCellDelegate {
-//        func seenButtonWasTapped(cell: MovieTableViewCell)
-//
-//        cell.seenButton.setTitle("not seen", for: [])
-//}
+extension MovieTableViewController: MovieTableViewCellDelegate {
+    func seenButtonWasTapped(cell: movieTableViewCell) {
+        cell.seenButton.setTitle("not seen", for: [])
+    }
+    
+}
 
