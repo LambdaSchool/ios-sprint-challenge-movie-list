@@ -16,9 +16,11 @@ class MovieListTableViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
     }
 
+    
+    
 }
 
 extension MovieListTableViewController: UITableViewDataSource {
@@ -31,6 +33,11 @@ extension MovieListTableViewController: UITableViewDataSource {
     guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as? MovieTableViewCell else {
         fatalError()
         }
+        
+        let movie = movies[indexPath.row]
+        cell.movie = movie
+        // use cell here
+        
         return cell
     }
 }
