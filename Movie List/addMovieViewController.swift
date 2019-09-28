@@ -22,7 +22,7 @@ class addMovieViewController: UIViewController {
     
     
     @IBAction func addMovieButton(_ sender: UIBarButtonItem) {
-        guard let movieString = addMovieTextField.text, !movieString.isEmpty else {return}
+        guard let movieString = addMovieTextField?.text, !movieString.isEmpty else {return}
         let movie = Movie(movieName: movieString)
         delegate?.movieWasAdded(movie)
         dismiss(animated: true, completion: nil)

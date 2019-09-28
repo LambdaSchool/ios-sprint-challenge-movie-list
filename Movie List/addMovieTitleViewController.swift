@@ -14,20 +14,22 @@ protocol addMovieTitleDelegate{
 
 class addMovieTitleViewController: UIViewController {
     @IBOutlet weak var addMovieLabel: UILabel!
-    
     @IBOutlet weak var addMovieTitleTextField: UITextField!
-    @IBAction func addMovieTitleButton(_ sender: Any) {
-        guard let movieString = addMovieTitleTextField.text, !movieString.isEmpty else {return}
-               let movie = Movie(movieName: movieString)
-               delegate?.movieWasAdded(movie)
-               //dismiss(animated: true, completion: nil)
-    }
+    
     var delegate: addMovieTitleDelegate?
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
+    @IBAction func addMovieTitleButton(_ sender: Any) {
+        guard let movieString = addMovieTitleTextField.text, !movieString.isEmpty else {return}
+                let movie = Movie(movieName: movieString)
+                    delegate?.movieWasAdded(movie)
+               //dismiss(animated: true, completion: nil)
     }
+    
+    
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//
+//    }
 
 
 }

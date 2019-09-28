@@ -52,7 +52,8 @@ extension MovieTableViewController: UITableViewDataSource {
 extension MovieTableViewController: addMovieTitleDelegate {
     func movieWasAdded(_ movie: Movie) {
         movies.append(movie)
-        dismiss(animated: true, completion: nil)
+        //dismiss(animated: true, completion: nil)
+        navigationController?.popViewController(animated: true)
         tableView.reloadData()
     }
     

@@ -21,6 +21,9 @@ class movieTableViewCell: UITableViewCell {
     
     @IBOutlet weak var movieLabel: UILabel!
     @IBOutlet weak var seenButton: UIButton!
+    @IBAction func seenButtonTapped(_ sender: Any) {
+        movie?.movieSeen.toggle()
+    }
     
     var movie: Movie? {
         didSet {
@@ -33,7 +36,9 @@ class movieTableViewCell: UITableViewCell {
         guard let movie = movie else {return}
         
         movieLabel.text = movie.movieName
-        seenButton.setTitle("seen", for: [])
+        seenButton.setTitle(movie.movieSeen ? "Seen" : "Not Seen", for: .normal)
+        //seenButton.setTitle("not seen", for: [])
+        
     }
     
 }
