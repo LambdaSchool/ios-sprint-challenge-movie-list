@@ -10,7 +10,7 @@ import UIKit
 
 class MoviesTableViewController: UITableViewController {
     
-    let movies = ["Matrix", "Terminator"]
+    var movies = ["Matrix", "Terminator"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +29,9 @@ class MoviesTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "movieCell", for: indexPath)
         guard let movieCell = cell as? MovieTableViewCell else {return cell}
         
-        movieCell.movie = movies[indexPath.row]
+        let movie = movies[indexPath.row]
+        //movieCell.movie = movies[indexPath.row]
+        cell.movie = movie
         movieCell.delegate = self
         
         
@@ -49,15 +51,12 @@ extension MoviesTableViewController: MovieTableViewCellDelegate {
     
 }
 
-//extension MoviesTableViewController: MovieTableViewCellDelegate  {
-//func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
-//    return .delete
-//}
-//
-//func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-//    friends.remove(at: indexPath.row)
-//    
-//    tableView.deleteRows(at: [indexPath], with: .automatic)
-//    
-//    save()
-//}
+extension MoviesTableViewController: AddMovieDelegate {
+    func movieWasCreated(_ movie: Movie) {
+        
+        movies.append()
+        
+    }
+    
+    
+}
