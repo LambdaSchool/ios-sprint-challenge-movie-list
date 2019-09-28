@@ -7,19 +7,19 @@
 //
 
 import UIKit
+
 protocol addMovieDelegate{
     func movieWasAdded(_ movie: Movie)
 }
+
 class addMovieViewController: UIViewController {
-
-    @IBOutlet weak var addMovieTextField: UITextField!
-
-   
     var delegate: addMovieDelegate?
+    
+    @IBOutlet weak var addMovieTextField: UITextField!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-       
     }
     
     @IBAction func addMovieButton(_ sender: UIBarButtonItem) {

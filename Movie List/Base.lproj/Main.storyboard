@@ -56,6 +56,9 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="LEF-NN-jbU" id="Zko-DA-OfZ"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -70,7 +73,7 @@
                     <navigationItem key="navigationItem" title="Movie List" id="cpB-36-17P">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="ysc-m0-8MP">
                             <connections>
-                                <segue destination="cSJ-1e-uDx" kind="presentation" id="Ik1-4g-Hor"/>
+                                <segue destination="cSJ-1e-uDx" kind="presentation" identifier="addMovieSegue" id="Ik1-4g-Hor"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -100,6 +103,9 @@
                                         <rect key="frame" x="8" y="67" width="359" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="cSJ-1e-uDx" id="O1z-dA-pQ4"/>
+                                        </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SEZ-DW-HTg">
                                         <rect key="frame" x="151" y="132" width="73" height="30"/>
