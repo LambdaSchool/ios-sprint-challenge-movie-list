@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Table View Controller-->
+        <!--Movie List-->
         <scene sceneID="c57-Fl-9f8">
             <objects>
                 <tableViewController id="1SR-fM-0Cu" sceneMemberID="viewController">
@@ -48,7 +48,7 @@
                             <outlet property="delegate" destination="1SR-fM-0Cu" id="RtF-2h-rlZ"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="vIY-3y-xdI">
+                    <navigationItem key="navigationItem" title="Movie List" id="vIY-3y-xdI">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="hoh-mW-wHe">
                             <connections>
                                 <segue destination="eyO-od-deM" kind="show" identifier="ToAddMovie" id="puO-3h-QSz"/>
@@ -60,17 +60,46 @@
             </objects>
             <point key="canvasLocation" x="97" y="-54"/>
         </scene>
-        <!--Movie List-->
+        <!--View Controller-->
         <scene sceneID="NYo-dh-9Pz">
             <objects>
                 <viewController id="eyO-od-deM" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="osj-Xn-EEf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sWh-Sx-gIs">
+                                <rect key="frame" x="20" y="145" width="335" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w90-g6-oay">
+                                <rect key="frame" x="20" y="187" width="335" height="30"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Movie" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nEN-9x-Fej">
+                                <rect key="frame" x="20" y="116" width="335" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="nEN-9x-Fej" firstAttribute="top" secondItem="Byu-02-vgi" secondAttribute="top" constant="20" id="5WG-dk-Oy3"/>
+                            <constraint firstItem="Byu-02-vgi" firstAttribute="trailing" secondItem="w90-g6-oay" secondAttribute="trailing" constant="20" id="ACj-BR-jaR"/>
+                            <constraint firstItem="sWh-Sx-gIs" firstAttribute="top" secondItem="nEN-9x-Fej" secondAttribute="bottom" constant="8" id="NSa-6n-O4B"/>
+                            <constraint firstItem="sWh-Sx-gIs" firstAttribute="leading" secondItem="Byu-02-vgi" secondAttribute="leading" constant="20" id="OJQ-5R-OPx"/>
+                            <constraint firstItem="w90-g6-oay" firstAttribute="leading" secondItem="Byu-02-vgi" secondAttribute="leading" constant="20" id="P9A-dc-pKF"/>
+                            <constraint firstItem="sWh-Sx-gIs" firstAttribute="top" secondItem="nEN-9x-Fej" secondAttribute="bottom" constant="8" id="SCe-lg-77U"/>
+                            <constraint firstItem="Byu-02-vgi" firstAttribute="trailing" secondItem="sWh-Sx-gIs" secondAttribute="trailing" constant="20" id="Uyd-Yb-92B"/>
+                            <constraint firstItem="nEN-9x-Fej" firstAttribute="leading" secondItem="Byu-02-vgi" secondAttribute="leading" constant="20" id="bfB-VJ-BeF"/>
+                            <constraint firstItem="w90-g6-oay" firstAttribute="top" secondItem="sWh-Sx-gIs" secondAttribute="bottom" constant="8" id="kJa-iQ-Rjf"/>
+                            <constraint firstItem="Byu-02-vgi" firstAttribute="trailing" secondItem="nEN-9x-Fej" secondAttribute="trailing" constant="20" id="uJ7-Tj-1Vc"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Byu-02-vgi"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Movie List" id="bn4-Po-fAZ"/>
+                    <navigationItem key="navigationItem" id="bn4-Po-fAZ"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ceB-Rz-6JI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -81,8 +110,8 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="q6N-MM-Pah" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="gd0-Qa-LfI">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="gd0-Qa-LfI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
