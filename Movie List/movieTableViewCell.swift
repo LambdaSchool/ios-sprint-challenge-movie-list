@@ -20,7 +20,6 @@ class movieTableViewCell: UITableViewCell {
     weak var delegate: MovieTableViewCellDelegate?
     
     @IBOutlet weak var movieLabel: UILabel!
-    
     @IBOutlet weak var seenButton: UIButton!
     
     var movie: Movie? {

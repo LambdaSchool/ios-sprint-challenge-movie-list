@@ -12,6 +12,7 @@ class MovieTableViewController: UIViewController {
 
    
         var movies: [Movie] = []
+    
         @IBOutlet weak var tableView: UITableView!
         
         override func viewDidLoad() {
@@ -20,14 +21,11 @@ class MovieTableViewController: UIViewController {
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        switch segue.identifier {
-        case "addMovieSegue":
-            guard let addMovieVC = segue.destination as? addMovieViewController else {
+        if segue.identifier == "addMovieTitleSegue" {
+            guard let addMovieVC = segue.destination as? addMovieTitleViewController else {
                 fatalError() }
-            addMovieVC.delegate = self
             
-            default:
-                fatalError("An unknown segue was encountered: \(segue.identifier ?? "<No ID>")")
+            addMovieVC.delegate = self
         }
     }
             
@@ -35,9 +33,6 @@ class MovieTableViewController: UIViewController {
         }
  
 extension MovieTableViewController: UITableViewDataSource {
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return movies.count
@@ -54,7 +49,7 @@ extension MovieTableViewController: UITableViewDataSource {
 }
 
 
-extension MovieTableViewController: addMovieDelegate {
+extension MovieTableViewController: addMovieTitleDelegate {
     func movieWasAdded(_ movie: Movie) {
         movies.append(movie)
         dismiss(animated: true, completion: nil)
