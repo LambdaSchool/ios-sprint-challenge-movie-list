@@ -24,7 +24,11 @@ class MovieTableViewCell: UITableViewCell {
     }
     
     @IBAction func btnAction(_ sender: UIButton) {
-        sender.setTitle("Seen", for: .normal) 
+        if sender.titleLabel?.text == "Seen" {
+            sender.setTitle("Not Seen", for: .normal)
+        }else {
+            sender.setTitle("Seen", for: .normal)
+        }
     }
 }
 
