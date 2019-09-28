@@ -32,7 +32,7 @@ class MovieTableViewController: UIViewController {
             movies = savedMovies
         }
     }
-    
+    //MARK: - saving
     func save() {
         if let data = try? PropertyListEncoder().encode(movies){
             try? data.write(to: persistentStoreURL)
@@ -70,6 +70,7 @@ class MovieTableViewController: UIViewController {
             save()
         }
     }
+    
         func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
             
             indexPathForTappedAccessoryButtonButton = indexPath
