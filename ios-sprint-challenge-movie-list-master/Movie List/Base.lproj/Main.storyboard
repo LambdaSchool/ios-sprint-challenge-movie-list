@@ -11,29 +11,48 @@
         <!--Movie Title-->
         <scene sceneID="1gk-ah-b37">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="M41-2p-vLp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <tableViewController id="b2C-1b-GN8" customClass="MoviesTableViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="RYJ-je-dWf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="X9g-L5-4Ff" customClass="MovieTitleTableViewCell" customModule="Movie_List" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="43.666667938232422"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="movieCell" id="X9g-L5-4Ff" customClass="MovieTitleTableViewCell" customModule="Movie_List" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="42.333332061767578"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="X9g-L5-4Ff" id="tOR-yD-pbs">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.666667938232422"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="42.333332061767578"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sDr-0l-yyv">
-                                            <rect key="frame" x="16" y="11" width="343" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
+                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="250" translatesAutoresizingMaskIntoConstraints="NO" id="Gk5-Ig-Pds">
+                                            <rect key="frame" x="16" y="5.9999999999999982" width="329.33333333333331" height="30.333333333333329"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sDr-0l-yyv">
+                                                    <rect key="frame" x="0.0" y="0.0" width="33.333333333333336" height="30.333333333333332"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PWB-QE-vem">
+                                                    <rect key="frame" x="283.33333333333331" y="0.0" width="46" height="30.333333333333332"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <connections>
+                                                        <action selector="seenNotSeenPressed:" destination="X9g-L5-4Ff" eventType="touchUpInside" id="ahB-gf-zI3"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                        </stackView>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Gk5-Ig-Pds" firstAttribute="leading" secondItem="tOR-yD-pbs" secondAttribute="leadingMargin" id="7pF-iK-NjD"/>
+                                        <constraint firstItem="Gk5-Ig-Pds" firstAttribute="top" secondItem="tOR-yD-pbs" secondAttribute="topMargin" constant="-5" id="pjx-V9-UTW"/>
+                                        <constraint firstItem="Gk5-Ig-Pds" firstAttribute="centerY" secondItem="tOR-yD-pbs" secondAttribute="centerY" id="zjY-Me-b9T"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="movieLabel" destination="sDr-0l-yyv" id="MDV-D4-SDk"/>
+                                    <outlet property="seenNotSeenButton" destination="PWB-QE-vem" id="e1G-If-PwJ"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -44,18 +63,20 @@
                     <toolbarItems>
                         <barButtonItem title="Add new Movies" image="Plus" id="BZg-bx-AJf">
                             <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <connections>
-                                <segue destination="z5p-6p-sw3" kind="presentation" id="uGc-NO-7wT"/>
-                            </connections>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="ytz-nk-MH1"/>
                         <barButtonItem image="Clapboard" id="jwX-aC-vee"/>
                     </toolbarItems>
                     <navigationItem key="navigationItem" title="Movie Title" id="TLO-Gn-QUC">
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="Q8W-sA-GeG"/>
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="Q8W-sA-GeG">
+                            <connections>
+                                <segue destination="z5p-6p-sw3" kind="presentation" identifier="NextScreenSegue" id="ihW-o7-gqL"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="M41-2p-vLp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1112.8" y="-28.078817733990149"/>
         </scene>
@@ -82,6 +103,10 @@
                                 <rect key="frame" x="135" y="108" width="105" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Add new movie"/>
+                                <connections>
+                                    <action selector="addMovieButtonPressed:" destination="XiZ-YW-RT6" eventType="touchUpInside" id="St0-ii-a0G"/>
+                                    <action selector="addMovieButtonPressed:" destination="z5p-6p-sw3" eventType="touchUpInside" id="fgk-c5-nUc"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -104,10 +129,14 @@
                         <barButtonItem title="Item" image="Clapboard" id="yNu-bw-4hg"/>
                     </toolbarItems>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="movieTitleTextField" destination="1tV-lh-KSI" id="vCe-jo-lRA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SMc-Iy-xE0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="XiZ-YW-RT6" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1911" y="-28"/>
+            <point key="canvasLocation" x="1943" y="-399"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="oYo-hx-RHF">

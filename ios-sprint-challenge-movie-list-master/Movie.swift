@@ -7,3 +7,7 @@
 //
 
 import Foundation
+struct Movie: Codable {
+    var movieTitle: String
+    var movies: [String] = []
+}
