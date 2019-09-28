@@ -27,10 +27,37 @@ class MoviesTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "movieCell", for: indexPath)
+        guard let movieCell = cell as? MovieTableViewCell else {return cell}
         
+        movieCell.movie = movies[indexPath.row]
+        movieCell.delegate = self
         
         
         return cell
     }
 
 }
+
+extension MoviesTableViewController: MovieTableViewCellDelegate {
+    func seenNotSeenWasTapped(cell: MovieTableViewCell) {
+        
+        let messageBool = cell.seenNotSeenButton.titleLabel?.text!
+        
+        cell.seenNotSeenButton.setTitle("Seen", for: [])
+    }
+    
+    
+}
+
+//extension MoviesTableViewController: MovieTableViewCellDelegate  {
+//func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+//    return .delete
+//}
+//
+//func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+//    friends.remove(at: indexPath.row)
+//    
+//    tableView.deleteRows(at: [indexPath], with: .automatic)
+//    
+//    save()
+//}
