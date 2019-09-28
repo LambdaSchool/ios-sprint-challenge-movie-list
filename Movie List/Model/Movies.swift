@@ -7,7 +7,8 @@
 //
 
 import Foundation
-
+//MARK: - Model
+//created a model
 struct Movies {
     var name: String
 }

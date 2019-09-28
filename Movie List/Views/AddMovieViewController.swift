@@ -13,16 +13,16 @@ protocol AddMovieDelegate {
 }
 
 class AddMovieViewController: UIViewController {
-    
+    //MARK: - Properties
     @IBOutlet weak var addMovieTextField: UITextField!
-    
+    //MARK: - Properties
     var delegate: AddMovieDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         addMovieTextField.delegate = self
     }
-    
+    //MARK: - IBActions
     @IBAction func saveTapped(_ sender: Any) {
         guard let name = addMovieTextField.text,
             !name.isEmpty else {return}
@@ -31,7 +31,7 @@ class AddMovieViewController: UIViewController {
     }
     
 }
-
+    //MARK: - Extensions/Text Field Delegation
 extension AddMovieViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if let text = textField.text,

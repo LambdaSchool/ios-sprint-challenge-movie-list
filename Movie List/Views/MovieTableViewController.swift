@@ -11,10 +11,11 @@ import UIKit
 class MovieTableViewController: UIViewController {
     
     @IBOutlet weak var tableview: UITableView!
-    
+    //MARK: - Properties
+    //created a variable to hold an open instance of type Array of our model.
     var movies: [Movies] = []
     
-    
+    //MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
@@ -24,6 +25,7 @@ class MovieTableViewController: UIViewController {
             }
         }
     }
+    //MARK: - Deleting Cells
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == UITableViewCell.EditingStyle.delete {
             movies.remove(at: indexPath.row)
@@ -31,12 +33,12 @@ class MovieTableViewController: UIViewController {
         }
     }
 }
-
+    //MARK: - Data Source
 extension MovieTableViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return movies.count
     }
-    
+    //MARK: - Custom TableViewCell
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieTableCell", for: indexPath) as? MovieTableViewCell else {return UITableViewCell()}
         let movie = movies[indexPath.row]
@@ -44,7 +46,7 @@ extension MovieTableViewController: UITableViewDataSource {
         return cell
     }
 }
-
+    //MARK: - AddMovie Delegation
 extension MovieTableViewController: AddMovieDelegate {
     func movieWasCreated(_ movie: Movies) {
         movies.append(movie)
