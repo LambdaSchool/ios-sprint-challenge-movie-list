@@ -50,14 +50,13 @@ class MovieTableViewController: UIViewController {
                 addMovieVC.delegate = self
             }
         case "UpdateMovieModalSegue":
-            guard let indexPath = indexPathForTappedAccessoryButtonButton,
-                let editMovieVC = segue.destination as? EditMovieViewController else {fatalError()}
+            guard let indexPath = tableview.indexPathForSelectedRow,
+                let editMovieVC = segue.destination as? EditMovieViewController else {return}
+            
             editMovieVC.delegate = self
             editMovieVC.oldMovie = movies[indexPath.row]
         default:
-           if let addMovieVC = segue.destination as? EditMovieViewController {
-               addMovieVC.delegate = self
-           }
+          fatalError()
         }
         
         
