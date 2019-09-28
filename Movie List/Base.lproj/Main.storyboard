@@ -4,13 +4,14 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Movie List-->
         <scene sceneID="CG0-gd-lcF">
             <objects>
-                <tableViewController id="3u9-9K-l6l" sceneMemberID="viewController">
+                <tableViewController id="3u9-9K-l6l" customClass="MovieListTableViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="bMV-kk-Wdj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -56,11 +57,33 @@
                             <outlet property="delegate" destination="3u9-9K-l6l" id="bGx-Cb-kHh"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Movie List" id="k8V-Ft-Lbm"/>
+                    <navigationItem key="navigationItem" title="Movie List" id="k8V-Ft-Lbm">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="cAm-td-oc9">
+                            <connections>
+                                <segue destination="YBF-mG-1ye" kind="show" id="Osb-Nt-nxL"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9fA-eY-rjg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="751" y="157"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="JuX-Kx-QlB">
+            <objects>
+                <viewController id="YBF-mG-1ye" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="JWC-HD-hNH">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="fY8-RH-Ogr"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="jeC-vK-YOF"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="D46-de-W1D" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1471" y="157"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ndZ-FW-aDK">
