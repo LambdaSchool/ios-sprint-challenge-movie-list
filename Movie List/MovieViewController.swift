@@ -12,9 +12,9 @@ class MovieViewController: UIViewController, UITableViewDelegate, UITableViewDat
 
         let movieController = MovieController()
       
-        @IBOutlet weak var movieTableView: UITableView!
-        
-        override func viewDidLoad() {
+
+    
+    override func viewDidLoad() {
             super.viewDidLoad()
             
             self.movieTableView.delegate = self
