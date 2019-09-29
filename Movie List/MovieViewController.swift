@@ -12,11 +12,10 @@ class MovieViewController: UITableViewController {
     
     let movieController = MovieController()
     
-    
+    @IBOutlet weak var movieTableView: UITableView!
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-
+    super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
     
