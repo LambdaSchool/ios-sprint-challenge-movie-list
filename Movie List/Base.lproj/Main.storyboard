@@ -11,13 +11,13 @@
         <!--Movie List-->
         <scene sceneID="c57-Fl-9f8">
             <objects>
-                <tableViewController id="1SR-fM-0Cu" sceneMemberID="viewController">
+                <tableViewController id="1SR-fM-0Cu" customClass="MovieViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="uag-A0-gV8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="38" id="q4W-fE-EC9" customClass="MovieTableViewCell" customModule="Movie_List" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="38" id="q4W-fE-EC9" customClass="MovieTableViewCell">
                                 <rect key="frame" x="0.0" y="28" width="375" height="38"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="q4W-fE-EC9" id="EXO-aU-gXi">
@@ -54,10 +54,6 @@
                                 </connections>
                             </tableViewCell>
                         </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="1SR-fM-0Cu" id="69w-G1-zC3"/>
-                            <outlet property="delegate" destination="1SR-fM-0Cu" id="RtF-2h-rlZ"/>
-                        </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Movie List" id="vIY-3y-xdI">
                         <barButtonItem key="rightBarButtonItem" title="Item" image="Plus" id="Wvs-5g-Bkh">
@@ -113,7 +109,6 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Byu-02-vgi"/>
                     </view>
-                    <navigationItem key="navigationItem" id="bn4-Po-fAZ"/>
                     <connections>
                         <outlet property="nameTextField" destination="sWh-Sx-gIs" id="y9m-34-OAe"/>
                     </connections>
