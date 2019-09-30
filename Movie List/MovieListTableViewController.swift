@@ -10,7 +10,7 @@ import UIKit
 
 class MovieListTableViewController: UIViewController {
 
-    var movies: [Movie] = []
+    var movies: [Movie] = [Movie(name: "Sixteen Candles", seen: true)]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,13 +24,10 @@ extension MovieListTableViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as? MovieListTableViewCell else { return }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as? MovieListTableViewCell else { fatalError() }
         
         let movie = movies[indexPath.row]
         cell.movie = movie
         return cell
     }
-    
-    
-    
 }
