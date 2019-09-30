@@ -8,12 +8,16 @@
 
 import UIKit
 
+protocol SeenStatusChange {
+    func wasSeenStatus(_ movie: Movie)
+}
+
 class MovieListTableViewCell: UITableViewCell {
     
     @IBOutlet weak var movieNameLabel: UILabel!
     @IBOutlet weak var seenButton: UIButton!
     
-    
+    var delegate: SeenStatusChange?
     
     var movie: Movie? {
         didSet {
@@ -24,6 +28,7 @@ class MovieListTableViewCell: UITableViewCell {
    
     @IBAction func movieSeenButtonTapped(_ sender: UIButton) {
         movie?.seen.toggle()
+        delegate?.wasSeenStatus(movie!)
     }
     
     func updateView() {

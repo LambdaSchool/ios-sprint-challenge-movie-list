@@ -86,3 +86,12 @@ extension MovieListTableViewController: NewMovieDelegate {
         save()
     }
 }
+
+//extension MovieListTableViewController: SeenStatusChange {
+//    func wasSeenStatus(_ movie: Movie) {
+//        movie.seen.toggle()
+//        tableView.reloadData()
+//    }
+//    
+//    
+//}

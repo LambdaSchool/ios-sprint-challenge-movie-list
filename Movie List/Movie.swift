@@ -10,5 +10,5 @@ import Foundation
 
 struct Movie: Codable {
     var name: String
-    var seen: Bool
+    var seen: Bool = false
 }

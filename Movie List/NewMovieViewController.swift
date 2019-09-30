@@ -21,7 +21,7 @@ class NewMovieViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+//        updateView()
 
     }
     
@@ -35,6 +35,5 @@ class NewMovieViewController: UIViewController {
 
         let movie = Movie(name: name, seen: true)
         delegate?.movieWasAdded(movie)
-        dismiss(animated: true, completion: nil)
     }
 }
