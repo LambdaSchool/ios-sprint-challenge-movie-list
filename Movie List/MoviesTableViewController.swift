@@ -88,3 +88,14 @@ class MoviesTableViewController: UITableViewController {
     */
 
 }
+
+extension MoviesTableViewController: AddMovieDelegate {
+    func movieWasAdded(_ movie: Movie) {
+        movieList.append(movie)
+        dismiss(animated: true, completion: nil)
+        tableView.reloadData()
+        
+    }
+    
+    
+}
