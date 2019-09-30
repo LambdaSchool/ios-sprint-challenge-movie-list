@@ -43,6 +43,18 @@ extension MovieListTableViewController: UITableViewDataSource {
     }
 }
 
+// MARK: Table View Delegate (Swipe to Delete)
+extension MovieListTableViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .delete
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        movies.remove(at: indexPath.row)
+        tableView.deleteRows(at: [indexPath], with: .automatic)
+    }
+}
+
 // MARK: New Movie VC Delegate
 extension MovieListTableViewController: NewMovieDelegate {
     func movieWasAdded(_ movie: Movie) {
@@ -50,6 +62,4 @@ extension MovieListTableViewController: NewMovieDelegate {
         tableView.reloadData()
         dismiss(animated: true, completion: nil)
     }
-    
-    
 }
