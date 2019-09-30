@@ -15,6 +15,16 @@ class MovieTableViewCell: UITableViewCell {
     @IBOutlet weak var seenButton: UIButton!
     
     @IBAction func seenButtonToggle(_ sender: UIButton) {
+        guard let movie = movie else { return }
+        if movie.isSeen == true {
+            seenButton.setTitle("Not Seen", for: .normal)
+            self.movie!.isSeen = false
+        } else if movie.isSeen == false {
+            seenButton.setTitle("Seen", for: .normal)
+            self.movie!.isSeen = true
+        } else {
+            seenButton.setTitle("Seen?", for: .normal)
+        }
     }
     
     var movie: Movie? {
@@ -23,15 +33,11 @@ class MovieTableViewCell: UITableViewCell {
             }
         }
 
-        private func updateViews() {
+        func updateViews() {
                guard let movie = movie else { return }
-               
             movieLabel.text = movie.title
-            if movie.isSeen == true {
-                seenButton.titleLabel?.text = "Seen"
-            } else {
-                seenButton.titleLabel?.text = "Not seen"
-               
         }
         
-    }}
+    
+        
+}

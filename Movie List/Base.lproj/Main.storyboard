@@ -5,6 +5,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -24,33 +25,29 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="253" translatesAutoresizingMaskIntoConstraints="NO" id="afr-t2-rbb">
+                                        <stackView opaque="NO" contentMode="scaleAspectFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="afr-t2-rbb">
                                             <rect key="frame" x="20" y="10" width="335" height="30"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yRQ-vJ-YwE">
-                                                    <rect key="frame" x="0.0" y="0.0" width="45" height="30"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="46" height="30"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y41-Fo-BMh">
-                                                    <rect key="frame" x="298" y="0.0" width="37" height="30"/>
-                                                    <state key="normal" title="Seen?"/>
+                                                    <rect key="frame" x="54" y="0.0" width="281" height="30"/>
+                                                    <state key="normal" title="Not Seen"/>
                                                     <connections>
                                                         <action selector="seenButtonToggle:" destination="NHl-5f-deD" eventType="touchUpInside" id="KsC-CO-6TN"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="y41-Fo-BMh" secondAttribute="trailing" id="9X1-gD-bVF"/>
-                                                <constraint firstItem="yRQ-vJ-YwE" firstAttribute="leading" secondItem="afr-t2-rbb" secondAttribute="leading" id="Dd0-RM-vYu"/>
-                                            </constraints>
                                         </stackView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="afr-t2-rbb" firstAttribute="top" secondItem="lVH-DN-GIm" secondAttribute="top" constant="10" id="N6j-wz-9qy"/>
-                                        <constraint firstAttribute="trailing" secondItem="afr-t2-rbb" secondAttribute="trailing" constant="20" id="e3p-IR-KAl"/>
-                                        <constraint firstItem="afr-t2-rbb" firstAttribute="leading" secondItem="lVH-DN-GIm" secondAttribute="leading" constant="20" id="zXW-zP-Lwi"/>
+                                        <constraint firstItem="afr-t2-rbb" firstAttribute="leading" secondItem="lVH-DN-GIm" secondAttribute="leading" constant="20" id="1ea-pU-R5A"/>
+                                        <constraint firstAttribute="trailing" secondItem="afr-t2-rbb" secondAttribute="trailing" constant="20" id="8KH-Mr-Ycc"/>
+                                        <constraint firstItem="afr-t2-rbb" firstAttribute="top" secondItem="lVH-DN-GIm" secondAttribute="top" constant="10" id="Oty-Mo-heU"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
