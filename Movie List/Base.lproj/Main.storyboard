@@ -37,16 +37,33 @@
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zUf-9Y-nDc">
                                                     <rect key="frame" x="250" y="11" width="117" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" title="Button"/>
+                                                    <state key="normal" title="Button">
+                                                        <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
                                                     <connections>
-                                                        <action selector="movieSeenButton:" destination="8C2-mQ-YU5" eventType="touchUpInside" id="sKR-4h-dMW"/>
+                                                        <action selector="movieSeenButtonTapped:" destination="8C2-mQ-YU5" eventType="touchUpInside" id="7gs-6O-qOp"/>
                                                     </connections>
                                                 </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Seen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H69-eL-NUz">
+                                                    <rect key="frame" x="325" y="11" width="39" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Not Seen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="13y-Iw-OTl">
+                                                    <rect key="frame" x="293" y="11" width="71" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="movieNameLabel" destination="18g-15-WzS" id="0uP-d5-mfq"/>
-                                            <outlet property="movieSeenButton" destination="zUf-9Y-nDc" id="gba-7i-3DT"/>
+                                            <outlet property="notSeenTextLabel" destination="13y-Iw-OTl" id="ZjL-iu-VPm"/>
+                                            <outlet property="seenTextLabel" destination="13y-Iw-OTl" id="FAQ-48-4Co"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

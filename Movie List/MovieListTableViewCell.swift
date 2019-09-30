@@ -10,10 +10,11 @@ import UIKit
 
 class MovieListTableViewCell: UITableViewCell {
     
-   
-
     @IBOutlet weak var movieNameLabel: UILabel!
-    @IBOutlet weak var movieSeenButton: UILabel!
+    @IBOutlet weak var notSeenTextLabel: UILabel!
+    @IBOutlet weak var seenTextLabel: UILabel!
+    
+    
     
     var movie: Movie? {
         didSet {
@@ -22,13 +23,20 @@ class MovieListTableViewCell: UITableViewCell {
     }
     
    
-    @IBAction func movieSeenButton(_ sender: UIButton) {
+    @IBAction func movieSeenButtonTapped(_ sender: UIButton) {
+        movie?.seen.toggle()
     }
     
     func updateView() {
         guard let movie = movie else { return }
-        
+
         movieNameLabel.text = movie.name
-        
+        if movie.seen {
+            notSeenTextLabel.textColor = .clear
+            seenTextLabel.textColor = .black
+        } else {
+            seenTextLabel.textColor = .clear
+            notSeenTextLabel.textColor = .black
+        }
     }
 }
