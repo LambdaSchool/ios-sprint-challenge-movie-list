@@ -14,8 +14,27 @@ class MovieListTableViewController: UIViewController {
     
     var movies: [Movie] = []
     
+    var persistentStoreURL: URL! {
+        if let documentURL = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true) {
+                let persistentStoreURL = documentURL.appendingPathComponent("movieList.plist")
+                return persistentStoreURL
+            }
+            return nil
+        }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if let data = try? Data(contentsOf: persistentStoreURL),
+            let savedMovies = try? PropertyListDecoder().decode([Movie].self, from: data) {
+            movies = savedMovies
+        }
+    }
+    
+    func save() {
+        if let data = try? PropertyListEncoder().encode(movies) {
+            try? data.write(to: persistentStoreURL)
+        }
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -52,6 +71,8 @@ extension MovieListTableViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         movies.remove(at: indexPath.row)
         tableView.deleteRows(at: [indexPath], with: .automatic)
+        
+        save()
     }
 }
 
@@ -61,5 +82,7 @@ extension MovieListTableViewController: NewMovieDelegate {
         movies.append(movie)
         tableView.reloadData()
         dismiss(animated: true, completion: nil)
+        
+        save()
     }
 }
