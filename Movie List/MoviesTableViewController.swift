@@ -19,20 +19,13 @@ class MoviesTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-               switch segue.identifier {
-               case "AddMovieSegue":
-                   guard let addMovieVC = segue.destination as? AddMovieViewController else { fatalError() }
+    
+   
                
-               addMovieVC.movieDelegate = self
-                
-               default:
-                   fatalError("An unknown segue was encountered: \(segue.identifier ?? "<No ID>")")
-               }
             
             // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
-    }
+    
 
     // MARK: - Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -47,11 +40,21 @@ class MoviesTableViewController: UITableViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "movieCell", for: indexPath) as? MovieTableViewCell else { return UITableViewCell() }
                
         cell.movie = movieList[indexPath.row]
-              // cell.delegate = self
                return cell
     }
+         // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+               switch segue.identifier {
+               case "AddMovieSegue":
+                   guard let addMovieVC = segue.destination as? AddMovieViewController else { fatalError() }
+               
+                   addMovieVC.movieDelegate = self as! AddMovieDelegate
+                
+               default:
+                   fatalError("An unknown segue was encountered: \(segue.identifier ?? "<No ID>")")
+        }
+    }
     
-
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -60,17 +63,16 @@ class MoviesTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Delete the row from the data source
+            movieList.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+        
         }    
     }
-    */
+    
 
     /*
     // Override to support rearranging the table view.
@@ -88,15 +90,10 @@ class MoviesTableViewController: UITableViewController {
     */
 
     /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
+*/
+        
 }
 
 extension MoviesTableViewController: AddMovieDelegate {
