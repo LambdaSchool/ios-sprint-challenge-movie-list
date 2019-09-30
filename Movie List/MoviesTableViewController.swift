@@ -10,7 +10,9 @@ import UIKit
 
 class MoviesTableViewController: UITableViewController {
     
-    var movies = ["Matrix", "Terminator"]
+    var movies: [Movie] = []
+    // var movies = [Movie]()
+    // var movies: [Movie] = [Movie]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,22 +32,41 @@ class MoviesTableViewController: UITableViewController {
         guard let movieCell = cell as? MovieTableViewCell else {return cell}
         
         let movie = movies[indexPath.row]
-        //movieCell.movie = movies[indexPath.row]
-        cell.movie = movie
+        movieCell.movie = movie
+
         movieCell.delegate = self
         
         
         return cell
     }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "AddMovieSegue" {
+            if let addMovieVC = segue.destination as? AddMovieViewController {
+                addMovieVC.delegate = self
+            }
+        }
+    }
+    
 
 }
 
 extension MoviesTableViewController: MovieTableViewCellDelegate {
     func seenNotSeenWasTapped(cell: MovieTableViewCell) {
         
-        let messageBool = cell.seenNotSeenButton.titleLabel?.text!
+        guard let movie = cell.movie else {return}
         
-        cell.seenNotSeenButton.setTitle("Seen", for: [])
+        guard let index = movies.firstIndex(of: movie) else {return}
+        movies[index].isSeen = !movie.isSeen
+        
+        tableView.reloadData()
+        
+//        for newMovie in movies {
+//            if newMovie.movieTitle == movie.movieTitle {
+//                newMovie.isSeen = !movie.isSeen
+//            }
+//        }
     }
     
     
@@ -54,8 +75,13 @@ extension MoviesTableViewController: MovieTableViewCellDelegate {
 extension MoviesTableViewController: AddMovieDelegate {
     func movieWasCreated(_ movie: Movie) {
         
-        movies.append()
+        movies.append(movie)
+        //Tell the movie to reload the data
+        tableView.reloadData()
+        dismiss(animated: true, completion: nil)
         
+        //When using push Segue, this is the line to be used.
+        //navigationController?.popViewController(animated: true)
     }
     
     

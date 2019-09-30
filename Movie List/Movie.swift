@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Movie: Codable {
+struct Movie: Codable, Equatable {
     var movieTitle: String
-    var movies: [String] = []
+    var isSeen: Bool = false
 }

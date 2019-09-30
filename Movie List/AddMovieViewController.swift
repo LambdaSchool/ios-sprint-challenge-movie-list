@@ -19,8 +19,10 @@ class AddMovieViewController: UIViewController {
     
     
     @IBAction func saveNewMovieButton(_ sender: Any) {
+        guard let movieName = addingMovieOutlet.text, !movieName.isEmpty else {return}
+        let movie = Movie(movieTitle: movieName)
         
-        
+        delegate?.movieWasCreated(movie)
     }
     
     
