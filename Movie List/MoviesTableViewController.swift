@@ -7,45 +7,40 @@
 //
 
 import UIKit
+struct Movie {
+    var title: String
+    var isSeen: Bool = false
+}
 
 class MoviesTableViewController: UITableViewController {
-
-    @IBOutlet weak var movieLabel: UILabel!
-    @IBOutlet weak var seenButton: UIButton!
-    @IBOutlet weak var addMovieBarButton: UIBarButtonItem!
     
+    var movieList: [Movie?] = [Movie(title: "The Nightmare Before Christmas", isSeen: true)]
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     // MARK: - Table view data source
-
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
+         return 1
+     }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return movieList.count
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "movieCell", for: indexPath) as? MovieTableViewCell else { return UITableViewCell() }
+               
+        cell.movie = movieList[indexPath.row]
+              // cell.delegate = self
+               return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.

@@ -17,4 +17,21 @@ class MovieTableViewCell: UITableViewCell {
     @IBAction func seenButtonToggle(_ sender: UIButton) {
     }
     
-}
+    var movie: Movie? {
+            didSet {
+                updateViews()
+            }
+        }
+
+        private func updateViews() {
+               guard let movie = movie else { return }
+               
+            movieLabel.text = movie.title
+            if movie.isSeen == true {
+                seenButton.titleLabel?.text = "Seen"
+            } else {
+                seenButton.titleLabel?.text = "Not seen"
+               
+        }
+        
+    }}
