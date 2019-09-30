@@ -8,6 +8,11 @@
 
 import UIKit
 
+protocol MovieTableViewCellDelegate: AnyObject {
+    func notSeenLabelWasTapped(cell: MovieTableViewCell)
+}
+
+
 class MovieTableViewCell: UITableViewCell {
 
     
@@ -15,6 +20,7 @@ class MovieTableViewCell: UITableViewCell {
     @IBOutlet weak var notSeenLabel: UIButton!
     
     @IBAction func notSeenButtonPressed(_ sender: Any) {
+        //delegate?.notSeenButtonTapped(cell: self)
     }
     
     
@@ -25,7 +31,7 @@ class MovieTableViewCell: UITableViewCell {
     private func updateViews() {
         guard let movie = movie else { return }
         
-        movieLabel.text = movie.name
+        movieLabel.text = movie.movie
         notSeenLabel.setTitle("Not Seen", for: [])
     }
 

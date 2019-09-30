@@ -16,12 +16,19 @@ class MovieListTableViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
-
-    
-    
 }
+
+    func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "AddMovieModalSegue" {
+            guard let addMovieVC = segue.destination as? AddMovieViewController else {
+                fatalError() }
+
+            //addMovieVC.delegate = self 
+        }
+}
+
+// MARK: - Table View Data Source
 
 extension MovieListTableViewController: UITableViewDataSource {
     
@@ -34,10 +41,20 @@ extension MovieListTableViewController: UITableViewDataSource {
         fatalError()
         }
         
+
         let movie = movies[indexPath.row]
         cell.movie = movie
         // use cell here
         
         return cell
+    }
+}
+
+// MARK - Add Friend Delegate
+
+extension MovieListTableViewController: AddMovieDelegate {
+    func movieWasAdded(_ movie: Movie) {
+        print("The movie \(movie) was just created") // temporary code holder
+        // TODO: Implement delegate method here!
     }
 }
