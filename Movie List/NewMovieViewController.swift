@@ -35,5 +35,6 @@ class NewMovieViewController: UIViewController {
         
         let movie = Movie(name: name, seen: false)
         delegate?.movieWasAdded(movie)
+        dismiss(animated: true, completion: nil)
     }
 }
