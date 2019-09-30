@@ -16,7 +16,7 @@ class AddMovieViewController: UIViewController {
     
     var delegate: AddMovieViewControllerDelegate?
     
-    // outlet
+    
     @IBOutlet var movieNameTextField: UITextField!
     
     override func viewDidLoad() {
@@ -26,16 +26,17 @@ class AddMovieViewController: UIViewController {
     }
     
 
-    //Out let
     
-    @IBAction func addMovieTapped(_ sender: UIButton) {
-        
-        guard let delegate = delegate,
-        let title = movieNameTextField.text
-        else {return}
-        let movie = Movie(movie: title)
-        delegate.addedMovie(movie: movie)
     
-}
-    
-}
+       @IBAction func addMovieTapped(_ sender: UIButton) {
+           
+           guard let delegate = delegate,
+           let title = movieNameTextField.text
+           else {return}
+           let movie = Movie(movie: title)
+           delegate.addedMovie(movie: movie)
+       
+   }
+       
+   }
+
