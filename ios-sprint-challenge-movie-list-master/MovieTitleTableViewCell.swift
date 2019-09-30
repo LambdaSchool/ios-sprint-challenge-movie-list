@@ -16,7 +16,7 @@ class MovieTitleTableViewCell: UITableViewCell {
     
     weak var delegate: MovieTitleTableViewDelegate?
 
-    var movie: String? {
+    var movie: Movie? {
         didSet { setupViews() }
     }
     @IBOutlet weak var movieLabel: UILabel!
@@ -30,8 +30,12 @@ class MovieTitleTableViewCell: UITableViewCell {
         
         
         guard let movie = movie else {return}
-        movieLabel.text = movie
-        seenNotSeenButton.setTitle("Not Seen", for: [])
+        movieLabel.text = movie.name
+        if movie.isSeen {
+            seenNotSeenButton.setTitle("Seen", for: [])
+        } else {
+            seenNotSeenButton.setTitle("Not Seen", for: [])
+        }
         
     }
     

@@ -7,7 +7,7 @@
 //
 
 import Foundation
-struct Movie: Codable {
-    var movieTitle: String
-    var movies: [String] = []
+struct Movie: Codable, Equatable {
+    var name: String
+    var isSeen: Bool = false
 }

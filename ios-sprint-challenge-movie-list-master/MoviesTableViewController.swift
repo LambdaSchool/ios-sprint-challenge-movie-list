@@ -11,8 +11,6 @@ import UIKit
 class MoviesTableViewController: UITableViewController {
     
     var movies: [Movie] = []
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -20,7 +18,7 @@ class MoviesTableViewController: UITableViewController {
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "NextScreenSegue" {
+        if segue.identifier == "SuckOnTheseNuts" {
             if let addMovieVC = segue.destination as? AddMovieViewController {
                 addMovieVC.delegate = self
             }
@@ -40,7 +38,9 @@ class MoviesTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "movieCell", for: indexPath)
         guard let movieCell = cell as? MovieTitleTableViewCell else {return cell}
         
-        _ = movies[indexPath.row]
+        let movie = movies[indexPath.row]
+        movieCell.movie = movie
+        
         movieCell.delegate = self
         
         return cell
@@ -49,9 +49,14 @@ class MoviesTableViewController: UITableViewController {
 }
 extension MoviesTableViewController: MovieTitleTableViewDelegate{
 func seenNotSeenWasTapped(cell: MovieTitleTableViewCell) {
-    _ = cell.seenNotSeenButton.titleLabel?.text!
     
-    cell.seenNotSeenButton.setTitle("Seen", for: [])
+    guard let movie = cell.movie else {return}
+    
+    guard let index = movies.firstIndex(of: movie) else {return}
+    movies[index].isSeen = !movie.isSeen
+    
+    tableView.reloadData()
+    
 }
 
 }
@@ -59,8 +64,9 @@ func seenNotSeenWasTapped(cell: MovieTitleTableViewCell) {
 extension MoviesTableViewController: AddMovieDelegate {
     func movieWasCreated(_ movie: Movie) {
         movies.append(movie)
-        dismiss(animated: true, completion: nil)
+        navigationController?.popViewController(animated: true)
         tableView.reloadData()
+        dismiss(animated: true, completion: nil)
     }
     
     

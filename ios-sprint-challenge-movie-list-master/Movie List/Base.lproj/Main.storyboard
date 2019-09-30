@@ -18,40 +18,44 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="movieCell" id="X9g-L5-4Ff" customClass="MovieTitleTableViewCell" customModule="Movie_List" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="42.333332061767578"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="43.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="X9g-L5-4Ff" id="tOR-yD-pbs">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="42.333332061767578"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.666667938232422"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="250" translatesAutoresizingMaskIntoConstraints="NO" id="Gk5-Ig-Pds">
-                                            <rect key="frame" x="16" y="5.9999999999999982" width="329.33333333333331" height="30.333333333333329"/>
+                                        <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" spacing="246" translatesAutoresizingMaskIntoConstraints="NO" id="nZJ-U6-ONy">
+                                            <rect key="frame" x="16" y="11" width="338" height="30"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sDr-0l-yyv">
-                                                    <rect key="frame" x="0.0" y="0.0" width="33.333333333333336" height="30.333333333333332"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Movie" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vAu-Yc-Wbb">
+                                                    <rect key="frame" x="0.0" y="0.0" width="46" height="30"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PWB-QE-vem">
-                                                    <rect key="frame" x="283.33333333333331" y="0.0" width="46" height="30.333333333333332"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PRM-Xa-jfW">
+                                                    <rect key="frame" x="292" y="0.0" width="46" height="30"/>
                                                     <state key="normal" title="Button"/>
                                                     <connections>
-                                                        <action selector="seenNotSeenPressed:" destination="X9g-L5-4Ff" eventType="touchUpInside" id="ahB-gf-zI3"/>
+                                                        <action selector="seenNotSeenPressed:" destination="X9g-L5-4Ff" eventType="touchUpInside" id="heA-3g-hMk"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="PRM-Xa-jfW" firstAttribute="top" secondItem="nZJ-U6-ONy" secondAttribute="top" id="Ka6-Sz-OLp"/>
+                                                <constraint firstAttribute="trailing" secondItem="PRM-Xa-jfW" secondAttribute="trailing" id="ZNJ-4L-Eac"/>
+                                                <constraint firstItem="PRM-Xa-jfW" firstAttribute="leading" secondItem="vAu-Yc-Wbb" secondAttribute="trailing" constant="246" id="kCX-sr-8np"/>
+                                            </constraints>
                                         </stackView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="Gk5-Ig-Pds" firstAttribute="leading" secondItem="tOR-yD-pbs" secondAttribute="leadingMargin" id="7pF-iK-NjD"/>
-                                        <constraint firstItem="Gk5-Ig-Pds" firstAttribute="top" secondItem="tOR-yD-pbs" secondAttribute="topMargin" constant="-5" id="pjx-V9-UTW"/>
-                                        <constraint firstItem="Gk5-Ig-Pds" firstAttribute="centerY" secondItem="tOR-yD-pbs" secondAttribute="centerY" id="zjY-Me-b9T"/>
+                                        <constraint firstItem="nZJ-U6-ONy" firstAttribute="leading" secondItem="tOR-yD-pbs" secondAttribute="leadingMargin" id="WIf-bv-ENr"/>
+                                        <constraint firstItem="PRM-Xa-jfW" firstAttribute="top" secondItem="tOR-yD-pbs" secondAttribute="top" constant="11" id="Xff-DG-ME2"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="movieLabel" destination="sDr-0l-yyv" id="MDV-D4-SDk"/>
-                                    <outlet property="seenNotSeenButton" destination="PWB-QE-vem" id="e1G-If-PwJ"/>
+                                    <outlet property="movieLabel" destination="vAu-Yc-Wbb" id="vZ5-Rp-rGQ"/>
+                                    <outlet property="seenNotSeenButton" destination="PRM-Xa-jfW" id="e7v-sG-ewf"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -70,7 +74,7 @@
                     <navigationItem key="navigationItem" title="Movie Title" id="TLO-Gn-QUC">
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="Q8W-sA-GeG">
                             <connections>
-                                <segue destination="z5p-6p-sw3" kind="presentation" identifier="NextScreenSegue" id="ihW-o7-gqL"/>
+                                <segue destination="z5p-6p-sw3" kind="presentation" identifier="SuckOnTheseNuts" id="ihW-o7-gqL"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -130,7 +134,7 @@
                     </toolbarItems>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="movieTitleTextField" destination="1tV-lh-KSI" id="vCe-jo-lRA"/>
+                        <outlet property="movieTitleTextField" destination="1tV-lh-KSI" id="eud-Go-bwv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SMc-Iy-xE0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
