@@ -10,6 +10,11 @@ import UIKit
 
 class MoviesTableViewController: UITableViewController {
 
+    @IBOutlet weak var movieLabel: UILabel!
+    @IBOutlet weak var seenButton: UIButton!
+    @IBOutlet weak var addMovieBarButton: UIBarButtonItem!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
