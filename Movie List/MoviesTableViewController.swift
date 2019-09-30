@@ -18,9 +18,19 @@ class MoviesTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+    }
+        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+               switch segue.identifier {
+               case "AddMovieSegue":
+                   guard let addMovieVC = segue.destination as? AddMovieViewController else { fatalError() }
+               
+               addMovieVC.movieDelegate = self
+                
+               default:
+                   fatalError("An unknown segue was encountered: \(segue.identifier ?? "<No ID>")")
+               }
+            
+            // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 

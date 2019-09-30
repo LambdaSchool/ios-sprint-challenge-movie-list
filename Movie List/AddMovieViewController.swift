@@ -25,7 +25,9 @@ class AddMovieViewController: UIViewController {
         guard let newMovie = addMovieTextField.text, !newMovie.isEmpty else { return }
         let aMovie = Movie(title: newMovie)
         movieDelegate?.movieWasAdded(aMovie)
-        dismiss(animated: true, completion: nil)    }
+        dismiss(animated: true, completion: nil)
+        
+    }
   
 
 }
