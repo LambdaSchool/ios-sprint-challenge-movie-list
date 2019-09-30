@@ -11,8 +11,7 @@ import UIKit
 class MovieListTableViewCell: UITableViewCell {
     
     @IBOutlet weak var movieNameLabel: UILabel!
-    @IBOutlet weak var notSeenTextLabel: UILabel!
-    @IBOutlet weak var seenTextLabel: UILabel!
+    @IBOutlet weak var seenButton: UIButton!
     
     
     
@@ -32,11 +31,9 @@ class MovieListTableViewCell: UITableViewCell {
 
         movieNameLabel.text = movie.name
         if movie.seen {
-            notSeenTextLabel.textColor = .clear
-            seenTextLabel.textColor = .black
+            seenButton.setTitle("Seen", for: .normal)
         } else {
-            seenTextLabel.textColor = .clear
-            notSeenTextLabel.textColor = .black
+            seenButton.setTitle("Not Seen", for: .normal)
         }
     }
 }
