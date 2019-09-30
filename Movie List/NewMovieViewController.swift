@@ -27,8 +27,13 @@ class NewMovieViewController: UIViewController {
     
     func updateView() {
         guard let movie = movie else { return }
-    
         movieNameTextField.text = movie.name
     }
 
+    @IBAction func saveNewMovie(_ sender: UIButton) {
+        guard let name = movieNameTextField.text, !name.isEmpty else { return }
+        
+        let movie = Movie(name: name, seen: false)
+        delegate?.movieWasAdded(movie)
+    }
 }
