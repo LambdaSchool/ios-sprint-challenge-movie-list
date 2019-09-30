@@ -10,6 +10,7 @@ import UIKit
 
 class MovieTableViewCell: UITableViewCell {
  
+   
     @IBOutlet var hasSeenButton: UIButton!
     
     @IBOutlet var movieNameLabel: UILabel!
