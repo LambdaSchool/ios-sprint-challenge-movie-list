@@ -8,7 +8,8 @@
 
 import UIKit
 
-class MovieViewController: UITableViewController {
+class MovieViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MovieTableViewCellDelegate {
+    
     
     let movieController = MovieController()
     
@@ -16,7 +17,41 @@ class MovieViewController: UITableViewController {
     
     override func viewDidLoad() {
     super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        self.movieTableView.delegate = self
+        self.movieTableView.dataSource = self
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.movieTableView.reloadData()
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.movieController.movies.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath)
+            as? MovieTableViewCell else { return UITableViewCell() }
+        
+        let movie = self.movieController.movies[indexPath.row]
+        cell.nameLabel.text = movie.name
+        cell.delegate = self
+        let seenText = movie.isSeen ? "Seen" : "Not Seen"
+        cell.seenButton.setTitle(seenText, for: .normal)
+        
+        return cell
+        
+    }
+    
+    func tappedSeenButton(on cell: MovieTableViewCell) {
+        guard let indexPath = self.movieTableView.indexPath(for: cell) else { return }
+        
+        self.movieController.toggledSeen(at: indexPath)
+        self.movieTableView.reloadRows(at: [indexPath], with: .none)
     }
     
 
