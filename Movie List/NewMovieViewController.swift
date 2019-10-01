@@ -35,5 +35,6 @@ class NewMovieViewController: UIViewController {
 
         let movie = Movie(name: name, seen: true)
         delegate?.movieWasAdded(movie)
+        self.navigationController?.popViewController(animated: true)
     }
 }
