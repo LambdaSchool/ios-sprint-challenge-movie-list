@@ -8,10 +8,16 @@
 
 import UIKit
 
+protocol MovieWatchedDelegate {
+    func toggleMovieWatched(for Cell: MovieTableViewCell)
+}
+
 class MovieTableViewCell: UITableViewCell {
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var watchedButton: UIButton!
+    
+    var delegate: MovieWatchedDelegate?
     
     var movie: Movie? {
         didSet {
@@ -23,7 +29,17 @@ class MovieTableViewCell: UITableViewCell {
         guard let movie = movie else { return }
         
         nameLabel.text = movie.name
-        watchedButton.setTitle("Watched?", for: .normal)
+        switch movie.watched {
+        case true:
+            watchedButton.setTitle("Seen", for: .normal)
+        case false: watchedButton.setTitle("Not Seen", for: .normal)
+        }
     }
+    
+    @IBAction func watchedTapped(_ sender: UIButton) {
+        print("test")
+        delegate?.toggleMovieWatched(for: self)
+    }
+    
 
 }

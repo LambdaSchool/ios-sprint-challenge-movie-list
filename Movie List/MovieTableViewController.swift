@@ -11,6 +11,7 @@ import UIKit
 class MovieTableViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
+
     
     struct PropertyKeys {
         static let MovieCell = "MovieCell"
@@ -21,8 +22,10 @@ class MovieTableViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        tableView.dataSource = self
+//        tableView.dataSource = self
+        
     }
+    
     
 
     /*
@@ -37,7 +40,7 @@ class MovieTableViewController: UIViewController {
 
 }
 
-extension MovieTableViewController: UITableViewDataSource {
+extension MovieTableViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return movies.count
@@ -47,7 +50,24 @@ extension MovieTableViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: PropertyKeys.MovieCell, for: indexPath) as? MovieTableViewCell else { return UITableViewCell() }
         
         let movie = movies[indexPath.row]
+        cell.delegate = self
         cell.movie = movie
+
         return cell
     }
+}
+
+extension MovieTableViewController: MovieWatchedDelegate {
+    
+    func toggleMovieWatched(for cell: MovieTableViewCell) {
+        
+        guard let indexPath = tableView.indexPath(for: cell) else { return }
+        
+        movies[indexPath.row].watched.toggle()
+        
+        tableView.reloadData()
+    }
+    
+    
+    
 }
