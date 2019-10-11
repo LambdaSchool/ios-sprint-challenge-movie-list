@@ -9,6 +9,9 @@
 import UIKit
 
 class AddMovieViewController: UIViewController {
+    
+    @IBOutlet weak var movieTitle: UITextField!
+    @IBOutlet weak var seenSwitch: UISwitch!
 
     override func viewDidLoad() {
         super.viewDidLoad()
