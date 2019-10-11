@@ -28,6 +28,11 @@ class MovieViewController: UIViewController {
             if let addMovieVC = segue.destination as? AddMovieViewController {
                 addMovieVC.delegate = self
             }
+        } else if segue.identifier == "DetailMovieSegue" {
+                if let indexPath = tableView.indexPathForSelectedRow,
+                    let detailMovieVC = segue.destination as? DetailMovieViewController {
+                    detailMovieVC.movie = movies[indexPath.row]
+            }
         }
     }
 }

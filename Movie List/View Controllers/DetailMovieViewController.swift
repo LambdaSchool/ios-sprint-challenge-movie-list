@@ -1,0 +1,29 @@
+//
+//  DetailMovieViewController.swift
+//  Movie List
+//
+//  Created by Lambda_School_Loaner_204 on 10/11/19.
+//  Copyright © 2019 Lambda School. All rights reserved.
+//
+
+import UIKit
+
+class DetailMovieViewController: UIViewController {
+
+    @IBOutlet weak var movieLabel: UILabel!
+    
+    var movie: Movie?
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        updateViews()
+        // Do any additional setup after loading the view.
+    }
+    
+    private func updateViews() {
+        guard let movie = movie else { return }
+        
+        movieLabel.text = movie.name
+    }
+}
