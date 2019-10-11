@@ -11,7 +11,7 @@
         <!--Movie List-->
         <scene sceneID="4SG-ZJ-1Zf">
             <objects>
-                <tableViewController id="f64-qj-a8U" sceneMemberID="viewController">
+                <tableViewController id="f64-qj-a8U" customClass="MoviesTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="w9o-Jp-Ewl">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -49,7 +49,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="Sw5-4p-NbF" kind="show" id="wox-bQ-uL1"/>
+                                    <segue destination="Sw5-4p-NbF" kind="show" identifier="ShowMovieDetailSegue" id="wox-bQ-uL1"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -62,7 +62,7 @@
                         <barButtonItem key="rightBarButtonItem" title="Item" image="Plus" id="QaA-MU-2tE">
                             <color key="tintColor" systemColor="systemIndigoColor" red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
-                                <segue destination="fFd-XR-xff" kind="presentation" id="uUd-Cy-HGi"/>
+                                <segue destination="fFd-XR-xff" kind="presentation" identifier="AddMovieModalSegue" id="uUd-Cy-HGi"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -71,10 +71,10 @@
             </objects>
             <point key="canvasLocation" x="1440.8" y="-233.43328335832086"/>
         </scene>
-        <!--View Controller-->
+        <!--Movie Detail View Controller-->
         <scene sceneID="pPJ-lW-Y51">
             <objects>
-                <viewController id="Sw5-4p-NbF" sceneMemberID="viewController">
+                <viewController id="Sw5-4p-NbF" customClass="MovieDetailViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zdX-D5-HLV">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -116,10 +116,10 @@
             </objects>
             <point key="canvasLocation" x="2398.5507246376815" y="-234.375"/>
         </scene>
-        <!--View Controller-->
+        <!--Add Movie View Controller-->
         <scene sceneID="UFa-Md-plc">
             <objects>
-                <viewController id="fFd-XR-xff" sceneMemberID="viewController">
+                <viewController id="fFd-XR-xff" customClass="AddMovieViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eXx-da-pPI">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -159,6 +159,11 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7vg-nd-bGF">
+                                <rect key="frame" x="22" y="483" width="42" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Seen?"/>
+                            </button>
                             <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="kQQ-QO-Di3">
                                 <rect key="frame" x="34" y="213" width="119.5" height="88"/>
                                 <subviews>
