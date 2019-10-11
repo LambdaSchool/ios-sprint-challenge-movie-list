@@ -9,7 +9,7 @@
 import UIKit
 
 protocol AddMovieDelegate {
-    func movieWasSaved(movie: Movie)
+    func movieWasSaved(_ movie: Movie)
 }
 
 class AddMovieViewController: UIViewController {
@@ -37,7 +37,6 @@ class AddMovieViewController: UIViewController {
         let seen = seenSwitch.isOn
         let movie = Movie(title: title, seen: seen)
         
-        delegate?.movieWasSaved(movie: movie)
-        dismiss(animated: true, completion: nil)
+        delegate?.movieWasSaved(movie)
     }
 }

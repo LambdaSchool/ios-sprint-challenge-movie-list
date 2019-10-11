@@ -17,7 +17,15 @@ class MovieTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        titleLabel.text = movie?.title
+        seenButton.titleLabel?.text = {
+            guard let movie = movie else { return "" }
+            if movie.seen {
+                return "Seen"
+            } else {
+                return "Not seen"
+            }
+        }()
     }
     
     @IBAction func seenButtonPressed(_ sender: UIButton) {

@@ -12,6 +12,8 @@ class MovieTableViewController: UIViewController {
     
     var movies: [Movie] = []
     
+    @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -20,8 +22,11 @@ class MovieTableViewController: UIViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "AddMovieSegue" {
+            guard let addMovieVC = segue.destination as? AddMovieViewController else { return }
+            
+            addMovieVC.delegate = self
+        }
     }
 }
 
@@ -41,7 +46,9 @@ extension MovieTableViewController: UITableViewDataSource {
 }
 
 extension MovieTableViewController: AddMovieDelegate {
-    func movieWasSaved(movie: Movie) {
-        
+    func movieWasSaved(_ movie: Movie) {
+        movies.append(movie)
+        tableView.reloadData()
+        dismiss(animated: true, completion: nil)
     }
 }
