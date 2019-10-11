@@ -34,8 +34,11 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="acr-em-JgK">
-                                                    <rect key="frame" x="296" y="11" width="64" height="38"/>
-                                                    <state key="normal" title="Not Seen"/>
+                                                    <rect key="frame" x="301" y="11" width="59" height="38"/>
+                                                    <state key="normal" title="hasSeen"/>
+                                                    <connections>
+                                                        <action selector="hasSeenMovieTapped:" destination="9Ay-i7-0Ac" eventType="touchUpInside" id="eIc-1V-jBI"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -49,6 +52,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="hasSeenButton" destination="acr-em-JgK" id="D6q-O2-adU"/>
                                             <outlet property="movieLabel" destination="D2R-qp-1wl" id="nGM-We-MKP"/>
                                         </connections>
                                     </tableViewCell>

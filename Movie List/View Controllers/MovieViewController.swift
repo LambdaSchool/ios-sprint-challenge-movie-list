@@ -56,7 +56,6 @@ extension MovieViewController: AddMovieDelegate {
         if let navController = self.navigationController {
             navController.popToRootViewController(animated: true)
         }
-        //dismiss(animated: true, completion: nil)
         tableView.reloadData()
     }
 }
