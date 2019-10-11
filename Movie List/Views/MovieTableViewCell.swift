@@ -12,6 +12,7 @@ class MovieTableViewCell: UITableViewCell {
 
     @IBOutlet weak var movieName: UILabel!
     
+    
     var movie: Movie? {
         didSet {
             updateViews()
@@ -22,6 +23,7 @@ class MovieTableViewCell: UITableViewCell {
         guard let movie = movie else {return}
         
         movieName.text = movie.name
+        
     }
     
     
