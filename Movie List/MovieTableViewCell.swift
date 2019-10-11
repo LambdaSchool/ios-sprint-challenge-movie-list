@@ -12,34 +12,38 @@ class MovieTableViewCell: UITableViewCell {
 
     @IBOutlet weak var movieName: UILabel!
     
-   
     @IBOutlet weak var notSeen: UIButton!
     
-    
-    var movie: Movie? {
-        didSet {
+   var thisMovie: Movie? {
+        didSet{
             updateViews()
         }
     }
-    
+
     private func updateViews() {
-        guard let movie = movie else { return }
-        
+        guard let movie = thisMovie else { return }
         movieName.text = movie.title
-    
     }
-  
+    
     @IBAction func notSeenTapped(_ sender: UIButton) {
         sender.isSelected.toggle()
-        if notSeen.isSelected {
+        
+        if sender.isSelected {
+            thisMovie?.seen = true
             notSeen.setTitle("Seen", for: .normal)
-            guard var movie = movie else { return }
-            movie.seen = true
+        } else if !sender.isSelected {
+            thisMovie?.seen = false
+            notSeen.setTitle("Not Seen", for: .normal)
         }
-
-        }
+    }
+}
+    
+    
+    
+ 
+    
         
 
-}
+
     
 
