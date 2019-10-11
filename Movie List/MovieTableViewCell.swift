@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol SeenMovieDelegate {
+    func hasSeenMovie(_ movie: Movie, _ hasSeen: Bool)
+}
+
 class MovieTableViewCell: UITableViewCell {
 
     @IBOutlet weak var movieLabel: UILabel!
@@ -18,6 +22,8 @@ class MovieTableViewCell: UITableViewCell {
             updateViews()
         }
     }
+    
+    var delegate: SeenMovieDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -31,15 +37,15 @@ class MovieTableViewCell: UITableViewCell {
     }
     
     @IBAction func hasSeenMovieTapped(_ sender: UIButton) {
+        guard let movie = movie else { return }
         
-        if let hasSeenMovie = movie?.hasSeen {
-            if (hasSeenMovie) {
-                movie?.hasSeen = false
-                sender.setTitle("Not Seen", for: .normal)
-            } else {
-                movie?.hasSeen = true
-                sender.setTitle("Seen", for: .normal)
-            }
+        if (movie.hasSeen) {
+            sender.setTitle("Not Seen", for: .normal)
+            delegate?.hasSeenMovie(movie, false)
+                
+        } else {
+            sender.setTitle("Seen", for: .normal)
+            delegate?.hasSeenMovie(movie, true)
         }
     }
     

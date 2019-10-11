@@ -48,6 +48,7 @@ extension MovieViewController: UITableViewDataSource {
         
         let movie = movies[indexPath.row]
         cell.movie = movie
+        cell.delegate = self
         
         return cell
     }
@@ -71,5 +72,15 @@ extension MovieViewController: AddMovieDelegate {
             navController.popToRootViewController(animated: true)
         }
         tableView.reloadData()
+    }
+}
+
+extension MovieViewController: SeenMovieDelegate {
+    func hasSeenMovie(_ movie: Movie, _ hasSeen: Bool) {
+        for index in 0...(movies.count - 1) {
+            if movies[index].name == movie.name {
+                movies[index].hasSeen = hasSeen
+            }
+        }
     }
 }

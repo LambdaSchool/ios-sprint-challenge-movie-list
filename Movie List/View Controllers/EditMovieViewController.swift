@@ -14,12 +14,34 @@ protocol EditMovieDelegate {
 
 class EditMovieViewController: UIViewController {
 
+    @IBOutlet weak var movieEditTextField: UITextField!
+    
     var movie: Movie?
+    var delegate: EditMovieDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        updateViews()
         // Do any additional setup after loading the view.
     }
     
+    @IBAction func doneEditTapped(_ sender: UIBarButtonItem) {
+        guard let movie = movie else { return }
+        
+        // Only called if the text field changes else no changes were made
+        if movie.name != movieEditTextField.text {
+            delegate?.movieWasEdited(movie)
+        }
+        
+        if let navController = self.navigationController {
+            navController.popViewController(animated: true)
+        }
+    }
+    
+    private func updateViews() {
+        guard let movie = movie else { return }
+        
+        movieEditTextField.text = movie.name
+    }
 }

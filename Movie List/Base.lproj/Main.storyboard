@@ -133,12 +133,31 @@
                     <view key="view" contentMode="scaleToFill" id="hhc-AW-xqn">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Edit movie title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NWH-me-7bg">
+                                <rect key="frame" x="20" y="188" width="335" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="NWH-me-7bg" firstAttribute="top" secondItem="9UF-02-XPu" secondAttribute="top" constant="100" id="Uud-ZE-bZC"/>
+                            <constraint firstItem="NWH-me-7bg" firstAttribute="leading" secondItem="9UF-02-XPu" secondAttribute="leading" constant="20" id="aya-nM-ngc"/>
+                            <constraint firstItem="9UF-02-XPu" firstAttribute="trailing" secondItem="NWH-me-7bg" secondAttribute="trailing" constant="20" id="vZf-Vr-7UQ"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="9UF-02-XPu"/>
                     </view>
                     <navigationItem key="navigationItem" id="irg-Fj-aFO">
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="qDO-sn-nm5"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="qDO-sn-nm5">
+                            <connections>
+                                <action selector="doneEditTapped:" destination="gmD-6H-fas" id="na8-Hk-JbE"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="movieEditTextField" destination="NWH-me-7bg" id="2ZL-Jp-AEO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qoY-kw-bdR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
