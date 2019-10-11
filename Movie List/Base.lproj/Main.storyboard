@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bTi-GY-hu8">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -26,9 +26,32 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6K3-Fn-rpO" id="vjq-9d-Tla">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zHB-xK-iKH">
+                                                    <rect key="frame" x="20" y="11.5" width="34" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AHU-1e-87A">
+                                                    <rect key="frame" x="359" y="7" width="35" height="30"/>
+                                                    <state key="normal" title="Seen"/>
+                                                    <connections>
+                                                        <action selector="seenButtonPressed:" destination="6K3-Fn-rpO" eventType="touchUpInside" id="DlR-cC-i37"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="AHU-1e-87A" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="zHB-xK-iKH" secondAttribute="trailing" constant="8" id="2ku-GN-aIk"/>
+                                                <constraint firstItem="zHB-xK-iKH" firstAttribute="leading" secondItem="vjq-9d-Tla" secondAttribute="leadingMargin" id="3A9-V7-xp4"/>
+                                                <constraint firstItem="zHB-xK-iKH" firstAttribute="centerY" secondItem="vjq-9d-Tla" secondAttribute="centerY" id="Gmy-WD-fOu"/>
+                                                <constraint firstItem="AHU-1e-87A" firstAttribute="centerY" secondItem="vjq-9d-Tla" secondAttribute="centerY" id="Kr6-re-6Nl"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="AHU-1e-87A" secondAttribute="trailing" id="R02-Ea-qeC"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="LJ2-hD-2r9" kind="presentation" identifier="AddMovieSegue" id="Egw-9w-Hb6"/>
+                                            <outlet property="seenButton" destination="AHU-1e-87A" id="MLN-EP-7DR"/>
+                                            <outlet property="titleLabel" destination="zHB-xK-iKH" id="0TD-tk-LK0"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -43,7 +66,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="HnF-vm-87Z"/>
                     </view>
-                    <navigationItem key="navigationItem" id="kG6-Wb-J9N"/>
+                    <navigationItem key="navigationItem" id="kG6-Wb-J9N">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Bx4-Ab-s2i">
+                            <connections>
+                                <segue destination="LJ2-hD-2r9" kind="presentation" id="jbm-Is-Jhf"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wIB-jE-v5G" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
