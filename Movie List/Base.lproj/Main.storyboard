@@ -68,23 +68,16 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bWr-TW-YLq">
-                                                    <rect key="frame" x="-78" y="15" width="42" height="30"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <state key="normal" title="Seen?">
-                                                        <color key="titleColor" systemColor="linkColor" red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    </state>
-                                                </button>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="b6Y-gY-IaT">
                                                     <rect key="frame" x="20" y="11" width="35.5" height="38.5"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ovj-F5-9H6">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ovj-F5-9H6">
                                                             <rect key="frame" x="0.0" y="0.0" width="35.5" height="20.5"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Year" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dhD-e5-i2e">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Year" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dhD-e5-i2e">
                                                             <rect key="frame" x="0.0" y="20.5" width="35.5" height="18"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -92,17 +85,23 @@
                                                         </label>
                                                     </subviews>
                                                 </stackView>
+                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1XV-ke-xww">
+                                                    <rect key="frame" x="339" y="13" width="50" height="34"/>
+                                                    <state key="normal" title="Seen?"/>
+                                                    <connections>
+                                                        <action selector="seenButtonClicked:" destination="3Mo-HI-mj6" eventType="touchUpInside" id="FzC-Mc-CgC"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <color key="backgroundColor" red="0.093685098882290874" green="0.1964827804945328" blue="0.33094067258883253" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <constraints>
                                                 <constraint firstItem="b6Y-gY-IaT" firstAttribute="leading" secondItem="Icx-qj-R3G" secondAttribute="leading" constant="20" id="4PR-YZ-uth"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="bWr-TW-YLq" secondAttribute="trailing" constant="20" id="Tox-iD-kz5"/>
+                                                <constraint firstItem="1XV-ke-xww" firstAttribute="centerY" secondItem="b6Y-gY-IaT" secondAttribute="centerY" id="YsI-TL-hXu"/>
                                                 <constraint firstItem="b6Y-gY-IaT" firstAttribute="centerY" secondItem="Icx-qj-R3G" secondAttribute="centerY" id="b2G-TN-sPz"/>
-                                                <constraint firstItem="bWr-TW-YLq" firstAttribute="centerY" secondItem="Icx-qj-R3G" secondAttribute="centerY" id="tZc-cQ-NLC"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="1XV-ke-xww" secondAttribute="trailing" constant="5" id="fQe-qb-LDh"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="seenButton" destination="bWr-TW-YLq" id="VIq-dY-AyF"/>
                                             <outlet property="titleLabel" destination="ovj-F5-9H6" id="bTG-3n-7ed"/>
                                             <outlet property="yearLabel" destination="dhD-e5-i2e" id="FHh-Bd-ZAy"/>
                                             <segue destination="Sw5-4p-NbF" kind="show" identifier="ShowMovieDetailSegue" id="RTe-Wy-RjO"/>
