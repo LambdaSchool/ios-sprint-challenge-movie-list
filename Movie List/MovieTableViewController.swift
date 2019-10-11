@@ -16,7 +16,7 @@ class MovieTableViewController: UIViewController {
         static let MovieCell = "MovieCell"
     }
     
-    
+    var movies: [Movie] = [Movie(name: "Movie 1", watched: false), Movie(name: "Movie 2", watched: false), Movie(name: "Movie 3", watched: true)]
 
     override func viewDidLoad() {
         super.viewDidLoad()
