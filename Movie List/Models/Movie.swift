@@ -8,8 +8,8 @@
 
 import Foundation
 
-class Movie {
-    let title: String
+class Movie: Codable {
+    var title: String
     var seen: Bool
     
     init(title: String, seen: Bool) {

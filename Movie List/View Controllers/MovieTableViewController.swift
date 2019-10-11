@@ -45,6 +45,28 @@ extension MovieTableViewController: UITableViewDataSource {
     }
 }
 
+extension MovieTableViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        editMovieTitle(at: indexPath)
+    }
+    
+    func editMovieTitle(at movieIndexPath: IndexPath) {
+        let editAlert = UIAlertController(title: "Edit movie title", message: "", preferredStyle: .alert)
+        editAlert.addTextField { (movieTitleField) in
+            movieTitleField.placeholder = "Movie Title"
+        }
+        editAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        editAlert.addAction(UIAlertAction(title: "Save new title", style: .default, handler: { action in
+            guard let newTitle = editAlert.textFields?[0].text else { return }
+            self.movies[movieIndexPath.row].title = newTitle
+            self.tableView.reloadData()
+            self.tableView.deselectRow(at: movieIndexPath, animated: true)
+        }))
+        
+        present(editAlert, animated: true, completion: nil)
+    }
+}
+
 extension MovieTableViewController: AddMovieDelegate {
     func movieWasSaved(_ movie: Movie) {
         movies.append(movie)
