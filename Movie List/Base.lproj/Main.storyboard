@@ -11,18 +11,45 @@
         <!--Movie List-->
         <scene sceneID="FdK-7E-VCQ">
             <objects>
-                <tableViewController id="fd2-nn-92n" sceneMemberID="viewController">
+                <tableViewController id="fd2-nn-92n" customClass="MovieListTableViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="eiB-my-Dvk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="OMc-8t-gd8">
-                                <rect key="frame" x="0.0" y="28" width="375" height="43.5"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="42.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OMc-8t-gd8" id="Dvc-cm-Zuf">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="42.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pzl-DM-hrr">
+                                            <rect key="frame" x="305" y="6" width="46" height="30.5"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="46" id="XL1-sj-AK6"/>
+                                            </constraints>
+                                            <state key="normal" title="Button"/>
+                                            <connections>
+                                                <action selector="seenButton:" destination="fd2-nn-92n" eventType="touchUpInside" id="aSG-dW-gI2"/>
+                                            </connections>
+                                        </button>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HLi-M6-jLG">
+                                            <rect key="frame" x="16" y="11" width="253" height="25.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="HLi-M6-jLG" firstAttribute="top" secondItem="Dvc-cm-Zuf" secondAttribute="topMargin" id="FNB-il-2Vp"/>
+                                        <constraint firstItem="HLi-M6-jLG" firstAttribute="bottom" secondItem="Pzl-DM-hrr" secondAttribute="bottom" id="Jd1-10-CJN"/>
+                                        <constraint firstItem="Pzl-DM-hrr" firstAttribute="leading" secondItem="HLi-M6-jLG" secondAttribute="trailing" constant="36" id="OPj-As-QP2"/>
+                                        <constraint firstItem="Pzl-DM-hrr" firstAttribute="centerY" secondItem="Dvc-cm-Zuf" secondAttribute="centerY" id="OsI-VW-Vzt"/>
+                                        <constraint firstItem="HLi-M6-jLG" firstAttribute="leading" secondItem="Dvc-cm-Zuf" secondAttribute="leadingMargin" id="Rm8-L2-rw8"/>
+                                        <constraint firstItem="Pzl-DM-hrr" firstAttribute="top" secondItem="Dvc-cm-Zuf" secondAttribute="topMargin" constant="-5" id="eeM-PR-O2r"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="Pzl-DM-hrr" secondAttribute="trailing" constant="8" id="k4D-vp-1hK"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -38,10 +65,13 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="movieTextLabel" destination="HLi-M6-jLG" id="Afp-9U-Ujr"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fTj-ep-LhF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1401" y="-188"/>
+            <point key="canvasLocation" x="1615" y="-210"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="DOo-42-1yu">
@@ -82,10 +112,16 @@
                                         <rect key="frame" x="87" y="58" width="161" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="addMovieTextField:" destination="8S2-d4-Joy" eventType="editingDidEnd" id="zEM-m9-2Hz"/>
+                                        </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I9o-iT-i5A">
                                         <rect key="frame" x="131" y="121" width="73" height="30"/>
                                         <state key="normal" title="Add Movie"/>
+                                        <connections>
+                                            <action selector="addMovieButtonClicked:" destination="8S2-d4-Joy" eventType="touchUpInside" id="hUA-e8-Kjz"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -101,8 +137,9 @@
                     <navigationItem key="navigationItem" id="Kz5-HB-QId"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ir6-sq-Zi0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="8S2-d4-Joy" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2220" y="-180.35982008995504"/>
+            <point key="canvasLocation" x="2492" y="-204"/>
         </scene>
     </scenes>
 </document>
