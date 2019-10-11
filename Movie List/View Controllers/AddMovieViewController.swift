@@ -17,7 +17,7 @@ class AddMovieViewController: UIViewController {
     var delegate: AddMovieDelegate?
     
     @IBOutlet weak var movieTitleField: UITextField!
-    @IBOutlet weak var seenSwitch: UISwitch!
+    //@IBOutlet weak var seenSwitch: UISwitch!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,8 +34,8 @@ class AddMovieViewController: UIViewController {
             print("Empty movie title field!")
             return
         }
-        let seen = seenSwitch.isOn
-        let movie = Movie(title: title, seen: seen)
+        //let seen = seenSwitch.isOn
+        let movie = Movie(title: title, seen: false)
         
         delegate?.movieWasSaved(movie)
     }
