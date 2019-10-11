@@ -60,10 +60,11 @@ extension MovieTableViewController: UITableViewDelegate {
             guard let newTitle = editAlert.textFields?[0].text else { return }
             self.movies[movieIndexPath.row].title = newTitle
             self.tableView.reloadData()
-            self.tableView.deselectRow(at: movieIndexPath, animated: true)
         }))
         
-        present(editAlert, animated: true, completion: nil)
+        present(editAlert, animated: true, completion: {
+            self.tableView.deselectRow(at: movieIndexPath, animated: true)
+        })
     }
 }
 

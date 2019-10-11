@@ -64,13 +64,14 @@ class AddMovieViewController: UIViewController {
 
 extension AddMovieViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if let text = textField.text, !text.isEmpty {
+        if let text = textField.text, !(text.isEmpty) {
             resignFirstResponder()
             saveNewMovie()
-        } else {
-            showEmptyFieldAlert()
+            return false
         }
         
-        return true
+        showEmptyFieldAlert()
+        print("getting here")
+        return false
     }
 }
