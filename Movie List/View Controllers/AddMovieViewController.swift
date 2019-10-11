@@ -8,7 +8,13 @@
 
 import UIKit
 
+protocol AddMovieDelegate {
+    func movieWasSaved(movie: Movie)
+}
+
 class AddMovieViewController: UIViewController {
+    
+    var delegate: AddMovieDelegate?
     
     @IBOutlet weak var movieTitleField: UITextField!
     @IBOutlet weak var seenSwitch: UISwitch!
@@ -24,17 +30,14 @@ class AddMovieViewController: UIViewController {
     }
     
     @IBAction func saveWasPressed(_ sender: UIBarButtonItem) {
+        guard let title = movieTitleField.text, !title.isEmpty else {
+            print("Empty movie title field!")
+            return
+        }
+        let seen = seenSwitch.isOn
+        let movie = Movie(title: title, seen: seen)
+        
+        delegate?.movieWasSaved(movie: movie)
+        dismiss(animated: true, completion: nil)
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

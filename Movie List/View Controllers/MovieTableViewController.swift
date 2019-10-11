@@ -38,6 +38,10 @@ extension MovieTableViewController: UITableViewDataSource {
         
         return cell
     }
-    
-    
+}
+
+extension MovieTableViewController: AddMovieDelegate {
+    func movieWasSaved(movie: Movie) {
+        
+    }
 }
