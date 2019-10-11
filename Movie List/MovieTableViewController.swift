@@ -10,7 +10,9 @@ import UIKit
 
 class MovieTableViewController: UIViewController {
     
-    
+    struct PropertyKeys {
+        static let MovieCell = "MovieCell"
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
