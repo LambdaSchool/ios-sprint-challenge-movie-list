@@ -10,14 +10,18 @@ import UIKit
 
 class MovieTableViewController: UIViewController {
     
+    @IBOutlet weak var tableView: UITableView!
+    
     struct PropertyKeys {
         static let MovieCell = "MovieCell"
     }
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        tableView.dataSource = self
     }
     
 
@@ -31,4 +35,19 @@ class MovieTableViewController: UIViewController {
     }
     */
 
+}
+
+extension MovieTableViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        return movies.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: PropertyKeys.MovieCell, for: indexPath) as? MovieTableViewCell else { return UITableViewCell() }
+        
+        let movie = movies[indexPath.row]
+        cell.movie = movie
+        return cell
+    }
 }
