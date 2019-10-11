@@ -59,6 +59,10 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="f85-2C-8ze" id="S5C-gn-Z3i"/>
+                                    <outlet property="delegate" destination="f85-2C-8ze" id="DPF-6T-H7t"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -110,6 +114,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R3g-7q-YMe">
                                         <rect key="frame" x="150.5" y="100.5" width="73" height="30"/>
                                         <state key="normal" title="Add Movie"/>
+                                        <connections>
+                                            <action selector="addMovie:" destination="dke-GL-odm" eventType="touchUpInside" id="56z-ro-56R"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -128,7 +135,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="sxd-oh-Prx"/>
                     <connections>
-                        <outlet property="addMovieButton" destination="R3g-7q-YMe" id="YYm-kd-DOX"/>
                         <outlet property="movieTitleField" destination="Tmm-dH-LjJ" id="FUR-3p-fcq"/>
                     </connections>
                 </viewController>
