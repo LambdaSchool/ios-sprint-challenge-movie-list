@@ -10,6 +10,8 @@ import UIKit
 
 class MovieTableViewController: UIViewController {
     
+    var movies: [Movie] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -21,4 +23,21 @@ class MovieTableViewController: UIViewController {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
     }
+}
+
+extension MovieTableViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return movies.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as? MovieTableViewCell
+            else { return UITableViewCell() }
+        
+        cell.movie = movies[indexPath.row]
+        
+        return cell
+    }
+    
+    
 }

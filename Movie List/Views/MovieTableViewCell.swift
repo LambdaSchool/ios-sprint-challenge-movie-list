@@ -9,6 +9,9 @@
 import UIKit
 
 class MovieTableViewCell: UITableViewCell {
+    
+    var movie: Movie?
+    
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var seenButton: UIButton!
     
@@ -16,6 +19,7 @@ class MovieTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
+    
     @IBAction func seenButtonPressed(_ sender: UIButton) {
     }
     
