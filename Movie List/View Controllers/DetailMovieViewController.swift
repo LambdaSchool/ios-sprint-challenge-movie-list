@@ -21,6 +21,14 @@ class DetailMovieViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "EditMovieSegue" {
+            if let editMovieVC = segue.destination as? EditMovieViewController {
+                editMovieVC.movie = movie
+            }
+        }
+    }
+        
     private func updateViews() {
         guard let movie = movie else { return }
         
