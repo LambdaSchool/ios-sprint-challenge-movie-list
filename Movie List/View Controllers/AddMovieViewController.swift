@@ -45,20 +45,7 @@ class AddMovieViewController: UIViewController {
     }
     
     private func showEmptyFieldAlert() {
-        let emptyFieldAlert = UIAlertController(
-            title: "Required field empty!",
-            message: "'Title' field must be non-empty.",
-            preferredStyle: .alert
-        )
-        
-        emptyFieldAlert.addAction(UIAlertAction(
-            title: "OK",
-            style: .cancel,
-            handler: { (_: UIAlertAction) in
-                self.movieTitleField.becomeFirstResponder()
-        }))
-        
-        present(emptyFieldAlert, animated: true, completion: nil)
+        present(Alerts.EmptyField, animated: true, completion: nil)
     }
 }
 

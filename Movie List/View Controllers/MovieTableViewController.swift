@@ -45,13 +45,23 @@ extension MovieTableViewController: UITableViewDataSource {
     }
 }
 
+extension MovieTableViewController: AddMovieDelegate {
+    func movieWasSaved(_ movie: Movie) {
+        movies.append(movie)
+        tableView.reloadData()
+        dismiss(animated: true, completion: nil)
+    }
+}
+
 extension MovieTableViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         editMovieTitle(at: indexPath)
     }
     
     func editMovieTitle(at movieIndexPath: IndexPath) {
-        let editAlert = UIAlertController(title: "Edit movie title", message: "", preferredStyle: .alert)
+        let oldTitle = movies[movieIndexPath.row].title
+        
+        let editAlert = UIAlertController(title: "Edit movie title", message: "current title:\n\"\(oldTitle)\"", preferredStyle: .alert)
         editAlert.addTextField { (movieTitleField) in
             movieTitleField.placeholder = "Movie Title"
         }
@@ -59,19 +69,14 @@ extension MovieTableViewController: UITableViewDelegate {
             self.tableView.deselectRow(at: movieIndexPath, animated: true)
         }))
         editAlert.addAction(UIAlertAction(title: "Save new title", style: .default, handler: { action in
-            guard let newTitle = editAlert.textFields?[0].text else { return }
+            guard let newTitle = editAlert.textFields?[0].text, !(newTitle.isEmpty) else {
+                self.present(Alerts.EmptyField, animated: true, completion: nil)
+                return
+            }
             self.movies[movieIndexPath.row].title = newTitle
             self.tableView.reloadData()
         }))
         
         present(editAlert, animated: true, completion: nil)
-    }
-}
-
-extension MovieTableViewController: AddMovieDelegate {
-    func movieWasSaved(_ movie: Movie) {
-        movies.append(movie)
-        tableView.reloadData()
-        dismiss(animated: true, completion: nil)
     }
 }
