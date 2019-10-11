@@ -20,38 +20,34 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MovieCell" rowHeight="50" id="6K3-Fn-rpO" customClass="MovieTableViewCell" customModule="Movie_List" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="50"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MovieCell" rowHeight="60" id="6K3-Fn-rpO" customClass="MovieTableViewCell" customModule="Movie_List" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6K3-Fn-rpO" id="vjq-9d-Tla">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zHB-xK-iKH">
-                                                    <rect key="frame" x="20" y="15" width="35.5" height="20"/>
+                                                    <rect key="frame" x="20" y="20" width="35.5" height="20.5"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AHU-1e-87A">
-                                                    <rect key="frame" x="323" y="8.5" width="71" height="33"/>
+                                                    <rect key="frame" x="355" y="13.5" width="39" height="33"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                    <state key="normal" title="Not Seen"/>
+                                                    <state key="normal" title="Seen"/>
                                                     <connections>
-                                                        <action selector="seenButtonPressed:" destination="6K3-Fn-rpO" eventType="touchUpInside" id="DlR-cC-i37"/>
+                                                        <action selector="seenButtonTapped:" destination="6K3-Fn-rpO" eventType="touchUpInside" id="I8x-kb-qwQ"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="zHB-xK-iKH" firstAttribute="leading" secondItem="vjq-9d-Tla" secondAttribute="leadingMargin" id="3A9-V7-xp4"/>
-                                                <constraint firstItem="zHB-xK-iKH" firstAttribute="top" relation="greaterThanOrEqual" secondItem="vjq-9d-Tla" secondAttribute="topMargin" constant="4" id="FYq-74-Xfa"/>
-                                                <constraint firstItem="AHU-1e-87A" firstAttribute="centerY" secondItem="vjq-9d-Tla" secondAttribute="centerY" id="GfW-Eo-V8a"/>
-                                                <constraint firstItem="zHB-xK-iKH" firstAttribute="centerY" secondItem="vjq-9d-Tla" secondAttribute="centerY" id="Gmy-WD-fOu"/>
-                                                <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="zHB-xK-iKH" secondAttribute="bottom" constant="4" id="KNF-qQ-MOg"/>
-                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="AHU-1e-87A" secondAttribute="bottom" constant="8" id="YvD-Ge-DlW"/>
-                                                <constraint firstItem="AHU-1e-87A" firstAttribute="top" relation="greaterThanOrEqual" secondItem="vjq-9d-Tla" secondAttribute="top" constant="8" id="dXh-cj-iW2"/>
-                                                <constraint firstItem="AHU-1e-87A" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="zHB-xK-iKH" secondAttribute="trailing" constant="8" id="fih-pP-UgI"/>
-                                                <constraint firstAttribute="trailing" secondItem="AHU-1e-87A" secondAttribute="trailing" constant="20" id="gZp-H8-sMw"/>
+                                                <constraint firstItem="zHB-xK-iKH" firstAttribute="leading" secondItem="vjq-9d-Tla" secondAttribute="leadingMargin" id="LmW-a4-nyG"/>
+                                                <constraint firstItem="AHU-1e-87A" firstAttribute="centerY" secondItem="vjq-9d-Tla" secondAttribute="centerY" id="Ocs-h6-IG4"/>
+                                                <constraint firstItem="zHB-xK-iKH" firstAttribute="centerY" secondItem="vjq-9d-Tla" secondAttribute="centerY" id="U4d-cd-rDK"/>
+                                                <constraint firstItem="AHU-1e-87A" firstAttribute="trailing" secondItem="vjq-9d-Tla" secondAttribute="trailingMargin" id="Wqe-yj-rXv"/>
+                                                <constraint firstItem="AHU-1e-87A" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="zHB-xK-iKH" secondAttribute="trailing" constant="8" id="uDi-5o-R7y"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -68,10 +64,10 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="EEr-gB-8eA" firstAttribute="leading" secondItem="HnF-vm-87Z" secondAttribute="leading" id="4H0-b1-zb8"/>
-                            <constraint firstItem="EEr-gB-8eA" firstAttribute="top" secondItem="HnF-vm-87Z" secondAttribute="top" id="HAI-xN-eGS"/>
-                            <constraint firstItem="EEr-gB-8eA" firstAttribute="trailing" secondItem="HnF-vm-87Z" secondAttribute="trailing" id="O6m-sV-Vz6"/>
-                            <constraint firstItem="EEr-gB-8eA" firstAttribute="bottom" secondItem="HnF-vm-87Z" secondAttribute="bottom" id="fcT-IX-zf9"/>
+                            <constraint firstItem="EEr-gB-8eA" firstAttribute="centerX" secondItem="Dsk-IT-3mg" secondAttribute="centerX" id="2vQ-gK-YDe"/>
+                            <constraint firstItem="EEr-gB-8eA" firstAttribute="top" secondItem="HnF-vm-87Z" secondAttribute="top" id="W5f-36-egc"/>
+                            <constraint firstItem="EEr-gB-8eA" firstAttribute="bottom" secondItem="HnF-vm-87Z" secondAttribute="bottom" id="cgZ-xb-uc2"/>
+                            <constraint firstItem="EEr-gB-8eA" firstAttribute="leading" secondItem="HnF-vm-87Z" secondAttribute="leading" id="ep9-Sg-9cW"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="HnF-vm-87Z"/>
                     </view>

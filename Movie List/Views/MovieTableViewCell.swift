@@ -19,24 +19,24 @@ class MovieTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var seenButton: UIButton!
     
-    @IBAction func seenButtonPressed(_ sender: UIButton) {
-    }
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    @IBAction func seenButtonTapped(_ sender: Any) {
+        if let movie = movie {
+            movie.seen.toggle()
+        }
+        updateViews()
     }
     
     func updateViews() {
-        titleLabel.text = movie?.title
-        seenButton.titleLabel?.text = {
-            guard let movie = movie else { return "" }
+        guard let movie = movie else { return }
+        
+        titleLabel.text = movie.title
+        var seenText: String {
             if movie.seen {
                 return "Seen"
             } else {
                 return "Not seen"
             }
-        }()
+        }
+        seenButton.setTitle(seenText, for: .normal)
     }
 }
