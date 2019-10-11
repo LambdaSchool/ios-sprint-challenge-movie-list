@@ -13,6 +13,8 @@ protocol AddMovieDelegate {
 }
 
 class AddMovieViewController: UIViewController {
+    
+    var delegate: AddMovieDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,7 +22,4 @@ class AddMovieViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
-
-
 }
