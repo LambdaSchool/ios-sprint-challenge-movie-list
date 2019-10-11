@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol MovieCellDelegate {
+    func toggleMovieSeenButton(_ cell: MovieTableViewCell)
+}
+
 class MovieTableViewCell: UITableViewCell {
     
     var movie: Movie? {
@@ -16,19 +20,20 @@ class MovieTableViewCell: UITableViewCell {
         }
     }
     
+    var delegate: MovieCellDelegate?
+    
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var seenButton: UIButton!
     
     @IBAction func seenButtonTapped(_ sender: Any) {
-        if let movie = movie {
-            movie.seen.toggle()
-        }
-        updateViews()
+        delegate?.toggleMovieSeenButton(self)
+        //updateViews() // calling this causes the button to be truncated for a micro-moment! why?!
     }
     
     func updateViews() {
-        guard let movie = movie else { return }
-        
+        guard let movie = movie
+            else { return }
+
         titleLabel.text = movie.title
         var seenText: String {
             if movie.seen {

@@ -9,6 +9,7 @@
 import UIKit
 
 class Alerts {
+    // TODO: put other alert in here as well?
     static var EmptyField: UIAlertController {
         get {
             let alert = UIAlertController(title: "Required field empty!", message: "'Title' field must be non-empty.", preferredStyle: .alert)

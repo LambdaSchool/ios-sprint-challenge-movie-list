@@ -40,6 +40,7 @@ extension MovieTableViewController: UITableViewDataSource {
             else { return UITableViewCell() }
         
         cell.movie = movies[indexPath.row]
+        cell.delegate = self
         
         return cell
     }
@@ -79,5 +80,15 @@ extension MovieTableViewController: UITableViewDelegate {
         }))
         
         present(editAlert, animated: true, completion: nil)
+    }
+}
+
+extension MovieTableViewController: MovieCellDelegate {
+    func toggleMovieSeenButton(_ cell: MovieTableViewCell) {
+        guard let indexPath = tableView.indexPath(for: cell) else { return }
+        
+        let movie = movies[indexPath.row]
+        movie.seen.toggle()
+        tableView.reloadData()
     }
 }
