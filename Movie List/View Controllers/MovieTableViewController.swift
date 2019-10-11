@@ -12,7 +12,7 @@ class MovieTableViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
-    var movies: [Movie] = []
+    var moviesArray: [Movie] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,21 +31,21 @@ class MovieTableViewController: UIViewController {
 
 extension MovieTableViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return movies.count
+        return moviesArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as? MovieTableViewCell else { return UITableViewCell() }
         
-        let movie = movies[indexPath.row]
+        let movie = moviesArray[indexPath.row]
         cell.movie = movie
-        return movie
+        return cell
     }
 }
 
 extension MovieTableViewController: AddMovieDelegate {
     func movieWasAdded(_ movie: Movie) {
-        movies.append(movie)
+        moviesArray.append(movie)
         dismiss(animated: true, completion: nil)
         tableView.reloadData()
     }
