@@ -10,6 +10,14 @@ import UIKit
 
 class MovieTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var movieLabel: UILabel!
+    
+    var movie: Movie? {
+        didSet {
+            updateViews()
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -19,6 +27,12 @@ class MovieTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    private func updateViews() {
+        guard let movie = movie else { return }
+        
+        movieLabel.text = movie.name
     }
 
 }
