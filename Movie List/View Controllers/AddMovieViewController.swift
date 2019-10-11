@@ -8,12 +8,18 @@
 
 import UIKit
 
+protocol AddMovieDelegate {
+    func movieWasAdded(_ movie: Movie)
+}
+
 class AddMovieViewController: UIViewController {
 
+    @IBOutlet weak var movieTextField: UITextField!
+    
+    var delegate: AddMovieDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     
 
@@ -21,4 +27,13 @@ class AddMovieViewController: UIViewController {
     dismiss(animated: true, completion: nil)
     }
 
+    @IBAction func saveTapped(_ sender: UIBarButtonItem) {
+        guard let movieName = movieTextField.text,
+            !movieName.isEmpty else { return }
+        
+        var movie = Movie(name: movieName, seen: false)
+        
+        delegate?.movieWasAdded(movie)
+        
+    }
 }
