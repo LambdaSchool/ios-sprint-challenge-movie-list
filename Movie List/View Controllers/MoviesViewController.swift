@@ -21,6 +21,13 @@ class MoviesViewController: UIViewController {
             // Do any additional setup after loading the view.
         }
         
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            self.movies.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
       
             override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
                 if segue.identifier == "AddMovieSegue" {
