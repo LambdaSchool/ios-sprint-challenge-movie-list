@@ -7,3 +7,13 @@
 //
 
 import Foundation
+
+class Movie {
+    let title: String
+    var seen: Bool
+    
+    init(title: String, seen: Bool) {
+        self.title = title
+        self.seen = seen
+    }
+}
