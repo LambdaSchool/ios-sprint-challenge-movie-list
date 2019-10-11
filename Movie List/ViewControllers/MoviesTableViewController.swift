@@ -38,4 +38,14 @@ class MoviesTableViewController: UITableViewController, MovieControllerProtocol 
             tableView.deleteRows(at: [indexPath], with: .automatic)
         }
     }
+    
+    @IBAction func editButtonTapped(_ sender: Any) {
+        let tableViewEditingMode = tableView.isEditing
+        
+        tableView.setEditing(!tableViewEditingMode, animated: true)
+    }
+    
+    
+    
+    
 }
