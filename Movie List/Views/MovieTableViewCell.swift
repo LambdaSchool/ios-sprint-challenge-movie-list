@@ -13,6 +13,12 @@ class MovieTableViewCell: UITableViewCell {
     @IBOutlet weak var movieName: UILabel!
     
     
+    @IBAction func seenToggle(_ sender: Any) {
+        
+    }
+    
+    
+    
     var movie: Movie? {
         didSet {
             updateViews()
@@ -23,6 +29,7 @@ class MovieTableViewCell: UITableViewCell {
         guard let movie = movie else {return}
         
         movieName.text = movie.name
+        
         
     }
     
