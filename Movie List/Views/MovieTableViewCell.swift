@@ -15,6 +15,7 @@ class MovieTableViewCell: UITableViewCell {
     @IBOutlet weak var yearLabel: UILabel!
     @IBOutlet weak var seenButton: UIButton!
     
+    
     var movie: Movie? {
         didSet {
             updateViews()
@@ -26,7 +27,7 @@ class MovieTableViewCell: UITableViewCell {
         
         titleLabel.text = movie.title
         yearLabel.text = movie.year
-        seenButton = movie.seen
+//        seenButton = movie.seen
     }
 
 }

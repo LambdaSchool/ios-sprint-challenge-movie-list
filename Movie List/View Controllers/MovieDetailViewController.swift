@@ -9,22 +9,26 @@
 import UIKit
 
 class MovieDetailViewController: UIViewController {
+    
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var yearLabel: UILabel!
+    
+    var movie: Movie?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        updateViews()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func updateViews() {
+        guard let movie = movie else { return }
+        
+        titleLabel.text = movie.title
+        yearLabel.text = movie.year
+        
     }
-    */
+
 
 }

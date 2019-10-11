@@ -11,5 +11,6 @@ import Foundation
 struct Movie {
     let title: String
     let year: String
+//    let synopsis: String
     let seen: Bool
 }
