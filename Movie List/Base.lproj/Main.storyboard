@@ -91,55 +91,56 @@
             </objects>
             <point key="canvasLocation" x="474" y="-90"/>
         </scene>
-        <!--View Controller-->
+        <!--Add Movie View Controller-->
         <scene sceneID="rLl-t2-03g">
             <objects>
-                <viewController id="Qqd-dJ-5HB" sceneMemberID="viewController">
+                <viewController id="Qqd-dJ-5HB" customClass="AddMovieViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dSX-AK-V0k">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="29" translatesAutoresizingMaskIntoConstraints="NO" id="PGP-Vn-Ex7">
-                                <rect key="frame" x="20" y="64" width="335" height="151"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a new movie to the list" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="brt-11-Zoy">
-                                        <rect key="frame" x="18.5" y="0.0" width="298.5" height="29"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add your movie here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2fH-R7-W5Y">
-                                        <rect key="frame" x="87" y="58" width="161" height="34"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                        <connections>
-                                            <action selector="addMovieTextField:" destination="8S2-d4-Joy" eventType="editingDidEnd" id="zEM-m9-2Hz"/>
-                                        </connections>
-                                    </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I9o-iT-i5A">
-                                        <rect key="frame" x="131" y="121" width="73" height="30"/>
-                                        <state key="normal" title="Add Movie"/>
-                                        <connections>
-                                            <action selector="addMovieButtonClicked:" destination="8S2-d4-Joy" eventType="touchUpInside" id="hUA-e8-Kjz"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a new movie to the list" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="brt-11-Zoy">
+                                <rect key="frame" x="38" y="75" width="299" height="29"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I9o-iT-i5A">
+                                <rect key="frame" x="151" y="175" width="73" height="30"/>
+                                <state key="normal" title="Add Movie"/>
+                                <connections>
+                                    <action selector="addMovieButtonClicked:" destination="Qqd-dJ-5HB" eventType="touchUpInside" id="6CM-n2-9fm"/>
+                                    <action selector="addMovieButtonClicked:" destination="8S2-d4-Joy" eventType="touchUpInside" id="hUA-e8-Kjz"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bm7-YW-wEF">
+                                <rect key="frame" x="95" y="123" width="185" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="1Jl-Ig-tZ7" firstAttribute="trailing" secondItem="PGP-Vn-Ex7" secondAttribute="trailing" constant="20" id="JWc-r9-ILb"/>
-                            <constraint firstItem="PGP-Vn-Ex7" firstAttribute="top" secondItem="1Jl-Ig-tZ7" secondAttribute="top" constant="20" id="OzI-Sh-aal"/>
-                            <constraint firstItem="PGP-Vn-Ex7" firstAttribute="leading" secondItem="1Jl-Ig-tZ7" secondAttribute="leading" constant="20" id="SOR-hb-jJw"/>
+                            <constraint firstItem="brt-11-Zoy" firstAttribute="centerX" secondItem="dSX-AK-V0k" secondAttribute="centerX" id="5Zx-uN-DEK"/>
+                            <constraint firstItem="brt-11-Zoy" firstAttribute="top" secondItem="1Jl-Ig-tZ7" secondAttribute="top" constant="31" id="AWN-8l-qWm"/>
+                            <constraint firstItem="brt-11-Zoy" firstAttribute="centerX" secondItem="bm7-YW-wEF" secondAttribute="centerX" id="Dkm-d6-lIZ"/>
+                            <constraint firstItem="bm7-YW-wEF" firstAttribute="top" secondItem="brt-11-Zoy" secondAttribute="bottom" constant="19" id="GVW-Aq-pPV"/>
+                            <constraint firstItem="I9o-iT-i5A" firstAttribute="top" secondItem="bm7-YW-wEF" secondAttribute="bottom" constant="18" id="Gd7-xr-7jr"/>
+                            <constraint firstItem="bm7-YW-wEF" firstAttribute="centerX" secondItem="I9o-iT-i5A" secondAttribute="centerX" id="iBn-de-4Kw"/>
+                            <constraint firstItem="brt-11-Zoy" firstAttribute="leading" secondItem="1Jl-Ig-tZ7" secondAttribute="leading" constant="38" id="m03-pv-xvt"/>
+                            <constraint firstItem="bm7-YW-wEF" firstAttribute="leading" secondItem="1Jl-Ig-tZ7" secondAttribute="leading" constant="95" id="muT-42-QL6"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="1Jl-Ig-tZ7"/>
                     </view>
                     <navigationItem key="navigationItem" id="Kz5-HB-QId"/>
+                    <connections>
+                        <outlet property="addMovieTextField" destination="bm7-YW-wEF" id="t9F-8R-7bw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ir6-sq-Zi0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="8S2-d4-Joy" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2492" y="-204"/>
+            <point key="canvasLocation" x="2492" y="-204.64767616191907"/>
         </scene>
     </scenes>
 </document>

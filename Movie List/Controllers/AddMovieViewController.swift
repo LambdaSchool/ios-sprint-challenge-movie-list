@@ -17,8 +17,13 @@ class AddMovieViewController: UIViewController {
     
     
     
-    @IBAction func addMovieTextField(_ sender: UITextField) {
-    }
+    var addMovieDelegate: AddMovieDelegate?
+    @IBOutlet weak var addMovieTextField: UITextField!
+    
+    
+    
+    
+    
     
     
     
@@ -27,7 +32,10 @@ class AddMovieViewController: UIViewController {
     
     @IBAction func addMovieButtonClicked(_ sender: UIButton) {
         
-        guard let name = nameTextField.text
+        guard let movieName = addMovieTextField.text, !movieName.isEmpty else {return}
+        
+        let movie = Movie(name: movieName)
+        addMovieDelegate?.movieWasAdded(movie)
         
         
         
