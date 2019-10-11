@@ -31,6 +31,8 @@ class AddMovieViewController: UIViewController {
         
         delegate?.movieWasAdded(newMovie)
         
+        dismiss(animated: true, completion: nil)
+        
         
     }
 

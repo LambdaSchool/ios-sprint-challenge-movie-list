@@ -27,35 +27,32 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="250" translatesAutoresizingMaskIntoConstraints="NO" id="Cfd-kz-cJK">
-                                                    <rect key="frame" x="20" y="20" width="374" height="30"/>
-                                                    <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CVk-Ew-ru8">
-                                                            <rect key="frame" x="0.0" y="0.0" width="43.5" height="30"/>
-                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zKB-6Z-hBB">
-                                                            <rect key="frame" x="293.5" y="0.0" width="80.5" height="30"/>
-                                                            <state key="normal" title="Not Seen"/>
-                                                        </button>
-                                                    </subviews>
-                                                    <constraints>
-                                                        <constraint firstItem="zKB-6Z-hBB" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="CVk-Ew-ru8" secondAttribute="trailing" constant="250" id="mQk-Mp-dFR"/>
-                                                    </constraints>
-                                                </stackView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zKB-6Z-hBB">
+                                                    <rect key="frame" x="330" y="15" width="64" height="30"/>
+                                                    <state key="normal" title="Not Seen"/>
+                                                    <connections>
+                                                        <action selector="unseenTapped:" destination="foC-ik-SiX" eventType="touchUpInside" id="kXA-nf-mUC"/>
+                                                    </connections>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CVk-Ew-ru8">
+                                                    <rect key="frame" x="20" y="15" width="43.5" height="30"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="Cfd-kz-cJK" secondAttribute="trailing" constant="20" id="47X-kQ-qP4"/>
-                                                <constraint firstItem="Cfd-kz-cJK" firstAttribute="leading" secondItem="69D-MJ-pV9" secondAttribute="leading" constant="20" id="Q77-uz-Lmk"/>
-                                                <constraint firstAttribute="bottom" secondItem="Cfd-kz-cJK" secondAttribute="bottom" constant="10" id="Q91-8b-pG4"/>
-                                                <constraint firstItem="Cfd-kz-cJK" firstAttribute="top" secondItem="69D-MJ-pV9" secondAttribute="top" constant="20" id="cML-et-PIB"/>
+                                                <constraint firstItem="zKB-6Z-hBB" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="CVk-Ew-ru8" secondAttribute="trailing" constant="8" id="4QK-0Y-WCI"/>
+                                                <constraint firstItem="zKB-6Z-hBB" firstAttribute="top" secondItem="69D-MJ-pV9" secondAttribute="top" constant="15" id="CW6-FK-PQC"/>
+                                                <constraint firstAttribute="trailing" secondItem="zKB-6Z-hBB" secondAttribute="trailing" constant="20" id="Cck-pV-w9H"/>
+                                                <constraint firstItem="CVk-Ew-ru8" firstAttribute="leading" secondItem="69D-MJ-pV9" secondAttribute="leading" constant="20" id="N2j-kD-G6i"/>
+                                                <constraint firstItem="CVk-Ew-ru8" firstAttribute="top" secondItem="69D-MJ-pV9" secondAttribute="top" constant="15" id="V8W-hu-JGG"/>
+                                                <constraint firstItem="zKB-6Z-hBB" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="CVk-Ew-ru8" secondAttribute="trailing" constant="8" id="YhC-tK-WEc"/>
+                                                <constraint firstItem="CVk-Ew-ru8" firstAttribute="centerY" secondItem="zKB-6Z-hBB" secondAttribute="centerY" id="mgE-r4-iJd"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="movieName" destination="CVk-Ew-ru8" id="ZAA-uu-jtH"/>
-                                            <outlet property="seenButton" destination="zKB-6Z-hBB" id="Rka-qv-KjZ"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

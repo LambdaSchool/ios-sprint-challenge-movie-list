@@ -34,11 +34,16 @@ class MovieListViewController: UIViewController {
 
 extension MovieListViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        <#code#>
+        movies.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as? MovieTableViewCell else { return UITableViewCell() }
+    
+        let movie = movies[indexPath.row]
+        cell.movie = movie
+    
+        return cell
     }
     
     
@@ -48,7 +53,10 @@ extension MovieListViewController: UITableViewDataSource{
 
 extension MovieListViewController: AddMovieDelegate {
     func movieWasAdded(_ movie: Movie) {
-        <#code#>
+        movies.append(movie)
+        dismiss(animated: true, completion: nil)
+        tableView.reloadData()
+        
     }
     
     
