@@ -18,13 +18,16 @@ class MovieTableViewController: UIViewController {
         static let AddFriendModalSegue = "AddFriendModalSegue"
     }
     
-    var movies: [Movie] = [Movie(name: "Movie 1", watched: false), Movie(name: "Movie 2", watched: false), Movie(name: "Movie 3", watched: true)]
+    var movies: [Movie] = [] {
+        didSet {
+            Movie.saveToFile(movies: movies)
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-//        tableView.dataSource = self
         
+        movies = Movie.loadFromFile()
     }
     
     
