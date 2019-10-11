@@ -13,11 +13,7 @@ class MovieTableViewCell: UITableViewCell {
     @IBOutlet weak var movieName: UILabel!
     
     
-    @IBAction func seenToggle(_ sender: Any) {
-        
-    }
-    
-    
+    @IBOutlet weak var seenButtonOutletThing: UISwitch!
     
     var movie: Movie? {
         didSet {
@@ -29,9 +25,8 @@ class MovieTableViewCell: UITableViewCell {
         guard let movie = movie else {return}
         
         movieName.text = movie.name
-        
-        
+        if movie.seen == true {
+            seenButtonOutletThing.isOn = true
+        }
     }
-    
-    
 }

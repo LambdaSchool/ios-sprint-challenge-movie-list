@@ -11,13 +11,12 @@ import UIKit
 class MovieTableViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var switchToggle: UISwitch!
     
     var moviesArray: [Movie] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

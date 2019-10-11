@@ -15,6 +15,7 @@ protocol AddMovieDelegate {
 class AddMovieViewController: UIViewController {
 
     @IBOutlet weak var movieTextField: UITextField!
+    @IBOutlet weak var seenSwitchAddMovie: UISwitch!
     
     var delegate: AddMovieDelegate?
     
@@ -23,6 +24,9 @@ class AddMovieViewController: UIViewController {
     }
     
 
+    @IBAction func seenSwitchAddMovieAction(_ sender: UISwitch) {
+    }
+    
     @IBAction func cancelTapped(_ sender: UIBarButtonItem) {
     dismiss(animated: true, completion: nil)
     }
@@ -33,7 +37,12 @@ class AddMovieViewController: UIViewController {
         
         var movie = Movie(name: movieName, seen: false)
         
-        delegate?.movieWasAdded(movie)
+        if seenSwitchAddMovie.isOn {
+            movie.seen = true
+        } else {
+            movie.seen = false
+        }
         
-    }
+        delegate?.movieWasAdded(movie)
+}
 }
