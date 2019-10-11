@@ -50,3 +50,4 @@ extension MovieTableViewController: AddMovieDelegate {
         tableView.reloadData()
     }
 }
+
