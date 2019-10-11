@@ -37,7 +37,7 @@ class MovieTableViewCell: UITableViewCell {
     }
     
     @IBAction func watchedTapped(_ sender: UIButton) {
-        print("test")
+        
         delegate?.toggleMovieWatched(for: self)
     }
     

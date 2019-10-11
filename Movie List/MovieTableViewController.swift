@@ -15,6 +15,7 @@ class MovieTableViewController: UIViewController {
     
     struct PropertyKeys {
         static let MovieCell = "MovieCell"
+        static let AddFriendModalSegue = "AddFriendModalSegue"
     }
     
     var movies: [Movie] = [Movie(name: "Movie 1", watched: false), Movie(name: "Movie 2", watched: false), Movie(name: "Movie 3", watched: true)]
@@ -28,15 +29,20 @@ class MovieTableViewController: UIViewController {
     
     
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == PropertyKeys.AddFriendModalSegue {
+            if let addMovieVC = segue.destination as? AddMovieViewController {
+                addMovieVC.delegate = self
+            }
+        }
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
     }
-    */
+    
 
 }
 
@@ -67,7 +73,14 @@ extension MovieTableViewController: MovieWatchedDelegate {
         
         tableView.reloadData()
     }
-    
+}
+
+extension MovieTableViewController: AddMovieDelegate {
+    func movieWasAdded(_ movie: Movie) {
+        movies.append(movie)
+        dismiss(animated: true, completion: nil)
+        tableView.reloadData()
+    }
     
     
 }
