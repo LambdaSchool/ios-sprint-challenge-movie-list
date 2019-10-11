@@ -45,7 +45,11 @@ class MoviesTableViewController: UITableViewController, MovieControllerProtocol 
         tableView.setEditing(!tableViewEditingMode, animated: true)
     }
     
-    
+    override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        guard let movedMovie = movieController?.movies.remove(at: sourceIndexPath.row) else { return }
+        movieController?.movies.insert(movedMovie, at: destinationIndexPath.row)
+        tableView.reloadData()
+    }
     
     
 }
