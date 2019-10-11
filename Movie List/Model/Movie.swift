@@ -13,6 +13,6 @@ struct Movie{
     
     
     var name: String
-    var seen: Bool = false
+    var hasSeen: Bool = false
     
 }

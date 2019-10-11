@@ -18,7 +18,7 @@ class MovieListTableViewController: UITableViewController,AddMovieDelegate {
     var movies = [Movie]()
     
     
-    @IBOutlet weak var movieTextLabel: UILabel!
+ //   @IBOutlet weak var seenLabel: UIButton!
     
     
     
@@ -26,9 +26,17 @@ class MovieListTableViewController: UITableViewController,AddMovieDelegate {
     
     
     
-    @IBAction func seenButton(_ sender: UIButton) {
-    }
     
+//    @IBAction func seenButton(_ sender: UIButton) {
+//
+//        if seenLabel.titleLabel?.text == "Not Seen"{
+//
+//            seenLabel.setTitle("Seen", for: .normal)
+//        } else {
+//            seenLabel.setTitle("Not Seen", for: .normal)
+//        }
+//    }
+//
     
     
 
@@ -40,7 +48,7 @@ class MovieListTableViewController: UITableViewController,AddMovieDelegate {
     func movieWasAdded(_ movie: Movie) {
         movies.append(movie)
         dismiss(animated: true, completion: nil)
-        tableView.reloadData()()
+        tableView.reloadData()
        }
     
 
@@ -51,12 +59,15 @@ class MovieListTableViewController: UITableViewController,AddMovieDelegate {
         return movies.count
     }
 
-    /*
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath)
+        
+        let movie = movies[indexPath.row]
+        cell.textLabel?.text = movie.name
+       // let seenUpdate = movie.hasSeen ? "Seen" : "Not Seen"
+        //seenLabel.setTitle(seenUpdate, for: .normal)
+     
         return cell
     }
    
@@ -65,43 +76,23 @@ class MovieListTableViewController: UITableViewController,AddMovieDelegate {
         // Return false if you do not want the specified item to be editable.
         return true
     }
-    */
+    
 
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
+  
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "AddMovieSegue" {
+            if let addMovieVC = segue.destination as? AddMovieViewController {
+                addMovieVC.addMovieDelegate = self
+            }
+        }
+        
+        
     }
-    */
+    
 
 }
