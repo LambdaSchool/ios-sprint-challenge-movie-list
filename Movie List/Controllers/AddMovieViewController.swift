@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol AddMovieDelegate: class {
+    func movieWasAdded(_ movie: Movie)
+}
+
 class AddMovieViewController: UIViewController {
 
     
@@ -16,7 +20,18 @@ class AddMovieViewController: UIViewController {
     @IBAction func addMovieTextField(_ sender: UITextField) {
     }
     
+    
+    
+    
+    
+    
     @IBAction func addMovieButtonClicked(_ sender: UIButton) {
+        
+        guard let name = nameTextField.text
+        
+        
+        
+        
     }
     
     
