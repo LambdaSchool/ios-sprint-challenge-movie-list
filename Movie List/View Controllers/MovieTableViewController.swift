@@ -64,6 +64,13 @@ extension MovieTableViewController: UITableViewDataSource, UITableViewDelegate {
 
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            movies.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        } 
+    }
 }
 
 extension MovieTableViewController: MovieWatchedDelegate {
@@ -84,6 +91,4 @@ extension MovieTableViewController: AddMovieDelegate {
         dismiss(animated: true, completion: nil)
         tableView.reloadData()
     }
-    
-    
 }
