@@ -71,6 +71,7 @@ extension MovieTableViewController: UITableViewDelegate {
         editAlert.addAction(UIAlertAction(title: "Save new title", style: .default, handler: { action in
             guard let newTitle = editAlert.textFields?[0].text, !(newTitle.isEmpty) else {
                 self.present(Alerts.EmptyField, animated: true, completion: nil)
+                self.tableView.deselectRow(at: movieIndexPath, animated: true)
                 return
             }
             self.movies[movieIndexPath.row].title = newTitle
