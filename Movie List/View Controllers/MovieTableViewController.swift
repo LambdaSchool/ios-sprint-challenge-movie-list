@@ -55,16 +55,16 @@ extension MovieTableViewController: UITableViewDelegate {
         editAlert.addTextField { (movieTitleField) in
             movieTitleField.placeholder = "Movie Title"
         }
-        editAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        editAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { action in
+            self.tableView.deselectRow(at: movieIndexPath, animated: true)
+        }))
         editAlert.addAction(UIAlertAction(title: "Save new title", style: .default, handler: { action in
             guard let newTitle = editAlert.textFields?[0].text else { return }
             self.movies[movieIndexPath.row].title = newTitle
             self.tableView.reloadData()
         }))
         
-        present(editAlert, animated: true, completion: {
-            self.tableView.deselectRow(at: movieIndexPath, animated: true)
-        })
+        present(editAlert, animated: true, completion: nil)
     }
 }
 

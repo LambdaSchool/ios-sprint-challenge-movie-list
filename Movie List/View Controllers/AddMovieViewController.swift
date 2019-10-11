@@ -71,7 +71,6 @@ extension AddMovieViewController: UITextFieldDelegate {
         }
         
         showEmptyFieldAlert()
-        print("getting here")
         return false
     }
 }
