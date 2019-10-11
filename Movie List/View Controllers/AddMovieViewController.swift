@@ -22,7 +22,7 @@ class AddMovieViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        movieTitleField.becomeFirstResponder()
     }
     
     @IBAction func cancelWasPressed(_ sender: UIBarButtonItem) {
@@ -30,13 +30,47 @@ class AddMovieViewController: UIViewController {
     }
     
     @IBAction func saveWasPressed(_ sender: UIBarButtonItem) {
+        saveNewMovie()
+    }
+    
+    func saveNewMovie() {
         guard let title = movieTitleField.text, !title.isEmpty else {
-            print("Empty movie title field!")
+            showEmptyFieldAlert()
             return
         }
         //let seen = seenSwitch.isOn
         let movie = Movie(title: title, seen: false)
         
         delegate?.movieWasSaved(movie)
+    }
+    
+    private func showEmptyFieldAlert() {
+        let emptyFieldAlert = UIAlertController(
+            title: "Required field empty!",
+            message: "'Title' field must be non-empty.",
+            preferredStyle: .alert
+        )
+        
+        emptyFieldAlert.addAction(UIAlertAction(
+            title: "OK",
+            style: .cancel,
+            handler: { (_: UIAlertAction) in
+                self.movieTitleField.becomeFirstResponder()
+        }))
+        
+        present(emptyFieldAlert, animated: true, completion: nil)
+    }
+}
+
+extension AddMovieViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if let text = textField.text, !text.isEmpty {
+            resignFirstResponder()
+            saveNewMovie()
+        } else {
+            showEmptyFieldAlert()
+        }
+        
+        return true
     }
 }
