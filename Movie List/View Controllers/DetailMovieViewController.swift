@@ -38,6 +38,6 @@ class DetailMovieViewController: UIViewController {
 
 extension DetailMovieViewController: EditMovieDelegate {
     func movieWasEdited(_ movie: Movie) {
-        <#code#>
+        movieLabel.text = movie.name
     }
 }

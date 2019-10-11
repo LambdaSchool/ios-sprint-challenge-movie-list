@@ -82,5 +82,6 @@ extension MovieViewController: SeenMovieDelegate {
                 movies[index].hasSeen = hasSeen
             }
         }
+        tableView.reloadData()
     }
 }
