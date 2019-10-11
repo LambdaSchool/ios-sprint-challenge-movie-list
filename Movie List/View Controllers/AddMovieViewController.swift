@@ -10,13 +10,20 @@ import UIKit
 
 class AddMovieViewController: UIViewController {
     
-    @IBOutlet weak var movieTitle: UITextField!
+    @IBOutlet weak var movieTitleField: UITextField!
     @IBOutlet weak var seenSwitch: UISwitch!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+    
+    @IBAction func cancelWasPressed(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func saveWasPressed(_ sender: UIBarButtonItem) {
     }
     
 

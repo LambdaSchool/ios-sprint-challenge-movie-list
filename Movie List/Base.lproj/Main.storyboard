@@ -110,6 +110,23 @@
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AZI-E5-FgI">
                                 <rect key="frame" x="63" y="111" width="51" height="31"/>
                             </switch>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bHp-ZP-L2e">
+                                <rect key="frame" x="0.0" y="764" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem systemItem="cancel" id="hhs-ms-Jx7">
+                                        <connections>
+                                            <action selector="cancelWasPressed:" destination="LJ2-hD-2r9" id="rpQ-zx-6c4"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="0up-Dg-D3c"/>
+                                    <barButtonItem systemItem="save" id="nVD-6q-u9v">
+                                        <connections>
+                                            <action selector="saveWasPressed:" destination="LJ2-hD-2r9" id="oQ6-ug-gzK"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -129,7 +146,7 @@
                         <viewLayoutGuide key="safeArea" id="nGZ-E1-9j2"/>
                     </view>
                     <connections>
-                        <outlet property="movieTitle" destination="oeZ-Id-imC" id="Ez3-SF-Ag7"/>
+                        <outlet property="movieTitleField" destination="oeZ-Id-imC" id="EYE-dt-cEs"/>
                         <outlet property="seenSwitch" destination="AZI-E5-FgI" id="qqB-m1-bXc"/>
                     </connections>
                 </viewController>
