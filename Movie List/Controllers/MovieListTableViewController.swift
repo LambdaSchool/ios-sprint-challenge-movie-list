@@ -12,29 +12,7 @@ class MovieListTableViewController: UITableViewController,AddMovieDelegate,Movie
     
 
     var movies = [Movie]()
-    
-    
- //   @IBOutlet weak var seenLabel: UIButton!
-    
-    
-    
-    
-    
-    
-    
-    
-//    @IBAction func seenButton(_ sender: UIButton) {
-//
-//        if seenLabel.titleLabel?.text == "Not Seen"{
-//
-//            seenLabel.setTitle("Seen", for: .normal)
-//        } else {
-//            seenLabel.setTitle("Not Seen", for: .normal)
-//        }
-//    }
-//
-    
-    
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
