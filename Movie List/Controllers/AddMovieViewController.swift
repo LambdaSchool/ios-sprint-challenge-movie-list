@@ -20,14 +20,7 @@ class AddMovieViewController: UIViewController {
     var addMovieDelegate: AddMovieDelegate?
     @IBOutlet weak var addMovieTextField: UITextField!
     
-    
-    
-    
-    
-    
-    
-    
-    
+
     
     
     @IBAction func addMovieButtonClicked(_ sender: UIButton) {
@@ -36,9 +29,7 @@ class AddMovieViewController: UIViewController {
         
         let movie = Movie(name: movieName)
         addMovieDelegate?.movieWasAdded(movie)
-        
-        
-        
+  
         
     }
     
@@ -47,7 +38,6 @@ class AddMovieViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
     
 

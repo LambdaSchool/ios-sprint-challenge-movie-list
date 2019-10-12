@@ -8,13 +8,9 @@
 
 import UIKit
 
-class MovieListTableViewController: UITableViewController,AddMovieDelegate {
-   
+class MovieListTableViewController: UITableViewController,AddMovieDelegate,MovieTableViewCellDelegate {
     
-    
-    
-    
-    
+
     var movies = [Movie]()
     
     
@@ -51,6 +47,18 @@ class MovieListTableViewController: UITableViewController,AddMovieDelegate {
         tableView.reloadData()
        }
     
+    func seenTapped(on cell: MovieTableViewCell) {
+        
+        guard let indexPath = tableView.indexPath(for: cell) else {return}
+        
+        movies[indexPath.row].hasSeen.toggle()
+        tableView.reloadData()
+       // var movie = movies[indexPath.row]
+        
+        
+        
+    }
+    
 
     // MARK: - Table view data source
 
@@ -61,11 +69,12 @@ class MovieListTableViewController: UITableViewController,AddMovieDelegate {
 
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as? MovieTableViewCell else {return UITableViewCell()}
         
         let movie = movies[indexPath.row]
-        cell.textLabel?.text = movie.name
-       // let seenUpdate = movie.hasSeen ? "Seen" : "Not Seen"
+        cell.delegate = self
+        cell.movie = movie
+
         //seenLabel.setTitle(seenUpdate, for: .normal)
      
         return cell

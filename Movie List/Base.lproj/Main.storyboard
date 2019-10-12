@@ -11,30 +11,51 @@
         <!--Movie List-->
         <scene sceneID="FdK-7E-VCQ">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fTj-ep-LhF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <tableViewController id="fd2-nn-92n" customClass="MovieListTableViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="eiB-my-Dvk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieCell" id="OMc-8t-gd8">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieCell" id="OMc-8t-gd8" customClass="MovieTableViewCell" customModule="Movie_List" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="42.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OMc-8t-gd8" id="Dvc-cm-Zuf">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="42.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I1u-f8-LG9">
-                                            <rect key="frame" x="324" y="6" width="35" height="30.5"/>
-                                            <state key="normal" title="Seen"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vWz-hG-W0P">
+                                            <rect key="frame" x="24" y="11" width="185" height="22"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R2K-w2-y9P">
+                                            <rect key="frame" x="304" y="6" width="64" height="30"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="64" id="y2X-Xg-lZk"/>
+                                            </constraints>
+                                            <state key="normal" title="Not Seen"/>
+                                            <connections>
+                                                <action selector="seenButtonTapped:" destination="OMc-8t-gd8" eventType="touchUpInside" id="QAQ-nA-AjV"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="I1u-f8-LG9" firstAttribute="top" secondItem="Dvc-cm-Zuf" secondAttribute="topMargin" constant="-5" id="SHR-3h-8Gp"/>
-                                        <constraint firstItem="I1u-f8-LG9" firstAttribute="trailing" secondItem="Dvc-cm-Zuf" secondAttribute="trailingMargin" id="ZyA-nA-1T4"/>
-                                        <constraint firstItem="I1u-f8-LG9" firstAttribute="centerY" secondItem="Dvc-cm-Zuf" secondAttribute="centerY" id="pYR-6v-Zw9"/>
+                                        <constraint firstItem="R2K-w2-y9P" firstAttribute="top" secondItem="Dvc-cm-Zuf" secondAttribute="topMargin" constant="-5" id="1IX-GN-Zfb"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="R2K-w2-y9P" secondAttribute="trailing" constant="-9" id="3pU-Ds-RZV"/>
+                                        <constraint firstItem="vWz-hG-W0P" firstAttribute="top" secondItem="Dvc-cm-Zuf" secondAttribute="topMargin" id="B71-2O-fkg"/>
+                                        <constraint firstItem="vWz-hG-W0P" firstAttribute="leading" secondItem="Dvc-cm-Zuf" secondAttribute="leadingMargin" constant="8" id="Hq4-5e-J4K"/>
+                                        <constraint firstItem="R2K-w2-y9P" firstAttribute="centerY" secondItem="Dvc-cm-Zuf" secondAttribute="centerY" id="R5H-hy-wUp"/>
+                                        <constraint firstItem="R2K-w2-y9P" firstAttribute="leading" secondItem="vWz-hG-W0P" secondAttribute="trailing" constant="95" id="VNW-MD-6Ps"/>
+                                        <constraint firstItem="vWz-hG-W0P" firstAttribute="centerY" secondItem="Dvc-cm-Zuf" secondAttribute="centerY" id="y6Z-Qn-e33"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="movieLabel" destination="vWz-hG-W0P" id="Xoo-aL-nBi"/>
+                                    <outlet property="seenButtonLabel" destination="R2K-w2-y9P" id="vEw-R6-EQl"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -50,13 +71,13 @@
                         </barButtonItem>
                     </navigationItem>
                 </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fTj-ep-LhF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1412" y="-346.77661169415296"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="DOo-42-1yu">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vBc-2H-22h" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="FZz-Uz-yhE" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="pJZ-kA-gnC">
@@ -68,7 +89,6 @@
                         <segue destination="fd2-nn-92n" kind="relationship" relationship="rootViewController" id="61K-8d-FyX"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="vBc-2H-22h" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="474" y="-90"/>
         </scene>
