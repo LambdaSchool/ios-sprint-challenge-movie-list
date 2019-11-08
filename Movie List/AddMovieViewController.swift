@@ -21,15 +21,26 @@ class AddMovieViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
       
-        movieTextField.delegate = self 
+        movieTextField.delegate = self
     
     }
-    
-    @IBAction func saveTapped(_ sender: Any) {
-       
+          
+    @IBAction func addTapped(_ sender: Any) {
+                  
         }
         
     }
     
 
+extension AddMovieViewController: UITextFieldDelegate {
+        func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+            
+    
+            textField.resignFirstResponder()
+            
+            return true
+        }
+     
+    }
+//commit for push
 
