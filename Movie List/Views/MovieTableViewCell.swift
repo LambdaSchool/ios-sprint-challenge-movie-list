@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol MovieTableViewCellDelegate: class {
+protocol MovieTableViewCellDelegate: AnyObject {
     func isSeenButtonTapped(on cell: MovieTableViewCell)
 }
 
@@ -29,10 +29,10 @@ class MovieTableViewCell: UITableViewCell {
         guard let movie = movie else { return }
         movieNameLabel.text = movie.movieName
         if movie.isSeen {
-            isSeenButton.setTitle("Seen", for: .normal)
+            isSeenButton.setTitle("Seen", for: [])
             isSeenButton.titleLabel?.font = .boldSystemFont(ofSize: 13.0)
         } else {
-            isSeenButton.setTitle("Not Seen", for: .normal)
+            isSeenButton.setTitle("Not Seen", for: [])
         }
     }
     

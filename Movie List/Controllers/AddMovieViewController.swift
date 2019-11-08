@@ -8,15 +8,21 @@
 
 import UIKit
 
+protocol AddMovieDelegate {
+    func movieWasCreated(_ movie: Movie)
+}
+
 class AddMovieViewController: UIViewController {
     
     @IBOutlet weak var movieTitleTextField: UITextField!
     @IBOutlet weak var addMovieButton: UIButton!
     
     var movieController: MovieController?
+    var movie: Movie?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        movieTitleTextField.text = movie?.movieName
     }
     
     // Actions

@@ -10,6 +10,8 @@ import UIKit
 
 class MovieListViewController: UIViewController, UITableViewDataSource, MovieTableViewCellDelegate {
     
+    var movies: [Movie] = []
+    
     let movieController = MovieController()
     
     @IBOutlet weak var tableView: UITableView!
@@ -26,6 +28,10 @@ class MovieListViewController: UIViewController, UITableViewDataSource, MovieTab
     }
     
     // Table view setup and methods
+     func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return movieController.movies.count
     }
@@ -71,5 +77,14 @@ class MovieListViewController: UIViewController, UITableViewDataSource, MovieTab
             editMovieVC.movieController = movieController
             editMovieVC.movie = movieController.movies[indexPath.row]
         }
+    }
+}
+
+extension MovieListViewController: AddMovieDelegate {
+    func movieWasCreated(_ movie: Movie) {
+        
+        movies.append(movie)
+        tableView.reloadData()
+        dismiss(animated: true, completion: nil)
     }
 }
