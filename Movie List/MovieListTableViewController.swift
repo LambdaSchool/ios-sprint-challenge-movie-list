@@ -12,11 +12,9 @@ class MovieListTableViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    var movies: [Movie] = []
+    
 
-        // Do any additional setup after loading the view.
-    }
     
 
     /*

@@ -10,15 +10,24 @@ import UIKit
 
 class SeenStatusTableViewCell: UITableViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    @IBOutlet weak var movieLabel: UILabel!
+    @IBOutlet weak var hasBeenSeenLabel: UIButton!
+    
+    var movie: Movie? {
+        didSet {
+            updateViews()
+        }
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    func updateViews() {
+        guard let movie = movie else { return }
+        
+        movieLabel.text = movie.name
     }
-
+    
+    @IBAction func hasBeenSeenTapped(_ sender: Any) {
+        hasBeenSeenLabel.titleLabel?.text = "Seen"
+        hasBeenSeenLabel.titleLabel?.text = "Not Seen"
+    }
 }
+
