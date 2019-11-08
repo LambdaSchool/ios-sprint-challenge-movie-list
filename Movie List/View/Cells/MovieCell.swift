@@ -15,6 +15,7 @@ class MovieCell: UITableViewCell {
             configureCell()
         }
     }
+    weak var delegate: SeenSwitchDelegate?
     
     @IBOutlet weak var movieNameLabel: UILabel!
     @IBOutlet weak var seenButton: UIButton!
@@ -27,6 +28,6 @@ class MovieCell: UITableViewCell {
     }
     
     @IBAction func seenButtonTapped(_ sender: UIButton) {
-        
+        delegate?.toggleSeen(on: self)
     }
 }

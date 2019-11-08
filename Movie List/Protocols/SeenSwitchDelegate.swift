@@ -1,5 +1,5 @@
 //
-//  Movie.swift
+//  SeenSwitchDelegate.swift
 //  Movie List
 //
 //  Created by Chad Rutherford on 11/8/19.
@@ -8,7 +8,6 @@
 
 import Foundation
 
-struct Movie: Equatable {
-    let name: String
-    var isSeen: Bool = false
+protocol SeenSwitchDelegate: class {
+    func toggleSeen(on cell: MovieCell)
 }

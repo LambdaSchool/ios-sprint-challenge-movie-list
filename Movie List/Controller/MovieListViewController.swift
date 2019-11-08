@@ -12,14 +12,7 @@ class MovieListViewController: UIViewController {
     
     // --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
     // MARK: - Properties
-    var movies = [
-        Movie(name: "Back to the Future"),
-        Movie(name: "The Matrix"),
-        Movie(name: "Beauty and the Beast"),
-        Movie(name: "Toy Story 4"),
-        Movie(name: "Avengers: Endgame")]
-                  
-    
+    var movieController = MovieController()
     // --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
     // MARK: - Outlets
     @IBOutlet weak var tableView: UITableView!
@@ -53,20 +46,30 @@ extension MovieListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return movies.count
+        return movieController.movies.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: Cells.movieCell, for: indexPath) as? MovieCell else { return UITableViewCell() }
-        let movie = movies[indexPath.row]
+        let movie = movieController.movies[indexPath.row]
         cell.movie = movie
+        cell.delegate = self
         return cell
     }
 }
 
 extension MovieListViewController: AddMovieDelegate {
     func didAdd(_ movie: Movie) {
-        movies.append(movie)
+        movieController.movies.append(movie)
         tableView.reloadData()
+    }
+}
+
+extension MovieListViewController: SeenSwitchDelegate {
+    func toggleSeen(on cell: MovieCell) {
+        guard let indexPath = tableView.indexPath(for: cell) else { return }
+        let movie = movieController.movies[indexPath.row]
+        movieController.toggleSeen(movie)
+        tableView.reloadRows(at: [indexPath], with: .automatic)
     }
 }
