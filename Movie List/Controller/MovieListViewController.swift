@@ -35,7 +35,15 @@ class MovieListViewController: UIViewController {
     // --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
+        switch segue.identifier {
+        case Segues.addMovieSegue:
+            guard let movieDetailVC = segue.destination as? MovieDetailViewController else { return }
+            movieDetailVC.delegate = self
+        case Segues.editMovieSegue:
+            print("Edit Movie Segue")
+        default:
+            break
+        }
     }
 }
 
@@ -53,5 +61,12 @@ extension MovieListViewController: UITableViewDelegate, UITableViewDataSource {
         let movie = movies[indexPath.row]
         cell.movie = movie
         return cell
+    }
+}
+
+extension MovieListViewController: AddMovieDelegate {
+    func didAdd(_ movie: Movie) {
+        movies.append(movie)
+        tableView.reloadData()
     }
 }

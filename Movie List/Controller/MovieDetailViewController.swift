@@ -13,6 +13,7 @@ class MovieDetailViewController: UIViewController {
     // --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
     // MARK: - Properties
     var movie: Movie?
+    weak var delegate: AddMovieDelegate?
     
     // --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
     // MARK: - Outlets
@@ -35,6 +36,9 @@ class MovieDetailViewController: UIViewController {
     // --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
     // MARK: - Actions
     @IBAction func addMovieTapped(_ sender: UIButton) {
-        // implement add movie button here
+        guard let name = movieNameTextField.text, !name.isEmpty else { return }
+        let newMovie = Movie(name: name)
+        delegate?.didAdd(newMovie)
+        navigationController?.popViewController(animated: true)
     }
 }
