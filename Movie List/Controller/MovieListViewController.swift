@@ -33,7 +33,10 @@ class MovieListViewController: UIViewController {
             guard let movieDetailVC = segue.destination as? MovieDetailViewController else { return }
             movieDetailVC.delegate = self
         case Segues.editMovieSegue:
-            print("Edit Movie Segue")
+            guard let movieDetailVC = segue.destination as? MovieDetailViewController, let indexPath = tableView.indexPathForSelectedRow else { return }
+            let movie = movieController.movies[indexPath.row]
+            movieDetailVC.delegate = self
+            movieDetailVC.movie = movie
         default:
             break
         }
@@ -58,10 +61,16 @@ extension MovieListViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-extension MovieListViewController: AddMovieDelegate {
+extension MovieListViewController: MovieDelegate {
     func didAdd(_ movie: Movie) {
         movieController.movies.append(movie)
         tableView.reloadData()
+    }
+    
+    func didUpdate(_ movie: Movie, with name: String) {
+        guard let indexPath = tableView.indexPathForSelectedRow else { return }
+        movieController.movies[indexPath.row].name = name
+        tableView.reloadRows(at: [indexPath], with: .automatic)
     }
 }
 

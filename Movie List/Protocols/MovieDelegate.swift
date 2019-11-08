@@ -8,6 +8,7 @@
 
 import Foundation
 
-protocol AddMovieDelegate: class {
+protocol MovieDelegate: class {
     func didAdd(_ movie: Movie)
+    func didUpdate(_ movie: Movie, with name: String)
 }
