@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// Protocol utilized to enable communcation between the MovieCell and the MovieListViewController
 protocol SeenSwitchDelegate: class {
     func toggleSeen(on cell: MovieCell)
 }

@@ -43,6 +43,8 @@ class MovieListViewController: UIViewController {
     }
 }
 
+// --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
+// MARK: - TableViewDelegate and TableViewDataSource Extension
 extension MovieListViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -59,8 +61,20 @@ extension MovieListViewController: UITableViewDelegate, UITableViewDataSource {
         cell.delegate = self
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        switch editingStyle {
+        case .delete:
+            movieController.movies.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        default:
+            break
+        }
+    }
 }
 
+// --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
+// MARK: - MovieDelegate Extension
 extension MovieListViewController: MovieDelegate {
     func didAdd(_ movie: Movie) {
         movieController.movies.append(movie)
@@ -74,6 +88,8 @@ extension MovieListViewController: MovieDelegate {
     }
 }
 
+// --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
+// MARK: - SeenSwitchDelegate Extension
 extension MovieListViewController: SeenSwitchDelegate {
     func toggleSeen(on cell: MovieCell) {
         guard let indexPath = tableView.indexPath(for: cell) else { return }
