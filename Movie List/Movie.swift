@@ -7,3 +7,8 @@
 //
 
 import Foundation
+
+struct Movie {
+    let moviesname:  String
+    let seen = false
+}

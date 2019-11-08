@@ -1,4 +1,4 @@
-//
+  //
 //  AddMovieViewController.swift
 //  Movie List
 //
@@ -7,16 +7,37 @@
 //
 
 import UIKit
+  
+  protocol AddMovieDelegate {
+    func movieWasCreated(movie: Movie)
+  }
 
 class AddMovieViewController: UIViewController {
 
+    @IBOutlet weak var NewMovie: UITextField!
+    
+    var delegate: AddMovieDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        NewMovie.delegate = self
 
         // Do any additional setup after loading the view.
     }
     
-
+    @IBAction func AddMovieTapped(_ sender: Any) {
+        if let moviesname = NewMovie.text, !moviesname.isEmpty {
+            
+            var movie = Movie(moviesname: "")
+             
+            delegate?.movieWasCreated(movie: movie)
+           
+        }
+    }
+    
+  
+    
     /*
     // MARK: - Navigation
 
@@ -26,5 +47,12 @@ class AddMovieViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
-}
+  }
+    extension AddMovieViewController: UITextFieldDelegate {
+        func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        textField.resignFirstResponder()
+        
+        return true
+        }
+  }
