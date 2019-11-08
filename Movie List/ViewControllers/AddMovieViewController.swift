@@ -29,6 +29,7 @@ class AddMovieViewController: UIViewController {
             var movie = Movie(name: movieTitle, hasSeen: false)
             movie.name = movieTitle
             movieDelegate?.movieWasAdded(movie: movie)
+            navigationController?.popViewController(animated: true)
         }
     }
 }
