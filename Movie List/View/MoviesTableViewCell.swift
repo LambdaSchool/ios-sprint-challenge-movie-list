@@ -20,17 +20,20 @@ class MoviesTableViewCell: UITableViewCell {
     weak var delegate: HasSeenDelegate?
     
     
+    @IBOutlet weak var movieTitleTextField: UILabel!
     @IBOutlet weak var seenButton: UIButton!
     
     @IBAction func seenButtonTapped(_ sender: Any) {
-        delegate?.toggleseen(on: self)
+        delegate?.toggleSeen(on: self)
     }
     
     private func updateViews() {
-        guard let seen = seen else { return }
-        
-        let seenTitle = seen.seen ? "Seen" : "Not Seen"
+        guard let seenStatus = seen else { return }
+        let seenTitle = seenStatus.hasSeen ? "Seen" : "Not Seen"
         seenButton.setTitle(seenTitle, for: [])
+        
+        guard let movieTitle = seen else { return }
+        movieTitleTextField.text = movieTitle.name
     }
     
     

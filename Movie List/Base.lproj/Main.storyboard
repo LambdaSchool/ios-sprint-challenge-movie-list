@@ -31,15 +31,26 @@
                                                 <action selector="seenButtonTapped:" destination="TV2-oA-eaf" eventType="touchUpInside" id="d4L-VU-btO"/>
                                             </connections>
                                         </button>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vfr-dr-ugU">
+                                            <rect key="frame" x="8" y="8" width="42" height="26.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="mVG-2J-Leg" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="vfr-dr-ugU" secondAttribute="trailing" constant="8" id="7Dk-Xn-zUX"/>
                                         <constraint firstItem="mVG-2J-Leg" firstAttribute="top" secondItem="a9i-MQ-OX5" secondAttribute="top" constant="6" id="9JR-IQ-3S6"/>
                                         <constraint firstAttribute="trailing" secondItem="mVG-2J-Leg" secondAttribute="trailing" constant="30" id="DDp-vg-TFZ"/>
-                                        <constraint firstItem="mVG-2J-Leg" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="a9i-MQ-OX5" secondAttribute="leading" symbolic="YES" id="TJp-Ag-162"/>
+                                        <constraint firstItem="vfr-dr-ugU" firstAttribute="leading" secondItem="a9i-MQ-OX5" secondAttribute="leading" constant="8" id="G6p-Sw-jMY"/>
+                                        <constraint firstAttribute="bottom" secondItem="vfr-dr-ugU" secondAttribute="bottom" constant="8" id="ILX-K6-EwF"/>
+                                        <constraint firstItem="mVG-2J-Leg" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="a9i-MQ-OX5" secondAttribute="leading" constant="20" symbolic="YES" id="TJp-Ag-162"/>
+                                        <constraint firstItem="vfr-dr-ugU" firstAttribute="top" secondItem="a9i-MQ-OX5" secondAttribute="top" constant="8" id="maL-xD-yw1"/>
                                         <constraint firstAttribute="bottom" secondItem="mVG-2J-Leg" secondAttribute="bottom" constant="6" id="rl7-eT-k4P"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="movieTitleTextField" destination="vfr-dr-ugU" id="iid-P7-PVw"/>
                                     <outlet property="seenButton" destination="mVG-2J-Leg" id="Cc6-l7-Dr4"/>
                                 </connections>
                             </tableViewCell>
@@ -50,7 +61,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="The Ultimate Movie List" id="tW1-EV-J2Z">
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="jAF-5s-Bvd">
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="add" id="jAF-5s-Bvd">
                             <connections>
                                 <segue destination="xe8-mv-6eF" kind="show" identifier="AddMovieSegue" id="pSj-XO-tKx"/>
                             </connections>
@@ -83,6 +94,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9xd-lu-5V4">
                                 <rect key="frame" x="171" y="248" width="73" height="30"/>
                                 <state key="normal" title="Add Movie"/>
+                                <connections>
+                                    <action selector="addMovieButtonTapped:" destination="xe8-mv-6eF" eventType="touchUpInside" id="vwZ-Mw-nwh"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -100,6 +114,9 @@
                         <viewLayoutGuide key="safeArea" id="SdP-DI-4yN"/>
                     </view>
                     <navigationItem key="navigationItem" id="8dU-2b-X5a"/>
+                    <connections>
+                        <outlet property="movieTextField" destination="4nM-qE-TRH" id="jQz-aG-e5R"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FD3-qu-bt5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

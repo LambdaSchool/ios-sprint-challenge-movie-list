@@ -6,14 +6,15 @@
 //  Copyright © 2019 Lambda School. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
-struct Movie {
+struct Movie: Equatable {
+    
     var name: String
-    var hasSeen: Bool = false
+    var hasSeen: Bool
 
     init(name: String, hasSeen: Bool) {
-    self.name = name
-    self.hasSeen = hasSeen
+        self.name = name
+        self.hasSeen = hasSeen
     }
 }
