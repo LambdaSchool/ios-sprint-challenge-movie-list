@@ -6,14 +6,13 @@
 //  Copyright © 2019 Lambda School. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 class SeenController {
+    var seen: [Movie] = []
     
-    var switches: [Movie] = []
-    
-    func toggleSeen(seenSwitch: Movie) {
-        guard let lightIndex = switches.firstIndex(of: seenSwitch) else { return }
-        switches[lightIndex].hasSeen.toggle()
+    func toggleSeen(hasSeen: Movie) {
+        guard let seenIndex = seen.firstIndex(of: hasSeen) else { return }
+        seen[seenIndex].hasSeen.toggle()
     }
 }

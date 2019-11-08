@@ -8,7 +8,15 @@
 
 import UIKit
 
-class MoviesTableViewController: UITableViewController, HasSeenDelegate, AddMovieDelegate {
+class MoviesTableViewController: UITableViewController, HasSeenDelegate, AddMovieDelegate{
+    
+    func toggleSeen(on cell: MoviesTableViewCell) {
+        guard let indexPath = tableView.indexPath(for: cell) else { return }
+        let seenSwitch = seenController.seen[indexPath.row]
+        
+        seenController.toggleSeen(hasSeen: seenSwitch)
+        tableView.reloadRows(at: [indexPath], with: .automatic)
+    }
     
 
     override func viewDidLoad() {
@@ -18,13 +26,13 @@ class MoviesTableViewController: UITableViewController, HasSeenDelegate, AddMovi
     
     var movies: [Movie] = []
     
-    var hasSeenMovie = SeenController()
+    var seenController = SeenController()
+    
+//    var hasSeenMovie: SeenController?
     
     func movieWasAdded(movie: Movie) {
         movies.append(movie)
         tableView.reloadData()
-        dismiss(animated: true, completion: nil)
-        
     }
     
     // MARK: - Table view data source
@@ -59,16 +67,5 @@ class MoviesTableViewController: UITableViewController, HasSeenDelegate, AddMovi
             }
         }
     }
-    
-    // MARK: - Delegate Method
-
-    func toggleSeen(on cell: MoviesTableViewCell) {
-        guard let indexPath = tableView.indexPath(for: cell) else { return }
-        let seenSwitch = hasSeenMovie.switches[indexPath.row]
-        
-        hasSeenMovie.toggleSeen(seenSwitch: seenSwitch)
-        tableView.reloadRows(at: [indexPath], with: .automatic)
-    }
 }
-
 
