@@ -9,6 +9,12 @@
 import UIKit
 
 class EditMovieViewController: UIViewController {
+    
+    
+    
+    
+    var movieController: MovieController?
+    var movie: Movie?
 
     override func viewDidLoad() {
         super.viewDidLoad()
