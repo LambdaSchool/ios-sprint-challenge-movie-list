@@ -55,7 +55,7 @@ class MoviesTableViewController: UITableViewController, HasSeenDelegate, AddMovi
         
         if segue.identifier == "AddMovieSegue" {
             if let addMovieVC = segue.destination as? AddMovieViewController {
-                addMovieVC.delegate = self
+                addMovieVC.movieDelegate = self
             }
         }
     }

@@ -8,24 +8,17 @@
 
 import UIKit
 
-protocol AddMovieDelegate {
-    func movieWasAdded(movie: Movie)
-}
-
 class AddMovieViewController: UIViewController {
-    
 
     // MARK: Outelets and Actions
-    
-    
     @IBOutlet weak var movieTextField: UITextField!
     
-    var delegate: AddMovieDelegate?
+    var movieDelegate: AddMovieDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        movieTextField.delegate = self as? UITextFieldDelegate 
+        movieTextField.delegate = self as? UITextFieldDelegate
         
     }
     
@@ -35,7 +28,7 @@ class AddMovieViewController: UIViewController {
             
             var movie = Movie(name: movieTitle, hasSeen: false)
             movie.name = movieTitle
-            delegate?.movieWasAdded(movie: movie)
+            movieDelegate?.movieWasAdded(movie: movie)
         }
     }
 }
