@@ -8,13 +8,25 @@
 
 import UIKit
 
+protocol AddMovieDelegate {
+    func movieAdded(movie: Movie)
+}
+
 class AddMovieViewController: UIViewController {
 
+    @IBOutlet weak var movieTextField: UITextField!
+    @IBOutlet weak var addMovieButton: UIButton!
+    
+    var delegate: AddMovieDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
     }
+    
+    @IBAction func addMovieButtonTapped(_ sender: Any) {
+    }
+    
     
 
     /*
