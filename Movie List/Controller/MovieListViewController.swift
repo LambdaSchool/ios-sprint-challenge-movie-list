@@ -12,7 +12,13 @@ class MovieListViewController: UIViewController {
     
     // --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
     // MARK: - Properties
-    var movie = [Movie]()
+    var movies = [
+        Movie(name: "Back to the Future"),
+        Movie(name: "The Matrix"),
+        Movie(name: "Beauty and the Beast"),
+        Movie(name: "Toy Story 4"),
+        Movie(name: "Avengers: Endgame")]
+                  
     
     // --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
     // MARK: - Outlets
@@ -22,6 +28,8 @@ class MovieListViewController: UIViewController {
     // MARK: - View Controller Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.delegate = self
+        tableView.dataSource = self
     }
     
     // --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
@@ -37,11 +45,13 @@ extension MovieListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return movie.count
+        return movies.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: Cells.movieCell, for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: Cells.movieCell, for: indexPath) as? MovieCell else { return UITableViewCell() }
+        let movie = movies[indexPath.row]
+        cell.movie = movie
         return cell
     }
 }
