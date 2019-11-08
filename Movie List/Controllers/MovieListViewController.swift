@@ -8,13 +8,36 @@
 
 import UIKit
 
-class MovieListViewController: UIViewController {
-
+class MovieListViewController: UIViewController, UITableViewDataSource, MovieTableViewCellDelegate {
+    
+    let movieController = MovieController()
+    
+    @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.dataSource = self
 
         // Do any additional setup after loading the view.
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
+    
+    // Table view setup and methods
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        <#code#>
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        <#code#>
+    }
+    
+    func isSeenButtonTapped(on cell: MovieTableViewCell) {
+        <#code#>
+    }
+    
     
 
     /*
