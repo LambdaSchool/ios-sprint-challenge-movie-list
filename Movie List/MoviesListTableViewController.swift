@@ -10,34 +10,38 @@ import UIKit
 
 class MoviesListTableViewController: UITableViewController, AddMovieDelegate {
     
-    // Data Source:
-    var movies: [Movie] = [Movie(moviesName: "Ufuk")]
+    func movieHasBeenSeen(cell: MovieTableViewCell) {
     
-    func movieWasCreated(movie: Movie) {
-        movies.append(movie)
-        tableView.reloadData()
-        dismiss(animated: true, completion: nil)
+//        seen.setTitle("unseen")
+//        seen.text = "unseen"
+    
     }
-
+   
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
+    // Data Source:
+    let movieController = MovieController()
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return movies.count
+        return movieController.movies.count
     }
-
-/*    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as? MoviesListTableViewController else {
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as? MovieTableViewCell else {
             return UITableViewCell()
         }
         
-        let movie = movies[indexPath.row]
+        let moviesName = movieController.movies[indexPath.row]
 
-        cell.movies.text = movie.moviesName
+        cell.moviesName = moviesName
 
         return cell
     }
-*/
     // MARK: - Navigation
 
         // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -45,11 +49,12 @@ class MoviesListTableViewController: UITableViewController, AddMovieDelegate {
         
         if segue.identifier == "AddMovie" {
             if let addMovieVC = segue.destination as? AddMovieViewController {
-                addMovieVC.delegate = self
+                addMovieVC.movieController = movieController
             }
         }
     }
 }
+
 
     /*
     // Override to support conditional editing of the table view.

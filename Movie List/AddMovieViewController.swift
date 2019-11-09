@@ -9,14 +9,14 @@
 import UIKit
 
 protocol AddMovieDelegate {
-    func movieWasCreated(movie: Movie)
+    func movieHasBeenSeen(cell: MovieTableViewCell)
 }
 
 class AddMovieViewController: UIViewController {
    
     @IBOutlet weak var EnterMovieTextField: UITextField!
     
-    var delegate: AddMovieDelegate?
+    var movieController: MovieController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,9 +30,9 @@ class AddMovieViewController: UIViewController {
         
         if let moviesName = EnterMovieTextField.text, !moviesName.isEmpty {
             
-            let movie = Movie(moviesName: "")
+            movieController?.movieWasCreated(title: moviesName)
+            navigationController?.popViewController(animated: true)
             
-            delegate?.movieWasCreated(movie: movie)
         }
         
     }
