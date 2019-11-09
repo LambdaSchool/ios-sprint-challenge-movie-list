@@ -26,7 +26,11 @@ class AddMovieViewController: UIViewController {
     }
           
     @IBAction func addTapped(_ sender: Any) {
-                  
+        var film = Movies(title: title!)
+        if let title = movieTextField.text,
+            !title.isEmpty{
+            film.title.append(title)
+        }
         }
         
     }
@@ -42,5 +46,5 @@ extension AddMovieViewController: UITextFieldDelegate {
         }
      
     }
-//commit for push
+
 
