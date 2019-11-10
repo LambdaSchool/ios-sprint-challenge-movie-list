@@ -32,14 +32,21 @@ class listOfMoviesViewController: UITableViewController, MovieListDelegate {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as? seenTableViewCell else { return UITableViewCell() }
         
+        let movie = movieController.movies[indexPath.row]
+        
+        cell.movie = movie
+        
         return cell
     }
     
     // MARK: - Navigation
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "addNewMovie" {
+            guard let destinationVC = segue.destination as? addMovieViewController else { return }
+            
+            destinationVC.movieController = movieController
+        }
     }
     
 }

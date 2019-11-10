@@ -31,7 +31,8 @@ class seenTableViewCell: UITableViewCell {
 
 private func updateViews() {
     guard let movie = movie else { return }
-
+    textLabel?.text = movie.name
+    
     let seenButtonTitle = movie.seen ? "Seen" : "Not Seen"
     seenButton.setTitle(seenButtonTitle, for: [])
 
