@@ -11,7 +11,7 @@ import UIKit
 class SeenStatusTableViewCell: UITableViewCell {
 
     @IBOutlet weak var movieLabel: UILabel!
-    @IBOutlet weak var hasBeenSeenLabel: UIButton!
+    @IBOutlet weak var hasBeenSeenLabel: UIButton! // Call UI elements button
     
     var movie: Movie? {
         didSet {
@@ -26,8 +26,7 @@ class SeenStatusTableViewCell: UITableViewCell {
     }
     
     @IBAction func hasBeenSeenTapped(_ sender: Any) {
-        hasBeenSeenLabel.titleLabel?.text = "Seen"
-        hasBeenSeenLabel.titleLabel?.text = "Not Seen"
+        hasBeenSeenLabel.setTitle("Seen", for: .normal)
     }
 }
 

@@ -8,17 +8,31 @@
 
 import UIKit
 
-class MovieListTableViewController: UIViewController, AddMovieDelegate {
+class MovieListTableViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    var movies: [Movie] = []
+    var movieController = MovieController()
     
-    func movieWasAdded(movie: Movie) {
-        movies.append(movie)
+    
+    override func viewDidLoad() {
+           super.viewDidLoad()
+           
+           tableView.reloadData()
+       }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         tableView.reloadData()
-        dismiss(animated: true, completion: nil)
     }
+    
+//    var movies: [Movie] = []
+//
+//    func movieWasAdded(movie: Movie) {
+//        movies.append(movie)
+//        tableView.reloadData()
+//        dismiss(animated: true, completion: nil)
+//    }
     
 
     // MARK: - Navigation
@@ -28,23 +42,39 @@ class MovieListTableViewController: UIViewController, AddMovieDelegate {
 
         if segue.identifier == "AddMovieSegue" {
             if let addMovieVC = segue.destination as? AddMovieViewController {
-                addMovieVC.delegate = self
+                movieController = addedMovies
             }
         }
     }
 }
 
+//extension MovieListTableViewController: UITableViewDataSource {
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return movies.count
+//    }
+//
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as SeenStatusTableViewCell else {
+//            return UITableViewCell()
+//        }
+//
+//        let movie = movies[indexPath.row]
+//
+//        cell.movieLabel.text = movie.name
+//
+//        return cell
+//    }
+//}
+
 extension MovieListTableViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return movies.count
+        return movieController.movie.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as? SeenStatusTableViewCell else {
-            return UITableViewCell()
-        }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as? SeenStatusTableViewCell else { return UITableViewCell() }
         
-        let movie = movies[indexPath.row]
+        let movie = movieController.movie[indexPath.row]
         
         cell.movieLabel.text = movie.name
         
