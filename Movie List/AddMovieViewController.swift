@@ -13,6 +13,8 @@ protocol AddMovieDelegate {
 }
 
 class AddMovieViewController: UIViewController {
+    
+    var movieController: MovieController?
 
     @IBOutlet weak var movieTextField: UITextField!
     @IBOutlet weak var addMovieButton: UIButton!
@@ -22,21 +24,18 @@ class AddMovieViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
     }
     
-    @IBAction func addMovieButtonTapped(_ sender: Any) {
+    @IBAction func addMovieButtonTapped(_ sender: Any)
+    {
+        guard let movieTitle = movieTextField.text,
+        !movieTitle.isEmpty else {return}
+        
+        let movie = Movie(movieTitle: movieTitle)
+        movieController?.add(movie: movie)
+        
+        navigationController?.popViewController(animated: true)
     }
-    
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

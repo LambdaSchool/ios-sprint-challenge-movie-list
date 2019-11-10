@@ -20,7 +20,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MovieListCell" rowHeight="70" id="0j9-Bm-8W8" customClass="MovieListCell" customModule="Movie_List" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MovieListCell" rowHeight="70" id="0j9-Bm-8W8" customClass="MovieListTableViewCell" customModule="Movie_List" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0j9-Bm-8W8" id="czR-Ce-Ydq">
@@ -33,23 +33,27 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="P15-BD-3eG">
-                                                    <rect key="frame" x="343" y="20" width="51" height="31"/>
-                                                </switch>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hWD-Qe-3ij">
+                                                    <rect key="frame" x="310" y="20" width="94" height="30"/>
+                                                    <state key="normal" title="Has Not Seen"/>
+                                                    <connections>
+                                                        <action selector="hasSeenButtonTapped:" destination="0j9-Bm-8W8" eventType="touchUpInside" id="cBE-qh-wML"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottomMargin" secondItem="P15-BD-3eG" secondAttribute="bottom" constant="8" id="1aL-eJ-x6A"/>
                                                 <constraint firstItem="Nt6-fZ-p1H" firstAttribute="top" secondItem="czR-Ce-Ydq" secondAttribute="topMargin" constant="14" id="3Wq-sM-jJJ"/>
+                                                <constraint firstItem="hWD-Qe-3ij" firstAttribute="leading" relation="lessThanOrEqual" secondItem="Nt6-fZ-p1H" secondAttribute="trailing" constant="236" id="FrG-HB-A3p"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="Nt6-fZ-p1H" secondAttribute="bottom" constant="13" id="KXD-cU-mRd"/>
                                                 <constraint firstItem="Nt6-fZ-p1H" firstAttribute="leading" secondItem="czR-Ce-Ydq" secondAttribute="leadingMargin" id="NP6-81-35C"/>
-                                                <constraint firstItem="P15-BD-3eG" firstAttribute="leading" relation="lessThanOrEqual" secondItem="Nt6-fZ-p1H" secondAttribute="trailing" constant="241" id="tVf-Ug-vC8"/>
-                                                <constraint firstItem="P15-BD-3eG" firstAttribute="top" secondItem="czR-Ce-Ydq" secondAttribute="topMargin" constant="9" id="xCA-4h-kpu"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="P15-BD-3eG" secondAttribute="trailing" constant="2" id="xcd-bp-92d"/>
+                                                <constraint firstAttribute="trailing" secondItem="hWD-Qe-3ij" secondAttribute="trailing" constant="10" id="hVJ-yR-5W2"/>
+                                                <constraint firstItem="hWD-Qe-3ij" firstAttribute="top" secondItem="czR-Ce-Ydq" secondAttribute="top" constant="20" id="vi2-PD-7pE"/>
+                                                <constraint firstAttribute="bottom" secondItem="hWD-Qe-3ij" secondAttribute="bottom" constant="20" id="yf0-PL-oxg"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="movieTitleLabel" destination="Nt6-fZ-p1H" id="0VI-eO-uti"/>
-                                            <outlet property="seenSwitch" destination="P15-BD-3eG" id="39R-Ds-iBb"/>
+                                            <outlet property="hasSeenButton" destination="hWD-Qe-3ij" id="Bas-kw-dew"/>
+                                            <outlet property="movieTitleLabel" destination="Nt6-fZ-p1H" id="NGA-li-KBn"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -72,7 +76,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="movieListTableView" destination="CEE-Zm-PMD" id="gJ2-hK-K2L"/>
+                        <outlet property="movieListTableView" destination="CEE-Zm-PMD" id="3mY-Lv-hws"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8OQ-9X-ZrK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
