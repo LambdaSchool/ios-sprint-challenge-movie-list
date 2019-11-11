@@ -25,7 +25,7 @@ class addMovieViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    @IBAction func addMovieButton(_ sender: UIBarButtonItem) {
+    @IBAction func addMovieButton(_ sender: Any) {
         guard let enterMovieTitle = moveToList.text,
             !enterMovieTitle.isEmpty else { return }
         let movie = Movie(name: enterMovieTitle)
