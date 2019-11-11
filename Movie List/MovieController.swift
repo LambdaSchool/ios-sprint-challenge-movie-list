@@ -17,9 +17,8 @@ class MovieController {
         let movie = Movie(moviesName: title)
         movies.append(movie)
         
-        
     }
-    
+
     
 
 }

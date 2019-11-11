@@ -12,14 +12,21 @@ class MovieTableViewCell: UITableViewCell {
 
     @IBOutlet weak var movieLabel: UILabel!
     
-    @IBAction func SeenOrUnseen(sender: Any) {
-        
-        sender.setTitle("seen", forState: .normal)
-        
-        delegate?.movieHasBeenSeen(cell: self)
-
+    @IBOutlet weak var testButton: UIButton!
+    @IBAction func unseen(_ sender: Any) {
+    
+    changeTitle()
+    //delegate?.movieHasBeenSeen(cell: self)
+    
     }
     
+    func changeTitle() {
+        if testButton.currentTitle == "unseen" {
+            testButton.setTitle("seen", for: .normal)
+        } else {
+        testButton.setTitle("unseen", for: .normal)
+        }
+    }
     
     var delegate: AddMovieDelegate?
     

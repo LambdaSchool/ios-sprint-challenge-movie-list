@@ -11,4 +11,7 @@ import Foundation
 struct Movie {
     let moviesName: String
     let seen: Bool = false
+ //   let genre: [String] = ["Action", "Comic", "Comedy", "Horror", "Romantic", "Sci-Fiction"]
 }
+
+

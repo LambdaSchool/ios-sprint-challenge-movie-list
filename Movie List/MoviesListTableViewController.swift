@@ -12,11 +12,11 @@ class MoviesListTableViewController: UITableViewController, AddMovieDelegate {
     
     func movieHasBeenSeen(cell: MovieTableViewCell) {
     
-//        seen.setTitle("unseen")
-//        seen.text = "unseen"
+        print("hello3")
     
     }
-   
+    
+  
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableView.reloadData()
@@ -28,6 +28,15 @@ class MoviesListTableViewController: UITableViewController, AddMovieDelegate {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return movieController.movies.count
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+            if editingStyle == .delete {
+                self.movieController.movies.remove(at: indexPath.row)
+               tableView.deleteRows(at: [indexPath], with: .fade)
+            }
+    
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -53,6 +62,8 @@ class MoviesListTableViewController: UITableViewController, AddMovieDelegate {
             }
         }
     }
+    
+    
 }
 
 

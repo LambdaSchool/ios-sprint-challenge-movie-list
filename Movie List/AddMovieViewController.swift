@@ -12,7 +12,7 @@ protocol AddMovieDelegate {
     func movieHasBeenSeen(cell: MovieTableViewCell)
 }
 
-class AddMovieViewController: UIViewController {
+class AddMovieViewController: UIViewController/*, UIPickerViewDataSource, UIPickerViewDelegate*/ {
    
     @IBOutlet weak var EnterMovieTextField: UITextField!
     
@@ -47,6 +47,9 @@ class AddMovieViewController: UIViewController {
     }
     */
 
+ //   @IBOutlet weak var pickerTextField : UITextField!
+    
+       
 }
 
 extension AddMovieViewController: UITextFieldDelegate {
