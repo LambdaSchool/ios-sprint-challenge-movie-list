@@ -8,15 +8,16 @@
 
 import UIKit
 
-protocol MovieWasAddedDelegate {
-    func movieWasAdded(movie: Movies)
-}
+
 
 class AddMovieViewController: UIViewController {
 
     @IBOutlet weak var movieTextField: UITextField!
     
     var delegate: MovieWasAddedDelegate?
+    
+    
+    var movieController: MovieController? 
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,11 +27,12 @@ class AddMovieViewController: UIViewController {
     }
           
     @IBAction func addTapped(_ sender: Any) {
-        var film = Movies(title: title!)
+        
         if let title = movieTextField.text,
             !title.isEmpty{
-            film.title.append(title)
+            movieController?.createMovie(title: title)
         }
+        navigationController?.popViewController(animated: true)
         }
         
     }

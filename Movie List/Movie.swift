@@ -10,7 +10,12 @@ import Foundation
 
 struct Movies: Equatable {
     var title: String
-    var isSeen: Bool = false 
+    var isSeen: Bool
+    
+    init(title: String, isSeen: Bool = false) {
+        self.title = title
+        self.isSeen = isSeen
+    }
     
 }
 

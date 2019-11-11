@@ -20,5 +20,32 @@ class MovieTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
+    
+    weak var delegate: MovieWasAddedDelegate?
+    //updateViews
+    @IBAction func seenBtn(_ sender: Any) {
+        delegate?.updateHasSeen(movie: <#T##Movies#>)
+    }
+    
+    // movie: Movie?{
+    @IBOutlet weak var movieLabel: UILabel!
+    var movie: Movies? {
+        didSet {
+            updateViews()
+            
+        }
+    }
+    
+    func updateViews() {
+        guard let movie = movie else { return }
+        movieLabel.text = movie.title
+    
+        
+       // More stuff here for hasSeen button
+        
+        let hasSeen = movie.isSeen ? "seen" : "not seen"
+        
+        
+        
+    }
 }

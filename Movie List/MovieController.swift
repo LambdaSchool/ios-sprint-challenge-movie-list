@@ -12,7 +12,10 @@ class MovieController {
     
     var movie: [Movies] = []
     
-   
+    func createMovie(title: String) {
+        let singleMovie = Movies(title: title)
+        movie.append(singleMovie)
+    }
     
     func hasSeen(seen: Movies) {
         guard let movieIndex = movie.firstIndex(of: seen) else { return }
