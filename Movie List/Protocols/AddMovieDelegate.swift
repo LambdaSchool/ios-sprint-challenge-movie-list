@@ -9,5 +9,5 @@
 import Foundation
 
 protocol AddMovieDelegate {
-    func movieWasAdded(movie: Movie)
+    func movieWasAdded(movie: Movie) 
 }

@@ -13,8 +13,4 @@ struct Movie: Equatable {
     var name: String
     var hasSeen: Bool
 
-    init(name: String, hasSeen: Bool) {
-        self.name = name
-        self.hasSeen = hasSeen
-    }
 }
