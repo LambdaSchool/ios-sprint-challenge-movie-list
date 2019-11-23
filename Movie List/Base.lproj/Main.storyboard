@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fev-xn-f9Q">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fev-xn-f9Q">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -16,14 +17,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <button key="tableFooterView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="5X3-Yb-x2t">
-                            <rect key="frame" x="0.0" y="115" width="375" height="44"/>
+                            <rect key="frame" x="0.0" y="158.5" width="375" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                             <state key="normal" title="Add Movie"/>
                             <connections>
-                                <segue destination="4gx-zN-frL" kind="popoverPresentation" popoverAnchorView="5X3-Yb-x2t" id="ISC-n4-iei">
-                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                </segue>
+                                <segue destination="efl-bv-2XK" kind="show" id="bep-KT-JEY"/>
                             </connections>
                         </button>
                         <prototypes>
@@ -42,13 +41,19 @@
                                             <attributedString key="attributedText">
                                                 <fragment content="Enter The Movie's Title">
                                                     <attributes>
-                                                        <font key="NSFont" size="17" name=".AppleSystemUIFont"/>
+                                                        <font key="NSFont" metaFont="system" size="17"/>
                                                         <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                     </attributes>
                                                 </fragment>
                                             </attributedString>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter the movie's title" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LEk-4D-ub1">
+                                            <rect key="frame" x="0.0" y="12" width="375" height="34.5"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="FVn-bD-Crf" firstAttribute="centerX" secondItem="TbP-iF-XgX" secondAttribute="centerX" id="8h8-cO-njY"/>
@@ -56,6 +61,14 @@
                                         <constraint firstItem="FVn-bD-Crf" firstAttribute="centerY" secondItem="TbP-iF-XgX" secondAttribute="centerY" id="kM1-Ns-1Kj"/>
                                         <constraint firstItem="FVn-bD-Crf" firstAttribute="leading" secondItem="TbP-iF-XgX" secondAttribute="leadingMargin" constant="8" id="ksM-u0-Bc3"/>
                                     </constraints>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="cJJ-3O-Mox">
+                                <rect key="frame" x="0.0" y="87" width="375" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="ded" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cJJ-3O-Mox" id="5yD-gb-F5e">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -75,16 +88,49 @@
             </objects>
             <point key="canvasLocation" x="1056.8" y="76.911544227886068"/>
         </scene>
+        <!--Movies List-->
+        <scene sceneID="d8e-rH-uQ2">
+            <objects>
+                <viewController id="efl-bv-2XK" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fju-Vc-odK">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" translatesAutoresizingMaskIntoConstraints="NO" id="leY-S6-Evm">
+                                <rect key="frame" x="-20" y="44" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="leY-S6-Evm" id="Npb-6T-KnH">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="mpj-mQ-Jcl"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Movies List" id="spM-E6-tDf">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="V1j-dS-NvV">
+                            <connections>
+                                <segue destination="4gx-zN-frL" kind="show" id="aeC-mi-ZYm"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4oz-To-N5p" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1087" y="741"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="iqX-uy-zNU">
             <objects>
                 <viewController id="4gx-zN-frL" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="dFt-n8-pAm"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q6s-7u-TTL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1879" y="94"/>
+            <point key="canvasLocation" x="1873" y="77"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="5mU-Dc-VRE">
