@@ -33,7 +33,9 @@ class MoviesTableViewCell: UITableViewCell {
     @IBAction func seenBtnWasPressed(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected
         if sender.isSelected {
-        
+            (sender as AnyObject).setTitle("Seen", for: .normal)
+        } else {
+            (sender as AnyObject).setTitle("Not Seen", for: .normal)
         }
     }
     
