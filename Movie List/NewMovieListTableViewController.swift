@@ -20,6 +20,18 @@ class NewMovieListTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
+    // MARK: - IBOutlets
+    @IBOutlet var nameOfMovieLabel: UILabel!
+    
+    
+    // MARK: - IBActions
+    @IBAction func addButtonTapped(_ sender: Any) {
+    }
+    
+    
+    @IBAction func seenOrUnseenButton(_ sender: Any) {
+    }
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {

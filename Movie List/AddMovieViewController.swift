@@ -8,8 +8,23 @@
 
 import UIKit
 
+
+
 class AddMovieViewController: UIViewController {
 
+    var movie = Movie()
+    
+    //Mark: - IBOutlets
+    @IBOutlet var userTextField: UITextField!
+    
+    
+    //Mark - IBActions
+    @IBAction func addMovieButtonTapped() {
+        
+    }
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
