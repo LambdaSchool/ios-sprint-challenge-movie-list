@@ -10,15 +10,32 @@ import UIKit
 
 class MoviesTableViewCell: UITableViewCell {
 
+    //iboutlets for custom cell
+    @IBOutlet weak var movieLbl: UILabel!
+    
+    var flix: Movie? {
+        didSet {
+            updateViews()
+        }
+    }
+    
+    func updateViews() {
+        guard let flix = flix else { return }
+        movieLbl.text = flix.movieName
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    //ibactions
+    @IBAction func seenBtnWasPressed(_ sender: UIButton) {
+        sender.isSelected = !sender.isSelected
+        if sender.isSelected {
+        //return later
+        }
     }
+    
 
 }

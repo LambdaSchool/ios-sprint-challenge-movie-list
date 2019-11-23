@@ -8,23 +8,37 @@
 
 import UIKit
 
+protocol AddMovieDelegate {
+    func movieWasAdded(_ flix: Movie)
+}
+
 class MovieAddViewController: UIViewController {
 
+    //iboutlets
+    @IBOutlet weak var movieNameField: UITextField!
+    
+    var delegate: AddMovieDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+//ib Actions
+    
+    @IBAction func addMovieBtnPressed(_ sender: Any) {
+        guard let movieName = movieNameField.text,
+            !movieName.isEmpty else { return }
+        
+        var flix = Movie(movieName: movieName, seen: false)
+        
+        if let movieName = movieNameField.text,
+            !movieName.isEmpty {
+            flix.movieName.append(movieName)
+        }
+        delegate?.movieWasAdded(flix)
+        dismiss(animated: true, completion: nil)
     }
-    */
-
+    
 }

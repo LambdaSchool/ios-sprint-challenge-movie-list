@@ -33,21 +33,25 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Seen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="leo-jv-T8l">
-                                                    <rect key="frame" x="321" y="29.5" width="39" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QAu-lh-54l">
+                                                    <rect key="frame" x="330" y="25" width="35" height="30"/>
+                                                    <state key="normal" title="Seen"/>
+                                                    <connections>
+                                                        <action selector="seenBtnWasPressed:" destination="ZoV-n8-lPG" eventType="touchUpInside" id="MOu-Fu-2pB"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="rcD-dL-7sa" firstAttribute="centerY" secondItem="leo-jv-T8l" secondAttribute="centerY" id="5eT-1O-9SB"/>
-                                                <constraint firstItem="leo-jv-T8l" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="rcD-dL-7sa" secondAttribute="trailing" constant="8" symbolic="YES" id="6HC-y8-VrY"/>
+                                                <constraint firstItem="QAu-lh-54l" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="rcD-dL-7sa" secondAttribute="trailing" constant="8" symbolic="YES" id="4tv-E7-PTe"/>
                                                 <constraint firstItem="rcD-dL-7sa" firstAttribute="centerY" secondItem="Aga-jK-mkk" secondAttribute="centerY" id="LGM-9m-lVX"/>
                                                 <constraint firstItem="rcD-dL-7sa" firstAttribute="leading" secondItem="Aga-jK-mkk" secondAttribute="leadingMargin" id="TyU-l3-q4u"/>
-                                                <constraint firstAttribute="trailing" secondItem="leo-jv-T8l" secondAttribute="trailing" constant="15" id="nF2-pP-KLe"/>
+                                                <constraint firstItem="QAu-lh-54l" firstAttribute="centerY" secondItem="rcD-dL-7sa" secondAttribute="centerY" id="flm-nm-Q7x"/>
+                                                <constraint firstAttribute="trailing" secondItem="QAu-lh-54l" secondAttribute="trailing" constant="10" id="s8N-Rl-9t0"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="movieLbl" destination="rcD-dL-7sa" id="Hd0-Sn-gxy"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -68,6 +72,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="JRi-0o-lMq" id="Yc7-tB-TEQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RlC-rM-aas" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -96,6 +103,9 @@
                                 <rect key="frame" x="141" y="164" width="93" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Add Movie"/>
+                                <connections>
+                                    <action selector="addMovieBtnPressed:" destination="pg4-0v-BAn" eventType="touchUpInside" id="7KE-aD-6rF"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -112,6 +122,9 @@
                         <viewLayoutGuide key="safeArea" id="WTQ-Hy-52x"/>
                     </view>
                     <navigationItem key="navigationItem" id="ogi-Px-rQf"/>
+                    <connections>
+                        <outlet property="movieNameField" destination="GNZ-lV-Qqv" id="MvK-E1-thl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Gb-68-5rp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
