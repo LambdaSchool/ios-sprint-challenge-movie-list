@@ -42,6 +42,20 @@ class MovieListViewController: UIViewController, UITableViewDelegate, UITableVie
         return cell
     }
     
+// Swipe to delete fucntionality
+// Resource:https://stackoverflow.com/questions/24103069/add-swipe-to-delete-uitableviewcell
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if (editingStyle == .delete) {
+            movieController.movies.remove(at: indexPath.row)
+            movieTableView.reloadData()
+        }
+    }
+// End of swipe to delete
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "AddMovie" {
