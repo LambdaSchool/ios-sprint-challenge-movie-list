@@ -5,7 +5,7 @@
 
 import UIKit
 
-class MovieListTableViewController: UIViewController {
+class MovieListViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -20,7 +20,9 @@ class MovieListTableViewController: UIViewController {
     }
 }
 
-extension MovieListTableViewController: UITableViewDataSource {
+extension MovieListViewController: UITableViewDataSource {
+    
+
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return movies.count
@@ -36,7 +38,7 @@ extension MovieListTableViewController: UITableViewDataSource {
     }
 }
 
-extension MovieListTableViewController: AddMovieDelegate {
+extension MovieListViewController: AddMovieDelegate {
 
     func movieWasCreated(_ movie: Movie) {
         movies.append(movie)
@@ -45,3 +47,12 @@ extension MovieListTableViewController: AddMovieDelegate {
     }
 }
 
+extension MovieListViewController: ToggleSeenDelegate {
+    func isSeenButtonTapped(cell: MovieTableViewCell) {
+        guard let indexPath = tableView.indexPath(for: cell) else { return }
+        var movie = movies[indexPath.row]
+        movie.seen = !movie.seen
+    }
+    
+    
+}
