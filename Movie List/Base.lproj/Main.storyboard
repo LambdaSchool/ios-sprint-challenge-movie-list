@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="awI-qb-8Ig">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -17,21 +17,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="newMovieTableCell" id="cZm-26-njA">
-                                <rect key="frame" x="0.0" y="28" width="375" height="43.5"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="newMovieTableCell" id="cZm-26-njA" customClass="newMovieTableViewCell" customModule="Movie_List" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="43"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cZm-26-njA" id="LaS-5z-rxu">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name of movie" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rwY-pX-kNc">
-                                            <rect key="frame" x="27" y="11" width="115" height="21.5"/>
+                                            <rect key="frame" x="27" y="11" width="115" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VtU-Iv-vD7">
-                                            <rect key="frame" x="280" y="6" width="88" height="31.5"/>
+                                            <rect key="frame" x="280" y="6" width="88" height="31"/>
                                             <state key="normal" title="seen/unseen"/>
                                             <connections>
                                                 <action selector="seenOrUnseenButton:" destination="KOM-Df-G2Y" eventType="touchUpInside" id="QKh-gb-2Q8"/>
@@ -39,7 +39,7 @@
                                         </button>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="VtU-Iv-vD7" firstAttribute="centerY" secondItem="rwY-pX-kNc" secondAttribute="centerY" id="AUI-3T-VFa"/>
+                                        <constraint firstItem="VtU-Iv-vD7" firstAttribute="centerY" secondItem="rwY-pX-kNc" secondAttribute="centerY" identifier="seenOrUnSeen" id="AUI-3T-VFa"/>
                                         <constraint firstItem="VtU-Iv-vD7" firstAttribute="leading" secondItem="rwY-pX-kNc" secondAttribute="trailing" constant="138" id="BRI-og-ceg"/>
                                         <constraint firstItem="VtU-Iv-vD7" firstAttribute="centerY" secondItem="LaS-5z-rxu" secondAttribute="centerY" id="CaR-PA-4PT"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="VtU-Iv-vD7" secondAttribute="trailing" constant="-9" id="Ii0-t6-PLw"/>
@@ -59,7 +59,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="D5U-gZ-tTa">
                             <connections>
                                 <action selector="addButtonTapped:" destination="KOM-Df-G2Y" id="eLk-yl-7ht"/>
-                                <segue destination="Z2t-fm-gkS" kind="show" id="aRZ-y5-4RI"/>
+                                <segue destination="Z2t-fm-gkS" kind="show" identifier="addMovieSegue" id="aRZ-y5-4RI"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
