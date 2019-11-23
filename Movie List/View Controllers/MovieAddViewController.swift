@@ -22,16 +22,17 @@ class MovieAddViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+
         // Do any additional setup after loading the view.
     }
     
 //ib Actions
     
-    @IBAction func addMovieBtnPressed(_ sender: Any) {
+    @IBAction func addMovieBtnPressed(_ sender: UIButton) {
         guard let movieName = movieNameField.text,
             !movieName.isEmpty else { return }
         
-        var flix = Movie(movieName: movieName, seen: false)
+        var flix = Movie(movieName: movieName, seen: true)
         
         if let movieName = movieNameField.text,
             !movieName.isEmpty {
@@ -42,3 +43,4 @@ class MovieAddViewController: UIViewController {
     }
     
 }
+

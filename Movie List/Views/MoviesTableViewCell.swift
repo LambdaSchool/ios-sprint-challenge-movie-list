@@ -33,7 +33,7 @@ class MoviesTableViewCell: UITableViewCell {
     @IBAction func seenBtnWasPressed(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected
         if sender.isSelected {
-        //return later
+        
         }
     }
     
