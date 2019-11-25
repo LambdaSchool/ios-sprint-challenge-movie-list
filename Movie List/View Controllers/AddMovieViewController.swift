@@ -8,13 +8,18 @@
 
 import UIKit
 
+protocol AddMovieDelegate {
+    func movieWasAdded(_ movie: Movie)
+}
+
 class AddMovieViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
+    // MARK: - IBOutlets
+    
+    // MARK: - Properties
+    var delegate: AddMovieDelegate?
+    
+    // MARK: - IBActions
     
 
     /*
