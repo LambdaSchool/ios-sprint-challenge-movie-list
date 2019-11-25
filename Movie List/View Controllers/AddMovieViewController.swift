@@ -15,12 +15,19 @@ protocol AddMovieDelegate {
 class AddMovieViewController: UIViewController {
 
     // MARK: - IBOutlets
+    @IBOutlet var movieTitleTextField: UITextField!
     
     // MARK: - Properties
     var delegate: AddMovieDelegate?
     
     // MARK: - IBActions
-    
+    @IBAction func addMovieButtonTapped(_ sender: UIButton) {
+        guard let movieTitle = movieTitleTextField.text,
+            !movieTitle.isEmpty else { return }
+        
+        delegate?.movieWasAdded(Movie(title: movieTitle))
+        navigationController?.popViewController(animated: true)
+    }
 
     /*
     // MARK: - Navigation

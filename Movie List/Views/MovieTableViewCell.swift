@@ -14,6 +14,13 @@ class MovieTableViewCell: UITableViewCell {
     @IBOutlet var movieTitleLabel: UILabel!
     @IBOutlet var seenMovieButton: UIButton!
     
+    // MARK: - Properties
+    var movie: Movie? {
+        didSet {
+            updateViews()
+        }
+    }
+
     // MARK: - IBActions
     @IBAction func seenMovieButtonTapped(_ sender: UIButton) {
         if movie != nil {
@@ -22,13 +29,7 @@ class MovieTableViewCell: UITableViewCell {
         updateViews()
     }
     
-    // MARK: - Properties
-    var movie: Movie? {
-        didSet {
-            updateViews()
-        }
-    }
-
+    
     private func updateViews() {
         guard let movie = movie else { return }
         

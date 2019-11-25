@@ -55,7 +55,7 @@ extension MoviesTableViewController: UITableViewDataSource, UITableViewDelegate 
 extension MoviesTableViewController: AddMovieDelegate {
     func movieWasAdded(_ movie: Movie) {
         movies.append(movie)
-        dismiss(animated: true, completion: nil)
+        //dismiss(animated: true, completion: nil)
         tableView.reloadData()
     }
 }

@@ -92,6 +92,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cd6-yL-kAx">
                                 <rect key="frame" x="151" y="201.33333333333334" width="73" height="30"/>
                                 <state key="normal" title="Add Movie"/>
+                                <connections>
+                                    <action selector="addMovieButtonTapped:" destination="N18-my-hza" eventType="touchUpInside" id="ofx-Pf-fkD"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Xlt-rU-01G">
                                 <rect key="frame" x="16" y="120" width="343" height="73.333333333333314"/>
@@ -112,7 +115,7 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="ruZ-sh-rdE" firstAttribute="bottom" secondItem="cd6-yL-kAx" secondAttribute="bottom" constant="546.66666666666663" id="7IV-0F-xUD"/>
+                            <constraint firstItem="ruZ-sh-rdE" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="cd6-yL-kAx" secondAttribute="bottom" constant="8" id="7IV-0F-xUD"/>
                             <constraint firstItem="Xlt-rU-01G" firstAttribute="leading" secondItem="ruZ-sh-rdE" secondAttribute="leading" constant="16" id="LFu-Ug-IKY"/>
                             <constraint firstItem="ruZ-sh-rdE" firstAttribute="trailing" secondItem="Xlt-rU-01G" secondAttribute="trailing" constant="16" id="ft2-MN-KEe"/>
                             <constraint firstItem="cd6-yL-kAx" firstAttribute="top" secondItem="PJv-iL-Nnu" secondAttribute="bottom" constant="8" id="ibT-Wz-tF2"/>
@@ -122,6 +125,9 @@
                         <viewLayoutGuide key="safeArea" id="ruZ-sh-rdE"/>
                     </view>
                     <navigationItem key="navigationItem" id="1CQ-xG-PHI"/>
+                    <connections>
+                        <outlet property="movieTitleTextField" destination="PJv-iL-Nnu" id="cbw-F0-eKz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LyL-7R-eb5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
