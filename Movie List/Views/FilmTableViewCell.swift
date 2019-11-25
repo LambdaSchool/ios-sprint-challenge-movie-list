@@ -14,5 +14,17 @@ class FilmTableViewCell: UITableViewCell {
     @IBOutlet var movieNameLabel: UILabel!
     @IBOutlet var seenNotSeenButton: UIButton!
     
+    // Getter & Setter
+    var film: Movie? {
+        didSet {
+            self.updateViews()
+        }
+    }
+    
+    private func updateViews() {
+        guard let film = film else { return }
+        
+        movieNameLabel.text = film.name
+    }
 
 }
