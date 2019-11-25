@@ -20,7 +20,7 @@
                                 <rect key="frame" x="0.0" y="88" width="375" height="690"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="5W2-ti-wYO" customClass="MovieTableViewCell" customModule="Movie_List" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MovieCell" id="5W2-ti-wYO" customClass="MovieTableViewCell" customModule="Movie_List" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5W2-ti-wYO" id="r9B-Wx-m9D">
@@ -28,14 +28,17 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fi0-Bl-jCm">
-                                                    <rect key="frame" x="15" y="11.333333333333336" width="84" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <rect key="frame" x="14.999999999999993" y="10.333333333333336" width="99.333333333333314" height="23"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ija-bu-zQa">
                                                     <rect key="frame" x="296" y="7" width="64" height="30"/>
                                                     <state key="normal" title="Not Seen"/>
+                                                    <connections>
+                                                        <action selector="seenMovieButtonTapped:" destination="5W2-ti-wYO" eventType="touchUpInside" id="urg-t8-b8C"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -46,6 +49,10 @@
                                                 <constraint firstItem="Fi0-Bl-jCm" firstAttribute="leading" secondItem="r9B-Wx-m9D" secondAttribute="leadingMargin" id="e1H-gz-09k"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="movieTitleLabel" destination="Fi0-Bl-jCm" id="MMS-D0-r0f"/>
+                                            <outlet property="seenMovieButton" destination="Ija-bu-zQa" id="Dbo-ZV-Lg2"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
