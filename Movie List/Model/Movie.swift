@@ -12,7 +12,7 @@ class Movie {
     var movieName: String
     var isSeen: Bool
     
-    init(movieName: String, isSeen:Bool = false) {
+    init(movieName: String, isSeen: Bool = false) {
         self.movieName = movieName
         self.isSeen = isSeen
     }

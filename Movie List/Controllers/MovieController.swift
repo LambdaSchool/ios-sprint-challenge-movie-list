@@ -11,7 +11,7 @@ import Foundation
 class MovieController {
     var movies: [Movie] = []
     
-    func addMovie(name:String) {
+    func createMovie(name: String) {
         let movie = Movie(movieName: name)
         movies.append(movie)
     }
@@ -20,8 +20,11 @@ class MovieController {
         movies.remove(at: indexPath.row)
     }
     
+    func editMovieName(for movie: Movie, newName: String) {
+        movie.movieName = newName
+    }
+    
     func toggleIsSeen(for movie: Movie) {
         movie.isSeen.toggle()
     }
-    //If time is available, implement editMovieName here...
 }
