@@ -11,7 +11,7 @@ import UIKit
 class MovieTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     // MARK: IBOutlets
-    @IBOutlet var tableview: UITableView!
+    @IBOutlet var tableView: UITableView!
     
     // MARK: Properties
     // Making a test movie
@@ -19,8 +19,8 @@ class MovieTableViewController: UIViewController, UITableViewDelegate, UITableVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableview.delegate = self
-        self.tableview.dataSource = self
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
     }
     
     // UITableview Data Source Methods
@@ -38,19 +38,19 @@ class MovieTableViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "AddMovieModalSegue" {
+        if segue.identifier == "AddMovieSegue" {
             if let addMovieVC = segue.destination as? AddMovieViewController {
                 addMovieVC.delegate = self
             }
         }
     }
-    
+
 }
 
 extension MovieTableViewController: AddMovieDelegate {
     func movieWasAdded(_ movie: Movie) {
         movies.append(movie)
         dismiss(animated: true, completion: nil)
-        tableview.reloadData()
+        tableView.reloadData()
     }
 }
