@@ -20,13 +20,17 @@
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="ARe-Ed-c8V" customClass="MovieListTableViewCell" customModule="Movie_List" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ARe-Ed-c8V" id="C7O-Pm-pSU">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ARe-Ed-c8V" id="C7O-Pm-pSU" customClass="MovieListTableViewCell" customModule="Movie_List" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QjV-Jr-KzR">
                                             <rect key="frame" x="319" y="7" width="46" height="30.5"/>
                                             <state key="normal" title="Button"/>
+                                            <connections>
+                                                <action selector="seenButton:" destination="ARe-Ed-c8V" eventType="touchUpInside" id="spi-59-6BG"/>
+                                                <action selector="seenButtonTapped:" destination="ARe-Ed-c8V" eventType="touchUpInside" id="8cM-dh-DVn"/>
+                                            </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FsZ-mP-gT0">
                                             <rect key="frame" x="10" y="7" width="42" height="30.5"/>
@@ -45,6 +49,10 @@
                                         <constraint firstAttribute="bottom" secondItem="QjV-Jr-KzR" secondAttribute="bottom" constant="6.75" id="xav-Nx-Zzs"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="SeenButton" destination="QjV-Jr-KzR" id="hcV-7E-D76"/>
+                                    <outlet property="titleLabel" destination="FsZ-mP-gT0" id="NFN-8I-PNb"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -55,7 +63,7 @@
                     <navigationItem key="navigationItem" title="Movie List" largeTitleDisplayMode="always" id="AOa-PU-O9e">
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="9n6-Dv-Skr">
                             <connections>
-                                <segue destination="BFF-XU-GET" kind="show" id="U6x-HS-Dl1"/>
+                                <segue destination="BFF-XU-GET" kind="show" identifier="AddFriend" id="U6x-HS-Dl1"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -82,27 +90,36 @@
                                 <rect key="frame" x="0.0" y="129" width="375" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="movieTextField:" destination="BFF-XU-GET" eventType="editingDidEnd" id="eSh-BQ-Rhm"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="blr-2Z-gsf">
-                                <rect key="frame" x="164.5" y="183" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
+                                <rect key="frame" x="147.5" y="183" width="80" height="30"/>
+                                <state key="normal" title="Add Movie"/>
+                                <connections>
+                                    <action selector="addMovieButton:" destination="BFF-XU-GET" eventType="touchUpInside" id="VZq-DB-LUL"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="blr-2Z-gsf" firstAttribute="leading" secondItem="Ihx-p9-SmH" secondAttribute="leading" constant="164.5" id="9gp-da-uZ3"/>
+                            <constraint firstItem="blr-2Z-gsf" firstAttribute="leading" secondItem="Ihx-p9-SmH" secondAttribute="leading" constant="147.5" id="IcU-Km-c7n"/>
                             <constraint firstItem="fNi-Vw-naQ" firstAttribute="trailing" secondItem="Ihx-p9-SmH" secondAttribute="trailing" id="Oqa-sn-d7J"/>
                             <constraint firstItem="WaH-F0-VxS" firstAttribute="leading" secondItem="Ihx-p9-SmH" secondAttribute="leading" id="Uan-rY-gpk"/>
                             <constraint firstItem="fNi-Vw-naQ" firstAttribute="leading" secondItem="Ihx-p9-SmH" secondAttribute="leading" id="UdV-6P-7a5"/>
                             <constraint firstItem="WaH-F0-VxS" firstAttribute="trailing" secondItem="Ihx-p9-SmH" secondAttribute="trailing" id="XKg-v3-A9b"/>
                             <constraint firstItem="blr-2Z-gsf" firstAttribute="top" secondItem="fNi-Vw-naQ" secondAttribute="bottom" constant="20" id="Y1g-R1-An4"/>
-                            <constraint firstItem="Ihx-p9-SmH" firstAttribute="trailing" secondItem="blr-2Z-gsf" secondAttribute="trailing" constant="164.5" id="q60-Qk-bnC"/>
+                            <constraint firstItem="Ihx-p9-SmH" firstAttribute="trailing" secondItem="blr-2Z-gsf" secondAttribute="trailing" constant="147.5" id="fP8-kn-wMP"/>
                             <constraint firstItem="WaH-F0-VxS" firstAttribute="top" secondItem="Ihx-p9-SmH" secondAttribute="top" constant="30" id="thn-Pe-Ave"/>
                             <constraint firstItem="fNi-Vw-naQ" firstAttribute="top" secondItem="WaH-F0-VxS" secondAttribute="bottom" constant="20" id="whE-7v-wRi"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Ihx-p9-SmH"/>
                     </view>
                     <navigationItem key="navigationItem" id="cnJ-Sk-Txa"/>
+                    <connections>
+                        <outlet property="movieTextField" destination="fNi-Vw-naQ" id="w0O-c0-z3t"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zxD-zp-ayr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
