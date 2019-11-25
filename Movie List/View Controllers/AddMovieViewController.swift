@@ -8,23 +8,33 @@
 
 import UIKit
 
+// Creating Delegate Protocol "AddMovieDelegate"
+protocol AddMovieDelegate {
+    func movieWasAdded(_ movie: Movie)
+}
+
+// Custom View Controller Class
 class AddMovieViewController: UIViewController {
 
+    // MARK: IBOutlets
+    @IBOutlet var movieNameTextField: UITextField!
+    
+    var delegate: AddMovieDelegate?
+    
+    // Empty
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    // MARK: IBActions
+    // Action for tapping "Add Movie"
+    @IBAction func addMovieTapped(_ sender: Any) {
+        guard let name = movieNameTextField.text,
+            !name.isEmpty else { return }
+        
+        let movie = Movie(name: name)
+        
+        delegate?.movieWasAdded(movie)
+        
     }
-    */
-
 }
