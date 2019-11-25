@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol MovieCellDelegate {
+    func seenMovieButtonWasTapped(_ movieCell: MovieTableViewCell)
+}
+
 class MovieTableViewCell: UITableViewCell {
 
     // MARK: - IBOutlets
@@ -20,12 +24,15 @@ class MovieTableViewCell: UITableViewCell {
             updateViews()
         }
     }
+    var delegate: MovieCellDelegate?
+    var indexPath: IndexPath?
 
     // MARK: - IBActions
     @IBAction func seenMovieButtonTapped(_ sender: UIButton) {
-        if movie != nil {
-            movie!.hasBeenSeen.toggle()
-        }
+        guard movie != nil else { return }
+       
+        movie!.hasBeenSeen.toggle()
+        delegate?.seenMovieButtonWasTapped(self)
         updateViews()
     }
     
