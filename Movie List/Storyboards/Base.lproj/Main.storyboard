@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieCell" rowHeight="58" id="KEi-Sz-zMN" customClass="MovieTableViewCell" customModule="Movie_List" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieCell" rowHeight="58" id="KEi-Sz-zMN" customClass="FilmTableViewCell" customModule="Movie_List" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="58"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KEi-Sz-zMN" id="64k-T7-DVQ">
@@ -34,6 +34,11 @@
                                             <rect key="frame" x="283" y="14" width="111" height="30"/>
                                             <state key="normal" title="Seen / Not Seen"/>
                                         </button>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vgv-XX-97i">
+                                            <rect key="frame" x="283" y="14" width="111" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" title="Seen / Not Seen"/>
+                                        </button>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="Aa1-ql-Ib0" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="LwG-ag-iLw" secondAttribute="trailing" constant="8" id="2oV-AS-dI6"/>
@@ -43,6 +48,10 @@
                                         <constraint firstItem="LwG-ag-iLw" firstAttribute="centerY" secondItem="64k-T7-DVQ" secondAttribute="centerY" id="wF5-za-54B"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="movieNameLabel" destination="LwG-ag-iLw" id="DlC-4m-QxT"/>
+                                    <outlet property="seenNotSeenButton" destination="vgv-XX-97i" id="J7i-th-eo8"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
