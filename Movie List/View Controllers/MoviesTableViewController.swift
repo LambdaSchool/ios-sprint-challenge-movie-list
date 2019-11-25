@@ -23,6 +23,15 @@ class MoviesTableViewController: UIViewController {
         self.tableView.dataSource = self
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            // Delete the row from the data source
+            movies.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            tableView.reloadData()
+        }
+    }
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -58,6 +67,7 @@ extension MoviesTableViewController: AddMovieDelegate {
     func movieWasAdded(_ movie: Movie) {
         movies.append(movie)
         //dismiss(animated: true, completion: nil)
+        
         tableView.reloadData()
     }
 }
@@ -66,6 +76,7 @@ extension MoviesTableViewController: MovieCellDelegate {
     func seenMovieButtonWasTapped(_ movieCell: MovieTableViewCell) {
         if let hasSeenMovie = movieCell.movie?.hasBeenSeen,
             let index = movieCell.indexPath?.row {
+            print("hasSeenMovie = \(hasSeenMovie); row index = \(index)")
             movies[index].hasBeenSeen = hasSeenMovie
         }
     }
