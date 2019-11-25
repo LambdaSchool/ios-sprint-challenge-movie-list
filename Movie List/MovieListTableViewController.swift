@@ -37,7 +37,7 @@ extension MovieListTableViewController: UITableViewDataSource, UITableViewDelega
 	}
 
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell") as? MovieTableViewCell else { return UITableViewCell() }
+		guard let cell = tableView.dequeueReusableCell(withIdentifier: "movieCell") as? MovieTableViewCell else { return UITableViewCell() }
 
 		let movie = movies[indexPath.row]
 			cell.movie = movie
