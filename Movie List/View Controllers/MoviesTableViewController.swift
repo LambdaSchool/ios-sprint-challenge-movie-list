@@ -16,8 +16,6 @@ class MoviesTableViewController: UIViewController {
     // MARK: - Properties
     var movies: [Movie] = [Movie(title: "A New Hope"), Movie(title: "The Empire Strikes Back"), Movie(title: "Return of the Jedi")]
     
-    // MARK: - IBActions
-
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -105,7 +103,6 @@ extension MoviesTableViewController: MovieCellDelegate {
     func seenMovieButtonWasTapped(_ movieCell: MovieTableViewCell) {
         if let hasSeenMovie = movieCell.movie?.hasBeenSeen,
             let index = movieCell.indexPath?.row {
-            print("hasSeenMovie = \(hasSeenMovie); row index = \(index)")
             movies[index].hasBeenSeen = hasSeenMovie
         }
     }
