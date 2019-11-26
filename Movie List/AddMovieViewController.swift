@@ -33,19 +33,15 @@ class AddMovieViewController: UIViewController {
             
             !userText.isEmpty else { return }
             
-        var movie = Movie(title: title, seenOrNotSeen: seenOrNotSeen)
+        let movie = Movie(title: userText, seenOrNotSeen: false)
             
-            if let userTextField = userTextField.text,
-                !userTextField.isEmpty {
-                movie.init(title: userTextField).append(userTextField)
-            }
-            
-                
-                delegate?.movieWasAdded(movie)
+
+    delegate?.movieWasAdded(movie)
+    navigationController?.popViewController(animated: true)
             
         }
-    }
     
+}
     
     
 

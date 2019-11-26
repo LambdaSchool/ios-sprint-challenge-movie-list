@@ -10,7 +10,7 @@ import UIKit
 
 class NewMovieListTableViewController: UITableViewController {
     
-    var movie = Movie(title: "")
+    var movies: [Movie] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,46 +21,45 @@ class NewMovieListTableViewController: UITableViewController {
     // MARK: - IBOutlets
     @IBOutlet var nameOfMovieLabel: UILabel!
     
+
+
     
     // MARK: - IBActions
-    @IBAction func addButtonTapped(_ sender: Any) {
-    }
     
-    
-    @IBAction func seenOrUnseenButton(_ sender: Any) {
-        var seen: Bool
-        
-        if seen == true {
-            sender.seenOrUnseenButton.text = "Seen"
-        } else {
-            sender.seenOrUnseenButton.text = "Unseen"
-        }
+    @IBAction func seenOrUnseenButton(_ sender: UIButton) {
+       
     }
     
     // MARK: - Table view data source
     
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return movie.count
+
+        return movies.count
     }
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "newMovieTableViewCell", for: indexPath) as?
         newMovieTableViewCell else { return UITableViewCell() }
-        
-        let movie = Movie[indexPath.row]
+        let movie = movies[indexPath.row]
         cell.movie = movie
+        
+        return cell
     }
     
     // Configure the cell...
     
-    return cell
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+        movies.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
+    }
+    
+    
 }
 
 
