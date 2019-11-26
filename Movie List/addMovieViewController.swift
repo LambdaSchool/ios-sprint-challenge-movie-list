@@ -1,41 +1,30 @@
-//
+
 //  addMovieViewController.swift
 //  Movie List
-//
 //  Created by Osha Washington on 11/22/19.
 //  Copyright © 2019 Lambda School. All rights reserved.
-//
+
 
 import UIKit
 
-protocol AddMovieDelegate {
+protocol AddMovieDelegate: class {
     func movieWasCreated(_ movie: Movie)
 }
 
-class addMovieViewController: UIViewController {
+class AddMovieViewController: UIViewController {
     
-    @IBOutlet weak var movieTitleTextField: UITextField!
     
-    var delegate: AddMovieDelegate?
+    @IBOutlet var movieTextField: UITextField!
     
-    @IBAction func addMovieButtonTapped(_ sender: UIButton) {
-        guard let title = movieTitleTextField.text,
+    weak var delegate: AddMovieDelegate?
+    
+    @IBAction func addButtonTapped(_ sender: UIButton) {
+        guard let title = movieTextField.text,
             !title.isEmpty else { return }
         
-        var movie = Movie(movieName: title, seen: false)
+        let movie = Movie(movieName: title, seen: false)
         
         delegate?.movieWasCreated(movie)
+   navigationController?.popViewController(animated: true)
     }
-    
-}
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

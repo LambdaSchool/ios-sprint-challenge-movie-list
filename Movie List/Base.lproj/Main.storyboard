@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4ji-7q-Pk6">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -13,13 +13,13 @@
         <!--Movie List-->
         <scene sceneID="apM-mE-3Au">
             <objects>
-                <tableViewController id="10w-BC-xng" sceneMemberID="viewController">
+                <tableViewController id="10w-BC-xng" customClass="MovieTableViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="EZ7-jQ-om0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="fRh-B4-GsC" customClass="MovieTable">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieCell" id="fRh-B4-GsC" customClass="MovieTableViewCell" customModule="Movie_List" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fRh-B4-GsC" id="TZG-CE-g8t">
@@ -35,6 +35,9 @@
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M1n-ha-dpE">
                                             <rect key="frame" x="309" y="7.5" width="35" height="28.5"/>
                                             <state key="normal" title="Seen"/>
+                                            <connections>
+                                                <action selector="hasSeenButtonTapped:" destination="fRh-B4-GsC" eventType="touchUpInside" id="Gdx-dq-gdF"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <constraints>
@@ -47,7 +50,8 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="NewMovie" destination="Mth-K9-WLR" id="nUZ-Pj-glB"/>
+                                    <outlet property="hasSeenButton" destination="M1n-ha-dpE" id="xwh-UD-uPw"/>
+                                    <outlet property="movieTitleLabel" destination="Mth-K9-WLR" id="18Y-W6-sg4"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -59,7 +63,7 @@
                     <navigationItem key="navigationItem" title="Movie List" id="wN3-ec-aVe">
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="Hql-Jq-Ecr">
                             <connections>
-                                <segue destination="Lne-zA-9Ra" kind="show" id="JIt-2A-bSu"/>
+                                <segue destination="Lne-zA-9Ra" kind="show" identifier="AddMovieModalSegue" id="JIt-2A-bSu"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -68,10 +72,10 @@
             </objects>
             <point key="canvasLocation" x="-113" y="-251"/>
         </scene>
-        <!--View Controller-->
+        <!--Add Movie View Controller-->
         <scene sceneID="e3N-BH-WUv">
             <objects>
-                <viewController id="Lne-zA-9Ra" sceneMemberID="viewController">
+                <viewController id="Lne-zA-9Ra" customClass="AddMovieViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zRw-Af-0eC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -96,6 +100,7 @@
                                 <state key="normal" title="Add Movie"/>
                                 <connections>
                                     <action selector="AddButtonTapped:" destination="4WF-lI-LHf" eventType="touchUpInside" id="rbl-47-1Ht"/>
+                                    <action selector="addButtonTapped:" destination="Lne-zA-9Ra" eventType="touchUpInside" id="Inu-AG-4Dw"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -113,6 +118,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="sVC-wM-v3d"/>
                     </view>
+                    <connections>
+                        <outlet property="movieTextField" destination="Knq-Aw-jBv" id="JP7-0L-J5Y"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K4O-g3-JKm" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="4WF-lI-LHf" userLabel="Exit" sceneMemberID="exit"/>
