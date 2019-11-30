@@ -12,7 +12,21 @@ class MovieTableViewCell: UITableViewCell {
     @IBOutlet weak var movieTitleLabel: UILabel!
     @IBOutlet weak var toggleSeenButton: UIButton!
     
+    var movie: Movie? {
+        didSet {
+            updateViews()
+        }
+    }
+    
     
     @IBAction func toggleSeenButtonTapped(_ sender: UIButton) {
+    }
+    
+    private func updateViews() {
+        guard let movie = movie else { return }
+        movieTitleLabel.text = movie.name
+        let title: String!
+        title = movie.hasBeenSeen ? "Seen" : "Not Seen"
+        toggleSeenButton.setTitle(title, for: .normal)
     }
 }
