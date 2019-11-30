@@ -46,6 +46,7 @@ extension MovieListViewController: UITableViewDataSource {
         
         let movie = movies[indexPath.row]
         cell.movie = movie
+        cell.delegate = self
         return cell
     }
     
@@ -61,6 +62,13 @@ extension MovieListViewController: AddMovieDelegate {
         movies.append(movie)
         tableView.reloadData()
         navigationController?.popViewController(animated: true)
+    }
+}
+
+extension MovieListViewController: MovieStatusChangedDelegate {
+    func toggleStatusforMovie(_ movie: Movie) {
+        movie.hasBeenSeen.toggle()
+        tableView.reloadData()
     }
     
     

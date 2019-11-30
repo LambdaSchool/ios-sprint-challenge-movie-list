@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol MovieStatusChangedDelegate {
+    func toggleStatusforMovie(_ movie: Movie)
+}
+
 class MovieTableViewCell: UITableViewCell {
     @IBOutlet weak var movieTitleLabel: UILabel!
     @IBOutlet weak var toggleSeenButton: UIButton!
@@ -18,8 +22,12 @@ class MovieTableViewCell: UITableViewCell {
         }
     }
     
+    var delegate: MovieStatusChangedDelegate?
+    
     
     @IBAction func toggleSeenButtonTapped(_ sender: UIButton) {
+        guard let movie = movie else { return }
+        delegate?.toggleStatusforMovie(movie)
     }
     
     private func updateViews() {
