@@ -21,7 +21,7 @@ class AddMovieViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        movieTitleTextField.becomeFirstResponder()
     }
     
     @IBAction func addMovieButtonTapped(_ sender: UIButton) {
