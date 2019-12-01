@@ -33,6 +33,14 @@ class MovieListViewController: UIViewController {
             guard let destinationVC = segue.destination as? AddMovieViewController else { return }
             
             destinationVC.delegate = self
+        } else if segue.identifier == "EditMovieSegue" {
+            guard let destinationVC = segue.destination as? AddMovieViewController else { return }
+            
+            destinationVC.delegate = self
+            guard let indexPath = tableView.indexPathForSelectedRow else { return }
+            
+            let movie = movies[indexPath.row]
+            destinationVC.movie = movie
         }
     }
     
@@ -50,18 +58,15 @@ class MovieListViewController: UIViewController {
     }
     
     func saveMovieList() {
-      // 1
       let encoder = PropertyListEncoder()
-      // 2
+      
       do {
-        // 3
         let data = try encoder.encode(movies)
-        // 4
+        
         try data.write(to: dataFilePath(),
                   options: Data.WritingOptions.atomic)
-        // 5
       } catch {
-        // 6
+        
         print("Error encoding movie array: \(error.localizedDescription)")
       }
     }
@@ -111,11 +116,22 @@ extension MovieListViewController: UITableViewDelegate {
 }
 
 extension MovieListViewController: AddMovieDelegate {
+    
     func movieWasAdded(_ movie: Movie) {
         movies.append(movie)
         tableView.reloadData()
         saveMovieList()
         navigationController?.popViewController(animated: true)
+    }
+    
+    func movieWasEdited(_ movie: Movie) {
+        if let index = movies.index(of: movie) {
+            movies.remove(at: index)
+            movies.insert(movie, at: index)
+            saveMovieList()
+            tableView.reloadData()
+            navigationController?.popViewController(animated: true)
+        }
     }
 }
 
