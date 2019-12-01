@@ -18,6 +18,9 @@ class MovieListViewController: UIViewController {
 
         tableView.dataSource = self
         tableView.delegate = self
+        
+        // Load saved movies
+        loadMovieList()
     }
     
 
@@ -33,7 +36,51 @@ class MovieListViewController: UIViewController {
         }
     }
     
+    // MARK: Persistence
+    
+    func documentsDirectory() -> URL {
+      let paths = FileManager.default.urls(for: .documentDirectory,
+                                            in: .userDomainMask)
+      return paths[0]
+    }
 
+    func dataFilePath() -> URL {
+      return documentsDirectory().appendingPathComponent(
+                                      "Movie.plist")
+    }
+    
+    func saveMovieList() {
+      // 1
+      let encoder = PropertyListEncoder()
+      // 2
+      do {
+        // 3
+        let data = try encoder.encode(movies)
+        // 4
+        try data.write(to: dataFilePath(),
+                  options: Data.WritingOptions.atomic)
+        // 5
+      } catch {
+        // 6
+        print("Error encoding movie array: \(error.localizedDescription)")
+      }
+    }
+    
+    func loadMovieList() {
+      
+      let path = dataFilePath()
+      
+      if let data = try? Data(contentsOf: path) {
+        
+        let decoder = PropertyListDecoder()
+        do {
+          movies = try decoder.decode([Movie].self,
+                                     from: data)
+        } catch {
+          print("Error decoding movie array: \(error.localizedDescription)")
+        }
+      }
+    }
 }
 
 extension MovieListViewController: UITableViewDataSource {
@@ -54,6 +101,7 @@ extension MovieListViewController: UITableViewDataSource {
         if editingStyle == .delete {
             movies.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
+            saveMovieList()
         } 
     }
 }
@@ -66,6 +114,7 @@ extension MovieListViewController: AddMovieDelegate {
     func movieWasAdded(_ movie: Movie) {
         movies.append(movie)
         tableView.reloadData()
+        saveMovieList()
         navigationController?.popViewController(animated: true)
     }
 }
@@ -73,8 +122,7 @@ extension MovieListViewController: AddMovieDelegate {
 extension MovieListViewController: MovieStatusChangedDelegate {
     func toggleStatusforMovie(_ movie: Movie) {
         movie.hasBeenSeen.toggle()
+        saveMovieList()
         tableView.reloadData()
     }
-    
-    
 }

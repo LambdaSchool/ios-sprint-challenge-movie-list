@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Movie {
+class Movie: NSObject, Codable {
     var name: String
     var hasBeenSeen: Bool
     
