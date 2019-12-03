@@ -12,8 +12,9 @@ class MovieTableViewCell: UITableViewCell {
     
     @IBOutlet weak var movieLabel: UILabel!
     
+
     @IBAction func Seen(_ sender: Any) {
-        (sender as AnyObject).titleLabel?.text = "Seen"
+        (sender as AnyObject).setTitle("Seen", for: .normal)
     }
         
         var movie: Movie? {
