@@ -12,9 +12,16 @@ class MovieTableViewCell: UITableViewCell {
     
     @IBOutlet weak var movieLabel: UILabel!
     
-
-    @IBAction func Seen(_ sender: Any) {
-        (sender as AnyObject).setTitle("Seen", for: .normal)
+    @IBOutlet weak var SeenButton: UIButton!
+    var isSeen = true
+    
+    @IBAction func Seen(_ sender: UIButton) {
+        isSeen = !isSeen
+        if isSeen {
+        sender.setTitle("Seen", for: .normal)
+        } else {
+           sender.setTitle("Unseen", for: .normal)
+        }
     }
         
         var movie: Movie? {
