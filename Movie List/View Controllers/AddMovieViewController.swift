@@ -7,21 +7,23 @@
 import UIKit
 
 protocol AddMovieDelegate {
-    func movieWasCreated(_ movie: Movie)
+    
+    func movieWasAdded(_ movie: Movie)
 }
 
 class AddMovieViewController: UIViewController {
 
     @IBOutlet weak var movieNameTextField: UITextField!
     
+    var movie: Movie?
     
     var delegate: AddMovieDelegate?
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        movieNameTextField.delegate = self
-    }
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//
+//        movieNameTextField.delegate = self as? UITextFieldDelegate
+//    }
     
     @IBAction func cancelTapped(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
@@ -33,7 +35,8 @@ class AddMovieViewController: UIViewController {
         
         let movie = Movie(movieName: movieName)
         
-        delegate?.movieWasCreated(movie)
+        delegate?.movieWasAdded(movie)
+        dismiss(animated: true, completion: nil)
     }
 }
 

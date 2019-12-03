@@ -1,4 +1,10 @@
+
+//  Created by LaFleur on 11/16/19.
+//  Copyright © 2019 David Schwinne. All rights reserved.
+//
+
 import UIKit
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -8,3 +14,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 }
+
+

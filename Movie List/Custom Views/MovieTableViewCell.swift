@@ -8,40 +8,48 @@ import UIKit
 
 
 protocol ToggleSeenDelegate {
-    func isSeenButtonTapped(cell:MovieTableViewCell)
+    func isSeenButtonTapped(movie: Movie)
     
 }
 
 class MovieTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var movieNameLabel: UILabel!
+    
+    
+    @IBOutlet weak var movieName: UILabel!
     
     var delegate: ToggleSeenDelegate?
     
     var movie: Movie? {
         didSet {
-            updateViews()
+            self.updateViews()
         }
     }
     
     
+    @IBOutlet weak var seenButton: UIButton!
+    
     @IBAction func toggleIsSeen(_ sender: UIButton) {
         
-        delegate?.isSeenButtonTapped(cell: self)
+//        delegate?.isSeenButtonTapped(movie: self.movie)
         
-        if movie?.seen == true {
-            sender.setTitle("Seen", for: .normal)
-        } else {
-            sender.setTitle("Not Seen", for: .normal)
-        }
-    
+        movie?.toggleSeen()
+        
+        updateViews()
+
     }
     
 
     private func updateViews() {
         guard let movie = movie else { return }
         
-        movieNameLabel.text = movie.movieName
+        movieName.text = movie.movieName
+        
+       if movie.seen == true {
+               seenButton.setTitle("Seen", for: .normal)
+           } else {
+               seenButton.setTitle("Not Seen", for: .normal)
+           }
        
     }
 }
