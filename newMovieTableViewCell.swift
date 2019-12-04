@@ -14,7 +14,7 @@ class newMovieTableViewCell: UITableViewCell {
     
     var movie: Movie? {
         didSet {
-            updateView()
+            self.updateView()
         }
         
     }
@@ -22,7 +22,13 @@ class newMovieTableViewCell: UITableViewCell {
     
     @IBAction func seenOrUnseenButtonTapped(_ sender: UIButton) {
     if movie != nil {
-        movie!.seenOrNotSeen.toggle()
+        movie!.seenOrUnseen.toggle()
+        if movie?.seenOrUnseen == false {
+                    seenOrUnseenButtonTapped.setTitle("Unseen", for: .normal)
+                } else {
+                    seenOrUnseenButtonTapped.setTitle("Seen", for: .normal)
+            }
+
     }
     updateView()
 
@@ -31,11 +37,7 @@ class newMovieTableViewCell: UITableViewCell {
     private func updateView() {
         guard let movie = movie else { return }
             newMovieLabel.text = movie.title
-        if movie.seenOrNotSeen {
-            seenOrUnseenButtonTapped.setTitle("Seen", for: .normal)
-        } else {
-            seenOrUnseenButtonTapped.setTitle("Unseen", for: .normal)
-    }
+
 }
 
 }

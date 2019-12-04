@@ -13,10 +13,12 @@ protocol AddMovieDelegate {
     func movieWasAdded(_ movie: Movie)
 }
 
-var delegate: AddMovieDelegate?
+
 
 class AddMovieViewController: UIViewController {
 
+    var delegate: AddMovieDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -33,14 +35,13 @@ class AddMovieViewController: UIViewController {
             
             !userText.isEmpty else { return }
             
-        let movie = Movie(title: userText, seenOrNotSeen: false)
-            
+        let movie = Movie(title: userText, seenOrUnseen: false)
 
     delegate?.movieWasAdded(movie)
     navigationController?.popViewController(animated: true)
             
         }
-    
+
 }
     
     

@@ -11,24 +11,13 @@ import UIKit
 class NewMovieListTableViewController: UITableViewController {
     
     var movies: [Movie] = []
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.delegate = self
-        self.tableView.dataSource = self
+        tableView.reloadData()
     }
     
-    // MARK: - IBOutlets
-    @IBOutlet var nameOfMovieLabel: UILabel!
-    
 
-
-    
-    // MARK: - IBActions
-    
-    @IBAction func seenOrUnseenButton(_ sender: UIButton) {
-       
-    }
     
     // MARK: - Table view data source
     
@@ -45,6 +34,8 @@ class NewMovieListTableViewController: UITableViewController {
         newMovieTableViewCell else { return UITableViewCell() }
         let movie = movies[indexPath.row]
         cell.movie = movie
+        cell.newMovieLabel.text = movie.title
+        
         
         return cell
     }
@@ -59,9 +50,24 @@ class NewMovieListTableViewController: UITableViewController {
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     if segue.identifier == "addNewMovie" {
+        guard let addMovieVC = segue.destination as? AddMovieViewController else { return }
+            addMovieVC.delegate = self
+        }
+     }
+ }
+    
+
+
+
+extension NewMovieListTableViewController: AddMovieDelegate {
+    func movieWasAdded(_ movie: Movie) {
+        movies.append(movie)
+        tableView.reloadData()
+    }
     
 }
-
 
 /*
  // Override to support conditional editing of the table view.

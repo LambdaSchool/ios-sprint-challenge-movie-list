@@ -10,7 +10,7 @@ import Foundation
 
 struct Movie {
     var title: String
-    var seenOrNotSeen: Bool = false
+    var seenOrUnseen: Bool = false
     
     let movie: [Movie] = []
     
