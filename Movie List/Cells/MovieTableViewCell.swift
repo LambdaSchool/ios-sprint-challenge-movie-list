@@ -13,5 +13,20 @@ class MovieTableViewCell: UITableViewCell {
 
     @IBOutlet var movieTitleLabel: UILabel!
     
-    @IBOutlet var seenButtonTapped: UIButton!
+    @IBAction func seenButtonTapped(_ sender: UIButton) {
+        
+    }
+    
+    var movie: Movie? {
+        didSet {
+            self.updateViews()
+        }
+    }
+    
+    private func updateViews() {
+        guard let movie = movie else {return}
+        movieTitleLabel.text = movie.title
+        
+    }
 }
+

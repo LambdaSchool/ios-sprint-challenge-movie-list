@@ -14,8 +14,14 @@ class MovieViewController: UIViewController {
         super.viewDidLoad()
     }
     
-    @IBOutlet var tableView: MovieList!
+    @IBOutlet var tableView: MovieListTableView!
     
-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "AddMovieSegue" {
+            if let addMovieVC = segue.destination as? AddMovieViewController {
+                addMovieVC.delegate = MovieListTableView.self as? AddMovieDelegate
+            }
+        }
+    }
 
 }

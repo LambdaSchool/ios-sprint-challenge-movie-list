@@ -7,12 +7,21 @@
 //
 
 import UIKit
-
+protocol AddMovieDelegate {
+    func movieWasAdded(movie: Movie)
+}
 class AddMovieViewController: UIViewController {
+
+    var delegate: AddMovieDelegate?
+    
 
     @IBOutlet var movieTitleTextField: UITextField!
     
     @IBAction func addMovieButtonTapped(_ sender: UIButton) {
+        guard let movieTitle = movieTitleTextField.text,
+            !movieTitle.isEmpty else {return}
+        let movie = Movie(title: movieTitle)
+        delegate?.movieWasAdded(movie: movie)
     }
     
     override func viewDidLoad() {
