@@ -13,8 +13,10 @@ class MovieTableViewCell: UITableViewCell {
 
     @IBOutlet var movieTitleLabel: UILabel!
     
+    @IBOutlet var seenButton: UIButton!
+    
     @IBAction func seenButtonTapped(_ sender: UIButton) {
-        
+    
     }
     
     var movie: Movie? {

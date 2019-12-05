@@ -24,13 +24,13 @@ class MovieListTableView: UITableView, UITableViewDataSource, UITableViewDelegat
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as! MovieTableViewCell
         let movie = movies[indexPath.row]
-        cell.movie = movie
-//        movieCell.movieTitleLabel.text = movie.title
-//        if movie.seen {
-//            movieCell.seenButtonTapped.titleLabel?.text = "Seen"
-//        } else {
-//            movieCell.seenButtonTapped.titleLabel?.text = "Not Seen"
-//        }
+
+        cell.movieTitleLabel.text = movie.title
+        if movie.seen {
+            cell.seenButton.titleLabel?.text = "Seen"
+        } else {
+            cell.seenButton.titleLabel?.text = "Not Seen"
+        }
         return cell
     }
     
