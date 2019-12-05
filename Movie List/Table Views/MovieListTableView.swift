@@ -39,6 +39,7 @@ class MovieListTableView: UITableView, UITableViewDataSource, UITableViewDelegat
 extension MovieListTableView: AddMovieDelegate {
     func movieWasAdded(movie: Movie) {
         movies.append(movie)
+        
     }
     
     

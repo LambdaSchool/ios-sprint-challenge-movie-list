@@ -7,9 +7,11 @@
 //
 
 import UIKit
+
 protocol AddMovieDelegate {
     func movieWasAdded(movie: Movie)
 }
+
 class AddMovieViewController: UIViewController {
 
     var delegate: AddMovieDelegate?
@@ -22,6 +24,7 @@ class AddMovieViewController: UIViewController {
             !movieTitle.isEmpty else {return}
         let movie = Movie(title: movieTitle)
         delegate?.movieWasAdded(movie: movie)
+        navigationController?.popViewController(animated: true)
     }
     
     override func viewDidLoad() {
@@ -30,6 +33,5 @@ class AddMovieViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
 
 }
