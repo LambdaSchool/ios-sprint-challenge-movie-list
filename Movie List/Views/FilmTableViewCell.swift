@@ -8,23 +8,28 @@
 
 import UIKit
 
+protocol FilmTableViewCellDelegate: class {
+    func filmTableViewCellButtonTapped(_ cell: FilmTableViewCell)
+}
+
+
 class FilmTableViewCell: UITableViewCell {
 
+    weak var delegate: FilmTableViewCellDelegate?
+    
     // MARK: - IBOutlets
     @IBOutlet var movieNameLabel: UILabel!
     @IBOutlet var seenNotSeenButton: UIButton!
     
-    // Getter & Setter
-    var film: Movie? {
-        didSet {
-            self.updateViews()
-        }
+    // MARK: - IBActions
+    @IBAction func buttonTapped(_ sender: Any) {
+        delegate?.filmTableViewCellButtonTapped(self)
     }
     
-    private func updateViews() {
-        guard let film = film else { return }
+    override func prepareForReuse() {
+        super.prepareForReuse()
         
-        movieNameLabel.text = film.name
+        movieNameLabel.text = nil
+        seenNotSeenButton.setTitle(nil, for: .normal)
     }
-
 }
