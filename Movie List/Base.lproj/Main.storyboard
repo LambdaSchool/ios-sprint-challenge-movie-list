@@ -27,7 +27,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="257" translatesAutoresizingMaskIntoConstraints="NO" id="Ng1-fF-VTU">
+                                                <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="257" translatesAutoresizingMaskIntoConstraints="NO" id="Ng1-fF-VTU">
                                                     <rect key="frame" x="15" y="25" width="344.66666666666669" height="30"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IVv-Ez-qkM">
@@ -46,12 +46,6 @@
                                                     </subviews>
                                                 </stackView>
                                             </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="trailingMargin" secondItem="Ng1-fF-VTU" secondAttribute="trailing" constant="0.33000000000000002" id="5dK-SB-FRI"/>
-                                                <constraint firstItem="Ng1-fF-VTU" firstAttribute="leading" secondItem="oxh-CP-2MK" secondAttribute="leadingMargin" id="Ubm-96-HRZ"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="Ng1-fF-VTU" secondAttribute="bottom" constant="14" id="XFi-fE-7Gg"/>
-                                                <constraint firstItem="Ng1-fF-VTU" firstAttribute="top" secondItem="oxh-CP-2MK" secondAttribute="topMargin" constant="14" id="i46-YG-wfZ"/>
-                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="hasSeenButton" destination="AFq-Yu-TSt" id="0Wc-Ga-cik"/>
@@ -94,7 +88,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="EKj-yJ-gCm">
-                                <rect key="frame" x="20" y="148" width="335" height="134"/>
+                                <rect key="frame" x="20" y="148" width="335" height="184"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a new movie to the list" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cQi-su-bOS">
                                         <rect key="frame" x="0.0" y="0.0" width="335" height="30"/>
@@ -110,6 +104,16 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7gM-gk-65v">
                                         <rect key="frame" x="0.0" y="104" width="335" height="30"/>
                                         <state key="normal" title="Add movie"/>
+                                        <connections>
+                                            <action selector="addMovieButtonTapped:" destination="iPH-LD-XzI" eventType="touchUpInside" id="lc4-dV-QFK"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BTH-n3-klS">
+                                        <rect key="frame" x="0.0" y="154" width="335" height="30"/>
+                                        <state key="normal" title="Cancel"/>
+                                        <connections>
+                                            <action selector="cancelButtonTapped:" destination="iPH-LD-XzI" eventType="touchUpInside" id="FMg-I7-ZDx"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -123,6 +127,9 @@
                         <viewLayoutGuide key="safeArea" id="75Q-yu-2D4"/>
                     </view>
                     <navigationItem key="navigationItem" id="Wo9-6C-YoE"/>
+                    <connections>
+                        <outlet property="newMovieTextField" destination="cKH-8g-2gS" id="Hbr-xO-4fG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yKq-go-hRM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
