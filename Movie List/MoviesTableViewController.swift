@@ -11,6 +11,8 @@ import UIKit
 class MoviesTableViewController: UIViewController {
     
     var moviesArray: [Movie] = [Movie(name: "Saw", seen: true)]
+    
+    // segue called addMovieSegue
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,17 +35,17 @@ class MoviesTableViewController: UIViewController {
     */
 
 }
-
-extension MoviesTableViewController: UITableViewDataSource,  UITableViewDelegate {
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return moviesArray.count
-    }
-    
-    // what to put in each CUSTOM cell
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
-    }
-    
-    
-}
+//
+//extension MoviesTableViewController: UITableViewDataSource,  UITableViewDelegate {
+//    
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return moviesArray.count
+//    }
+//    
+//    // what to put in each CUSTOM cell
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        <#code#>
+//    }
+//    
+//    
+//}
