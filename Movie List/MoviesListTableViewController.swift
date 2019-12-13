@@ -2,7 +2,7 @@
 //  MoviesListTableViewController.swift
 //  Movie List
 //
-//  Created by Ufuk Türközü on 08.11.19.
+//  Created by Ufuk Türközü on 13.12.19.
 //  Copyright © 2019 Lambda School. All rights reserved.
 //
 
@@ -12,17 +12,16 @@ class MoviesListTableViewController: UITableViewController, AddMovieDelegate {
     
     func movieHasBeenSeen(cell: MovieTableViewCell) {
     
-        print("hello3")
-    
     }
     
+    let movieController = MovieController()
   
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableView.reloadData()
     }
     // Data Source:
-    let movieController = MovieController()
+    
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -56,7 +55,7 @@ class MoviesListTableViewController: UITableViewController, AddMovieDelegate {
         // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if segue.identifier == "AddMovie" {
+        if segue.identifier == "AddMovieSegue" {
             if let addMovieVC = segue.destination as? AddMovieViewController {
                 addMovieVC.movieController = movieController
             }
@@ -83,7 +82,7 @@ class MoviesListTableViewController: UITableViewController, AddMovieDelegate {
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        }
     }
     */
 
@@ -104,3 +103,4 @@ class MoviesListTableViewController: UITableViewController, AddMovieDelegate {
 
     
     
+

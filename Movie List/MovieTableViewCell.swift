@@ -1,8 +1,8 @@
 //
-//  MovieTableViewCell.swift
+//  MoviesTableViewCell.swift
 //  Movie List
 //
-//  Created by Ufuk Türközü on 08.11.19.
+//  Created by Ufuk Türközü on 13.12.19.
 //  Copyright © 2019 Lambda School. All rights reserved.
 //
 
@@ -28,7 +28,6 @@ class MovieTableViewCell: UITableViewCell {
         }
     }
     
-    var delegate: AddMovieDelegate?
     
     var moviesName: Movie? {
         didSet {

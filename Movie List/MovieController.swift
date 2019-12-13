@@ -2,7 +2,7 @@
 //  MovieController.swift
 //  Movie List
 //
-//  Created by Ufuk Türközü on 08.11.19.
+//  Created by Ufuk Türközü on 13.12.19.
 //  Copyright © 2019 Lambda School. All rights reserved.
 //
 
@@ -18,7 +18,4 @@ class MovieController {
         movies.append(movie)
         
     }
-
-    
-
 }
