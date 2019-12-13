@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol AddMovieDelegate {
+    func movieWasAdded(movie: Movie)
+}
+
 class AddMovieViewController: UIViewController {
     
     
@@ -16,11 +20,15 @@ class AddMovieViewController: UIViewController {
     @IBOutlet weak var addMovieButton: UIButton!
     
     @IBAction func addMovieButtonTapped(_ sender: Any) {
+        print("\(#function) was pressed")
     }
     
+    var delegate: AddMovieDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
 
         // Do any additional setup after loading the view.
     }
@@ -37,3 +45,5 @@ class AddMovieViewController: UIViewController {
     */
 
 }
+
+
