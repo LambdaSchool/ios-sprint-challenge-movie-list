@@ -9,10 +9,14 @@
 import UIKit
 
 class MovieTableViewController: UIViewController {
+    @IBOutlet weak var tableView: UITableView!
+    
+    var movie: [Movie] = [Movie(name: "Star Wars")]
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        tableView.delegate = self
+        tableView.dataSource = self
         // Do any additional setup after loading the view.
     }
     
@@ -27,4 +31,20 @@ class MovieTableViewController: UIViewController {
     }
     */
 
+}
+
+extension MovieTableViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return movie.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as? MovieTableViewCell else { fatalError("Unable to see MovieTableViewCell")}
+        
+        let mov = movie[indexPath.row]
+        cell.movie = mov
+        return cell
+    }
+    
+    
 }
