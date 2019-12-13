@@ -8,23 +8,34 @@
 
 import UIKit
 
-class AddMovieViewController: UIViewController {
+protocol AddMovieDelegate {
+    func addNewMovie(_ movie: Movie)
+}
 
+class AddMovieViewController: UIViewController {
+    
+    var delegate: AddMovieDelegate?
+    
+    @IBOutlet weak var titleTextField: UITextField!
+    
+    @IBAction func addNewMovieTapped(_ sender: Any) {
+        if let titleTextField = titleTextField.text,
+            !titleTextField.isEmpty {
+            let movie = Movie(name: titleTextField, hasBeenSeen: false)
+            
+            delegate?.addNewMovie(movie)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        titleTextField.delegate = self
     }
-    
+}
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+extension AddMovieViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
     }
-    */
-
 }
