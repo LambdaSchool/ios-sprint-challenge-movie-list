@@ -27,6 +27,8 @@ class AddMovieViewController: UIViewController {
         delegate?.movieWasAdded(movie: movie)
         
         dismiss(animated: true, completion: nil)
+        // go back to master VC ??
+        
         
         print("\(#function) was pressed")
     }
