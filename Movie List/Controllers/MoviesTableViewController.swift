@@ -29,6 +29,10 @@ class MoviesTableViewController: UIViewController {
             if let destinationVC = segue.destination as? AddMovieViewController {
                 destinationVC.delegate = self
             }
+        } else if segue.identifier == "EditMovieModalSegue" {
+            if let destinationVC = segue.destination as? EditMovieViewController {
+                destinationVC.delegate = self
+            }
         }
     }
 }
@@ -59,5 +63,15 @@ extension MoviesTableViewController: AddMovieDelegate {
     func addNewMovie(movie: Movie) {
         movies.append(movie)
         tableView.reloadData()
+    }
+}
+
+extension MoviesTableViewController: EditMovieTitleDelegate {
+    func editMovieTitle(_ movie: Movie) {
+        if let indexPath = tableView.indexPathForSelectedRow {
+            movies.remove(at: indexPath.row)
+            movies.insert(movie, at: indexPath.row)
+            tableView.reloadData()
+        }
     }
 }
