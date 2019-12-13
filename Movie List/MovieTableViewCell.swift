@@ -9,6 +9,15 @@
 import UIKit
 
 class MovieTableViewCell: UITableViewCell {
+    
+    @IBOutlet weak var nameLabel: UILabel!
+    
+    @IBOutlet weak var seenButton: UIButton!
+    
+    
+    @IBAction func seenButtonTapped(_ sender: Any) {
+    }
+    
 
     // identifier is called MovieTableViewCell
 

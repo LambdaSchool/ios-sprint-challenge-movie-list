@@ -9,10 +9,19 @@
 import UIKit
 
 class MoviesTableViewController: UIViewController {
+
+    
+    @IBOutlet weak var tableView: UITableView!
+    
+    
+    
+    
+    
     
     var moviesArray: [Movie] = [Movie(name: "Saw", seen: true)]
     
     // segue called addMovieSegue
+
 
     override func viewDidLoad() {
         super.viewDidLoad()

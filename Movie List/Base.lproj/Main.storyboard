@@ -22,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MovieTableViewCell" rowHeight="84" id="97H-RJ-88e">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MovieTableViewCell" rowHeight="84" id="97H-RJ-88e" customClass="MovieTableViewCell" customModule="Movie_List" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="84"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="97H-RJ-88e" id="EoG-n0-xor">
@@ -38,6 +38,9 @@
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2dH-z7-zTx">
                                                     <rect key="frame" x="294" y="27" width="46" height="30"/>
                                                     <state key="normal" title="Button"/>
+                                                    <connections>
+                                                        <action selector="seenButtonTapped:" destination="97H-RJ-88e" eventType="touchUpInside" id="x4F-MZ-VgN"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -48,6 +51,10 @@
                                                 <constraint firstItem="2dH-z7-zTx" firstAttribute="centerY" secondItem="EoG-n0-xor" secondAttribute="centerY" id="rC0-8A-UVq"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="nameLabel" destination="I3F-Hg-3ja" id="E73-VP-iwN"/>
+                                            <outlet property="seenButton" destination="2dH-z7-zTx" id="fNN-Ed-SUr"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -68,6 +75,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="C6K-71-wzR" id="UBn-eg-Ifq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S2H-6X-ihe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -99,6 +109,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="efn-KR-cZV">
                                         <rect key="frame" x="0.0" y="76" width="343" height="30"/>
                                         <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="addMovieButtonTapped:" destination="Cjf-3d-4gc" eventType="touchUpInside" id="nPu-vQ-iCu"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -111,6 +124,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gZw-9f-Jcu"/>
                     </view>
+                    <connections>
+                        <outlet property="addMovieButton" destination="efn-KR-cZV" id="kTQ-4h-4pt"/>
+                        <outlet property="movieTextField" destination="GcN-11-WCe" id="Piz-KC-VkD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qMv-Nl-Fgr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
