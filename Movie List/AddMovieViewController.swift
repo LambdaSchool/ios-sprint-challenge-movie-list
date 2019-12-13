@@ -16,10 +16,18 @@ class AddMovieViewController: UIViewController {
     
     
     @IBOutlet weak var movieTextField: UITextField!
-    
     @IBOutlet weak var addMovieButton: UIButton!
     
     @IBAction func addMovieButtonTapped(_ sender: Any) {
+        
+        guard let movieName = movieTextField.text, !movieName.isEmpty else {return}
+        
+        let movie = Movie(name: movieName, seen: false)
+        
+        delegate?.movieWasAdded(movie: movie)
+        
+        dismiss(animated: true, completion: nil)
+        
         print("\(#function) was pressed")
     }
     
@@ -28,7 +36,7 @@ class AddMovieViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        movieTextField.delegate = self
 
         // Do any additional setup after loading the view.
     }
@@ -44,6 +52,13 @@ class AddMovieViewController: UIViewController {
     }
     */
 
+}
+
+extension AddMovieViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
 }
 
 
