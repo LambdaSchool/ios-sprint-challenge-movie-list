@@ -9,7 +9,7 @@
 import UIKit
 
 protocol AddMovieDelegate {
-    func addNewMovie(_ movie: Movie)
+    func addNewMovie(movie: Movie)
 }
 
 class AddMovieViewController: UIViewController {
@@ -23,13 +23,14 @@ class AddMovieViewController: UIViewController {
             !titleTextField.isEmpty {
             let movie = Movie(name: titleTextField, hasBeenSeen: false)
             
-            delegate?.addNewMovie(movie)
+            delegate?.addNewMovie(movie: movie)
+            
+            navigationController?.popViewController(animated: true)
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         titleTextField.delegate = self
     }
 }
