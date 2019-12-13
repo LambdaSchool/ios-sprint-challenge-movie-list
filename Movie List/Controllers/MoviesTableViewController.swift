@@ -20,7 +20,7 @@ class MoviesTableViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
     }
-
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -44,6 +44,14 @@ extension MoviesTableViewController: UITableViewDelegate, UITableViewDataSource 
             cell.movie = movie
             
             return cell
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        if editingStyle == .delete {
+            movies.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
     }
 }
 
