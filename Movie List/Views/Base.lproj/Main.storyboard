@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rSq-zp-40e">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Movie List Controller-->
+        <scene sceneID="CGm-we-UiB">
+            <objects>
+                <viewController id="rSq-zp-40e" customClass="MovieListController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WNX-Wn-978">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2l1-Cb-Wya">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MovieCell" id="LtE-c3-5M4" customClass="MovieCell" customModule="Movie_List" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LtE-c3-5M4" id="wVN-mn-G0h">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="0v0-sD-AwJ">
+                                                    <rect key="frame" x="8" y="11.5" width="359" height="20.5"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zed-Nw-I45">
+                                                            <rect key="frame" x="0.0" y="0.0" width="95.5" height="20.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o4J-u6-f6a">
+                                                            <rect key="frame" x="268" y="0.0" width="91" height="20.5"/>
+                                                            <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="14"/>
+                                                            <state key="normal" title="Watched It" image="rectangle.badge.checkmark" catalog="system">
+                                                                <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            </state>
+                                                            <connections>
+                                                                <action selector="watchedBtnTapped:" destination="LtE-c3-5M4" eventType="touchUpInside" id="8dF-w2-ClX"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="0v0-sD-AwJ" firstAttribute="centerY" secondItem="wVN-mn-G0h" secondAttribute="centerY" id="NXN-wg-KPq"/>
+                                                <constraint firstAttribute="trailing" secondItem="0v0-sD-AwJ" secondAttribute="trailing" constant="8" id="Urs-Va-zj7"/>
+                                                <constraint firstItem="0v0-sD-AwJ" firstAttribute="leading" secondItem="wVN-mn-G0h" secondAttribute="leading" constant="8" id="h5S-0H-jK8"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="nameLbl" destination="0v0-sD-AwJ" id="WKZ-d7-v6k"/>
+                                            <outlet property="watchedMovieBtn" destination="o4J-u6-f6a" id="crx-gy-QYY"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="2l1-Cb-Wya" firstAttribute="top" secondItem="WUW-gt-O7g" secondAttribute="top" id="0jA-ZA-u0m"/>
+                            <constraint firstItem="WUW-gt-O7g" firstAttribute="bottom" secondItem="2l1-Cb-Wya" secondAttribute="bottom" id="CGk-dT-hdR"/>
+                            <constraint firstItem="2l1-Cb-Wya" firstAttribute="leading" secondItem="WUW-gt-O7g" secondAttribute="leading" id="UXB-p1-IVi"/>
+                            <constraint firstItem="WUW-gt-O7g" firstAttribute="trailing" secondItem="2l1-Cb-Wya" secondAttribute="trailing" id="mQz-Fi-q3v"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="WUW-gt-O7g"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="2l1-Cb-Wya" id="h7H-7e-BpI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AcN-b6-wI0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="138" y="129"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="rectangle.badge.checkmark" catalog="system" width="64" height="44"/>
+    </resources>
+</document>
