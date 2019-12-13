@@ -28,16 +28,6 @@ class AddMovieVC: UIViewController {
     @IBAction func cancelBtnWasTapped(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
     }
-    
-    
-    //delegate.movieWasAdded(movie)
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        //TODO: disable button (if implementing TextFieldDelegate
-        // Do any additional setup after loading the view.
-    }
-
 }
 
 extension AddMovieVC: UITextFieldDelegate {

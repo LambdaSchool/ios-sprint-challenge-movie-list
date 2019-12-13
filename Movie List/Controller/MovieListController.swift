@@ -18,8 +18,8 @@ class MovieListController: UIViewController {
         //MARK: Set Delegates
         tableView.delegate = self
         tableView.dataSource = self
-        
-        movies = [Movie(name: "Test Movie")]
+        self.movies = FileOps.loadMovies()
+        tableView.reloadData()
         // Do any additional setup after loading the view.
     }
     
@@ -48,10 +48,12 @@ extension MovieListController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
+    //MARK: delete rows
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let contextItem = UIContextualAction(style: .destructive, title: "Stop Tracking") {  (contextualAction, view, boolValue) in
             //tableView.deleteRows(at: [indexPath], with: .fade) //crash (I was trying to get a fade animation with the deletion, but the deletion must be handled in .destructive - hence I was trying to delete a row that didn't exist
             self.movies?.remove(at: indexPath.row)
+            FileOps.saveMovies(movies: self.movies)
             tableView.reloadData()
         }
         let swipeActions = UISwipeActionsConfiguration(actions: [contextItem])
@@ -71,6 +73,7 @@ extension MovieListController: AddMovieDelegate {
         } else {
             self.movies = [movie]
         }
+        FileOps.saveMovies(movies: self.movies)
         self.tableView.reloadData()
     }
 }
