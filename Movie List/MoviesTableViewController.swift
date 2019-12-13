@@ -24,7 +24,7 @@ class MoviesTableViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Add later
+        
         tableView.delegate = self
         tableView.dataSource = self
         // Do any additional setup after loading the view.
@@ -37,13 +37,6 @@ class MoviesTableViewController: UIViewController {
             guard let addMovieVC = segue.destination as? AddMovieViewController else {return}
             addMovieVC.delegate = self
         }
-        
-//        if segue.identifier == "AddFriendModalSegue" {
-//            guard let addFriendVC = segue.destination as? AddFriendViewController else {return}
-//            // sets up the TVC as the delegate or employee of the add friend view controller
-//            addFriendVC.delegate = self
-//        }
-        
         
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
@@ -67,13 +60,6 @@ extension MoviesTableViewController: UITableViewDataSource,  UITableViewDelegate
         return cell
     }
     
-    
-//    guard let cell = tableView.dequeueReusableCell(withIdentifier: "FriendCell", for: indexPath) as? FriendTableViewCell else {fatalError("well shit")}
-//
-//    let friend = friends[indexPath.row]
-//    cell.friend = friend // this would trigger didSet so we dont need to call cell.updateViews()
-//    // cell.updateViews() if we didn't have didSet
-//    return cell
     
     
 }
