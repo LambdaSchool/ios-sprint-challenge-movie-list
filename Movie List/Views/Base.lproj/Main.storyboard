@@ -90,17 +90,79 @@
         <!--Add A Movie-->
         <scene sceneID="CrI-yM-GwI">
             <objects>
-                <viewController title="Add A Movie" id="ZQo-ZW-Yva" sceneMemberID="viewController">
+                <viewController title="Add A Movie" id="ZQo-ZW-Yva" customClass="AddMovieVC" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ofV-h2-Mla">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TQ8-WA-zq7">
+                                <rect key="frame" x="16" y="16" width="343" height="213.5"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Movie Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8pJ-uE-rEp">
+                                        <rect key="frame" x="8" y="48" width="327" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter a Movie Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TIT-QR-PIf">
+                                        <rect key="frame" x="8" y="19" width="138" height="18"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                        <color key="textColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lGp-35-3Bb">
+                                        <rect key="frame" x="112" y="118" width="119" height="30"/>
+                                        <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="Add It To My List!">
+                                            <color key="titleColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="saveBtnWasTapped:" destination="ZQo-ZW-Yva" eventType="touchUpInside" id="Lxt-6V-gxB"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UTF-Bz-vqY">
+                                        <rect key="frame" x="8" y="186.5" width="48" height="19"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="19" id="tMh-E3-Lop"/>
+                                        </constraints>
+                                        <state key="normal" title="Cancel"/>
+                                        <connections>
+                                            <action selector="cancelBtnWasTapped:" destination="ZQo-ZW-Yva" eventType="touchUpInside" id="8zW-Ky-fSa"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <constraints>
+                                    <constraint firstItem="lGp-35-3Bb" firstAttribute="centerX" secondItem="TQ8-WA-zq7" secondAttribute="centerX" id="Bqy-8t-iL7"/>
+                                    <constraint firstAttribute="trailing" secondItem="8pJ-uE-rEp" secondAttribute="trailing" constant="8" id="GVy-Gr-zMw"/>
+                                    <constraint firstItem="lGp-35-3Bb" firstAttribute="top" secondItem="8pJ-uE-rEp" secondAttribute="bottom" constant="36" id="JmP-kh-Epd"/>
+                                    <constraint firstItem="TIT-QR-PIf" firstAttribute="leading" secondItem="TQ8-WA-zq7" secondAttribute="leading" constant="8" id="MQE-bH-6ZB"/>
+                                    <constraint firstItem="8pJ-uE-rEp" firstAttribute="leading" secondItem="TQ8-WA-zq7" secondAttribute="leading" constant="8" id="QLk-rt-kBd"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="TIT-QR-PIf" secondAttribute="trailing" constant="8" id="Sa0-Oe-Y6c"/>
+                                    <constraint firstAttribute="bottom" secondItem="UTF-Bz-vqY" secondAttribute="bottom" constant="8" id="VNI-Im-qsa"/>
+                                    <constraint firstItem="TIT-QR-PIf" firstAttribute="top" secondItem="TQ8-WA-zq7" secondAttribute="top" constant="19" id="Z4q-0G-cd0"/>
+                                    <constraint firstItem="UTF-Bz-vqY" firstAttribute="leading" secondItem="TQ8-WA-zq7" secondAttribute="leading" constant="8" id="g0w-0p-9wY"/>
+                                    <constraint firstItem="8pJ-uE-rEp" firstAttribute="top" secondItem="TIT-QR-PIf" secondAttribute="bottom" constant="11" id="sbh-W0-mxS"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="TQ8-WA-zq7" firstAttribute="height" secondItem="ofV-h2-Mla" secondAttribute="height" multiplier="0.33" id="1M8-IB-7Ul"/>
+                            <constraint firstItem="c0e-bJ-KV8" firstAttribute="trailing" secondItem="TQ8-WA-zq7" secondAttribute="trailing" constant="16" id="96e-ks-287"/>
+                            <constraint firstItem="TQ8-WA-zq7" firstAttribute="top" secondItem="c0e-bJ-KV8" secondAttribute="top" constant="16" id="d5S-We-wxV"/>
+                            <constraint firstItem="TQ8-WA-zq7" firstAttribute="leading" secondItem="c0e-bJ-KV8" secondAttribute="leading" constant="16" id="zP1-fr-uGl"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="c0e-bJ-KV8"/>
                     </view>
+                    <connections>
+                        <outlet property="nameField" destination="8pJ-uE-rEp" id="MTf-bX-T8Q"/>
+                        <outlet property="saveBtnOut" destination="lGp-35-3Bb" id="qZr-4V-ZRj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b9s-e9-HIE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1076" y="-560"/>
+            <point key="canvasLocation" x="1076" y="-560.86956521739137"/>
         </scene>
         <!--Movie Detail Controller-->
         <scene sceneID="JoU-Ko-8GL">

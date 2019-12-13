@@ -12,7 +12,7 @@
 
 
 struct Movie {
-    let name: String
+    let name: String?
     var didWatch: Bool = false
     var isSet: Bool = false
 }
