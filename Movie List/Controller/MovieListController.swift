@@ -15,8 +15,10 @@ class MovieListController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //MARK: Set Delegates
         tableView.delegate = self
         tableView.dataSource = self
+        
         movies = [Movie(name: "Test Movie")]
         // Do any additional setup after loading the view.
     }
@@ -31,7 +33,8 @@ class MovieListController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    //MARK: Helper Methods:
+    
 }
 
 extension MovieListController: UITableViewDelegate, UITableViewDataSource {
@@ -43,7 +46,18 @@ extension MovieListController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell") as? MovieCell else {
             fatalError("MovieCell Not Found!")
         }
-        cell.configureCell()
+        cell.movie = movies?[indexPath.row]
         return cell
+    }
+}
+
+extension MovieListController: AddMovieDelegate {
+    func movieWasAdded(_ movie: Movie) {
+        if self.movies != nil {
+            self.movies!.append(movie)
+        } else {
+            self.movies = [movie]
+        }
+        self.tableView.reloadData()
     }
 }
