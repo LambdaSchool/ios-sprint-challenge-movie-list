@@ -16,7 +16,10 @@ class MovieListTableViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        tableView.delegate = self
+        tableView.dataSource = self
+        
         // Do any additional setup after loading the view.
     }
     
@@ -33,7 +36,7 @@ class MovieListTableViewController: UIViewController {
 
 }
 
-extension MovieListTableViewController: UITableViewDataSource {
+extension MovieListTableViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return movies.count
     }
@@ -54,7 +57,7 @@ extension MovieListTableViewController: UITableViewDataSource {
 extension MovieListTableViewController: AddMovieDelegate {
     func movieWasAdded(movie: Movie) {
         movies.append(movie)
-        dismiss(animated: false, completion: nil)
+//        dismiss(animated: true, completion: nil)
         tableView.reloadData()
     }
 }

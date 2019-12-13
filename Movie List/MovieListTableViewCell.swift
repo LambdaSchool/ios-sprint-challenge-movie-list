@@ -11,12 +11,16 @@ import UIKit
 class MovieListTableViewCell: UITableViewCell {
 
     @IBOutlet weak var movieNameLabel: UILabel!
-    
     @IBOutlet weak var hasSeenButton: UIButton!
-    @IBAction func hasSeenButtonTapped(_ sender: Any) {
+    
+    
+    
+    
+    @IBAction func hasSeenTapped(_ sender: Any) {
         movieTitle?.hasSeen.toggle()
         updateViews()
     }
+    
     
     var movieTitle: Movie? {
         didSet {
@@ -25,12 +29,14 @@ class MovieListTableViewCell: UITableViewCell {
     }
     
     func updateViews() {
-        if let unwrappedMovieTitle = movieTitle {
-            movieNameLabel.text = unwrappedMovieTitle.movieName
-            if unwrappedMovie.hasSeen == true {
-                hasSeenButton.setTitle("Seen", for: .normal)
-            } else {
+        
+        if let movieTitle = movieTitle {
+            movieNameLabel.text = "\(movieTitle.movieName)"
+            
+            if movieTitle.hasSeen == false {
                 hasSeenButton.setTitle("Not Seen", for: .normal)
+            } else {
+                hasSeenButton.setTitle("Seen", for: .normal)
             }
         }
     }

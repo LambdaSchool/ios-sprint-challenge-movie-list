@@ -25,21 +25,20 @@ class AddMovieViewController: UIViewController {
 
         addMovieTextField.delegate = self
         
+        
         // Do any additional setup after loading the view.
     }
     
-    @IBAction func addMovieTapped(_ sender: Any) {
-        if let name = addMovieTextField.text, !name.isEmpty {
-            var movies = Movie(movieName: [], hasSeen: false)
-            movies.movieName.append(name)
-            
-            delegate?.movieWasAdded(movie: movies)
-        
+    @IBAction func addAMovieTapped(_ sender: Any) {
+        if let movieName = addMovieTextField.text,
+                !movieName.isEmpty {
+                let movie = Movie(movie: movieName)
+                
+                delegate?.movieWasAdded(movie: movie)
+                navigationController?.popViewController(animated: true)
         }
-        
-            
-            
-}
+    }
+
         
     
     /*

@@ -21,7 +21,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="70" id="bOM-pG-alR" customClass="MovieCell">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieCell" rowHeight="70" id="bOM-pG-alR" customClass="MovieListTableViewCell" customModule="Movie_List" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bOM-pG-alR" id="B1w-rD-dBa">
@@ -34,25 +34,26 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QlM-cK-N7Y">
-                                                    <rect key="frame" x="330" y="19" width="64" height="32"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wab-iU-Npu">
+                                                    <rect key="frame" x="326" y="19" width="64" height="32"/>
                                                     <state key="normal" title="Not Seen"/>
                                                     <connections>
-                                                        <action selector="hasSeenButtonTapped:" destination="bOM-pG-alR" eventType="touchUpInside" id="hKe-Ch-VHZ"/>
+                                                        <action selector="hasSeenTapped:" destination="bOM-pG-alR" eventType="touchUpInside" id="YR7-Hb-Z8M"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="QlM-cK-N7Y" firstAttribute="top" secondItem="B1w-rD-dBa" secondAttribute="topMargin" constant="8" id="Bgc-RO-ASU"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="Fdx-cL-9YM" secondAttribute="bottom" constant="8" id="Lkg-Im-Y6Y"/>
-                                                <constraint firstItem="Fdx-cL-9YM" firstAttribute="leading" secondItem="B1w-rD-dBa" secondAttribute="leadingMargin" constant="20" id="Pym-FG-IC9"/>
-                                                <constraint firstItem="Fdx-cL-9YM" firstAttribute="top" secondItem="B1w-rD-dBa" secondAttribute="topMargin" constant="8" id="XZq-zg-SX4"/>
-                                                <constraint firstItem="QlM-cK-N7Y" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Fdx-cL-9YM" secondAttribute="trailing" constant="8" id="dcV-5w-oPe"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="QlM-cK-N7Y" secondAttribute="bottom" constant="8" id="fYI-Qj-ltc"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Fdx-cL-9YM" secondAttribute="bottom" constant="8" id="2pO-fr-rni"/>
+                                                <constraint firstItem="Wab-iU-Npu" firstAttribute="leading" secondItem="B1w-rD-dBa" secondAttribute="leadingMargin" constant="310" id="HR5-PR-eXs"/>
+                                                <constraint firstItem="Wab-iU-Npu" firstAttribute="top" secondItem="B1w-rD-dBa" secondAttribute="topMargin" constant="8" id="I5j-XD-5dN"/>
+                                                <constraint firstItem="Wab-iU-Npu" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Fdx-cL-9YM" secondAttribute="trailing" constant="8" id="KPM-5Y-Fhs"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Wab-iU-Npu" secondAttribute="bottom" constant="8" id="ZNe-1f-GnK"/>
+                                                <constraint firstItem="Fdx-cL-9YM" firstAttribute="leading" secondItem="B1w-rD-dBa" secondAttribute="leadingMargin" constant="20" id="hEa-Qx-uVB"/>
+                                                <constraint firstItem="Fdx-cL-9YM" firstAttribute="top" secondItem="B1w-rD-dBa" secondAttribute="topMargin" constant="8" id="yRc-Cy-4Dw"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="hasSeenButton" destination="QlM-cK-N7Y" id="cF4-sw-CrQ"/>
+                                            <outlet property="hasSeenButton" destination="Wab-iU-Npu" id="EVI-OQ-67E"/>
                                             <outlet property="movieNameLabel" destination="Fdx-cL-9YM" id="KSr-Kw-Bdv"/>
                                         </connections>
                                     </tableViewCell>
@@ -103,7 +104,7 @@
                                 <rect key="frame" x="170.66666666666666" y="238" width="73" height="30"/>
                                 <state key="normal" title="Add Movie"/>
                                 <connections>
-                                    <action selector="addMovieTapped:" destination="2vg-hk-MO9" eventType="touchUpInside" id="FeW-Xr-4oU"/>
+                                    <action selector="addAMovieTapped:" destination="2vg-hk-MO9" eventType="touchUpInside" id="m99-Cc-fZq"/>
                                 </connections>
                             </button>
                         </subviews>
