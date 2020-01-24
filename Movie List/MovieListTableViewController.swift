@@ -19,9 +19,14 @@ class MovieListTableViewController: UITableViewController, AddMovieDelegate {
  
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
+    
     func movieWasAdded(_ movie: Movie) {
         movies.append(movie)
-        tableView.reloadData()
+        
         
        }
 
