@@ -27,8 +27,11 @@ class AddMovieViewController: UIViewController {
     
     @IBAction func addMovieTapped(_ sender: Any) {
         
-        guard let movie = addMovieTextField.text else { return }
+        guard let movieName = addMovieTextField.text else { return }
         
+        let movie = Movie(name: movieName)
+        
+        delegate?.movieWasAdded(movie: movie)
     }
     
     /*

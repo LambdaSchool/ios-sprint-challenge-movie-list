@@ -19,25 +19,27 @@ class MovieListViewController: UIViewController, MovieAddedDelegate {
     
     func movieWasAdded(movie: Movie) {
         moviesOnList.append(movie)
+        
+//        tableView.reloadData()
     }
     
    
-    
-//    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+////    override
+//     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 //
 //        return moviesOnList.count
 //    }
-    
-//     override
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as? MovieNotSeenTableViewCell else { return UITableViewCell() }
-        
-        let movie = moviesOnList[indexPath.row]
-        
-        cell.movieOnList.text = movie.name
-
-        return cell
-    }
+//
+////     override
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as? MovieNotSeenTableViewCell else { return UITableViewCell() }
+//
+//        let movie = moviesOnList[indexPath.row]
+//
+//        cell.movieOnList.text = movie.name
+//
+//        return cell
+//    }
     
     // MARK: - Navigation
 
