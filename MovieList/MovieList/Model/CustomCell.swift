@@ -8,13 +8,19 @@
 
 import UIKit
 
+protocol CellButtonDelegate {
+    func didTapButton(for button: UIButton)
+}
+
 class CustomCell: UITableViewCell {
 
     @IBAction func cellButtonTapped(_ sender: UIButton) {
-        print("Hello")
+        delegate?.didTapButton(for: cellButton)
     }
     
     @IBOutlet weak var cellButton: UIButton!
+    
+    var delegate: CellButtonDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
