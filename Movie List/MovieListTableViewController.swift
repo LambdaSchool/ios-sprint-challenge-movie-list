@@ -9,9 +9,7 @@
 import UIKit
 
 class MovieListTableViewController: UITableViewController, AddMovieDelegate {
-    func movieWasAdded(_ movie: Movie) {
-        movies.append(movie)
-    }
+    
     
 
     var movies: [Movie] = []
@@ -21,34 +19,31 @@ class MovieListTableViewController: UITableViewController, AddMovieDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
-    // MARK: - Table view data source
-
-
+    func movieWasAdded(_ movie: Movie) {
+           movies.append(movie)
+    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return movies.count
     }
-   // In a storyboard-based application, you will often want to do a little preparation before navigation
+        
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+              guard let cell = tableView.dequeueReusableCell(withIdentifier: "movieTitleCell", for: indexPath) as? MovieTableViewCell else { return UITableViewCell()}
+
+              let movieTitle = movies[indexPath.row]
+        cell.movieTitleLabel.text = movieTitle.movieTitle
+        
+        return cell
+    
+}
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
         if segue.identifier == "AddMovieModalSegue"{
-                   //we knw we are going to the AddFriendViewController
                    guard let addMovieVC = segue.destination as? AddMovieViewController else { return }
                    
                    addMovieVC.delegate = self
     }
         
-}
-    @IBAction func seenButtonToggle(_ sender: Any) {
-        
-    }
-    
+}    
 }

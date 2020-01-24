@@ -13,8 +13,6 @@ protocol AddMovieDelegate {
 }
 
 class AddMovieViewController: UIViewController {
-
-
     @IBOutlet weak var addMovieTextField: UITextField!
     
     var delegate: AddMovieDelegate?
@@ -36,6 +34,8 @@ class AddMovieViewController: UIViewController {
         let movie = Movie(movieTitle: movieTitle)
         
         delegate?.movieWasAdded(movie)
+        
+    
 }
 }
 
