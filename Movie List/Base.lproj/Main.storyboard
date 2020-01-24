@@ -60,6 +60,7 @@
                                         <connections>
                                             <outlet property="movieNameLabel" destination="9Wl-yr-Fvj" id="N7g-cn-QRq"/>
                                             <outlet property="seenButton" destination="3Bc-ha-WMY" id="4e2-AE-L5l"/>
+                                            <segue destination="k4j-DX-pCl" kind="show" identifier="ShowEditViewSegue" id="PSE-U7-NSR"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -89,6 +90,55 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6fj-7v-ecz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="694.20289855072474" y="-145.3125"/>
+        </scene>
+        <!--Edit Movie View Controller-->
+        <scene sceneID="m4k-u2-fd9">
+            <objects>
+                <viewController id="k4j-DX-pCl" customClass="EditMovieViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="uEo-BF-HOS">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="19" translatesAutoresizingMaskIntoConstraints="NO" id="KaT-be-qZh">
+                                <rect key="frame" x="20" y="128" width="374" height="143"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Edit Movie" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="urT-d7-CbH">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="41"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jaq-fb-EZd">
+                                        <rect key="frame" x="0.0" y="60" width="374" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="swZ-2n-7O2">
+                                        <rect key="frame" x="0.0" y="113" width="374" height="30"/>
+                                        <state key="normal" title="Save"/>
+                                        <connections>
+                                            <action selector="saveTapped:" destination="k4j-DX-pCl" eventType="touchUpInside" id="4xL-gG-efM"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="KaT-be-qZh" firstAttribute="top" secondItem="Y4C-KV-ymO" secondAttribute="top" constant="40" id="2U9-lJ-xGg"/>
+                            <constraint firstItem="Y4C-KV-ymO" firstAttribute="trailing" secondItem="KaT-be-qZh" secondAttribute="trailing" constant="20" id="Cct-u1-ZLr"/>
+                            <constraint firstItem="KaT-be-qZh" firstAttribute="leading" secondItem="Y4C-KV-ymO" secondAttribute="leading" constant="20" id="g6w-b0-wtB"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Y4C-KV-ymO"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="F3f-b6-uPv"/>
+                    <connections>
+                        <outlet property="movieNameTextField" destination="jaq-fb-EZd" id="Dio-qB-Ehl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JvB-fG-pe6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1464" y="233"/>
         </scene>
         <!--Add Movie View Controller-->
         <scene sceneID="lqn-kk-3dv">
@@ -136,7 +186,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="waD-fX-GUe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1516" y="-145"/>
+            <point key="canvasLocation" x="1465" y="-546"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ZFZ-Kp-3bu">

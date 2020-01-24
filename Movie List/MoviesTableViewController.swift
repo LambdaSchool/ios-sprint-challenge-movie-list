@@ -23,6 +23,15 @@ class MoviesTableViewController: UIViewController {
             if let addMovieVC = segue.destination as? AddMovieViewController {
                 addMovieVC.delegate = self
             }
+        } else if segue.identifier == "ShowEditViewSegue" {
+            if let selectedIndex = tableView.indexPathForSelectedRow {
+                if let editVC = segue.destination as? EditMovieViewController {
+                    editVC.index = selectedIndex.row
+                    editVC.movie = movies[selectedIndex.row]
+                    editVC.delegate = self
+                }
+            }
+            
         }
     }
     
@@ -57,5 +66,14 @@ extension MoviesTableViewController: AddMovieDelegate {
     func movieWasAdded(_ movie: Movie) {
         movies.append(movie)
         tableView.reloadData()
+    }
+}
+
+extension MoviesTableViewController: EditMovieDelegate {
+    func movieWasEdited(_ movie: Movie, at index: Int) {
+        movies.remove(at: index)
+        movies.insert(movie, at: index)
+        tableView.reloadData()
+        
     }
 }

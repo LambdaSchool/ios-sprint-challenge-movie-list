@@ -15,6 +15,6 @@ enum Seen {
 }
 
 struct Movie {
-    let name: String
+    var name: String
     var wasSeen: Bool = false
 }
