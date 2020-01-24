@@ -36,6 +36,9 @@
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rgK-NR-0vf">
                                                     <rect key="frame" x="314" y="7" width="53" height="30"/>
                                                     <state key="normal" title="Unseen"/>
+                                                    <connections>
+                                                        <action selector="SeenToggleButton:" destination="DFp-rT-vml" eventType="touchUpInside" id="GRW-Pe-fQ2"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -47,6 +50,9 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="A6O-zQ-Dp4" id="MzE-e7-8xV"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -61,12 +67,14 @@
                     <navigationItem key="navigationItem" title="Movie List" id="rUW-dB-dZG">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="xUh-md-px8">
                             <connections>
-                                <segue destination="7Z4-7K-iRj" kind="show" id="TN2-8f-zlC"/>
+                                <action selector="AddMovieButton:" destination="DFp-rT-vml" id="74h-N0-qgf"/>
+                                <segue destination="7Z4-7K-iRj" kind="show" identifier="AddNewMovieSegue" id="TN2-8f-zlC"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gHR-2p-6yg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="DFp-rT-vml" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="988" y="126.38680659670166"/>
         </scene>
@@ -88,10 +96,16 @@
                                 <rect key="frame" x="20" y="145" width="335" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="AddMovieTextField:" destination="fpv-Qq-aOw" eventType="editingDidEnd" id="leD-Ch-22O"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v3D-kV-DYs">
                                 <rect key="frame" x="164.5" y="229" width="46" height="30"/>
                                 <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="SaveButton:" destination="fpv-Qq-aOw" eventType="touchUpInside" id="wI2-xF-uK4"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -110,6 +124,7 @@
                     <navigationItem key="navigationItem" id="HnU-ZH-8is"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zxo-m3-Mkl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="fpv-Qq-aOw" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1772" y="118"/>
         </scene>
