@@ -63,6 +63,7 @@
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="Z3G-0o-zYH"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="movieTableView" destination="ikv-JW-uSF" id="Euf-RO-2n6"/>
                         <segue destination="cnR-rA-IR3" kind="presentation" identifier="AddMovieModalSegue" id="UDf-Om-zK0"/>
                     </connections>
                 </viewController>
@@ -93,9 +94,17 @@
                                 <rect key="frame" x="0.0" y="575" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
-                                    <barButtonItem systemItem="cancel" id="aHD-xt-cJQ"/>
+                                    <barButtonItem systemItem="cancel" id="aHD-xt-cJQ">
+                                        <connections>
+                                            <action selector="addMovieCancelButton:" destination="cnR-rA-IR3" id="BVc-qq-IWw"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem systemItem="flexibleSpace" id="oAd-gB-6YG"/>
-                                    <barButtonItem systemItem="save" id="9dq-lU-XWP"/>
+                                    <barButtonItem systemItem="save" id="9dq-lU-XWP">
+                                        <connections>
+                                            <action selector="addMovieSaveButton:" destination="cnR-rA-IR3" id="jkV-JJ-FAW"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                         </subviews>
@@ -109,6 +118,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="LQ9-uT-AG9"/>
                     </view>
+                    <connections>
+                        <outlet property="addMovieTextField" destination="yiB-cp-Y1s" id="F4f-1n-obJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iIt-tx-Ori" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
