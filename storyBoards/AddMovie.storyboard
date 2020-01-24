@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8md-MQ-seF">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Add Movie View Controller-->
+        <scene sceneID="wIo-uh-s3H">
+            <objects>
+                <viewController id="8md-MQ-seF" customClass="AddMovieViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xE0-NK-XES">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="deadpool" translatesAutoresizingMaskIntoConstraints="NO" id="TWE-Op-QrE">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <textField opaque="NO" alpha="0.75" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter movie" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="V0u-qJ-b8j">
+                                <rect key="frame" x="10" y="647" width="394" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RIH-oa-TZO">
+                                <rect key="frame" x="145" y="758" width="125" height="45"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <state key="normal" title="Add Movie">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="addMovieButtonPressed:" destination="8md-MQ-seF" eventType="touchUpInside" id="2jo-bF-YvO"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="03z-6z-kt6" firstAttribute="trailing" secondItem="RIH-oa-TZO" secondAttribute="trailing" constant="144" id="0IE-BG-zXy"/>
+                            <constraint firstItem="V0u-qJ-b8j" firstAttribute="top" secondItem="03z-6z-kt6" secondAttribute="top" constant="603" id="6Pi-dQ-WQ0"/>
+                            <constraint firstItem="V0u-qJ-b8j" firstAttribute="leading" secondItem="03z-6z-kt6" secondAttribute="leading" constant="10" id="FA2-aj-1b6"/>
+                            <constraint firstItem="03z-6z-kt6" firstAttribute="trailing" secondItem="V0u-qJ-b8j" secondAttribute="trailing" constant="10" id="b6y-Kf-O2T"/>
+                            <constraint firstItem="RIH-oa-TZO" firstAttribute="leading" secondItem="03z-6z-kt6" secondAttribute="leading" constant="145" id="skx-kd-eeQ"/>
+                            <constraint firstItem="RIH-oa-TZO" firstAttribute="top" secondItem="V0u-qJ-b8j" secondAttribute="bottom" constant="81" id="tCO-CK-CzN"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="03z-6z-kt6"/>
+                    </view>
+                    <connections>
+                        <outlet property="enterNameTextFIeld" destination="V0u-qJ-b8j" id="o3b-bH-C51"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="r4n-GG-XDL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-434.78260869565219" y="-4.0178571428571423"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="deadpool" width="1080" height="1920"/>
+    </resources>
+</document>
