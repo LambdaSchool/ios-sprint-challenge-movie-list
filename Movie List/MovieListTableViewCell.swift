@@ -10,15 +10,33 @@ import UIKit
 
 class MovieListTableViewCell: UITableViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
+    @IBOutlet weak var movieTitleLabel: UILabel!
+    
+    @IBOutlet weak var seenButtonVar: UIButton!
+    var isChecked = true
+    
+    @IBAction func seenButtonPressed(_ sender: UIButton) {
+        isChecked = !isChecked
+        if isChecked {
+            sender.setTitle("Seen", for: .normal)
+            movie?.seen = true
+        } else {
+            sender.setTitle("Not seen", for: .normal)
+            movie?.seen = false
+            }
+        }
+    
+    var movie: Movie? {
+        didSet {
+                updateViews()
+            }
+        }
+    
+    private func updateViews() {
+          if let unwrappedMovie = movie {
+            movieTitleLabel.text = unwrappedMovie.name
+          }
+      }
+    
 }
+
