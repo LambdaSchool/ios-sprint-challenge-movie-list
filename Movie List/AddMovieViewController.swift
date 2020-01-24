@@ -14,14 +14,23 @@ protocol  MovieAddedDelegate {
 }
 
 class AddMovieViewController: UIViewController {
-
+    
+    @IBOutlet weak var addMovieTextField: UITextField!
+    
+    var delegate: MovieAddedDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
-
+    @IBAction func addMovieTapped(_ sender: Any) {
+        
+        guard let movie = addMovieTextField.text else { return }
+        
+    }
+    
     /*
     // MARK: - Navigation
 

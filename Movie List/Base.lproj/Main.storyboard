@@ -21,10 +21,10 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="v6k-yh-7jY" customClass="MovieNotSeenTableViewCell" customModule="Movie_List" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieCell" id="v6k-yh-7jY" customClass="MovieNotSeenTableViewCell" customModule="Movie_List" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="343" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="v6k-yh-7jY" id="wnd-uC-Rdu" customClass="MovieNotSeenTableViewCell">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="v6k-yh-7jY" id="wnd-uC-Rdu" userLabel="MovieOnList" customClass="MovieNotSeenTableViewCell">
                                             <rect key="frame" x="0.0" y="0.0" width="343" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
@@ -63,10 +63,10 @@
             </objects>
             <point key="canvasLocation" x="1220" y="-45"/>
         </scene>
-        <!--View Controller-->
+        <!--Add Movie View Controller-->
         <scene sceneID="lvZ-Us-kKs">
             <objects>
-                <viewController id="IUA-U8-Ds1" sceneMemberID="viewController">
+                <viewController id="IUA-U8-Ds1" customClass="AddMovieViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZKs-Vp-B3c">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -82,6 +82,9 @@
                                 <rect key="frame" x="151" y="183" width="73" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Add Movie"/>
+                                <connections>
+                                    <action selector="addMovieTapped:" destination="IUA-U8-Ds1" eventType="touchUpInside" id="fNI-dd-odb"/>
+                                </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Add a new movie to the list" translatesAutoresizingMaskIntoConstraints="NO" id="A4d-5b-TiK">
                                 <rect key="frame" x="16" y="80" width="343" height="53"/>
@@ -96,6 +99,9 @@
                         <viewLayoutGuide key="safeArea" id="WCl-9g-EJH"/>
                     </view>
                     <navigationItem key="navigationItem" id="STS-AZ-0rT"/>
+                    <connections>
+                        <outlet property="addMovieTextField" destination="tQM-CV-U6t" id="ba0-CR-8Ii"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LJd-9B-Is3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
