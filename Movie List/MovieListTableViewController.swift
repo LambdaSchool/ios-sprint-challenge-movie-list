@@ -48,6 +48,7 @@ class MovieListTableViewController: UITableViewController, AddMovieDelegate {
         
 }
     @IBAction func seenButtonToggle(_ sender: Any) {
+        
     }
     
 }
