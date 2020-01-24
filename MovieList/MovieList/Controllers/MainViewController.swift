@@ -33,16 +33,10 @@ class MainViewController: UIViewController,AddMovieViewControllerDelegate {
             if let destVC = segue.destination as? AddMovieViewController {
                 destVC.delegate = self
             } }
-//        } else if segue.identifier == Helper.editSegue {
-//            if let editVC = segue.destination as? AddMovieViewController {
-//                editVC.title = "Edit"
-//
-//
-//            }
-//        }
     }
     func setUpNavBar() {
         navigationController?.navigationBar.prefersLargeTitles = true
+        
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
    
@@ -71,22 +65,21 @@ extension MainViewController: UITableViewDataSource,UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let currentIndex = tableView.indexPathForSelectedRow
         let ac = UIAlertController(title: "Edit movie", message: nil, preferredStyle: .alert)
-        ac.addAction(UIAlertAction(title: "OK", style: .default, handler: okTapped))
+        
+        ac.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak ac] (_) in
+            let textField = ac?.textFields![0] // Force unwrapping because we know it exists.
+            self.movies[currentIndex!.row] = textField!.text!
+            tableView.reloadData()
+        }))
+        
         ac.addAction(UIAlertAction(title: "Cancel", style: .destructive, handler: nil))
         ac.addTextField { (textField) in
-            textField.placeholder = ""
             textField.text = self.movies[currentIndex!.row]
         }
         
         
         present(ac, animated: true)
         tableView.deselectRow(at: indexPath, animated: true)
-    }
-    
-    
-    
-    func okTapped(action: UIAlertAction) {
-        print("Ha")
     }
     
     

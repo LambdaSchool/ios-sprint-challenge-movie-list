@@ -31,6 +31,8 @@ class AddMovieViewController: UIViewController , UITextFieldDelegate {
     
     @IBAction func textFieldDidChange(_ sender: UITextField) {
         addMovieButton.isEnabled = movieTextField.hasText
+        addMovieButton.backgroundColor = addMovieButton.isEnabled ? UIColor.systemBlue : UIColor.systemRed
+       
     }
     
   
