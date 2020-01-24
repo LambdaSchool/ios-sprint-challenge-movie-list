@@ -40,21 +40,27 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cUc-Nj-t5B">
-                                                    <rect key="frame" x="259" y="7" width="69" height="30"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JeN-Ic-T1M">
+                                                    <rect key="frame" x="254" y="8" width="46" height="28"/>
                                                     <state key="normal" title="Button"/>
+                                                    <connections>
+                                                        <action selector="seenButtonToggle:" destination="fGx-eC-eM1" eventType="touchUpInside" id="Scx-7c-dsQ"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="cUc-Nj-t5B" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="dLP-u1-2A6" secondAttribute="trailing" constant="8" id="3Pg-s1-Alc"/>
-                                                <constraint firstItem="cUc-Nj-t5B" firstAttribute="top" secondItem="o5c-Bp-uFh" secondAttribute="topMargin" constant="-4" id="4JJ-dh-k3i"/>
-                                                <constraint firstAttribute="trailing" secondItem="cUc-Nj-t5B" secondAttribute="trailing" constant="15" id="bzB-6u-c4I"/>
+                                                <constraint firstAttribute="bottom" secondItem="JeN-Ic-T1M" secondAttribute="bottom" constant="8" id="H7F-cR-dWE"/>
+                                                <constraint firstItem="JeN-Ic-T1M" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="dLP-u1-2A6" secondAttribute="trailing" constant="8" id="dea-dh-2Sa"/>
                                                 <constraint firstItem="dLP-u1-2A6" firstAttribute="centerY" secondItem="o5c-Bp-uFh" secondAttribute="centerY" id="knQ-lO-l7h"/>
+                                                <constraint firstItem="JeN-Ic-T1M" firstAttribute="leading" secondItem="o5c-Bp-uFh" secondAttribute="leading" constant="254" id="lUz-Bn-DKY"/>
+                                                <constraint firstItem="JeN-Ic-T1M" firstAttribute="centerY" secondItem="o5c-Bp-uFh" secondAttribute="centerY" id="rSs-p6-owO"/>
                                                 <constraint firstItem="dLP-u1-2A6" firstAttribute="leading" secondItem="o5c-Bp-uFh" secondAttribute="leadingMargin" constant="8" id="uR6-ZP-vZ0"/>
-                                                <constraint firstItem="cUc-Nj-t5B" firstAttribute="leading" secondItem="o5c-Bp-uFh" secondAttribute="leading" constant="259" id="vEb-Gx-KiH"/>
-                                                <constraint firstItem="cUc-Nj-t5B" firstAttribute="centerY" secondItem="o5c-Bp-uFh" secondAttribute="centerY" id="wLC-0p-dec"/>
+                                                <constraint firstItem="JeN-Ic-T1M" firstAttribute="top" secondItem="o5c-Bp-uFh" secondAttribute="top" constant="8" id="ykH-rt-RSn"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="cnR-rA-IR3" kind="presentation" identifier="AddMovieModalSegue" trigger="accessoryAction" id="Xdu-sq-d5K"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -72,7 +78,6 @@
                     </navigationItem>
                     <connections>
                         <outlet property="movieTableView" destination="ikv-JW-uSF" id="Euf-RO-2n6"/>
-                        <segue destination="cnR-rA-IR3" kind="presentation" identifier="AddMovieModalSegue" id="UDf-Om-zK0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Qi-rg-DO6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
