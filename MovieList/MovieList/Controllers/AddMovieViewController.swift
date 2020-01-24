@@ -13,7 +13,7 @@ protocol AddMovieViewControllerDelegate {
 }
 
 class AddMovieViewController: UIViewController , UITextFieldDelegate {
-
+        
      var movie  = ""
      var delegate : AddMovieViewControllerDelegate?
     @IBOutlet weak var introLabel: UILabel!

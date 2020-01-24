@@ -15,14 +15,21 @@ class MainViewController: UIViewController,AddMovieViewControllerDelegate {
     }
 
     @IBOutlet weak var mainTableView: UITableView!
-    
+    var userDefaults = UserDefaults()
     var movies = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-          setUpNavBar()
+        setUpNavBar()
+        persistData()
+        
     }
     
+    private func persistData() {
+        guard  let tableView :[Any] = userDefaults.array(forKey: "Array") else { return }
+               movies = tableView as! [String]
+         mainTableView.reloadData()
+    }
 
     @IBAction func addTapped(_ sender: UIBarButtonItem) {
         
@@ -46,6 +53,7 @@ class MainViewController: UIViewController,AddMovieViewControllerDelegate {
 
 extension MainViewController: UITableViewDataSource,UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        userDefaults.set(movies, forKey: "Array")
         return movies.count
     }
 
@@ -56,11 +64,11 @@ extension MainViewController: UITableViewDataSource,UITableViewDelegate {
         cell.delegate = self
         return cell
     }
- func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-           movies.remove(at: indexPath.row)
-           let indexPaths = [indexPath]
-           tableView.deleteRows(at: indexPaths, with: .automatic) // Swipe to delete .
-       }
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        movies.remove(at: indexPath.row)
+        let indexPaths = [indexPath]
+        tableView.deleteRows(at: indexPaths, with: .automatic) // Swipe to delete .
+    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let currentIndex = tableView.indexPathForSelectedRow
