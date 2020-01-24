@@ -55,7 +55,7 @@ class MainViewController: UIViewController, AddMovieViewControllerDelegate {
 extension MainViewController: UITableViewDataSource,UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         userDefaults.set(movies, forKey: "Array")
-        return movies.count
+        return Array(Set(movies)).count // No Duplicate movie 
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
