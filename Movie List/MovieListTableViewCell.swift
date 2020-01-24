@@ -12,17 +12,25 @@ class MovieListTableViewCell: UITableViewCell {
 
     @IBOutlet weak var HasSeenLabel: UIButton!
     
-    @IBAction func SeenToggleButton(_ sender: UIButton) {
-         var hasSeen: Bool = false
-         hasSeen.toggle()
-         if hasSeen == false{
-             HasSeenLabel.titleLabel?.text = "Unseen"
-         }
-         if hasSeen == true{
-             HasSeenLabel.titleLabel?.text = "Seen"
-         }
-         
-     }
+//    @IBAction func SeenToggleButton(_ sender: UIButton) {
+//         var hasSeen: Bool = false
+//         hasSeen.toggle()
+//            if hasSeen == true{
+//                      HasSeenLabel.titleLabel?.text = "Seen"
+//                     return
+//                  }
+//                  else {
+//                      HasSeenLabel.titleLabel?.text = "Unseen"
+//                     return
+//                  }
+//     }
+    @IBAction func SeenToggleButton(_ sender: UIToggleButton) {
+        if sender.isOn {
+            sender.setTitle("Seen", for: .normal)
+        } else {
+            sender.setTitle("Not See", for: .normal)
+        }
+    }
     
     var movie: Movie?{
         didSet{
