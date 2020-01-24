@@ -8,13 +8,20 @@
 
 import UIKit
 
+protocol AddMovieDelegate {
+    func movieWasAdded(_ movie: Movie)
+}
+
 class AddMovieViewController: UIViewController {
 
-    
-    @IBAction func AddMovieTextField(_ sender: UITextField) {
-    }
+    var delegate: AddMovieDelegate?
+
+    @IBOutlet weak var MovieTextField: UITextField!
     
     @IBAction func SaveButton(_ sender: UIButton) {
+        guard let movieTitle = MovieTextField else {return}
+        let newMovie = Movie(title: "\(movieTitle)")
+        delegate?.movieWasAdded(newMovie)
     }
     
     

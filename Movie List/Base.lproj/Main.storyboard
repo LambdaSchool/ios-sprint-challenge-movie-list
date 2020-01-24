@@ -11,7 +11,7 @@
         <!--Movie List View Controller-->
         <scene sceneID="1wB-9q-Ddt">
             <objects>
-                <viewController title="Movie List View Controller" id="A6O-zQ-Dp4" sceneMemberID="viewController">
+                <viewController title="Movie List View Controller" id="A6O-zQ-Dp4" customClass="MovieListTableViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CFj-7G-Avl">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -81,7 +81,7 @@
         <!--Add Movie View Controller-->
         <scene sceneID="UWe-Tk-1D7">
             <objects>
-                <viewController title="Add Movie View Controller" id="7Z4-7K-iRj" sceneMemberID="viewController">
+                <viewController title="Add Movie View Controller" id="7Z4-7K-iRj" customClass="AddMovieViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ivr-nN-cC7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -97,7 +97,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <action selector="AddMovieTextField:" destination="fpv-Qq-aOw" eventType="editingDidEnd" id="leD-Ch-22O"/>
+                                    <outlet property="delegate" destination="7Z4-7K-iRj" id="SbQ-37-pWh"/>
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v3D-kV-DYs">
@@ -122,6 +122,9 @@
                         <viewLayoutGuide key="safeArea" id="bOL-Lb-iMg"/>
                     </view>
                     <navigationItem key="navigationItem" id="HnU-ZH-8is"/>
+                    <connections>
+                        <outlet property="MovieTextField" destination="sw6-OS-FHn" id="MuU-YS-cHB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zxo-m3-Mkl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="fpv-Qq-aOw" userLabel="Exit" sceneMemberID="exit"/>
