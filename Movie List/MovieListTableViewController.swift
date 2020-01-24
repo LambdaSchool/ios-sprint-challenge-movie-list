@@ -8,13 +8,22 @@
 
 import UIKit
 
-extension MovieListTableViewCell: UITableViewDataSource{
+extension MovieListTableViewController: AddMovieDelegate{
+    func movieWasAdded(_ movie: Movie) {
+        movies.append(movie)
+    }
+}
+
+extension MovieListTableViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        <#code#>
+        return movies.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieTableViewCell", for: indexPath) as? MovieListTableViewCell else {return UITableViewCell()}
+        let movieCell = movies[indexPath.row]
+        cell.movie = movieCell
+        return cell
     }
     
     
@@ -35,7 +44,7 @@ class MovieListTableViewController: UIViewController{
     }
     
 
-    /*
+  
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -43,6 +52,6 @@ class MovieListTableViewController: UIViewController{
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
     }
-    */
+ 
 
 }
