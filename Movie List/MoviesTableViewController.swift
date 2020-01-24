@@ -43,6 +43,14 @@ extension MoviesTableViewController: UITableViewDataSource {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        movies.remove(at: indexPath.row)
+        tableView.deleteRows(at: [indexPath], with: .bottom)
+
+        
+    }
+    
 }
 
 extension MoviesTableViewController: AddMovieDelegate {
