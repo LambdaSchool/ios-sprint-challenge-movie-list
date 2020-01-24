@@ -13,9 +13,9 @@ protocol AddMovieViewControllerDelegate {
 }
 
 class AddMovieViewController: UIViewController , UITextFieldDelegate {
-        
      var movie  = ""
      var delegate : AddMovieViewControllerDelegate?
+    
     @IBOutlet weak var introLabel: UILabel!
     @IBOutlet weak var addMovieButton: UIButton!
     @IBOutlet weak var movieTextField: UITextField!

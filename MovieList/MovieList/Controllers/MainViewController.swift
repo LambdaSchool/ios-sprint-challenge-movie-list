@@ -8,14 +8,15 @@
 
 import UIKit
 
-class MainViewController: UIViewController,AddMovieViewControllerDelegate {
+class MainViewController: UIViewController, AddMovieViewControllerDelegate {
     func didAddMovie(for movie: String) {
         movies.append(movie)
         mainTableView.reloadData() // Important
     }
 
     @IBOutlet weak var mainTableView: UITableView!
-    var userDefaults = UserDefaults()
+    
+    private var userDefaults = UserDefaults()
     var movies = [String]()
     
     override func viewDidLoad() {
@@ -41,9 +42,9 @@ class MainViewController: UIViewController,AddMovieViewControllerDelegate {
                 destVC.delegate = self
             } }
     }
-    func setUpNavBar() {
+    private func setUpNavBar() {
         navigationController?.navigationBar.prefersLargeTitles = true
-        
+        navigationController?.navigationBar.tintColor = .black
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
    
