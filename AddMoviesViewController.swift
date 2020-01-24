@@ -21,19 +21,24 @@ class AddMoviesViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        movieTitleTextField.delegate = self
+       movieTitleTextField.delegate = self
     }
        
-    @IBAction func addMovieTapped(_ sender: Any) {
+  
         
-        guard let name = movieTitleTextField.text, !name.isEmpty else { return }
-        
-        let movie = Movie(name: name, watched: true)
-        
-        addMovie?.movieWasCreated(movie)
-        
-        movieTitleTextField.text = ""
-        navigationController?.popToRootViewController(animated: true)
+    
+    @IBAction func addMovieTapped(_ sender: UIButton) {
+         guard let name = movieTitleTextField.text, !name.isEmpty else { return }
+            
+            let movie = Movie(name: name, watched: true)
+            
+            addMovie?.movieWasCreated(movie)
+            
+            movieTitleTextField.text = ""
+            navigationController?.popToRootViewController(animated: true)
+        }
     }
     
-}
+    
+
+ 

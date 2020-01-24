@@ -11,19 +11,40 @@
         <!-- Movie List-->
         <scene sceneID="JZC-WT-uux">
             <objects>
-                <tableViewController id="zLy-tR-xHu" customClass="MovieViewController" sceneMemberID="viewController">
+                <tableViewController id="zLy-tR-xHu" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="k34-Nh-2g5">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="0uD-kD-CfH" customClass="MovieTableViewCell" customModule="Movie_List" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieCell" id="0uD-kD-CfH" customClass="MovieTableViewCell" customModule="Movie_List" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0uD-kD-CfH" id="d2h-mE-Agx">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CVn-Fr-xw8">
+                                            <rect key="frame" x="37" y="11" width="42" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fIc-yR-nXS">
+                                            <rect key="frame" x="348" y="6" width="46" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" title="Button"/>
+                                            <connections>
+                                                <action selector="notSeenTapped:" destination="0uD-kD-CfH" eventType="touchUpInside" id="hs4-ae-3iW"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="movieTitleLabel" destination="CVn-Fr-xw8" id="64l-b9-r9E"/>
+                                    <outlet property="notSeenButton" destination="fIc-yR-nXS" id="eHN-tR-FWU"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -31,16 +52,13 @@
                             <outlet property="delegate" destination="zLy-tR-xHu" id="WTt-Du-KBR"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title=" Movie List" id="ryu-jz-9uM">
+                    <navigationItem key="navigationItem" title=" Movie List" id="ryu-jz-9uM" userLabel="Movie List">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="TbM-wQ-c3h">
                             <connections>
                                 <segue destination="3Wb-D6-KOp" kind="show" identifier="addMovieSegue" id="XhG-0e-lIg"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <connections>
-                        <outlet property="moviesTableView" destination="k34-Nh-2g5" id="YB0-Hy-BhE"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uyT-8l-2mH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -72,8 +90,7 @@
                                         <rect key="frame" x="0.0" y="106.5" width="286" height="30"/>
                                         <state key="normal" title="Add Movie"/>
                                         <connections>
-                                            <action selector="addMovie:" destination="3Wb-D6-KOp" eventType="touchUpInside" id="42E-qF-thM"/>
-                                            <action selector="addMovieTapped:" destination="3Wb-D6-KOp" eventType="touchUpInside" id="QPP-Dh-WRc"/>
+                                            <action selector="addMovieTapped:" destination="3Wb-D6-KOp" eventType="touchUpInside" id="kCK-cr-VmE"/>
                                         </connections>
                                     </button>
                                 </subviews>

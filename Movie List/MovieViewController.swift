@@ -1,5 +1,5 @@
 //
-//  MoviesViewController.swift
+//  MovieViewController.swift
 //  Movie List
 //
 //  Created by Keri Levesque on 1/24/20.
@@ -11,8 +11,7 @@ import UIKit
 class MovieViewController: UIViewController {
 
 // this connects the table view to code
-    @IBOutlet var moviesTableView: UITableView!
-    
+ @IBOutlet weak var moviesTableView: UITableView!
     // need an empty array to store the movies, also type of the Movie struct
     var movies: [Movie] = []
     
@@ -39,4 +38,27 @@ class MovieViewController: UIViewController {
     }
 
 
+}
+ 
+extension MovieViewController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return movies.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell") as? MovieTableViewCell else { return UITableViewCell() }
+        
+        let movie = movies[indexPath.row]
+        cell.movie = movie
+        
+        return cell
+    }
+}
+
+extension MovieViewController: AddMoviesDelegate {
+    func movieWasCreated(_ movie: Movie) {
+        movies.append(movie)
+     
+        moviesTableView.reloadData()
+    }
 }
