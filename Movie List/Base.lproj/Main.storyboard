@@ -11,57 +11,61 @@
         <!--Movie List-->
         <scene sceneID="Hwt-VL-tfi">
             <objects>
-                <viewController id="5gR-1e-KgL" customClass="MovieListViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="5gR-1e-KgL" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ILg-R0-gnJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Rg1-3D-fx9">
-                                <rect key="frame" x="16" y="60" width="343" height="587"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Hjg-xN-mh6">
+                                <rect key="frame" x="16" y="60" width="343" height="591"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieCell" id="v6k-yh-7jY" customClass="MovieNotSeenTableViewCell" customModule="Movie_List" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="343" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MovieOnListCell" id="6ZT-QF-bwi">
+                                        <rect key="frame" x="0.0" y="28" width="343" height="44.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="v6k-yh-7jY" id="wnd-uC-Rdu" userLabel="MovieOnList" customClass="MovieNotSeenTableViewCell">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="44"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6ZT-QF-bwi" id="1Jb-tB-Qah">
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="44.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eCH-zy-Vp9">
-                                                    <rect key="frame" x="280" y="7" width="64" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N45-ko-RVs">
+                                                    <rect key="frame" x="273" y="7" width="64" height="30.5"/>
                                                     <state key="normal" title="Not Seen"/>
                                                 </button>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="N45-ko-RVs" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="1Jb-tB-Qah" secondAttribute="leading" constant="12" id="TUs-Of-XmU"/>
+                                                <constraint firstItem="N45-ko-RVs" firstAttribute="top" secondItem="1Jb-tB-Qah" secondAttribute="topMargin" constant="-4" id="VzS-Jh-M0f"/>
+                                                <constraint firstItem="N45-ko-RVs" firstAttribute="centerY" secondItem="1Jb-tB-Qah" secondAttribute="centerY" id="hia-ik-NHU"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="N45-ko-RVs" secondAttribute="trailing" constant="-9" id="qKS-H0-fZv"/>
+                                            </constraints>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="movieOnList" destination="wnd-uC-Rdu" id="FnD-lG-fRF"/>
-                                            <outlet property="seenTapped" destination="eCH-zy-Vp9" id="ruT-k0-EsN"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <sections/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Hjg-xN-mh6" firstAttribute="top" secondItem="0hc-zG-iry" secondAttribute="top" constant="16" id="8Rm-xv-zu3"/>
+                            <constraint firstItem="0hc-zG-iry" firstAttribute="trailing" secondItem="Hjg-xN-mh6" secondAttribute="trailing" constant="16" id="FpS-ND-Sm6"/>
+                            <constraint firstAttribute="bottom" secondItem="Hjg-xN-mh6" secondAttribute="bottom" constant="16" id="dEM-8A-AXK"/>
+                            <constraint firstItem="Hjg-xN-mh6" firstAttribute="leading" secondItem="0hc-zG-iry" secondAttribute="leading" constant="16" id="hYD-ic-a4f"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="0hc-zG-iry"/>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Movie List" id="WVd-h9-Kw8">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="q69-XJ-F2z">
                             <connections>
-                                <segue destination="IUA-U8-Ds1" kind="show" id="NiH-EH-KAZ"/>
+                                <segue destination="IUA-U8-Ds1" kind="show" identifier="ShowAddMovie" id="NiH-EH-KAZ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
-                    <connections>
-                        <outlet property="movieOnList" destination="v6k-yh-7jY" id="07G-mo-ikt"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jNq-Fc-NF8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1220" y="-45"/>
+            <point key="canvasLocation" x="1220" y="-45.42728635682159"/>
         </scene>
         <!--Add Movie View Controller-->
         <scene sceneID="lvZ-Us-kKs">
@@ -71,24 +75,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Enter the movie's title:" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tQM-CV-U6t">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Enter the movie's title:" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tQM-CV-U6t">
                                 <rect key="frame" x="16" y="141" width="343" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GxJ-Ql-dQy">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GxJ-Ql-dQy">
                                 <rect key="frame" x="151" y="183" width="73" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Add Movie"/>
                                 <connections>
                                     <action selector="addMovieTapped:" destination="IUA-U8-Ds1" eventType="touchUpInside" id="fNI-dd-odb"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Add a new movie to the list" translatesAutoresizingMaskIntoConstraints="NO" id="A4d-5b-TiK">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Add a new movie to the list" translatesAutoresizingMaskIntoConstraints="NO" id="A4d-5b-TiK">
                                 <rect key="frame" x="16" y="80" width="343" height="53"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="27"/>
@@ -96,6 +97,18 @@
                             </textView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="tQM-CV-U6t" firstAttribute="top" secondItem="A4d-5b-TiK" secondAttribute="bottom" constant="8" id="8kk-El-tke"/>
+                            <constraint firstItem="tQM-CV-U6t" firstAttribute="top" secondItem="A4d-5b-TiK" secondAttribute="bottom" constant="8" id="EJz-cd-rjc"/>
+                            <constraint firstItem="GxJ-Ql-dQy" firstAttribute="top" secondItem="tQM-CV-U6t" secondAttribute="bottom" constant="8" id="JqP-WI-dVX"/>
+                            <constraint firstItem="WCl-9g-EJH" firstAttribute="bottom" secondItem="GxJ-Ql-dQy" secondAttribute="bottom" constant="405" id="T84-9g-FBz"/>
+                            <constraint firstItem="tQM-CV-U6t" firstAttribute="leading" secondItem="WCl-9g-EJH" secondAttribute="leading" constant="16" id="UBT-Fi-d8c"/>
+                            <constraint firstItem="WCl-9g-EJH" firstAttribute="trailing" secondItem="tQM-CV-U6t" secondAttribute="trailing" constant="16" id="W70-wb-3aI"/>
+                            <constraint firstItem="GxJ-Ql-dQy" firstAttribute="centerX" secondItem="ZKs-Vp-B3c" secondAttribute="centerX" id="gGw-l2-gS8"/>
+                            <constraint firstItem="WCl-9g-EJH" firstAttribute="trailing" secondItem="A4d-5b-TiK" secondAttribute="trailing" constant="16" id="mOL-ky-Guz"/>
+                            <constraint firstItem="A4d-5b-TiK" firstAttribute="leading" secondItem="WCl-9g-EJH" secondAttribute="leading" constant="16" id="mrB-La-eCA"/>
+                            <constraint firstItem="A4d-5b-TiK" firstAttribute="top" secondItem="WCl-9g-EJH" secondAttribute="top" constant="36" id="upq-Og-Hve"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="WCl-9g-EJH"/>
                     </view>
                     <navigationItem key="navigationItem" id="STS-AZ-0rT"/>

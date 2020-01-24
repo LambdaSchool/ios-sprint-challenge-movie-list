@@ -10,9 +10,6 @@ import UIKit
 
 class MovieNotSeenTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var movieOnList: MovieNotSeenTableViewCell!
-    @IBOutlet weak var seenTapped: UIButton!
-    
     
     override func awakeFromNib() {
         super.awakeFromNib()
