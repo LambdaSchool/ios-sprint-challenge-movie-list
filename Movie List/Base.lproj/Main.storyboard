@@ -16,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9tO-Xe-JbD">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9tO-Xe-JbD" userLabel="Movie Table View">
                                 <rect key="frame" x="0.0" y="44" width="375" height="623"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
@@ -38,6 +38,7 @@
                                                     <state key="normal" title="Unseen"/>
                                                     <connections>
                                                         <action selector="SeenToggleButton:" destination="DFp-rT-vml" eventType="touchUpInside" id="GRW-Pe-fQ2"/>
+                                                        <action selector="SeenToggleButton:" destination="eam-af-VbT" eventType="touchUpInside" id="jML-zB-stL"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -49,12 +50,14 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="HasSeenLabel" destination="rgK-NR-0vf" id="ePa-u7-YR4"/>
                                             <outlet property="MovieTitleLabel" destination="x5K-7Q-b30" id="WxE-2o-MK4"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="A6O-zQ-Dp4" id="MzE-e7-8xV"/>
+                                    <outlet property="delegate" destination="A6O-zQ-Dp4" id="mI6-cG-lcW"/>
                                 </connections>
                             </tableView>
                         </subviews>
@@ -70,11 +73,14 @@
                     <navigationItem key="navigationItem" title="Movie List" id="rUW-dB-dZG">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="xUh-md-px8">
                             <connections>
-                                <action selector="AddMovieButton:" destination="DFp-rT-vml" id="74h-N0-qgf"/>
+                                <action selector="AddMovieButton:" destination="A6O-zQ-Dp4" id="X6s-Km-PsC"/>
                                 <segue destination="7Z4-7K-iRj" kind="show" identifier="AddNewMovieSegue" id="TN2-8f-zlC"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="MovieTableView" destination="9tO-Xe-JbD" id="ztt-g8-2Cl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gHR-2p-6yg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="DFp-rT-vml" userLabel="Exit" sceneMemberID="exit"/>
@@ -95,8 +101,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sw6-OS-FHn">
-                                <rect key="frame" x="20" y="145" width="335" height="34"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Movie Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sw6-OS-FHn">
+                                <rect key="frame" x="40" y="145" width="295" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
@@ -104,21 +110,21 @@
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v3D-kV-DYs">
-                                <rect key="frame" x="164.5" y="229" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
+                                <rect key="frame" x="170.5" y="229" width="34" height="30"/>
+                                <state key="normal" title="Save"/>
                                 <connections>
                                     <action selector="SaveButton:" destination="fpv-Qq-aOw" eventType="touchUpInside" id="wI2-xF-uK4"/>
+                                    <action selector="SaveButton:" destination="7Z4-7K-iRj" eventType="touchUpInside" id="wjz-fD-ACu"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="bOL-Lb-iMg" firstAttribute="trailing" secondItem="sw6-OS-FHn" secondAttribute="trailing" constant="20" id="0Yt-MV-lcz"/>
+                            <constraint firstItem="bOL-Lb-iMg" firstAttribute="trailing" secondItem="sw6-OS-FHn" secondAttribute="trailing" constant="40" id="0Yt-MV-lcz"/>
                             <constraint firstItem="fHR-HN-vPw" firstAttribute="top" secondItem="bOL-Lb-iMg" secondAttribute="top" constant="60" id="3kI-hm-QhI"/>
-                            <constraint firstItem="sw6-OS-FHn" firstAttribute="centerX" secondItem="Ivr-nN-cC7" secondAttribute="centerX" id="HOR-7o-WnM"/>
                             <constraint firstItem="v3D-kV-DYs" firstAttribute="centerX" secondItem="Ivr-nN-cC7" secondAttribute="centerX" id="I21-nX-EDK"/>
                             <constraint firstItem="fHR-HN-vPw" firstAttribute="centerX" secondItem="Ivr-nN-cC7" secondAttribute="centerX" id="P03-Rk-O2W"/>
-                            <constraint firstItem="sw6-OS-FHn" firstAttribute="leading" secondItem="bOL-Lb-iMg" secondAttribute="leading" constant="20" id="PEi-0P-3OY"/>
+                            <constraint firstItem="sw6-OS-FHn" firstAttribute="leading" secondItem="bOL-Lb-iMg" secondAttribute="leading" constant="40" id="PEi-0P-3OY"/>
                             <constraint firstItem="sw6-OS-FHn" firstAttribute="top" secondItem="fHR-HN-vPw" secondAttribute="bottom" constant="20" id="R0s-mz-WS5"/>
                             <constraint firstItem="v3D-kV-DYs" firstAttribute="top" secondItem="sw6-OS-FHn" secondAttribute="bottom" constant="50" id="iv4-Pv-gml"/>
                         </constraints>

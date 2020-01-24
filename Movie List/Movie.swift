@@ -10,5 +10,4 @@ import Foundation
 
 struct Movie{
     let title: String
-    var hasSeen: Bool = false
 }

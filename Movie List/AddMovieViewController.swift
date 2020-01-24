@@ -19,10 +19,12 @@ class AddMovieViewController: UIViewController {
     @IBOutlet weak var MovieTextField: UITextField!
     
     @IBAction func SaveButton(_ sender: UIButton) {
-        guard let movieTitle = MovieTextField else {return}
+        guard let movieTitle = MovieTextField.text else {return}
         let newMovie = Movie(title: "\(movieTitle)")
+        print("\(newMovie)")
         delegate?.movieWasAdded(newMovie)
     }
+  
     
     
     override func viewDidLoad() {

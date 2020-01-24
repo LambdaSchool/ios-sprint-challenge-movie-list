@@ -11,6 +11,10 @@ import UIKit
 extension MovieListTableViewController: AddMovieDelegate{
     func movieWasAdded(_ movie: Movie) {
         movies.append(movie)
+        print(movies)
+        dismiss(animated: true, completion: nil)
+        MovieTableView.reloadData()
+        
     }
 }
 
@@ -33,10 +37,11 @@ class MovieListTableViewController: UIViewController{
 
     var movies = [Movie]()
     
+
+    @IBOutlet weak var MovieTableView: UITableView!
     @IBAction func AddMovieButton(_ sender: UIBarButtonItem) {
     }
-    @IBAction func SeenToggleButton(_ sender: UIButton) {
-    }
+ 
     
     
     override func viewDidLoad() {
@@ -49,9 +54,10 @@ class MovieListTableViewController: UIViewController{
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "AddNewMovieSegue"{
+            if let addMovieVC = segue.destination as? AddMovieViewController{
+                addMovieVC.delegate = self
+            }
+        }
     }
- 
-
 }

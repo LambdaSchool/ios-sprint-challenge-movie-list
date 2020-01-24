@@ -10,6 +10,20 @@ import UIKit
 
 class MovieListTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var HasSeenLabel: UIButton!
+    
+    @IBAction func SeenToggleButton(_ sender: UIButton) {
+         var hasSeen: Bool = false
+         hasSeen.toggle()
+         if hasSeen == false{
+             HasSeenLabel.titleLabel?.text = "Unseen"
+         }
+         if hasSeen == true{
+             HasSeenLabel.titleLabel?.text = "Seen"
+         }
+         
+     }
+    
     var movie: Movie?{
         didSet{
             updateViews()
