@@ -11,21 +11,21 @@
         <!--Movie List-->
         <scene sceneID="v8w-AB-od9">
             <objects>
-                <tableViewController id="KFo-7q-O78" sceneMemberID="viewController">
+                <tableViewController id="KFo-7q-O78" customClass="MovieListTableViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Lr8-0i-3c8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="cell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Ljg-5L-k1V">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="cell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieCell" id="Ljg-5L-k1V" customClass="MovieTableViewCell" customModule="Movie_List" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ljg-5L-k1V" id="mAg-Ku-af1">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="klw-6p-7zt">
-                                            <rect key="frame" x="35" y="11" width="95.5" height="21.5"/>
+                                            <rect key="frame" x="35" y="11" width="95.5" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -42,6 +42,10 @@
                                         <constraint firstItem="klw-6p-7zt" firstAttribute="leading" secondItem="mAg-Ku-af1" secondAttribute="leadingMargin" constant="19" id="vvi-3b-vLv"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="button" destination="aUo-p5-rEM" id="PZ5-sg-iUE"/>
+                                    <outlet property="titleLabel" destination="klw-6p-7zt" id="XeK-dK-8FY"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -51,7 +55,7 @@
                     <navigationItem key="navigationItem" title="Movie List" id="pTc-jj-4cM">
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="PCO-IF-gDF">
                             <connections>
-                                <segue destination="JzO-mi-Aop" kind="show" identifier="&quot;AddMovie&quot;" id="0Ji-T5-jRo"/>
+                                <segue destination="JzO-mi-Aop" kind="show" identifier="AddMovie" id="0Ji-T5-jRo"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

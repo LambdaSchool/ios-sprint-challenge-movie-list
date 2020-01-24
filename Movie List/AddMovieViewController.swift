@@ -22,7 +22,7 @@ class AddMovieViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        movieTextField.delegate = self
+        
     }
 
     @IBAction func addTapped(_ sender: UIButton) {
