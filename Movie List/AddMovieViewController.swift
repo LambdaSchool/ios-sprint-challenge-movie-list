@@ -39,25 +39,29 @@ class AddMovieViewController: UIViewController {
         }
         
         delegate?.movieWasAdded(movie)
+     
+        if let navController = self.navigationController {
+            navController.popViewController(animated: true)
+        }
     }
     
 }
+
     extension AddMovieViewController: UITextFieldDelegate {
         func textFieldShouldReturn(_ textField: UITextField) -> Bool {
                if let text = textField.text,
                    !text.isEmpty {
                    switch textField {
                    case addMovieTextField:
-                        addMovieTextField.becomeFirstResponder()
+                        textField.resignFirstResponder()
                    default:
                        textField.resignFirstResponder()
                    }
                }
-               
+
                return false
-            
         }
-    }
+}
     
 
 

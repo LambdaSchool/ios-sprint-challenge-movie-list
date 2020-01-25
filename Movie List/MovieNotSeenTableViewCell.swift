@@ -19,7 +19,6 @@ class MovieNotSeenTableViewCell: UITableViewCell {
         } else {
             print("Not Seen")
         }
-
     }
     
     var movie: Movie? {
