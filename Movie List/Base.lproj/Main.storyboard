@@ -11,7 +11,7 @@
         <!--Movie List-->
         <scene sceneID="Hwt-VL-tfi">
             <objects>
-                <viewController id="5gR-1e-KgL" sceneMemberID="viewController">
+                <viewController id="5gR-1e-KgL" customClass="MovieListViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ILg-R0-gnJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -20,7 +20,7 @@
                                 <rect key="frame" x="16" y="60" width="343" height="591"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MovieOnListCell" id="6ZT-QF-bwi">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MovieOnListCell" id="6ZT-QF-bwi" customClass="MovieNotSeenTableViewCell" customModule="Movie_List" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="343" height="44.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6ZT-QF-bwi" id="1Jb-tB-Qah">
@@ -30,7 +30,17 @@
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N45-ko-RVs">
                                                     <rect key="frame" x="273" y="7" width="64" height="30.5"/>
                                                     <state key="normal" title="Not Seen"/>
+                                                    <connections>
+                                                        <action selector="notSeenTapped:" destination="6ZT-QF-bwi" eventType="valueChanged" id="iMm-eC-iZc"/>
+                                                    </connections>
                                                 </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wLV-ZX-sKV">
+                                                    <rect key="frame" x="62" y="16" width="42" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="N45-ko-RVs" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="1Jb-tB-Qah" secondAttribute="leading" constant="12" id="TUs-Of-XmU"/>
@@ -39,6 +49,11 @@
                                                 <constraint firstAttribute="trailingMargin" secondItem="N45-ko-RVs" secondAttribute="trailing" constant="-9" id="qKS-H0-fZv"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="movieOnList" destination="1Jb-tB-Qah" id="aul-Oy-vEW"/>
+                                            <outlet property="movieOnListLabel" destination="wLV-ZX-sKV" id="Qt9-Qd-W3g"/>
+                                            <outlet property="seenButton" destination="N45-ko-RVs" id="YOh-dE-ZqR"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <sections/>
@@ -62,6 +77,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="tableView" destination="Hjg-xN-mh6" id="hAS-0I-olH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jNq-Fc-NF8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

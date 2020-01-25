@@ -11,15 +11,16 @@ import UIKit
 class MovieNotSeenTableViewCell: UITableViewCell {
     
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    @IBOutlet weak var movieOnListLabel: UILabel!
+    @IBOutlet weak var seenButton: UIButton!
+    @IBAction func notSeenTapped(_ sender: UIButton) {
+        
+        var movie: Movie? {
+            didSet {
+                updateViews()
+            }
+        }
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
+    
+    
 }

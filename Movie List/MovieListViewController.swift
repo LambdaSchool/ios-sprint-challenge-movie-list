@@ -10,8 +10,8 @@ import UIKit
 
 class MovieListViewController: UIViewController, MovieAddedDelegate {
     
-
-
+    @IBOutlet weak var tableView: UITableView!
+    
     var moviesOnList: [Movie] = []
     
     
