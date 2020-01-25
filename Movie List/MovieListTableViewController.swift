@@ -6,44 +6,48 @@
 //  Copyright © 2020 Lambda School. All rights reserved.
 //
 
-import UIKit
+   import UIKit
 
-class MovieListTableViewController: UITableViewController, AddMovieDelegate {
-    
-    
+    class MovieListTableViewController: UIViewController {
+        
+        @IBOutlet weak var movieTableView: UITableView!
+        
+        var movies = [Movie]()
+        
+        override func viewDidLoad() {
+            super.viewDidLoad()
 
-    var movies: [Movie] = []
-    
-    @IBOutlet weak var movieTableView: UITableView!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
+        }
+        
+        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+               if segue.identifier == "AddMovieModalSegue" {
+                   if let addMovieVC = segue.destination as? AddMovieViewController {
+                       addMovieVC.delegate = self
+                }
+            }
+        }
     }
-
-    func movieWasAdded(_ movie: Movie) {
-           movies.append(movie)
-    }
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+            
+extension MovieListTableViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return movies.count
     }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "movieTitleCell", for: indexPath) as? MovieTableViewCell else { return UITableViewCell() }
         
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-              guard let cell = tableView.dequeueReusableCell(withIdentifier: "movieTitleCell", for: indexPath) as? MovieTableViewCell else { return UITableViewCell()}
-
-              let movieTitle = movies[indexPath.row]
-        cell.movieTitleLabel.text = movieTitle.movieTitle
+        let movie = movies[indexPath.row]
+        cell.movie = movie
         
         return cell
-    
-}
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "AddMovieModalSegue"{
-                   guard let addMovieVC = segue.destination as? AddMovieViewController else { return }
-                   
-                   addMovieVC.delegate = self
     }
-        
-}    
 }
+
+extension MovieListTableViewController: AddMovieDelegate {
+    func movieWasAdded(_ movie: Movie) {
+        movies.append(movie)
+        dismiss(animated: true, completion: nil)
+        tableView.reloadData()
+    }
+}
+
