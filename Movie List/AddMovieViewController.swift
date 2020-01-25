@@ -27,7 +27,9 @@ class AddMovieViewController: UIViewController {
     
     @IBAction func addMovieTapped(_ sender: UIBarButtonItem) {
         
-        guard let movieName = addMovieTextField.text else { return }
+        guard let movieName = addMovieTextField.text,
+        let addMovie = addMovieTextField.text,
+            !addMovie.isEmpty else { return }
         
         var movie = Movie(name: movieName)
         
