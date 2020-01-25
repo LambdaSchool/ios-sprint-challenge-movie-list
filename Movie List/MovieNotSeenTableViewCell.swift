@@ -15,12 +15,21 @@ class MovieNotSeenTableViewCell: UITableViewCell {
     @IBOutlet weak var seenButton: UIButton!
     @IBAction func notSeenTapped(_ sender: UIButton) {
         
-        var movie: Movie? {
-            didSet {
-                updateViews()
-            }
+
+    }
+    
+    var movie: Movie? {
+        didSet {
+            updateViews()
         }
     }
     
+    private func updateViews() {
+        guard let movie = movie  else { return }
+        
+        movieOnListLabel.text = movie.name
+        seenButton.setTitle(movie.name, for: [])
+        
+    }
     
 }
