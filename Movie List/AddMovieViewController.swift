@@ -25,11 +25,16 @@ class AddMovieViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    @IBAction func addMovieTapped(_ sender: Any) {
+    @IBAction func addMovieTapped(_ sender: UIBarButtonItem) {
         
         guard let movieName = addMovieTextField.text else { return }
         
-        let movie = Movie(name: movieName)
+        var movie = Movie(name: movieName)
+        
+        if let addMovie = addMovieTextField.text,
+            !addMovie.isEmpty {
+            movie.name.append(addMovie)
+        }
         
         delegate?.movieWasAdded(movie: movie)
     }

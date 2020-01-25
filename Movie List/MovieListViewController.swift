@@ -33,7 +33,7 @@ class MovieListViewController: UIViewController, MovieAddedDelegate, UITableView
            guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieOnListCell", for: indexPath) as? MovieNotSeenTableViewCell else { return UITableViewCell() }
            
            let movie = moviesOnList[indexPath.row]
-           cell.Movie = movie
+           cell.movie = movie
            
            return cell
        }
