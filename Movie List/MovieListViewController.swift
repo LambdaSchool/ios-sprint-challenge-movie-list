@@ -10,8 +10,7 @@ import UIKit
 
 class MovieListViewController: UIViewController, MovieAddedDelegate {
     
-//        @IBOutlet weak var movieOnList: MovieNotSeenTableViewCell!
-//        @IBOutlet weak var seenTapped: UIButton!
+
 
     var moviesOnList: [Movie] = []
     
