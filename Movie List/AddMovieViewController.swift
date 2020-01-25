@@ -23,14 +23,15 @@ class AddMovieViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    @IBAction func addMovieCancelButton(_ sender: Any) {
+    @IBAction func addMovieCancelButton(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func addMovieSaveButton(_ sender: Any) {
-        guard let movieTitle = addMovieTextField.text else {return}
+    @IBAction func addMovieSaveButton(_ sender: UIBarButtonItem) {
         
-       
+        guard let movieTitle = addMovieTextField.text,
+            !movieTitle.isEmpty else { return }
+        
         let movie = Movie(movieTitle: movieTitle)
         
         delegate?.movieWasAdded(movie)
@@ -39,7 +40,7 @@ class AddMovieViewController: UIViewController {
 }
 }
 
-extension AddMovieViewController: UITextFieldDelegate {
+/* extension AddMovieViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if let text = textField.text,
             !text.isEmpty {
@@ -53,4 +54,4 @@ extension AddMovieViewController: UITextFieldDelegate {
         
         return false
     }
-}
+} */

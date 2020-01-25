@@ -9,6 +9,6 @@
 import Foundation
 
 struct Movie {
-    var movieTitle: String
+    let movieTitle: String
 }
 	
