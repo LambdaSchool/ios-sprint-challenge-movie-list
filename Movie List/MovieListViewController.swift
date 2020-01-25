@@ -12,7 +12,7 @@ class MovieListViewController: UIViewController, MovieAddedDelegate, UITableView
    
     @IBOutlet weak var tableView: UITableView!
     
-    var moviesOnList: [Movie] = []
+    var moviesOnList: [Movie] = [Movie(name: "")]
     
     override func viewDidLoad() {
            super.viewDidLoad()
@@ -20,7 +20,7 @@ class MovieListViewController: UIViewController, MovieAddedDelegate, UITableView
     
     func movieWasAdded(_ movie: Movie) {
         moviesOnList.append(movie)
-            dismiss(animated: true, completion: nil)
+//            dismiss(animated: true, completion: nil)
             tableView.reloadData()
     }
     
@@ -32,7 +32,7 @@ class MovieListViewController: UIViewController, MovieAddedDelegate, UITableView
            guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieOnListCell", for: indexPath) as? MovieNotSeenTableViewCell else { return UITableViewCell() }
            
            let movie = moviesOnList[indexPath.row]
-           cell.movie = movie
+        cell.movieOnListLabel.text = movie.name
            
            return cell
        }
@@ -41,19 +41,9 @@ class MovieListViewController: UIViewController, MovieAddedDelegate, UITableView
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ShowAddMovie" {
-            if let addMovieVC = segue.destination as? AddMovieViewController {
+            guard let addMovieVC = segue.destination as? AddMovieViewController else { return }
+            
                 addMovieVC.delegate = self
         }
     }
   }
-}
-//    extension MovieListViewController: MovieAddedDelegate {
-//    func movieWasAdded(_ movie: Movie) {
-//        moviesOnList.append(movie)
-//        dismiss(animated: true, completion: nil)
-//        tableView.reloadData()
-//    }
-//
-    
-    
-

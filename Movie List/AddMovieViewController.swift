@@ -21,11 +21,10 @@ class AddMovieViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
     }
     
-    @IBAction func addMovieTapped(_ sender: UIButton) {
+    @IBAction func addMovieTapped(_ sender: Any) {
         
         guard let movieName = addMovieTextField.text,
         let addMovie = addMovieTextField.text,
@@ -44,7 +43,6 @@ class AddMovieViewController: UIViewController {
             navController.popViewController(animated: true)
         }
     }
-    
 }
 
     extension AddMovieViewController: UITextFieldDelegate {
@@ -56,11 +54,11 @@ class AddMovieViewController: UIViewController {
                         textField.resignFirstResponder()
                    default:
                        textField.resignFirstResponder()
-                   }
-               }
+            }
+        }
 
                return false
-        }
+    }
 }
     
 
