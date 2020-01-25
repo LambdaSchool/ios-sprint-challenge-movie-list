@@ -14,7 +14,11 @@ class MovieNotSeenTableViewCell: UITableViewCell {
     @IBOutlet weak var movieOnListLabel: UILabel!
     @IBOutlet weak var seenButton: UIButton!
     @IBAction func notSeenTapped(_ sender: UIButton) {
-        
+        if movie?.seen == true {
+            print("Seen")
+        } else {
+            print("Not Seen")
+        }
 
     }
     
