@@ -8,14 +8,23 @@
 
 import UIKit
 
-class MovieListViewController: UIViewController, MovieAddedDelegate, UITableViewDataSource {
+class MovieListViewController: UIViewController, MovieAddedDelegate, UITableViewDataSource, SeenButtonDelegate {
+    func seenButtonTapped(cell: UITableViewCell) {
+        guard let indexPath = tableView.indexPath(for: cell) else { return }
+         var movie = moviesOnList[indexPath.row]
+        movie.seen.toggle()
+        tableView.reloadData()
+    }
+    
    
     @IBOutlet weak var tableView: UITableView!
     
-    var moviesOnList: [Movie] = [Movie(name: "")]
+    var moviesOnList: [Movie] = []
+
     
     override func viewDidLoad() {
            super.viewDidLoad()
+        
        }
     
     func movieWasAdded(_ movie: Movie) {
@@ -28,11 +37,12 @@ class MovieListViewController: UIViewController, MovieAddedDelegate, UITableView
         return moviesOnList.count
     }
        
-       func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
            guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieOnListCell", for: indexPath) as? MovieNotSeenTableViewCell else { return UITableViewCell() }
            
            let movie = moviesOnList[indexPath.row]
-        cell.movieOnListLabel.text = movie.name
+           cell.movie = movie
+            cell.delegate = self
            
            return cell
        }
@@ -42,7 +52,6 @@ class MovieListViewController: UIViewController, MovieAddedDelegate, UITableView
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ShowAddMovie" {
             guard let addMovieVC = segue.destination as? AddMovieViewController else { return }
-            
                 addMovieVC.delegate = self
         }
     }

@@ -21,24 +21,24 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MovieOnListCell" id="6ZT-QF-bwi" customClass="MovieNotSeenTableViewCell" customModule="Movie_List" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="343" height="53.5"/>
+                                        <rect key="frame" x="0.0" y="28" width="343" height="53"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6ZT-QF-bwi" id="1Jb-tB-Qah">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="53.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="53"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N45-ko-RVs">
-                                                    <rect key="frame" x="247" y="12" width="75" height="30"/>
+                                                    <rect key="frame" x="247" y="11.5" width="75" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="sCE-O2-NX2"/>
                                                     </constraints>
                                                     <state key="normal" title="Not Seen"/>
                                                     <connections>
-                                                        <action selector="notSeenTapped:" destination="6ZT-QF-bwi" eventType="valueChanged" id="iMm-eC-iZc"/>
+                                                        <action selector="seenButtonTapped:" destination="6ZT-QF-bwi" eventType="touchUpInside" id="dYU-Vi-evC"/>
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wLV-ZX-sKV">
-                                                    <rect key="frame" x="16" y="16" width="225" height="21.5"/>
+                                                    <rect key="frame" x="16" y="16" width="225" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="225" id="b3J-Rh-PVk"/>
                                                     </constraints>
@@ -57,7 +57,6 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="movieOnList" destination="1Jb-tB-Qah" id="aul-Oy-vEW"/>
                                             <outlet property="movieOnListLabel" destination="wLV-ZX-sKV" id="Qt9-Qd-W3g"/>
                                             <outlet property="seenButton" destination="N45-ko-RVs" id="YOh-dE-ZqR"/>
                                         </connections>
@@ -65,6 +64,7 @@
                                 </prototypes>
                                 <sections/>
                                 <connections>
+                                    <outlet property="dataSource" destination="5gR-1e-KgL" id="KwE-V7-JcT"/>
                                     <outlet property="delegate" destination="5gR-1e-KgL" id="OoM-22-ENb"/>
                                 </connections>
                             </tableView>
