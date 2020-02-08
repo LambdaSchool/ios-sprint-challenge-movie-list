@@ -22,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="P3x-0u-d4K">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieCell" id="P3x-0u-d4K" customClass="MovieTableViewCell" customModule="Movie_List" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="P3x-0u-d4K" id="tkR-G0-bJz">
@@ -36,9 +36,16 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RoE-oy-27e">
-                                                    <rect key="frame" x="317" y="7" width="46" height="30"/>
-                                                    <state key="normal" title="Button"/>
+                                                    <rect key="frame" x="273" y="7" width="90" height="30"/>
+                                                    <state key="normal" title="Not Watched"/>
+                                                    <connections>
+                                                        <action selector="hasBeenWatchedButton:" destination="P3x-0u-d4K" eventType="touchUpInside" id="oD0-gw-pmV"/>
+                                                    </connections>
                                                 </button>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Clapboard" translatesAutoresizingMaskIntoConstraints="NO" id="UBq-PX-Adt">
+                                                    <rect key="frame" x="103" y="-32" width="65" height="35"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="RoE-oy-27e" firstAttribute="centerY" secondItem="tkR-G0-bJz" secondAttribute="centerY" id="HfP-9U-5Ub"/>
@@ -48,6 +55,10 @@
                                                 <constraint firstItem="RoE-oy-27e" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="I2V-uC-2lB" secondAttribute="trailing" constant="8" symbolic="YES" id="qri-jE-KRp"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="hasBeenWatchedTapped" destination="RoE-oy-27e" id="rCt-rN-FyO"/>
+                                            <outlet property="movieTitleLabel" destination="I2V-uC-2lB" id="IEu-BL-oM9"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -62,21 +73,24 @@
                         <viewLayoutGuide key="safeArea" id="tNG-eJ-tGg"/>
                     </view>
                     <navigationItem key="navigationItem" title="Movie List" id="lM1-jo-qXy">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="BOv-6B-Ffb">
+                        <barButtonItem key="rightBarButtonItem" image="Plus" id="BOv-6B-Ffb">
                             <connections>
-                                <segue destination="pel-u2-7LI" kind="show" id="J7N-H1-YDb"/>
+                                <segue destination="pel-u2-7LI" kind="show" identifier="AddMovieSegue" id="J7N-H1-YDb"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="movieTableView" destination="2nc-4Y-GSW" id="B8t-V2-sWJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yJ5-fi-1cD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="844" y="132"/>
+            <point key="canvasLocation" x="844" y="131.78410794602701"/>
         </scene>
         <!--Add a new movie-->
         <scene sceneID="Nl2-EQ-dkw">
             <objects>
-                <viewController title="Add a new movie" id="pel-u2-7LI" sceneMemberID="viewController">
+                <viewController title="Add a new movie" id="pel-u2-7LI" customClass="AddMovieViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UfK-b4-QvX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -90,6 +104,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UAw-Ob-6cT">
                                 <rect key="frame" x="151" y="186" width="73" height="30"/>
                                 <state key="normal" title="Add Movie"/>
+                                <connections>
+                                    <action selector="addMovieButtonTapped:" destination="pel-u2-7LI" eventType="touchUpInside" id="H5L-2w-po3"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -102,6 +119,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="eNL-i3-EXV"/>
                     </view>
+                    <connections>
+                        <outlet property="movieTitleTextField" destination="eKI-uG-v1V" id="qeX-HR-215"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7km-yF-tyW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -126,4 +146,8 @@
             <point key="canvasLocation" x="133.59999999999999" y="131.78410794602701"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Clapboard" width="28" height="28"/>
+        <image name="Plus" width="28" height="28"/>
+    </resources>
 </document>

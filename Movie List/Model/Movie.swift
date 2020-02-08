@@ -7,3 +7,8 @@
 //
 
 import Foundation
+
+struct Movie {
+    var name: String
+    var hasBeenWatched: Bool? = false
+}
