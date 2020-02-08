@@ -46,7 +46,3 @@ extension MovieListViewController: UITableViewDataSource {
         return cell
     }
 }
-
-extension MovieListViewController: UITableViewDelegate {
-
-}

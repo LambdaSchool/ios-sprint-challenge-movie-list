@@ -20,21 +20,31 @@
                                 <rect key="frame" x="0.0" y="44" width="375" height="623"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MovieCell" id="nab-cx-4yo" customClass="MovieTableViewCell" customModule="Movie_List" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="43.5"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MovieCell" rowHeight="48" id="nab-cx-4yo" customClass="MovieTableViewCell" customModule="Movie_List" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="48"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nab-cx-4yo" id="em7-e3-hrB">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="48"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r6g-q0-wcM">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="100" id="dzp-Xp-Wge"/>
+                                                    </constraints>
+                                                    <state key="normal" title="Button"/>
+                                                    <connections>
+                                                        <action selector="overlayButtonTapped:" destination="nab-cx-4yo" eventType="touchUpInside" id="cau-E7-KW8"/>
+                                                    </connections>
+                                                </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IpN-OF-o1W">
-                                                    <rect key="frame" x="15" y="11.5" width="96" height="21"/>
+                                                    <rect key="frame" x="15" y="13.5" width="96" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Seen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M3I-yK-yAn">
-                                                    <rect key="frame" x="327" y="13.5" width="33" height="17"/>
+                                                    <rect key="frame" x="327" y="15.5" width="33" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -42,9 +52,12 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="M3I-yK-yAn" firstAttribute="centerY" secondItem="em7-e3-hrB" secondAttribute="centerY" id="3or-Br-Ojo"/>
+                                                <constraint firstItem="r6g-q0-wcM" firstAttribute="top" secondItem="em7-e3-hrB" secondAttribute="top" id="FfR-o8-qdy"/>
                                                 <constraint firstItem="IpN-OF-o1W" firstAttribute="centerY" secondItem="em7-e3-hrB" secondAttribute="centerY" id="KUt-Dm-yKW"/>
                                                 <constraint firstItem="IpN-OF-o1W" firstAttribute="leading" secondItem="em7-e3-hrB" secondAttribute="leadingMargin" id="QAK-Vd-K4Y"/>
                                                 <constraint firstItem="M3I-yK-yAn" firstAttribute="trailing" secondItem="em7-e3-hrB" secondAttribute="trailingMargin" id="dOA-Nk-z4b"/>
+                                                <constraint firstItem="r6g-q0-wcM" firstAttribute="leading" secondItem="em7-e3-hrB" secondAttribute="leading" id="gen-cr-eCV"/>
+                                                <constraint firstAttribute="trailing" secondItem="r6g-q0-wcM" secondAttribute="trailing" id="gnV-NK-1bz"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>

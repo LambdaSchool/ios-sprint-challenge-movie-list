@@ -25,6 +25,12 @@ class MovieTableViewCell: UITableViewCell {
         seenLabel.text = movie.seen ? "Seen" : "Not Seen"
     }
 
+    @IBAction func overlayButtonTapped(_ sender: Any) {
+        guard var copy = movie else { return }
+        copy.seen.toggle()
+        self.movie = copy
+    }
+
     override func awakeFromNib() {
         super.awakeFromNib()
     }
