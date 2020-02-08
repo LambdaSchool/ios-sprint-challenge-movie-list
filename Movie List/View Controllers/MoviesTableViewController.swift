@@ -40,6 +40,9 @@ class MoviesTableViewController: UIViewController {
 extension MoviesTableViewController: AddMovieDelegate {
         func movieWasAdded(_ movie: Movie) {
         movies.append(movie)
+            if let navController = self.navigationController {
+                navController.popToRootViewController(animated: true)
+            }
         tableView.reloadData()
     }
 }

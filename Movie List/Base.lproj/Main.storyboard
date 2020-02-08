@@ -27,26 +27,30 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MqQ-EN-ERE">
-                                                    <rect key="frame" x="15" y="11.5" width="46" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PVH-Cq-7Ot">
-                                                    <rect key="frame" x="303" y="7" width="64" height="30"/>
-                                                    <state key="normal" title="Not Seen"/>
-                                                    <connections>
-                                                        <action selector="seenButtonTapped:" destination="jfK-2h-L9f" eventType="touchUpInside" id="eul-4F-TYh"/>
-                                                    </connections>
-                                                </button>
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="175" translatesAutoresizingMaskIntoConstraints="NO" id="zmf-l0-6Sp">
+                                                    <rect key="frame" x="35" y="7" width="305" height="30"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MqQ-EN-ERE">
+                                                            <rect key="frame" x="0.0" y="0.0" width="46" height="30"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PVH-Cq-7Ot">
+                                                            <rect key="frame" x="221" y="0.0" width="84" height="30"/>
+                                                            <state key="normal" title="Not Seen"/>
+                                                            <state key="selected" title="Seen"/>
+                                                            <connections>
+                                                                <action selector="seenButtonTapped:" destination="jfK-2h-L9f" eventType="touchUpInside" id="eul-4F-TYh"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="PVH-Cq-7Ot" firstAttribute="centerY" secondItem="Zqw-He-TeK" secondAttribute="centerY" id="5Ya-S1-bmg"/>
-                                                <constraint firstAttribute="trailing" secondItem="PVH-Cq-7Ot" secondAttribute="trailing" constant="8" id="K3J-YG-IVc"/>
-                                                <constraint firstItem="PVH-Cq-7Ot" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="MqQ-EN-ERE" secondAttribute="trailing" constant="8" id="KWO-gX-16b"/>
-                                                <constraint firstItem="MqQ-EN-ERE" firstAttribute="leading" secondItem="Zqw-He-TeK" secondAttribute="leadingMargin" id="P02-Lg-PF3"/>
-                                                <constraint firstItem="MqQ-EN-ERE" firstAttribute="centerY" secondItem="Zqw-He-TeK" secondAttribute="centerY" id="mLs-Gz-RlG"/>
+                                                <constraint firstItem="zmf-l0-6Sp" firstAttribute="leading" secondItem="Zqw-He-TeK" secondAttribute="leadingMargin" constant="20" id="cDA-au-tKS"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="zmf-l0-6Sp" secondAttribute="trailing" constant="20" id="igk-vn-xWE"/>
+                                                <constraint firstItem="zmf-l0-6Sp" firstAttribute="centerY" secondItem="Zqw-He-TeK" secondAttribute="centerY" id="wQy-kW-wXi"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>

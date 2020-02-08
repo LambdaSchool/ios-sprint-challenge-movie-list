@@ -24,10 +24,10 @@ class AddMovieViewController: UIViewController {
     // MARK: - IBActions
     @IBAction func addMovieButtonTapped(_ sender: Any) {
         guard let movieTitle = movieTitleTextField.text, !movieTitle.isEmpty else { return }
-        var movie = Movie(name: movieTitle)
+        var movie = Movie(name: movieTitle, hasBeenSeen: false)
         
         delegate?.movieWasAdded(movie)
-        
+                
     }
 
     
