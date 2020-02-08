@@ -14,7 +14,7 @@ class MovieViewController: UIViewController {
     @IBOutlet var tableView: UITableView!
     
     //Properties
-    var movies: [Movie] = []
+    var movies: [Movie] = [Movie(name: "Harry Potter", hasSeen: true)]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,16 +22,10 @@ class MovieViewController: UIViewController {
         self.tableView.delegate = self
         self.tableView.dataSource = self
 
-        // Do any additional setup after loading the view.
-    }
-    //IBActions
-    
-    @IBAction func addMovieButtonTapped(_ sender: Any) {
     }
 }
 
 //Extensions
-
 extension MovieViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return movies.count
@@ -44,5 +38,19 @@ extension MovieViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "addMovieSegue" {
+            let addMovieVC = segue.destination as! AddMovieViewController
+            addMovieVC.delegate = self
+        }
+    }
+}
+
+extension MovieViewController: AddMovieDelegate {
+    func movieWasCreated(_ movie: Movie) {
+        self.movies.append(movie)
+        tableView.reloadData()
+        self.navigationController!.viewControllers.remove(at: 1)
+    }
+
 }

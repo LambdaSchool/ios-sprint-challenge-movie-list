@@ -8,12 +8,19 @@
 
 import UIKit
 
+protocol AddMovieDelegate {
+    func movieWasCreated(_ movie: Movie)
+}
+
 class AddMovieViewController: UIViewController {
     
     //IBOutlets
     
     @IBOutlet var addMovieTextField: UITextField!
     @IBOutlet var addMovieButton: UIButton!
+    
+    //MARK: - Private Propoerty
+    var delegate: AddMovieDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +29,12 @@ class AddMovieViewController: UIViewController {
     }
     //IBAction
     @IBAction func addButtonTapped(_ sender: Any) {
+        guard let title = addMovieTextField.text,
+            !title.isEmpty else {return}
+        
+        let movie = Movie(name: title)
+        delegate?.movieWasCreated(movie)
     }
-    
-
 }
+
+

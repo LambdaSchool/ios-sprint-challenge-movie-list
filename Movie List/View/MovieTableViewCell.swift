@@ -14,10 +14,19 @@ class MovieTableViewCell: UITableViewCell {
     @IBOutlet var movieTitleLabel: UILabel!
     @IBOutlet var seenButton: UIButton!
     
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    //make a reference to our Movie object and call the updateview function
+    var movie: Movie? {
+        didSet {
+            self.updateViews()
+        }
+    }
+    
+    private func updateViews() {
+        guard let movie = movie else {return}
+        
+        //use our friend object to fill in the data
+        movieTitleLabel.text = movie.name
+        //seenButton.titleLabel = movie.
     }
 
     //IBAction
