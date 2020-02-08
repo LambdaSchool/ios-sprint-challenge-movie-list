@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol AddMovieDelegate {
+    func movieWasAdded(_ movieInstance: Movie)
+}
+
 class AddMovieViewController: UIViewController {
 
     override func viewDidLoad() {
