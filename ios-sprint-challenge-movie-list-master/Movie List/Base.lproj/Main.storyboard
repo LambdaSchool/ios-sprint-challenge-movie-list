@@ -27,8 +27,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LQu-Of-CnK">
-                                                    <rect key="frame" x="19.999999999999996" y="11.333333333333336" width="43.666666666666657" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LQu-Of-CnK">
+                                                    <rect key="frame" x="20.000000000000007" y="11.333333333333336" width="98.666666666666686" height="21"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -36,6 +36,9 @@
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zyl-Di-2o1">
                                                     <rect key="frame" x="359" y="7" width="35" height="30"/>
                                                     <state key="normal" title="Seen"/>
+                                                    <connections>
+                                                        <action selector="seenButtonTapped:" destination="ZKk-cX-JvF" eventType="touchUpInside" id="Y4Q-2A-ecd"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -46,6 +49,10 @@
                                                 <constraint firstItem="LQu-Of-CnK" firstAttribute="leading" secondItem="J3k-P8-Vc7" secondAttribute="leading" constant="20" id="w7R-6l-Saz"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="movieNameLabel" destination="LQu-Of-CnK" id="itC-n0-Djy"/>
+                                            <outlet property="seenButton" destination="Zyl-Di-2o1" id="rC5-5e-fza"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -62,7 +69,7 @@
                     <navigationItem key="navigationItem" title="Movie List" id="4MQ-YT-o2Q">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="0y7-cd-liU">
                             <connections>
-                                <segue destination="GqP-f8-n7s" kind="presentation" id="Iic-Yz-0Uj"/>
+                                <segue destination="GqP-f8-n7s" kind="presentation" identifier="AddMovieTitleModalSegue" id="Iic-Yz-0Uj"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
