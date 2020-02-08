@@ -47,8 +47,16 @@
                                                 <constraint firstItem="M3I-yK-yAn" firstAttribute="trailing" secondItem="em7-e3-hrB" secondAttribute="trailingMargin" id="dOA-Nk-z4b"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="movieNameLabel" destination="IpN-OF-o1W" id="lov-jK-LZ4"/>
+                                            <outlet property="seenLabel" destination="M3I-yK-yAn" id="ZIH-OI-awF"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="5sf-dg-kyJ" id="Fne-gp-QXv"/>
+                                    <outlet property="delegate" destination="5sf-dg-kyJ" id="r95-1d-kIp"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -67,6 +75,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="F6I-Vc-tTf" id="zZj-HQ-JTF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bbl-Fy-TBY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -97,6 +108,9 @@
                                     <constraint firstAttribute="height" constant="50" id="HRD-LK-Cay"/>
                                 </constraints>
                                 <state key="normal" title="Add Movie"/>
+                                <connections>
+                                    <action selector="addButtonPressed:" destination="BfJ-Hs-iuu" eventType="touchUpInside" id="RmK-MV-bvo"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -113,6 +127,9 @@
                         <viewLayoutGuide key="safeArea" id="XVZ-84-3rv"/>
                     </view>
                     <navigationItem key="navigationItem" id="Mvu-py-nQz"/>
+                    <connections>
+                        <outlet property="movieNameLabel" destination="PdC-Zc-Ekn" id="bKs-wm-v7V"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KJS-9n-w0p" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

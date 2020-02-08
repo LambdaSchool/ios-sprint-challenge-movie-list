@@ -10,8 +10,14 @@ import UIKit
 
 class AddMovieViewController: UIViewController {
 
+    @IBOutlet weak var movieNameLabel: UITextField!
+
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+
+    @IBAction func addButtonPressed(_ sender: UIButton) {
+
     }
 
     // MARK: - Navigation
