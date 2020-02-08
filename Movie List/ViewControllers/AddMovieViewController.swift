@@ -1,5 +1,5 @@
 //
-//  MovieViewController.swift
+//  AddMovieViewController.swift
 //  Movie List
 //
 //  Created by Claudia Contreras on 2/7/20.
@@ -8,19 +8,21 @@
 
 import UIKit
 
-class MovieViewController: UIViewController {
-
-    //IBOutlets
-    @IBOutlet var tableView: UITableView!
+class AddMovieViewController: UIViewController {
     
+    //IBOutlets
+    
+    @IBOutlet var addMovieTextField: UITextField!
+    @IBOutlet var addMovieButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
-    //IBActions
-    
-    @IBAction func addMovieButtonTapped(_ sender: Any) {
+    //IBAction
+    @IBAction func addButtonTapped(_ sender: Any) {
     }
+    
+
 }
