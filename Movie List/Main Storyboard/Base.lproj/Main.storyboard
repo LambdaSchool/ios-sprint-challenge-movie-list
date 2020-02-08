@@ -27,17 +27,33 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f8q-OB-Ka8">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MaV-cy-WGU">
+                                                    <rect key="frame" x="20" y="11.5" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZTc-5M-zHD">
                                                     <rect key="frame" x="320" y="7" width="35" height="30"/>
                                                     <state key="normal" title="Seen"/>
+                                                    <connections>
+                                                        <action selector="seenToggleWithSender:" destination="drM-li-1y7" eventType="touchUpInside" id="5bv-ZC-swf"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="f8q-OB-Ka8" secondAttribute="trailing" constant="20" id="CpU-yp-aDg"/>
-                                                <constraint firstItem="f8q-OB-Ka8" firstAttribute="centerY" secondItem="7bQ-TQ-fTm" secondAttribute="centerY" id="tpf-p6-iYx"/>
+                                                <constraint firstItem="ZTc-5M-zHD" firstAttribute="centerY" secondItem="7bQ-TQ-fTm" secondAttribute="centerY" id="3ir-nF-YDS"/>
+                                                <constraint firstItem="MaV-cy-WGU" firstAttribute="leading" secondItem="7bQ-TQ-fTm" secondAttribute="leading" constant="20" id="bs2-qd-eRw"/>
+                                                <constraint firstItem="MaV-cy-WGU" firstAttribute="centerY" secondItem="7bQ-TQ-fTm" secondAttribute="centerY" id="f4d-NU-Ilg"/>
+                                                <constraint firstItem="ZTc-5M-zHD" firstAttribute="leading" secondItem="MaV-cy-WGU" secondAttribute="trailing" constant="258" id="rH0-5Q-w8s"/>
+                                                <constraint firstAttribute="trailing" secondItem="ZTc-5M-zHD" secondAttribute="trailing" constant="20" id="x1s-0M-AAV"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <accessibility key="accessibilityConfiguration" identifier="Movie Content"/>
+                                        <connections>
+                                            <outlet property="movieLabel" destination="MaV-cy-WGU" id="Mxy-Zd-p6S"/>
+                                            <outlet property="seenToggle" destination="ZTc-5M-zHD" id="2l4-Jd-iqY"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -88,6 +104,10 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ud6-zX-kzU">
                                 <rect key="frame" x="151" y="153" width="73" height="30"/>
                                 <state key="normal" title="Add Movie"/>
+                                <connections>
+                                    <action selector="addTapped:" destination="0oO-9L-27J" eventType="touchUpInside" id="YVK-Y9-lmh"/>
+                                    <action selector="n:" destination="ALW-A3-6Ou" eventType="touchUpInside" id="XBK-RG-VdN"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -104,11 +124,11 @@
                         <viewLayoutGuide key="safeArea" id="IIP-H6-ANM"/>
                     </view>
                     <connections>
-                        <outlet property="MovieText" destination="Gbr-hS-BAF" id="pAM-ZW-Syy"/>
-                        <outlet property="addMovieButton" destination="Ud6-zX-kzU" id="ZId-cU-psX"/>
+                        <outlet property="movieText" destination="Gbr-hS-BAF" id="xG6-fe-Epq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YV9-LU-oEl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="ALW-A3-6Ou" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1476" y="495"/>
         </scene>

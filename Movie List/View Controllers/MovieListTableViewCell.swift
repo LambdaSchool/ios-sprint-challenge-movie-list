@@ -12,15 +12,25 @@ import UIKit
 
 class MovieListTableViewCell: UITableViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+// MARK: IBOutlets
+    
+    @IBOutlet weak var movieLabel: UILabel!
+    
+    @IBAction func seenToggle(sender: UIButton!) {}
+//        guard case let movies.hasBeenSeen == true else { return }
+//    }
+//
+    var movies: [Movie] = []
+    
+    var movie: Movie? {
+        didSet{
+            updateViews()
+        }
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    private func updateViews() {
+    guard let movie = movie else { return }
+        movieLabel.text = movie.name
+        
     }
 
 }
