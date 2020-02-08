@@ -11,7 +11,7 @@ import UIKit
 class MovieTableViewCell: UITableViewCell {
 
     @IBOutlet weak var movieNameLabel: UILabel!
-    @IBOutlet weak var seenLabel: UILabel!
+    @IBOutlet weak var seenButton: UIButton!
 
     var movie: Movie? {
         didSet {
@@ -22,10 +22,10 @@ class MovieTableViewCell: UITableViewCell {
     private func updateViews() {
         guard let movie = movie else { return }
         movieNameLabel.text = movie.name
-        seenLabel.text = movie.seen ? "Seen" : "Not Seen"
+        seenButton.setTitle(movie.seen ? "Seen" : "Not Seen", for: .normal)
     }
 
-    @IBAction func overlayButtonTapped(_ sender: Any) {
+    @IBAction func seenButtonTapped(_ sender: Any) {
         guard var copy = movie else { return }
         copy.seen.toggle()
         self.movie = copy
