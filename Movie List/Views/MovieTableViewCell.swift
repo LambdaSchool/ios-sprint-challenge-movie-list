@@ -19,7 +19,14 @@ class MovieTableViewCell: UITableViewCell {
 //    var isTapped = true
     @IBAction func seenButtonTapped(_ sender: UIButton) {
         
-        sender.setTitle("Seen", for: .normal)
+        seenButton.isSelected.toggle()
+        
+        if seenButton.isSelected == true {
+            seenButton.setTitle("Seen", for: .normal)
+        } else {
+            seenButton.setTitle("Not Seen", for: .normal)
+        }
+        
 //        if seenButton.isSelected == true {
 //            seenButton.isSelected = false
 //            seenButton.setTitle("Seen", for: .normal)
