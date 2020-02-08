@@ -20,6 +20,7 @@ class AddMovieViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        movieNameLabel.becomeFirstResponder()
     }
 
     @IBAction func addButtonPressed(_ sender: UIButton) {
