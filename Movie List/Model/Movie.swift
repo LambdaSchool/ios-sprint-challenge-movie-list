@@ -9,6 +9,6 @@
 import Foundation
 
 struct Movie {
-    var movieName: String
+    var movieName: [String]
     var movieSeenBool: Bool
 }
