@@ -16,7 +16,7 @@ class MovieTableViewCell: UITableViewCell {
     
     
     // MARK: - IBActions
-    var isTapped = true
+//    var isTapped = true
     @IBAction func seenButtonTapped(_ sender: UIButton) {
         
         sender.setTitle("Seen", for: .normal)
@@ -37,8 +37,6 @@ class MovieTableViewCell: UITableViewCell {
 //        } else {
 //            sender.setTitle("Not Seen", for: .normal)
 //        }
-        
-        //sender.setTitle("Seen", for: .normal)
     }
     
     var movie: Movie? {
