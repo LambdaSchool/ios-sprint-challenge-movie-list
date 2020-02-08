@@ -35,6 +35,7 @@ extension MovieViewController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as? MovieTableViewCell else {return UITableViewCell()}
         let movie = movies[indexPath.row]
         cell.movie = movie
+        cell.delegate = self as? SeenButtonTappedDelegate
         return cell
     }
     
@@ -52,5 +53,24 @@ extension MovieViewController: AddMovieDelegate {
         tableView.reloadData()
         self.navigationController!.viewControllers.remove(at: 1)
     }
+}
 
+extension MovieViewController: SeenButtonTappedDelegate {
+    func seenButtonTappedCell(_ MovieTableViewCell: MovieTableViewCell, seenButtonTappedFor movie: Movie) {
+        
+        let indexPath = self.tableView.indexPath(for: MovieTableViewCell)
+        print(indexPath!.row)
+        if movie.hasSeen {
+            //change the hasSeen property
+            movies[indexPath!.row].hasSeen = false
+            print(movie)
+            tableView.reloadData()
+        } else {
+            movies[indexPath!.row].hasSeen = true
+            print(movie)
+            tableView.reloadData()
+        }
+    }
+    
+    
 }

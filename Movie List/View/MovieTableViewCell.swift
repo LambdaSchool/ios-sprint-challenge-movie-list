@@ -6,6 +6,10 @@
 //  Copyright © 2020 Lambda School. All rights reserved.
 //
 
+protocol SeenButtonTappedDelegate: AnyObject {
+    func seenButtonTappedCell(_ MovieTableViewCell: MovieTableViewCell, seenButtonTappedFor movie: Movie)
+}
+
 import UIKit
 
 class MovieTableViewCell: UITableViewCell {
@@ -21,16 +25,35 @@ class MovieTableViewCell: UITableViewCell {
         }
     }
     
+    weak var delegate: SeenButtonTappedDelegate?
+    
     private func updateViews() {
         guard let movie = movie else {return}
         
         //use our friend object to fill in the data
         movieTitleLabel.text = movie.name
-        //seenButton.titleLabel = movie.
+        //Action to be performed when the button is tapped
+        self.seenButton.addTarget(self, action: #selector(seenButtonTapped(_:)), for: .touchUpInside)
     }
+    
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+    }
+    
 
     //IBAction
     @IBAction func seenButtonTapped(_ sender: Any) {
+        if var movie = movie,
+            let delegate = delegate {
+            self.delegate?.seenButtonTappedCell(self, seenButtonTappedFor: movie)
+        }
+        //Change the label according to the seen property
+        if movie!.hasSeen {
+            seenButton.titleLabel!.text = "Seen"
+        } else {
+            seenButton.titleLabel!.text = "Not Seen"
+        }
+        
     }
     
 
