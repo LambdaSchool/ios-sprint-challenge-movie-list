@@ -32,17 +32,13 @@ class MovieListViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as? MovieTableViewCell else { return UITableViewCell() }
-        
         let movie = movieController.movies[indexPath.row]
-        
         cell.movie = movie
-        
         cell.delegate = self
-        
         return cell
     }
     
-// Swipe to delete fucntionality
+// Swipe to delete functionality
 // Resource:https://stackoverflow.com/questions/24103069/add-swipe-to-delete-uitableviewcell
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

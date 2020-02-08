@@ -18,11 +18,8 @@ class AddMovieViewController: UIViewController {
     @IBAction func addMovieButtonTapped(_ sender: Any) {
         guard let title = movieTextField.text,
             title != "" else { return }
-        
         movieController.createMovie(with: title)
-        
         navigationController?.popViewController(animated: true)
-   
     }
     
     @IBOutlet weak var movieTextField: UITextField!
