@@ -23,7 +23,11 @@ class AddMovieViewController: UIViewController {
     }
 
     @IBAction func addButtonPressed(_ sender: UIButton) {
-
+        guard let movieName = movieNameLabel.text,
+            !movieName.isEmpty else { return }
+        let movie = Movie(name: movieName)
+        delegate?.movieWasAdded(movie)
+        dismiss(animated: true)
     }
 
     // MARK: - Navigation
