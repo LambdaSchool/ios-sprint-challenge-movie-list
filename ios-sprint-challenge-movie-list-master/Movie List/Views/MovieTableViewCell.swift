@@ -10,8 +10,9 @@ import UIKit
 
 class MovieTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var movieNameLabel: UILabel!
+    // MARK: - IBOutlets
     
+    @IBOutlet weak var movieNameLabel: UILabel!
     @IBOutlet weak var seenButton: UIButton!
     
     var movie: Movie? {

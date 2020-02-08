@@ -8,22 +8,21 @@
 
 import UIKit
 
-class MoviesTableViewController: UIViewController {
+class MoviesTableViewController: UIViewController, UITableViewDelegate {
+    
+    // MARK: - IBOutlet
 
     @IBOutlet weak var tableView: UITableView!
+    
+    // MARK: - Properties
     
     var movie: [Movie] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "AddMovieTitleModalSegue" {
-            if let addMovieVC = segue.destination as? AddMovieViewController {
-                addMovieVC.delegate = self
-            }
-        }
+        
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
     }
 }
 
@@ -41,6 +40,14 @@ extension MoviesTableViewController: UITableViewDataSource {
         
         return cell
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "AddMovieTitleModalSegue" {
+            if let addMovieVC = segue.destination as? AddMovieViewController {
+                addMovieVC.delegate = self
+            }
+        }
+    }
 }
 
 extension MoviesTableViewController: AddMovieDelegate {
@@ -49,5 +56,4 @@ extension MoviesTableViewController: AddMovieDelegate {
         dismiss(animated: true, completion: nil)
         tableView.reloadData()
     }
-    
 }
