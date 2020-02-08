@@ -34,8 +34,8 @@ class MovieTableViewCell: UITableViewCell {
     
     private func updateViews() {
         guard let movie = movie, !movie.movieName.isEmpty else { return }
-        movieLabel?.text = movie.movieName
-        seenButton?.setTitle("Not Seen", for: .normal)
+        movieLabel.text = movie.movieName
+        seenButton.setTitle("Not Seen", for: .normal)
     }
 
 }

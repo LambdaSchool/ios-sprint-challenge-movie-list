@@ -14,7 +14,7 @@ class MoviesTableViewController: UIViewController, UITableViewDelegate {
     @IBOutlet weak var movieTableView: UITableView!
     
     // MARK: Properties
-    var movies: [Movie] = [Movie(movieName: "Star Wars")]
+    var movies: [Movie] = [/*Movie(movieName: "Star Wars")*/]
 
     override func viewDidLoad() {
         super.viewDidLoad()
