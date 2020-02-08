@@ -16,10 +16,13 @@ class MoviesTableViewController: UIViewController, UITableViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.tableView.delegate = self
-        //self.tableView.dataSource = self
+        
+        tableView.delegate = self
+        tableView.dataSource = self
+        
     }
+    
+
     /*
     // MARK: - Navigation
 
@@ -56,8 +59,8 @@ extension MoviesTableViewController: UITableViewDataSource {
 
 extension MoviesTableViewController: AddMovieDelegate {
     func movieWasAdded(_ movie: Movie) {
-        movieArray.append(movie)
-        dismiss(animated: true, completion: nil)
+        self.movieArray.append(movie)
+        //dismiss(animated: true, completion: nil)
         tableView.reloadData()
     }
     

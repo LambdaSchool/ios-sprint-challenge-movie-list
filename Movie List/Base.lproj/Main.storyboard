@@ -28,29 +28,28 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rTl-ad-VTb">
-                                                    <rect key="frame" x="297" y="20" width="70" height="33"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="70" id="t0i-8k-6ma"/>
-                                                    </constraints>
+                                                    <rect key="frame" x="303" y="20" width="64" height="33"/>
                                                     <state key="normal" title="Not Seen"/>
                                                     <connections>
                                                         <action selector="movieSeenTapped:" destination="fUd-Kf-NWw" eventType="touchUpInside" id="eL7-OH-gF4"/>
                                                     </connections>
                                                 </button>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Insert Movie" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dhk-T1-KZc">
-                                                    <rect key="frame" x="15" y="19" width="280" height="35"/>
+                                                    <rect key="frame" x="21" y="19" width="280" height="35"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="280" id="w4b-iN-21o"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="rTl-ad-VTb" firstAttribute="top" secondItem="SfZ-1F-jTt" secondAttribute="top" constant="20" id="5te-uO-Ybx"/>
-                                                <constraint firstItem="rTl-ad-VTb" firstAttribute="leading" secondItem="dhk-T1-KZc" secondAttribute="trailing" constant="2" id="7KV-r3-Eri"/>
-                                                <constraint firstAttribute="trailing" secondItem="rTl-ad-VTb" secondAttribute="trailing" constant="8" id="G2s-IC-0lM"/>
-                                                <constraint firstItem="dhk-T1-KZc" firstAttribute="centerY" secondItem="SfZ-1F-jTt" secondAttribute="centerY" id="JVu-gF-s39"/>
-                                                <constraint firstItem="dhk-T1-KZc" firstAttribute="top" secondItem="SfZ-1F-jTt" secondAttribute="topMargin" constant="8" id="Vft-2i-ex7"/>
-                                                <constraint firstItem="rTl-ad-VTb" firstAttribute="centerY" secondItem="SfZ-1F-jTt" secondAttribute="centerY" id="Y3k-wV-LXH"/>
-                                                <constraint firstItem="dhk-T1-KZc" firstAttribute="leading" secondItem="SfZ-1F-jTt" secondAttribute="leadingMargin" id="muL-EU-vc2"/>
+                                                <constraint firstItem="rTl-ad-VTb" firstAttribute="top" secondItem="SfZ-1F-jTt" secondAttribute="topMargin" constant="9" id="2QA-hY-Wxv"/>
+                                                <constraint firstItem="dhk-T1-KZc" firstAttribute="top" secondItem="SfZ-1F-jTt" secondAttribute="topMargin" constant="8" id="Hdd-Ad-K59"/>
+                                                <constraint firstItem="dhk-T1-KZc" firstAttribute="centerY" secondItem="SfZ-1F-jTt" secondAttribute="centerY" id="Vmf-Z8-Xz2"/>
+                                                <constraint firstItem="dhk-T1-KZc" firstAttribute="centerY" secondItem="rTl-ad-VTb" secondAttribute="centerY" id="bwe-a8-YCK"/>
+                                                <constraint firstItem="rTl-ad-VTb" firstAttribute="leading" secondItem="dhk-T1-KZc" secondAttribute="trailing" constant="2" id="mbQ-vJ-Pj6"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="rTl-ad-VTb" secondAttribute="trailing" constant="-7" id="q7m-Di-0IC"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -63,17 +62,17 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="3yV-rR-yQi" firstAttribute="top" secondItem="SgS-Rf-Ml1" secondAttribute="top" id="Fzl-PL-SUW"/>
-                            <constraint firstItem="3yV-rR-yQi" firstAttribute="trailing" secondItem="SgS-Rf-Ml1" secondAttribute="trailing" id="TMJ-9K-ZCn"/>
-                            <constraint firstItem="SgS-Rf-Ml1" firstAttribute="bottom" secondItem="3yV-rR-yQi" secondAttribute="bottom" id="WwU-3L-82y"/>
-                            <constraint firstItem="3yV-rR-yQi" firstAttribute="leading" secondItem="SgS-Rf-Ml1" secondAttribute="leading" id="s4g-pX-dBq"/>
+                            <constraint firstItem="3yV-rR-yQi" firstAttribute="top" secondItem="SgS-Rf-Ml1" secondAttribute="top" id="0CW-2B-CwN"/>
+                            <constraint firstItem="3yV-rR-yQi" firstAttribute="centerX" secondItem="mct-7h-F84" secondAttribute="centerX" id="KEA-kT-U1P"/>
+                            <constraint firstItem="3yV-rR-yQi" firstAttribute="bottom" secondItem="SgS-Rf-Ml1" secondAttribute="bottom" id="RMK-M6-ULY"/>
+                            <constraint firstItem="3yV-rR-yQi" firstAttribute="leading" secondItem="SgS-Rf-Ml1" secondAttribute="leading" id="hc6-8h-JZu"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="SgS-Rf-Ml1"/>
                     </view>
                     <navigationItem key="navigationItem" title="Movie List" largeTitleDisplayMode="always" id="OWv-sA-Uwf">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="CEJ-5i-gvg">
                             <connections>
-                                <segue destination="aPT-Hh-uWB" kind="show" identifier="AddMovieModalSegue" id="foZ-0R-6Rp"/>
+                                <segue destination="aPT-Hh-uWB" kind="show" id="TZD-ww-oF5"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -106,9 +105,6 @@
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aCo-Cm-YR8">
                                 <rect key="frame" x="137.66666666666666" y="201" width="100" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="Sq4-JO-eie"/>
-                                </constraints>
                                 <state key="normal" title="Add Movie"/>
                                 <connections>
                                     <action selector="addMovieTapped:" destination="aPT-Hh-uWB" eventType="touchUpInside" id="rg8-1z-xx1"/>
@@ -117,20 +113,20 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="M1W-wT-QXL" firstAttribute="top" secondItem="uRe-ri-7u5" secondAttribute="bottom" constant="15" id="Dfd-AY-Gnk"/>
-                            <constraint firstItem="aCo-Cm-YR8" firstAttribute="top" secondItem="M1W-wT-QXL" secondAttribute="bottom" constant="20" id="RyM-48-SGR"/>
-                            <constraint firstItem="M1W-wT-QXL" firstAttribute="leading" secondItem="8DW-58-PI7" secondAttribute="leading" constant="8" id="Ui7-bN-Ycu"/>
-                            <constraint firstItem="uRe-ri-7u5" firstAttribute="top" secondItem="8DW-58-PI7" secondAttribute="top" constant="20" id="Y9v-Jn-u5K"/>
-                            <constraint firstItem="8DW-58-PI7" firstAttribute="trailing" secondItem="M1W-wT-QXL" secondAttribute="trailing" constant="8" id="p7j-gh-2sq"/>
-                            <constraint firstItem="aCo-Cm-YR8" firstAttribute="centerX" secondItem="eZT-iM-imQ" secondAttribute="centerX" id="vXR-Eu-fve"/>
-                            <constraint firstItem="uRe-ri-7u5" firstAttribute="leading" secondItem="8DW-58-PI7" secondAttribute="leading" constant="8" id="xTh-s0-y9Z"/>
-                            <constraint firstItem="8DW-58-PI7" firstAttribute="trailing" secondItem="uRe-ri-7u5" secondAttribute="trailing" constant="8" id="zyC-GM-IZj"/>
+                            <constraint firstItem="uRe-ri-7u5" firstAttribute="leading" secondItem="8DW-58-PI7" secondAttribute="leading" constant="8" id="3Lf-y1-FGc"/>
+                            <constraint firstItem="M1W-wT-QXL" firstAttribute="centerX" secondItem="aCo-Cm-YR8" secondAttribute="centerX" id="BZb-ht-6oV"/>
+                            <constraint firstItem="M1W-wT-QXL" firstAttribute="top" secondItem="uRe-ri-7u5" secondAttribute="bottom" constant="15" id="Iw5-Tp-SdK"/>
+                            <constraint firstItem="aCo-Cm-YR8" firstAttribute="top" secondItem="M1W-wT-QXL" secondAttribute="bottom" constant="20" id="JX9-aH-h0u"/>
+                            <constraint firstItem="uRe-ri-7u5" firstAttribute="leading" secondItem="M1W-wT-QXL" secondAttribute="leading" id="KkZ-bT-a4Q"/>
+                            <constraint firstItem="uRe-ri-7u5" firstAttribute="top" secondItem="8DW-58-PI7" secondAttribute="top" constant="20" id="c2m-bj-bIE"/>
+                            <constraint firstItem="uRe-ri-7u5" firstAttribute="trailing" secondItem="M1W-wT-QXL" secondAttribute="trailing" id="dZf-ww-aaz"/>
+                            <constraint firstItem="uRe-ri-7u5" firstAttribute="centerX" secondItem="eZT-iM-imQ" secondAttribute="centerX" id="tmg-zE-em5"/>
+                            <constraint firstItem="aCo-Cm-YR8" firstAttribute="leading" secondItem="8DW-58-PI7" secondAttribute="leading" constant="137.66666666666666" id="whI-io-139"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="8DW-58-PI7"/>
                     </view>
                     <navigationItem key="navigationItem" id="4rk-g5-DTA"/>
                     <connections>
-                        <outlet property="addMovieBtn" destination="aCo-Cm-YR8" id="VVT-uR-50Y"/>
                         <outlet property="enterMovieTextField" destination="M1W-wT-QXL" id="gcK-eU-K7c"/>
                     </connections>
                 </viewController>

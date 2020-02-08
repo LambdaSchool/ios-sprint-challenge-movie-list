@@ -17,15 +17,19 @@ class MovieTableViewCell: UITableViewCell {
     
     var movie: Movie? {
         didSet {
-            self.updateViews()
+            updateViews()
         }
     }
     
     func updateViews() {
         guard let movie = movie else { return }
         
-        movieNameLabel.text = movie.movieName[0]
-        movieSeenBtn.titleLabel?.text = "Not Seen"
+        movieNameLabel.text = movie.movieName
+        if movie.movieSeenBool == true {
+            movieSeenBtn.titleLabel?.text = "Seen"
+        } else{
+            movieSeenBtn.titleLabel?.text = "Not Seen"
+        }
         
     }
     
@@ -36,16 +40,12 @@ class MovieTableViewCell: UITableViewCell {
     
     
     @IBAction func movieSeenTapped(_ sender: Any) {
-        if movieSeenBtn.titleLabel?.text == "Not Seen"{
-            movieSeenBtn.titleLabel?.text = "Seen"
-        } else if movieSeenBtn.titleLabel?.text == "Seen"{
+
+        if movie?.movieSeenBool == false {
             movieSeenBtn.titleLabel?.text = "Not Seen"
+        } else if movie?.movieSeenBool == true {
+            movieSeenBtn.titleLabel?.text = "Seen"
         }
-//        if movieSeenBtn = false {
-//            movieSeenBtn.titleLabel?.text = "Not Seen"
-//        } else if movieSeenBtn = true {
-//            movieSeenBtn.titleLabel?.text = "Seen"
-//        }
     }
     
     

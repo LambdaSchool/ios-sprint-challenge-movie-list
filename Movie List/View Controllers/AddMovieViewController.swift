@@ -17,7 +17,6 @@ class AddMovieViewController: UIViewController {
     // MARK: IBOutlets
     
     @IBOutlet weak var enterMovieTextField: UITextField!
-    @IBOutlet weak var addMovieBtn: UIButton!
     
     var delegate: AddMovieDelegate?
     
@@ -30,11 +29,15 @@ class AddMovieViewController: UIViewController {
     @IBAction func addMovieTapped(_ sender: Any) {
         guard let movie = enterMovieTextField.text, !movie.isEmpty else { return }
         
-        let movieListed = Movie(movieName: [movie], movieSeenBool: false)
+        let movieListed = Movie(movieName: movie, movieSeenBool: false)
+        //movieListed.movieName.append(movie)
+        
         
         delegate?.movieWasAdded(movieListed)
         
-        self.dismiss(animated: true, completion: nil)
+        navigationController?.popViewController(animated: true)
+        //dismiss(animated: true, completion: nil)
+        
     }
     
     /*
