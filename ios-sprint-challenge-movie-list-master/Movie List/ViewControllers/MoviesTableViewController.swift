@@ -18,3 +18,20 @@ class MoviesTableViewController: UIViewController {
         super.viewDidLoad()
     }
 }
+
+extension MoviesTableViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return movie.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as? MovieTableViewCell else { return UITableViewCell() }
+        
+        let selectedMovie = movie[indexPath.row]
+        
+        cell.movie = selectedMovie
+        
+        return cell
+    }
+    
+}
