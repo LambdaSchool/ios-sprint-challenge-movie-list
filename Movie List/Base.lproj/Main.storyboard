@@ -79,10 +79,37 @@
                     <view key="view" contentMode="scaleToFill" id="GKq-PW-NWT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ak-Sk-MiX">
+                                <rect key="frame" x="147.5" y="54" width="80.5" height="41"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="aIk-2B-aya">
+                                <rect key="frame" x="20" y="195" width="335" height="452"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="aIk-2B-aya" firstAttribute="leading" secondItem="Yf1-WG-76c" secondAttribute="leading" constant="20" id="3V7-4s-Jeu"/>
+                            <constraint firstItem="3ak-Sk-MiX" firstAttribute="centerX" secondItem="GKq-PW-NWT" secondAttribute="centerX" id="G5P-Mx-n9a"/>
+                            <constraint firstItem="aIk-2B-aya" firstAttribute="top" secondItem="3ak-Sk-MiX" secondAttribute="bottom" constant="100" id="bW6-h5-YYH"/>
+                            <constraint firstItem="3ak-Sk-MiX" firstAttribute="top" secondItem="Yf1-WG-76c" secondAttribute="top" constant="10" id="iY0-pV-NgO"/>
+                            <constraint firstItem="Yf1-WG-76c" firstAttribute="bottom" secondItem="aIk-2B-aya" secondAttribute="bottom" constant="20" id="kUI-Aa-Foy"/>
+                            <constraint firstItem="Yf1-WG-76c" firstAttribute="trailing" secondItem="aIk-2B-aya" secondAttribute="trailing" constant="20" id="pMz-8D-raC"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Yf1-WG-76c"/>
                     </view>
                     <navigationItem key="navigationItem" id="e06-rp-D9X"/>
+                    <connections>
+                        <outlet property="movieName" destination="3ak-Sk-MiX" id="heT-jy-Sjy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zkh-Nm-aeU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

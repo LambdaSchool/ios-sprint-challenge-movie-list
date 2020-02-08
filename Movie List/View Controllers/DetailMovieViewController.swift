@@ -10,14 +10,25 @@ import UIKit
 
 class DetailMovieViewController: UIViewController {
 
+    @IBOutlet var movieName: UILabel!
+    
+
     var movieTitle: MyMovie?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        updateViews()
         // Do any additional setup after loading the view.
     }
     
+    func updateViews() {
+        if let movieTitle = movieTitle{
+            title = movieTitle.title
+            movieName.text = movieTitle.title
+            
+    }
+    }
 
     }
 
