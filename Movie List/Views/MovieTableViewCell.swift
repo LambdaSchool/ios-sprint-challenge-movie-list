@@ -41,6 +41,11 @@ class MovieTableViewCell: UITableViewCell {
         } else if movieSeenBtn.titleLabel?.text == "Seen"{
             movieSeenBtn.titleLabel?.text = "Not Seen"
         }
+//        if movieSeenBtn = false {
+//            movieSeenBtn.titleLabel?.text = "Not Seen"
+//        } else if movieSeenBtn = true {
+//            movieSeenBtn.titleLabel?.text = "Seen"
+//        }
     }
     
     

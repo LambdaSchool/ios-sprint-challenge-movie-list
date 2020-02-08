@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol AddMovieDelegate {
+    func movieWasAdded(_ movie: Movie)
+}
+
 class AddMovieViewController: UIViewController {
 
     // MARK: IBOutlets
@@ -15,13 +19,22 @@ class AddMovieViewController: UIViewController {
     @IBOutlet weak var enterMovieTextField: UITextField!
     @IBOutlet weak var addMovieBtn: UIButton!
     
+    var delegate: AddMovieDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        //[enterMovieTextField].forEach { $0.delegate = self }
     }
     
     @IBAction func addMovieTapped(_ sender: Any) {
+        guard let movie = enterMovieTextField.text, !movie.isEmpty else { return }
+        
+        let movieListed = Movie(movieName: [movie], movieSeenBool: false)
+        
+        delegate?.movieWasAdded(movieListed)
+        
+        self.dismiss(animated: true, completion: nil)
     }
     
     /*
@@ -35,3 +48,4 @@ class AddMovieViewController: UIViewController {
     */
 
 }
+

@@ -44,9 +44,22 @@ extension MoviesTableViewController: UITableViewDataSource {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-           // Get the new view controller using segue.destination.
-           // Pass the selected object to the new view controller.
-       }
+        if segue.identifier == "AddMovieModalSegue" {
+            let addMovieVC = segue.destination as! AddMovieViewController
+            
+            addMovieVC.delegate = self
+        }
+    }
+    
+    
+}
+
+extension MoviesTableViewController: AddMovieDelegate {
+    func movieWasAdded(_ movie: Movie) {
+        movieArray.append(movie)
+        dismiss(animated: true, completion: nil)
+        tableView.reloadData()
+    }
     
     
 }
