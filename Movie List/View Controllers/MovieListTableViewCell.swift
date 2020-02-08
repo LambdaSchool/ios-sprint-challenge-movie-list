@@ -13,13 +13,37 @@ import UIKit
 class MovieListTableViewCell: UITableViewCell {
 
 // MARK: IBOutlets
+
+    @IBOutlet weak var movieTextLabel: UILabel!
+    @IBAction func seenToggle(sender: UIButton!) {
+        var seenToggleButton = false
+        seenToggleButton = toggle()
+    }
     
-    @IBOutlet weak var movieLabel: UILabel!
     
-    @IBAction func seenToggle(sender: UIButton!) {}
-//        guard case let movies.hasBeenSeen == true else { return }
+    
+    
+//    if else sender.hasNotBeenSeen {
+//        sender.setTitle("Not Seen", for: .normal)
+//    } else {
+//        sender.setTitle("Seen", for: .normal)
 //    }
+//    
+    
+//        let seen = "Seen"
+//        if sender.isSelected {
+//            seenToggle(sender: UIButton!).toggle() = seen       }
+    
 //
+//
+//        let hasNotBeenSeenYet: Movie = .hasNotBeenSeen
+//        guard let hasBeenSeen == !movies.hasNotBeenSeen {
+//            hasBeenSeen.toggle() else { return }
+//        }
+//    }
+    
+    
+  
     var movies: [Movie] = []
     
     var movie: Movie? {
@@ -29,8 +53,8 @@ class MovieListTableViewCell: UITableViewCell {
     }
     private func updateViews() {
     guard let movie = movie else { return }
-        movieLabel.text = movie.name
-        
+        movieTextLabel.text = movie.name
+    
     }
-
 }
+

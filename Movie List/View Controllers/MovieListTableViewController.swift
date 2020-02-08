@@ -40,6 +40,14 @@ extension MovieListTableViewController: UITableViewDataSource {
         cell.movie = movie
         return cell
     }
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        movies.remove(at: indexPath.item)
+        tableView.deleteRows(at: [indexPath], with: .automatic)
+    }
     
 override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
          if segue.identifier == "AddMovieModalSegue" {
@@ -48,6 +56,7 @@ override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         }
     }
 }
+
 extension MovieListTableViewController: AddMovieDelegate {
     func movieWasCreated(movie: Movie) {
     movies.append(movie)

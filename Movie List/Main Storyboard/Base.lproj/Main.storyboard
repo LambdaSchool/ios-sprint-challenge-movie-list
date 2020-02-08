@@ -27,17 +27,17 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MaV-cy-WGU">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MaV-cy-WGU">
                                                     <rect key="frame" x="20" y="11.5" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZTc-5M-zHD">
-                                                    <rect key="frame" x="320" y="7" width="35" height="30"/>
-                                                    <state key="normal" title="Seen"/>
+                                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZTc-5M-zHD">
+                                                    <rect key="frame" x="306" y="7" width="64" height="30"/>
+                                                    <state key="normal" title="Not Seen"/>
                                                     <connections>
-                                                        <action selector="seenToggleWithSender:" destination="drM-li-1y7" eventType="touchUpInside" id="5bv-ZC-swf"/>
+                                                        <action selector="seenToggleWithSender:" destination="drM-li-1y7" eventType="touchUpInside" id="wkC-iz-WhH"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -51,7 +51,8 @@
                                         </tableViewCellContentView>
                                         <accessibility key="accessibilityConfiguration" identifier="Movie Content"/>
                                         <connections>
-                                            <outlet property="movieLabel" destination="MaV-cy-WGU" id="Mxy-Zd-p6S"/>
+                                            <outlet property="movieLabel" destination="MaV-cy-WGU" id="W9Q-Uk-YKm"/>
+                                            <outlet property="movieTextLabel" destination="MaV-cy-WGU" id="yoa-Ut-4ww"/>
                                             <outlet property="seenToggle" destination="ZTc-5M-zHD" id="2l4-Jd-iqY"/>
                                         </connections>
                                     </tableViewCell>
@@ -105,7 +106,7 @@
                                 <rect key="frame" x="151" y="153" width="73" height="30"/>
                                 <state key="normal" title="Add Movie"/>
                                 <connections>
-                                    <action selector="addTapped:" destination="0oO-9L-27J" eventType="touchUpInside" id="YVK-Y9-lmh"/>
+                                    <action selector="addTapped:" destination="0oO-9L-27J" eventType="touchUpInside" id="IHZ-EL-eZg"/>
                                     <action selector="n:" destination="ALW-A3-6Ou" eventType="touchUpInside" id="XBK-RG-VdN"/>
                                 </connections>
                             </button>
