@@ -26,6 +26,9 @@ class AddMovieViewController: UIViewController {
     @IBAction func addTapped(_ sender: Any) {
         guard let addMovie = movieText.text,
             !addMovie.isEmpty else { return }
+        
+        let movie = Movie(name: addMovie, hasNotBeenSeen: true)
+        delegate?.movieWasCreated(movie: movie)
     }
     
     
