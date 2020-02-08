@@ -9,12 +9,6 @@
 import UIKit
 
 class MovieTableViewCell: UITableViewCell {
-
-    @IBOutlet weak var movieTitleLabel: UILabel!
-    @IBOutlet weak var hasBeenWatchedTapped: UIButton!
-    @IBAction func hasBeenWatchedButton(_ sender: Any) {
-        hasBeenWatchedTapped.setTitle("Watched", for: .normal)
-    }
     
     var movie: Movie? {
         didSet {
@@ -22,9 +16,17 @@ class MovieTableViewCell: UITableViewCell {
         }
     }
     
+    @IBOutlet weak var movieTitleLabel: UILabel!
+    @IBOutlet weak var hasBeenWatchedTapped: UIButton!
+    @IBOutlet weak var clapBoard: UIImageView!
+    @IBAction func hasBeenWatchedButton(_ sender: Any) {
+        hasBeenWatchedTapped.setTitle("Watched", for: .normal)
+        movie?.hasBeenWatched = true
+        clapBoard.isHidden = false
+    }
+    
     private func updateView() {
         guard let movie = movie else { return }
         movieTitleLabel.text = movie.name
     }
-
 }

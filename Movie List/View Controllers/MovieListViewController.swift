@@ -11,7 +11,7 @@ import UIKit
 class MovieListViewController: UIViewController, UITableViewDelegate {
 
     @IBOutlet weak var movieTableView: UITableView!
-    
+
     var movies: [Movie] = []
     
     override func viewDidLoad() {
@@ -19,7 +19,6 @@ class MovieListViewController: UIViewController, UITableViewDelegate {
         
         self.movieTableView.delegate = self
         self.movieTableView.dataSource = self
-
     }
 }
 
@@ -45,7 +44,6 @@ extension MovieListViewController: UITableViewDataSource {
             addMovieVC.movieDelegate = self
         }
     }
-    
 }
 
 extension MovieListViewController: AddMovieDelegate {
@@ -53,6 +51,4 @@ extension MovieListViewController: AddMovieDelegate {
         movies.append(movie)
         movieTableView.reloadData()
     }
-    
-    
 }

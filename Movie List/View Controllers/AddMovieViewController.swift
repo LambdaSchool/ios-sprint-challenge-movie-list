@@ -28,12 +28,10 @@ class AddMovieViewController: UIViewController {
         !movieTitleText.isEmpty
             else { return }
         
-        var movie = Movie(name: movieTitleText, hasBeenWatched: false)
+        let movie = Movie(name: movieTitleText, hasBeenWatched: false)
         movieDelegate?.addMovie(movie)
         
         navigationController?.popViewController(animated: true)
         dismiss(animated: true)
     }
-    
-
 }
