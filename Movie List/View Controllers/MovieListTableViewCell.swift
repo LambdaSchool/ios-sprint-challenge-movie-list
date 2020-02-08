@@ -16,12 +16,9 @@ class MovieListTableViewCell: UITableViewCell {
 
     @IBOutlet weak var movieTextLabel: UILabel!
     @IBAction func seenToggle(sender: UIButton!) {
-        var seenToggleButton = false
-        seenToggleButton = toggle()
     }
-    
-    
-    
+//        var seenToggleButton = false
+//        seenToggleButton = toggle()
     
 //    if else sender.hasNotBeenSeen {
 //        sender.setTitle("Not Seen", for: .normal)
