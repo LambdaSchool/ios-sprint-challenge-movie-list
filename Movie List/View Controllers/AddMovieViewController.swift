@@ -28,18 +28,11 @@ class AddMovieViewController: UIViewController {
     }
 
     func addMovie() {
-        guard let movieName = movieNameLabel.text,
-            !movieName.isEmpty else { return }
+        guard let movieName = movieNameLabel.text else { return }
+        guard !movieName.isEmpty else { return }
         let movie = Movie(name: movieName)
         delegate?.movieWasAdded(movie)
         navigationController?.popViewController(animated: true)
-    }
-
-    // MARK: - Navigation
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
     }
 }
 
