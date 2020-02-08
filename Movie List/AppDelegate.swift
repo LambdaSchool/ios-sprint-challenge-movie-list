@@ -1,4 +1,5 @@
 import UIKit
+//MARK: Just starting
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
