@@ -10,6 +10,8 @@ import Foundation
 
 class MovieController {
     
+ //   var movies: [Movie] = []
+    
     init() {
         loadFromPersistentStore()
     }
@@ -21,7 +23,7 @@ class MovieController {
             let movieListData = try encoder.encode(movies)
             try movieListData.write(to: fileURL)
         } catch {
-            print("Error encoding movies array: \(error).")
+            print("Error encoding movies array : \(error).")
         }
     }
     
@@ -37,9 +39,11 @@ class MovieController {
         }
     }
     
-    func createMovie(with title: String) {
+    func createMovie(with title: String) -> Movie {
         let movie = Movie(movie: title)
         movies.append(movie)
+        saveToPersistentStore() // added with Brandi
+        return movie
     }
     
     func toggleWasSeen(for movie: Movie) {
