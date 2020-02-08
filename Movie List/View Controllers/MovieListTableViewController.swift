@@ -45,8 +45,10 @@ extension MovieListTableViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        movies.remove(at: indexPath.item)
-        tableView.deleteRows(at: [indexPath], with: .automatic)
+        if editingStyle == .delete {
+            movies.remove(at: indexPath.item)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
     }
     
 override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

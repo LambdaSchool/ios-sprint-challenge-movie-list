@@ -38,7 +38,9 @@ class MovieListTableViewCell: UITableViewCell {
 //            hasBeenSeen.toggle() else { return }
 //        }
 //    }
-    
+    func updateHasSeenButton() {
+        
+    }
     
   
     var movies: [Movie] = []
