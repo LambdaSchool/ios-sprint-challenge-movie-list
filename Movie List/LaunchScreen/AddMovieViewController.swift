@@ -7,6 +7,7 @@
 //
 
 import UIKit
+@UIButton weak var addMovieButton
 
 class AddMovieViewController: UIViewController {
 
