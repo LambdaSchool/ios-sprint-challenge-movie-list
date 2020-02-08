@@ -27,29 +27,31 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nNY-eC-HwK">
-                                                    <rect key="frame" x="325" y="15" width="35" height="30"/>
-                                                    <accessibility key="accessibilityConfiguration" identifier="Seen" label="Seen"/>
-                                                    <state key="normal" title="Seen"/>
-                                                    <connections>
-                                                        <action selector="seenTapped:" destination="Wie-cW-70M" eventType="touchUpInside" id="X0y-1B-eXy"/>
-                                                        <action selector="seenTapped:" destination="Pf5-s1-UbV" eventType="touchUpInside" id="z4f-on-zSi"/>
-                                                    </connections>
-                                                </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aAU-Us-wuw">
-                                                    <rect key="frame" x="15" y="19.5" width="46" height="21"/>
-                                                    <accessibility key="accessibilityConfiguration" label="Movie"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="xiI-Wh-rDW">
+                                                    <rect key="frame" x="20" y="15" width="355" height="30"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aAU-Us-wuw">
+                                                            <rect key="frame" x="0.0" y="0.0" width="46" height="30"/>
+                                                            <accessibility key="accessibilityConfiguration" label="Movie"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nNY-eC-HwK">
+                                                            <rect key="frame" x="54" y="0.0" width="301" height="30"/>
+                                                            <accessibility key="accessibilityConfiguration" identifier="Seen" label="Seen"/>
+                                                            <state key="normal" title="Seen"/>
+                                                            <connections>
+                                                                <action selector="seenTapped:" destination="rRN-8X-4YT" eventType="touchUpInside" id="SyI-vN-jkH"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailingMargin" secondItem="nNY-eC-HwK" secondAttribute="trailing" id="3Ng-4Y-4zE"/>
-                                                <constraint firstItem="aAU-Us-wuw" firstAttribute="centerY" secondItem="Wie-cW-70M" secondAttribute="centerY" id="3S5-Ut-xdr"/>
-                                                <constraint firstItem="nNY-eC-HwK" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="aAU-Us-wuw" secondAttribute="trailing" constant="8" id="CxK-dm-Ane"/>
-                                                <constraint firstItem="aAU-Us-wuw" firstAttribute="leading" secondItem="Wie-cW-70M" secondAttribute="leadingMargin" id="Pna-uI-cem"/>
-                                                <constraint firstItem="nNY-eC-HwK" firstAttribute="centerY" secondItem="Wie-cW-70M" secondAttribute="centerY" id="qC0-jC-xo0"/>
+                                                <constraint firstAttribute="trailing" secondItem="xiI-Wh-rDW" secondAttribute="trailing" id="1Mb-Te-v07"/>
+                                                <constraint firstItem="xiI-Wh-rDW" firstAttribute="leading" secondItem="Wie-cW-70M" secondAttribute="leading" constant="20" symbolic="YES" id="CFb-lS-DuT"/>
+                                                <constraint firstItem="xiI-Wh-rDW" firstAttribute="centerY" secondItem="Wie-cW-70M" secondAttribute="centerY" id="Mc4-j7-6aP"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -62,7 +64,7 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="7a4-Tb-i8q" firstAttribute="trailing" secondItem="Rt3-SY-yLW" secondAttribute="trailing" id="3rp-cA-6n8"/>
+                            <constraint firstAttribute="trailing" secondItem="Rt3-SY-yLW" secondAttribute="trailing" id="3rp-cA-6n8"/>
                             <constraint firstItem="7a4-Tb-i8q" firstAttribute="bottom" secondItem="Rt3-SY-yLW" secondAttribute="bottom" id="F34-ZY-r07"/>
                             <constraint firstItem="Rt3-SY-yLW" firstAttribute="leading" secondItem="7a4-Tb-i8q" secondAttribute="leading" id="qOY-bh-1Ov"/>
                             <constraint firstItem="Rt3-SY-yLW" firstAttribute="top" secondItem="7a4-Tb-i8q" secondAttribute="top" id="r6d-vH-pYR"/>
@@ -81,7 +83,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1K4-fX-y6j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="Pf5-s1-UbV" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="786" y="258"/>
         </scene>

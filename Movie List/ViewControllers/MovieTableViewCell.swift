@@ -23,19 +23,19 @@ class MovieTableViewCell: UITableViewCell {
     
     // MARK: IBActions
     @IBAction func seenTapped(_ sender: UIButton) {
-        if let movie = movie {
-            if movie.hasSeen == true {
-                seenButton.setTitle("Seen", for: .normal)
-            } else {
-                seenButton.setTitle("Not Seen", for: .normal)
-            }
+        if movie != nil {
+            self.movie?.hasSeen.toggle()
         }
     }
     
     private func updateViews() {
         guard let movie = movie, !movie.movieName.isEmpty else { return }
         movieLabel.text = movie.movieName
-        seenButton.setTitle("Not Seen", for: .normal)
+        if movie.hasSeen == true {
+            seenButton.setTitle("Seen", for: .normal)
+        } else {
+            seenButton.setTitle("Not Seen", for: .normal)
+        }
     }
 
 }
