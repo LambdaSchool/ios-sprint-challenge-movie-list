@@ -24,6 +24,10 @@ class AddMovieViewController: UIViewController {
     }
 
     @IBAction func addButtonPressed(_ sender: UIButton) {
+        addMovie()
+    }
+
+    func addMovie() {
         guard let movieName = movieNameLabel.text,
             !movieName.isEmpty else { return }
         let movie = Movie(name: movieName)
@@ -36,5 +40,12 @@ class AddMovieViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+    }
+}
+
+extension AddMovieViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        addMovie()
+        return true
     }
 }
