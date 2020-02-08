@@ -17,6 +17,14 @@ class MoviesTableViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "AddMovieTitleModalSegue" {
+            if let addMovieVC = segue.destination as? AddMovieViewController {
+                addMovieVC.delegate = self
+            }
+        }
+    }
 }
 
 extension MoviesTableViewController: UITableViewDataSource {
