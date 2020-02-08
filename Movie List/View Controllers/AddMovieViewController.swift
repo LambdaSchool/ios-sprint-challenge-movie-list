@@ -8,9 +8,15 @@
 
 import UIKit
 
+protocol AddMovieDelegate {
+    func movieWasAdded(_ movie: Movie)
+}
+
 class AddMovieViewController: UIViewController {
 
     @IBOutlet weak var movieNameLabel: UITextField!
+
+    var delegate: AddMovieDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()

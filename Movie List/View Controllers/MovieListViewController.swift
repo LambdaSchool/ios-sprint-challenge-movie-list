@@ -21,8 +21,17 @@ class MovieListViewController: UIViewController {
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "AddMovieSegue" {
+            guard let addMovieVC = segue.destination as? AddMovieViewController else { return }
+            addMovieVC.delegate = self
+        }
+    }
+}
+
+extension MovieListViewController: AddMovieDelegate {
+    func movieWasAdded(_ movie: Movie) {
+        movieList.append(movie)
+        tableView.reloadData()
     }
 }
 
