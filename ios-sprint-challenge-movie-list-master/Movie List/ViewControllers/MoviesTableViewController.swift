@@ -33,5 +33,13 @@ extension MoviesTableViewController: UITableViewDataSource {
         
         return cell
     }
+}
+
+extension MoviesTableViewController: AddMovieDelegate {
+    func movieWasAdded(_ movieInstance: Movie) {
+        movie.append(movieInstance)
+        dismiss(animated: true, completion: nil)
+        tableView.reloadData()
+    }
     
 }
