@@ -27,7 +27,7 @@ class AddMovieViewController: UIViewController {
             !movieName.isEmpty else { return }
         let movie = Movie(name: movieName)
         delegate?.movieWasAdded(movie)
-        dismiss(animated: true)
+        navigationController?.popViewController(animated: true)
     }
 
     // MARK: - Navigation
