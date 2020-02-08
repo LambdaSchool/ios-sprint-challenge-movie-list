@@ -8,12 +8,26 @@
 
 import UIKit
 
-class AddMovieViewController: UIViewController {
+protocol AddMovieDelegate {
+    func movieWasCreated( movies: Movie)
+}
 
+class AddMovieViewController: UIViewController {
+    
+    // MARK: IBOutlets
+    
+    
+    @IBOutlet weak var movieText: UITextField!
+    
+    // MARK: IBActions
+    
+    @IBAction func addMovieTapped(_ sender: UIBarButtonItem) {
+    guard let addMovie = movieText.text,
+        !addMovie.isEmpty else { return }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     
 
@@ -27,4 +41,5 @@ class AddMovieViewController: UIViewController {
     }
     */
 
+    }
 }

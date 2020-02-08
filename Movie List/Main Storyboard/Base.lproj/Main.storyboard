@@ -11,7 +11,7 @@
         <!--Movie List-->
         <scene sceneID="cT0-ot-YUD">
             <objects>
-                <viewController id="6RR-F3-wLG" customClass="MovieListViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="6RR-F3-wLG" customClass="MovieListTableViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aXk-Kd-SxV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -37,6 +37,7 @@
                                                 <constraint firstItem="f8q-OB-Ka8" firstAttribute="centerY" secondItem="7bQ-TQ-fTm" secondAttribute="centerY" id="tpf-p6-iYx"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <accessibility key="accessibilityConfiguration" identifier="Movie Content"/>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -57,6 +58,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="DPb-lU-HTT" id="yyp-xr-JUq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2wK-H3-DWe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -99,6 +103,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="IIP-H6-ANM"/>
                     </view>
+                    <connections>
+                        <outlet property="MovieText" destination="Gbr-hS-BAF" id="pAM-ZW-Syy"/>
+                        <outlet property="addMovieButton" destination="Ud6-zX-kzU" id="ZId-cU-psX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YV9-LU-oEl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
