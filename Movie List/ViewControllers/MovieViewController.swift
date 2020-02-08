@@ -59,15 +59,13 @@ extension MovieViewController: SeenButtonTappedDelegate {
     func seenButtonTappedCell(_ MovieTableViewCell: MovieTableViewCell, seenButtonTappedFor movie: Movie) {
         
         let indexPath = self.tableView.indexPath(for: MovieTableViewCell)
-        print(indexPath!.row)
+
         if movie.hasSeen {
             //change the hasSeen property
             movies[indexPath!.row].hasSeen = false
-            print(movie)
             tableView.reloadData()
         } else {
             movies[indexPath!.row].hasSeen = true
-            print(movie)
             tableView.reloadData()
         }
     }

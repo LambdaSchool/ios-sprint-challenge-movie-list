@@ -32,6 +32,14 @@ class MovieTableViewCell: UITableViewCell {
         
         //use our friend object to fill in the data
         movieTitleLabel.text = movie.name
+        
+        //Change the label according to the seen property
+        if movie.hasSeen {
+            seenButton.setTitle("Seen", for: .normal)
+        } else {
+            seenButton.setTitle("Not Seen", for: .normal)
+        }
+        
         //Action to be performed when the button is tapped
         self.seenButton.addTarget(self, action: #selector(seenButtonTapped(_:)), for: .touchUpInside)
     }
@@ -43,16 +51,11 @@ class MovieTableViewCell: UITableViewCell {
 
     //IBAction
     @IBAction func seenButtonTapped(_ sender: Any) {
-        if var movie = movie,
-            let delegate = delegate {
+        if let movie = movie,
+            let _ = delegate {
             self.delegate?.seenButtonTappedCell(self, seenButtonTappedFor: movie)
         }
-        //Change the label according to the seen property
-        if movie!.hasSeen {
-            seenButton.titleLabel!.text = "Seen"
-        } else {
-            seenButton.titleLabel!.text = "Not Seen"
-        }
+        updateViews()
         
     }
     
