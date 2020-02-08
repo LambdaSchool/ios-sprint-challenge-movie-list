@@ -12,6 +12,8 @@ class MovieListViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
 
+    var movieList: [Movie] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -22,4 +24,22 @@ class MovieListViewController: UIViewController {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
     }
+}
+
+extension MovieListViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return movieList.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as? MovieTableViewCell else { return UITableViewCell()}
+        
+        return cell
+    }
+
+
+}
+
+extension MovieListViewController: UITableViewDelegate {
+
 }
