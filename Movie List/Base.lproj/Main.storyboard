@@ -41,9 +41,9 @@
                                         </button>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <accessibility key="accessibilityConfiguration" identifier="movieCell"/>
                                 <connections>
-                                    <outlet property="button" destination="ngQ-OC-o0V" id="mAv-zE-0eU"/>
-                                    <outlet property="label" destination="dNj-VT-1dW" id="p7O-TY-aqL"/>
+                                    <outlet property="movieLabel" destination="dNj-VT-1dW" id="7Gz-wO-KY9"/>
                                     <outlet property="seen" destination="ngQ-OC-o0V" id="zLf-aG-TsD"/>
                                 </connections>
                             </tableViewCell>
@@ -56,7 +56,7 @@
                     <navigationItem key="navigationItem" title="Movie List" id="Ml5-6h-l7f">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="YgB-ec-o3r">
                             <connections>
-                                <segue destination="dhS-CH-FTQ" kind="show" id="qbe-zK-QdC"/>
+                                <segue destination="dhS-CH-FTQ" kind="show" identifier="addSegue" id="qbe-zK-QdC"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -76,34 +76,34 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Add a new movie to the list" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LuX-7q-J63">
-                                <rect key="frame" x="31" y="44" width="313" height="53"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter the movie title" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="caT-6r-FRt">
-                                <rect key="frame" x="101" y="91" width="173" height="34"/>
+                                <rect key="frame" x="101" y="137" width="173" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E0e-au-xs3">
-                                <rect key="frame" x="151" y="133" width="73" height="30"/>
+                                <rect key="frame" x="151" y="179" width="73" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Add Movie"/>
                                 <connections>
                                     <action selector="addTapped:" destination="dhS-CH-FTQ" eventType="touchUpInside" id="nYA-1Q-sDI"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Add a new movie to the list" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LuX-7q-J63">
+                                <rect key="frame" x="31" y="90" width="313" height="53"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="OAn-Ed-1vv"/>
                     </view>
                     <navigationItem key="navigationItem" title="Add Movie" largeTitleDisplayMode="always" id="gwj-zU-eyL"/>
                     <connections>
-                        <outlet property="movieTextField" destination="caT-6r-FRt" id="Hra-13-CNW"/>
+                        <outlet property="movieTextField" destination="caT-6r-FRt" id="UmB-k1-Hnl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fdN-sV-Q1p" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

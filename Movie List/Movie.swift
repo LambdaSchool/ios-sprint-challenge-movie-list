@@ -13,6 +13,6 @@ struct Movie {
     var seen: Bool = false
 }
 
-protocol AddMovieDelegate{
+protocol AddMovieDelegate {
     func addMovie(movie: Movie)
 }

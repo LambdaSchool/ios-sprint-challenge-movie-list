@@ -22,8 +22,11 @@ class MovieListTableViewController: UITableViewController, AddMovieDelegate {
     
     func addMovie(movie: Movie) {
         movies.append(movie)
+        movieTable.reloadData()
     }
-    
+}
+
+extension MovieListTableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return movies.count
     }
@@ -34,6 +37,15 @@ class MovieListTableViewController: UITableViewController, AddMovieDelegate {
         return cell
     }
     
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "addSegue" {
+            if let addMovieViewController = segue.destination as? AddMovieViewController {
+            addMovieViewController.delegate = self
+            }
+        }
+    }
+    
     // Stretch goal Delete button
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
@@ -41,14 +53,6 @@ class MovieListTableViewController: UITableViewController, AddMovieDelegate {
             movieTable.beginUpdates()
             movieTable.deleteRows(at: [indexPath], with: .automatic)
             movieTable.endUpdates()
-        }
-    }
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "cellToAdd" {
-            if let addViewController = segue.destination as? AddMovieViewController {
-                addViewController.delegate = self
-            }
         }
     }
 }

@@ -2,7 +2,7 @@
 //  AddMovieViewController.swift
 //  Movie List
 //
-//  Created by conner on 2/9/20.
+//  Created by conner on 2/8/20.
 //  Copyright © 2020 conner. All rights reserved.
 //
 
@@ -23,6 +23,5 @@ class AddMovieViewController: UIViewController {
         // Add movie and pop vc from stack
         delegate?.addMovie(movie: movie)
         navigationController?.popViewController(animated: true)
-        dismiss(animated: true)
     }
 }
