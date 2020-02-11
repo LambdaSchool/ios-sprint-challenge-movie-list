@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol AddMovieDelegate {
+protocol AddMovieDelegate: AnyObject {
     func movieWasAdded(_ movie: Movie)
 }
 
@@ -17,10 +17,13 @@ class AddMovieViewController: UIViewController {
     @IBOutlet weak var movieTitleTextField: UITextField!
     @IBOutlet weak var movieYearTextField: UITextField!
     
-    var delegate: AddMovieDelegate?
+    weak var delegate: AddMovieDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .gray
+        movieTitleTextField.backgroundColor = .lightGray
+        movieYearTextField.backgroundColor = .lightGray
         [movieTitleTextField, movieYearTextField].forEach { $0?.delegate = self }
     }
     

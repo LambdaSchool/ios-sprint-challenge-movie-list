@@ -8,6 +8,9 @@
 
 import UIKit
 
+///////Would be Really cool if: 
+//  Create a SeenNotSeen delegate and delegate file for the seenNotSeen bool
+// to change the state and the label text from Seen to/from Not Seen
 class MovieListTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet var tableView: UITableView!
@@ -17,7 +20,9 @@ class MovieListTableViewController: UIViewController, UITableViewDataSource, UIT
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
-        tableView.dataSource = self    }
+        tableView.dataSource = self
+        
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return movies.count
@@ -46,9 +51,7 @@ class MovieListTableViewController: UIViewController, UITableViewDataSource, UIT
         }
     }
 
-    @IBAction func seenNotSeenPressed(_ sender: UIButton) {
-        sender.setTitle("Seen", for: .normal)
-    }
+  
 }
 
 extension MovieListTableViewController: AddMovieDelegate {
