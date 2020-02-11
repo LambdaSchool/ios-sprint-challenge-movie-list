@@ -47,12 +47,15 @@ extension AddMovieViewController: UITextFieldDelegate {
         }
         return true
     }
-    private func textfield(_ textField: UITextField, shouldChangeCharactersIn range: NSRange,
-                   replacementString string: String) -> Bool {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange,
+                   replacementString string: String) -> Bool
+    {
         let maxLength = 4
-        guard case movieYearTextField.text = textField.text else { return true }
+        // checks a specific user input to set input string length
+        guard case movieYearTextField.text = textField.text else { return true}
         let currentString: NSString = textField.text! as NSString
-        let newString: NSString = currentString.replacingCharacters(in: range, with: string) as NSString
+        let newString: NSString =
+            currentString.replacingCharacters(in: range, with: string) as NSString
         return newString.length <= maxLength
     }
 }
