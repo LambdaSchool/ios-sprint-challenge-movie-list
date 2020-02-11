@@ -37,6 +37,7 @@ class AddMovieViewController: UIViewController {
         dismiss(animated: true)
     }
 }
+
 extension AddMovieViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         guard let text = textField.text,

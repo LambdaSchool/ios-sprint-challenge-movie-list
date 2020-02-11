@@ -23,10 +23,10 @@ class AddMoviesTableViewCell: UITableViewCell, UITextFieldDelegate {
     private func updateViews() {
         guard let movie = movie else { return }
         movieNameLabel.text = movie.name
-        if movieYearLabel.text == nil {
-            movieYearLabel.text = ""
-        } else if movieYearLabel.text != nil {
+//        if movieYearLabel.text == nil {
+//            movieYearLabel.text = ""
+//        } else if movieYearLabel.text != nil {
             movieYearLabel.text = movie.year + "'s "
-        }
+        //}
     }
 }
