@@ -8,8 +8,12 @@
 
 import Foundation
 
-struct Movie {
+struct Movie: Codable, Equatable {
     var name: String
     var year: String
     var seenNotSeen: Bool = false
+    
+//   mutating func toggleHasBeenSeen() {
+//          self.seenNotSeen = !self.seenNotSeen
+//      }
 }

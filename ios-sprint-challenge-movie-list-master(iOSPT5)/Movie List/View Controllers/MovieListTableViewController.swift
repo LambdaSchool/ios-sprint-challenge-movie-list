@@ -29,7 +29,7 @@ class MovieListTableViewController: UIViewController, UITableViewDataSource, UIT
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as? AddMoviesTableViewCell else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as? MoviesTableViewCell else { return UITableViewCell() }
         
         let movie = movies[indexPath.row]
         cell.movie = movie
@@ -50,8 +50,6 @@ class MovieListTableViewController: UIViewController, UITableViewDataSource, UIT
             }
         }
     }
-
-  
 }
 
 extension MovieListTableViewController: AddMovieDelegate {

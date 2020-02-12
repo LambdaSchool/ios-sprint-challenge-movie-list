@@ -37,7 +37,6 @@ class AddMovieViewController: UIViewController {
         navigationController?.popViewController(animated: true)
         
         delegate?.movieWasAdded(movie)
-        dismiss(animated: true)
     }
 }
 

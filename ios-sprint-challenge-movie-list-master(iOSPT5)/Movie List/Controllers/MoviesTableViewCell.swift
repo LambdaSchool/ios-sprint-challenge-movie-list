@@ -8,32 +8,37 @@
 
 import UIKit
 
-class AddMoviesTableViewCell: UITableViewCell {
+protocol MovieTableViewCellDelegate: class {
+    func toggleHasBeenSeen(cell: MoviesTableViewCell)
+}
+
+class MoviesTableViewCell: UITableViewCell {
     
     var movie: Movie? {
            didSet {
                self.updateViews()
            }
        }
+   
+    var delegate: MovieTableViewCellDelegate?
     
     @IBOutlet weak var movieNameLabel: UILabel!
     @IBOutlet weak var movieYearLabel: UILabel!
     @IBOutlet weak var seenButton: UIButton!
-    
     
     private func updateViews() {
         guard let movie = movie else { return }
         movieNameLabel.text = movie.name
         movieYearLabel.text = movie.year + "'s "
         if movie.seenNotSeen {
-            seenButton.titleLabel?.text = "Seen"
+            seenButton.titleLabel?.text = "Have Seen"
         } else {
             seenButton.titleLabel?.text = "Not Seen"
         }
     }
     
-    @IBAction func seenNotSeenPressed(_ sender: Any) {
-        movie?.seenNotSeen.toggle()
+    @IBAction func seenNotSeenPressed(_ sender: UIButton) {
+        movie?.seenNotSeen = !movie!.seenNotSeen
+        delegate?.toggleHasBeenSeen(cell: self)
     }
-    
 }
