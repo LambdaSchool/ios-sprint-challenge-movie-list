@@ -39,6 +39,7 @@ class MoviesTableViewCell: UITableViewCell {
     
     @IBAction func seenNotSeenPressed(_ sender: UIButton) {
         movie?.seenNotSeen = !movie!.seenNotSeen
-        delegate?.toggleHasBeenSeen(cell: self)
+       // delegate?.toggleHasBeenSeen(cell: self)
+        updateViews()
     }
 }
