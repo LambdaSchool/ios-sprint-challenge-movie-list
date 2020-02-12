@@ -31,14 +31,14 @@
                                                     <rect key="frame" x="20" y="15" width="366.66666666666669" height="30"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zcf-LG-MZD">
-                                                            <rect key="frame" x="0.0" y="0.0" width="323.66666666666669" height="30"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="294.66666666666669" height="30"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Doo-XB-oqc">
-                                                            <rect key="frame" x="331.66666666666669" y="0.0" width="35" height="30"/>
-                                                            <state key="normal" title="Seen"/>
+                                                            <rect key="frame" x="302.66666666666669" y="0.0" width="64" height="30"/>
+                                                            <state key="normal" title="Not Seen"/>
                                                             <connections>
                                                                 <action selector="seenToggleWithSender:" destination="z1D-ON-ids" eventType="touchUpInside" id="058-UY-WkM"/>
                                                             </connections>
@@ -94,6 +94,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KXQ-W2-duZ">
                                 <rect key="frame" x="150" y="144" width="73" height="30"/>
                                 <state key="normal" title="Add Movie"/>
+                                <connections>
+                                    <action selector="addTapped:" destination="J23-2J-EI7" eventType="touchUpInside" id="MP9-LW-ytz"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a new movie to the list" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JZX-mh-J1m">
                                 <rect key="frame" x="0.0" y="20" width="414" height="50"/>
@@ -125,9 +128,16 @@
                         <viewLayoutGuide key="safeArea" id="BED-m4-Epy"/>
                     </view>
                     <toolbarItems>
-                        <barButtonItem title="Cancel" id="W9A-ua-tHm"/>
+                        <barButtonItem title="Cancel" id="W9A-ua-tHm">
+                            <connections>
+                                <action selector="cancelTapped:" destination="J23-2J-EI7" id="BBv-Nv-iii"/>
+                            </connections>
+                        </barButtonItem>
                     </toolbarItems>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="movieText" destination="E2f-C3-98U" id="FU4-rZ-Tlt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="buO-Xs-faE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
