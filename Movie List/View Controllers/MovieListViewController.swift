@@ -54,9 +54,12 @@ extension MovieListViewController: UITableViewDataSource {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "AddMovieSegue" {
             let addMovieVC = segue.destination as! AddMovieViewController
-            
             addMovieVC.movieDelegate = self
         }
+//        } else if segue.identifier == "EditMovieSegue" {
+//            let editMovieVC = segue.destination as! AddMovieViewController
+//            editMovieVC.
+//        }
     }
 }
 
@@ -66,3 +69,10 @@ extension MovieListViewController: AddMovieDelegate {
         movieTableView.reloadData()
     }
 }
+
+//extension MovieListViewController: MovieTableViewCellDelegate {
+//    func editButtonTapped(_ onCell: MovieTableViewCell) {
+//        <#code#>
+//    }
+
+

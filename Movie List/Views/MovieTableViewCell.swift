@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol MovieTableViewCellDelegate {
+    func editButtonTapped(_ onCell: MovieTableViewCell)
+}
+
 class MovieTableViewCell: UITableViewCell {
     
     var movie: Movie? {
@@ -23,6 +27,12 @@ class MovieTableViewCell: UITableViewCell {
         hasBeenWatchedTapped.setTitle("Watched", for: .normal)
         movie?.hasBeenWatched = true
         clapBoard.isHidden = false
+    }
+    
+    var delegate: MovieTableViewCellDelegate?
+    
+    @IBAction func editButtonTapped(_ sender: Any) {
+        delegate?.editButtonTapped(self)
     }
     
     private func updateView() {

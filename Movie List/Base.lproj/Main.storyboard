@@ -30,34 +30,54 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I2V-uC-2lB">
-                                                    <rect key="frame" x="12" y="11.5" width="233" height="21"/>
+                                                    <rect key="frame" x="12" y="11.5" width="194" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RoE-oy-27e">
-                                                    <rect key="frame" x="273" y="7" width="90" height="30"/>
-                                                    <state key="normal" title="Not Watched"/>
-                                                    <connections>
-                                                        <action selector="hasBeenWatchedButton:" destination="P3x-0u-d4K" eventType="touchUpInside" id="oD0-gw-pmV"/>
-                                                    </connections>
-                                                </button>
                                                 <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Clapboard" translatesAutoresizingMaskIntoConstraints="NO" id="UBq-PX-Adt">
-                                                    <rect key="frame" x="255" y="8.5" width="50" height="26.5"/>
+                                                    <rect key="frame" x="262" y="8.5" width="50" height="26.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="50" id="P8N-dH-fRf"/>
                                                         <constraint firstAttribute="width" secondItem="UBq-PX-Adt" secondAttribute="height" multiplier="13:7" id="RBo-qw-Oya"/>
                                                     </constraints>
                                                 </imageView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="F9P-ST-USL">
+                                                    <rect key="frame" x="218" y="7" width="145" height="30"/>
+                                                    <subviews>
+                                                        <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8PJ-ys-ekj">
+                                                            <rect key="frame" x="0.0" y="0.0" width="39" height="30"/>
+                                                            <state key="normal" title="edit">
+                                                                <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            </state>
+                                                            <connections>
+                                                                <action selector="editButtonTapped:" destination="P3x-0u-d4K" eventType="touchUpInside" id="WDN-Mz-rQ9"/>
+                                                                <segue destination="pel-u2-7LI" kind="presentation" identifier="EditMovieSegue" id="aIw-eN-OHk"/>
+                                                            </connections>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RoE-oy-27e">
+                                                            <rect key="frame" x="55" y="0.0" width="90" height="30"/>
+                                                            <state key="normal" title="Not Watched"/>
+                                                            <connections>
+                                                                <action selector="hasBeenWatchedButton:" destination="P3x-0u-d4K" eventType="touchUpInside" id="oD0-gw-pmV"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="8PJ-ys-ekj" firstAttribute="leading" secondItem="F9P-ST-USL" secondAttribute="leading" id="1M6-eE-744"/>
+                                                        <constraint firstAttribute="width" constant="145" id="fjs-7p-wOf"/>
+                                                        <constraint firstItem="8PJ-ys-ekj" firstAttribute="centerY" secondItem="F9P-ST-USL" secondAttribute="centerY" id="osh-wk-lNm"/>
+                                                    </constraints>
+                                                </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="RoE-oy-27e" firstAttribute="centerY" secondItem="tkR-G0-bJz" secondAttribute="centerY" id="HfP-9U-5Ub"/>
                                                 <constraint firstItem="I2V-uC-2lB" firstAttribute="leading" secondItem="tkR-G0-bJz" secondAttribute="leading" constant="12" id="Mv4-dl-tJM"/>
+                                                <constraint firstAttribute="trailing" secondItem="F9P-ST-USL" secondAttribute="trailing" constant="12" id="POa-Jb-x8t"/>
                                                 <constraint firstItem="UBq-PX-Adt" firstAttribute="centerY" secondItem="tkR-G0-bJz" secondAttribute="centerY" id="Qa0-dm-1jd"/>
-                                                <constraint firstAttribute="trailing" secondItem="RoE-oy-27e" secondAttribute="trailing" constant="12" id="WRV-JX-L5h"/>
+                                                <constraint firstItem="F9P-ST-USL" firstAttribute="centerY" secondItem="tkR-G0-bJz" secondAttribute="centerY" id="fxH-Ze-98A"/>
                                                 <constraint firstItem="I2V-uC-2lB" firstAttribute="centerY" secondItem="tkR-G0-bJz" secondAttribute="centerY" id="hEY-j4-A25"/>
-                                                <constraint firstItem="UBq-PX-Adt" firstAttribute="leading" secondItem="I2V-uC-2lB" secondAttribute="trailing" constant="10" id="qri-jE-KRp"/>
-                                                <constraint firstAttribute="trailing" secondItem="UBq-PX-Adt" secondAttribute="trailing" constant="70" id="w5J-t9-O1y"/>
+                                                <constraint firstAttribute="trailing" secondItem="UBq-PX-Adt" secondAttribute="trailing" constant="63" id="w5J-t9-O1y"/>
+                                                <constraint firstItem="F9P-ST-USL" firstAttribute="leading" secondItem="I2V-uC-2lB" secondAttribute="trailing" constant="12" id="yRO-Ia-Kvk"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -102,13 +122,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Movie Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eKI-uG-v1V">
-                                <rect key="frame" x="12" y="136" width="351" height="30"/>
+                                <rect key="frame" x="12" y="40" width="351" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UAw-Ob-6cT">
-                                <rect key="frame" x="151" y="186" width="73" height="30"/>
+                                <rect key="frame" x="151" y="90" width="73" height="30"/>
                                 <state key="normal" title="Add Movie"/>
                                 <connections>
                                     <action selector="addMovieButtonTapped:" destination="pel-u2-7LI" eventType="touchUpInside" id="H5L-2w-po3"/>
@@ -126,6 +146,7 @@
                         <viewLayoutGuide key="safeArea" id="eNL-i3-EXV"/>
                     </view>
                     <connections>
+                        <outlet property="movieButtonTapped" destination="UAw-Ob-6cT" id="qFk-gM-SvY"/>
                         <outlet property="movieTitleTextField" destination="eKI-uG-v1V" id="qeX-HR-215"/>
                     </connections>
                 </viewController>
@@ -156,4 +177,7 @@
         <image name="Clapboard" width="28" height="28"/>
         <image name="Plus" width="28" height="28"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="aIw-eN-OHk"/>
+    </inferredMetricsTieBreakers>
 </document>

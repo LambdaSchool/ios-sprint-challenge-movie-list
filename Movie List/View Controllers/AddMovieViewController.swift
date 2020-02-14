@@ -15,10 +15,19 @@ protocol AddMovieDelegate {
 class AddMovieViewController: UIViewController {
     
     var movieDelegate: AddMovieDelegate?
-
+    
+    var movie: Movie? {
+        didSet {
+            updateView()
+        }
+    }
+    
+    
+    @IBOutlet weak var movieButtonTapped: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        updateView()
     }
     
     @IBOutlet weak var movieTitleTextField: UITextField!
@@ -33,5 +42,17 @@ class AddMovieViewController: UIViewController {
         
         navigationController?.popViewController(animated: true)
         dismiss(animated: true)
+    }
+    
+    private func updateView() {
+        if let movie = movie {
+            title = "Edit Movie"
+            movieButtonTapped.setTitle("Save Movie", for: .normal)
+            movieTitleTextField.text = movie.name
+        } else {
+            title = "Add a New Movie"
+            movieButtonTapped.setTitle("Add Movie", for: .normal)
+            movieTitleTextField.text = ""
+        }
     }
 }
