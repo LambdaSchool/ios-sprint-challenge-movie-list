@@ -30,7 +30,7 @@ class MoviesTableViewCell: UITableViewCell {
         guard let movie = movie else { return }
         movieNameLabel.text = movie.name
         movieYearLabel.text = movie.year + "'s "
-        let title = movie.seenNotSeen ? "Have seen" : "Have not seen"
+        let title = movie.seenNotSeen ? "Seen it" : "Not seen it"
         seenButton.setTitle(title, for: [])
     }
 

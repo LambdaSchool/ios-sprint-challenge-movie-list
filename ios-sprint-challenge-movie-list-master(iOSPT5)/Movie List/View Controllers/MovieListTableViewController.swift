@@ -52,31 +52,23 @@ class MovieListTableViewController: UIViewController, UITableViewDataSource, UIT
         }
         tableView.reloadData()
     }
-    
+    var movies: Movie?
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
         case "AddMovieSegue":
             if let addMovieVC = segue.destination as? AddMovieViewController {
-                //   addMovieVC.delegate = self
                 addMovieVC.movieConntroller = movieController
             }
         case "EditMovieSegue":
             if let editMovieVC = segue.destination as? AddMovieViewController {
-                if tableView.indexPathForSelectedRow != nil {
-                    editMovieVC.movieConntroller = self.movieController
-//                    editMovieVC.editMovie(movie: movieController.movies[indexPath.row], movieController.movies, year: String? = nil)
+                if let indexPath = tableView.indexPathForSelectedRow {
+                    editMovieVC.movie = movieController.movies[indexPath.row]
+                    editMovieVC.movieConntroller = movieController
                 }
             }
         default:
             break
         }
-        
-//        if segue.identifier == "AddMovieSegue" {
-//            if let addMovieVC = segue.destination as? AddMovieViewController {
-//                //   addMovieVC.delegate = self
-//                addMovieVC.movieConntroller = movieController
-//            }
-//        }
     }
 }
 
