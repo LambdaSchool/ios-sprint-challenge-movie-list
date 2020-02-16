@@ -11,7 +11,16 @@ import UIKit
 ///////Would be Really cool if: 
 //  Create a SeenNotSeen delegate and delegate file for the seenNotSeen bool
 // to change the state and the label text from Seen to/from Not Seen
-class MovieListTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class MovieListTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, MoviesTableViewCellDelegate {
+    
+    let movieController = MovieController()
+    
+    func toggleHasBeenSeen(for cell: MoviesTableViewCell) {
+        if let movie = cell.movie {
+            movieController.updateHasBeenSeen(for: movie)
+            tableView.reloadData()
+        }
+    }
 
     @IBOutlet var tableView: UITableView!
     
@@ -30,7 +39,6 @@ class MovieListTableViewController: UIViewController, UITableViewDataSource, UIT
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as? MoviesTableViewCell else { return UITableViewCell() }
-        
         let movie = movies[indexPath.row]
         cell.movie = movie
         return cell

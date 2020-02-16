@@ -8,19 +8,19 @@
 
 import UIKit
 
-protocol MovieTableViewCellDelegate: class {
-    func toggleHasBeenSeen(cell: MoviesTableViewCell)
-}
+//protocol MovieTableViewCellDelegate {
+//    func toggleHasBeenSeen(cell: MoviesTableViewCell)
+//}
 
 class MoviesTableViewCell: UITableViewCell {
     
     var movie: Movie? {
-           didSet {
-               self.updateViews()
-           }
-       }
-   
-    var delegate: MovieTableViewCellDelegate?
+        didSet {
+            updateViews()
+        }
+    }
+    
+     var delegate: MoviesTableViewCellDelegate?
     
     @IBOutlet weak var movieNameLabel: UILabel!
     @IBOutlet weak var movieYearLabel: UILabel!
@@ -30,16 +30,16 @@ class MoviesTableViewCell: UITableViewCell {
         guard let movie = movie else { return }
         movieNameLabel.text = movie.name
         movieYearLabel.text = movie.year + "'s "
+       //seenButton.titleLabel.text(movie.seenNotSeen ? "have seen" : "have not seen")
         if movie.seenNotSeen {
             seenButton.titleLabel?.text = "Have Seen"
-        } else {
-            seenButton.titleLabel?.text = "Not Seen"
+        } else if !movie.seenNotSeen {
+            seenButton.titleLabel?.text = "Have Not Seen"
         }
     }
-    
+
     @IBAction func seenNotSeenPressed(_ sender: UIButton) {
-        movie?.seenNotSeen = !movie!.seenNotSeen
-       // delegate?.toggleHasBeenSeen(cell: self)
+        delegate?.toggleHasBeenSeen(for: self)
         updateViews()
     }
 }
