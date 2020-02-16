@@ -30,16 +30,11 @@ class MoviesTableViewCell: UITableViewCell {
         guard let movie = movie else { return }
         movieNameLabel.text = movie.name
         movieYearLabel.text = movie.year + "'s "
-       //seenButton.titleLabel.text(movie.seenNotSeen ? "have seen" : "have not seen")
-        if movie.seenNotSeen {
-            seenButton.titleLabel?.text = "Have Seen"
-        } else if !movie.seenNotSeen {
-            seenButton.titleLabel?.text = "Have Not Seen"
-        }
+        let title = movie.seenNotSeen ? "have seen" : "have not seen"        
+        seenButton.setTitle(title, for: [])
     }
 
     @IBAction func seenNotSeenPressed(_ sender: UIButton) {
         delegate?.toggleHasBeenSeen(for: self)
-        updateViews()
     }
 }

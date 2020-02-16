@@ -8,45 +8,47 @@
 
 import UIKit
 
-///////Would be Really cool if: 
-//  Create a SeenNotSeen delegate and delegate file for the seenNotSeen bool
-// to change the state and the label text from Seen to/from Not Seen
+
 class MovieListTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, MoviesTableViewCellDelegate {
     
     let movieController = MovieController()
-    
-    func toggleHasBeenSeen(for cell: MoviesTableViewCell) {
-        if let movie = cell.movie {
-            movieController.updateHasBeenSeen(for: movie)
-            tableView.reloadData()
-        }
-    }
 
     @IBOutlet var tableView: UITableView!
     
-    var movies: [Movie] = []
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.delegate = self
         tableView.dataSource = self
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+           tableView.reloadData()
+           super.viewWillAppear(animated)
+       }
+    
+       func toggleHasBeenSeen(for cell: MoviesTableViewCell) {
+        guard let index = tableView.indexPath(for: cell) else { return }
+        let movie = movieController.movies[index.row]
+        movieController.updateHasBeenSeen(for: movie)
+        tableView.reloadRows(at: [index], with: .automatic)
+       }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return movies.count
+        return movieController.movies.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as? MoviesTableViewCell else { return UITableViewCell() }
-        let movie = movies[indexPath.row]
+        let movie = movieController.movies[indexPath.row]
+        cell.delegate = self
         cell.movie = movie
         return cell
     }
     
      func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            movies.remove(at: indexPath.row)
+            let movie = movieController.movies[indexPath.row]
+            movieController.deleteMovie(which: movie)
         }
         tableView.reloadData()
     }
@@ -54,15 +56,10 @@ class MovieListTableViewController: UIViewController, UITableViewDataSource, UIT
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "AddMovieSegue" {
             if let addMovieVC = segue.destination as? AddMovieViewController {
-                addMovieVC.delegate = self
+             //   addMovieVC.delegate = self
+                addMovieVC.movieConntroller = movieController
             }
         }
     }
 }
 
-extension MovieListTableViewController: AddMovieDelegate {
-    func movieWasAdded(_ movie: Movie) {
-        movies.append(movie)
-        tableView.reloadData()
-    }
-}

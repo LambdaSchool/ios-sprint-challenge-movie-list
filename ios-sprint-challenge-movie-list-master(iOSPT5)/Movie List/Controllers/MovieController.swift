@@ -16,10 +16,10 @@ private(set) var movies: [Movie] = []
         loadFromPersistentStore()
     }
     
-    func toggleHasBeenSeen(cell: Movie) {
-        guard let index = movies.firstIndex(of: cell) else { return }
-        movies[index].seenNotSeen.toggle()
-    }
+//    func toggleHasBeenSeen(cell: Movie) {
+//        guard let index = movies.firstIndex(of: cell) else { return }
+//        movies[index].seenNotSeen.toggle()
+//    }
     
     var movieListURL: URL? {
         let fileManager = FileManager.default
@@ -50,8 +50,8 @@ private(set) var movies: [Movie] = []
         }
     }
     
-    @discardableResult func createMovie(named name: String, year: String, hasBeenSeen: Bool = false) -> Movie {
-        let movie = Movie(name: name, year: year, seenNotSeen: hasBeenSeen)
+    @discardableResult func createMovie(named name: String, year: String) -> Movie {
+        let movie = Movie(name: name, year: year)
         movies.append(movie)
         saveToPersistentStore()
         return movie

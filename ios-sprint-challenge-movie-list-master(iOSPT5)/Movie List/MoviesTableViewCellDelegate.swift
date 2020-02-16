@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol MoviesTableViewCellDelegate: AnyObject {
+protocol MoviesTableViewCellDelegate: class {
     func toggleHasBeenSeen(for cell: MoviesTableViewCell)
 }

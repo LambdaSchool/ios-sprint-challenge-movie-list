@@ -11,9 +11,13 @@ import Foundation
 struct Movie: Codable, Equatable {
     var name: String
     var year: String
-    var seenNotSeen: Bool = false
+    var seenNotSeen: Bool
     
-//   mutating func toggleHasBeenSeen() {
-//          self.seenNotSeen = !self.seenNotSeen
-//      }
+    init(name: String, year: String, seenNotSeen: Bool = false){
+        self.name = name
+        self.year = year
+        self.seenNotSeen = seenNotSeen
+    }
+    
+    
 }

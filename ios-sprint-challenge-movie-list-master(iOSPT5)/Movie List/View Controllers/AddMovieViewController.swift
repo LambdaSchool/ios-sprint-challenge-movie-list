@@ -17,7 +17,7 @@ class AddMovieViewController: UIViewController {
     @IBOutlet weak var movieTitleTextField: UITextField!
     @IBOutlet weak var movieYearTextField: UITextField!
     
-    weak var delegate: AddMovieDelegate?
+    var movieConntroller: MovieController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,10 +33,9 @@ class AddMovieViewController: UIViewController {
             !movieName.isEmpty,
             !movieYear.isEmpty,
             movieYear.isInt else { return }
-        let movie = Movie(name: movieName, year: movieYear, seenNotSeen: false)
+        movieConntroller?.createMovie(named: movieName, year: movieYear)
+       
         navigationController?.popViewController(animated: true)
-        
-        delegate?.movieWasAdded(movie)
     }
 }
 
