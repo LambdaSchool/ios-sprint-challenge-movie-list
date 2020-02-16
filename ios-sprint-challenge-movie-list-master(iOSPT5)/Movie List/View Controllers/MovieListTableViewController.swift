@@ -12,30 +12,30 @@ import UIKit
 class MovieListTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, MoviesTableViewCellDelegate {
     
     let movieController = MovieController()
-
+    
     @IBOutlet var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
-           tableView.reloadData()
-           super.viewWillAppear(animated)
-       }
+        tableView.reloadData()
+        super.viewWillAppear(animated)
+    }
     
-       func toggleHasBeenSeen(for cell: MoviesTableViewCell) {
+    func toggleHasBeenSeen(for cell: MoviesTableViewCell) {
         guard let index = tableView.indexPath(for: cell) else { return }
         let movie = movieController.movies[index.row]
         movieController.updateHasBeenSeen(for: movie)
         tableView.reloadRows(at: [index], with: .automatic)
-       }
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return movieController.movies.count
     }
+    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as? MoviesTableViewCell else { return UITableViewCell() }
@@ -45,7 +45,7 @@ class MovieListTableViewController: UIViewController, UITableViewDataSource, UIT
         return cell
     }
     
-     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let movie = movieController.movies[indexPath.row]
             movieController.deleteMovie(which: movie)
@@ -54,9 +54,24 @@ class MovieListTableViewController: UIViewController, UITableViewDataSource, UIT
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        switch segue.identifier {
+//        case "AddMovieSegue":
+//            if let addMovieVC = segue.destination as? AddMovieViewController {
+//                //   addMovieVC.delegate = self
+//                addMovieVC.movieConntroller = movieController
+//            }
+//        case "editMovieSegue":
+//            if let editMovieVC = segue.destination as? MovieController {
+//                if let indexPath = tableView.indexPathForSelectedRow {
+//                    editMovieVC.editMovie(movie: movieController.movies[indexPath.row], movieController.movies, year: String? = nil)
+//                }
+//            }
+//        default:
+//            break
+//        }
         if segue.identifier == "AddMovieSegue" {
             if let addMovieVC = segue.destination as? AddMovieViewController {
-             //   addMovieVC.delegate = self
+                //   addMovieVC.delegate = self
                 addMovieVC.movieConntroller = movieController
             }
         }

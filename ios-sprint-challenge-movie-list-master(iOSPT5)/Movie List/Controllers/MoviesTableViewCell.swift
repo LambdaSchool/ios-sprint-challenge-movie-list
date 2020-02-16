@@ -13,7 +13,7 @@ import UIKit
 //}
 
 class MoviesTableViewCell: UITableViewCell {
-    
+
     var movie: Movie? {
         didSet {
             updateViews()
@@ -30,7 +30,7 @@ class MoviesTableViewCell: UITableViewCell {
         guard let movie = movie else { return }
         movieNameLabel.text = movie.name
         movieYearLabel.text = movie.year + "'s "
-        let title = movie.seenNotSeen ? "have seen" : "have not seen"        
+        let title = movie.seenNotSeen ? "Have seen" : "Have not seen"
         seenButton.setTitle(title, for: [])
     }
 

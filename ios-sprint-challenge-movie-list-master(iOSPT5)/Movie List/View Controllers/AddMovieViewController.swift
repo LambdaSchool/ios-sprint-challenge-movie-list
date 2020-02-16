@@ -18,6 +18,7 @@ class AddMovieViewController: UIViewController {
     @IBOutlet weak var movieYearTextField: UITextField!
     
     var movieConntroller: MovieController?
+    var movie: Movie?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,8 +34,11 @@ class AddMovieViewController: UIViewController {
             !movieName.isEmpty,
             !movieYear.isEmpty,
             movieYear.isInt else { return }
+        if let movie = movie {
+            movieConntroller?.editMovie(movie: movie, movieName, year: movieYear)
+        } else {
         movieConntroller?.createMovie(named: movieName, year: movieYear)
-       
+        }
         navigationController?.popViewController(animated: true)
     }
 }
@@ -48,6 +52,7 @@ extension AddMovieViewController: UITextFieldDelegate {
         }
         return true
     }
+    
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange,
                    replacementString string: String) -> Bool
     {
