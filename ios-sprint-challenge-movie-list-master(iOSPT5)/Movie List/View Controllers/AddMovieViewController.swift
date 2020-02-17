@@ -67,7 +67,8 @@ extension AddMovieViewController: UITextFieldDelegate {
         case movieTitleTextField:
             movieYearTextField.becomeFirstResponder()
         case movieYearTextField:
-            textField.becomeFirstResponder()
+            addMoviePressed(textField)
+            //textField.becomeFirstResponder()
         default:
             textField.resignFirstResponder()
         }
