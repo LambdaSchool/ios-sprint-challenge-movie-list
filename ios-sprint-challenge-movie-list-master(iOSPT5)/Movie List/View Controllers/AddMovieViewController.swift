@@ -36,6 +36,9 @@ class AddMovieViewController: UIViewController {
         movieTitleTextField.text =  movie.name
         movieYearTextField.text = movie.year
         editMovieTitleLabel.text = "Edit Movie"
+        // changes navigationItem title color
+        let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.red]
+        navigationController?.navigationBar.titleTextAttributes = textAttributes
         title = movie.name
     }
     
