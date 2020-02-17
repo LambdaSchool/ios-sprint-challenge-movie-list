@@ -19,7 +19,6 @@ class AddMovieViewController: UIViewController {
     @IBOutlet weak var editMovieTitleLabel: UILabel!
     
     var movieConntroller: MovieController?
-    #warning("For passing the movie for an edit")
     var movie: Movie?
     
     override func viewDidLoad() {
@@ -31,13 +30,13 @@ class AddMovieViewController: UIViewController {
         updateViews()
     }
     
-    #warning("an attempt to change the Cell title to movie's title during edit")
     func updateViews() {
         loadViewIfNeeded()
         guard let movie = movie else { return }
         movieTitleTextField.text =  movie.name
         movieYearTextField.text = movie.year
-        editMovieTitleLabel.text = movie.name
+        editMovieTitleLabel.text = "Edit Movie"
+        title = movie.name
     }
     
     @IBAction func addMoviePressed(_ sender: Any) {
