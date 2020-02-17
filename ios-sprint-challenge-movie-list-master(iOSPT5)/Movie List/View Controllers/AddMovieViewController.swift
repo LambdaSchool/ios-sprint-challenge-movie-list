@@ -17,6 +17,7 @@ class AddMovieViewController: UIViewController {
     @IBOutlet weak var movieTitleTextField: UITextField!
     @IBOutlet weak var movieYearTextField: UITextField!
     @IBOutlet weak var editMovieTitleLabel: UILabel!
+    @IBOutlet weak var addUpdateButtonLabel: UIButton!
     
     var movieConntroller: MovieController?
     var movie: Movie?
@@ -36,6 +37,7 @@ class AddMovieViewController: UIViewController {
         movieTitleTextField.text =  movie.name
         movieYearTextField.text = movie.year
         editMovieTitleLabel.text = "Edit Movie"
+        addUpdateButtonLabel.setTitle("Update Movie", for: [])
         // changes navigationItem title color
         let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.red]
         navigationController?.navigationBar.titleTextAttributes = textAttributes
@@ -51,7 +53,7 @@ class AddMovieViewController: UIViewController {
         if let movie = movie {
             movieConntroller?.editMovie(movie: movie, movieName, year: movieYear)
         } else {
-        movieConntroller?.createMovie(named: movieName, year: movieYear)
+            movieConntroller?.createMovie(named: movieName, year: movieYear)
         }
         navigationController?.popViewController(animated: true)
     }
@@ -61,10 +63,15 @@ extension AddMovieViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         guard let text = textField.text,
             !text.isEmpty else { return false }
-        if textField == movieTitleTextField {
+        switch textField {
+        case movieTitleTextField:
             movieYearTextField.becomeFirstResponder()
+        case movieYearTextField:
+            textField.becomeFirstResponder()
+        default:
+            textField.resignFirstResponder()
         }
-        return true
+        return false
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange,
