@@ -39,7 +39,8 @@ class MovieListTableViewController: UIViewController, UITableViewDataSource, UIT
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as? MoviesTableViewCell else { return UITableViewCell() }
-        let movie = movieController.movies[indexPath.row]
+        let movie = movieController.sortMovies[indexPath.row]
+       // let movie = moviesFor(indexPath: indexPath)
         cell.delegate = self
         cell.movie = movie
         return cell
@@ -47,7 +48,7 @@ class MovieListTableViewController: UIViewController, UITableViewDataSource, UIT
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            let movie = movieController.movies[indexPath.row]
+            let movie = movieController.sortMovies[indexPath.row]
             movieController.deleteMovie(which: movie)
         }
         tableView.reloadData()
@@ -62,7 +63,8 @@ class MovieListTableViewController: UIViewController, UITableViewDataSource, UIT
         case "EditMovieSegue":
             if let editMovieVC = segue.destination as? AddMovieViewController {
                 if let indexPath = tableView.indexPathForSelectedRow {
-                    editMovieVC.movie = movieController.movies[indexPath.row]
+                   // editMovieVC.movie = movieController.movies[indexPath.row]
+                    editMovieVC.movie = movieController.sortMovies[indexPath.row]
                     editMovieVC.movieConntroller = movieController
                 }
             }
@@ -70,5 +72,12 @@ class MovieListTableViewController: UIViewController, UITableViewDataSource, UIT
             break
         }
     }
+    
+    private func moviesFor(indexPath: IndexPath) -> Movie {
+        var movie: Movie?
+        movie = movieController.sortMovies[indexPath.row]
+        return movie!
+    }
+    
 }
 

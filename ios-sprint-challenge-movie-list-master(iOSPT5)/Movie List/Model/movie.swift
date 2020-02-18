@@ -8,7 +8,8 @@
 
 import Foundation
 
-struct Movie: Codable, Equatable {
+struct Movie: Codable, Equatable{
+    
     var name: String
     var year: String
     var seenNotSeen: Bool
@@ -18,6 +19,4 @@ struct Movie: Codable, Equatable {
         self.year = year
         self.seenNotSeen = seenNotSeen
     }
-    
-    
 }

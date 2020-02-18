@@ -16,11 +16,6 @@ private(set) var movies: [Movie] = []
         loadFromPersistentStore()
     }
     
-//    func toggleHasBeenSeen(cell: Movie) {
-//        guard let index = movies.firstIndex(of: cell) else { return }
-//        movies[index].seenNotSeen.toggle()
-//    }
-    
     var movieListURL: URL? {
         let fileManager = FileManager.default
         guard let documents = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first else { return nil }
@@ -78,5 +73,11 @@ private(set) var movies: [Movie] = []
             movies[index].year =  year
         }
         saveToPersistentStore()
+    }
+    
+    
+    var sortMovies: [Movie] {
+        let sortedMovies = movies.sorted(by: { $0.name.lowercased() < $1.name.lowercased() })
+        return sortedMovies
     }
 }
