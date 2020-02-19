@@ -64,9 +64,7 @@ class MovieListTableViewController: UIViewController, UITableViewDataSource, UIT
         case "EditMovieSegue":
             if let editMovieVC = segue.destination as? AddMovieViewController {
                 if let indexPath = tableView.indexPathForSelectedRow {
-                   // editMovieVC.movie = movieController.movies[indexPath.row]
                     editMovieVC.movie = moviesFor(indexPath: indexPath)
-                   // editMovieVC.movie = movieController.sortMovies[indexPath.row]
                     editMovieVC.movieConntroller = movieController
                 }
             }
