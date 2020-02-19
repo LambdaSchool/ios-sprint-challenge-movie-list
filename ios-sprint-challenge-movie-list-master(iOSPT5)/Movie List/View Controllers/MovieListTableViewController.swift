@@ -49,8 +49,7 @@ class MovieListTableViewController: UIViewController, UITableViewDataSource, UIT
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            let movie = movieController.movies[indexPath.row]
-           // let movie = movieController.sortMovies[indexPath.row]
+            let movie = moviesFor(indexPath: indexPath)
             movieController.deleteMovie(which: movie)
         }
         tableView.reloadData()
