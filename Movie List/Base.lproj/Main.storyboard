@@ -29,16 +29,16 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2QT-Ml-Yju">
-                                                    <rect key="frame" x="36" y="11" width="73" height="21"/>
+                                                    <rect key="frame" x="36" y="11" width="221" height="32"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="34"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zfg-zv-5uU">
-                                                    <rect key="frame" x="308" y="11" width="46" height="32"/>
+                                                    <rect key="frame" x="275" y="11" width="79" height="32"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" title="Button"/>
+                                                    <state key="normal" title="Not Seen"/>
                                                     <connections>
                                                         <action selector="seenOrNotSeenButton:" destination="ruT-rD-bRV" eventType="touchUpInside" id="j8P-0f-QZr"/>
                                                     </connections>
@@ -47,6 +47,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="movieLabel" destination="2QT-Ml-Yju" id="7Ee-CD-oRN"/>
+                                            <outlet property="seenOrNotSeen" destination="zfg-zv-5uU" id="hag-wg-Eue"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -68,7 +69,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hBN-yd-t0K" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="896.79999999999995" y="72.413793103448285"/>
+            <point key="canvasLocation" x="244" y="217.24137931034485"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="cdB-j8-HcB">
@@ -105,24 +106,36 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pSa-cN-iUo">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pSa-cN-iUo">
                                 <rect key="frame" x="16" y="127" width="308" height="47"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="308" id="Mfu-oB-4lg"/>
+                                    <constraint firstAttribute="height" constant="47" id="UsZ-Lp-o1d"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JHN-pa-EMH">
-                                <rect key="frame" x="118" y="217" width="105" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JHN-pa-EMH">
+                                <rect key="frame" x="118" y="217" width="104" height="30"/>
                                 <state key="normal" title="Add"/>
+                                <connections>
+                                    <action selector="addMovieButton:" destination="9dD-vo-Qo1" eventType="touchUpInside" id="T8T-cn-3jX"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="JHN-pa-EMH" firstAttribute="top" secondItem="pSa-cN-iUo" secondAttribute="bottom" constant="43" id="8lT-s6-y8P"/>
                             <constraint firstItem="M8V-dV-7y0" firstAttribute="top" secondItem="f3G-1i-4pp" secondAttribute="top" constant="57" id="Et4-Ck-YrY"/>
                             <constraint firstItem="M8V-dV-7y0" firstAttribute="leading" secondItem="pSa-cN-iUo" secondAttribute="leading" id="F50-O5-hXg"/>
+                            <constraint firstItem="f3G-1i-4pp" firstAttribute="trailing" secondItem="pSa-cN-iUo" secondAttribute="trailing" constant="51" id="MNW-ap-vNG"/>
+                            <constraint firstItem="JHN-pa-EMH" firstAttribute="leading" secondItem="f3G-1i-4pp" secondAttribute="leading" constant="118" id="PmC-QS-YS4"/>
                             <constraint firstItem="M8V-dV-7y0" firstAttribute="leading" secondItem="Z5Z-vG-LPX" secondAttribute="leadingMargin" id="WEl-Sg-yOu"/>
                             <constraint firstItem="pSa-cN-iUo" firstAttribute="top" secondItem="M8V-dV-7y0" secondAttribute="bottom" constant="21" id="Xjn-MX-6np"/>
+                            <constraint firstItem="JHN-pa-EMH" firstAttribute="centerX" secondItem="pSa-cN-iUo" secondAttribute="centerX" id="hOl-gV-1co"/>
+                            <constraint firstItem="pSa-cN-iUo" firstAttribute="leading" secondItem="f3G-1i-4pp" secondAttribute="leading" constant="16" id="msr-Yi-Fkf"/>
                             <constraint firstItem="f3G-1i-4pp" firstAttribute="trailing" secondItem="M8V-dV-7y0" secondAttribute="trailing" constant="81" id="qWU-6s-BoZ"/>
+                            <constraint firstItem="pSa-cN-iUo" firstAttribute="top" secondItem="M8V-dV-7y0" secondAttribute="bottom" constant="21" id="wJ9-cF-d6Z"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="f3G-1i-4pp"/>
                     </view>
@@ -132,7 +145,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZoI-Sc-eG5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="186" y="74"/>
+            <point key="canvasLocation" x="244" y="797"/>
         </scene>
     </scenes>
 </document>

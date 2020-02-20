@@ -12,6 +12,10 @@ class MovieTableViewCell: UITableViewCell {
     
     // Mark - IBOutlets
     @IBOutlet weak var movieLabel: UILabel!
+    @IBOutlet weak var seenOrNotSeen: UIButton!
+    
+    // Mark - Properties
+    var del: ButtonDelagate?
     
 
     override func awakeFromNib() {
@@ -21,8 +25,13 @@ class MovieTableViewCell: UITableViewCell {
     
     // Mark - IBActions
     @IBAction func seenOrNotSeenButton(_ sender: Any) {
+        del?.buttonToggle(self)
+        
+        
+
     }
     
+
      override func setSelected(_ selected: Bool, animated: Bool) {
             super.setSelected(selected, animated: animated)
 
@@ -32,6 +41,7 @@ class MovieTableViewCell: UITableViewCell {
         var film: Movie? {
             didSet {
                 self.updateViews()
+            
             }
             
         }
@@ -39,6 +49,15 @@ class MovieTableViewCell: UITableViewCell {
         private func updateViews(){
             guard let movies = film else { return }
             movieLabel.text = movies.name
+            if movies.seenOrNotSeen == false {
+                seenOrNotSeen.setTitle("Not Seen", for: [])
+                
+            } else {
+                seenOrNotSeen.setTitle("Seen", for: [])
+            }
+            
+            
+            
            
             
         }

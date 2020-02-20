@@ -38,12 +38,11 @@ class AddNewMovieViewController: UIViewController {
        
        // Mark - IBActions
        @IBAction func addMovieButton(_ sender: Any) {
-           guard let movie = movieTextField.text else { return }
-           
-           var film = Movie(name: movie)
-           
-           delegate?.MovieWasCreated(film)
-           self.dismiss(animated: true)
+        guard let cinema = movieTextField.text, !cinema.isEmpty else { return }
+        
+        var film = Movie(name: cinema)
+        delegate?.MovieWasCreated(film)
+        self.dismiss(animated: true)
            
                
                

@@ -8,68 +8,89 @@
 
 import UIKit
 
-class MovieListTableViewController: UIViewController {
+class MovieListTableViewController: UIViewController, ButtonDelagate {
     
     // Mark - IBOutlets
     @IBOutlet weak var movieTableView: UITableView!
     
-     // Mark - Properties
-        var m: [Movie] = []
+    // Mark - Properties
+    var movieController = MovieController()
+    
+    func buttonToggle(_ cell: MovieTableViewCell) {
+        guard let index = movieTableView.indexPath(for: cell) else { return }
         
-        override func viewDidLoad() {
-            super.viewDidLoad()
-
-            // Do any additional setup after loading the view.
-            
-            self.movieTableView.delegate = self
-            self.movieTableView.dataSource = self
-        }
-        
-        
-     
-
-    }
-
-    extension MovieListTableViewController: UITableViewDataSource {
-        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return m.count
-        }
-        
-        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "NewMovieCell", for: indexPath) as? MovieTableViewCell else { return UITableViewCell() }
-            
-            let f = m[indexPath.row]
-            
-            cell.film = f
-            
-            return cell
-        }
-        
-        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-               if segue.identifier == "AddMovieSegue" {
-                let addMovieVC = segue.destination as! AddNewMovieViewController
-                   
-                   addMovieVC.delegate = self
-               }
-           }
-        
-        
-        
+        let m = movieController.moviesArray[index.row]
+        movieController.updateMovie(m)
+        movieTableView.reloadRows(at: [index], with: .automatic)
         
     }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        // Do any additional setup after loading the view.
+        
+        self.movieTableView.delegate = self
+        self.movieTableView.dataSource = self
+    }
+    
+}
+
+extension MovieListTableViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return movieController.moviesArray.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "NewMovieCell", for: indexPath) as? MovieTableViewCell else { return UITableViewCell() }
+        
+        let f = movieController.moviesArray[indexPath.row]
+        
+        cell.film = f
+        cell.del = self
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let movie = movieController.moviesArray[indexPath.row]
+            movieController.deleteMovie(movie)
+            
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+            
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "AddMovieSegue" {
+            let addMovieVC = segue.destination as! AddNewMovieViewController
+            
+            addMovieVC.delegate = self
+        }
+    }
+    
+    
+    
+    
+}
 
 extension MovieListTableViewController: AddMovieDelegate {
     func MovieWasCreated(_ mov: Movie) {
-        self.m.append(mov)
+        self.movieController.moviesArray.append(mov)
         movieTableView.reloadData()
     }
     
-
-    }
-        
     
+}
 
-    extension MovieListTableViewController: UITableViewDelegate {
-        
-    }
+
+
+extension MovieListTableViewController: UITableViewDelegate {
+    
+}
+
+
+
+
 
