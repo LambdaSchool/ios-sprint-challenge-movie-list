@@ -39,8 +39,6 @@ class MovieListTableViewController: UIViewController, UITableViewDataSource, UIT
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as? MoviesTableViewCell else { return UITableViewCell() }
-       // let movie = movies[indexPath.row]
-        //let movie = movieController.sortMovies[indexPath.row]
         let movie = moviesFor(indexPath: indexPath)
         cell.delegate = self
         cell.movie = movie
