@@ -28,9 +28,10 @@ class AddNewMovieViewController: UIViewController {
         guard let movieName = movieNameTextField.text,
             !movieName.isEmpty else { return }
         
-        let movie = Movie(name: "Batman", seen: true)
+        let movie = Movie(name: movieName, seen: true)
         
         delegate?.MovieWasCreated(movie)
+        navigationController?.popViewController(animated: true)
     }
 }
 
