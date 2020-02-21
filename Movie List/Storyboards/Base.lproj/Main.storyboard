@@ -89,17 +89,35 @@
             </objects>
             <point key="canvasLocation" x="124" y="118"/>
         </scene>
-        <!--Add Movie View Controller-->
+        <!--Add Movie-->
         <scene sceneID="WO9-8K-Ywv">
             <objects>
                 <viewController id="aXh-ZR-1lM" customClass="AddMovieViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="C0j-Aj-3Eu">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter movie name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YKQ-jG-gBg">
+                                <rect key="frame" x="16" y="60" width="343" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LRO-FD-IYH">
+                                <rect key="frame" x="172.5" y="110" width="30" height="30"/>
+                                <state key="normal" title="Add"/>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Xr1-VF-wW7" firstAttribute="trailing" secondItem="YKQ-jG-gBg" secondAttribute="trailing" constant="16" id="4ZX-JI-3x0"/>
+                            <constraint firstItem="LRO-FD-IYH" firstAttribute="top" secondItem="YKQ-jG-gBg" secondAttribute="bottom" constant="16" id="7aE-xx-OV5"/>
+                            <constraint firstItem="YKQ-jG-gBg" firstAttribute="leading" secondItem="Xr1-VF-wW7" secondAttribute="leading" constant="16" id="JYY-U0-gSU"/>
+                            <constraint firstItem="LRO-FD-IYH" firstAttribute="centerX" secondItem="Xr1-VF-wW7" secondAttribute="centerX" id="X5c-CE-PiY"/>
+                            <constraint firstItem="YKQ-jG-gBg" firstAttribute="top" secondItem="Xr1-VF-wW7" secondAttribute="top" constant="16" id="pTb-mO-7qa"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Xr1-VF-wW7"/>
                     </view>
-                    <navigationItem key="navigationItem" id="xdw-O3-IUh"/>
+                    <navigationItem key="navigationItem" title="Add Movie" id="xdw-O3-IUh"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Swa-j9-9oP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
