@@ -18,8 +18,13 @@ class MovieTableViewCell: UITableViewCell {
         
         movie.seen = !movie.seen
         
+        //BUGBUG: This will let you change the state of seen once.
+        // How do I change the source object?
+        // How do I change the parent object in MovieListViewController? Delegate?
         let buttonText = movie.seen == true ? "Seen" : "Not Seen"
         seen.setTitle(buttonText, for: .normal)
+        
+        // updateViews()
     }
 
     var movie: Movie? {
