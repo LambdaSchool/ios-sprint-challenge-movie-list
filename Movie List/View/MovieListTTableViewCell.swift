@@ -20,7 +20,12 @@ class MovieListTTableViewCell: UITableViewCell {
     }
     
     @IBAction func seenButtonTapped(_ sender: Any) {
+        guard var movie = movie else { return }
         
+        movie.seen = !movie.seen
+        
+        let buttonTapped = seenButton.currentTitle! == "Not Seen" ? "Seen" : "Not Seen"
+            seenButton.setTitle(buttonTapped, for: .normal)
     }
 
     
