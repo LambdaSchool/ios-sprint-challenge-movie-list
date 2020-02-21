@@ -16,7 +16,7 @@ class AddMovieViewController: UIViewController {
     // This is to let the delegator (self) to communicate with the deleget (TBD)
     var delegate: AddMovieDelegate?
 
-    @IBAction func saveInStackView(_ sender: Any) {
+    @IBAction func save(_ sender: Any) {
         //BUGBUG: Dismiss does not work
         let getFromField: String? = "Star Wars"
         guard let title = getFromField else { return }
