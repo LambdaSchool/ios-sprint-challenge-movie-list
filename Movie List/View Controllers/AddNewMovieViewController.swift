@@ -14,7 +14,7 @@ protocol AddMovieDelegate {
 
 class AddNewMovieViewController: UIViewController {
 
-    
+   
     
     @IBOutlet weak var movieNameTextField: UITextField!
     
@@ -23,6 +23,7 @@ class AddNewMovieViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+       
     }
     
     
@@ -37,24 +38,21 @@ class AddNewMovieViewController: UIViewController {
     }
     
     
-    extension AddNewMovieViewController: UITextFieldDelegate {
-        func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-            if let text = textField.text,
-                !text.isEmpty {
-                switch textField {
-                case movieNameTextField:
-                    movieNameTextField.becomeFirstResponder()
-                default:
-                    textField.resignFirstResponder()
-                }
+}
+
+
+extension AddNewMovieViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if let text = textField.text,
+            !text.isEmpty {
+            switch textField {
+            case movieNameTextField:
+                movieNameTextField.becomeFirstResponder()
+            default:
+                textField.resignFirstResponder()
             }
-            
-            return false
         }
+        
+        return false
     }
-    
-    
-    
-    
-    
 }

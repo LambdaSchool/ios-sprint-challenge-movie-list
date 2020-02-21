@@ -32,8 +32,6 @@ class MovieListTableViewController: UITableViewController {
         }
     }
     
-    
-
 
 
    
@@ -47,13 +45,19 @@ extension MovieListTableViewController: UITableViewDataSource {
     
     let movie = movies[indexPath.row]
     cell.movie = movie
+        
     
     return cell
 }
-}
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+           return true
+        
+    }
 
+}
+    
 extension MovieListTableViewController: AddMovieDelegate {
-    func MovieWasCreated(_ mov: Movie) {
+    func MovieWasCreated(_ movie: Movie) {
         movies.append(movie)
         dismiss(animated: true, completion: nil)
         tableView.reloadData()

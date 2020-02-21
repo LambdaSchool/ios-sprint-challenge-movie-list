@@ -8,42 +8,41 @@
 
 import UIKit
 
+protocol MovieListTableViewCellDelegate {
+    func seenButtonTapped(_ onCell: MovieListTTableViewCell)
+}
+
 class MovieListTTableViewCell: UITableViewCell {
 
 
-    @IBOutlet weak var seenButton: UIButton!
-       
-    @IBOutlet weak var movieName: UILabel!
+
     
-       override func awakeFromNib() {
-           super.awakeFromNib()
-       }
-
-       override func setSelected(_ selected: Bool, animated: Bool) {
-           super.setSelected(selected, animated: animated)
-       }
-
-       private func updateViews() {
-           guard let movie = movie else { return }
-           movieName.text = movie.title
-
-       }
-
-       var movie: Movie? {
-           didSet {
-               updateViews()
-           }
-       }
-
-       @IBAction func seenTapped(_ sender: Any) {
-           // switch value for seen bool
-           self.movie?.seen.toggle()
-
-           // Change title for the UIButton
-           if self.movie?.seen == true {
-               self.seenButton.setTitle("seen", for: .normal)
-           } else {
-               self.seenButton.setTitle("not seen", for: .normal)
-           }
+    @IBOutlet weak var seenButton: UIButton!
+    @IBOutlet weak var movieName: UILabel!
+    @IBAction func seenButtonTapped(_ sender: UIButton) {
+        
+        delegate?.seenButtonTapped(self)
+    }
+    
+   var movie: Movie? {
+       didSet {
+           updateViews()
        }
    }
+
+    
+    var delegate: MovieListTableViewCellDelegate?
+    
+    private func updateViews() {
+           guard let movie = movie  else { return }
+           
+           movieName.text = movie.name
+           
+           if movie.seen == true {
+               seenButton.setTitle("Seen", for: [])
+           } else {
+               seenButton.setTitle("Not Seen", for: [])
+           }
+    
+    }
+}
