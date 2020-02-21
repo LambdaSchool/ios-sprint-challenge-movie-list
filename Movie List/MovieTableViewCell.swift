@@ -13,6 +13,15 @@ class MovieTableViewCell: UITableViewCell {
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var seen: UIButton!
     
+    @IBAction func seenButton(_ sender: Any) {
+        guard var movie = movie else { return }
+        
+        movie.seen = !movie.seen
+        
+        let buttonText = movie.seen == true ? "Seen" : "Not Seen"
+        seen.setTitle(buttonText, for: .normal)
+    }
+
     var movie: Movie? {
         didSet {
             updateViews()
