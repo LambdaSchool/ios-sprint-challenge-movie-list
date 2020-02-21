@@ -70,14 +70,19 @@ class MovieTableViewController: UITableViewController, MovieDelegate {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "movieSegue" {
+            guard let newMovieVC = segue.destination as? NewMovieViewController else { return }
+            newMovieVC.delegate = self
+        }
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
     }
-    */
+    
 
 }

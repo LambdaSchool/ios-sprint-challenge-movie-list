@@ -18,15 +18,18 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieCell" id="gRT-lo-I3z" customClass="MovieTableViewCell" customModule="Movie_List" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gRT-lo-I3z" id="qqV-kd-6qE">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c2f-vL-U7u">
                                             <rect key="frame" x="301" y="5.5" width="64" height="30.5"/>
                                             <state key="normal" title="Seen"/>
+                                            <connections>
+                                                <action selector="saveButton:" destination="gRT-lo-I3z" eventType="touchUpInside" id="X2R-YS-hOs"/>
+                                            </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n6V-1x-neJ">
                                             <rect key="frame" x="16" y="5.5" width="42" height="30.5"/>
@@ -36,15 +39,14 @@
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="n6V-1x-neJ" firstAttribute="top" secondItem="c2f-vL-U7u" secondAttribute="top" id="2Gz-wO-osI"/>
-                                        <constraint firstItem="c2f-vL-U7u" firstAttribute="leading" secondItem="n6V-1x-neJ" secondAttribute="trailing" constant="243" id="5lY-Wb-1Eb"/>
-                                        <constraint firstItem="c2f-vL-U7u" firstAttribute="leading" secondItem="qqV-kd-6qE" secondAttribute="leading" constant="301" id="6i3-1m-jhy"/>
-                                        <constraint firstItem="c2f-vL-U7u" firstAttribute="top" secondItem="qqV-kd-6qE" secondAttribute="top" constant="5.5" id="7Hr-dy-1fV"/>
-                                        <constraint firstAttribute="bottom" secondItem="c2f-vL-U7u" secondAttribute="bottom" constant="8" id="Eg2-1a-r8H"/>
-                                        <constraint firstAttribute="trailing" secondItem="c2f-vL-U7u" secondAttribute="trailing" constant="10" id="PiM-Oj-ZOC"/>
-                                        <constraint firstItem="c2f-vL-U7u" firstAttribute="width" secondItem="qqV-kd-6qE" secondAttribute="width" multiplier="0.170667" id="cYm-DY-JuZ"/>
-                                        <constraint firstItem="n6V-1x-neJ" firstAttribute="leading" secondItem="qqV-kd-6qE" secondAttribute="leading" constant="16" id="hf6-y1-lTI"/>
-                                        <constraint firstItem="n6V-1x-neJ" firstAttribute="bottom" secondItem="c2f-vL-U7u" secondAttribute="bottom" id="rSF-h3-25c"/>
+                                        <constraint firstAttribute="trailing" secondItem="c2f-vL-U7u" secondAttribute="trailing" constant="10" id="5Zn-CL-uLn"/>
+                                        <constraint firstItem="c2f-vL-U7u" firstAttribute="width" secondItem="qqV-kd-6qE" secondAttribute="width" multiplier="0.170667" id="IgK-bD-grl"/>
+                                        <constraint firstItem="n6V-1x-neJ" firstAttribute="leading" secondItem="qqV-kd-6qE" secondAttribute="leading" constant="16" id="VSa-nY-OD9"/>
+                                        <constraint firstItem="c2f-vL-U7u" firstAttribute="leading" secondItem="n6V-1x-neJ" secondAttribute="trailing" constant="243" id="cFs-hx-1dF"/>
+                                        <constraint firstItem="n6V-1x-neJ" firstAttribute="bottom" secondItem="c2f-vL-U7u" secondAttribute="bottom" id="i0A-sd-z8M"/>
+                                        <constraint firstItem="n6V-1x-neJ" firstAttribute="top" secondItem="c2f-vL-U7u" secondAttribute="top" id="ttG-2J-nkz"/>
+                                        <constraint firstAttribute="bottom" secondItem="c2f-vL-U7u" secondAttribute="bottom" constant="7.5" id="uYa-bH-00q"/>
+                                        <constraint firstItem="n6V-1x-neJ" firstAttribute="top" secondItem="qqV-kd-6qE" secondAttribute="top" constant="5.5" id="zRy-hx-vqj"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
