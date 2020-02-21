@@ -14,11 +14,12 @@ class MovieTableViewCell: UITableViewCell {
     @IBOutlet weak var movieTitleLabel: UILabel!
     @IBOutlet weak var isSeenTitle: UIButton!
     @IBAction func isSeenTapped(_ sender: UIButton) {
-        guard var movie = movie else {return}
-        movie.isSeen = !movie.isSeen
-        if movie.isSeen == true {
+        
+        self.movie?.isSeen.toggle()
+        
+        if self.movie?.isSeen == true {
             sender.setTitle("Seen", for: .normal)
-        } else if movie.isSeen == false{
+        } else if self.movie?.isSeen == false{
             sender.setTitle("Not Seen", for: .normal)
         }
         
