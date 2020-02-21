@@ -17,12 +17,12 @@ class MovieTableViewCell: UITableViewCell {
         guard var movie = movie else {return}
         
         movie.isSeen.toggle()
-        updateView()
+        updateSelf()
         
     }
     var movie: Movie? {
         didSet {
-            updateView()
+            updateSelf()
         }
     }
     
@@ -36,7 +36,7 @@ class MovieTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    private func updateView() {
+    private func updateSelf() {
         guard let movie = movie else {return}
         
         movieTitleLabel.text = movie.name

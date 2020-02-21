@@ -13,7 +13,7 @@ class MoviesViewController: UIViewController {
     
     @IBOutlet weak var moviesTV: UITableView!
     
-    var movies: [Movie] = []
+    var movies: [Movie] = [Movie(name: "test", isSeen: false)]
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -35,9 +35,9 @@ extension MoviesViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "movieCell", for: indexPath) as Movie else {fatalError()}
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "movieCell", for: indexPath) as? MovieTableViewCell else {fatalError()}
         
-        
+        cell.movie = movies[indexPath.row]
         
         return cell
     }
