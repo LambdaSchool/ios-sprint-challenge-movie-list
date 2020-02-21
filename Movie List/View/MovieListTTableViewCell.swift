@@ -8,9 +8,7 @@
 
 import UIKit
 
-protocol MovieListTableViewCellDelegate {
-    func seenButtonTapped(_ onCell: MovieListTTableViewCell)
-}
+
 
 class MovieListTTableViewCell: UITableViewCell {
 
@@ -21,7 +19,6 @@ class MovieListTTableViewCell: UITableViewCell {
     @IBOutlet weak var movieName: UILabel!
     @IBAction func seenButtonTapped(_ sender: UIButton) {
         
-        delegate?.seenButtonTapped(self)
     }
     
    var movie: Movie? {
@@ -30,8 +27,7 @@ class MovieListTTableViewCell: UITableViewCell {
        }
    }
 
-    
-    var delegate: MovieListTableViewCellDelegate?
+  
     
     private func updateViews() {
            guard let movie = movie  else { return }

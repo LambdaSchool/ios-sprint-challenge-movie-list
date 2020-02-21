@@ -34,26 +34,23 @@ class MovieListTableViewController: UITableViewController {
 
 
    
-extension MovieListTableViewController: UITableViewDataSource {
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-           return movies.count
-}
 
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
+func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieListCell", for: indexPath) as? MovieListTTableViewCell else { return UITableViewCell() }
     
-    let movie = movies[indexPath.row]
-    cell.movie = movie
+   // let movie = movies[indexPath.row]
+    //cell.movie = movie
         
     
     return cell
 }
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
            return true
         
     }
 
-}
+
     
 extension MovieListTableViewController: AddMovieDelegate {
     func MovieWasCreated(_ movie: Movie) {
