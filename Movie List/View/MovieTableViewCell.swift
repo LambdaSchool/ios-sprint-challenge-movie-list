@@ -10,6 +10,9 @@ import UIKit
 
 class MovieTableViewCell: UITableViewCell {
 
+    
+    
+    var movies: [Movie] = []
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -22,3 +25,4 @@ class MovieTableViewCell: UITableViewCell {
     }
 
 }
+
