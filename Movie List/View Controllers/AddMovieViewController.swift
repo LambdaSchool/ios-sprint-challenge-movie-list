@@ -24,8 +24,8 @@ class AddMovieViewController: UIViewController {
         
         if let delegate = self.delegate {
             delegate.didAddMovie(Movie(name: movieName))
-        } else {
-            dismiss(animated: true)
         }
+        
+        dismiss(animated: true)
     }
 }
