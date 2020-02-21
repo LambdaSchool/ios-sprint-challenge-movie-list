@@ -40,7 +40,7 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="XGW-xh-vMR" firstAttribute="centerY" secondItem="6eQ-Q6-zZE" secondAttribute="centerY" id="Cxx-nt-C5S"/>
-                                        <constraint firstItem="HbU-IV-YMq" firstAttribute="leading" secondItem="XGW-xh-vMR" secondAttribute="trailing" constant="230" id="YLM-l4-GXv"/>
+                                        <constraint firstItem="HbU-IV-YMq" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="XGW-xh-vMR" secondAttribute="trailing" constant="10" id="YLM-l4-GXv"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="HbU-IV-YMq" secondAttribute="trailing" id="iVS-wv-mSp"/>
                                         <constraint firstItem="HbU-IV-YMq" firstAttribute="centerY" secondItem="6eQ-Q6-zZE" secondAttribute="centerY" id="qbg-0l-k13"/>
                                         <constraint firstItem="XGW-xh-vMR" firstAttribute="leading" secondItem="6eQ-Q6-zZE" secondAttribute="leadingMargin" id="sSx-cR-N3b"/>
@@ -60,7 +60,7 @@
                     <navigationItem key="navigationItem" title="Movie List" id="nhj-vU-TFu">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="xOu-eF-cfp">
                             <connections>
-                                <segue destination="nez-pD-OTg" kind="show" identifier="AddMovie" id="30Q-dv-nkC"/>
+                                <segue destination="nez-pD-OTg" kind="modal" identifier="AddMovie" id="30Q-dv-nkC"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -74,11 +74,11 @@
             <objects>
                 <viewController id="nez-pD-OTg" customClass="AddMovieViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FF4-hM-5TX">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="j6H-e7-huC">
-                                <rect key="frame" x="16" y="96" width="343" height="66"/>
+                                <rect key="frame" x="16" y="0.0" width="343" height="66"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a New Movie to The List" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F2V-Iy-Kgi">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="24"/>
@@ -94,7 +94,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FfS-Ih-IjX">
-                                <rect key="frame" x="151" y="170" width="73" height="30"/>
+                                <rect key="frame" x="151" y="74" width="73" height="30"/>
                                 <state key="normal" title="Add Movie"/>
                                 <connections>
                                     <action selector="addMovieButtonTapped:" destination="nez-pD-OTg" eventType="touchUpInside" id="QDD-Nb-Tui"/>
