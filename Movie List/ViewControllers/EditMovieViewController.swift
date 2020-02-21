@@ -23,18 +23,14 @@ class EditMovieViewController: UIViewController {
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var seenSwitch: UISwitch!
     
-    @IBAction func seenSwitchToggled(_ sender: UISwitch) {
-        if let movie = movie {
-            movie.hasBeenSeen = sender.isOn
-        }
-    }
     
     @IBAction func saveButtonTapped(_ sender: UIButton) {
         guard let movieName = movieNameTextField.text, !movieName.isEmpty else { return }
         if let movie = movie {
             movie.name = movieName
+            movie.hasBeenSeen = seenSwitch.isOn
         } else {
-            delegate?.addMovieToMovieList(Movie(name: movieName))
+            delegate?.addMovieToMovieList(Movie(name: movieName, hasBeenSeen: seenSwitch.isOn))
         }
         self.navigationController?.popViewController(animated: true)
     }

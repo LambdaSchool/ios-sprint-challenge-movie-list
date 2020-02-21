@@ -12,7 +12,8 @@ class Movie: Codable {
     var name: String
     var hasBeenSeen = false
     
-    init(name: String) {
+    init(name: String, hasBeenSeen: Bool) {
         self.name = name
+        self.hasBeenSeen = hasBeenSeen
     }
 }
