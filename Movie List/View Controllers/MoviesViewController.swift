@@ -25,9 +25,18 @@ class MoviesViewController: UIViewController {
 
   
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "AddMovieSegue" {
+            guard let addMovieVC = segue.destination as? AddMovieViewController else { fatalError() }
+            addMovieVC.delegate = self
+        }
+        
     }
 
 }
+
+// Extended functionality
+
 
 extension MoviesViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -40,6 +49,16 @@ extension MoviesViewController: UITableViewDataSource, UITableViewDelegate {
         cell.movie = movies[indexPath.row]
         
         return cell
+    }
+    
+    
+}
+
+extension MoviesViewController: AddMovieDelegate {
+    func movieWasAdded(_ movie: Movie) {
+        movies.append(movie)
+        dismiss(animated: true, completion: nil)
+        moviesTV.reloadData()
     }
     
     
