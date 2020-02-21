@@ -10,6 +10,7 @@ import UIKit
 
 class MovieTableViewCell: UITableViewCell {
     @IBOutlet weak var movieTitleLabel: UILabel!
+    @IBOutlet weak var seenButtonLabel: UIButton!
     
     var movie: Movie? {
         didSet {
@@ -20,6 +21,7 @@ class MovieTableViewCell: UITableViewCell {
     func updateViews() {
         if let unwrappedMovie = movie {
             movieTitleLabel.text = unwrappedMovie.name
+            seenButtonLabel.titleLabel?.text = unwrappedMovie.seen ? "Seen" : "Not Seen"
         } 
     }
     
@@ -28,7 +30,9 @@ class MovieTableViewCell: UITableViewCell {
         // Initialization code
     }
     
-    @IBAction func seenButtonTapped(_ sender: Any) {
+    @IBAction func seenButtonTapped(_ sender: UIButton) {
+        movie?.seen = !movie!.seen
+        sender.setTitle(movie!.seen ? "Seen" : "Not Seen", for: .normal)
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
