@@ -18,11 +18,7 @@ class MovieListViewController: UIViewController, AddMovieDelegate, UITableViewDa
         movies.append(_movie)
         movieListTableView.reloadData()
     }
-    
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//    }
-    
+
      // MARK: - Table view data source
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -39,7 +35,6 @@ class MovieListViewController: UIViewController, AddMovieDelegate, UITableViewDa
     
     // MARK: - Navigation
 
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "AddMovieSegue" {
             guard let addMovieVC = segue.destination as? AddMovieViewController else { return }

@@ -14,16 +14,10 @@ protocol AddMovieDelegate {
 
 class AddMovieViewController: UIViewController {
 
-    
     @IBOutlet weak var enterMovieTitleTextField: UITextField!
     @IBOutlet weak var addMovieButton: UIButton!
     
     var delegate: AddMovieDelegate?
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-    }
     
     @IBAction func addMovieButtonTapped(_ sender: Any) {
         
@@ -40,15 +34,4 @@ class AddMovieViewController: UIViewController {
         self.navigationController?.popViewController(animated: true)
         
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

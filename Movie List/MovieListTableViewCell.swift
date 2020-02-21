@@ -20,11 +20,6 @@ class MovieListTableViewCell: UITableViewCell {
         }
     }
     
-//    override func awakeFromNib() {
-//        super.awakeFromNib()
-//        // Initialization code
-//    }
-    
     private func updateViews() {
         guard let movie = movie else { return }
         
@@ -34,23 +29,15 @@ class MovieListTableViewCell: UITableViewCell {
         }
     }
     
-    
     @IBAction func seenButtonTapped(_ sender: UIButton) {
         
-        guard let movie = movie else { return }
-        if case movie.seen = true {
+        if let movie = movie {
+            if movie.seen == true {
             seenButton.setTitle("Seen", for: .normal)
             seenButton.setTitleColor(UIColor.systemGreen, for: .normal)
         }
-        
-    }
-    
-    
-    
-//    override func setSelected(_ selected: Bool, animated: Bool) {
-//        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+      }
+   }
 }
 
 
