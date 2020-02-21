@@ -8,9 +8,16 @@
 
 import UIKit
 
-class MovieTableViewController: UITableViewController {
+class MovieTableViewController: UITableViewController, MovieDelegate {
 
+    
+    
     var movies: [Movie] = [Movie(name: "Avengers")]
+    
+    func movieWasCreated(movie: Movie) {
+        movies.append(movie)
+        tableView.reloadData()
+    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows

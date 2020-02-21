@@ -11,8 +11,8 @@ import UIKit
 class MovieTableViewCell: UITableViewCell {
     @IBOutlet weak var movieLabel: UILabel!
     
-    @IBAction func seenButton(_ sender: Any) {
-    }
+   
+    @IBOutlet weak var seenButton: UIButton!
     
     var movie: Movie? {
     didSet {
@@ -23,6 +23,7 @@ class MovieTableViewCell: UITableViewCell {
         func updateViews() {
         guard let movie = movie else { return }
             movieLabel.text = movie.name
+            
     }
 
 }
