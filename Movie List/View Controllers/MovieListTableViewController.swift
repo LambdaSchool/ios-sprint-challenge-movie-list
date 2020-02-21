@@ -8,14 +8,14 @@
 
 import UIKit
 
-class MovieListTableViewController: UIViewController {
+class MovieListTableViewController: UIViewController, UITableViewDelegate {
 
-
-    
     var movies: [Movie] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.delegate = self
+        tableView.dataSource = self
     }
     
     
@@ -31,25 +31,22 @@ class MovieListTableViewController: UIViewController {
     }
 }
 
-
-
 extension MovieListTableViewController: UITableViewDataSource {
-func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return movies.count
-}
-
-func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieListCell", for: indexPath) as? MovieListTTableViewCell else { return UITableViewCell() }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return movies.count
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieListCell", for: indexPath) as? MovieListTTableViewCell else { return UITableViewCell() }
+        
+        let movie = movies[indexPath.row]
+        cell.movie = movie
+        
+        return cell
+    }
     
-     let movie = movies[indexPath.row]
-    cell.movie = movie
-    
-    
-    return cell
-}
-func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-    return true
-    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+        
     }
 }
 

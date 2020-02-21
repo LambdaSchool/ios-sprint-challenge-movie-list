@@ -4,31 +4,21 @@
 //
 //  Created by Harmony Radley on 2/21/20.
 //  Copyright © 2020 Lambda School. All rights reserved.
-//
+
 
 import UIKit
 
-
-
 class MovieListTTableViewCell: UITableViewCell {
 
-
-
-    
     @IBOutlet weak var seenButton: UIButton!
     @IBOutlet weak var movieName: UILabel!
-    @IBAction func seenButtonTapped(_ sender: UIButton) {
-        
+   
+    var movie: Movie? {
+        didSet {
+            updateViews()
+        }
     }
-    
-   var movie: Movie? {
-       didSet {
-           updateViews()
-       }
-   }
 
-  
-    
     private func updateViews() {
            guard let movie = movie  else { return }
            

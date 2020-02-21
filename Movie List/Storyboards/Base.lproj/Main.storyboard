@@ -38,9 +38,8 @@
                                                         </label>
                                                     </subviews>
                                                 </stackView>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g8Y-OW-xWH">
-                                                    <rect key="frame" x="305" y="10" width="33" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g8Y-OW-xWH">
+                                                    <rect key="frame" x="278" y="10" width="82" height="30"/>
                                                     <state key="normal" title="seen"/>
                                                     <connections>
                                                         <action selector="seenButtonTapped:" destination="edS-T0-OJo" eventType="touchUpInside" id="OhC-nR-Iob"/>
@@ -49,6 +48,8 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="1KH-RL-hjw" firstAttribute="leading" secondItem="JOu-sU-98L" secondAttribute="leadingMargin" id="MF4-ZO-Kim"/>
+                                                <constraint firstItem="g8Y-OW-xWH" firstAttribute="trailing" secondItem="JOu-sU-98L" secondAttribute="trailingMargin" id="O6D-46-FFW"/>
+                                                <constraint firstItem="g8Y-OW-xWH" firstAttribute="top" secondItem="JOu-sU-98L" secondAttribute="topMargin" constant="-1" id="T2k-Ni-lbY"/>
                                                 <constraint firstItem="1KH-RL-hjw" firstAttribute="centerY" secondItem="JOu-sU-98L" secondAttribute="centerY" id="v58-9Y-8KR"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -73,7 +74,7 @@
                     <navigationItem key="navigationItem" title="Movie List" id="Fal-i8-84u">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="D8x-5U-WRo">
                             <connections>
-                                <segue destination="rgw-eq-ZGr" kind="show" id="FgB-kX-KPS"/>
+                                <segue destination="rgw-eq-ZGr" kind="show" identifier="AddMovieSegue" id="FgB-kX-KPS"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -112,9 +113,8 @@
                                     </textField>
                                 </subviews>
                             </stackView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AgL-Ct-NIM">
-                                <rect key="frame" x="128" y="165" width="119" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AgL-Ct-NIM">
+                                <rect key="frame" x="123" y="164" width="129" height="44"/>
                                 <items>
                                     <barButtonItem title="Add Movie" id="xUo-dX-oBk">
                                         <connections>
@@ -127,8 +127,11 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="ftX-dP-gar" firstAttribute="top" secondItem="0vu-K9-hgu" secondAttribute="top" constant="20" id="GSO-Ba-NPo"/>
+                            <constraint firstItem="AgL-Ct-NIM" firstAttribute="centerX" secondItem="ftX-dP-gar" secondAttribute="centerX" id="RPC-t6-a6w"/>
+                            <constraint firstItem="AgL-Ct-NIM" firstAttribute="top" secondItem="ftX-dP-gar" secondAttribute="bottom" constant="20" id="XOQ-Xy-yb0"/>
                             <constraint firstItem="ftX-dP-gar" firstAttribute="leading" secondItem="0vu-K9-hgu" secondAttribute="leading" constant="20" id="a2h-kU-h11"/>
                             <constraint firstItem="0vu-K9-hgu" firstAttribute="trailing" secondItem="ftX-dP-gar" secondAttribute="trailing" constant="20" id="acm-gp-t5U"/>
+                            <constraint firstItem="AgL-Ct-NIM" firstAttribute="leading" secondItem="0vu-K9-hgu" secondAttribute="leading" constant="123" id="wPn-gY-fOr"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="0vu-K9-hgu"/>
                     </view>
@@ -140,7 +143,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I20-qg-d8z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="MPz-Pn-JyJ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1670" y="116"/>
+            <point key="canvasLocation" x="1669.5999999999999" y="115.59220389805098"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="jUQ-TY-blk">
@@ -162,6 +165,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="sYP-wm-AZa"/>
+        <segue reference="FgB-kX-KPS"/>
     </inferredMetricsTieBreakers>
 </document>
