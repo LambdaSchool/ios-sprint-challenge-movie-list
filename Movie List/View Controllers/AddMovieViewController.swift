@@ -10,9 +10,12 @@ import UIKit
 
 class AddMovieViewController: UIViewController {
 
+    @IBOutlet weak var moveNameTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    }
+    
+    @IBAction func handleAddMovieAction(_ sender: UIButton) {
     }
 }
