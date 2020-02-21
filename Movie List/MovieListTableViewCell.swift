@@ -40,7 +40,7 @@ class MovieListTableViewCell: UITableViewCell {
         guard let movie = movie else { return }
         if case movie.seen = true {
             seenButton.setTitle("Seen", for: .normal)
-            seenButton.currentTitleColor
+            seenButton.setTitleColor(UIColor.systemGreen, for: .normal)
         }
         
     }
