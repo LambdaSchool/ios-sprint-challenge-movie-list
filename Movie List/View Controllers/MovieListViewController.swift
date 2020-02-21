@@ -63,6 +63,44 @@ extension MovieListViewController: UITableViewDelegate, UITableViewDataSource {
                     self.movies.remove(at: indexPath.row)
                     tableView.deleteRows(at: [indexPath], with: .right)
                 }),
+            UITableViewRowAction(
+                style: .normal,
+                title: "Edit",
+                handler: { (_, indexPath) in
+                    self.editMovieAt(indexPath)
+                })
         ]
+    }
+    
+    func editMovieAt(_ indexPath: IndexPath) {
+        let alertController = UIAlertController(
+            title: "Edit Movie",
+            message: "Enter a new movie name",
+            preferredStyle: .alert
+        )
+        
+        var movieNameTextField: UITextField?
+        alertController.addTextField { textField in
+            textField.placeholder = "Movie name"
+            movieNameTextField = textField
+        }
+        
+        alertController.addAction(UIAlertAction(
+            title: "Confirm",
+            style: .default,
+            handler: { _ in
+                guard let movieName = movieNameTextField?.text,
+                    !movieName.trimmingCharacters(in: NSCharacterSet.whitespacesAndNewlines).isEmpty else { return }
+                
+                let movie = self.movies[indexPath.row]
+                movie.name = movieName
+                if let cell = self.tableView.cellForRow(at: indexPath) as? MovieTableViewCell {
+                    cell.updateViews()
+                }
+        }))
+        
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        
+        self.present(alertController, animated: true)
     }
 }

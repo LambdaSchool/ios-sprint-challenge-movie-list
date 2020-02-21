@@ -19,7 +19,7 @@ class MovieTableViewCell: UITableViewCell {
         }
     }
     
-    private func updateViews() {
+    func updateViews() {
         if let movie = self.movie {
             movieNameLabel.text = movie.name
             toggleSeenButton.setTitle(movie.hasBeenSeen ? "Seen" : "Not Seen", for: .normal)
