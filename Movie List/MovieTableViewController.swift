@@ -32,7 +32,6 @@ class MovieTableViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         
-        
         // Do any additional setup after loading the view.
     }
     
@@ -50,15 +49,21 @@ class MovieTableViewController: UIViewController {
         tableView.reloadData()
     }
     
+    func updateArray() {
+        var movieDict = [String: Bool]()
+        for movie in movies {
+            movieDict["\(movie.name)"] = movie.seen
+        }
+        defaults.set(movieDict, forKey: "SavedDict")
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
             
         if segue.identifier == "addMovieSegue" {
             guard let addMovieVC = segue.destination as? AddMovieViewController else {return}
             addMovieVC.delegate = self
-            
         }
     }
-
 }
 
 extension MovieTableViewController: UITableViewDelegate, UITableViewDataSource {
@@ -68,6 +73,8 @@ extension MovieTableViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as? MovieTableViewCell else {return UITableViewCell()}
+        
+        cell.delegate = self
         
         let movie = movies[indexPath.row]
         cell.movie = movie
@@ -81,7 +88,7 @@ extension MovieTableViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let editAction = UITableViewRowAction(style: .default, title: "Edit", handler: { (action, indexPath) in
-            let alert = UIAlertController(title: "", message: "Edit list item", preferredStyle: .alert)
+            let alert = UIAlertController(title: "", message: "Edit movie", preferredStyle: .alert)
             alert.addTextField(configurationHandler: { (textField) in
                 textField.text = self.movies[indexPath.row].name
             })
@@ -104,12 +111,20 @@ extension MovieTableViewController: UITableViewDelegate, UITableViewDataSource {
         
        return [deleteAction, editAction]
     }
-    
 }
 
 extension MovieTableViewController: AddMovieDelegate {
     func movieWasAdded(_ movie: Movie) {
         movies.append(movie)
         tableView.reloadData()
+    }
+}
+
+extension MovieTableViewController: MovieSeenDelegate {
+    func movieWasChanged(_ movie: Movie) {
+        if let index = self.movies.firstIndex(where: {$0.name == movie.name}) {
+            self.movies[index] = movie
+        }
+        updateArray()
     }
 }

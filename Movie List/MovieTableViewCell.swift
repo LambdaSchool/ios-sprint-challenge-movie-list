@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol MovieSeenDelegate {
+    func movieWasChanged(_ movie: Movie)
+}
+
 class MovieTableViewCell: UITableViewCell {
 
     @IBOutlet var nameLabel: UILabel!
@@ -19,13 +23,18 @@ class MovieTableViewCell: UITableViewCell {
         }
     }
     
+    var delegate: MovieSeenDelegate?
     
     @IBAction func didTapSeen(_ sender: Any) {
         guard let theMovie = movie else {return}
-        if theMovie.seen {
+        if theMovie.seen == true {
             movie?.seen = false
         } else {
             movie?.seen = true
+        }
+        
+        if let newMovie = movie {
+            delegate?.movieWasChanged(newMovie)
         }
     }
     
@@ -40,7 +49,6 @@ class MovieTableViewCell: UITableViewCell {
         } else {
             seenButton.setTitle("Not Seen",for: .normal)
         }
-        
         
     }
     

@@ -12,7 +12,6 @@ protocol AddMovieDelegate {
     func movieWasAdded(_ movie: Movie)
 }
 
-
 class AddMovieViewController: UIViewController {
 
     
@@ -35,8 +34,5 @@ class AddMovieViewController: UIViewController {
         delegate?.movieWasAdded(movie)
         
         navigationController?.popViewController(animated: true)
-    //    dismiss(animated: true, completion: nil)
     }
-
-
 }
