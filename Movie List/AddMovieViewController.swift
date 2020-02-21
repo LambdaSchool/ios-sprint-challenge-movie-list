@@ -16,10 +16,10 @@ class AddMovieViewController: UIViewController {
     // This is to let the delegator (self) to communicate with the deleget (TBD)
     var delegate: AddMovieDelegate?
 
+    @IBOutlet weak var stackTitle: UITextField!
+    
     @IBAction func save(_ sender: Any) {
-        //BUGBUG: IBoutlet is throwing 4 errors when I try and create one. 
-        let getFromField: String? = "Star Wars"
-        guard let title = getFromField else { return }
+        guard let title = stackTitle.text else { return }
 
         // Make a movie
         let movie = Movie(title: title)
