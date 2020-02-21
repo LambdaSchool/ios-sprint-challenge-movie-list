@@ -56,6 +56,20 @@ extension MoviesViewController: UITableViewDataSource, UITableViewDelegate {
             movies.remove(at: indexPath.row)
             moviesTV.reloadData()
         }
+        else if editingStyle == .insert {
+            let alert = UIAlertController(title: "Edit movie title", message: "", preferredStyle: .actionSheet)
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            alert.addTextField(configurationHandler: { textfield in
+                textfield.text = self.movies[indexPath.row].name
+            })
+            alert.addAction(UIAlertAction(title: "Save", style: .default, handler: { _ in
+                if var text = alert.textFields![0].text {
+                    self.movies[indexPath.row].name = text
+                    self.moviesTV.reloadData()
+                }
+                
+                }))
+        }
     }
     
     
