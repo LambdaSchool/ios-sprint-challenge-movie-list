@@ -13,8 +13,6 @@ protocol AddMovieDelegate {
 }
 
 class AddNewMovieViewController: UIViewController {
-
-   
     
     @IBOutlet weak var movieNameTextField: UITextField!
     
@@ -26,20 +24,15 @@ class AddNewMovieViewController: UIViewController {
        
     }
     
-    
     @IBAction func addMovieTapped(_ sender: UIBarButtonItem) {
         guard let movieName = movieNameTextField.text,
             !movieName.isEmpty else { return }
         
         let movie = Movie(name: "Batman", seen: true)
         
-        
         delegate?.MovieWasCreated(movie)
     }
-    
-    
 }
-
 
 extension AddNewMovieViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
