@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Movie {
+class Movie: Codable {
     var name: String
     var hasBeenSeen = false
     

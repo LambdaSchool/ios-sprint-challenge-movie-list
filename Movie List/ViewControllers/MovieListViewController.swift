@@ -9,26 +9,35 @@
 import UIKit
 
 private let movieCellID = "MovieCell"
-private let addSegueID = "AddMovieSegue"
+private let addMovieSegueID = "AddMovieSegue"
+private let editMovieSegueID = "EditMovieSegue"
 
 class MovieListViewController: UIViewController {
 
     var movies = [Movie]()
+    
     @IBOutlet weak var movieTableView: UITableView!
     
-//MARK: - View Lifecycle
+    //MARK: - View Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         movieTableView.dataSource = self
         movieTableView.delegate = self
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        movieTableView.reloadData()
+    }
 
 // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == addSegueID, let addMovieVC = segue.destination as? AddMovieViewController {
-            addMovieVC.delegate = self
+        if segue.identifier == addMovieSegueID, let editMovieVC = segue.destination as? EditMovieViewController {
+            editMovieVC.delegate = self
+        } else if segue.identifier == editMovieSegueID, let editMovieVC = segue.destination as? EditMovieViewController {
+            guard let selectedIndex = movieTableView.indexPathForSelectedRow else { return }
+            editMovieVC.movie = movies[selectedIndex.row]
         }
     }
 
