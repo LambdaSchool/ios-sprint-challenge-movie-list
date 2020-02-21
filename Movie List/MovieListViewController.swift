@@ -20,7 +20,7 @@ class MovieListViewController: UIViewController,
 
     func movieWasCreated(_ movie: Movie) {
         movies.append(movie)
-//        tableView.reloadData()
+        movieTableView.reloadData()
 //        (tableView as MovieTableViewCell)?.reloadData()
     }
 
