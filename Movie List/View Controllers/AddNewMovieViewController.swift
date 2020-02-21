@@ -31,7 +31,7 @@ class AddNewMovieViewController: UIViewController {
         guard let movieName = movieNameTextField.text,
             !movieName.isEmpty else { return }
         
-        let movie = Movie(name: "Batman", seenOrNotSeen: true)
+        let movie = Movie(name: "Batman", seen: true)
         
         
         delegate?.MovieWasCreated(movie)

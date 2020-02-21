@@ -12,9 +12,8 @@ import UIKit
 class MovieListTableViewController: UITableViewController {
     
     
-    @IBOutlet weak var tableView: UITableView!
-    
-    var movies: [Movie] = []
+ 
+        var movies: [Movie] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
