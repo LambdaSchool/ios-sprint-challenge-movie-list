@@ -8,7 +8,12 @@
 
 import Foundation
 
-struct Movie {
+class Movie {
     let name: String
-    var hasBeenSeen: Bool = false
+    var hasBeenSeen: Bool
+    
+    init(name: String, hasBeenSeen: Bool = false) {
+        self.name = name
+        self.hasBeenSeen = hasBeenSeen
+    }
 }

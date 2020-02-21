@@ -19,6 +19,14 @@ class MovieListViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ShowAddMovieSegue" {
+            if let amvc = segue.destination as? AddMovieViewController {
+                amvc.delegate = self
+            }
+        }
+    }
 }
 
 extension MovieListViewController: AddMovieDelegate {
@@ -32,7 +40,7 @@ extension MovieListViewController: AddMovieDelegate {
 extension MovieListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return movies.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

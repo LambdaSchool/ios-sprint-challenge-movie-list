@@ -8,7 +8,30 @@
 
 import UIKit
 
+
+
 class MovieTableViewCell: UITableViewCell {
+
+    @IBOutlet weak var movieNameLabel: UILabel!
+    @IBOutlet weak var toggleSeenButton: UIButton!
     
-    var movie: Movie?
+    var movie: Movie? {
+        didSet {
+            updateViews()
+        }
+    }
+    
+    private func updateViews() {
+        if let movie = self.movie {
+            movieNameLabel.text = movie.name
+            toggleSeenButton.setTitle(movie.hasBeenSeen ? "Seen" : "Not Seen", for: .normal)
+        }
+    }
+
+    @IBAction func handleToggleSeenAction(_ sender: UIButton) {
+        if let movie = self.movie {
+            movie.hasBeenSeen = !movie.hasBeenSeen
+            updateViews()
+        }
+    }
 }

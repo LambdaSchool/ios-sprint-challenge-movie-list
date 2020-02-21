@@ -32,23 +32,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Md3-qr-d4j">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Md3-qr-d4j">
                                 <rect key="frame" x="0.0" y="44" width="375" height="623"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieCell" id="Pig-tn-YK7" customClass="MovieTableViewCell" customModule="Movie_List" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Pig-tn-YK7" id="Ech-LS-8iI">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vUt-MD-iqn">
-                                                    <rect key="frame" x="256" y="7" width="103" height="30"/>
-                                                    <state key="normal" title="Seen/Not Seen"/>
+                                                    <rect key="frame" x="313" y="15" width="46" height="30"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <connections>
+                                                        <action selector="handleToggleSeenAction:" destination="Pig-tn-YK7" eventType="touchUpInside" id="Mjf-sX-SZe"/>
+                                                    </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hsN-Qp-AmM">
-                                                    <rect key="frame" x="16" y="11.5" width="42" height="21"/>
+                                                    <rect key="frame" x="16" y="19.5" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -56,11 +59,16 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="vUt-MD-iqn" secondAttribute="trailing" constant="16" id="ESO-Hg-uqw"/>
+                                                <constraint firstItem="vUt-MD-iqn" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="hsN-Qp-AmM" secondAttribute="trailing" constant="8" id="KfK-jN-LZ2"/>
                                                 <constraint firstItem="hsN-Qp-AmM" firstAttribute="centerY" secondItem="Ech-LS-8iI" secondAttribute="centerY" id="gbs-b9-XIp"/>
                                                 <constraint firstItem="vUt-MD-iqn" firstAttribute="centerY" secondItem="Ech-LS-8iI" secondAttribute="centerY" id="gfv-yW-uPc"/>
                                                 <constraint firstItem="hsN-Qp-AmM" firstAttribute="leading" secondItem="Ech-LS-8iI" secondAttribute="leading" constant="16" id="oqW-7V-lSA"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="movieNameLabel" destination="hsN-Qp-AmM" id="Uji-Az-LI9"/>
+                                            <outlet property="toggleSeenButton" destination="vUt-MD-iqn" id="WV9-jC-4Xn"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -106,7 +114,7 @@
                                 <rect key="frame" x="172.5" y="110" width="30" height="30"/>
                                 <state key="normal" title="Add"/>
                                 <connections>
-                                    <action selector="handleAddMovieAction:" destination="aXh-ZR-1lM" eventType="touchUpInside" id="o2A-76-48N"/>
+                                    <action selector="handleAddMovieAction:" destination="aXh-ZR-1lM" eventType="touchUpInside" id="a0e-iM-QZ9"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -127,7 +135,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Swa-j9-9oP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="998" y="117"/>
+            <point key="canvasLocation" x="997.60000000000002" y="116.49175412293854"/>
         </scene>
     </scenes>
 </document>
