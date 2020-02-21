@@ -21,6 +21,7 @@ class MovieListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         movieTableView.dataSource = self
+        movieTableView.delegate = self
     }
 
 // MARK: - Navigation
@@ -47,6 +48,15 @@ extension MovieListViewController: UITableViewDataSource {
         }
         movieCell.movie = movies[indexPath.row]
         return movieCell
+    }
+}
+
+extension MovieListViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            movies.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .left)
+        }
     }
 }
 
