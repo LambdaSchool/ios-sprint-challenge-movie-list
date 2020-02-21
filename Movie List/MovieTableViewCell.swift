@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol hasSeenButtonDelegate {
+    func hasSeenButtonTapped(index: Int)
+}
+
 class MovieTableViewCell: UITableViewCell {
 
     @IBOutlet weak var movieTitleLabel: UILabel!
@@ -19,6 +23,9 @@ class MovieTableViewCell: UITableViewCell {
         }
     }
     
+    var delegate: hasSeenButtonDelegate?
+    var index: IndexPath?
+    
     func updateViews() {
         guard let movie = movie else { return }
         
@@ -29,6 +36,19 @@ class MovieTableViewCell: UITableViewCell {
         } else {
             hasSeenButton.isSelected = false
         }
+    }
+    
+    @IBAction func hasSeenButtonTapped(_ sender: Any) {
+        
+        guard let index1 = index else { return }
+        delegate?.hasSeenButtonTapped(index: index1.row)
+        
+        if hasSeenButton.isSelected {
+            hasSeenButton.isSelected = false
+        } else {
+            hasSeenButton.isSelected = true
+        }
+        
     }
     
     

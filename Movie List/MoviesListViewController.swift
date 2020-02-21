@@ -32,12 +32,14 @@ class MoviesListViewController: UIViewController, UITableViewDataSource, UITable
         
         let movie = movies[indexPath.row]
         cell.movie = movie
+        cell.delegate = self
+        cell.index = indexPath
         
         return cell
     }
     
     // MARK: - Navigation
-
+/*
     func hasSeenButtonTapped() {
         guard let selectedRow = tableView.indexPathForSelectedRow else { return }
         
@@ -53,7 +55,7 @@ class MoviesListViewController: UIViewController, UITableViewDataSource, UITable
             cell.hasSeenButton.isSelected = true
         }
     }
-
+*/
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
        
         if segue.identifier == "ShowAddMovie" {
@@ -71,5 +73,18 @@ extension MoviesListViewController: AddMovieDelegate {
     func addMovie(_ movie: Movie) {
         movies.append(movie)
         tableView.reloadData()
+    }
+}
+
+extension MoviesListViewController: hasSeenButtonDelegate {
+    func hasSeenButtonTapped(index: Int) {
+        
+        if movies[index].hasSeen {
+            movies[index].hasSeen = false
+        } else {
+            movies[index].hasSeen = true
+        }
+        
+        print("Movie: \(movies[index].name) || Has Seen: \(movies[index].hasSeen)")
     }
 }
