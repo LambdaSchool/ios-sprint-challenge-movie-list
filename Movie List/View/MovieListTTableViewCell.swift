@@ -11,9 +11,10 @@ import UIKit
 class MovieListTTableViewCell: UITableViewCell {
 
 
-       @IBOutlet weak var seenButton: UIButton!
-       @IBOutlet weak var label: UILabel!
-
+    @IBOutlet weak var seenButton: UIButton!
+       
+    @IBOutlet weak var movieName: UILabel!
+    
        override func awakeFromNib() {
            super.awakeFromNib()
        }
@@ -24,7 +25,7 @@ class MovieListTTableViewCell: UITableViewCell {
 
        private func updateViews() {
            guard let movie = movie else { return }
-           label.text = movie.title
+           movieName.text = movie.title
 
        }
 
