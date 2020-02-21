@@ -9,7 +9,26 @@
 import UIKit
 
 class MoviesViewController: UIViewController {
-
+    
+    @IBAction func editIsTapped(_ sender: Any) {
+        guard let cell = (sender as AnyObject).superview?.superview as? MovieTableViewCell else {return}
+        
+        guard let indexRow = moviesTV.indexPath(for: cell)?.row else { return  }
+        
+        let alert = UIAlertController(title: "Edit movie title", message: "", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        alert.addTextField(configurationHandler: { textfield in
+            textfield.text = self.movies[indexRow].name // self.movie?.name
+        })
+        alert.addAction(UIAlertAction(title: "Save", style: .default, handler: { _ in
+                if let text = alert.textFields![0].text {
+                    self.movies[indexRow].name = text
+                    self.moviesTV.reloadData()
+                }
+            
+            }))
+        self.present(alert, animated: true)
+    }
     
     @IBOutlet weak var moviesTV: UITableView!
     

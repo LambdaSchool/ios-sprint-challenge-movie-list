@@ -9,22 +9,8 @@
 import UIKit
 
 class MovieTableViewCell: UITableViewCell {
-
     
-    @IBAction func editIsTapped(_ sender: Any) {
-        let alert = UIAlertController(title: "Edit movie title", message: "", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        alert.addTextField(configurationHandler: { textfield in
-            textfield.text = self.movie?.name
-        })
-        alert.addAction(UIAlertAction(title: "Save", style: .default, handler: { _ in
-                if var text = alert.textFields![0].text {
-                    self.movie?.name = text
-                }
-            }))
-        
-    }
-    
+    @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var movieTitleLabel: UILabel!
     @IBOutlet weak var isSeenTitle: UIButton!
     @IBAction func isSeenTapped(_ sender: UIButton) {
