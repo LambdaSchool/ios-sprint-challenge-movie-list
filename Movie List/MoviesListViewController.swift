@@ -38,31 +38,26 @@ class MoviesListViewController: UIViewController, UITableViewDataSource, UITable
         return cell
     }
     
-    // MARK: - Navigation
-/*
-    func hasSeenButtonTapped() {
-        guard let selectedRow = tableView.indexPathForSelectedRow else { return }
-        
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell") as? MovieTableViewCell else { return }
-        
-        var movie = movies[selectedRow.row]
-        
-        if movie.hasSeen {
-            movie.hasSeen = false
-            cell.hasSeenButton.isSelected = false
-        } else {
-            movie.hasSeen = true
-            cell.hasSeenButton.isSelected = true
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            movies.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            tableView.reloadData()
         }
     }
-*/
+    
+    // MARK: - Navigation
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
        
         if segue.identifier == "ShowAddMovie" {
-            guard let AddMovieVC = segue.destination as? AddMovieViewController else {
-                return
-            }
+            guard let AddMovieVC = segue.destination as? AddMovieViewController else { return }
             AddMovieVC.delegate = self
+        } else if segue.identifier == "ShowChangeTitle" {
+            guard let ChangeTitleVC = segue.destination as? ChangeMovieTitleViewController else { return }
+            
+            ChangeTitleVC.delegate = self
         }
     }
     
@@ -84,7 +79,16 @@ extension MoviesListViewController: hasSeenButtonDelegate {
         } else {
             movies[index].hasSeen = true
         }
-        
         print("Movie: \(movies[index].name) || Has Seen: \(movies[index].hasSeen)")
     }
+}
+
+extension MoviesListViewController: ChangeMovieTitleDelegate {
+    func changeMovieTitle(title: String) {
+        guard let selectedRow = tableView.indexPathForSelectedRow else { return }
+        movies[selectedRow.row].name = title
+        tableView.reloadData()
+    }
+    
+    
 }

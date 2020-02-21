@@ -28,13 +28,17 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7hi-MH-e0O">
-                                                    <rect key="frame" x="20" y="11.333333333333336" width="45" height="21"/>
+                                                    <rect key="frame" x="20" y="11.333333333333336" width="280" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="280" id="1Bw-nA-Wm5"/>
+                                                        <constraint firstAttribute="height" constant="21" id="z6w-IH-eSY"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yaD-ZY-Ecw">
-                                                    <rect key="frame" x="330" y="7" width="64" height="30"/>
+                                                    <rect key="frame" x="302" y="7" width="92" height="30"/>
                                                     <state key="normal" title="Not Seen"/>
                                                     <state key="selected" title="Seen"/>
                                                     <connections>
@@ -47,12 +51,14 @@
                                                 <constraint firstItem="yaD-ZY-Ecw" firstAttribute="centerY" secondItem="UQW-By-gBl" secondAttribute="centerY" id="VAh-5m-CPu"/>
                                                 <constraint firstItem="7hi-MH-e0O" firstAttribute="centerY" secondItem="UQW-By-gBl" secondAttribute="centerY" id="dbI-Cz-WqS"/>
                                                 <constraint firstItem="7hi-MH-e0O" firstAttribute="leading" secondItem="UQW-By-gBl" secondAttribute="leadingMargin" id="kYi-ke-wOc"/>
+                                                <constraint firstItem="yaD-ZY-Ecw" firstAttribute="leading" secondItem="7hi-MH-e0O" secondAttribute="trailing" constant="2" id="zrf-il-FhI"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="hasSeenButton" destination="yaD-ZY-Ecw" id="BX4-jA-KbO"/>
                                             <outlet property="movieTitleLabel" destination="7hi-MH-e0O" id="Sjg-DQ-BHQ"/>
                                             <outlet property="tableView" destination="FBl-U3-rEv" id="hMm-Og-NIb"/>
+                                            <segue destination="hr4-fK-9cc" kind="show" identifier="ShowChangeTitle" id="RVD-uB-hiS"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -131,7 +137,58 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SHg-k8-nBr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1499" y="-46"/>
+            <point key="canvasLocation" x="1572" y="-123"/>
+        </scene>
+        <!--Change Movie Title View Controller-->
+        <scene sceneID="ZYk-Dp-J9B">
+            <objects>
+                <viewController id="hr4-fK-9cc" customClass="ChangeMovieTitleViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xxE-Eo-4Eh">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Movie's Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="awZ-s7-Iio">
+                                <rect key="frame" x="20" y="137" width="374" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Change movie's title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wbv-d0-hCy">
+                                <rect key="frame" x="20" y="108" width="374" height="21"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ADv-bg-Mtk">
+                                <rect key="frame" x="20" y="179" width="374" height="30"/>
+                                <state key="normal" title="Change"/>
+                                <connections>
+                                    <action selector="addMovieButtonTapped:" destination="fk2-C4-HBV" eventType="touchUpInside" id="fPi-wz-w5a"/>
+                                    <action selector="changeButtonTapped:" destination="hr4-fK-9cc" eventType="touchUpInside" id="JxD-Lb-vdP"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="y8W-RR-fMq" firstAttribute="trailing" secondItem="wbv-d0-hCy" secondAttribute="trailing" constant="20" id="JCi-3l-QRs"/>
+                            <constraint firstItem="y8W-RR-fMq" firstAttribute="trailing" secondItem="ADv-bg-Mtk" secondAttribute="trailing" constant="20" id="M4y-50-tUS"/>
+                            <constraint firstItem="awZ-s7-Iio" firstAttribute="top" secondItem="wbv-d0-hCy" secondAttribute="bottom" constant="8" id="RbO-GL-usr"/>
+                            <constraint firstItem="ADv-bg-Mtk" firstAttribute="top" secondItem="awZ-s7-Iio" secondAttribute="bottom" constant="8" id="Vae-OE-rna"/>
+                            <constraint firstItem="wbv-d0-hCy" firstAttribute="top" secondItem="y8W-RR-fMq" secondAttribute="top" constant="20" id="XRy-rP-lmH"/>
+                            <constraint firstItem="wbv-d0-hCy" firstAttribute="leading" secondItem="y8W-RR-fMq" secondAttribute="leading" constant="20" id="bk6-kX-194"/>
+                            <constraint firstItem="ADv-bg-Mtk" firstAttribute="leading" secondItem="y8W-RR-fMq" secondAttribute="leading" constant="20" id="eZg-qW-19n"/>
+                            <constraint firstItem="y8W-RR-fMq" firstAttribute="trailing" secondItem="awZ-s7-Iio" secondAttribute="trailing" constant="20" id="kHI-au-YaE"/>
+                            <constraint firstItem="awZ-s7-Iio" firstAttribute="leading" secondItem="y8W-RR-fMq" secondAttribute="leading" constant="20" id="nab-Vt-7Iw"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="y8W-RR-fMq"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="bCt-N4-q2U"/>
+                    <connections>
+                        <outlet property="movieTitleTextField" destination="awZ-s7-Iio" id="63s-Ah-q8i"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="V1y-H6-f9b" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1781" y="580"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="FOP-DL-Hwu">

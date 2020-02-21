@@ -48,8 +48,5 @@ class MovieTableViewCell: UITableViewCell {
         } else {
             hasSeenButton.isSelected = true
         }
-        
     }
-    
-    
 }
