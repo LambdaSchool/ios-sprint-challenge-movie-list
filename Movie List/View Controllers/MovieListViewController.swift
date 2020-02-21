@@ -52,4 +52,17 @@ extension MovieListViewController: UITableViewDelegate, UITableViewDataSource {
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        
+        return [
+            UITableViewRowAction(
+                style: .destructive,
+                title: "Delete",
+                handler: { (action, indexPath) in
+                    self.movies.remove(at: indexPath.row)
+                    tableView.deleteRows(at: [indexPath], with: .right)
+                }),
+        ]
+    }
 }
