@@ -11,6 +11,8 @@ import UIKit
 class MoviesListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     var movies: [Movie] = [Movie(name: "No Time To Die", hasSeen: false)]
+
+
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -19,7 +21,10 @@ class MoviesListViewController: UIViewController, UITableViewDataSource, UITable
 
         tableView.delegate = self
         tableView.dataSource = self
-        // Do any additional setup after loading the view.
+        
+//        let defaults = UserDefaults.standard
+//        defaults.set(movies, forKey: "movies")
+
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -44,6 +49,7 @@ class MoviesListViewController: UIViewController, UITableViewDataSource, UITable
             movies.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
             tableView.reloadData()
+
         }
     }
     
@@ -80,6 +86,7 @@ extension MoviesListViewController: hasSeenButtonDelegate {
             movies[index].hasSeen = true
         }
         print("Movie: \(movies[index].name) || Has Seen: \(movies[index].hasSeen)")
+        
     }
 }
 
