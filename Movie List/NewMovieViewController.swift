@@ -7,18 +7,30 @@
 //
 
 import UIKit
-
+protocol MovieDelegate {
+    func movieWasCreated(movie: Movie)
+}
 class NewMovieViewController: UIViewController {
     @IBOutlet weak var movieTextField: UITextField!
     
-    @IBAction func movieSaveButton(_ sender: Any) {
-        
-    }
-    override func viewDidLoad() {
+    var delegate: MovieDelegate?
+        override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
-
+    @IBAction func saveButton(_ sender: Any) {
+        guard let movie = movieTextField.text else { return }
+               var movies: [String] = []
+               if let movie1 = movieTextField.text,
+                   !movie1.isEmpty {
+                   movies.append(movie1)
+               }
+        
+        let addMovie = Movie(name: movie)
+        delegate?.movieWasCreated(movie: addMovie)
+        dismiss(animated: true, completion: nil)
+    }
+    
 }
