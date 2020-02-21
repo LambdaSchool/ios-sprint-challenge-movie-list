@@ -18,8 +18,13 @@ class MovieListTTableViewCell: UITableViewCell {
             updateViews()
         }
     }
+    
+    @IBAction func seenButtonTapped(_ sender: Any) {
+        
+    }
 
-    private func updateViews() {
+    
+    func updateViews() {
            guard let movie = movie  else { return }
            
            movieName.text = movie.name
