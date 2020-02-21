@@ -31,7 +31,7 @@ class AddMovieViewController: UIViewController, UITextFieldDelegate {
         
         delegate?.movieWasAdded(newMovie)
         
-        dismiss(animated: true, completion: nil)
+        dismiss(animated: false, completion: nil)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
