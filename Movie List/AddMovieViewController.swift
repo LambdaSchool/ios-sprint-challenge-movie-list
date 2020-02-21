@@ -17,16 +17,17 @@ class AddMovieViewController: UIViewController {
     var delegate: AddMovieDelegate?
 
     @IBAction func save(_ sender: Any) {
-        //BUGBUG: Dismiss does not work
+        //BUGBUG: IBoutlet is throwing 4 errors when I try and create one. 
         let getFromField: String? = "Star Wars"
         guard let title = getFromField else { return }
 
         // Make a movie
         let movie = Movie(title: title)
         
-        // Pass friend back to table view controller
+        // Pass movie back to table view controller
         delegate?.movieWasCreated(movie)
         
+        //BUGBUG: Dismiss does not work
         // This line doesn't work
         dismiss(animated: true, completion: nil)
 
