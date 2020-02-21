@@ -16,4 +16,9 @@ struct Movie {
         title = ""
         seen = false
     }
+
+    init(title: String, seen: Bool = false) {
+        self.title = title
+        self.seen = seen
+    }
 }
