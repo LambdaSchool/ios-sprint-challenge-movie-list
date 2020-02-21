@@ -75,7 +75,11 @@
                         <viewLayoutGuide key="safeArea" id="TAQ-2P-rGb"/>
                     </view>
                     <navigationItem key="navigationItem" title="Movie List" id="PVB-XI-NQT">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="7Wj-55-XoI"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="7Wj-55-XoI">
+                            <connections>
+                                <segue destination="aXh-ZR-1lM" kind="show" identifier="ShowAddMovieSegue" id="xcL-d3-XYW"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="Md3-qr-d4j" id="Pb2-nC-5j8"/>
@@ -84,6 +88,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AWQ-Kz-2Zd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="124" y="118"/>
+        </scene>
+        <!--Add Movie View Controller-->
+        <scene sceneID="WO9-8K-Ywv">
+            <objects>
+                <viewController id="aXh-ZR-1lM" customClass="AddMovieViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="C0j-Aj-3Eu">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="Xr1-VF-wW7"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="xdw-O3-IUh"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Swa-j9-9oP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="998" y="117"/>
         </scene>
     </scenes>
 </document>
