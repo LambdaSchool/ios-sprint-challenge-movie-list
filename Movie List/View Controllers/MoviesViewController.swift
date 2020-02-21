@@ -32,7 +32,7 @@ class MoviesViewController: UIViewController {
     
     @IBOutlet weak var moviesTV: UITableView!
     
-    var movies: [Movie] = [Movie(name: "test", isSeen: false)]
+    var movies: [Movie] = [Movie(name: "Movie with really long title", isSeen: false)]
     override func viewDidLoad() {
         super.viewDidLoad()
 
