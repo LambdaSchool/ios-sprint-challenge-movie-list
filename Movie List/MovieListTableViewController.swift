@@ -8,10 +8,14 @@
 
 import UIKit
 
-class MovieListTableViewController: UITableViewController {
+class MovieListTableViewController: UITableViewController, AddMovieDelegate {
     
     var movies: [Movie] = []
-   
+    
+    func movieWasAdded(movie: Movie) {
+        movies.append(movie)
+        tableView.reloadData()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,14 +75,15 @@ class MovieListTableViewController: UITableViewController {
     }
     */
 
-    /*
+
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "AddMovie" {
+            guard let AddVC = segue.destination as? AddMovieViewController
+                else { return }
+            AddVC.delegate = self
+        }
     }
-    */
-
 }

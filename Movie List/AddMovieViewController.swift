@@ -8,8 +8,14 @@
 
 import UIKit
 
+protocol AddMovieDelegate {
+    func movieWasAdded(movie: Movie)
+}
+
 class AddMovieViewController: UIViewController {
    
+    var delegate: AddMovieDelegate?
+    
     @IBOutlet weak var newMovieLabel: UITextField!
     
     override func viewDidLoad() {
@@ -19,6 +25,10 @@ class AddMovieViewController: UIViewController {
     }
     
     @IBAction func addMovieButtonTapped(_ sender: Any) {
+        guard let name = newMovieLabel.text, !name.isEmpty else {return}
+        let movie = Movie(name: name)
+        delegate?.movieWasAdded(movie: movie)
+        dismiss(animated: true, completion: nil)
     }
     
 
