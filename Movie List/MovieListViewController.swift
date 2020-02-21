@@ -8,10 +8,18 @@
 
 import UIKit
 
-class MovieListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
+class MovieListViewController: UIViewController,
+                            UITableViewDelegate,
+                            UITableViewDataSource, AddMovieDelegate {
+    
     var movies: [Movie] = [Movie(title: "Pulp Fiction", seen: true),
                            Movie(title: "Parasite")]
+
+    func movieWasCreated(_ movie: Movie) {
+        movies.append(movie)
+//        tableView.reloadData()
+//        (tableView as MovieTableViewCell)?.reloadData()
+    }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return movies.count
@@ -42,5 +50,9 @@ class MovieListViewController: UIViewController, UITableViewDelegate, UITableVie
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "AddMovie" {
+            guard let addMovieVC = segue.destination as? AddMovieViewController else {return}
+            addMovieVC.delegate = self
+        }
     }
 }

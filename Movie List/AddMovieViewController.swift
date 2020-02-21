@@ -8,8 +8,32 @@
 
 import UIKit
 
-class AddMovieViewController: UIViewController {
+protocol AddMovieDelegate {
+    func movieWasCreated(_ movie: Movie)
+}
 
+class AddMovieViewController: UIViewController {
+    // This is to let the delegator (self) to communicate with the deleget (TBD)
+    var delegate: AddMovieDelegate?
+
+    @IBAction func saveInStackView(_ sender: Any) {
+        //BUGBUG: Dismiss does not work
+        let getFromField: String? = "Star Wars"
+        guard let title = getFromField else { return }
+
+        // Make a movie
+        let movie = Movie(title: title)
+        
+        // Pass friend back to table view controller
+        delegate?.movieWasCreated(movie)
+        
+        // This line doesn't work
+        dismiss(animated: true, completion: nil)
+
+        // This line does. Wrong kind of segue or wrong kind of view?
+        self.navigationController?.popViewController(animated: true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
