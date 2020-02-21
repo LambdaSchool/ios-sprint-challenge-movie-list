@@ -36,10 +36,24 @@ class MoviesListViewController: UIViewController, UITableViewDataSource, UITable
         return cell
     }
     
-    
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    func hasSeenButtonTapped() {
+        guard let selectedRow = tableView.indexPathForSelectedRow else { return }
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell") as? MovieTableViewCell else { return }
+        
+        var movie = movies[selectedRow.row]
+        
+        if movie.hasSeen {
+            movie.hasSeen = false
+            cell.hasSeenButton.isSelected = false
+        } else {
+            movie.hasSeen = true
+            cell.hasSeenButton.isSelected = true
+        }
+    }
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
        
         if segue.identifier == "ShowAddMovie" {
