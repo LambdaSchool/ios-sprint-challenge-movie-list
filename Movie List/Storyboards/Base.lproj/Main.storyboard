@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="e1Z-em-cbi">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Movie List View Controller-->
+        <!--Movie List-->
         <scene sceneID="xMd-5O-aqb">
             <objects>
                 <viewController id="YgP-a9-Anf" customClass="MovieListViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
@@ -16,15 +16,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="t7U-30-8pz">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="t7U-30-8pz">
                                 <rect key="frame" x="0.0" y="44" width="414" height="692"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MovieCell" id="j5L-XE-1Hx">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="43.666667938232422"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MovieCell" id="j5L-XE-1Hx" customClass="MovieTableViewCell" customModule="Movie_List" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="j5L-XE-1Hx" id="Ddi-he-MiX">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.666667938232422"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Empire Strikes Back" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ABJ-ge-Oip">
@@ -34,8 +34,11 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kGm-pO-N0Y">
-                                                    <rect key="frame" x="348" y="7" width="46" height="30"/>
-                                                    <state key="normal" title="Button"/>
+                                                    <rect key="frame" x="341" y="7" width="53" height="30"/>
+                                                    <state key="normal" title="Unseen"/>
+                                                    <connections>
+                                                        <action selector="seenButtonTapped:" destination="j5L-XE-1Hx" eventType="touchUpInside" id="7On-nc-571"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -45,6 +48,10 @@
                                                 <constraint firstAttribute="trailingMargin" secondItem="kGm-pO-N0Y" secondAttribute="trailing" id="aeW-gA-fzv"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="nameLabel" destination="ABJ-ge-Oip" id="tSe-ul-5Rr"/>
+                                            <outlet property="seenButton" destination="kGm-pO-N0Y" id="I7q-5q-RBA"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -58,13 +65,16 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="aM5-nA-YtB"/>
                     </view>
-                    <navigationItem key="navigationItem" id="o6U-1M-lfB">
+                    <navigationItem key="navigationItem" title="Movie List" id="o6U-1M-lfB">
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="GLM-rC-nal">
                             <connections>
-                                <segue destination="CLn-6i-Yey" kind="show" id="1CD-jk-lYA"/>
+                                <segue destination="CLn-6i-Yey" kind="show" identifier="AddMovieSegue" id="1CD-jk-lYA"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="movieTableView" destination="t7U-30-8pz" id="yzB-HX-DUK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h8B-nu-39b" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

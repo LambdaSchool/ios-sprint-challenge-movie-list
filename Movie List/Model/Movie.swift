@@ -7,3 +7,12 @@
 //
 
 import Foundation
+
+class Movie {
+    var name: String
+    var hasBeenSeen = false
+    
+    init(name: String) {
+        self.name = name
+    }
+}
