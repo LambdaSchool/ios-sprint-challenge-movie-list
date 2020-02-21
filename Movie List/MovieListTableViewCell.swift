@@ -10,18 +10,47 @@ import UIKit
 
 class MovieListTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var movieTitleLable: UILabel!
+    @IBOutlet weak var movieTitleLabel: UILabel!
+    @IBOutlet weak var seenButton: UIButton!
     
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    var movie: Movie? {
+        
+        didSet {
+            updateViews()
+        }
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+    
+//    override func awakeFromNib() {
+//        super.awakeFromNib()
+//        // Initialization code
+//    }
+    
+    private func updateViews() {
+        guard let movie = movie else { return }
+        
+        movieTitleLabel.text = movie.name
+        if seenButton != nil {
+            movie.seen = true
+        }
+    }
+    
+    
+    @IBAction func seenButtonTapped(_ sender: UIButton) {
+        
+        guard let movie = movie else { return }
+        if case movie.seen = true {
+            seenButton.setTitle("Seen", for: .normal)
+            seenButton.currentTitleColor
+        }
+        
+    }
+    
+    
+    
+//    override func setSelected(_ selected: Bool, animated: Bool) {
+//        super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
-    }
-
 }
+
+
