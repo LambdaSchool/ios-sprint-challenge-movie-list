@@ -16,16 +16,52 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="PlU-K4-4XY">
-                                <rect key="frame" x="61" y="153" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="PlU-K4-4XY">
+                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="IWM-ID-5az">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="IWM-ID-5az" id="pVh-dJ-SKb">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XC2-6h-OKE">
+                                                    <rect key="frame" x="299" y="7" width="46" height="30"/>
+                                                    <state key="normal" title="Button"/>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LMO-Cd-UhO">
+                                                    <rect key="frame" x="30" y="11.5" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="LMO-Cd-UhO" firstAttribute="centerY" secondItem="pVh-dJ-SKb" secondAttribute="centerY" id="0Mi-aJ-pJZ"/>
+                                                <constraint firstAttribute="trailing" secondItem="XC2-6h-OKE" secondAttribute="trailing" constant="30" id="3Vf-NH-TuA"/>
+                                                <constraint firstItem="LMO-Cd-UhO" firstAttribute="leading" secondItem="pVh-dJ-SKb" secondAttribute="leading" constant="30" id="Aio-ja-uDW"/>
+                                                <constraint firstItem="XC2-6h-OKE" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="LMO-Cd-UhO" secondAttribute="trailing" constant="100" id="Daf-5y-Rqg"/>
+                                                <constraint firstItem="XC2-6h-OKE" firstAttribute="centerY" secondItem="pVh-dJ-SKb" secondAttribute="centerY" id="V89-if-b6u"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="PlU-K4-4XY" firstAttribute="top" secondItem="9GE-kI-Dcy" secondAttribute="top" id="Ef5-qw-Dbx"/>
+                            <constraint firstItem="9GE-kI-Dcy" firstAttribute="trailing" secondItem="PlU-K4-4XY" secondAttribute="trailing" id="GqJ-MM-3JP"/>
+                            <constraint firstItem="PlU-K4-4XY" firstAttribute="leading" secondItem="9GE-kI-Dcy" secondAttribute="leading" id="HW5-vX-bsN"/>
+                            <constraint firstItem="9GE-kI-Dcy" firstAttribute="bottom" secondItem="PlU-K4-4XY" secondAttribute="bottom" id="YT9-o2-ovx"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="9GE-kI-Dcy"/>
                     </view>
-                    <navigationItem key="navigationItem" id="sNo-1b-KCp"/>
+                    <navigationItem key="navigationItem" id="sNo-1b-KCp">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="iel-FO-rBW"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p8q-Fx-2vM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -39,8 +75,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="JEr-g5-mhq">
-                                <rect key="frame" x="30" y="39" width="315" height="107.5"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="JEr-g5-mhq">
+                                <rect key="frame" x="30" y="40" width="315" height="107.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a New Movie to the List" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HrW-dH-FI3">
                                         <rect key="frame" x="0.0" y="0.0" width="315" height="27.5"/>
@@ -62,6 +98,7 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="JEr-g5-mhq" firstAttribute="top" secondItem="dvY-2c-Hvv" secondAttribute="top" constant="40" id="0cx-fJ-39M"/>
                             <constraint firstItem="JEr-g5-mhq" firstAttribute="leading" secondItem="dvY-2c-Hvv" secondAttribute="leading" constant="30" id="7h6-lf-9Gw"/>
                             <constraint firstItem="dvY-2c-Hvv" firstAttribute="trailing" secondItem="JEr-g5-mhq" secondAttribute="trailing" constant="30" id="G2T-LS-QKb"/>
                         </constraints>
