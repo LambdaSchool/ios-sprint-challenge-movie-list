@@ -27,12 +27,13 @@ class AddMovieViewController: UIViewController {
     var delegate: AddMovieDelegate?
     
     @IBAction func addMovieButtonTapped(_ sender: Any) {
-        guard let title = movieTitleTextField.text else {
+        guard let title = movieTitleTextField.text, !title.isEmpty else {
             return
         }
+            
         let newMovie = Movie(name: title, hasSeen: false)
         delegate?.addMovie(newMovie)
+        self.navigationController?.popViewController(animated: true)
         
-        dismiss(animated: true, completion: nil)
     }
 }
