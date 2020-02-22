@@ -14,21 +14,11 @@ class MovieTableViewCell: UITableViewCell {
     @IBOutlet weak var seen: UIButton!
     
     @IBAction func seenButton(_ sender: Any) {
-        guard var movie = movie else { return }
+        guard let movie = movie else { return }
         
         movie.seen = !movie.seen
         
-        //BUGBUG: This will let you change the state of seen once.
-        // How do I change the source object?
-        // How do I change the parent object in MovieListViewController? Delegate?
-        //let buttonText = movie.seen == true ? "Seen" : "Not Seen"
-        //seen.setTitle(buttonText, for: .normal)
-        
-        // This is ugly but I'm gonna do it.
-        let buttonText = seen.currentTitle! == "Not Seen" ? "Seen" : "Not Seen"
-        seen.setTitle(buttonText, for: .normal)
-        
-        // updateViews()
+        updateViews()
     }
 
     var movie: Movie? {

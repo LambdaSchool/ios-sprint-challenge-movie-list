@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Movie {
+class Movie {
     var title: String
     var seen: Bool
     
