@@ -12,7 +12,6 @@ class MovieListViewController: UIViewController,
                             UITableViewDelegate,
                             UITableViewDataSource, AddMovieDelegate {
     
-    //BUGBUG: Where do I assign this thing?
     @IBOutlet weak var movieTableView: UITableView!
     
     var movies: [Movie] = [Movie(title: "Pulp Fiction", seen: true),
@@ -21,7 +20,6 @@ class MovieListViewController: UIViewController,
     func movieWasCreated(_ movie: Movie) {
         movies.append(movie)
         movieTableView.reloadData()
-//        (tableView as MovieTableViewCell)?.reloadData()
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
