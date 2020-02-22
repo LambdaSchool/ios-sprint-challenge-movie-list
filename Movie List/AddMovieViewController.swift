@@ -27,12 +27,7 @@ class AddMovieViewController: UIViewController {
         // Pass movie back to table view controller
         delegate?.movieWasCreated(movie)
         
-        //BUGBUG: Dismiss does not work
-        // This line doesn't work
         dismiss(animated: true, completion: nil)
-
-        // This line does. Wrong kind of segue or wrong kind of view?
-        self.navigationController?.popViewController(animated: true)
     }
     
     override func viewDidLoad() {
