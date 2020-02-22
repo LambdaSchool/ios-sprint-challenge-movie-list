@@ -13,11 +13,22 @@ class MovieTableViewCell: UITableViewCell {
     
    
     
+    @IBOutlet weak var buttonTapped: UIButton!
     
-    @IBAction func saveButton(_ sender: UIButton) {
-       
-        
+    
+    @IBAction func seenButton(_ sender: Any) {
+        if buttonTapped.isSelected == true  {
+            buttonTapped.setTitle("Seen", for: .normal)
+         buttonTapped.isSelected = false
+     } else {
+            buttonTapped.setTitle("Not Seen", for: .normal )
+         buttonTapped.isSelected = true
+     }
     }
+    
+    
+    
+   
     
     
     var movie: Movie? {

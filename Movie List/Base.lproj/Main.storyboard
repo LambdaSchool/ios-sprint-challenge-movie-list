@@ -18,38 +18,38 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieCell" id="gRT-lo-I3z" customClass="MovieTableViewCell" customModule="Movie_List" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="43.5"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="36.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gRT-lo-I3z" id="qqV-kd-6qE">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="36.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c2f-vL-U7u">
-                                            <rect key="frame" x="301" y="5.5" width="64" height="30.5"/>
+                                            <rect key="frame" x="301" y="3.5" width="64" height="30"/>
                                             <state key="normal" title="Seen"/>
                                             <connections>
-                                                <action selector="saveButton:" destination="gRT-lo-I3z" eventType="touchUpInside" id="X2R-YS-hOs"/>
+                                                <action selector="seenButton:" destination="gRT-lo-I3z" eventType="touchUpInside" id="M73-N7-i3t"/>
                                             </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n6V-1x-neJ">
-                                            <rect key="frame" x="16" y="5.5" width="42" height="30.5"/>
+                                            <rect key="frame" x="20" y="12" width="273" height="21.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="trailing" secondItem="c2f-vL-U7u" secondAttribute="trailing" constant="10" id="5Zn-CL-uLn"/>
-                                        <constraint firstItem="c2f-vL-U7u" firstAttribute="width" secondItem="qqV-kd-6qE" secondAttribute="width" multiplier="0.170667" id="IgK-bD-grl"/>
-                                        <constraint firstItem="n6V-1x-neJ" firstAttribute="leading" secondItem="qqV-kd-6qE" secondAttribute="leading" constant="16" id="VSa-nY-OD9"/>
-                                        <constraint firstItem="c2f-vL-U7u" firstAttribute="leading" secondItem="n6V-1x-neJ" secondAttribute="trailing" constant="243" id="cFs-hx-1dF"/>
-                                        <constraint firstItem="n6V-1x-neJ" firstAttribute="bottom" secondItem="c2f-vL-U7u" secondAttribute="bottom" id="i0A-sd-z8M"/>
-                                        <constraint firstItem="n6V-1x-neJ" firstAttribute="top" secondItem="c2f-vL-U7u" secondAttribute="top" id="ttG-2J-nkz"/>
-                                        <constraint firstAttribute="bottom" secondItem="c2f-vL-U7u" secondAttribute="bottom" constant="7.5" id="uYa-bH-00q"/>
-                                        <constraint firstItem="n6V-1x-neJ" firstAttribute="top" secondItem="qqV-kd-6qE" secondAttribute="top" constant="5.5" id="zRy-hx-vqj"/>
+                                        <constraint firstItem="n6V-1x-neJ" firstAttribute="leading" secondItem="qqV-kd-6qE" secondAttribute="leading" constant="20" symbolic="YES" id="D43-9W-izO"/>
+                                        <constraint firstItem="n6V-1x-neJ" firstAttribute="top" secondItem="qqV-kd-6qE" secondAttribute="top" constant="12" id="M6X-Ch-Wgq"/>
+                                        <constraint firstItem="c2f-vL-U7u" firstAttribute="leading" secondItem="n6V-1x-neJ" secondAttribute="trailing" constant="8" id="MdT-CN-LaS"/>
+                                        <constraint firstItem="c2f-vL-U7u" firstAttribute="centerY" secondItem="qqV-kd-6qE" secondAttribute="centerY" id="Mom-ly-GIf"/>
+                                        <constraint firstAttribute="trailing" secondItem="c2f-vL-U7u" secondAttribute="trailing" constant="10" id="d7F-0O-iE0"/>
+                                        <constraint firstItem="n6V-1x-neJ" firstAttribute="bottom" secondItem="c2f-vL-U7u" secondAttribute="bottom" id="d8e-tt-Caq"/>
+                                        <constraint firstItem="c2f-vL-U7u" firstAttribute="width" secondItem="qqV-kd-6qE" secondAttribute="width" multiplier="0.170667" id="p0K-yo-h80"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="buttonTapped" destination="c2f-vL-U7u" id="vAK-Ws-r6e"/>
                                     <outlet property="movieLabel" destination="n6V-1x-neJ" id="yWG-TM-7Pw"/>
                                 </connections>
                             </tableViewCell>
