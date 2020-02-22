@@ -43,7 +43,9 @@ class MovieListViewController: UIViewController,
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        // No need, this was done in the storyboard
+//        movieTableView.delegate = self
+//        movieTableView.dataSource = self
         // Do any additional setup after loading the view.
     }
 
