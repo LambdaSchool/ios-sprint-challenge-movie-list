@@ -8,9 +8,9 @@
 
 import UIKit
 
-protocol MovieTableViewCellDelegate {
-    func editButtonTapped(_ onCell: MovieTableViewCell)
-}
+//protocol MovieTableViewCellDelegate {
+//    func editButtonTapped(_ onCell: MovieTableViewCell)
+//}
 
 class MovieTableViewCell: UITableViewCell {
     
@@ -29,11 +29,11 @@ class MovieTableViewCell: UITableViewCell {
         clapBoard.isHidden = false
     }
     
-    var delegate: MovieTableViewCellDelegate?
+//    var delegate: MovieTableViewCellDelegate?
     
-    @IBAction func editButtonTapped(_ sender: Any) {
-        delegate?.editButtonTapped(self)
-    }
+//    @IBAction func editButtonTapped(_ sender: Any) {
+//        delegate?.editButtonTapped(self)
+//    }
     
     private func updateView() {
         guard let movie = movie else { return }

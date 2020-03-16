@@ -41,15 +41,15 @@ extension MovieListViewController: UITableViewDataSource {
         return true
     }
     
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            movies.remove(at: indexPath.row)
-            
-            movieTableView.beginUpdates()
-            movieTableView.deleteRows(at: [indexPath], with: .automatic)
-            movieTableView.endUpdates()
-        }
-    }
+//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+//        if editingStyle == .delete {
+//            movies.remove(at: indexPath.row)
+//
+//            movieTableView.beginUpdates()
+//            movieTableView.deleteRows(at: [indexPath], with: .automatic)
+//            movieTableView.endUpdates()
+//        }
+//    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "AddMovieSegue" {
