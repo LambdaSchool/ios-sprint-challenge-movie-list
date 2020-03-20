@@ -34,7 +34,7 @@ class AddMovieViewController: UIViewController {
     @IBAction func save(_ sender: UIBarButtonItem) {
         guard let movieTrue = MovieTextField.text else { return }
         
-        let movie = MOVIE(movies: movieTrue)
+        let movie = MOVIE(movies: movieTrue, viewed: true)
         delegate?.addMovie(movie)
         
         navigationController?.popViewController(animated: true)

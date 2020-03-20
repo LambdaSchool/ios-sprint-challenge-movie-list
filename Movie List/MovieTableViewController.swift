@@ -8,11 +8,13 @@
 
 import UIKit
 
+
+
 class MovieTableViewController: UIViewController {
     
     
     @IBOutlet weak var tableView: UITableView!
-    
+ 
     var movies: [MOVIE] = []
     
     override func viewDidLoad() {
@@ -20,6 +22,8 @@ class MovieTableViewController: UIViewController {
         tableView.dataSource = self
         
     }
+
+    
     
     // MARK: - Navigation
     

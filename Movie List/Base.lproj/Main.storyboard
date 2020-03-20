@@ -43,18 +43,31 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Movie" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KpI-Mn-iaJ">
-                                                    <rect key="frame" x="20" y="11" width="46" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KpI-Mn-iaJ">
+                                                    <rect key="frame" x="40" y="11" width="46" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n0J-iD-9fm">
+                                                    <rect key="frame" x="348" y="8" width="46" height="30"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <connections>
+                                                        <action selector="viewedButtonTapped:" destination="cJJ-H3-7gG" eventType="touchUpInside" id="Yra-9G-1wD"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="n0J-iD-9fm" firstAttribute="top" secondItem="wCC-sm-vPM" secondAttribute="top" constant="8" id="Mw8-jl-I5x"/>
+                                                <constraint firstAttribute="trailing" secondItem="n0J-iD-9fm" secondAttribute="trailing" constant="20" id="Mxf-b9-ArH"/>
+                                                <constraint firstItem="KpI-Mn-iaJ" firstAttribute="leading" secondItem="wCC-sm-vPM" secondAttribute="leadingMargin" constant="20" id="RDm-po-RVm"/>
+                                                <constraint firstItem="KpI-Mn-iaJ" firstAttribute="top" secondItem="wCC-sm-vPM" secondAttribute="topMargin" id="l7R-dQ-Bqt"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <viewLayoutGuide key="safeArea" id="Est-pp-YOa"/>
                                         <connections>
                                             <outlet property="movieLabel" destination="KpI-Mn-iaJ" id="Gwk-Ms-vv7"/>
+                                            <outlet property="viewedButton" destination="n0J-iD-9fm" id="S1O-cX-GMn"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -91,7 +104,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s9e-zy-u5v" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-349" y="80"/>
+            <point key="canvasLocation" x="-349.27536231884062" y="79.6875"/>
         </scene>
         <!--Add Movie View Controller-->
         <scene sceneID="jMq-Oh-Q0A">
@@ -152,7 +165,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c40-bg-wVP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="876.81159420289862" y="93.75"/>
+            <point key="canvasLocation" x="546" y="80"/>
         </scene>
     </scenes>
 </document>

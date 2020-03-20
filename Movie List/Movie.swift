@@ -10,4 +10,5 @@ import Foundation
 
 struct MOVIE {
     let movies: String
+    var viewed: Bool
 }
