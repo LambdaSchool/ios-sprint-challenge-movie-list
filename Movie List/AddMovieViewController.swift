@@ -8,15 +8,29 @@
 
 import UIKit
 
-class AddMovieViewController: UIViewController {
+protocol AddMovieDelegate {
+    func didAddMovie(movie: Movie)
+}
 
+class AddMovieViewController: UIViewController {
+    
+    var delegate: AddMovieDelegate?
+
+    @IBOutlet weak var enterMovieTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
-
+    @IBAction func addMovie(_ sender: Any) {
+        guard let movieName = enterMovieTextField.text else { return }
+        
+        let newMovie = Movie(name: movieName)
+        delegate?.didAddMovie(movie: newMovie)
+    }
+    
     /*
     // MARK: - Navigation
 
