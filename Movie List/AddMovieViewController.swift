@@ -10,6 +10,12 @@ import UIKit
 
 class AddMovieViewController: UIViewController {
 
+    @IBOutlet weak var movieNameTextField: UITextField!
+    
+    
+    @IBOutlet weak var addMovie: UIButton!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -17,6 +23,8 @@ class AddMovieViewController: UIViewController {
     }
     
 
+    @IBAction func addMovie(_ sender: Any) {
+    }
     /*
     // MARK: - Navigation
 
