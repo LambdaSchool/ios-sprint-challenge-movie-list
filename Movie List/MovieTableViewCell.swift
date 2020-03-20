@@ -23,7 +23,6 @@ class MovieTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        print("Played")
     }
     
     //Object| Actions

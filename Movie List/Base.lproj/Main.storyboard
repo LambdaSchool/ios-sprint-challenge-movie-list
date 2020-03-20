@@ -28,9 +28,9 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Increase the size of the label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YbH-lh-tL9">
-                                                    <rect key="frame" x="20" y="8" width="279.5" height="26.5"/>
+                                                    <rect key="frame" x="20" y="8" width="250" height="26.5"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="279.5" id="8Vo-fu-90O"/>
+                                                        <constraint firstAttribute="width" relation="lessThanOrEqual" constant="250" id="8Vo-fu-90O"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
                                                     <nil key="textColor"/>
@@ -94,37 +94,40 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a New movie to the list" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vut-Q2-bfG">
-                                <rect key="frame" x="62" y="99" width="291" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aeb-yo-jDN">
-                                <rect key="frame" x="62" y="137" width="291" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BmK-RW-UK0">
-                                <rect key="frame" x="171" y="179" width="73" height="30"/>
-                                <state key="normal" title="Add Movie"/>
-                                <connections>
-                                    <action selector="buttonPressed:" destination="TDr-uS-538" eventType="touchUpInside" id="uJw-yC-87S"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Het-yJ-sqd">
+                                <rect key="frame" x="62" y="108" width="291" height="110"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a New Movie" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vut-Q2-bfG">
+                                        <rect key="frame" x="51.5" y="0.0" width="188.5" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aeb-yo-jDN">
+                                        <rect key="frame" x="0.0" y="38" width="291" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BmK-RW-UK0">
+                                        <rect key="frame" x="109" y="80" width="73" height="30"/>
+                                        <state key="normal" title="Add Movie"/>
+                                        <connections>
+                                            <action selector="buttonPressed:" destination="TDr-uS-538" eventType="touchUpInside" id="uJw-yC-87S"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="aeb-yo-jDN" firstAttribute="top" secondItem="vut-Q2-bfG" secondAttribute="bottom" constant="8" id="1Qa-Bg-8Ja"/>
+                                    <constraint firstItem="aeb-yo-jDN" firstAttribute="leading" secondItem="Het-yJ-sqd" secondAttribute="leading" id="F3g-X1-vNp"/>
+                                    <constraint firstItem="BmK-RW-UK0" firstAttribute="top" secondItem="aeb-yo-jDN" secondAttribute="bottom" constant="8" id="Ycd-dx-OZD"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="aeb-yo-jDN" firstAttribute="top" secondItem="vut-Q2-bfG" secondAttribute="bottom" constant="8" id="571-bV-O5w"/>
-                            <constraint firstItem="vut-Q2-bfG" firstAttribute="leading" secondItem="oaZ-HM-z55" secondAttribute="leading" constant="62" id="FKW-uX-cAL"/>
-                            <constraint firstItem="oaZ-HM-z55" firstAttribute="trailing" secondItem="vut-Q2-bfG" secondAttribute="trailing" constant="61" id="Ge2-dr-B5q"/>
-                            <constraint firstItem="vut-Q2-bfG" firstAttribute="top" secondItem="oaZ-HM-z55" secondAttribute="top" constant="11" id="PIm-HO-aVR"/>
-                            <constraint firstItem="oaZ-HM-z55" firstAttribute="trailing" secondItem="BmK-RW-UK0" secondAttribute="trailing" constant="170" id="TIq-sK-SUS"/>
-                            <constraint firstItem="oaZ-HM-z55" firstAttribute="bottom" secondItem="BmK-RW-UK0" secondAttribute="bottom" constant="653" id="mZs-65-lPd"/>
-                            <constraint firstItem="BmK-RW-UK0" firstAttribute="leading" secondItem="oaZ-HM-z55" secondAttribute="leading" constant="171" id="nTr-Yc-0pu"/>
-                            <constraint firstItem="aeb-yo-jDN" firstAttribute="leading" secondItem="oaZ-HM-z55" secondAttribute="leading" constant="62" id="nYs-eg-tLQ"/>
-                            <constraint firstItem="oaZ-HM-z55" firstAttribute="trailing" secondItem="aeb-yo-jDN" secondAttribute="trailing" constant="61" id="uix-s5-aJ6"/>
-                            <constraint firstItem="BmK-RW-UK0" firstAttribute="top" secondItem="aeb-yo-jDN" secondAttribute="bottom" constant="8" id="yqt-fN-bOP"/>
+                            <constraint firstItem="Het-yJ-sqd" firstAttribute="top" secondItem="oaZ-HM-z55" secondAttribute="top" constant="20" id="WtI-qs-vRV"/>
+                            <constraint firstItem="Het-yJ-sqd" firstAttribute="leading" secondItem="oaZ-HM-z55" secondAttribute="leading" constant="62" id="aEU-TZ-3b3"/>
+                            <constraint firstItem="oaZ-HM-z55" firstAttribute="trailing" secondItem="Het-yJ-sqd" secondAttribute="trailing" constant="61" id="deI-55-rPj"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="oaZ-HM-z55"/>
                     </view>
@@ -145,35 +148,38 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="THF-LH-4CE">
-                                <rect key="frame" x="20" y="141" width="374" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QK2-Q2-4ms">
-                                <rect key="frame" x="161" y="183" width="92" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Add Changes"/>
-                                <connections>
-                                    <action selector="ButtonPressed:" destination="FSK-ly-cTs" eventType="touchUpInside" id="emb-WH-yB2"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Edit Movie" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E4d-qz-MD4">
-                                <rect key="frame" x="151" y="103" width="113" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="4cP-Ad-aAE">
+                                <rect key="frame" x="57" y="107" width="300" height="110"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Edit Movie" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E4d-qz-MD4">
+                                        <rect key="frame" x="93.5" y="0.0" width="113" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="THF-LH-4CE">
+                                        <rect key="frame" x="0.0" y="38" width="300" height="34"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="300" id="pWQ-uD-xC4"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QK2-Q2-4ms">
+                                        <rect key="frame" x="104" y="80" width="92" height="30"/>
+                                        <state key="normal" title="Add Changes"/>
+                                        <connections>
+                                            <action selector="ButtonPressed:" destination="FSK-ly-cTs" eventType="touchUpInside" id="emb-WH-yB2"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="DCh-Sc-pCd" firstAttribute="trailing" secondItem="THF-LH-4CE" secondAttribute="trailing" constant="20" id="Rz9-Xy-pC5"/>
-                            <constraint firstItem="THF-LH-4CE" firstAttribute="leading" secondItem="DCh-Sc-pCd" secondAttribute="leading" constant="20" id="Tv5-WZ-iDn"/>
-                            <constraint firstItem="E4d-qz-MD4" firstAttribute="leading" secondItem="DCh-Sc-pCd" secondAttribute="leading" constant="151" id="Uxc-D0-hcc"/>
-                            <constraint firstItem="DCh-Sc-pCd" firstAttribute="trailing" secondItem="E4d-qz-MD4" secondAttribute="trailing" constant="150" id="dYt-kk-970"/>
-                            <constraint firstItem="DCh-Sc-pCd" firstAttribute="bottom" secondItem="THF-LH-4CE" secondAttribute="bottom" constant="687" id="eLX-q5-3Ad"/>
-                            <constraint firstItem="THF-LH-4CE" firstAttribute="top" secondItem="E4d-qz-MD4" secondAttribute="bottom" constant="8" id="ikB-JG-lSP"/>
-                            <constraint firstItem="E4d-qz-MD4" firstAttribute="top" secondItem="DCh-Sc-pCd" secondAttribute="top" constant="15" id="uFA-3j-DL4"/>
+                            <constraint firstItem="DCh-Sc-pCd" firstAttribute="trailing" secondItem="4cP-Ad-aAE" secondAttribute="trailing" constant="57" id="5dJ-sb-acH"/>
+                            <constraint firstItem="4cP-Ad-aAE" firstAttribute="leading" secondItem="DCh-Sc-pCd" secondAttribute="leading" constant="57" id="HjB-dc-2Uh"/>
+                            <constraint firstItem="4cP-Ad-aAE" firstAttribute="top" secondItem="DCh-Sc-pCd" secondAttribute="top" constant="19" id="aO3-Pi-Wgd"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="DCh-Sc-pCd"/>
                     </view>
