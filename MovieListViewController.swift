@@ -48,7 +48,7 @@ extension MovieListViewController: UITableViewDataSource {
         
 }
  }
-extension MovieListViewController: NewFriendDelegate {
+extension MovieListViewController: AddMovieDelegate {
     func movieWasAdded(movie: Movie) {
        movies.append(movie)
         MovieListTableView.reloadData()

@@ -94,7 +94,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Movie Title Here..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IBg-A5-hPH">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Movie Title Here..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IBg-A5-hPH" customClass="MovieTitleTextField">
                                 <rect key="frame" x="20" y="114.66666666666669" width="374" height="581.33333333333326"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -114,17 +114,20 @@
                     <toolbarItems>
                         <barButtonItem systemItem="save" id="W7r-Ld-XUU">
                             <connections>
-                                <action selector="saveTapped:" destination="dnC-Gh-4Lg" id="gOa-9x-cD7"/>
+                                <action selector="saveTapped:" destination="dnC-Gh-4Lg" id="LVO-JA-7tY"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="xjg-nP-fUe"/>
                         <barButtonItem systemItem="cancel" id="d86-Pm-GZD">
                             <connections>
-                                <action selector="cancelTapped:" destination="dnC-Gh-4Lg" id="IzI-ai-C8t"/>
+                                <action selector="cancelTapped:" destination="dnC-Gh-4Lg" id="NuE-VW-Rby"/>
                             </connections>
                         </barButtonItem>
                     </toolbarItems>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="movieTitleTextField" destination="IBg-A5-hPH" id="MBq-dQ-JTr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1IM-Uu-LOu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
