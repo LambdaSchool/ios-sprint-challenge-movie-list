@@ -12,7 +12,7 @@ class MovieListViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
-    var movies: [Movie] = [Movie(title: "Frozen")]
+    var movies: [Movie] = [Movie(title: "Frozen", seen: false)]
     
 
     override func viewDidLoad() {

@@ -29,7 +29,7 @@ class AddNewMovieViewController: UIViewController {
             return
         }
         
-        let movie = Movie(title: newMovie)
+        let movie = Movie(title: newMovie, seen: true)
         
      delegate?.movieWasAdded(movie: movie)
         dismiss(animated: true, completion: nil)
