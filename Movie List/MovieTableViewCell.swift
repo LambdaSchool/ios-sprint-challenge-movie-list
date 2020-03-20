@@ -10,13 +10,28 @@ import UIKit
 
 class MovieTableViewCell: UITableViewCell {
 
-    var movie: Movie?
+    //Variables
+    var movie: Movie? {
+        didSet {
+            viewCell()
+        }
+    }
+    
+    //Object| Outlets
+    @IBOutlet weak var labelMovie: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
-
+    
+    //Functions
+    func viewCell() {
+        if let myMovie = movie {
+            labelMovie.text = myMovie.name
+        }
+    }
+    
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 

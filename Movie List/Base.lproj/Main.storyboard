@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="a6i-nY-BrL">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -21,12 +21,36 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="movieCell" id="wd0-VS-6Xb" customClass="MovieTableViewCell" customModule="Movie_List" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="44.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wd0-VS-6Xb" id="XIF-Kf-zzy">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YbH-lh-tL9">
+                                                    <rect key="frame" x="20" y="8" width="54" height="26.5"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KUn-YE-xcD">
+                                                    <rect key="frame" x="326" y="7" width="68" height="31"/>
+                                                    <state key="normal" title="Not Seen "/>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="YbH-lh-tL9" secondAttribute="bottom" constant="10" id="EzJ-qs-v8v"/>
+                                                <constraint firstItem="YbH-lh-tL9" firstAttribute="top" secondItem="XIF-Kf-zzy" secondAttribute="top" constant="8" id="I2f-cH-JWE"/>
+                                                <constraint firstItem="KUn-YE-xcD" firstAttribute="top" secondItem="XIF-Kf-zzy" secondAttribute="top" constant="7" id="OsN-S4-Hke"/>
+                                                <constraint firstAttribute="trailing" secondItem="KUn-YE-xcD" secondAttribute="trailing" constant="20" id="Q4Z-Xv-Obl"/>
+                                                <constraint firstItem="YbH-lh-tL9" firstAttribute="leading" secondItem="XIF-Kf-zzy" secondAttribute="leading" constant="20" id="YHh-uG-ua4"/>
+                                                <constraint firstAttribute="bottom" secondItem="KUn-YE-xcD" secondAttribute="bottom" constant="6.5" id="hav-xj-3sG"/>
+                                                <constraint firstItem="KUn-YE-xcD" firstAttribute="leading" secondItem="YbH-lh-tL9" secondAttribute="trailing" constant="252" id="w37-uF-J7A"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="labelMovie" destination="YbH-lh-tL9" id="fpJ-tI-53V"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -80,12 +104,18 @@
                                 <rect key="frame" x="171" y="179" width="73" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Add Movie"/>
+                                <connections>
+                                    <action selector="buttonPressed:" destination="TDr-uS-538" eventType="touchUpInside" id="uJw-yC-87S"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="oaZ-HM-z55"/>
                     </view>
                     <navigationItem key="navigationItem" id="R2O-hh-MAo"/>
+                    <connections>
+                        <outlet property="objectTextField" destination="aeb-yo-jDN" id="Wz2-lT-hMI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1iT-8a-J3f" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

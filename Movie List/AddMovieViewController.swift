@@ -13,13 +13,28 @@ class AddMovieViewController: UIViewController {
     //Variables
     var previousController: MovieListViewController?
     
+    @IBOutlet weak var objectTextField: UITextField!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
-
+    @IBAction func buttonPressed(_ sender: Any) {
+        if let myText = objectTextField.text {
+            if !myText.isEmpty {
+                previousController?.movieList.append(Movie(name: myText))
+                previousController?.objectTableView.reloadData()
+            }
+            navigationController?.popViewController(animated: true)
+            
+        }
+        
+        //dismiss(animated: true, completion: nil)
+    }
+    
     
     // MARK: - Navigation
 
