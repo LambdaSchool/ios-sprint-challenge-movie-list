@@ -24,13 +24,12 @@ class AddMovieViewController: UIViewController {
     }
 
     //  place IBAction for cancel
-    @IBOutlet weak var cancel: UINavigationItem!
-    func dismiss(animated: true, completion: nil)
-    
+    //  hopefully Navigation Item works same as built in cancel
     
     @IBAction func AddMovieSave(_ sender: Any) {
-        guard addMovieTextField.text != nil else { return }
+        guard let addMovieTitle = addMovieTextField.text else { return }
+        
+            let newMovie = Movie(name: addMovieTitle, viewed: false)
+            delegate?.movieWasAdded(movie: newMovie)
     }
-        let newMovie = Movie(name: addMovieTextField, viewed: false)
-        delegate?.movieWasAdded(movie: newMovie)
-}
+} 

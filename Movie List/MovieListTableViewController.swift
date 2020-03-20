@@ -9,7 +9,10 @@
 import UIKit
 
 class MovieListTableViewController: UITableViewController {
+    
     // add IBOutlet var MovieTableView 
+    @IBOutlet var tableView: UITableView!
+    
     var movies: [Movies] = [Movie(name: "Zoolander", viewed: true)]
     
     override func viewDidLoad() {

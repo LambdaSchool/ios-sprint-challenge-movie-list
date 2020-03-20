@@ -10,8 +10,8 @@ import UIKit
 
 class MovieTableViewCell: UITableViewCell {
 
-    //  add var movieTitleLable
-    //  add var seenButton 
+    @IBOutlet weak var movieTitleLabel: UILabel!
+    @IBOutlet weak var seenButton: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -24,7 +24,15 @@ class MovieTableViewCell: UITableViewCell {
         //  configure the view for the selected state
     }
     
-    //  add stuff to implement the toggle functionality
-    //  construct if/else to set title for seen/not seen
-    
+    @IBAction func seenButtonTapped(_ sender: Any) {
+        let unseenTitle = "Unseen"
+        let seenTitle = "Seen"
+        seenButton.setTitle(seenTitle, for: .normal) 
+        print(seenButton.titleLabel?.text)
+        if let buttonText = seenButton.titleLabel?.text {
+            if buttonText == "Seen" { 
+                seenButton.setTitle(unseenTitle, for: .normal)
+            }
+        }
+    }
 }
