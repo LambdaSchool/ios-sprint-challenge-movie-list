@@ -8,8 +8,11 @@
 
 import UIKit
 
-class TableViewCell: UITableViewCell {
-
+class MovieTableViewCell: UITableViewCell {
+    @IBOutlet weak var movieTitleLabel: UILabel!
+    @IBOutlet weak var seenSwitch: UISwitch!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
