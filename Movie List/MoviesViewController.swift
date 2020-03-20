@@ -68,6 +68,7 @@ extension MoviesViewController: MovieCellDelegate {
 extension MoviesViewController: AddMovieDelegate {
     func didAddMovie(movie: Movie) {
         movieList.append(movie)
+        navigationController?.popViewController(animated: true)
         tableView.reloadData()
     }
 }
