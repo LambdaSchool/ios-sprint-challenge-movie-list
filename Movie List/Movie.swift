@@ -9,5 +9,5 @@
 import Foundation
 
 struct MOVIE {
-    let movie: String
+    let movies: String
 }

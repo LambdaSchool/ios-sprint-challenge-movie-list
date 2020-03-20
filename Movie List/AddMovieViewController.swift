@@ -8,15 +8,38 @@
 
 import UIKit
 
-class AddMovieViewController: UIViewController {
+protocol AddMovieDelegate {
+    func movieWasAdded(_ movie: MOVIE)
+}
 
+class AddMovieViewController: UIViewController {
+    
+    @IBOutlet weak var MovieTextField: UITextField!
+    
+    var delegate: AddMovieDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
     
-
+    @IBAction func cancelTapped(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func saveTapped(_ sender: Any) {
+        guard let movieTrue = MovieTextField.text,
+            !movieTrue.isEmpty else { return }
+        
+        var movie = MOVIE(movies: [])
+        
+        movie.movies.append(movieTrue)
+        
+        
+    }
+}
+ 
     /*
     // MARK: - Navigation
 
@@ -27,4 +50,13 @@ class AddMovieViewController: UIViewController {
     }
     */
 
+extension AddMovieViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if let text = textField.text,
+            !text.isEmpty {
+            MovieTextField.becomeFirstResponder() } else {
+                MovieTextField.resignFirstResponder()
+            }
+        return false
+    }
 }
