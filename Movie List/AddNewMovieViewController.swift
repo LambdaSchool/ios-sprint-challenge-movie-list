@@ -2,7 +2,7 @@
 //  AddNewMovieViewController.swift
 //  Movie List
 //
-//  Created by Harmony Radley on 3/20/20.
+//  Created by Harmony Radley on 2/21/20.
 //  Copyright © 2020 Lambda School. All rights reserved.
 //
 
@@ -50,4 +50,3 @@ extension AddNewMovieViewController: UITextFieldDelegate {
         return false
     }
 }
-
