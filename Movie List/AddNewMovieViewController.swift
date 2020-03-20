@@ -25,13 +25,13 @@ class AddNewMovieViewController: UIViewController {
     }
 
     @IBAction func addNewMovieButton(_ sender: Any) {
-        guard let newMovie = movieTextField.text else {
+        guard let  newMovie = movieTextField.text else {
             return
         }
         
-        let movie = Movie(title: newMovie, seen: true)
+        let movie = Movie(title: newMovie, seen: true )
         
      delegate?.movieWasAdded(movie: movie)
-        dismiss(animated: true, completion: nil)
+     dismiss(animated: true, completion: nil)
     }
 }
