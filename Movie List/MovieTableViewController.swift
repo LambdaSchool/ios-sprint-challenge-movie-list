@@ -13,7 +13,7 @@ class MovieTableViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    
+    var movies: [Movie] = []
     
     
     
@@ -21,6 +21,7 @@ class MovieTableViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        tableView.dataSource = self
     }
     
 
@@ -34,4 +35,28 @@ class MovieTableViewController: UIViewController {
     }
     */
 
+}
+
+extension MovieTableViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        movies.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as? MovieViewCell else {
+            fatalError("Cell is not a MovieViewCell.")
+        }
+        let movie = movies[indexPath.row]
+        
+        cell.movieLabel.text = movie.title
+        if movie.haveSeen == true {
+            cell.seenButton.setTitle("Seen", for: .normal)
+        } else {
+            cell.seenButton.setTitle("Unseen", for: .normal)
+        }
+        
+        return cell
+    }
+    
+    
 }

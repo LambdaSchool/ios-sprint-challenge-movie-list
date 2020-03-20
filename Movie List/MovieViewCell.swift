@@ -13,6 +13,9 @@ class MovieViewCell: UITableViewCell {
     
     @IBOutlet weak var movieLabel: UILabel!
     
+    @IBOutlet weak var seenButton: UIButton!
+    
+    
     @IBAction func seenTapped(_ sender: Any) {
     }
     
