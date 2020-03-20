@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MovieTableTableViewCell: UITableViewCell {
+class MovieTableViewCell: UITableViewCell {
 
     // MARK: - Outlets
     @IBOutlet weak var movieNameLabel: UILabel!
