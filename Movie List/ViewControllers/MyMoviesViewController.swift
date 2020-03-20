@@ -32,14 +32,10 @@ class MyMoviesViewController: UIViewController {
     @IBAction func SeenNotSeenButton(_ title: String, for state: UIControl.State) {
     
         
-        SeenNotSeenButton("Seen", for: .normal) 
-        
-
-    
-
+        SeenNotSeenButton("Seen", for: .normal)
     }
     
-       
+    //Over Ride
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,6 +75,7 @@ extension MyMoviesViewController: UITableViewDataSource {
         let movie = myMovies[indexPath.row]
         
         cell.movieNameLabel.text = movie.name
+        SeenNotSeenButton("Seen", for: .normal)
         
         return cell
     }

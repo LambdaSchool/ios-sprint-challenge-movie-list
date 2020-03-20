@@ -15,6 +15,7 @@ protocol NewMovieDelegate {
 
 
 
+
 class NewMovieViewController: UIViewController {
     
     // Delegate
@@ -58,8 +59,11 @@ class NewMovieViewController: UIViewController {
             guard let backToTVC = segue.destination as? MyMoviesViewController else {
                 return }
             
-            backToTVC.delegate = self as! AddedAMovie
+            backToTVC.delegate = self
         }
     }
 }
-            
+extension NewMovieViewController: AddedAMovie {
+    func addedAMovie(movie: Movie) {
+    }
+}
