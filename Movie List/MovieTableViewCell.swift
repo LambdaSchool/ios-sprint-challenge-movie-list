@@ -15,6 +15,21 @@ class MovieTableViewCell: UITableViewCell {
     
     @IBOutlet weak var seenButton: UIButton!
     
+    var movie : Movie?{
+        didSet{
+           updateViews()
+        }
+    }
+    
+    func updateViews(){
+        
+        guard let movie = movie else {return}
+        
+        movieNameLabel.text = movie.name
+    }
+    
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
