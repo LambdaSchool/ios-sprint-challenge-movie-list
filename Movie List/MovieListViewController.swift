@@ -10,21 +10,50 @@ import UIKit
 
 class MovieListViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
+    @IBOutlet weak var tableView: UITableView!
+    
+    var movies: [Movie] = [Movie(title: "Frozen")]
     
 
-    /*
-    // MARK: - Navigation
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        tableView.dataSource = self
+}
+    
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "AddMovieSegue" {
+            guard let newMovieVC = segue.destination as? AddNewMovieViewController else { return }
+            
+            newMovieVC.delegate = self
+        }
     }
-    */
 
+}
+
+extension MovieListViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return movies.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as? MovieTableViewCell else {
+            fatalError("Cell is not a MovieTableViewCell")
+        }
+        
+        let movie = movies[indexPath.row]
+        cell.titleLabel.text = movie.title
+        
+        return cell
+    }
+}
+
+extension MovieListViewController: NewMovieDelegate {
+    func movieWasAdded(movie: Movie) {
+        movies.append(movie)
+        tableView.reloadData()
+    }
+    
+    
 }
