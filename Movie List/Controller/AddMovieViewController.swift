@@ -10,13 +10,19 @@ import UIKit
 
 class AddMovieViewController: UIViewController {
 
+    // MARK: - Properties
+    @IBOutlet weak var movieNameTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
     
-
+    // MARK: - Actions
+    @IBAction func saveButtonTapped(_ sender: Any) {
+    }
+    
     /*
     // MARK: - Navigation
 

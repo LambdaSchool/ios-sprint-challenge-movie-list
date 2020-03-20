@@ -10,15 +10,24 @@ import UIKit
 
 class MovieTableTableViewCell: UITableViewCell {
 
+    // MARK: - Outlets
+    @IBOutlet weak var movieNameLabel: UILabel!
+    @IBOutlet weak var hasBeenSeenButton: UIButton!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
-
+    
+    // MARK: - Actions
+    @IBAction func hasBeenSeenButtonTapped(_ sender: Any) {
+    }
+    
 }
