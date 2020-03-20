@@ -22,6 +22,22 @@ class MovieTableViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    
+        if segue.identifier == "AddMovieModelSegue" {
+            
+            guard let addMovieVC = segue.destination as? AddMovieViewController else {return}
+            
+            addMovieVC.delegate = self
+        }
+    }
+    
+
+
 }
 
     extension MovieTableViewController : UITableViewDataSource {
@@ -44,15 +60,13 @@ class MovieTableViewController: UIViewController {
             return cell
         }
     
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
+
+extension MovieTableViewController : NewMovieDelegate {
+    func newMovieWasCreated(movie: Movie) {
+        movies.append(movie)
+        dismiss(animated: true, completion: nil)
+        tableView.reloadData()
+    }
+}
+
