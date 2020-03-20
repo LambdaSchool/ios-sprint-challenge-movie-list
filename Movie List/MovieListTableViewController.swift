@@ -46,7 +46,7 @@ extension MovieListTableViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
         
-   
+        
     }
 }
 
@@ -59,13 +59,13 @@ extension MovieListTableViewController: AddMovieDelegate {
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-               
-               if editingStyle == .delete {
-                   movies.remove(at: indexPath.row)
-                   
-                   tableView.beginUpdates()
-                   tableView.deleteRows(at: [indexPath], with: .automatic)
-                   tableView.endUpdates()
-               }
-           }
+        
+        if editingStyle == .delete {
+            movies.remove(at: indexPath.row)
+            
+            tableView.beginUpdates()
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+            tableView.endUpdates()
+        }
+    }
 }
