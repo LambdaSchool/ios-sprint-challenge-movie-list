@@ -8,6 +8,12 @@
 
 import UIKit
 
+
+protocol NewMovieDelegate {
+    
+    func newMovieWasCreated(movie: Movie)
+}
+
 class AddMovieViewController: UIViewController {
 
     @IBOutlet weak var movieNameTextField: UITextField!
@@ -15,6 +21,7 @@ class AddMovieViewController: UIViewController {
     
     @IBOutlet weak var addMovie: UIButton!
     
+    var delegate : NewMovieDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +31,12 @@ class AddMovieViewController: UIViewController {
     
 
     @IBAction func addMovie(_ sender: Any) {
+        
+        guard let movieName = movieNameTextField.text,
+            !movieName.isEmpty else {return}
+        
+        let movie = Movie(name: movieName) 
+        
     }
     /*
     // MARK: - Navigation
