@@ -15,32 +15,28 @@ protocol AddMovieDelegate {
 class AddMovieViewController: UIViewController {
     
     @IBOutlet weak var MovieTextField: UITextField!
-    @IBOutlet weak var cancelTapped: UIBarButtonItem!
-    @IBOutlet weak var saveTapped: UIBarButtonItem!
-    
     var delegate: AddMovieDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        MovieTextField.delegate = self
         // Do any additional setup after loading the view.
     }
     
-    @IBAction func cancelTapped(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+
+
+ 
+    @IBAction func cancel(_ sender: UIBarButtonItem) {
+            dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func saveTapped(_ sender: Any) {
+    @IBAction func save(_ sender: UIBarButtonItem) {
         guard let movieTrue = MovieTextField.text,
             !movieTrue.isEmpty else { return }
         
         let movie = MOVIE(movies: movieTrue)
+        
         delegate?.movieWasAdded(movie)
-        
-//        var movie = MOVIE(movies: [])
-        
-        
-        
     }
 }
  
