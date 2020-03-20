@@ -22,6 +22,7 @@ class MovieTableViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         tableView.dataSource = self
+        tableView.delegate = self
     }
     
 
@@ -35,7 +36,7 @@ class MovieTableViewController: UIViewController {
             guard let newMovieVC = segue.destination as? AddNewMovieViewController else {
                 return
             }
-            newMovieVC.delegate = self as? NewMovieDelegate
+            newMovieVC.delegate = self
         }
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
@@ -66,4 +67,13 @@ extension MovieTableViewController: UITableViewDataSource {
     }
 }
 
-
+extension MovieTableViewController: NewMovieDelegate {
+    func movieWasAdded(movie: Movie) {
+        movies.append(movie)
+        tableView.reloadData()
+    }
+    
+    
+    
+    
+}

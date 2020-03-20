@@ -16,6 +16,17 @@ class AddNewMovieViewController: UIViewController {
 
     @IBOutlet weak var textField: UITextField!
     @IBAction func addMovie(_ sender: Any) {
+        //get the movie
+        guard let newMovieTitle = textField.text, textField.text != nil else {
+            return
+        }
+        // create the movie as an object of "Movie" type
+        let movie = Movie(title: newMovieTitle)
+        
+        // Pass this back to the Table View
+        delegate?.movieWasAdded(movie: movie)
+        
+        navigationController?.popToRootViewController(animated: true)
     }
     
     var delegate: NewMovieDelegate?
