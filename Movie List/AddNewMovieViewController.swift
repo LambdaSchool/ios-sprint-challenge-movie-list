@@ -8,13 +8,17 @@
 
 import UIKit
 
+protocol NewMovieDelegate {
+    func movieWasAdded(movie: Movie)
+}
+
 class AddNewMovieViewController: UIViewController {
 
     @IBOutlet weak var textField: UITextField!
     @IBAction func addMovie(_ sender: Any) {
     }
     
-    
+    var delegate: NewMovieDelegate?
     
     
     
