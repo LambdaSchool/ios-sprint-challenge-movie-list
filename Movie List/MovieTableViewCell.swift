@@ -19,10 +19,29 @@ class MovieTableViewCell: UITableViewCell {
     
     //Object| Outlets
     @IBOutlet weak var labelMovie: UILabel!
+    @IBOutlet weak var buttonSeen: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        print("Played")
     }
+    
+    //Object| Actions
+    @IBAction func buttonPressed(_ sender: Any) {
+        
+        //Seen Movie Button
+        if let myMovie = movie {
+            if myMovie.seen == true {
+                movie?.seen = false
+            } else {
+                movie?.seen = true
+            }
+        }
+        
+        updateButton()
+    }
+    
+    
     
     //Functions
     func viewCell() {
@@ -31,11 +50,19 @@ class MovieTableViewCell: UITableViewCell {
         }
     }
     
+    func updateButton() {
+        if let myMovie = movie {
+            if myMovie.seen == true {
+                buttonSeen.setTitle("Seen", for: .normal)
+            } else if myMovie.seen == false {
+                 buttonSeen.setTitle("Not Seen", for: .normal)
+            }
+        }
+    }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+        
     }
 
 }

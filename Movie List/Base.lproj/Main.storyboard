@@ -21,26 +21,31 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="movieCell" id="wd0-VS-6Xb" customClass="MovieTableViewCell" customModule="Movie_List" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="44.5"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wd0-VS-6Xb" id="XIF-Kf-zzy">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Increase the size of the label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YbH-lh-tL9">
-                                                    <rect key="frame" x="20" y="8" width="279.5" height="26.5"/>
+                                                    <rect key="frame" x="20" y="8" width="279.5" height="26"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="279.5" id="8Vo-fu-90O"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KUn-YE-xcD">
-                                                    <rect key="frame" x="326" y="7" width="68" height="31"/>
+                                                    <rect key="frame" x="326" y="7" width="68" height="30.5"/>
                                                     <state key="normal" title="Not Seen "/>
+                                                    <connections>
+                                                        <action selector="buttonPressed:" destination="wd0-VS-6Xb" eventType="touchUpInside" id="CXB-e5-DZh"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="YbH-lh-tL9" secondAttribute="bottom" constant="10" id="EzJ-qs-v8v"/>
-                                                <constraint firstItem="KUn-YE-xcD" firstAttribute="leading" secondItem="YbH-lh-tL9" secondAttribute="trailing" constant="26.5" id="Fr7-BP-0uY"/>
                                                 <constraint firstItem="YbH-lh-tL9" firstAttribute="top" secondItem="XIF-Kf-zzy" secondAttribute="top" constant="8" id="I2f-cH-JWE"/>
                                                 <constraint firstItem="KUn-YE-xcD" firstAttribute="top" secondItem="XIF-Kf-zzy" secondAttribute="top" constant="7" id="OsN-S4-Hke"/>
                                                 <constraint firstAttribute="trailing" secondItem="KUn-YE-xcD" secondAttribute="trailing" constant="20" id="Q4Z-Xv-Obl"/>
@@ -49,6 +54,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="buttonSeen" destination="KUn-YE-xcD" id="Beg-Ry-zgB"/>
                                             <outlet property="labelMovie" destination="YbH-lh-tL9" id="fpJ-tI-53V"/>
                                         </connections>
                                     </tableViewCell>
