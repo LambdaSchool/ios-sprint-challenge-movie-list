@@ -24,16 +24,18 @@ class AddNewMovieViewController: UIViewController {
        
     }
     
-    @IBAction func addMovieTapped(_ sender: UIBarButtonItem) {
+    @IBAction func addMovieTapped(_ sender: Any) {
         guard let movieName = movieNameTextField.text,
-            !movieName.isEmpty else { return }
-        
-        let movie = Movie(name: movieName, seen: true)
-        
-        delegate?.MovieWasCreated(movie)
-        navigationController?.popViewController(animated: true)
+                !movieName.isEmpty else { return }
+            
+            let movie = Movie(name: movieName, seen: true)
+            
+            delegate?.MovieWasCreated(movie)
+            navigationController?.popViewController(animated: true)
+        }
     }
-}
+    
+   
 
 extension AddNewMovieViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
