@@ -9,10 +9,12 @@
 import UIKit
 
 protocol AddMovieDelegate {
-    func movieWasAdded(_ movie: MOVIE)
+    func addMovie(_ movie: MOVIE)
 }
 
+
 class AddMovieViewController: UIViewController {
+    
     
     @IBOutlet weak var MovieTextField: UITextField!
     var delegate: AddMovieDelegate?
@@ -20,43 +22,42 @@ class AddMovieViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         MovieTextField.delegate = self
-        // Do any additional setup after loading the view.
     }
     
-
-
- 
+    
+    
+    
     @IBAction func cancel(_ sender: UIBarButtonItem) {
-            dismiss(animated: true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
     
     @IBAction func save(_ sender: UIBarButtonItem) {
-        guard let movieTrue = MovieTextField.text,
-            !movieTrue.isEmpty else { return }
+        guard let movieTrue = MovieTextField.text else { return }
         
         let movie = MOVIE(movies: movieTrue)
+        delegate?.addMovie(movie)
         
-        delegate?.movieWasAdded(movie)
+        navigationController?.popViewController(animated: true)
     }
 }
- 
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+/*
+ // MARK: - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+ // Get the new view controller using segue.destination.
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 extension AddMovieViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if let text = textField.text,
             !text.isEmpty {
             MovieTextField.becomeFirstResponder() } else {
-                MovieTextField.resignFirstResponder()
-            }
+            MovieTextField.resignFirstResponder()
+        }
         return false
     }
 }
