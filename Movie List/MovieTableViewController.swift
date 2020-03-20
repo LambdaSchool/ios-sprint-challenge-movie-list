@@ -29,13 +29,10 @@ class MovieTableViewController: UIViewController {
         }
     }
 }
-        
-                
-                
 
-extension AddMovieViewController: UITableViewDataSource {
+extension MovieTableViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return movies
+        return movies.count
     }
         
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -44,7 +41,10 @@ extension AddMovieViewController: UITableViewDataSource {
         }
         let movie = movies[indexPath.row]
         
-        cell.movieLabel = movie
+        cell.movie = movie
+        
+        return cell
+
     }
 }
 

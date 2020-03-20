@@ -21,7 +21,7 @@ class MovieTableViewCell: UITableViewCell {
     private func updateViews() {
            guard let movie = movie  else { return }
            
-        movieLabel = movie.self
+        movieLabel.text = movie.movies
        }
     
     override func awakeFromNib() {

@@ -15,6 +15,8 @@ protocol AddMovieDelegate {
 class AddMovieViewController: UIViewController {
     
     @IBOutlet weak var MovieTextField: UITextField!
+    @IBOutlet weak var cancelTapped: UIBarButtonItem!
+    @IBOutlet weak var saveTapped: UIBarButtonItem!
     
     var delegate: AddMovieDelegate?
     
@@ -32,9 +34,11 @@ class AddMovieViewController: UIViewController {
         guard let movieTrue = MovieTextField.text,
             !movieTrue.isEmpty else { return }
         
-        var movie = MOVIE(movies: [])
+        let movie = MOVIE(movies: movieTrue)
+        delegate?.movieWasAdded(movie)
         
-        movie.movies.append(movieTrue)
+//        var movie = MOVIE(movies: [])
+        
         
         
     }
