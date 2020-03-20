@@ -37,6 +37,17 @@ class MovieTableViewCell: UITableViewCell {
 
     
     @IBAction func seenButtonTapped(_ sender: Any) {
+        
+        if let button = sender as? UIButton {
+            
+            if button.isSelected == true {
+                seenButton.setTitle("Seen", for: .normal)
+                button.isSelected = false
+            }else{
+                seenButton.setTitle("Not Seen", for: .normal)
+                button.isSelected = true
+        }
+        }
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
