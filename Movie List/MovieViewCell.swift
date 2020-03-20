@@ -10,6 +10,12 @@ import UIKit
 
 class MovieViewCell: UITableViewCell {
 
+    
+    @IBOutlet weak var movieLabel: UILabel!
+    
+    @IBAction func seenTapped(_ sender: Any) {
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
