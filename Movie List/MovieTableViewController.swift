@@ -22,7 +22,6 @@ class MovieTableViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         tableView.dataSource = self
-        tableView.delegate = self
     }
     
 
@@ -55,7 +54,7 @@ extension MovieTableViewController: UITableViewDataSource {
             fatalError("Cell is not a MovieViewCell.")
         }
         let movie = movies[indexPath.row]
-        
+        cell.movie = movie
         cell.movieLabel.text = movie.title
         if movie.haveSeen == true {
             cell.seenButton.setTitle("Seen", for: .normal)

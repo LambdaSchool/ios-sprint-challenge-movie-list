@@ -14,8 +14,16 @@ class MovieViewCell: UITableViewCell {
     @IBOutlet weak var movieLabel: UILabel!    
     @IBOutlet weak var seenButton: UIButton!
     
+    var movie: Movie?
     
     @IBAction func seenTapped(_ sender: Any) {
+        if seenButton.currentTitle == "unseen" {
+          seenButton.setTitle("seen", for: .normal)
+          movie?.haveSeen = true
+        } else {
+          seenButton.setTitle("unseen", for: .normal)
+           movie?.haveSeen = false
+        }
     }
     
     override func awakeFromNib() {
