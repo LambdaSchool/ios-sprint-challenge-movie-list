@@ -8,6 +8,57 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--View Controller-->
+        <scene sceneID="GmW-dO-e44">
+            <objects>
+                <viewController id="Ej1-AE-LFj" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DdY-69-b4W">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zIQ-fA-VnM">
+                                <rect key="frame" x="20" y="64" width="374" height="778"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="orN-7G-hQL">
+                                        <rect key="frame" x="0.0" y="28" width="374" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="orN-7G-hQL" id="aVE-TO-V2c">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Movie Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Y6-Hm-d6o">
+                                                    <rect key="frame" x="20" y="5" width="42" height="33"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MrV-nZ-uys">
+                                                    <rect key="frame" x="305" y="7" width="49" height="31"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </switch>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="aCa-ME-qL4" firstAttribute="bottom" secondItem="zIQ-fA-VnM" secondAttribute="bottom" constant="20" id="J6J-Vz-swQ"/>
+                            <constraint firstItem="aCa-ME-qL4" firstAttribute="trailing" secondItem="zIQ-fA-VnM" secondAttribute="trailing" constant="20" id="QeJ-AY-hIA"/>
+                            <constraint firstItem="zIQ-fA-VnM" firstAttribute="top" secondItem="aCa-ME-qL4" secondAttribute="top" constant="20" id="itN-OV-fbi"/>
+                            <constraint firstItem="zIQ-fA-VnM" firstAttribute="leading" secondItem="aCa-ME-qL4" secondAttribute="leading" constant="20" id="zBy-KO-dSP"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="aCa-ME-qL4"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="H1I-iF-zhs"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JA6-0D-6c8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-43.478260869565219" y="133.92857142857142"/>
+        </scene>
         <!--Add Movie View Controller-->
         <scene sceneID="CPg-ha-coM">
             <objects>
@@ -16,24 +67,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Movie Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lBZ-uW-Fel">
-                                <rect key="frame" x="20" y="71" width="159.33333333333334" height="35"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lBZ-uW-Fel">
+                                <rect key="frame" x="20" y="64" width="159.33333333333334" height="40.666666666666657"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Movie Title Here..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IBg-A5-hPH">
-                                <rect key="frame" x="20" y="166" width="374" height="34"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Movie Title Here..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IBg-A5-hPH">
+                                <rect key="frame" x="20" y="158.66666666666669" width="374" height="591.33333333333326"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="Qos-2p-L20" firstAttribute="bottom" secondItem="IBg-A5-hPH" secondAttribute="bottom" constant="63" id="1yg-Od-kmQ"/>
                             <constraint firstItem="Qos-2p-L20" firstAttribute="trailing" secondItem="IBg-A5-hPH" secondAttribute="trailing" constant="20" id="3YZ-xE-YPU"/>
                             <constraint firstItem="IBg-A5-hPH" firstAttribute="top" secondItem="lBZ-uW-Fel" secondAttribute="bottom" constant="54" id="hi9-hb-Aq7"/>
                             <constraint firstItem="IBg-A5-hPH" firstAttribute="leading" secondItem="lBZ-uW-Fel" secondAttribute="leading" id="i34-dy-5dS"/>
                             <constraint firstItem="IBg-A5-hPH" firstAttribute="leading" secondItem="Qos-2p-L20" secondAttribute="leading" constant="20" id="uGH-E5-WKY"/>
+                            <constraint firstItem="lBZ-uW-Fel" firstAttribute="top" secondItem="Qos-2p-L20" secondAttribute="top" constant="20" id="ua0-K1-30c"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Qos-2p-L20"/>
                     </view>
@@ -46,7 +99,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1IM-Uu-LOu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="102.89855072463769" y="92.410714285714278"/>
+            <point key="canvasLocation" x="1013.0434782608696" y="92.410714285714278"/>
         </scene>
     </scenes>
 </document>
