@@ -9,16 +9,42 @@
 import UIKit
 
 class MovieTableViewController: UIViewController {
+    
+    var movies : [Movie] = [Movie(name: "Parasite", hasSeen: false)]
 
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.dataSource = self
 
         // Do any additional setup after loading the view.
     }
     
+}
 
+    extension MovieTableViewController : UITableViewDataSource {
+        
+         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+             movies.count
+         }
+        
+        
+        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+            
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as? MovieTableViewCell else {
+                fatalError("Error")
+            }
+            
+            let movie = movies[indexPath.row]
+            
+            cell.movieNameLabel.text = movie.name
+            
+            return cell
+        }
+    
+    
     /*
     // MARK: - Navigation
 
