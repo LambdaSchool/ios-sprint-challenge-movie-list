@@ -30,53 +30,36 @@ class NewMovieViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
     
-
-   
+    // Add Movie Button Action
+    
     @IBAction func AddMovieButton(_ sender: Any) {
     
         
-        guard let newMovie = addMovieTextlabel.text else {
+        guard let newMovie = addMovieTextlabel.text
+           else {
             return
         }
         
         let myMovie = Movie(name: newMovie, seen: true)
-           
-//        if let newMovie = addMovieTextlabel.text {
-//            movieNameLabel.append(movieNameLabel)
-//        }
+        
+        
         delegate?.movieWasAdded(movie: myMovie)
         
-        
-        
-        
-        
-    }
+        }
     
-   
-    
-    
-    
-    
+    // Movie added segue
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "movieAddedButtonSegue" {
             
             guard let backToTVC = segue.destination as? MyMoviesViewController else {
-                return
-            }
-        
-          
+                return }
+            
+            backToTVC.delegate = self as! AddedAMovie
         }
-        
-        
-        
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
     }
-   
-
 }
+            

@@ -8,9 +8,9 @@
 
 import UIKit
 
-
-
-
+protocol AddedAMovie {
+    func addedAMovie(movie: Movie)
+}
 
 
 class MyMoviesViewController: UIViewController {
@@ -18,26 +18,31 @@ class MyMoviesViewController: UIViewController {
     // Dummy Data
     var myMovies: [Movie] = [Movie(name: "Joe Dirt", seen: true)]
     
+    // delegate
+    var delegate: AddedAMovie?
+   
+    
     
     // Outlets
     @IBOutlet weak var myMoviesTableView: UITableView!
+    
+    
+    // Seen / Not Seen button action
+    
+    @IBAction func SeenNotSeenButton(_ title: String, for state: UIControl.State) {
+    
+        
+        SeenNotSeenButton("Seen", for: .normal) 
+        
 
-    @IBAction func SeenNotSeenButton(_ sender: AnyObject) {
-
-    sender.setTitle("Seen", forState: .normal)
+    
 
     }
     
        
 
-        
-
-
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
     }
     
     // Segue
@@ -73,16 +78,14 @@ extension MyMoviesViewController: UITableViewDataSource {
         
         let movie = myMovies[indexPath.row]
         
-        
-        
         cell.movieNameLabel.text = movie.name
-//        cell.seenNotSeenButton = true
-        
         
         return cell
     }
 }
-    
+
+    // New Movie Delegate
+
 extension MyMoviesViewController: NewMovieDelegate {
     func movieWasAdded(movie: Movie) {
         myMovies.append(movie)
