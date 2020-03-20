@@ -37,7 +37,6 @@ class MovieTableViewCell: UITableViewCell {
                 movie?.seen = true
             }
         }
-        
         updateButton()
     }
     

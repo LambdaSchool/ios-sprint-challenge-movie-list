@@ -33,24 +33,32 @@ class MovieListViewController: UIViewController {
                     break
                 }
                 myDestination.previousController = self
-                    
+                
+            case "EditMovieSegue":
+                guard let myDestination = segue.destination as? EditMovieViewController else {
+                    break
+                }
+                myDestination.previousController = self
+                myDestination.selectedRow = objectTableView.indexPathForSelectedRow?.row
             default:
                 break
                 
             }
         }
     }
-    
-
 }
 
+
+
+//Table View
 extension MovieListViewController: UITableViewDataSource {
     
-    //Table View
+    //Amount of rows
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return movieList.count
     }
     
+    //Cell properties
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = objectTableView.dequeueReusableCell(withIdentifier: "movieCell", for: indexPath)
         
@@ -61,10 +69,12 @@ extension MovieListViewController: UITableViewDataSource {
         return myCell
     }
     
+    //Allow editing of rows
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
     
+    //Row Deletion
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         
         if editingStyle == .delete {

@@ -13,6 +13,7 @@ class AddMovieViewController: UIViewController {
     //Variables
     var previousController: MovieListViewController?
     
+    //Object| Outlets
     @IBOutlet weak var objectTextField: UITextField!
     
     
@@ -22,6 +23,7 @@ class AddMovieViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    //Object| Actions
     @IBAction func buttonPressed(_ sender: Any) {
         if let myText = objectTextField.text {
             if !myText.isEmpty {
@@ -29,10 +31,7 @@ class AddMovieViewController: UIViewController {
                 previousController?.objectTableView.reloadData()
             }
             navigationController?.popViewController(animated: true)
-            
         }
-        
-        //dismiss(animated: true, completion: nil)
     }
     
     
