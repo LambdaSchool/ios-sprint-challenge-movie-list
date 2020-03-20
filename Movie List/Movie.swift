@@ -12,14 +12,3 @@ struct Movie {
     let name: String
     var seen: Bool = false
 }
-
-extension Movie: CustomStringConvertible {
-    var description: String {
-        switch seen {
-        case true:
-            return "Seen"
-        case false:
-            return "Not Seen"
-        }
-    }
-}
