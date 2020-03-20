@@ -12,6 +12,10 @@
 		467E199420F5165900E7FF73 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 467E199320F5165900E7FF73 /* Assets.xcassets */; };
 		8E5B3916218CDD4D00AB9C2B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E5B3914218CDD4D00AB9C2B /* LaunchScreen.storyboard */; };
 		8E5B3917218CDD4D00AB9C2B /* LambdaLogoAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E5B3915218CDD4D00AB9C2B /* LambdaLogoAssets.xcassets */; };
+		8EA310BC2425146A0028A3F5 /* MovieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA310BB2425146A0028A3F5 /* MovieModel.swift */; };
+		8EA310C02425185F0028A3F5 /* MyMoviesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA310BF2425185F0028A3F5 /* MyMoviesViewController.swift */; };
+		8EA310C4242519BB0028A3F5 /* MyMoviesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA310C3242519BB0028A3F5 /* MyMoviesTableViewCell.swift */; };
+		8EA310C624251BDC0028A3F5 /* NewMovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA310C524251BDC0028A3F5 /* NewMovieViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +26,10 @@
 		467E199820F5165900E7FF73 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8E5B3914218CDD4D00AB9C2B /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8E5B3915218CDD4D00AB9C2B /* LambdaLogoAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = LambdaLogoAssets.xcassets; sourceTree = "<group>"; };
+		8EA310BB2425146A0028A3F5 /* MovieModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieModel.swift; sourceTree = "<group>"; };
+		8EA310BF2425185F0028A3F5 /* MyMoviesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMoviesViewController.swift; sourceTree = "<group>"; };
+		8EA310C3242519BB0028A3F5 /* MyMoviesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMoviesTableViewCell.swift; sourceTree = "<group>"; };
+		8EA310C524251BDC0028A3F5 /* NewMovieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMovieViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +62,50 @@
 		467E198B20F5165700E7FF73 /* Movie List */ = {
 			isa = PBXGroup;
 			children = (
-				467E198C20F5165800E7FF73 /* AppDelegate.swift */,
-				467E199320F5165900E7FF73 /* Assets.xcassets */,
+				8EA310BA242513EA0028A3F5 /* Resources */,
+				8EA310B9242513DD0028A3F5 /* Storyboards */,
+				8EA310B7242513C00028A3F5 /* ViewControllers */,
+				8EA310B6242513B40028A3F5 /* Model */,
 				467E199820F5165900E7FF73 /* Info.plist */,
-				467E199020F5165800E7FF73 /* Main.storyboard */,
-				8E5B3915218CDD4D00AB9C2B /* LambdaLogoAssets.xcassets */,
-				8E5B3914218CDD4D00AB9C2B /* LaunchScreen.storyboard */,
 			);
 			path = "Movie List";
+			sourceTree = "<group>";
+		};
+		8EA310B6242513B40028A3F5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8EA310BB2425146A0028A3F5 /* MovieModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8EA310B7242513C00028A3F5 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				8EA310BF2425185F0028A3F5 /* MyMoviesViewController.swift */,
+				8EA310C3242519BB0028A3F5 /* MyMoviesTableViewCell.swift */,
+				8EA310C524251BDC0028A3F5 /* NewMovieViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		8EA310B9242513DD0028A3F5 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				8E5B3914218CDD4D00AB9C2B /* LaunchScreen.storyboard */,
+				467E199020F5165800E7FF73 /* Main.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		8EA310BA242513EA0028A3F5 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8E5B3915218CDD4D00AB9C2B /* LambdaLogoAssets.xcassets */,
+				467E199320F5165900E7FF73 /* Assets.xcassets */,
+				467E198C20F5165800E7FF73 /* AppDelegate.swift */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,6 +181,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8EA310C624251BDC0028A3F5 /* NewMovieViewController.swift in Sources */,
+				8EA310C4242519BB0028A3F5 /* MyMoviesTableViewCell.swift in Sources */,
+				8EA310BC2425146A0028A3F5 /* MovieModel.swift in Sources */,
+				8EA310C02425185F0028A3F5 /* MyMoviesViewController.swift in Sources */,
 				467E198D20F5165800E7FF73 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
