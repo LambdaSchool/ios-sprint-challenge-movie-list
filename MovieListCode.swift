@@ -7,9 +7,8 @@
 //
 
 import Foundation
-/*struct NotSureWhatToCallYou {
-    let something = something
-    var spmething = something
-    
+struct Movie{
+    let Title: String
+    var hasSeen: Bool
 }
-*
+
