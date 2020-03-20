@@ -17,7 +17,11 @@ class AddMovieViewController: UIViewController {
     }
     
 
-
+    @IBAction func saveTapped(_ sender: Any) {
+    }
+    
+    @IBAction func cancelTapped(_ sender: Any) {
+    }
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
