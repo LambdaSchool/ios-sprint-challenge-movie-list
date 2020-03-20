@@ -23,7 +23,7 @@ class MovieListViewController: UIViewController {
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ModalAddMovie" {
-        guard let newMovieVC = segue.destination as? AddMovieViewController else {
+        guard let addMovieVC = segue.destination as? AddMovieViewController else {
             return
     }
             addMovieVC.delegate = self
