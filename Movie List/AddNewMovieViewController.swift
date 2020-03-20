@@ -32,6 +32,6 @@ class AddNewMovieViewController: UIViewController {
         let movie = Movie(title: newMovie, seen: true )
         
      delegate?.movieWasAdded(movie: movie)
-     dismiss(animated: true, completion: nil)
+        navigationController?.popViewController(animated: true)
     }
 }
