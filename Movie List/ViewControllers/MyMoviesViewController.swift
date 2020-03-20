@@ -8,6 +8,11 @@
 
 import UIKit
 
+
+
+
+
+
 class MyMoviesViewController: UIViewController {
     
     // Dummy Data
@@ -16,17 +21,21 @@ class MyMoviesViewController: UIViewController {
     
     // Outlets
     @IBOutlet weak var myMoviesTableView: UITableView!
+
+    @IBAction func SeenNotSeenButton(_ sender: AnyObject) {
+
+    sender.setTitle("Seen", forState: .normal)
+
+    }
     
-    
-    
-    
-    
+       
+
+        
+
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        
-        
         
         // Do any additional setup after loading the view.
     }
@@ -34,14 +43,19 @@ class MyMoviesViewController: UIViewController {
     // Segue
   
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        
+        if segue.identifier == "AddMovieSegue" {
+            
+            guard let newMovieVC = segue.destination as? NewMovieViewController else {
+                return
+            }
+            
+            newMovieVC.delegate = self
+        }
     }
-    
-
 }
 
-   
+ // Table View Extension
 extension MyMoviesViewController: UITableViewDataSource {
     
      // Set number of Rows in Section
@@ -59,13 +73,14 @@ extension MyMoviesViewController: UITableViewDataSource {
         
         let movie = myMovies[indexPath.row]
         
+        
+        
         cell.movieNameLabel.text = movie.name
+//        cell.seenNotSeenButton = true
         
         
         return cell
     }
-   
-    
 }
     
 extension MyMoviesViewController: NewMovieDelegate {
@@ -73,8 +88,6 @@ extension MyMoviesViewController: NewMovieDelegate {
         myMovies.append(movie)
         myMoviesTableView.reloadData()
     }
-    
-    
 }
 
 

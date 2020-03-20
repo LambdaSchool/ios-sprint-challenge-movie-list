@@ -36,6 +36,7 @@ class NewMovieViewController: UIViewController {
 
    
     @IBAction func AddMovieButton(_ sender: Any) {
+    
         
         guard let newMovie = addMovieTextlabel.text else {
             return
@@ -61,6 +62,18 @@ class NewMovieViewController: UIViewController {
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "movieAddedButtonSegue" {
+            
+            guard let backToTVC = segue.destination as? MyMoviesViewController else {
+                return
+            }
+        
+          
+        }
+        
+        
+        
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
     }
