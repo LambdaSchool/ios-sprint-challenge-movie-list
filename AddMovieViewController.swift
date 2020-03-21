@@ -19,6 +19,7 @@ class AddMovieViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        var addMovieViewController = AddMovieViewController(self)
     }
     @IBAction func saveTapped(_ sender: Any) {
         guard let addMovie = movieTitleTextField.text else {return}
@@ -39,5 +40,5 @@ class AddMovieViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
 
-}
+
 

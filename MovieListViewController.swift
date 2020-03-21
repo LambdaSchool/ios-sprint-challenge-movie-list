@@ -11,7 +11,7 @@ import UIKit
 class MovieListViewController: UIViewController {
     @IBOutlet weak var movieTableView: UITableView!
     
-    
+    var movies: [Movie] = [Movie(Title: "Title")]
     override func viewDidLoad() {
         super.viewDidLoad()
         movieTableView.dataSource = self
@@ -34,7 +34,7 @@ class MovieListViewController: UIViewController {
 
 extension MovieListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       return movie.count
+       return movies.count
         
 }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -42,7 +42,7 @@ extension MovieListViewController: UITableViewDataSource {
         fatalError("Cell is not a MovieTableViewCell. Uh-Oh!")
        }
         let movie = movies[indexPath.row]
-        cell.movieTitleLabel.text = movie.title
+        cell.movieTitleLabel.text = movie.Title
 
         return cell
         
@@ -51,6 +51,6 @@ extension MovieListViewController: UITableViewDataSource {
 extension MovieListViewController: AddMovieDelegate {
     func movieWasAdded(movie: Movie) {
        movies.append(movie)
-        MovieListTableView.reloadData()
+        movieTableView.reloadData()
    }
 }
