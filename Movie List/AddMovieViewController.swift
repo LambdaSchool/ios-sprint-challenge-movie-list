@@ -13,11 +13,15 @@ protocol NewMovieDelegate {
 }
 class AddMovieViewController: UIViewController {
 
-    
+    var delegate: NewMovieDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+    }
+    
+    @IBAction func addMovie(_ sender: Any) {
+        guard let newMovieTitle = // need to set up
     }
     
 
