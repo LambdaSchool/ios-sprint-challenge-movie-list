@@ -8,18 +8,16 @@
 
 import UIKit
 
-class MovieTableViewController: UIViewController {
+class MoviesTableViewController: UIViewController {
 
     
     @IBOutlet weak var tableView: UITableView!
     
     
     var moviesArray: [Movie] = [Movie(name: "Dune", seen: true),
-                                Movie(name: "The Princess Bride", seen: true),
-                                Movie(name: "The Graduate", seen: false)]
+                                Movie(name: "The Graduate", seen: true),
+                                Movie(name: "The Pricess Bride", seen: false)]
     
-    // segue called addMovieSegue
-
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,10 +25,9 @@ class MovieTableViewController: UIViewController {
         
         tableView.delegate = self
         tableView.dataSource = self
-        // Do any additional setup after loading the view.
+    
     }
     
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "addMovieSegue" {
@@ -38,20 +35,18 @@ class MovieTableViewController: UIViewController {
             addMovieVC.delegate = self
         }
         
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+
     }
     
 
 }
 
-extension MovieTableViewController: UITableViewDataSource,  UITableViewDelegate {
+extension MoviesTableViewController: UITableViewDataSource,  UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return moviesArray.count
     }
     
-    // what to put in each CUSTOM cell
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieTableViewCell", for: indexPath) as? MovieTableViewCell else {fatalError("oops")}
         
@@ -64,7 +59,7 @@ extension MovieTableViewController: UITableViewDataSource,  UITableViewDelegate 
     
 }
 
-extension MovieTableViewController: AddMovieDelegate {
+extension MoviesTableViewController: AddMovieDelegate {
     func movieWasAdded(movie: Movie) {
             moviesArray.append(movie)
             tableView.reloadData()

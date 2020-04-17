@@ -27,10 +27,8 @@ class AddMovieViewController: UIViewController {
         delegate?.movieWasAdded(movie: movie)
         
         dismiss(animated: true, completion: nil)
-        // go back to master VC ??
         navigationController?.popViewController(animated: true)
-        
-        print("\(#function) was pressed")
+    
     }
     
     var delegate: AddMovieDelegate?
@@ -39,21 +37,13 @@ class AddMovieViewController: UIViewController {
         super.viewDidLoad()
         
         movieTextField.delegate = self
-    }
 
+    }
+    
 }
 
 extension AddMovieViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        
-        // This just does what addMovieButton does, but when you push return
-        guard let movieName = movieTextField.text, !movieName.isEmpty else { return false }
-        let movie = Movie(name: movieName, seen: false)
-        delegate?.movieWasAdded(movie: movie)
-        dismiss(animated: true, completion: nil)
-        navigationController?.popViewController(animated: true)
-        print("\(#function) was pressed")
         
         return true
     }
