@@ -14,18 +14,35 @@ class MovieTableViewCell: UITableViewCell {
     @IBOutlet weak var movieLabel: UILabel!
     
     @IBOutlet weak var seenButton: UIButton!
-    var movieArray: [Movies] = []
-    var movieList: Movies? {
-        didSet {
-            func updateViews() {
-                guard let unwrappedMovie = movieList else { return }
-   
+    
+    @IBAction func seenPressed(_ sender: UIButton) {
+        
+    }
+
+//   var movieList: Movies? {
+//    didSet {
+//        func updateViews() {
+//        }
+//    }
+    
+    
+    
+//
+//    @IBAction func seenPressed(_ sender: UIButton) {
+//        movie?.seen.toggle()
+//        updateViews()
+//    }
+    
+            
+            
+            
+                
 }
 
-      }
+      
 
  
 
-}
-}
+
+
 
