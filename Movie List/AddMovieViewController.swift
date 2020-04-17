@@ -1,5 +1,5 @@
 //
-//  AddMovieViewController.swift
+//  MovieTableViewCell.swift
 //  Movie List
 //
 //  Created by Enzo Jimenez-Soto on 4/17/20.
@@ -27,8 +27,10 @@ class AddMovieViewController: UIViewController {
         delegate?.movieWasAdded(movie: movie)
         
         dismiss(animated: true, completion: nil)
+
         navigationController?.popViewController(animated: true)
-    
+        
+        print("\(#function) was pressed")
     }
     
     var delegate: AddMovieDelegate?
@@ -44,7 +46,17 @@ class AddMovieViewController: UIViewController {
 
 extension AddMovieViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        
+        guard let movieName = movieTextField.text, !movieName.isEmpty else { return false }
+        let movie = Movie(name: movieName, seen: false)
+        delegate?.movieWasAdded(movie: movie)
+        dismiss(animated: true, completion: nil)
+        navigationController?.popViewController(animated: true)
+        print("\(#function) was pressed")
         
         return true
     }
 }
+
+

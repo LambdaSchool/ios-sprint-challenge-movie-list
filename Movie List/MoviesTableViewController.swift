@@ -1,5 +1,5 @@
 //
-//  MoviesTableViewController.swift
+//  MovieTableViewCell.swift
 //  Movie List
 //
 //  Created by Enzo Jimenez-Soto on 4/17/20.
@@ -14,18 +14,17 @@ class MoviesTableViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     
-    var moviesArray: [Movie] = [Movie(name: "Dune", seen: true),
-                                Movie(name: "The Graduate", seen: true),
-                                Movie(name: "The Pricess Bride", seen: false)]
+    var moviesArray: [Movie] = [Movie(name: "The Graduate", seen: true),
+                                Movie(name: "Dube", seen: true),
+                                Movie(name: "The Princess Bride", seen: false)]
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
         
         tableView.delegate = self
         tableView.dataSource = self
-    
+       
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -47,6 +46,7 @@ extension MoviesTableViewController: UITableViewDataSource,  UITableViewDelegate
         return moviesArray.count
     }
     
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieTableViewCell", for: indexPath) as? MovieTableViewCell else {fatalError("oops")}
         
@@ -62,6 +62,6 @@ extension MoviesTableViewController: UITableViewDataSource,  UITableViewDelegate
 extension MoviesTableViewController: AddMovieDelegate {
     func movieWasAdded(movie: Movie) {
             moviesArray.append(movie)
-            tableView.reloadData()
+            tableView.reloadData() 
         }
 }
