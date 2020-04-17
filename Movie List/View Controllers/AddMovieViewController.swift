@@ -33,7 +33,7 @@ class AddMovieViewController: UIViewController {
         
         guard let movie = addMovieTextField.text, !movie.isEmpty else { return }
         
-        var addMovie = MovieStruct(movie: movie)
+        var addMovie = MovieStruct(movie: movie, hasSeen: false)
         
         
         delegate?.movieWasCreated(addMovie)
@@ -42,3 +42,5 @@ class AddMovieViewController: UIViewController {
         
     }
 }
+
+

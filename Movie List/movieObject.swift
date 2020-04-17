@@ -11,4 +11,5 @@ import Foundation
 
 struct MovieStruct {
     var movie: String
+    var hasSeen: Bool
 }

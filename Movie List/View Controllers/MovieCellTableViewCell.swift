@@ -8,17 +8,49 @@
 
 import UIKit
 
+protocol  DidWatchDelegate {
+    func didWatch(title: String)
+}
+
 class MovieCellTableViewCell: UITableViewCell {
 
-   //Outlets and Actions
-    
+   //Outlet
     @IBOutlet weak var cellMovieLabel: UILabel!
+    @IBOutlet weak var buttonOne: UIButton!
     
+    var movie: MovieStruct? {
+        didSet {
+            updateViews()
+        }
+        
+    }
+    var delegate: DidWatchDelegate?
+    
+    func updateViews() {
+        guard let movie = movie else { return }
+        
+        cellMovieLabel.text = movie.movie
+        let title = movie.hasSeen ? "Not Seen" : "Seen"
+        buttonOne.setTitle(title, for: .normal)
+        
+    }
+    
+    //Action
     @IBAction func seenOrNotSeenButton(_ sender: Any) {
+        
+        if !buttonOne.isSelected {
+            buttonOne.setTitle("Not Seen", for: .normal)
+        } else if buttonOne.isSelected {
+            buttonOne.setTitle("Seen", for: .normal)
+        }
+            
+            
+        }
+        
     }
     
     
     
     
 
-}
+
