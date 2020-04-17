@@ -69,7 +69,7 @@
                     <navigationItem key="navigationItem" title="Movie List" id="uFh-R0-Phs">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="DeQ-KV-cOH">
                             <connections>
-                                <segue destination="j37-U3-5xf" kind="show" id="nwV-VV-OEa"/>
+                                <segue destination="j37-U3-5xf" kind="show" identifier="AddMovieSegue" id="nwV-VV-OEa"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -106,6 +106,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nxw-nv-dsd">
                                         <rect key="frame" x="130.66666666666666" y="101" width="73" height="30"/>
                                         <state key="normal" title="Add Movie"/>
+                                        <connections>
+                                            <action selector="addMovieButton:" destination="j37-U3-5xf" eventType="touchUpInside" id="T8X-Jj-XUu"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -126,7 +129,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="PzY-0D-pEO"/>
                     <connections>
-                        <outlet property="addMovieButton" destination="nxw-nv-dsd" id="iaV-IY-hga"/>
                         <outlet property="addMovieTextField" destination="Zf5-HL-CGc" id="3KZ-VR-0aI"/>
                     </connections>
                 </viewController>

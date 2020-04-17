@@ -6,13 +6,21 @@
 //  Copyright © 2020 Lambda School. All rights reserved.
 //
 
+
+protocol NewMovieDelegate {
+    func movieWasCreated(_ movie: MovieStruct)
+    
+}
+
 import UIKit
 
 class AddMovieViewController: UIViewController {
     
-    // Outlets and Actions
+    // Outlet
     @IBOutlet weak var addMovieTextField: UITextField!
-    @IBOutlet weak var addMovieButton: UIButton!
+    
+    
+    var delegate: NewMovieDelegate?
     
 
     override func viewDidLoad() {
@@ -21,14 +29,16 @@ class AddMovieViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
-    
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func addMovieButton(_ sender: Any) {
+        
+        guard let movie = addMovieTextField.text, !movie.isEmpty else { return }
+        
+        var addMovie = MovieStruct(movie: movie)
+        
+        
+        delegate?.movieWasCreated(addMovie)
+        
+        dismiss(animated: true, completion: nil)
+        
     }
-
 }
