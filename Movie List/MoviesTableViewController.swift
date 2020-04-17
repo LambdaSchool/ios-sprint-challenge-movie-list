@@ -1,5 +1,5 @@
 //
-//  MovieTableViewController.swift
+//  MoviesTableViewController.swift
 //  Movie List
 //
 //  Created by Enzo Jimenez-Soto on 4/17/20.
@@ -8,10 +8,8 @@
 
 import UIKit
 
-class MovieTableViewController: UIViewController {
+class MoviesTableViewController: UIViewController {
 
-    @IBOutlet var tableView: UITableView!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
