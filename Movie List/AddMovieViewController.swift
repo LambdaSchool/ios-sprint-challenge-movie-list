@@ -21,7 +21,7 @@ class AddMovieViewController: UIViewController {
         guard let unwrappedTitle = movieTitleTextField.text,
             !unwrappedTitle.isEmpty else { return }
         
-        let movie = Movie(movieName: unwrappedTitle)
+        let movie = Movie(movieName: unwrappedTitle, hasSeen: false)
         
         delegate?.newMovieAdded(movie)
         dismiss(animated: true, completion: nil)

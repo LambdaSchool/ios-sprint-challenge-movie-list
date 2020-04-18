@@ -18,8 +18,7 @@ class MovieListViewController: UIViewController {
     }
     
     @IBOutlet weak var tableView: UITableView!
-    
-    
+
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "AddMovieModalSegue" {

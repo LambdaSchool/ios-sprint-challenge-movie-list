@@ -6,6 +6,8 @@
 //  Copyright © 2020 Lambda School. All rights reserved.
 //
 
+// TODO: Add gesture controls for editing & deleting movie entries
+
 import UIKit
 
 class MovieTableViewCell: UITableViewCell {
@@ -16,7 +18,7 @@ class MovieTableViewCell: UITableViewCell {
     @IBAction func hasSeenButtonTapped(_ sender: Any) {
         movie?.hasSeen.toggle()
     }
-    
+
     private func updateViews() {
         guard let movie = self.movie else { return }
         
