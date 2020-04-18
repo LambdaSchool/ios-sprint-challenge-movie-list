@@ -16,16 +16,17 @@ class MovieTableViewCell: UITableViewCell {
     @IBAction func hasSeenButtonTapped(_ sender: Any) {
     }
     
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    private func updateViews() {
+        guard let movie = self.movie else { return }
+        
+        movieNameLabel.text = movie.movieName
+        hasSeenButton.setTitle(movie.hasSeen ? "Seen" : "Not Seen", for: .normal)
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    var movie: Movie? {
+        didSet {
+            self.updateViews()
+        }
     }
 
 }

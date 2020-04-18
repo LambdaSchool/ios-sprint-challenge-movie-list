@@ -9,23 +9,45 @@
 import UIKit
 
 class MovieListViewController: UIViewController {
+    
+    var allMovies: [Movie] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
     
     @IBOutlet weak var tableView: UITableView!
     
     
-    /*
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "AddMovieModalSegue" {
+            if let movieVC = segue.destination as? AddMovieViewController {
+                movieVC.delegate = self
+            }
+        }
     }
-    */
 
+}
+
+extension MovieListViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        allMovies.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as? MovieTableViewCell else { return UITableViewCell() }
+        let newMovie = allMovies[indexPath.row]
+        cell.movie = newMovie
+        return cell
+    }
+    
+}
+
+extension MovieListViewController: AddMovieDelegate {
+    func newMovieAdded(_ movie: Movie) {
+        allMovies.append(movie)
+        tableView.reloadData()
+    }
+    
 }
