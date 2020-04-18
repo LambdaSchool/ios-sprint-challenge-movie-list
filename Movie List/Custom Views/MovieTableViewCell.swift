@@ -12,10 +12,13 @@ class MovieTableViewCell: UITableViewCell {
 
     @IBOutlet weak var movieNameLabel: UILabel!
     
-    
-    @IBAction func notSeenButton(_ sender: Any) {
+   
+    @IBAction func notSeen(_ sender: Any) {
     }
-    @IBOutlet weak var seenButton: UIButton!
+    @IBAction func seenButton(_ sender: Any) {
+    }
+    
+    
     
     var movies: Movie? {
         didSet {

@@ -9,7 +9,7 @@
 import UIKit
 
 protocol AddMovieDelegate {
-    func newMovieAdded(movie: Movie)
+    func newMovieAdded(_ movie: Movie)
 }
 
 class AddMovieViewController: UIViewController {
@@ -18,24 +18,19 @@ class AddMovieViewController: UIViewController {
     
     var delegate: AddMovieDelegate?
     
-    @IBAction func addMovieTapped(_ sender: UIButton) {
+    @IBAction func addMovieTapped(_ sender: Any) {
         guard let movieName = movieTitleTextField.text,
         !movieName.isEmpty else { return }
         
-        var movie = Movie(movieName: movieName)
+        let movies = Movie(movieName: movieName)
         
-        if let newMovie = movieTitleTextField.text,
-            newMovie.isEmpty {
-            movie.movieName.append(newMovie)
-        }
-        
-        delegate?.newMovieAdded(movie: movie)
-        dismiss(animated: true, completion: nil)
+        delegate?.newMovieAdded(movies)
+        self.dismiss(animated: true, completion: nil) // Not sure why its not dismissing
     }
 }
 
-//extension AddMovieViewController: UITextFieldDelegate {
-//       func textFieldShouldReturn( _ textField: UITextField) -> Bool {
-//           return true
-//       }
-//   }
+extension AddMovieViewController: UITextFieldDelegate {
+       func textFieldShouldReturn( _ textField: UITextField) -> Bool {
+           return true
+       }
+   }
