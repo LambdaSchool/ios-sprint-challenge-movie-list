@@ -13,7 +13,7 @@
             <objects>
                 <viewController id="sqU-R1-AVj" customClass="NewMovieViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rJt-z7-aSx">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add movie title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yNe-kV-SW3">
@@ -70,23 +70,25 @@
                                             <rect key="frame" x="319" y="6" width="35" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal" title="Seen"/>
-                                            <connections>
-                                                <action selector="seenButton:" destination="wgD-Mw-HpD" eventType="touchUpInside" id="o2R-Hy-qU9"/>
-                                            </connections>
                                         </button>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Movie Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M4E-9x-Pwi">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Movie Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M4E-9x-Pwi">
                                             <rect key="frame" x="16" y="10" width="92" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="M4E-9x-Pwi" firstAttribute="top" secondItem="h2J-Sc-pGJ" secondAttribute="top" constant="5" id="HYM-9n-aVO"/>
+                                        <constraint firstItem="M4E-9x-Pwi" firstAttribute="top" secondItem="h2J-Sc-pGJ" secondAttribute="topMargin" id="VdP-gj-B79"/>
+                                        <constraint firstItem="M4E-9x-Pwi" firstAttribute="top" secondItem="h2J-Sc-pGJ" secondAttribute="top" constant="5" id="dlN-UP-zQF"/>
+                                        <constraint firstItem="M4E-9x-Pwi" firstAttribute="leading" secondItem="h2J-Sc-pGJ" secondAttribute="leadingMargin" id="jtH-9O-XIQ"/>
+                                        <constraint firstItem="M4E-9x-Pwi" firstAttribute="top" secondItem="h2J-Sc-pGJ" secondAttribute="top" constant="2" id="qdq-GE-jZd"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="movieLabel" destination="M4E-9x-Pwi" id="4EH-Jm-D5C"/>
-                                    <outlet property="seenButton" destination="PWA-SD-Zd6" id="XB6-S4-BWe"/>
-                                    <segue destination="sqU-R1-AVj" kind="show" identifier="MovieListSegue" id="PeL-ca-4oR"/>
+                                    <outlet property="seenPressed" destination="PWA-SD-Zd6" id="Qa2-Rn-vvP"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -96,8 +98,15 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Movie List" id="1kO-hR-fYV">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="raT-ul-ryt"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="raT-ul-ryt">
+                            <connections>
+                                <segue destination="sqU-R1-AVj" kind="presentation" id="CeI-RR-yV5"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="s86-fO-JLI" id="4Qu-Lm-7zl"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lC7-M6-pVs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

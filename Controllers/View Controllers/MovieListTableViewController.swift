@@ -12,9 +12,15 @@ import UIKit
 class MovieListTableViewController: UIViewController {
     
 
-    var movies: [Movies] = []
+    @IBOutlet var tableView: UITableView!
+    
+    @IBOutlet weak var seenOptionButton: UIButton!
+    
+    
+    var movies: [Movies] = [Movies(movieName: "Superbad", movieSeen: true)]
     
     override func viewDidLoad() {
+        tableView.dataSource = self
         super.viewDidLoad()
         
       
@@ -42,7 +48,7 @@ class MovieListTableViewController: UIViewController {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as? MovieTableViewCell else { return UITableViewCell() }
         let movieCell = movies[indexPath.row]
-        cell.movieList = movieCell
+        cell.movieLabel.text = movieCell.movieName
         return cell
     }
     
@@ -56,6 +62,7 @@ class MovieListTableViewController: UIViewController {
 extension MovieListTableViewController: AddMovieDelegate {
     func movieWasAdded(_ movie: Movies) {
         movies.append(movie)
+        tableView.reloadData()
       
     }
 }

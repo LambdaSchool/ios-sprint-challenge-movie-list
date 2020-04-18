@@ -10,34 +10,21 @@
 import UIKit
 
 class MovieTableViewCell: UITableViewCell {
+    
 
     @IBOutlet weak var movieLabel: UILabel!
     
-    @IBOutlet weak var seenButton: UIButton!
-    
-    @IBAction func seenPressed(_ sender: UIButton) {
-        
-    }
-
-//   var movieList: Movies? {
-//    didSet {
-//        func updateViews() {
-//        }
-//    }
+    @IBOutlet weak var seenPressed: UIButton!
     
     
     
-//
-//    @IBAction func seenPressed(_ sender: UIButton) {
-//        movie?.seen.toggle()
-//        updateViews()
-//    }
-    
-            
-            
-            
-                
+     
+          
 }
+    
+
+                
+
 
       
 
