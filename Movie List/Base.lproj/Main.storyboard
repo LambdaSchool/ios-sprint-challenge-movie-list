@@ -27,33 +27,36 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Not Seen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r0d-ek-SXd">
-                                                    <rect key="frame" x="328" y="11.5" width="71" height="20.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Movie" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BNf-ch-jfo">
                                                     <rect key="frame" x="15" y="11.5" width="49" height="21"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PVJ-lm-8UH">
+                                                    <rect key="frame" x="339" y="7" width="64" height="30"/>
+                                                    <state key="normal" title="Not Seen"/>
+                                                    <connections>
+                                                        <action selector="seenButtonPressed:" destination="kTG-sL-MlH" eventType="touchUpInside" id="eHW-SE-gaY"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="BNf-ch-jfo" firstAttribute="leading" secondItem="Wtp-8G-2tU" secondAttribute="leading" constant="15" id="9Pn-wN-wKD"/>
-                                                <constraint firstItem="r0d-ek-SXd" firstAttribute="centerY" secondItem="Wtp-8G-2tU" secondAttribute="centerY" id="IpW-kq-Wf2"/>
+                                                <constraint firstAttribute="trailing" secondItem="PVJ-lm-8UH" secondAttribute="trailing" constant="11" id="Dg9-S7-61F"/>
+                                                <constraint firstItem="PVJ-lm-8UH" firstAttribute="centerY" secondItem="Wtp-8G-2tU" secondAttribute="centerY" id="eJY-Cd-IEm"/>
                                                 <constraint firstItem="BNf-ch-jfo" firstAttribute="centerY" secondItem="Wtp-8G-2tU" secondAttribute="centerY" id="f0Y-3u-GfN"/>
-                                                <constraint firstItem="r0d-ek-SXd" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="BNf-ch-jfo" secondAttribute="trailing" constant="8" symbolic="YES" id="imW-Si-hKR"/>
-                                                <constraint firstAttribute="trailing" secondItem="r0d-ek-SXd" secondAttribute="trailing" constant="15" id="vRe-6g-P4q"/>
+                                                <constraint firstItem="PVJ-lm-8UH" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="BNf-ch-jfo" secondAttribute="trailing" constant="8" id="h0q-Wj-gFY"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="movieLabel" destination="BNf-ch-jfo" id="xGt-cV-7Ec"/>
-                                            <outlet property="notSeenLabel" destination="r0d-ek-SXd" id="tiL-aM-tg0"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="sLe-wH-RyP" id="rLy-TY-RQG"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>

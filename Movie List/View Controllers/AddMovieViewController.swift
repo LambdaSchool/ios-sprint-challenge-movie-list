@@ -30,9 +30,14 @@ class AddMovieViewController: UIViewController {
         let movie = Movie(name: name, seen: false)
         delegate?.newMovieAdded(movie: movie)
         dismiss(animated: true, completion: nil)
+        _ = navigationController?.popViewController(animated: true)
     }
 }
 
-
+extension AddMovieViewController: UITextViewDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        return true
+    }
+}
 
 
