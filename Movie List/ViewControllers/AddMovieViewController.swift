@@ -23,7 +23,6 @@ class AddMovieViewController: UIViewController {
         !movieName.isEmpty else { return }
         
         let movies = Movie(movieName: movieName)
-        
         delegate?.newMovieAdded(movies)
         self.dismiss(animated: true, completion: nil) // Not sure why its not dismissing
     }

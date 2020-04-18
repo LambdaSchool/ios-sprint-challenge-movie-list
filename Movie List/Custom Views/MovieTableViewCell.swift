@@ -12,10 +12,23 @@ class MovieTableViewCell: UITableViewCell {
 
     @IBOutlet weak var movieNameLabel: UILabel!
     
-   
-    @IBAction func notSeen(_ sender: Any) {
+    @IBOutlet weak var seenButton: UIButton!
+    @IBOutlet weak var notSeenButton: UIButton!
+    
+    @IBAction func notSeenButtonAction(_ sender: Any) {
+      if seenButton.isSelected == true {
+        seenButton.isHidden = false
+      } else if seenButton.isSelected == false {
+          seenButton.isHidden = true
+      }
     }
-    @IBAction func seenButton(_ sender: Any) {
+    
+    @IBAction func seenButtonAction(_ sender: Any) {
+        if notSeenButton.isSelected == true {
+               notSeenButton.isHidden = false
+             } else if notSeenButton.isSelected == false {
+                 notSeenButton.isHidden = true
+             }
     }
     
     
@@ -27,9 +40,11 @@ class MovieTableViewCell: UITableViewCell {
     }
     
     private func updateViews() {
-        guard let movie = self.movies else { return}
+        guard let movie = self.movies else { return }
         
-        movieNameLabel.text = movie.movieName
-    }
+
     
+        movieNameLabel.text = movie.movieName
+    
+    }
 }

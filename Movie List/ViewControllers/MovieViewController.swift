@@ -21,19 +21,17 @@ class MovieViewController: UIViewController {
             }
         }
     }
-
-
+    
 }
-
 
 extension MovieViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return movies.count
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as? MovieTableViewCell else { return UITableViewCell()}
-        
+
         let movie = movies[indexPath.row]
         cell.movies = movie
         return cell
@@ -42,7 +40,7 @@ extension MovieViewController: UITableViewDataSource {
 
 extension MovieViewController: AddMovieDelegate {
     func newMovieAdded(_ movie: Movie) {
-        movies.append(movie)
-        tableView.reloadData()
+        self.movies.append(movie)
+        self.tableView.reloadData()
     }
 }
