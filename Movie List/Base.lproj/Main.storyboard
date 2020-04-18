@@ -36,6 +36,9 @@
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BCQ-SR-btu">
                                                     <rect key="frame" x="352" y="7" width="46" height="30"/>
                                                     <state key="normal" title="Button"/>
+                                                    <connections>
+                                                        <action selector="hasSeenButtonTapped:" destination="3Yr-sI-9pU" eventType="touchUpInside" id="k5I-HV-Rn2"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -46,8 +49,16 @@
                                                 <constraint firstItem="BCQ-SR-btu" firstAttribute="centerY" secondItem="pgV-Wu-IQQ" secondAttribute="centerY" id="rhk-Qx-8Zj"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="hasSeenButton" destination="BCQ-SR-btu" id="lwb-7Y-yKg"/>
+                                            <outlet property="movieNameLabel" destination="i6h-3f-CMU" id="fX7-yB-M7i"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="qly-uD-rHS" id="tKr-iM-SRR"/>
+                                    <outlet property="delegate" destination="qly-uD-rHS" id="a76-fE-M1v"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -66,6 +77,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="iR4-Gm-POz" id="x5w-UM-czS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eHc-Kh-Kv4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -89,10 +103,10 @@
             </objects>
             <point key="canvasLocation" x="1092.753623188406" y="280.58035714285711"/>
         </scene>
-        <!--View Controller-->
+        <!--Add Movie View Controller-->
         <scene sceneID="kdQ-KE-bik">
             <objects>
-                <viewController id="yT2-04-Zu7" sceneMemberID="viewController">
+                <viewController id="yT2-04-Zu7" customClass="AddMovieViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="L20-Iq-ACb">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -111,6 +125,10 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QcR-L7-z0e">
                                 <rect key="frame" x="170.66666666666666" y="160" width="73" height="30"/>
                                 <state key="normal" title="Add Movie"/>
+                                <connections>
+                                    <action selector="addMovieButtonTapped:" destination="aFM-yL-jOs" eventType="touchUpInside" id="Pww-qw-pj8"/>
+                                    <action selector="addMovieButtonTapped:" destination="yT2-04-Zu7" eventType="touchUpInside" id="bZG-pf-NRx"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -128,6 +146,7 @@
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Py7-9z-LPz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="aFM-yL-jOs" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2817" y="280"/>
         </scene>

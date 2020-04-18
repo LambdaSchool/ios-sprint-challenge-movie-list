@@ -9,6 +9,13 @@
 import UIKit
 
 class MovieTableViewCell: UITableViewCell {
+    
+    @IBOutlet weak var movieNameLabel: UILabel!
+    @IBOutlet weak var hasSeenButton: UIButton!
+    
+    @IBAction func hasSeenButtonTapped(_ sender: Any) {
+    }
+    
 
     override func awakeFromNib() {
         super.awakeFromNib()

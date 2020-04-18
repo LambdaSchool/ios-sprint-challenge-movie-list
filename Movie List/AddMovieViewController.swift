@@ -16,7 +16,10 @@ class AddMovieViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
+    @IBAction func addMovieButtonTapped(_ sender: Any) {
+    }
+    
+    
     /*
     // MARK: - Navigation
 

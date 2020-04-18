@@ -15,7 +15,9 @@ class MovieListViewController: UIViewController {
         
     }
     
-
+    @IBOutlet weak var tableView: UITableView!
+    
+    
     /*
     // MARK: - Navigation
 
