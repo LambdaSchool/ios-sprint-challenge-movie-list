@@ -25,7 +25,7 @@ class AddMovieViewController: UIViewController, UITextFieldDelegate {
         let movie = Movie(name: movieTitle)
         
         delegate?.newMovieAdded(movie: movie)
-        dismiss(animated: true, completion: nil)
+        navigationController?.popViewController(animated: true)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -38,11 +38,11 @@ class AddMovieViewController: UIViewController, UITextFieldDelegate {
     
     
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//
+//        // Do any additional setup after loading the view.
+//    }
     
 
     /*
