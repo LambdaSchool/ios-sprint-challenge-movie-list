@@ -35,6 +35,13 @@ class MovieListViewController: UIViewController, UITableViewDataSource, AddMovie
         return cell
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            movies.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
+    
     func newMovieAdded(movie: Movie) {
         movies.append(movie)
         tableView.reloadData()
