@@ -10,7 +10,9 @@ import UIKit
 
 class MovieTableViewController: UIViewController {
     
-    let myMovies: [Movie] = []
+    var myMovies: [Movie] = []
+    
+    @IBOutlet weak var MovieTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +37,11 @@ extension MovieTableViewController: UITableViewDataSource{
         let storedMovie = myMovies[indexPath.row]
         return cell
     }
-    
-    
+}
+
+extension MovieTableViewController: AddMovieDelegate {
+    func movieWasAdded(_ movie: Movie) {
+        myMovies.append(movie)
+        MovieTableView.reloadData()
+    }
 }

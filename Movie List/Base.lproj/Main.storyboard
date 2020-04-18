@@ -37,6 +37,9 @@
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2h1-IS-P2M">
                                                     <rect key="frame" x="344" y="6" width="46" height="30"/>
                                                     <state key="normal" title="Button"/>
+                                                    <connections>
+                                                        <action selector="hasSeenMovieButton:" destination="ZN7-S6-pxa" eventType="touchUpInside" id="l2G-za-fkH"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -47,6 +50,10 @@
                                                 <constraint firstItem="2h1-IS-P2M" firstAttribute="top" secondItem="F1L-2p-X1Y" secondAttribute="top" constant="6" id="m6q-zZ-ohy"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="hasSeenMovieButton" destination="2h1-IS-P2M" id="kDd-u1-Amv"/>
+                                            <outlet property="movieNameLabel" destination="XwQ-J0-ugB" id="ZdH-XC-E2s"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -61,6 +68,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="MovieTableView" destination="cU9-Ag-lew" id="14X-hl-Dix"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lGV-ss-0kI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -93,6 +103,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K6v-C9-J28">
                                 <rect key="frame" x="171" y="249" width="73" height="30"/>
                                 <state key="normal" title="Add Movie"/>
+                                <connections>
+                                    <action selector="addMovieButtonTapped:" destination="FZl-nc-WfP" eventType="touchUpInside" id="iV9-ov-OKj"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -109,6 +122,9 @@
                         <viewLayoutGuide key="safeArea" id="dlZ-sX-0jv"/>
                     </view>
                     <navigationItem key="navigationItem" id="xXO-Da-LQQ"/>
+                    <connections>
+                        <outlet property="addMovieTextField" destination="jIa-Qk-GZc" id="F9F-an-S3u"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pmh-WS-ZnT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
