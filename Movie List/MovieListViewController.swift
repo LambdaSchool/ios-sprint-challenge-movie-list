@@ -8,9 +8,10 @@
 
 import UIKit
 
-class MovieListViewController: UIViewController, UITableViewDataSource, AddMovieDelegate {
+class MovieListViewController: UIViewController, UITableViewDataSource, AddMovieDelegate, EditMovieDelegate {
     
     var movies: [Movie] = []
+    var movieToEdit: Int = 0
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -18,6 +19,13 @@ class MovieListViewController: UIViewController, UITableViewDataSource, AddMovie
         if segue.identifier == "AddMovieSegue" {
             if let addVC = segue.destination as? AddMovieViewController {
                 addVC.delegate = self
+            }
+        } else if segue.identifier == "EditMovieSegue" {
+            if let editVC = segue.destination as? EditMovieViewController,
+                let indexPath = self.tableView.indexPathForSelectedRow {
+                movieToEdit = indexPath.row
+                editVC.movie = movies[indexPath.row]
+                editVC.delegate = self
             }
         }
     }
@@ -44,6 +52,11 @@ class MovieListViewController: UIViewController, UITableViewDataSource, AddMovie
     
     func newMovieAdded(movie: Movie) {
         movies.append(movie)
+        tableView.reloadData()
+    }
+    
+    func movieEdited(movie: Movie) {
+        movies[movieToEdit] = movie
         tableView.reloadData()
     }
     

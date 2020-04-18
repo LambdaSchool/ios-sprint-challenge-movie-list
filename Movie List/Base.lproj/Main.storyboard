@@ -52,6 +52,7 @@
                                         <connections>
                                             <outlet property="movieLabel" destination="TUu-7n-Bpt" id="cbJ-e6-rqO"/>
                                             <outlet property="seenButton" destination="nbo-lu-AZL" id="EmQ-pt-8zk"/>
+                                            <segue destination="Gti-4M-nN4" kind="show" identifier="EditMovieSegue" id="Dpa-u6-l7w"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -84,6 +85,55 @@
             </objects>
             <point key="canvasLocation" x="802.89855072463774" y="-62.276785714285708"/>
         </scene>
+        <!--Edit Movie View Controller-->
+        <scene sceneID="kBp-3W-1na">
+            <objects>
+                <viewController id="Gti-4M-nN4" customClass="EditMovieViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xrx-KW-MQh">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="2m1-MT-iIw">
+                                <rect key="frame" x="20" y="140" width="374" height="113.66666666666669"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Edit Movie" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6b1-Wk-mSZ">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="33.666666666666664"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dRu-ps-oI7">
+                                        <rect key="frame" x="0.0" y="41.666666666666657" width="374" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AnK-S4-dDY">
+                                        <rect key="frame" x="0.0" y="83.666666666666657" width="374" height="30"/>
+                                        <state key="normal" title="Save"/>
+                                        <connections>
+                                            <action selector="saveTapped:" destination="Gti-4M-nN4" eventType="touchUpInside" id="TJr-8L-2s7"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="m9d-gG-ime" firstAttribute="trailing" secondItem="2m1-MT-iIw" secondAttribute="trailing" constant="20" id="6x0-E8-m5H"/>
+                            <constraint firstItem="2m1-MT-iIw" firstAttribute="leading" secondItem="m9d-gG-ime" secondAttribute="leading" constant="20" id="GxI-yT-6EJ"/>
+                            <constraint firstItem="2m1-MT-iIw" firstAttribute="top" secondItem="m9d-gG-ime" secondAttribute="top" id="sjf-n0-ekx"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="m9d-gG-ime"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="r0d-Jb-Da7"/>
+                    <connections>
+                        <outlet property="movieTextField" destination="dRu-ps-oI7" id="BIY-Fq-AhP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UmO-QT-w7S" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1611.5942028985507" y="198.88392857142856"/>
+        </scene>
         <!--Add Movie View Controller-->
         <scene sceneID="LAA-9E-cDe">
             <objects>
@@ -97,7 +147,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a new movie to the list" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2qN-FK-ljW">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a new movie to the list" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2qN-FK-ljW">
                                 <rect key="frame" x="47" y="140" width="320" height="34"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                 <nil key="textColor"/>
