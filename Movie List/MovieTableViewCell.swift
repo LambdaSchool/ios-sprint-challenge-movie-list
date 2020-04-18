@@ -12,10 +12,8 @@ class MovieTableViewCell: UITableViewCell {
     @IBOutlet weak var seenNotSeen: UIButton!
     @IBOutlet weak var movieTitleLabel: UILabel!
     
-    @IBAction func seenNotSeen(_ sender: Any?) {
-        guard let button = sender as? UIButton else {return}
-        
-        button.isSelected.toggle()
+    @IBAction func seenNotSeen(_ sender: Any) {
+        newMovie?.seen.toggle()
     }
     
     var newMovie: Movie? {
@@ -28,17 +26,14 @@ class MovieTableViewCell: UITableViewCell {
         guard let movie = self.newMovie else { return }
         
         movieTitleLabel.text = movie.moviesName.joined(separator: "")
+        seenNotSeen.setTitle(movie.seen ? "Seen" : "Not Seen", for: .normal)
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
-
 }

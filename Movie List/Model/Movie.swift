@@ -11,5 +11,5 @@ import Foundation
 
 struct Movie {
     var moviesName: [String]
-    var seen: Bool 
+    var seen: Bool = false
 }
