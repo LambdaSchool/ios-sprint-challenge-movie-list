@@ -15,12 +15,13 @@ class MovieTableViewCell: UITableViewCell {
     @IBOutlet weak var movieLabel: UILabel!
     
     @IBOutlet weak var seenPressed: UIButton!
-    
+   
+        }
     
     
      
           
-}
+
     
 
                 

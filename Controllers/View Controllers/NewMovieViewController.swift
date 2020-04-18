@@ -15,12 +15,13 @@ protocol AddMovieDelegate {
 class NewMovieViewController: UIViewController {
     
 var delegate: AddMovieDelegate?
+    
 
 @IBOutlet weak var movieTextField: UITextField!
     
     
 @IBAction func addMovieTapped(_ sender: Any) {
-        
+     //help
 
 guard let unwrappedMovie = movieTextField?.text else {
 dismiss(animated: true, completion: nil)
@@ -29,12 +30,14 @@ return }
 delegate?.movieWasAdded(addedMovie)
         
     }
-    
-override func viewDidLoad() {
+    override func viewDidLoad() {
     super.viewDidLoad()
  
     }
-        
-
-
+}
+//6pm
+extension NewMovieViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+    }
 }
