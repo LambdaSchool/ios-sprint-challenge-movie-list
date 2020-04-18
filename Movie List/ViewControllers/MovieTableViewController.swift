@@ -17,7 +17,7 @@ class MovieTableViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-
+    //Here we are setting the add movie detail view controller as the delegator so we can recieve information
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "AddMovieDetailSegue"{
             if let addVC = segue.destination as? AddMovieViewController{
