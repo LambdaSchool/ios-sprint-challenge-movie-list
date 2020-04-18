@@ -11,19 +11,23 @@ import UIKit
 class MovieCellTableViewCell: UITableViewCell {
 
     @IBOutlet weak var movieNameLabel: UILabel!
+    @IBOutlet weak var hasSeenMovieButton: UIButton!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-    @IBAction func hasSeenMovieButton(_ sender: Any) {
-        
+
+    @IBAction func hasSeenMovieTapped(_ sender: Any) {
+        movie?.movieSeen.toggle()
     }
     
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+ 
+    private func updateViews(){
+        guard let movie = self.movie else {return}
+        movieNameLabel.text = movie.movieName
+        hasSeenMovieButton.setTitle(movie.movieSeen ? "Seen" : "Not Seen", for: .normal)
     }
-
+    
+    var movie: Movie?{
+          didSet{
+              updateViews()
+          }
+      }
 }
