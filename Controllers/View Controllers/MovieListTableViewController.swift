@@ -9,36 +9,26 @@
 import UIKit
 
 
-class MovieListTableViewController: UIViewController {
+class MovieListTableViewController: UIViewController  {
+
+var movies: [Movies] = []
     
 
-    @IBOutlet var tableView: UITableView!
-    
-   /* @IBOutlet weak var seenOptionButton: UIButton!*/
-    
-    @IBAction func seenButton(_ sender: UIButton) {
-    }
+@IBOutlet var tableView: UITableView!
     
     
-    //?
-    
-    var movies: [Movies] = []
-    
-    override func viewDidLoad() {
+override func viewDidLoad() {
         tableView.dataSource = self
         super.viewDidLoad()
-        
-      
     }
-    //MARK: - botton or top
+    
+//MARK: - botton or top
 override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "MovieListSegue" {
     guard let addMovieVC = segue.destination as? NewMovieViewController else { return }
     addMovieVC.delegate = self
             }
         }
-        
-
     }
     // MARK: - Table view data source
 
@@ -56,9 +46,7 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
     cell.movieLabel.text = movieCell.movieName
     return cell
     }
-    
-    
-        }
+}
    
     
     // MARK: - Navigation
