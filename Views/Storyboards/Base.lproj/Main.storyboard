@@ -67,41 +67,39 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieCell" id="wgD-Mw-HpD" customClass="MovieTableViewCell" customModule="Movie_List" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieCell" rowHeight="75" id="wgD-Mw-HpD" customClass="MovieTableViewCell" customModule="Movie_List" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="75"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wgD-Mw-HpD" id="h2J-Sc-pGJ">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="75"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PWA-SD-Zd6">
-                                            <rect key="frame" x="319" y="6" width="35" height="30.5"/>
+                                            <rect key="frame" x="324" y="22.5" width="35" height="30"/>
                                             <state key="normal" title="Seen"/>
+                                            <connections>
+                                                <action selector="seenButton:" destination="FRD-w5-CHT" eventType="touchUpInside" id="pAi-rW-wep"/>
+                                            </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M4E-9x-Pwi">
-                                            <rect key="frame" x="16" y="5" width="92" height="26"/>
+                                            <rect key="frame" x="16" y="6" width="92" height="63"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="PWA-SD-Zd6" firstAttribute="leading" secondItem="M4E-9x-Pwi" secondAttribute="trailing" constant="211" id="2VZ-vI-S0A"/>
-                                        <constraint firstAttribute="bottom" secondItem="PWA-SD-Zd6" secondAttribute="bottom" constant="7.5" id="2rd-A5-0DQ"/>
-                                        <constraint firstItem="PWA-SD-Zd6" firstAttribute="top" secondItem="h2J-Sc-pGJ" secondAttribute="top" constant="6" id="D7c-Wr-Rwg"/>
-                                        <constraint firstItem="M4E-9x-Pwi" firstAttribute="top" secondItem="h2J-Sc-pGJ" secondAttribute="top" constant="5" id="HYM-9n-aVO"/>
-                                        <constraint firstItem="PWA-SD-Zd6" firstAttribute="top" secondItem="h2J-Sc-pGJ" secondAttribute="top" constant="6" id="OZb-6c-jHU"/>
-                                        <constraint firstItem="M4E-9x-Pwi" firstAttribute="top" relation="greaterThanOrEqual" secondItem="h2J-Sc-pGJ" secondAttribute="topMargin" id="VdP-gj-B79"/>
-                                        <constraint firstAttribute="bottom" secondItem="M4E-9x-Pwi" secondAttribute="bottom" constant="13" id="bOF-Hb-M9y"/>
-                                        <constraint firstItem="M4E-9x-Pwi" firstAttribute="top" secondItem="h2J-Sc-pGJ" secondAttribute="top" constant="5" id="dlN-UP-zQF"/>
-                                        <constraint firstItem="M4E-9x-Pwi" firstAttribute="leading" secondItem="h2J-Sc-pGJ" secondAttribute="leadingMargin" id="jtH-9O-XIQ"/>
-                                        <constraint firstItem="M4E-9x-Pwi" firstAttribute="top" secondItem="h2J-Sc-pGJ" secondAttribute="top" constant="2" id="qdq-GE-jZd"/>
-                                        <constraint firstAttribute="trailing" secondItem="PWA-SD-Zd6" secondAttribute="trailing" constant="21" id="yfG-9V-QER"/>
+                                        <constraint firstItem="M4E-9x-Pwi" firstAttribute="top" secondItem="h2J-Sc-pGJ" secondAttribute="top" constant="6" id="2cU-YM-cE3"/>
+                                        <constraint firstItem="M4E-9x-Pwi" firstAttribute="centerY" secondItem="h2J-Sc-pGJ" secondAttribute="centerY" id="MrK-w2-94b"/>
+                                        <constraint firstItem="M4E-9x-Pwi" firstAttribute="leading" secondItem="h2J-Sc-pGJ" secondAttribute="leadingMargin" id="cmU-cW-rAN"/>
+                                        <constraint firstItem="PWA-SD-Zd6" firstAttribute="centerY" secondItem="h2J-Sc-pGJ" secondAttribute="centerY" id="g90-sw-FPa"/>
+                                        <constraint firstItem="M4E-9x-Pwi" firstAttribute="centerY" secondItem="h2J-Sc-pGJ" secondAttribute="centerY" id="gcc-Yc-xeb"/>
+                                        <constraint firstItem="PWA-SD-Zd6" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="M4E-9x-Pwi" secondAttribute="trailing" constant="190" id="xd4-jO-Fur"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="PWA-SD-Zd6" secondAttribute="trailing" id="ziL-eT-us6"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="movieLabel" destination="M4E-9x-Pwi" id="4EH-Jm-D5C"/>
-                                    <outlet property="seenPressed" destination="PWA-SD-Zd6" id="Qa2-Rn-vvP"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

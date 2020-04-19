@@ -26,16 +26,16 @@ var delegate: AddMovieDelegate?
 guard let unwrappedMovie = movieTextField?.text else {
 dismiss(animated: true, completion: nil)
 return }
-    let addedMovie: Movies = Movies(movieName: unwrappedMovie, movieSeen: true)
-delegate?.movieWasAdded(addedMovie)
-        
+    delegate?.movieWasAdded(Movies(movieName: unwrappedMovie, movieSeen: false))
+    navigationController?.popViewController(animated: true)
     }
+
     override func viewDidLoad() {
     super.viewDidLoad()
  
     }
 }
-//6pm
+
 extension NewMovieViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
