@@ -17,7 +17,7 @@ class AddMovieViewController: UIViewController {
     var delegate: AddMovieDelegate?
     
     @IBOutlet weak var addMovieTextField: UITextField!
-    
+     
     override func viewDidLoad() {
         super.viewDidLoad()
         
