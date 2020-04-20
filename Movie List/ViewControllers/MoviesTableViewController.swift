@@ -24,11 +24,25 @@ class MoviesTableViewController: UITableViewController {
         // Configure the cell...
         let movie = movies[indexPath.row]
         
-        cell.textLabel?.text = movie.module
-        cell.detailTextLabel?.text = movie.movie
-        
+        cell.textLabel?.text = movie.movie
+       
         return cell
     }
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ToAddMovieSegue" {
+            if let addVC = segue.destination as? AddMovieViewController {
+                addVC.delegate = self
+            }
+        }
+    }
 
+    
+    
+}
+
+extension MoviesTableViewController: AddMovieDelegaet {
+    func movieAdded(_ movie: Movie) {
+        self.movies.append(movie)
+        self.tableView.reloadData()
+    }
 }
