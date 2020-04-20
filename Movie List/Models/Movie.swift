@@ -10,6 +10,7 @@ import Foundation
 
 
 struct Movie {
-    var hasSeen: Bool = false
+ 
     var movieName: String
+    var hasSeen: Bool = false
 }

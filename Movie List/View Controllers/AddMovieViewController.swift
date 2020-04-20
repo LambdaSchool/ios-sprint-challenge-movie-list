@@ -8,16 +8,38 @@
 
 import UIKit
 
+
+protocol AddMovieDelegate {
+    func newMovieAdded(movie: Movie)
+}
+
+
+
 class AddMovieViewController: UIViewController {
 
    
+    @IBOutlet weak var movieName: UITextField!
+    
+    var delegate: AddMovieDelegate?
     
     
-    
-    
-    
-    
-    
+
+    @IBAction func addMovieButton(_ sender: UIButton) {
+        
+        guard let unwrappedMovie = movieName?.text else {
+           dismiss(animated: true, completion: nil)
+                   return
+           }
+        var movie = Movie(movieName: movieName, hasSeen: Bool)
+        
+        
+        
+        delegate?.newMovieAdded(movie: movie)
+        dismiss(animated: true, completion: nil)
+        
+
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,4 +58,11 @@ class AddMovieViewController: UIViewController {
     }
     */
 
+}
+
+extension AddMovieViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        return true
+    }
 }
