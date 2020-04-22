@@ -21,6 +21,7 @@ class MovieTableViewCell: UITableViewCell {
       } else if seenButton.isSelected == false {
           seenButton.isHidden = true
       }
+        
     }
     
     @IBAction func seenButtonAction(_ sender: Any) {
@@ -28,7 +29,7 @@ class MovieTableViewCell: UITableViewCell {
                notSeenButton.isHidden = false
              } else if notSeenButton.isSelected == false {
                  notSeenButton.isHidden = true
-             }
+        }
     }
     
     

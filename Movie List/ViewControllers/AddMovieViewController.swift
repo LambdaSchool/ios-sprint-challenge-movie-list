@@ -24,12 +24,17 @@ class AddMovieViewController: UIViewController {
         
         let movies = Movie(movieName: movieName)
         delegate?.newMovieAdded(movies)
-        self.dismiss(animated: true, completion: nil) // Not sure why its not dismissing
+        
+        self.navigationController?.popViewController(animated: true)
+        
+        
+//        self.dismiss(animated: true, completion: nil) // Not sure why its not dismissing
     }
 }
 
-extension AddMovieViewController: UITextFieldDelegate {
-       func textFieldShouldReturn( _ textField: UITextField) -> Bool {
-           return true
-       }
-   }
+//extension AddMovieViewController: UITextFieldDelegate {
+//       func textFieldShouldReturn( _ textField: UITextField) -> Bool {
+//        return true
+//
+//       }
+//   }
