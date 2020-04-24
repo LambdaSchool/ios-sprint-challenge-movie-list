@@ -26,11 +26,11 @@ class AddMovieViewController: UIViewController {
 
     @IBAction func addMovieButton(_ sender: UIButton) {
         
-        guard let unwrappedMovie = movieName?.text else {
-           dismiss(animated: true, completion: nil)
-                   return
-           }
-        var movie = Movie(movieName: movieName, hasSeen: Bool)
+        guard let unwrappedMovie = movieName.text,
+            !unwrappedMovie.isEmpty else { return }
+         
+             
+        var movie = Movie(movieName: unwrappedMovie)
         
         
         

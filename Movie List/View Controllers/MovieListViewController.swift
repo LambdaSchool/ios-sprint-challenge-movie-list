@@ -18,14 +18,14 @@ class MovieListViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
           
       
-    var movies: [Movie] = [Movie(movieName: <#T##String#>)]
+    var movies: [Movie] = [Movie(movieName: "Star Wars", hasSeen: true) ]
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
           if segue.identifier == "AddMovieSegue" {
               if let addVC = segue.destination as? AddMovieViewController {
-                addVC.delegate = self as? AddMovieDelegate
+                addVC.delegate = self
               }
 }
 }
@@ -52,7 +52,7 @@ extension MovieListViewController: UITableViewDataSource {
 
 extension MovieListViewController: AddMovieDelegate {
     func newMovieAdded(movie: Movie) {
-        friends.append(friend)
+        movies.append(movie)
         tableView.reloadData()
    
     

@@ -15,6 +15,7 @@ class MovieTableViewCell: UITableViewCell {
 
     
     
+    @IBOutlet weak var NameLabel: UILabel!
     
     
     var movie: Movie? {
@@ -27,7 +28,7 @@ class MovieTableViewCell: UITableViewCell {
         guard let movie = self.movie else { return }
         
         
-        nameLabel.text = movie.movieName
+       // nameLabel.text = movie.movieName
       
     }
 }
