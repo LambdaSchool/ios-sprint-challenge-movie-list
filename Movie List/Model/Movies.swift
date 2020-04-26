@@ -8,7 +8,12 @@
 
 import Foundation
 
-struct Movie {
+struct Movie: Equatable {
     var movieName: String
-    var seenOrNot: Bool = false
+    var seenOrNot: Bool
+    
+    init(movieName: String, seenOrNot: Bool = false) { // We init the varables to be able be pass it through my movie Table cell
+        self.movieName = movieName
+        self.seenOrNot = seenOrNot
+    }
 }

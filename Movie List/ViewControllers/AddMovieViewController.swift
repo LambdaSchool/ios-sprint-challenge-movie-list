@@ -8,33 +8,24 @@
 
 import UIKit
 
-protocol AddMovieDelegate {
-    func newMovieAdded(_ movie: Movie)
-}
 
 class AddMovieViewController: UIViewController {
 
-    @IBOutlet weak var movieTitleTextField: UITextField!
+    @IBOutlet weak var movieTitleTextField: UITextField! // created this outlet to past movie information to table cell 
     
-    var delegate: AddMovieDelegate?
+    
+    var movieController: MovieController?
     
     @IBAction func addMovieTapped(_ sender: Any) {
         guard let movieName = movieTitleTextField.text,
         !movieName.isEmpty else { return }
-        
-        let movies = Movie(movieName: movieName)
-        delegate?.newMovieAdded(movies)
+    
+        movieController?.createMovie(withTitle: movieName)
         
         self.navigationController?.popViewController(animated: true)
         
-        
-//        self.dismiss(animated: true, completion: nil) // Not sure why its not dismissing
+
     }
 }
 
-//extension AddMovieViewController: UITextFieldDelegate {
-//       func textFieldShouldReturn( _ textField: UITextField) -> Bool {
-//        return true
-//
-//       }
-//   }
+
