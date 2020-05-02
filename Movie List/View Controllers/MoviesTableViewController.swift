@@ -13,6 +13,7 @@ class MoviesTableViewController: UIViewController, UITableViewDelegate {
     @IBOutlet weak var tableView: UITableView!
     
     var movieArray: [Movie] = []
+    var movieCell: MovieTableViewCell!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,12 +24,8 @@ class MoviesTableViewController: UIViewController, UITableViewDelegate {
     }
     
 
-    /*
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-   
-    */
 
 }
 
@@ -42,7 +39,8 @@ extension MoviesTableViewController: UITableViewDataSource {
         
         let movieLocation = movieArray[indexPath.row]
         cell.movie = movieLocation
-        
+        cell.delegate = self
+     
         return cell
     }
     
@@ -57,11 +55,26 @@ extension MoviesTableViewController: UITableViewDataSource {
     
 }
 
+extension MoviesTableViewController: MovieCellDelegate {
+    func didTapMovieSeenBtn(movieBool: Bool) {
+        if movieBool == true {
+            movieCell.movie!.movieSeenBool = false
+            movieCell.movieSeenBtn.titleLabel?.text = "Not Seen"
+        } else if movieBool == false {
+            movieCell.movie?.movieSeenBool = true
+            movieCell.movieSeenBtn.titleLabel?.text = "Seen"
+        }
+    }
+    
+    
+}
+
 extension MoviesTableViewController: AddMovieDelegate {
     func movieWasAdded(_ movie: Movie) {
-        self.movieArray.append(movie)
+        movieArray.append(movie)
         //dismiss(animated: true, completion: nil)
         tableView.reloadData()
+        print(movieArray.count)
     }
     
     

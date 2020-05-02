@@ -8,12 +8,18 @@
 
 import UIKit
 
+protocol MovieCellDelegate {
+    func didTapMovieSeenBtn(movieBool: Bool)
+}
+
 class MovieTableViewCell: UITableViewCell {
 
     // MARK: IBOutlets
     
     @IBOutlet weak var movieSeenBtn: UIButton!
     @IBOutlet weak var movieNameLabel: UITextField!
+    
+    var delegate: MovieCellDelegate?
     
     var movie: Movie? {
         didSet {
@@ -25,10 +31,11 @@ class MovieTableViewCell: UITableViewCell {
         guard let movie = movie else { return }
         
         movieNameLabel.text = movie.movieName
+        
         if movie.movieSeenBool == true {
-            movieSeenBtn.titleLabel?.text = "Seen"
-        } else{
             movieSeenBtn.titleLabel?.text = "Not Seen"
+        } else if movie.movieSeenBool == false {
+            movieSeenBtn.titleLabel?.text = "Seen"
         }
         
     }
@@ -40,12 +47,16 @@ class MovieTableViewCell: UITableViewCell {
     
     
     @IBAction func movieSeenTapped(_ sender: Any) {
-
-        if movie?.movieSeenBool == false {
-            movieSeenBtn.titleLabel?.text = "Not Seen"
-        } else if movie?.movieSeenBool == true {
-            movieSeenBtn.titleLabel?.text = "Seen"
-        }
+        delegate?.didTapMovieSeenBtn(movieBool: movie!.movieSeenBool)
+        
+//        if movie?.movieSeenBool == true {
+//    movie?.movieSeenBool = false
+//    movieSeenBtn.titleLabel?.text = "Not Seen"
+//} else if movie?.movieSeenBool == false {
+//    movie?.movieSeenBool = true
+//    movieSeenBtn.titleLabel?.text = "Seen"
+//}
+//        updateViews()
     }
     
     
