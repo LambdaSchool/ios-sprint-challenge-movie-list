@@ -18,7 +18,7 @@ class MovieListViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
           
       
-    var movies: [Movie] = [Movie(movieName: "Star Wars", hasSeen: true) ]
+    var movies: [Movie] = []
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -52,8 +52,9 @@ extension MovieListViewController: UITableViewDataSource {
 
 extension MovieListViewController: AddMovieDelegate {
     func newMovieAdded(movie: Movie) {
-        movies.append(movie)
-        tableView.reloadData()
+          movies.append(movie)
+        
+          tableView.reloadData()
    
     
     }
