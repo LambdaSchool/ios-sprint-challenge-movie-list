@@ -10,6 +10,8 @@ import UIKit
 
 class MoviesTableViewController: UIViewController, UITableViewDelegate {
 
+    // MARK: IBOutlets
+    
     @IBOutlet weak var tableView: UITableView!
     
     var movieArray: [Movie] = []
