@@ -23,13 +23,14 @@ class AddMovieViewController: UIViewController {
     
     @IBAction func addMovie(_ sender: Any) {
         
-        if movieEntered.text == "" {
-            movieEntered.placeholder = "Please Enter a Movie"
-        } else {
-            let newMovies = theMovies.append
-            print("\(newMovies)")
-            dismiss(animated: true, completion: nil)
-        }
+        guard let title = movieEntered.text else { return }
+        
+        let newMovie = Movies(title: title, watched: false)
+        
+        delegate?.movieCreated(newMovie: newMovie)
+        
+        dismiss(animated: true, completion: nil)
+        
     }
 }
 
