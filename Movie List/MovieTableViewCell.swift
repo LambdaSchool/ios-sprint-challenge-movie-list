@@ -11,10 +11,6 @@ import UIKit
 class MovieTableViewCell: UITableViewCell {
     
     @IBOutlet weak var movieLabel: UILabel!
-    @IBAction func seenButton(sender: UIButton) {
-        if sender.
-    }
-    
     
     var movie: Movie? { didSet { updateViews() }}
     
