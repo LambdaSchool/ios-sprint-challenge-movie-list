@@ -10,7 +10,10 @@ import UIKit
 
 class AddMovieViewController: UIViewController {
 
+    @IBOutlet weak var addNewMovieOutlet: UITextField!
     
+    @IBAction func addMovieButtonAction(_ sender: Any) {
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

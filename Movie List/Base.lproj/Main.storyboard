@@ -88,7 +88,7 @@
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter the movie's title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="G2E-Tv-tIi">
                                         <rect key="frame" x="0.0" y="43.5" width="320" height="34"/>
-                                        <accessibility key="accessibilityConfiguration" label="enterMovieTitleText"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="enterMovieTitleText"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
@@ -96,6 +96,9 @@
                                         <rect key="frame" x="123.5" y="89.5" width="73" height="30"/>
                                         <accessibility key="accessibilityConfiguration" identifier="addMovieButton" label="addMovieButton"/>
                                         <state key="normal" title="Add Movie"/>
+                                        <connections>
+                                            <action selector="addMovieButtonAction:" destination="oYB-uN-fwI" eventType="touchUpInside" id="Sqf-NB-OjZ"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -114,6 +117,9 @@
                         <viewLayoutGuide key="safeArea" id="8OF-1N-O0f"/>
                     </view>
                     <navigationItem key="navigationItem" id="ZgL-9O-xfN"/>
+                    <connections>
+                        <outlet property="addNewMovieOutlet" destination="G2E-Tv-tIi" id="rRW-u6-4ZH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D7E-9l-dNI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
