@@ -1,5 +1,5 @@
 //
-//  MovieListViewController.swift
+//  AddMovieViewController.swift
 //  Movie List
 //
 //  Created by Richard Gibbs on 5/15/20.
@@ -8,14 +8,8 @@
 
 import UIKit
 
-class MovieListViewController: UIViewController {
+class AddMovieViewController: UIViewController {
 
-    
-    
-    @IBAction func hasBeenSeen(_ sender: UIButton) {
-        sender.isSelected.toggle()
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
