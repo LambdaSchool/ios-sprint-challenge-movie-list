@@ -8,13 +8,42 @@
 
 import UIKit
 
+protocol AddMovieDelegate {
+    func movieWasAdded(_ movie: Movie)
+}
+
 class AddMovieViewController: UIViewController {
     
     @IBOutlet var addMovieViewController: UIView!
+    @IBOutlet weak var movieTextField: UITextField!
+    
+    var delegate: AddMovieDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
     }
+    @IBAction func addMovie(_ sender: Any) {
+        guard let movie = movieTextField.text else { return }
+        
+        let movieAdded = Movie(name: movie)
+        
+        delegate?.movieWasAdded(movieAdded)
+        
+        dismiss(animated: true, completion: nil)
+    }
     
+}
+
+extension AddMovieViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        guard textField.text != nil else { return false }
+        switch textField {
+        case movieTextField:
+            textField.resignFirstResponder()
+        default:
+            break
+        }
+        return false 
+    }
 }
