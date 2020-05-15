@@ -16,9 +16,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="aiQ-Au-EVX">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="singleLineEtched" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="aiQ-Au-EVX">
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="separatorColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MovieCell" id="kqq-oJ-5eY" customClass="MovieTableViewCell" customModule="Movie_List" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
@@ -28,21 +29,26 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="248" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="characterWrap" baselineAdjustment="alignBaselines" minimumScaleFactor="0.69999999999999996" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dIw-ML-978">
-                                                    <rect key="frame" x="14.5" y="22" width="0.0" height="0.0"/>
+                                                    <rect key="frame" x="30" y="9.5" width="300" height="25"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="25" id="8uf-Gx-r2i"/>
+                                                        <constraint firstAttribute="width" constant="300" id="vdn-cU-VTe"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d8L-PV-XKJ">
-                                                    <rect key="frame" x="348" y="7" width="46" height="30"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3mF-Fs-5K9">
+                                                    <rect key="frame" x="338" y="7" width="56" height="30"/>
                                                     <state key="normal" title="Button"/>
                                                 </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="d8L-PV-XKJ" firstAttribute="leading" secondItem="dIw-ML-978" secondAttribute="trailing" constant="333.5" id="a8Z-wm-c2Y"/>
-                                                <constraint firstItem="dIw-ML-978" firstAttribute="centerY" secondItem="j74-Rj-cWX" secondAttribute="centerY" id="eky-5V-5x9"/>
-                                                <constraint firstItem="d8L-PV-XKJ" firstAttribute="centerY" secondItem="j74-Rj-cWX" secondAttribute="centerY" id="pq6-Z0-EXc"/>
-                                                <constraint firstItem="dIw-ML-978" firstAttribute="leading" secondItem="j74-Rj-cWX" secondAttribute="leading" constant="14.5" id="zWV-rv-m63"/>
+                                                <constraint firstItem="3mF-Fs-5K9" firstAttribute="leading" secondItem="dIw-ML-978" secondAttribute="trailing" constant="8" id="1Cy-oQ-bVO"/>
+                                                <constraint firstAttribute="trailing" secondItem="3mF-Fs-5K9" secondAttribute="trailing" constant="20" id="OgN-kS-Rfj"/>
+                                                <constraint firstItem="dIw-ML-978" firstAttribute="leading" secondItem="j74-Rj-cWX" secondAttribute="leadingMargin" constant="10" id="rwn-hc-aJB"/>
+                                                <constraint firstItem="dIw-ML-978" firstAttribute="centerY" secondItem="j74-Rj-cWX" secondAttribute="centerY" id="tLC-Ne-yRL"/>
+                                                <constraint firstItem="3mF-Fs-5K9" firstAttribute="centerY" secondItem="j74-Rj-cWX" secondAttribute="centerY" id="teO-dq-mqu"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
