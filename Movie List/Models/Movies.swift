@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct movie {
+struct Movie {
    var movieName: String
    var hasBeenSeen: Bool = false
 }
