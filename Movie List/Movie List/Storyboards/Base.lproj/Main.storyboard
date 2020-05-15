@@ -62,7 +62,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Movie List " id="uDQ-hD-tHI">
-                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="Y1R-Rt-lv1"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="Y1R-Rt-lv1">
+                            <connections>
+                                <action selector="edit:" destination="rzr-jh-ZQA" id="kZR-qZ-CCi"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="JIJ-5U-xtf">
                             <connections>
                                 <segue destination="pfT-Kb-2ol" kind="presentation" identifier="AddMovieSegue" id="RJR-Lz-no0"/>
@@ -72,42 +76,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pgr-UH-Ruu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="931.88405797101461" y="-5.3571428571428568"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="V6n-K5-fzd">
-            <objects>
-                <viewController id="FA9-p6-wgj" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="bmz-Sh-nqb">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Edit the name of the movie " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1YB-pn-MDG">
-                                <rect key="frame" x="35" y="84" width="359" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IRI-CN-UWS">
-                                <rect key="frame" x="159" y="163" width="97" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BHJ-Y5-wSN">
-                                <rect key="frame" x="169" y="255" width="76" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Edit Movie "/>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="6IL-Qm-txn"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="lbJ-uI-zME" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="931.88405797101461" y="-627.45535714285711"/>
+            <point key="canvasLocation" x="1980" y="112"/>
         </scene>
         <!--Add Movie View Controller-->
         <scene sceneID="e0t-Sn-yfM">
@@ -118,7 +87,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Gtn-6e-T2n">
-                                <rect key="frame" x="20" y="40" width="374" height="86"/>
+                                <rect key="frame" x="20" y="40" width="374" height="373"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a new movie to the list" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xPc-VH-91e">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="36"/>
@@ -131,21 +100,22 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aJ5-Il-bEN">
+                                        <rect key="frame" x="0.0" y="102" width="374" height="30"/>
+                                        <state key="normal" title="Add Movie "/>
+                                        <connections>
+                                            <action selector="addMovie:" destination="pfT-Kb-2ol" eventType="touchUpInside" id="rgw-DH-srQ"/>
+                                        </connections>
+                                    </button>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="popcorn" translatesAutoresizingMaskIntoConstraints="NO" id="fgp-xg-PfF">
+                                        <rect key="frame" x="0.0" y="148" width="374" height="225"/>
+                                    </imageView>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aJ5-Il-bEN">
-                                <rect key="frame" x="152" y="140" width="77" height="30"/>
-                                <state key="normal" title="Add Movie "/>
-                                <connections>
-                                    <action selector="addMovie:" destination="pfT-Kb-2ol" eventType="touchUpInside" id="rgw-DH-srQ"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="aJ5-Il-bEN" firstAttribute="top" secondItem="Gtn-6e-T2n" secondAttribute="bottom" constant="14" id="8ud-7M-qrD"/>
                             <constraint firstItem="58E-5e-glr" firstAttribute="trailing" secondItem="Gtn-6e-T2n" secondAttribute="trailing" constant="20" id="Fvc-8Z-Zew"/>
-                            <constraint firstItem="aJ5-Il-bEN" firstAttribute="leading" secondItem="58E-5e-glr" secondAttribute="leading" constant="152" id="GfB-VR-Ka3"/>
                             <constraint firstItem="Gtn-6e-T2n" firstAttribute="leading" secondItem="58E-5e-glr" secondAttribute="leading" constant="20" id="I9W-P9-LL7"/>
                             <constraint firstItem="Gtn-6e-T2n" firstAttribute="top" secondItem="58E-5e-glr" secondAttribute="top" constant="40" id="yBt-Ua-iMG"/>
                         </constraints>
@@ -157,7 +127,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ko7-IW-2TB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1723" y="-310"/>
+            <point key="canvasLocation" x="2822" y="112"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="mds-qb-ePN">
@@ -175,7 +145,10 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oVD-tu-rpS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="21.739130434782609" y="-5.3571428571428568"/>
+            <point key="canvasLocation" x="1048" y="112"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="popcorn" width="225" height="225"/>
+    </resources>
 </document>

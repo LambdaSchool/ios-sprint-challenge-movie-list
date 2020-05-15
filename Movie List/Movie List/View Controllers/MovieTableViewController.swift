@@ -15,11 +15,6 @@ class MovieTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     // MARK: - Table view data source
@@ -41,7 +36,7 @@ class MovieTableViewController: UITableViewController {
     }
     
 
-    
+
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
@@ -55,22 +50,21 @@ class MovieTableViewController: UITableViewController {
         }
     }
      
-     
-     
 
     // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
+    override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        
+        let movedItem = movies[sourceIndexPath.item]
+        movies.remove(at: sourceIndexPath.item)
+        movies.insert(movedItem, at: destinationIndexPath.item)
     }
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
+    
+    
+    @IBAction func edit(_ sender: UIBarButtonItem) {
+        tableView.isEditing = !tableView.isEditing
+        sender.title = (tableView.isEditing) ? "Done" : "Edit"
     }
-    */
-
+    
 
     // MARK: - Navigation
 
@@ -82,8 +76,6 @@ class MovieTableViewController: UITableViewController {
             dismiss(animated: true, completion: nil)
         }
     }
-
-
 }
 
 extension MovieTableViewController: MovieDelegate {
@@ -91,6 +83,5 @@ extension MovieTableViewController: MovieDelegate {
         movies.append(movie)
         tableView.reloadData()
     }
-    
-    
 }
+
