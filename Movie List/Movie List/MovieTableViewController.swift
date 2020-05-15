@@ -32,10 +32,11 @@ class MovieTableViewController: UITableViewController {
 
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as? MovieTableViewCell else {
+            fatalError("Cell identifier is wrong or the cell is not of expected type FriendTableViewCell")
+        }
+            let movie = movies[indexPath.row]
+            cell.movieLabel.text = movie.name
         return cell
     }
     
@@ -75,15 +76,18 @@ class MovieTableViewController: UITableViewController {
     }
     */
 
-    /*
+
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "AddMovieSegue" {
+            let addVC = segue.destination as? AddMovieViewController
+            addVC?.delegate = self
+            dismiss(animated: true, completion: nil)
+        }
     }
-    */
+
 
 }
 
