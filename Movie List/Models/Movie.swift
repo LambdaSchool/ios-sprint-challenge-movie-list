@@ -12,5 +12,6 @@ import Foundation
 struct Movie {
     
     let title: String
+    var isSeen: Bool = false
     
 }
