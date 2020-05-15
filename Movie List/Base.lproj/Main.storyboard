@@ -12,20 +12,20 @@
         <scene sceneID="QLa-8J-zql">
             <objects>
                 <tableViewController title="Movie List" id="S7z-QK-qT9" customClass="MovieListTableViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="i8G-ak-9Zm">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="i8G-ak-9Zm" customClass="MovieListTableView" customModule="Movie_List" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="movieTableCell" id="rsQ-9p-fUd">
-                                <rect key="frame" x="0.0" y="28" width="375" height="43"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="movieTableCell" id="rsQ-9p-fUd" customClass="MovieListTableViewCell" customModule="Movie_List" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rsQ-9p-fUd" id="Q0j-OD-USj">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rsQ-9p-fUd" id="Q0j-OD-USj" customClass="MovieListTableViewCell" customModule="Movie_List" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4r4-LP-3ml">
-                                            <rect key="frame" x="31" y="11" width="42" height="21"/>
+                                            <rect key="frame" x="31" y="11" width="42" height="21.5"/>
                                             <accessibility key="accessibilityConfiguration" identifier="movieLabel"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" relation="lessThanOrEqual" constant="250" id="W8d-Bq-DAJ"/>
@@ -35,9 +35,12 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DBa-Oc-DGG">
-                                            <rect key="frame" x="297" y="6" width="46" height="31"/>
+                                            <rect key="frame" x="297" y="6" width="46" height="31.5"/>
                                             <accessibility key="accessibilityConfiguration" identifier="addMovieButton"/>
                                             <state key="normal" title="Button"/>
+                                            <connections>
+                                                <action selector="seenUnseenAction:" destination="S7z-QK-qT9" eventType="touchUpInside" id="69E-1l-akl"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <constraints>
@@ -50,6 +53,10 @@
                                         <constraint firstItem="4r4-LP-3ml" firstAttribute="centerY" secondItem="DBa-Oc-DGG" secondAttribute="centerY" id="sfm-AK-Omp"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="movieLabel" destination="4r4-LP-3ml" id="h4X-6D-PeS"/>
+                                    <outlet property="seenUnseenButton" destination="DBa-Oc-DGG" id="j71-8C-RPA"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -64,6 +71,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="seenUnseenButton" destination="DBa-Oc-DGG" id="tco-j4-Lzd"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FIn-TD-e6L" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

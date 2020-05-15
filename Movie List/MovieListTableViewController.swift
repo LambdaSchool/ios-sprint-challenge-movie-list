@@ -10,7 +10,12 @@ import UIKit
 
 class MovieListTableViewController: UITableViewController {
     
-
+    @IBOutlet weak var seenUnseenButton: UIButton!
+    
+    @IBAction func seenUnseenAction(_ sender: Any) {
+    }
+    
+    
     var movies: [Movie] = [Movie]()
     
     
@@ -44,11 +49,11 @@ class MovieListTableViewController: UITableViewController {
         // Configure the cell...
 
         let movie = movies[indexPath.row]
-        cell.movieLabel.text = movie.name
+        cell.?????????.text = movie.name
         if movie.seen == true {
-            return cell.addMovieButton.text = "Seen"
+            return cell.????????.text = "Seen"
         } else {
-            return cell.addMovieButton.text = "Unseen"
+            return cell.???????? = "Unseen"
         }
         return cell
     }
