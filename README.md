@@ -1,5 +1,6 @@
 # Sprint Challenge: iOS Fundamentals 1 - Movie List
 
+
 This challenge allows you to practice the concepts and techniques learned over the past week and apply them in a concrete project. This Sprint explored iOS Basics. During this Sprint, you studied the Xcode IDE, Model-View-Controller, container controllers, and table views. In your challenge this week, you will demonstrate proficiency by creating an application that collects and lists your favorite movies.
 
 ## Instructions
