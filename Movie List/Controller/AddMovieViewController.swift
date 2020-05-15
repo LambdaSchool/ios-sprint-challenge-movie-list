@@ -6,34 +6,30 @@
 //  Copyright © 2020 Lambda School. All rights reserved.
 //
 
+
 import UIKit
 
+
+protocol AddMovieDelegate {
+    func movieCreated(newMovie: Movies)
+}
 
 class AddMovieViewController: UIViewController {
     
     
     @IBOutlet weak var movieEntered: UITextField!
     
-    
+    var delegate: AddMovieDelegate?
     
     @IBAction func addMovie(_ sender: Any) {
         
-        if movieEntered.text != "" {
+        if movieEntered.text == "" {
             movieEntered.placeholder = "Please Enter a Movie"
         } else {
-            let newMovie = movieEntered.text
+            let newMovies = theMovies.append
+            print("\(newMovies)")
+            dismiss(animated: true, completion: nil)
         }
     }
-    
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "ToTableView" {
-            let newMovieVC = segue.destination as? MovieListTableViewController
-            
-            // "Hey newFriendVC, I'm the one to talk to in order to add a friend to the array"
-            newMovieVC?.delegate=self
-        }
-    }
-    
 }
 
