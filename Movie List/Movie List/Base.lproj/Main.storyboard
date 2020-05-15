@@ -23,29 +23,34 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" spacing="189" translatesAutoresizingMaskIntoConstraints="NO" id="afB-fK-jBa">
-                                            <rect key="frame" x="20" y="4" width="330.5" height="34"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vU0-fA-BZ7">
-                                                    <rect key="frame" x="0.0" y="0.0" width="100.5" height="34"/>
-                                                    <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="0.0"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0E4-Nz-PCD">
-                                                    <rect key="frame" x="289.5" y="0.0" width="41" height="34"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                    <color key="tintColor" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <state key="normal" title="Not Seen"/>
-                                                    <state key="selected" title="Seen">
-                                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    </state>
-                                                </button>
-                                            </subviews>
-                                        </stackView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vU0-fA-BZ7">
+                                            <rect key="frame" x="16" y="11" width="100.5" height="21.5"/>
+                                            <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="0.0"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0E4-Nz-PCD">
+                                            <rect key="frame" x="357" y="5" width="41" height="34"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                            <color key="tintColor" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <state key="normal" title="Not Seen"/>
+                                            <state key="selected" title="Seen">
+                                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="seenButton:" destination="Egb-TL-0CB" eventType="touchUpInside" id="0so-hj-9CX"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="0E4-Nz-PCD" secondAttribute="trailing" constant="16" id="X9A-eW-5i8"/>
+                                        <constraint firstItem="0E4-Nz-PCD" firstAttribute="centerY" secondItem="hx4-Aq-g5k" secondAttribute="centerY" id="bms-lK-j0K"/>
+                                        <constraint firstItem="vU0-fA-BZ7" firstAttribute="leading" secondItem="hx4-Aq-g5k" secondAttribute="leading" constant="16" id="hWr-Fi-F6h"/>
+                                        <constraint firstItem="vU0-fA-BZ7" firstAttribute="centerY" secondItem="hx4-Aq-g5k" secondAttribute="centerY" id="xBQ-p6-FE7"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <gestureRecognizers/>
                                 <connections>
                                     <outlet property="movieLabel" destination="vU0-fA-BZ7" id="9hw-Vs-DT3"/>
                                 </connections>
@@ -57,6 +62,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Movie List " id="uDQ-hD-tHI">
+                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="Y1R-Rt-lv1"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="JIJ-5U-xtf">
                             <connections>
                                 <segue destination="pfT-Kb-2ol" kind="presentation" identifier="AddMovieSegue" id="RJR-Lz-no0"/>
@@ -67,6 +73,41 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pgr-UH-Ruu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="931.88405797101461" y="-5.3571428571428568"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="V6n-K5-fzd">
+            <objects>
+                <viewController id="FA9-p6-wgj" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bmz-Sh-nqb">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Edit the name of the movie " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1YB-pn-MDG">
+                                <rect key="frame" x="35" y="84" width="359" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IRI-CN-UWS">
+                                <rect key="frame" x="159" y="163" width="97" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BHJ-Y5-wSN">
+                                <rect key="frame" x="169" y="255" width="76" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Edit Movie "/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="6IL-Qm-txn"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lbJ-uI-zME" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="931.88405797101461" y="-627.45535714285711"/>
         </scene>
         <!--Add Movie View Controller-->
         <scene sceneID="e0t-Sn-yfM">
@@ -116,7 +157,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ko7-IW-2TB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1785.5072463768117" y="-5.3571428571428568"/>
+            <point key="canvasLocation" x="1723" y="-310"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="mds-qb-ePN">
