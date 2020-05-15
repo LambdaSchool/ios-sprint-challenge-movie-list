@@ -7,3 +7,14 @@
 //
 
 import Foundation
+
+struct Movie {
+    var movieTitle: String
+    var movieSeen: Bool = false
+    
+}
+
+
+
+
+

@@ -12,8 +12,22 @@ class MovieListTableViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.dataSource = self
+        
 
+        
         // Do any additional setup after loading the view.
+    }
+    
+    extension MovieListTableViewController: AddMovieDelegate {
+        func movieWasAdded(movie: Movie) {
+            movies.append(movie)
+            tableView.reloadData()
+            
+        }
+        
+        
     }
     
 
