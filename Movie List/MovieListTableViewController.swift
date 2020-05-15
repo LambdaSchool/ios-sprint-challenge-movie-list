@@ -9,9 +9,9 @@
 import UIKit
 
 class MovieListTableViewController: UITableViewController {
+    
 
     var movies: [Movie] = [Movie]()
-    
     
     
     override func viewDidLoad() {
@@ -26,25 +26,33 @@ class MovieListTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
+    //override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
+        
+
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return movies.count
     }
-
-    // override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         
 
 
-    /*
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "movieTableCell", for: indexPath)
 
         // Configure the cell...
 
+        let movie = movies[indexPath.row]
+        cell.movieLabel.text = movie.name
+        if movie.seen == true {
+            return cell.addMovieButton.text = "Seen"
+        } else {
+            return cell.addMovieButton.text = "Unseen"
+        }
         return cell
     }
-    */
+
 
     /*
     // Override to support conditional editing of the table view.
