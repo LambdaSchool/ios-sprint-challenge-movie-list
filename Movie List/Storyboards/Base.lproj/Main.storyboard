@@ -17,11 +17,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" spacing="243" translatesAutoresizingMaskIntoConstraints="NO" id="aWC-BK-Gxx" userLabel="Header Labels">
+                                <rect key="frame" x="20" y="30" width="335" height="20.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Movie" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S0L-fw-dAC">
+                                        <rect key="frame" x="0.0" y="0.0" width="53" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Seen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xWV-p3-lgF">
+                                        <rect key="frame" x="296" y="0.0" width="39" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dtJ-vd-svi">
                                 <rect key="frame" x="0.0" y="50" width="375" height="568"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="sIt-1m-zaU">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieCell" id="sIt-1m-zaU" customClass="MoviesListTableViewCell" customModule="Movie_List" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sIt-1m-zaU" id="CgK-1e-pzV">
@@ -50,31 +67,19 @@
                                                 <constraint firstAttribute="trailing" secondItem="GTX-1d-ixx" secondAttribute="trailing" constant="20" id="j4D-aC-wC4"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="movieLabel" destination="P2b-Vj-ucE" id="oMf-V4-yg0"/>
+                                            <outlet property="seenSwitch" destination="6sp-kw-TYY" id="H0P-hU-ZMI"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" alignment="bottom" spacing="243" translatesAutoresizingMaskIntoConstraints="NO" id="aWC-BK-Gxx">
-                                <rect key="frame" x="20" y="30" width="335" height="20.5"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Movie" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S0L-fw-dAC">
-                                        <rect key="frame" x="0.0" y="0.0" width="53" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Seen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xWV-p3-lgF">
-                                        <rect key="frame" x="296" y="0.0" width="39" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                            </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="WSE-XJ-yhE" firstAttribute="trailing" secondItem="dtJ-vd-svi" secondAttribute="trailing" id="EQs-Ph-Izn"/>
                             <constraint firstItem="dtJ-vd-svi" firstAttribute="leading" secondItem="WSE-XJ-yhE" secondAttribute="leading" id="GJN-yq-rRt"/>
+                            <constraint firstItem="aWC-BK-Gxx" firstAttribute="top" secondItem="WSE-XJ-yhE" secondAttribute="top" constant="30" id="bXQ-Dq-FXK"/>
                             <constraint firstItem="aWC-BK-Gxx" firstAttribute="leading" secondItem="WSE-XJ-yhE" secondAttribute="leading" constant="20" id="dmD-jN-iVs"/>
                             <constraint firstItem="WSE-XJ-yhE" firstAttribute="bottom" secondItem="dtJ-vd-svi" secondAttribute="bottom" id="ikB-jz-VWC"/>
                             <constraint firstItem="WSE-XJ-yhE" firstAttribute="trailing" secondItem="aWC-BK-Gxx" secondAttribute="trailing" constant="20" id="qBX-3d-Hw2"/>
@@ -92,8 +97,7 @@
                     </toolbarItems>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="movieSeen" destination="6sp-kw-TYY" id="6zj-g8-O26"/>
-                        <outlet property="movieTitle" destination="P2b-Vj-ucE" id="7St-HU-dNF"/>
+                        <outlet property="tableView" destination="dtJ-vd-svi" id="slE-3E-LI7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RzD-Bv-z1y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

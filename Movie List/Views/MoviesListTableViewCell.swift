@@ -9,16 +9,21 @@
 import UIKit
 
 class MoviesListTableViewCell: UITableViewCell {
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    
+    @IBOutlet weak var movieLabel: UILabel!
+    @IBOutlet weak var seenSwitch: UISwitch!
+    
+    var movie: Movie? {
+        didSet {
+            updateViews()
+        }
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    private func updateViews() {
+        if let movie = movie {
+            movieLabel.text = movie.title
+            seenSwitch.isOn = movie.haveSeen
+        }
     }
 
 }
