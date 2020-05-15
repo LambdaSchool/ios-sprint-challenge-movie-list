@@ -21,7 +21,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="60" id="J7T-Z8-9vw">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieCell" rowHeight="60" id="J7T-Z8-9vw" customClass="MovieTableViewCell" customModule="Movie_List" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="J7T-Z8-9vw" id="Kst-9e-xLO">
@@ -37,6 +37,9 @@
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j4m-Mp-Dzw">
                                                     <rect key="frame" x="330" y="15" width="64" height="30"/>
                                                     <state key="normal" title="Not Seen"/>
+                                                    <connections>
+                                                        <action selector="SeenNotSeenButton:" destination="J7T-Z8-9vw" eventType="touchUpInside" id="pgU-h1-yKg"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -47,6 +50,9 @@
                                                 <constraint firstItem="UuO-fN-1ej" firstAttribute="centerY" secondItem="Kst-9e-xLO" secondAttribute="centerY" id="jH1-ib-gTz"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="movielLabel" destination="UuO-fN-1ej" id="XtA-DY-Glv"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -57,10 +63,13 @@
                     <navigationItem key="navigationItem" title="Movie List" id="1aJ-ei-6yY">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="T7s-c4-x1D">
                             <connections>
-                                <segue destination="5Kz-Po-E77" kind="presentation" id="lEy-Dv-1GJ"/>
+                                <segue destination="5Kz-Po-E77" kind="presentation" identifier="ModalNewMovie" id="lEy-Dv-1GJ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="TableView" destination="0gP-7b-RJ2" id="kZF-FY-z6L"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IzA-c3-kJj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -101,7 +110,11 @@
                                 <rect key="frame" x="0.0" y="764" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
-                                    <barButtonItem systemItem="cancel" id="AIL-xv-Asj"/>
+                                    <barButtonItem systemItem="cancel" id="AIL-xv-Asj">
+                                        <connections>
+                                            <action selector="Cancel:" destination="5Kz-Po-E77" id="K1A-h9-b6G"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="TUZ-4R-EGf"/>
                                 </items>
                             </toolbar>
