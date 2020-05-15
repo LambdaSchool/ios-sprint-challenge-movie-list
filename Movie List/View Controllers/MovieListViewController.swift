@@ -12,11 +12,11 @@ class MovieListViewController: UIViewController {
 
     @IBOutlet weak var movieTableView: UITableView!
     
-    var movies: [Movie] = [Movie(movieName: "Django")]
+    var movies: [Movie] = []
     
-    @IBAction func hasBeenSeen(_ sender: UIButton) {
-        sender.isSelected.toggle()
-    }
+//    @IBAction func hasBeenSeen(_ sender: UIButton) {
+//        sender.isSelected.toggle()
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,17 +56,18 @@ extension MovieListViewController: UITableViewDataSource {
             fatalError("Cell identifier is wrong or the cell is not of expected type MoviesTableViewCell")
         }
         let movie = movies[indexPath.row]
-        cell.movieTextField.text = movie.movieName
-        cell.
+        cell.textLabel?.text = movie.movieName
         return cell
     }
+        
     }
-    
+
 
 
 extension MovieListViewController: AddMovieDelegate {
     func movieWasCreated(movie: Movie) {
         movies.append(movie)
+        dismiss(animated: true, completion: nil)
         movieTableView.reloadData()
     }
     

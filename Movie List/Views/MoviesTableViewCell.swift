@@ -10,8 +10,8 @@ import UIKit
 
 class MoviesTableViewCell: UITableViewCell {
 
-    
-    @IBOutlet weak var movieTextField: UITextField!
+    var movie: Movie?
+
     
     override func awakeFromNib() {
         super.awakeFromNib()
