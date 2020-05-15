@@ -9,13 +9,20 @@
 import UIKit
 
 class AddNewMovieViewController: UIViewController {
-
+    @IBOutlet weak var movieTextField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
+    
+    @IBAction func SaveMovieButton(_ sender: Any) {
+        guard let movie = movieTextField.text else { return }
+        
+    }
+    
+    let movie = Movie(name: "Hitchhikers Guide To The Galaxy")
 
     /*
     // MARK: - Navigation

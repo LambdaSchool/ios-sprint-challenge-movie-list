@@ -10,11 +10,38 @@ import UIKit
 
 class MovieListViewController: UIViewController {
 
+ 
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-    }
+    
+        }
+    
+           
+
+}
+    
+//        @objc func buttonPressed() {
+//            activateButton(bool: !isOn)
+//        }
+//
+//        func activateButton(bool: Bool) {
+//
+//            isOn = bool
+//
+//            let color = bool ? UIColor.blue : .clear
+//            let title = bool ? "Seen" : "Not Seen"
+//            let titleColor = bool ? .white : UIColor.blue
+//
+//            setTitle(title, for: .normal)
+//            setTitleColor(titleColor, for: .normal)
+//            backgroundColor = color
+//        }
+//    }
+    
     
 
     /*
@@ -27,4 +54,3 @@ class MovieListViewController: UIViewController {
     }
     */
 
-}
