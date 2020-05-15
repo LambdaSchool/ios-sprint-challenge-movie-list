@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dtJ-vd-svi">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                                <rect key="frame" x="0.0" y="50" width="375" height="568"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="sIt-1m-zaU">
@@ -27,17 +27,58 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sIt-1m-zaU" id="CgK-1e-pzV">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="244" translatesAutoresizingMaskIntoConstraints="NO" id="GTX-1d-ixx">
+                                                    <rect key="frame" x="20" y="6.5" width="335" height="31"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P2b-Vj-ucE">
+                                                            <rect key="frame" x="0.0" y="0.0" width="42" height="31"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6sp-kw-TYY">
+                                                            <rect key="frame" x="286" y="0.0" width="51" height="31"/>
+                                                        </switch>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="GTX-1d-ixx" firstAttribute="centerY" secondItem="CgK-1e-pzV" secondAttribute="centerY" id="6dd-Zb-deM"/>
+                                                <constraint firstItem="GTX-1d-ixx" firstAttribute="centerX" secondItem="CgK-1e-pzV" secondAttribute="centerX" id="aim-03-aoS"/>
+                                                <constraint firstItem="GTX-1d-ixx" firstAttribute="leading" secondItem="CgK-1e-pzV" secondAttribute="leading" constant="20" id="dvs-eS-QSm"/>
+                                                <constraint firstAttribute="trailing" secondItem="GTX-1d-ixx" secondAttribute="trailing" constant="20" id="j4D-aC-wC4"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" alignment="bottom" spacing="243" translatesAutoresizingMaskIntoConstraints="NO" id="aWC-BK-Gxx">
+                                <rect key="frame" x="20" y="30" width="335" height="20.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Movie" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S0L-fw-dAC">
+                                        <rect key="frame" x="0.0" y="0.0" width="53" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Seen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xWV-p3-lgF">
+                                        <rect key="frame" x="296" y="0.0" width="39" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="WSE-XJ-yhE" firstAttribute="trailing" secondItem="dtJ-vd-svi" secondAttribute="trailing" id="EQs-Ph-Izn"/>
                             <constraint firstItem="dtJ-vd-svi" firstAttribute="leading" secondItem="WSE-XJ-yhE" secondAttribute="leading" id="GJN-yq-rRt"/>
+                            <constraint firstItem="aWC-BK-Gxx" firstAttribute="leading" secondItem="WSE-XJ-yhE" secondAttribute="leading" constant="20" id="dmD-jN-iVs"/>
                             <constraint firstItem="WSE-XJ-yhE" firstAttribute="bottom" secondItem="dtJ-vd-svi" secondAttribute="bottom" id="ikB-jz-VWC"/>
-                            <constraint firstItem="dtJ-vd-svi" firstAttribute="top" secondItem="WSE-XJ-yhE" secondAttribute="top" id="vXj-W7-xzH"/>
+                            <constraint firstItem="WSE-XJ-yhE" firstAttribute="trailing" secondItem="aWC-BK-Gxx" secondAttribute="trailing" constant="20" id="qBX-3d-Hw2"/>
+                            <constraint firstItem="dtJ-vd-svi" firstAttribute="top" secondItem="WSE-XJ-yhE" secondAttribute="top" constant="50" id="vXj-W7-xzH"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="WSE-XJ-yhE"/>
                     </view>
@@ -50,10 +91,14 @@
                         </barButtonItem>
                     </toolbarItems>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="movieSeen" destination="6sp-kw-TYY" id="6zj-g8-O26"/>
+                        <outlet property="movieTitle" destination="P2b-Vj-ucE" id="7St-HU-dNF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RzD-Bv-z1y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-370" y="-388"/>
+            <point key="canvasLocation" x="-370.39999999999998" y="-388.15592203898052"/>
         </scene>
         <!--Add Movie View Controller-->
         <scene sceneID="nt2-0E-9mt">
@@ -99,6 +144,10 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="dbe-GB-4fa"/>
                     </view>
+                    <connections>
+                        <outlet property="haveSeen" destination="7f5-jl-RNE" id="My8-ZB-Fkv"/>
+                        <outlet property="movieTitle" destination="TL3-4e-lsz" id="jUF-gP-Dx8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lH1-Hc-jT2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

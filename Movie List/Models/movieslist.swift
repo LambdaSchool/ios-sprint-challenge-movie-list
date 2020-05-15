@@ -12,3 +12,5 @@ struct Movie {
     let title: String
     var haveSeen: Bool = false
 }
+
+var moviesList: [Movie] = []

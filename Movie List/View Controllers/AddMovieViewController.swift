@@ -1,5 +1,5 @@
 //
-//  ListMoviesViewController.swift
+//  AddMovieViewController.swift
 //  Movie List
 //
 //  Created by Mike Nichols on 5/15/20.
@@ -8,8 +8,12 @@
 
 import UIKit
 
-class ListMoviesViewController: UIViewController {
+class AddMovieViewController: UIViewController {
 
+    @IBOutlet weak var haveSeen: UISwitch!
+    @IBOutlet weak var movieTitle: UITextField!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
