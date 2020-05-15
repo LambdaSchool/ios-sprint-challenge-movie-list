@@ -25,7 +25,7 @@ class CreateMovieViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        
     }
     @IBAction func createMovieButton(_ sender: Any) {
         guard let title = titleTextField.text,
@@ -36,8 +36,7 @@ class CreateMovieViewController: UIViewController {
         }
         let movie = Movie(title: title)
         delegate.createMovie(movie: movie)
-        dismiss(animated: true, completion: nil
-        )
+        dismiss(animated: true, completion: nil)
         print("create movie button tapped")
     }
 
