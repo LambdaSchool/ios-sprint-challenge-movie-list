@@ -30,14 +30,24 @@ extension MovieViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return movies.count
     }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as? MovieTableViewCell else {
+            fatalError("Cell identifier is wrong, or cell is not part of expected type MovieTableViewCell.")
+        }
         
         let movie = movies[indexPath.row]
         
-        cell.textLabel?.text = movie.name
+        cell.movieLabel.text = movie.name
         
         return cell
     }
     
+}
+
+extension MovieViewController: AddMovieDelegate {
+    func movieWasAdded(_ movie: Movie) {
+        movies.append(movie)
+
+    }
 }

@@ -24,7 +24,7 @@ class AddMovieViewController: UIViewController {
 
     }
     @IBAction func addMovie(_ sender: Any) {
-        guard let movie = movieTextField.text else { return }
+    guard let movie = movieTextField.text else { return }
         
         let movieAdded = Movie(name: movie)
         
@@ -33,17 +33,4 @@ class AddMovieViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
-}
-
-extension AddMovieViewController: UITextFieldDelegate {
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        guard textField.text != nil else { return false }
-        switch textField {
-        case movieTextField:
-            textField.resignFirstResponder()
-        default:
-            break
-        }
-        return false 
-    }
 }
