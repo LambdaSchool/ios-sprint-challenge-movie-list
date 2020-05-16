@@ -10,8 +10,6 @@ import UIKit
 
 class MoviesTableViewCell: UITableViewCell {
 
-    var movie: Movie?
-
     
     override func awakeFromNib() {
         super.awakeFromNib()

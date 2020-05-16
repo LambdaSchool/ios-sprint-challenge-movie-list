@@ -12,30 +12,35 @@ protocol AddMovieDelegate {
     func movieWasCreated(movie: Movie)
 }
 
-class AddMovieViewController: UIViewController {
+class AddMovieViewController: UIViewController, UITextFieldDelegate {
 
-    
+   
     
     @IBOutlet weak var movieTextField: UITextField!
-    
+    var movie: Movie?
     var delegate: AddMovieDelegate?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        movieTextField?.delegate = self
+        movieTextField.delegate = self
         // Do any additional setup after loading the view.
     }
     
-
-    @IBAction func addMovieButton(_ sender: Any) {
-        
-        guard let movie = movieTextField?.text else { return }
+    @IBAction func button(_ sender: Any) {
+    
+    
+//    @IBAction func addMovieButton(_ sender: UIButton) {
+        guard let movie = movieTextField.text else { return }
         
         let movieObject = Movie(movieName: movie, hasBeenSeen: true)
+        
         delegate?.movieWasCreated(movie: movieObject)
-        dismiss(animated: true, completion: nil)
+        self.navigationController?.popViewController(animated: true)
+        self.dismiss(animated: true, completion: nil)
     }
+}
     /*
     // MARK: - Navigation
 
@@ -46,12 +51,14 @@ class AddMovieViewController: UIViewController {
     }
     */
 
-}
 
-extension AddMovieViewController: UITextFieldDelegate {
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        movieTextField.resignFirstResponder()
+
+extension AddMovieViewController: AddMovieDelegate {
+    func movieWasCreated(movie: Movie) {
+        movieTextField.text = movie.movieName
         
-        return true 
     }
-}
+    
+    
+    }
+

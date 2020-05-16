@@ -12,11 +12,15 @@ class MovieListViewController: UIViewController {
 
     @IBOutlet weak var movieTableView: UITableView!
     
+    
+    
+    
+    
+    
+             
     var movies: [Movie] = []
     
-//    @IBAction func hasBeenSeen(_ sender: UIButton) {
-//        sender.isSelected.toggle()
-//    }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +28,10 @@ class MovieListViewController: UIViewController {
         // Do any additional setup after loading the view.
         movieTableView.dataSource = self
     }
-    
+    @IBAction func hasBeenOnButton(_ sender: UIButton) {
+           sender.isSelected.toggle()
+                
+       }
 
 
     // MARK: - Navigation
