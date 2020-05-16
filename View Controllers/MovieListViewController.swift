@@ -11,59 +11,58 @@ import UIKit
 class MovieListViewController: UIViewController {
 
  
-    @IBOutlet weak var TableView: UITableView!
+    @IBOutlet weak var tableView: UITableView!
     
+    var movies: [Movie] = [Movie(name: "Hitchhikers Guide To The Galaxy")]
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // Tell the table view that we (the view controller) are going to be its delegate (meaning, we will help it get the information it needs)
+        tableView.dataSource = self
         // Do any additional setup after loading the view.
     
         }
-    
-           
-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ModalNewMovie" {
+            
+            let newFriendVC = segue.destination as? AddNewMovieViewController
+            
+            newFriendVC?.delegate = self
+        }
+    }
 }
-    
-//        @objc func buttonPressed() {
-//            activateButton(bool: !isOn)
-//        }
-//
-//        func activateButton(bool: Bool) {
-//
-//            isOn = bool
-//
-//            let color = bool ? UIColor.blue : .clear
-//            let title = bool ? "Seen" : "Not Seen"
-//            let titleColor = bool ? .white : UIColor.blue
-//
-//            setTitle(title, for: .normal)
-//            setTitleColor(titleColor, for: .normal)
-//            backgroundColor = color
-//        }
-//    }
+
     
     
 
-    /*
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+//     In a storyboard-based application, you will often want to do a little preparation before navigation
 extension MovieListViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 
+        return movies.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as? MovieTableViewCell else {
+            fatalError("Cell identifier is wrong or the cell is not of expected type MovieTableViewCell")
+        }
+        
+        let movie = movies[indexPath.row]
+        
+        cell.movielLabel.text = movie.name
+        
+
+        return cell
     }
-    
-    
 }
+
+extension MovieListViewController: AddMovieDelegate {
+    func movieWasCreated(movie: Movie) {
+        movies.append(movie)
+        tableView.reloadData()
+    }
+}
+

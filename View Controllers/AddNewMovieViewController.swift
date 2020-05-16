@@ -8,29 +8,32 @@
 
 import UIKit
 
+protocol AddMovieDelegate {
+    func movieWasCreated(movie: Movie)
+}
+
+
 class AddNewMovieViewController: UIViewController {
+    
     @IBOutlet weak var movieTextField: UITextField!
    
+    var delegate: AddMovieDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
  }
-        // Do any additional setup after loading the view.
-   
-    
     
     @IBAction func SaveMovieButton(_ sender: Any) {
-//        guard let movie = movieTextField.text else { return }
-//
-    }
+        
+        guard let name = movieTextField.text else { return }
+    
+        let movie = Movie(name: name)
+    
+        delegate?.movieWasCreated(movie: movie)
+        dismiss(animated: true, completion: nil)
+ }
     
     
-    @IBAction func Cancel(_ sender: Any) {
-    }
-    
-   
-    let movie = Movie(name: "Hitchhikers Guide To The Galaxy")
-
     /*
     // MARK: - Navigation
 
@@ -41,6 +44,11 @@ class AddNewMovieViewController: UIViewController {
     }
     */
 
+    @IBAction func Cancel(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    
+    
+    
 }
-
-
