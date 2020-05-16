@@ -17,8 +17,10 @@ class MovieTableViewCell: UITableViewCell {
         // Initialization code
     }
     
-    @IBAction func SeenNotSeenButton(_ sender: Any) {
+    @IBAction func SeenNotSeenButton(_ sender: UIButton) {
+        sender.isSelected.toggle()
     }
+    
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
