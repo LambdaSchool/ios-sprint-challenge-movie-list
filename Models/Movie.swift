@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 struct Movie {
     let name: String
     let hasBeenSeen: Bool = false

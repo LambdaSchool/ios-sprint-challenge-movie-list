@@ -18,11 +18,10 @@ class MovieListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Tell the table view that we (the view controller) are going to be its delegate (meaning, we will help it get the information it needs)
+ 
         tableView.dataSource = self
-        // Do any additional setup after loading the view.
-    
         }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ModalNewMovie" {
             
@@ -34,11 +33,8 @@ class MovieListViewController: UIViewController {
 }
 
     
-    
-
     // MARK: - Navigation
 
-//     In a storyboard-based application, you will often want to do a little preparation before navigation
 extension MovieListViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -50,14 +46,15 @@ extension MovieListViewController: UITableViewDataSource {
             fatalError("Cell identifier is wrong or the cell is not of expected type MovieTableViewCell")
         }
         
+        
         let movie = movies[indexPath.row]
         
         cell.movielLabel.text = movie.name
         
-
         return cell
     }
 }
+
 
 extension MovieListViewController: AddMovieDelegate {
     func movieWasCreated(movie: Movie) {
@@ -65,4 +62,3 @@ extension MovieListViewController: AddMovieDelegate {
         tableView.reloadData()
     }
 }
-

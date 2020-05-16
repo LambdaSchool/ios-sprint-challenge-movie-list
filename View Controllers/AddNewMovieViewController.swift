@@ -13,6 +13,7 @@ protocol AddMovieDelegate {
 }
 
 
+
 class AddNewMovieViewController: UIViewController {
     
     @IBOutlet weak var movieTextField: UITextField!
@@ -22,6 +23,8 @@ class AddNewMovieViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
  }
+    
+    
     
     @IBAction func SaveMovieButton(_ sender: Any) {
         
@@ -34,21 +37,8 @@ class AddNewMovieViewController: UIViewController {
  }
     
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
     @IBAction func Cancel(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
-    
-    
-    
-    
 }
