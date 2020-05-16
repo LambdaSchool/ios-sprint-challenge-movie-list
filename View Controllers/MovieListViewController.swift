@@ -13,7 +13,7 @@ class MovieListViewController: UIViewController {
  
     @IBOutlet weak var tableView: UITableView!
     
-    var movies: [Movie] = [Movie(name: "Hitchhikers Guide To The Galaxy")]
+    var movies: [Movie] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
