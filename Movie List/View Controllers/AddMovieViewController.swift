@@ -9,28 +9,24 @@
 import UIKit
 
 protocol AddMovieDelegate {
-    func movieWasAdded(_ movie: Movie)
+    func movieWasAdded(_ viewcontroller: AddMovieViewController, didUpdateMovie movie: String)
 }
 
 class AddMovieViewController: UIViewController {
     
-    @IBOutlet var addMovieViewController: UIView!
     @IBOutlet weak var movieTextField: UITextField!
     
     var delegate: AddMovieDelegate?
     
+    @IBAction func addMovie(_ sender: Any) {
+        guard let movie = movieTextField.text else { return }
+        delegate?.movieWasAdded(self, didUpdateMovie: movie)
+        dismiss(animated: true, completion: nil)
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
     }
-    @IBAction func addMovie(_ sender: Any) {
-    guard let movie = movieTextField.text else { return }
-        
-        let movieAdded = Movie(name: movie)
-        
-        delegate?.movieWasAdded(movieAdded)
-        
-        dismiss(animated: true, completion: nil)
-    }
-    
+
 }

@@ -8,10 +8,21 @@
 
 import UIKit
 
+protocol movieTableViewCellDelegate {
+    func didTapSeenButton(text: String)
+}
+
 class MovieTableViewCell: UITableViewCell {
     
     @IBOutlet weak var movieLabel: UILabel!
+    @IBAction func seenButtonTapped(_ sender: Any) {
+    }
     
+    var delegate: movieTableViewCellDelegate?
+    
+    func update(with movie: Movie) {
+        movieLabel.text = movie.name
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()

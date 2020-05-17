@@ -33,10 +33,13 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fts-iC-hmW">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fts-iC-hmW" customClass="SeenButton" customModule="Movie_List" customModuleProvider="target">
                                                     <rect key="frame" x="281" y="6" width="113" height="30.5"/>
                                                     <state key="normal" title="Not Seen"/>
                                                     <state key="selected" title="Seen"/>
+                                                    <connections>
+                                                        <action selector="seenButtonTapped:" destination="f2i-ZH-ftm" eventType="touchUpInside" id="pFn-hD-gE7"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -73,6 +76,7 @@
                     <navigationItem key="navigationItem" title="Movie List" id="RZ8-4N-raB">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="QFP-Up-G4I">
                             <connections>
+                                <action selector="tappedAddMove:" destination="5gC-Go-HOb" id="afH-VM-uNU"/>
                                 <segue destination="pDV-Ac-i5m" kind="show" identifier="AddMovieSegue" id="CNK-xk-Gbe"/>
                             </connections>
                         </barButtonItem>
@@ -128,7 +132,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="xa5-p8-rc1"/>
                     <connections>
-                        <outlet property="addMovieViewController" destination="4ir-pq-ub6" id="bN0-vr-PJ5"/>
                         <outlet property="movieTextField" destination="HVl-Gp-HS4" id="3d4-Us-guT"/>
                     </connections>
                 </viewController>
