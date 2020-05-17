@@ -9,6 +9,6 @@
 import Foundation
 
 struct Movies {
-    let title: String
-    let watched: Bool
+    var title: String
+    var watched: Bool
 }
