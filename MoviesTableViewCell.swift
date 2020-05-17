@@ -13,9 +13,7 @@ class MoviesTableViewCell: UITableViewCell {
     
     @IBOutlet weak var movieTitle: UILabel!
     
-    @IBOutlet weak var notSeenButton: UIButton!
-    
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
