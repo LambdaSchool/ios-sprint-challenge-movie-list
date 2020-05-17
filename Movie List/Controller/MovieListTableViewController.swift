@@ -22,11 +22,13 @@ class MovieListTableViewController: UITableViewController {
     @IBAction func seenButton(_ sender: UIButton) {
         if sender.currentTitle == "Seen" {
             sender.setTitle("Not Seen", for: .normal)
-            seen = true
-            
+            seen = false
+            print(theMovies)
         }else if sender.currentTitle == "Not Seen" {
             sender.setTitle("Seen", for: .normal)
-            seen = false
+            seen = true
+            print(theMovies)
+            
         }else {
             print("ERROR")
         }
@@ -42,11 +44,9 @@ class MovieListTableViewController: UITableViewController {
             fatalError("Cell identifier is wrong or the cell is not of type of expected type MoviesTableViewCell")
             
         }
-        
         let newMovies = theMovies[indexPath.row]
-        
         cell.movieTitle.text = newMovies.title
-    
+        
         switch newMovies.watched{
         case true:
             cell.hasItBeenSeen.setTitle("Seen", for: .normal)
@@ -55,29 +55,19 @@ class MovieListTableViewController: UITableViewController {
         }
         return cell
     }
-    
-    
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == UITableViewCell.EditingStyle.delete {
             theMovies.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
         }
     }
-    
-    
-
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showNewMovieScreen" {
             let newMovieVC = segue.destination as? AddMovieViewController
-            
-            // "Hey newFriendVC, I'm the one to talk to in order to add a friend to the array"
             newMovieVC?.delegate=self
         }
     }
 }
-
-
 extension MovieListTableViewController: AddMovieDelegate {
     func movieCreated(newMovie: Movies) {
         theMovies.append(newMovie)
