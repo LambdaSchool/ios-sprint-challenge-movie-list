@@ -13,8 +13,5 @@ struct Movie {
     var haveSeen: Bool = false
 }
 
-var moviesList: [Movie] = []
-
-
-
+var moviesList: [Movie] = [Movie(title: "Star Wars", haveSeen: true),Movie(title: "Eat Pray Love"),Movie(title: "The Shawshank Redemption", haveSeen: true),]
 

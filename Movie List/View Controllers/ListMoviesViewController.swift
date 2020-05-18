@@ -22,6 +22,7 @@ class ListMoviesViewController: UIViewController {
             let addMovieVC = segue.destination as? AddMovieViewController
             
             addMovieVC?.delegate = self
+            
         }
     }
 
