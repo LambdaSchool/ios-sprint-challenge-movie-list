@@ -8,15 +8,22 @@
 
 import UIKit
 
-class AddMovieViewController: UIViewController {
+protocol AddMovieViewControllerDelegate: class {
+    func addMovieViewController(_ viewController: AddMovieViewController, didUpdateText text: String)
+}
+
+class AddMovieViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var addNewMovieOutlet: UITextField!
+    weak var delegate: AddMovieViewController?
     
     @IBAction func addMovieButtonAction(_ sender: Any) {
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        addNewMovieOutlet.delegate = self
 
         // Do any additional setup after loading the view.
     }
