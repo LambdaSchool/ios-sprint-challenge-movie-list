@@ -27,3 +27,4 @@ class MovieTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
 }
+
