@@ -18,22 +18,6 @@ class MovieListTableViewController: UITableViewController {
         super.viewDidLoad()
         tableView.dataSource = self
     }
-    
-    @IBAction func seenButton(_ sender: UIButton) {
-        if sender.currentTitle == "Seen" {
-            sender.setTitle("Not Seen", for: .normal)
-            seen = false
-            print(theMovies)
-        }else if sender.currentTitle == "Not Seen" {
-            sender.setTitle("Seen", for: .normal)
-            seen = true
-            print(theMovies)
-            
-        }else {
-            print("ERROR")
-        }
-    }
-    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return theMovies.count
@@ -45,7 +29,9 @@ class MovieListTableViewController: UITableViewController {
             
         }
         let newMovies = theMovies[indexPath.row]
+        
         cell.movieTitle.text = newMovies.title
+        cell.movie = newMovies
         
         switch newMovies.watched{
         case true:
@@ -55,12 +41,14 @@ class MovieListTableViewController: UITableViewController {
         }
         return cell
     }
+    
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == UITableViewCell.EditingStyle.delete {
             theMovies.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
         }
     }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showNewMovieScreen" {
             let newMovieVC = segue.destination as? AddMovieViewController
@@ -68,9 +56,11 @@ class MovieListTableViewController: UITableViewController {
         }
     }
 }
+
 extension MovieListTableViewController: AddMovieDelegate {
     func movieCreated(newMovie: Movies) {
         theMovies.append(newMovie)
+        print(theMovies)
         tableView.reloadData()
     }
 }
