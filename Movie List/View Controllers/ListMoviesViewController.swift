@@ -18,13 +18,6 @@ class ListMoviesViewController: UIViewController {
         tableView.dataSource = self
     }
     
-    /*
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "AddMovieSegue" {
-            let addMovieVC = segue.destination as? AddMovieViewController
-        }
-    }
-    */
 
 }
 

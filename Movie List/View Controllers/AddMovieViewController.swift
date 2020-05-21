@@ -20,11 +20,11 @@ class AddMovieViewController: UIViewController {
         
     }
     
-    @IBAction func cancelTapped(_ sender: UIBarButtonItem) {
+    @IBAction func cancelTapped(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func saveTapped(_ sender: UIBarButtonItem) {
+    @IBAction func saveTapped(_ sender: UIButton) {
         
         guard let movieTitle = movieTitle.text
             else { return }
