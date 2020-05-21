@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class ListMoviesViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
@@ -17,14 +18,13 @@ class ListMoviesViewController: UIViewController {
         tableView.dataSource = self
     }
     
+    /*
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "AddMovieSegue" {
             let addMovieVC = segue.destination as? AddMovieViewController
-            
-            addMovieVC?.delegate = self
-            
         }
     }
+    */
 
 }
 
@@ -50,9 +50,3 @@ extension ListMoviesViewController: UITableViewDataSource {
     
 }
 
-extension ListMoviesViewController: AddMovieDelegate {
-    func movieWasAdded(_ movie: Movie) {
-        moviesList.append(movie)
-        tableView.reloadData()
-    }
-}
