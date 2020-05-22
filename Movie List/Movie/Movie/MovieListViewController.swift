@@ -54,7 +54,7 @@ extension MovieListViewController: UITableViewDataSource {
         
         let movie = movies[indexPath.row]
         cell.movie = movie
-        //cell.textLabel?.text = movie.movie
+        cell.textLabel?.text = movie.movie
         return cell
         
     }

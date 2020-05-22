@@ -10,7 +10,7 @@ import UIKit
 
 class MovieDetailTableViewCell: UITableViewCell {
 
-   @IBOutlet weak var tableView: MovieDetailTableViewCell!
+   //@IBOutlet weak var tableView: MovieDetailTableViewCell!
     
     
     //@IBOutlet weak var movieTitle: UILabel!
