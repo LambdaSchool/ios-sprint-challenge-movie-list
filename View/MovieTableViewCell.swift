@@ -14,12 +14,11 @@ class MovieTableViewCell: UITableViewCell {
     @IBOutlet weak var SeenButtonDefault: UIButton!
     
     
-
-      var movie: Movie? {
-          didSet {
-              updateViews()
-          }
-      }
+    var movie: Movie? {
+        didSet {
+            updateViews()
+        }
+    }
     
     
     override func awakeFromNib() {
@@ -28,27 +27,22 @@ class MovieTableViewCell: UITableViewCell {
     }
     
     @IBAction func SeenNotSeenButton(_ sender: UIButton) {
-          self.movie?.hasBeenSeen.toggle()
-            switch self.movie?.hasBeenSeen {
-            case true:
-                self.SeenButtonDefault.setTitle("Seen", for: .normal)
-            default:
-                self.SeenButtonDefault.setTitle("Not Seen", for: .normal)
-            }
+        self.movie?.hasBeenSeen.toggle()
+        switch self.movie?.hasBeenSeen {
+        case true:
+            self.SeenButtonDefault.setTitle("Seen", for: .normal)
+        default:
+            self.SeenButtonDefault.setTitle("Not Seen", for: .normal)
         }
+    }
     
-       private func updateViews() {
-            guard let unwrappedMovie = movie else { return }
+    private func updateViews() {
+        guard let unwrappedMovie = movie else { return }
         movielLabel.text = unwrappedMovie.name
-
-        }
-
-    
-    
         
-//        sender.isSelected.toggle()
+    }
     
-    
+    //        sender.isSelected.toggle()
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

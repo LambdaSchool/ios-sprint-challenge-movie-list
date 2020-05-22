@@ -12,6 +12,3 @@ struct Movie {
     let name: String
     var hasBeenSeen: Bool = false
 }
-
-
-

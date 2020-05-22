@@ -8,42 +8,39 @@
 
 import UIKit
 
-class MovieListViewController: UIViewController {
-
- 
-    @IBOutlet weak var tableView: UITableView!
+class MovieListViewController: UIViewController, UITableViewDelegate {
     
     var movies: [Movie] = []
     
+    @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
- 
+        
         tableView.dataSource = self
-        }
+        tableView.delegate = self
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ModalNewMovie" {
-            
-            let newFriendVC = segue.destination as? AddNewMovieViewController
-            
-            newFriendVC?.delegate = self
+            guard let addMovieVC = segue.destination as? AddNewMovieViewController else { return }
+            addMovieVC.addDelegate = self
         }
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-         if editingStyle == .delete {
-             movies.remove(at: indexPath.row)
-             tableView.deleteRows(at: [indexPath], with: .fade)
-         }
-     }
+        if editingStyle == .delete {
+            movies.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
 }
 
-    
-    // MARK: - Navigation
+
+// MARK: - Navigation
 
 extension MovieListViewController: UITableViewDataSource {
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return movies.count
     }
@@ -53,11 +50,7 @@ extension MovieListViewController: UITableViewDataSource {
             fatalError("Cell identifier is wrong or the cell is not of expected type MovieTableViewCell")
         }
         
-        
-        let movie = movies[indexPath.row]
-        
-        cell.movielLabel.text = movie.name
-        
+        cell.movie = movies[indexPath.row]
         return cell
     }
 }

@@ -12,32 +12,25 @@ protocol AddMovieDelegate {
     func movieWasCreated(movie: Movie)
 }
 
-
-
-class AddNewMovieViewController: UIViewController {
+class AddNewMovieViewController: UIViewController, UITextFieldDelegate {
+    
+    var addDelegate: AddMovieDelegate?
     
     @IBOutlet weak var movieTextField: UITextField!
-   
-    var delegate: AddMovieDelegate?
-    
     override func viewDidLoad() {
         super.viewDidLoad()
- }
-    
+    }
     
     
     @IBAction func SaveMovieButton(_ sender: Any) {
         
         guard let name = movieTextField.text else { return }
-    
-        let movie = Movie(name: name)
-    
-        delegate?.movieWasCreated(movie: movie)
+        let newMovie = Movie(name: name)
+        
+        addDelegate?.movieWasCreated(movie: newMovie)
         dismiss(animated: true, completion: nil)
- }
+    }
     
-    
-
     @IBAction func Cancel(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
