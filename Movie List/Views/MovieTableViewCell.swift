@@ -9,13 +9,14 @@
 import UIKit
 
 protocol movieTableViewCellDelegate {
-    func didTapSeenButton(text: String)
+    func didTapSeenButton(for cell: MovieTableViewCell)
 }
 
 class MovieTableViewCell: UITableViewCell {
     
     @IBOutlet weak var movieLabel: UILabel!
-    @IBAction func seenButtonTapped(_ sender: Any) {
+    @IBAction func seenButtonTapped(_ sender: UIButton) {
+        sender.isSelected.toggle()
     }
     
     var delegate: movieTableViewCellDelegate?
@@ -23,16 +24,4 @@ class MovieTableViewCell: UITableViewCell {
     func update(with movie: Movie) {
         movieLabel.text = movie.name
     }
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
 }

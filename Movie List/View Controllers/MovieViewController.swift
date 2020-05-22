@@ -10,7 +10,7 @@ import UIKit
 
 class MovieViewController: UIViewController {
     
-    var movies: [Movie] = [Movie(name: "Good Burger")]
+    var movies: [Movie] = []
     
     @IBOutlet weak var movieTableView: UITableView!
     @IBOutlet var movieViewController: UIView!
@@ -21,11 +21,14 @@ class MovieViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        movieTableView.dataSource = self
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "AddMovieSegue" {
+            guard let movieVC = segue.destination as? AddMovieViewController else { return }
             
+            movieVC.delegate = self
         }
     }
 }
@@ -36,34 +39,40 @@ extension MovieViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell") as? MovieTableViewCell else { fatalError("Table view cell identifier is wrong or the cell is not a MovieTableViewCell")}
         
         let movie = movies[indexPath.row]
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell") as! MovieTableViewCell
-        
+//        let movie = movies[indexPath.row]
+//
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell") as! MovieTableViewCell
+//
         cell.update(with: movie)
-        
+//
         cell.movieLabel.text = movie.name
+//
+//        cell.delegate = self
         
-        cell.delegate = self 
+        tableView.dataSource = self
         
         return cell
         
-        tableView.dataSource = self
+
     }
     
 }
 
 extension MovieViewController: AddMovieDelegate {
-    func movieWasAdded(_ viewcontroller: AddMovieViewController, didUpdateMovie movie: String) {
-        movieLabel.text = movie
-    }
-    
-
-}
-
-extension MovieViewController: movieTableViewCellDelegate {
-    func didTapSeenButton(text: String) {
-        <#code#>
+    func movieWasAdded(movie: Movie) {
+        movies.append(movie)
+        dismiss(animated: true, completion: nil)
+        movieTableView.reloadData()
     }
 }
+
+//}
+//
+//extension MovieViewController: movieTableViewCellDelegate {
+//    func didTapSeenButton(for cell: MovieTableViewCell) {
+//
+//    }
+//}

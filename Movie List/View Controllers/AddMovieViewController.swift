@@ -9,10 +9,18 @@
 import UIKit
 
 protocol AddMovieDelegate {
-    func movieWasAdded(_ viewcontroller: AddMovieViewController, didUpdateMovie movie: String)
+    func movieWasAdded(movie: Movie)
 }
 
-class AddMovieViewController: UIViewController {
+class AddMovieViewController: UIViewController, UITextFieldDelegate {
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        movieTextField.delegate = self
+
+    }
     
     @IBOutlet weak var movieTextField: UITextField!
     
@@ -20,13 +28,14 @@ class AddMovieViewController: UIViewController {
     
     @IBAction func addMovie(_ sender: Any) {
         guard let movie = movieTextField.text else { return }
-        delegate?.movieWasAdded(self, didUpdateMovie: movie)
-        dismiss(animated: true, completion: nil)
+        
+        let movieObject = Movie(name: movie, seen: false)
+        
+        delegate?.movieWasAdded(movie: movieObject)
+        
+        self.navigationController?.popViewController(animated: true)
+        
     }
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-    }
 
 }
