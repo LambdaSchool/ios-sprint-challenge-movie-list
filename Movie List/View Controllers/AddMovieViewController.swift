@@ -8,12 +8,17 @@
 
 import UIKit
 
+protocol AddMovieDelegate {
+    func updateView()
+}
+
 
 class AddMovieViewController: UIViewController {
     
     @IBOutlet weak var seenSwitch: UISwitch!
     @IBOutlet weak var movieTitle: UITextField!
     
+    var delegate: AddMovieDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +37,7 @@ class AddMovieViewController: UIViewController {
         let movie: Movie = Movie(title: movieTitle, haveSeen: seenSwitch.isOn)
         
         moviesList.append(movie)
+        delegate?.updateView()
         dismiss(animated: true, completion: nil)
         
     }

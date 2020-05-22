@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 class ListMoviesViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
@@ -17,7 +16,6 @@ class ListMoviesViewController: UIViewController {
         super.viewDidLoad()
         tableView.dataSource = self
     }
-    
 
 }
 
@@ -41,5 +39,11 @@ extension ListMoviesViewController: UITableViewDataSource {
         
     }
     
+}
+
+extension ListMoviesViewController: AddMovieDelegate {
+    func updateView() {
+        tableView.reloadData()
+    }
 }
 
