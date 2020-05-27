@@ -8,42 +8,43 @@
 
 import UIKit
 
-class ListMoviesViewController: UIViewController {
+protocol ListMoviesDelegate: class {
+    func updateView()
+}
+
+class ListMoviesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
     
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.delegate = self
         tableView.dataSource = self
     }
+    
 
-}
-
-extension ListMoviesViewController: UITableViewDataSource {
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return moviesList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as? MoviesListTableViewCell else {
-            fatalError("Cell identified is wrong or the cell is not of expected type MoviesListTableViewCell")
-        }
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as? MoviesListTableViewCell
         let movie = moviesList[indexPath.row]
         
-        cell.movieLabel.text = movie.title
-        cell.seenSwitch.isOn = movie.haveSeen
-        
-        return cell
-        
+        cell?.movieLabel.text
+            = movie.title
+        if movie.haveSeen == true {
+            cell?.seenButton.isSelected = true
+        } else {
+            cell?.seenButton.isSelected = false
+        }
+        return cell!
     }
+    
     
 }
 
-extension ListMoviesViewController: AddMovieDelegate {
-    func updateView() {
-        tableView.reloadData()
-    }
-}
 

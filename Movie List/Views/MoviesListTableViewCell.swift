@@ -8,22 +8,29 @@
 
 import UIKit
 
-class MoviesListTableViewCell: UITableViewCell {
-    
+
+class MoviesListTableViewCell: UITableViewCell, UITableViewDelegate {
+
+        
     @IBOutlet weak var movieLabel: UILabel!
-    @IBOutlet weak var seenSwitch: UISwitch!
+    @IBOutlet weak var seenButton: UIButton!
     
-    var movie: Movie? {
-        didSet {
-            updateViews()
+    weak var delegate: ListMoviesDelegate?
+    
+    @IBAction func haveSeenButtonTapped(_ sender: UIButton) {
+        if seenButton.isSelected.self == true {
+            seenButton.isSelected.self = false
+            updateView()
+        } else {
+            seenButton.isSelected.self = true
+            updateView()
         }
     }
-    
-    private func updateViews() {
-        if let movie = movie {
-            movieLabel.text = movie.title
-            seenSwitch.isOn = movie.haveSeen
-        }
+}
+
+extension MoviesListTableViewCell: ListMoviesDelegate {
+    func updateView() {
+        delegate?.updateView()
     }
 
 }

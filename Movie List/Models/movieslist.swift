@@ -9,9 +9,9 @@
 import Foundation
 
 struct Movie {
-    let title: String
+    var title: String
     var haveSeen: Bool = false
 }
 
-var moviesList: [Movie] = [Movie(title: "Star Wars", haveSeen: true),Movie(title: "Eat Pray Love"),Movie(title: "The Shawshank Redemption", haveSeen: true),]
+var moviesList: [Movie] = [Movie(title: "Star Wars", haveSeen: true),Movie(title: "Eat Pray Love"),Movie(title: "The Shawshank Redemption", haveSeen: true)]
 
