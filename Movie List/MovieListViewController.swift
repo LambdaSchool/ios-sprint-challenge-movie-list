@@ -12,7 +12,7 @@ class MovieListTableViewController: UIViewController {
 
     @IBOutlet var ListofMovies: UITableView!
     
-    var movieList = [Movie(name: "Batman", seen: false)]
+    var movieList: [Movie] = [Movie(name: "Batman", seen: true)]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,7 +49,12 @@ extension MovieListTableViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "movieCell", for: indexPath) as? MovieTableViewCell else {return UITableViewCell()}
+        
+        cell.movieName.text = movieList[indexPath.row].name
+        
+    
+        return cell
     }
     
     
