@@ -22,12 +22,6 @@ class MoviesTableViewController: UIViewController {
         MovieTableView.dataSource = self
         
     }
-    
-    @IBAction func SeenNotSeenButtonTapped(_ sender: Any) {
-        
-    }
-    
-    
 }
 
 
