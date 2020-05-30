@@ -12,21 +12,42 @@ class MoviesTableViewController: UIViewController {
     
     @IBOutlet weak var MovieTableView: UITableView!
     
+    var movie: [Movie] = [Movie(name: "Star Wars 2")]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        MovieTableView.delegate = self
+        MovieTableView.dataSource = self
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func SeenNotSeenButtonTapped(_ sender: Any) {
+        
     }
-    */
+    
+    
+}
 
+
+
+extension MoviesTableViewController: UITableViewDelegate{
+    
+}
+
+extension MoviesTableViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return movie.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        guard let cell = MovieTableView.dequeueReusableCell(withIdentifier: "NewMovieCell", for: indexPath) as? MovieTableViewCell else {return UITableViewCell()}
+        
+        return cell
+        
+    }
+    
+    
 }
