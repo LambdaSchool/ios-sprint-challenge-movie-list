@@ -8,8 +8,12 @@
 
 import UIKit
 
-class listOfMoviesViewController: UIViewController {
-
+class listOfMoviesViewController: UIViewController{
+    //var listOfMovies : [Movie] = []
+    
+    @IBOutlet weak var tableView: UITableView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -27,4 +31,15 @@ class listOfMoviesViewController: UIViewController {
     }
     */
 
+}
+extension listOfMoviesViewController : UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        <#code#>
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        <#code#>
+    }
+    
+    
 }
