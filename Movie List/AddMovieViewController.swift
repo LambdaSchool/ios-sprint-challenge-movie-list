@@ -21,7 +21,9 @@ class AddMovieViewController: UIViewController, UITextFieldDelegate {
             !movieName.isEmpty else { return }
         let movie = Movie(name: movieName)
         delegate?.movieWasAdded(movie)
-        dismiss(animated: true, completion: nil)
+        if let nav = self.navigationController {
+            nav.popViewController(animated: true)
+        }
     }
     
     @IBOutlet weak var movieTextField: UITextField!
