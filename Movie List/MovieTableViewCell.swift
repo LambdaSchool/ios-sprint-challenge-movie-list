@@ -22,3 +22,5 @@ class MovieTableViewCell: UITableViewCell {
     }
 
 }
+
+
