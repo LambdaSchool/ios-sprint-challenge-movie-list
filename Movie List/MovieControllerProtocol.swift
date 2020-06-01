@@ -6,4 +6,8 @@
 //  Copyright © 2020 Lambda School. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+protocol MovieControllerProtocol {
+    var movieController: MovieController? { get set }
+}

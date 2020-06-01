@@ -8,23 +8,21 @@
 
 import UIKit
 
-class AddMovieViewController: UIViewController {
+extension Notification.Name {
+    static let addMovieTextField = Notification.Name("MovieCell")
+}
 
+class AddMovieViewController: UIViewController, MovieControllerProtocol {
+    var movieController: MovieController?
+    
+    @IBOutlet weak var addMovieTextField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func addMovieButtonPressed(_ sender: UIButton) {
+        self.movieController?.create(name: addMovieTextField.text ?? "")
+        addMovieTextField.text = nil
+        dismiss(animated: true, completion: nil)
     }
-    */
-
 }

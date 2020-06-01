@@ -14,8 +14,8 @@ class MoviesTableViewController: UITableViewController, MovieControllerProtocol 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tableView.reloadData()
@@ -25,7 +25,6 @@ class MoviesTableViewController: UITableViewController, MovieControllerProtocol 
     override func numberOfSections(in tableView: UITableView) -> Int {
        
         return 1
-        
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -34,6 +33,7 @@ class MoviesTableViewController: UITableViewController, MovieControllerProtocol 
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath)
         
         let currentMovie = self.movieController?.movies[indexPath.row]
@@ -41,6 +41,7 @@ class MoviesTableViewController: UITableViewController, MovieControllerProtocol 
         
         return cell
     }
+    
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
