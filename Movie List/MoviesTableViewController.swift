@@ -9,8 +9,10 @@
 import UIKit
 
 class MoviesTableViewController: UITableViewController, MovieControllerProtocol {
-    var movieController: MovieController?
     
+    @IBOutlet var movieTableView: UITableView!
+   
+    var movieController: MovieController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,7 +43,6 @@ class MoviesTableViewController: UITableViewController, MovieControllerProtocol 
         
         return cell
     }
-    
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }

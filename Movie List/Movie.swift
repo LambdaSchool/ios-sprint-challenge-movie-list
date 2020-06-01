@@ -1,5 +1,5 @@
 //
-//  MovieModel.swift
+//  Movie.swift
 //  Movie List
 //
 //  Created by Dojo on 5/31/20.
@@ -8,4 +8,14 @@
 
 import UIKit
 
+struct Movie: Equatable {
+    var name: String
 
+    init(name: String) {
+        self.name = name
+    }
+
+    static func == (lhs: Movie, rhs: Movie) -> Bool {
+        return lhs.name == rhs.name
+    }
+}

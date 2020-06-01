@@ -24,5 +24,7 @@ class AddMovieViewController: UIViewController, MovieControllerProtocol {
         self.movieController?.create(name: addMovieTextField.text ?? "")
         addMovieTextField.text = nil
         dismiss(animated: true, completion: nil)
+    
     }
+
 }

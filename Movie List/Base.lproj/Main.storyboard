@@ -40,10 +40,6 @@
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
-                                            <connections>
-                                                <outletCollection property="gestureRecognizers" destination="oAa-r2-hB5" id="V4f-f2-71y"/>
-                                                <outletCollection property="gestureRecognizers" destination="oAa-r2-hB5" id="0ER-9d-6zt"/>
-                                            </connections>
                                         </label>
                                     </subviews>
                                     <constraints>
@@ -64,10 +60,6 @@
                                 </constraints>
                             </tableViewCell>
                         </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="KRm-eq-GW5" id="kkv-bb-YIi"/>
-                            <outlet property="delegate" destination="KRm-eq-GW5" id="Fkj-mm-Hag"/>
-                        </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Movie List" id="3hN-lx-LuG">
                         <barButtonItem key="rightBarButtonItem" title="Add Movie" image="plus" catalog="system" id="UUO-Ji-tuy">
@@ -76,6 +68,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="movieTableView" destination="oAa-r2-hB5" id="XQl-LF-zwO"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uh1-NE-dw1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -86,7 +81,7 @@
             <objects>
                 <navigationController title="Movie List" id="QS0-cn-0UC" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="oGm-3n-vjm">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
