@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="A4h-J7-ANx">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -8,30 +8,31 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Movie View Controller-->
         <scene sceneID="xXP-AE-uUU">
             <objects>
-                <viewController id="eMc-rq-b0c" sceneMemberID="viewController">
+                <viewController id="eMc-rq-b0c" customClass="MovieViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9Kf-5b-aQ8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Movie List" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="X6w-fZ-Vgz">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Movie List" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="X6w-fZ-Vgz">
                                 <rect key="frame" x="0.0" y="58" width="375" height="51"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rwz-re-bWJ">
-                                <rect key="frame" x="0.0" y="110" width="375" height="508"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rwz-re-bWJ">
+                                <rect key="frame" x="0.0" y="117" width="375" height="501"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="rwz-re-bWJ" firstAttribute="top" secondItem="X6w-fZ-Vgz" secondAttribute="bottom" constant="1" id="MWm-a0-Blv"/>
-                            <constraint firstItem="2PE-CR-yDg" firstAttribute="trailing" secondItem="X6w-fZ-Vgz" secondAttribute="trailing" id="aFm-GB-IXX"/>
+                            <constraint firstItem="X6w-fZ-Vgz" firstAttribute="top" secondItem="2PE-CR-yDg" secondAttribute="top" constant="14" id="4dK-Hi-pFh"/>
+                            <constraint firstItem="X6w-fZ-Vgz" firstAttribute="leading" secondItem="2PE-CR-yDg" secondAttribute="leading" id="JT5-ey-dHg"/>
+                            <constraint firstItem="rwz-re-bWJ" firstAttribute="top" secondItem="X6w-fZ-Vgz" secondAttribute="bottom" constant="8" symbolic="YES" id="M8a-lu-SJQ"/>
+                            <constraint firstItem="X6w-fZ-Vgz" firstAttribute="trailing" secondItem="2PE-CR-yDg" secondAttribute="trailing" id="cjq-Vx-ICg"/>
                             <constraint firstItem="rwz-re-bWJ" firstAttribute="trailing" secondItem="2PE-CR-yDg" secondAttribute="trailing" id="gZM-e4-Lkh"/>
-                            <constraint firstItem="X6w-fZ-Vgz" firstAttribute="leading" secondItem="2PE-CR-yDg" secondAttribute="leading" id="ic4-Ty-MI9"/>
                             <constraint firstItem="rwz-re-bWJ" firstAttribute="leading" secondItem="2PE-CR-yDg" secondAttribute="leading" id="n7b-fe-vel"/>
                             <constraint firstItem="rwz-re-bWJ" firstAttribute="bottom" secondItem="2PE-CR-yDg" secondAttribute="bottom" id="rxP-Rq-Xs4"/>
                         </constraints>
@@ -39,21 +40,22 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="aqH-XQ-g3v">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="utZ-nw-FDe"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="utZ-nw-FDe">
+                            <connections>
+                                <segue destination="A4c-WT-Kdk" kind="show" id="Pld-mw-GJ0"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
-                    <connections>
-                        <segue destination="A4c-WT-Kdk" kind="show" id="RUV-fF-fcN"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0iC-3W-qbx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1175" y="-155"/>
         </scene>
-        <!--View Controller-->
+        <!--Add Movie View Controller-->
         <scene sceneID="m5o-Pb-VkD">
             <objects>
-                <viewController id="A4c-WT-Kdk" sceneMemberID="viewController">
+                <viewController id="A4c-WT-Kdk" customClass="AddMovieViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5ij-Zo-3VI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
