@@ -25,37 +25,27 @@ class movieTableViewCell: UITableViewCell {
         
         titleLabel.text = movie.title
         
-        watchedButton()
-        watchButton()
+        if movie.seen == true {
+            seenButton.setTitle("Seen", for: .normal)
+        } else {
+            seenButton.setTitle("Not Seen", for: .normal)
+        }
     }
     
-    func watchedButton() {
-        seenButton.layer.cornerRadius = 5
-        seenButton.clipsToBounds = true
+    
+    @IBAction func seenBtn_TouchUpInside(_ sender: UIButton) {
         
-        seenButton.backgroundColor = UIColor.systemGray
-        seenButton.setTitle("Seen", for: UIControl.State.normal)
-        seenButton.setTitleColor(.white, for: UIControl.State.normal)
-        seenButton.addTarget(self, action: #selector(watchedBtnHandler), for: .touchUpInside)
-    }
-    
-    @objc func watchedBtnHandler() {
-        watchButton()
-    }
-    
-    func watchButton() {
-        seenButton.layer.cornerRadius = 5
-        seenButton.clipsToBounds = true
+        movie?.seen.toggle()
         
-        seenButton.backgroundColor = UIColor.systemBlue
-        seenButton.setTitle("Not Seen", for: UIControl.State.normal)
-        seenButton.setTitleColor(.white, for: UIControl.State.normal)
-        seenButton.addTarget(self, action: #selector(watchBtnHandler), for: .touchUpInside)
+        if movie?.seen == true {
+            seenButton.setTitle("Seen", for: .normal)
+        } else {
+            seenButton.setTitle("Not Seen", for: .normal)
+        }
+        
     }
     
-    @objc func watchBtnHandler() {
-        watchedButton()
-    }
+    
     
 
     override func awakeFromNib() {
