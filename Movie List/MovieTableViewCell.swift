@@ -14,6 +14,7 @@ class MovieTableViewCell: UITableViewCell {
     @IBOutlet weak var movieName: UILabel!
     @IBOutlet weak var NotSeen: UILabel!
     
+    let showmovieselected = AddNewMovieUIViewController.self
     
     override func awakeFromNib() {
         super.awakeFromNib()

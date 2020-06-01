@@ -10,6 +10,8 @@ import UIKit
 
 class AddNewMovieUIViewController: UIViewController {
 
+    @IBAction func addMovie(_ sender: Any) {
+    }
     
     @IBOutlet weak var movieTextFeild: UITextField!
     
@@ -18,8 +20,6 @@ class AddNewMovieUIViewController: UIViewController {
        
     }
     
-    @IBAction func addMovie(_ sender: Any) {
-    }
     
     /*
     // MARK: - Navigation
