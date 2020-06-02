@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MovieViewController: UITableViewController, AddMovieDelegate{
+class MovieViewController: UIViewController,UITableViewDelegate, UITableViewDataSource, AddMovieDelegate{
     
     
     var movieList: [Movie] = [Movie(movieName: "The Pianist", seen: true)]
@@ -19,21 +19,23 @@ class MovieViewController: UITableViewController, AddMovieDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        movieListTableView.dataSource = self
+        movieListTableView.delegate = self
         // Do any additional setup after loading the view.}
     
     }
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return movieList.count
     }
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as? MovieTableViewCell else {
             return UITableViewCell.init()
         }
         
         let movie = movieList[indexPath.row]
-        self.tableView = tableView
+        self.movieListTableView = tableView
         cell.movie = movie
+    print("Asdaasdad")
         return cell
         
     }
@@ -41,7 +43,7 @@ class MovieViewController: UITableViewController, AddMovieDelegate{
     func addMovie(_ movie: Movie) {
         movieList.append(movie)
         print("Asdasdsad")
-        tableView.reloadData()
+        movieListTableView.reloadData()
         
         _ = navigationController?.popViewController(animated: true)
           

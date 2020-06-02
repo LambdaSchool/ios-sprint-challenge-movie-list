@@ -22,7 +22,7 @@ class MovieTableViewCell: UITableViewCell {
         }
     }
     
-    private func updateViews() {
+   func updateViews() {
         guard let unwrappedMovie = movie else {return}
         movieLabel.text = unwrappedMovie.movieName
         if unwrappedMovie.seen == true {
@@ -30,6 +30,18 @@ class MovieTableViewCell: UITableViewCell {
         } else { seenbutton.setTitle("Not Seen", for: .normal)
         }
     }
+    @IBAction func seenTapped(_ sender: UIButton) {
+      if var unwrappedSenderTitle = sender.titleLabel?.text {
+        if unwrappedSenderTitle == "Seen" {
+          unwrappedSenderTitle = "Unseen"
+          movie?.seen = false
+        } else {
+          unwrappedSenderTitle = "Seen"
+          movie?.seen = true
+        }
+      }
+    }
+
     
     override func awakeFromNib() {
         super.awakeFromNib()
