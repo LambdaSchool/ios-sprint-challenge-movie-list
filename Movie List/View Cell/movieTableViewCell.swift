@@ -25,32 +25,28 @@ class movieTableViewCell: UITableViewCell {
         
         titleLabel.text = movie.title
         
-        if movie.seen == true {
-            seenButton.setTitle("Seen", for: .normal)
-        } else {
-            seenButton.setTitle("Not Seen", for: .normal)
-        }
+        seenButton.setTitle(movie.seen ? "Seen" : "Not Seen", for: .normal)
+        seenButton.setTitleColor(.white, for: .normal)
+        seenButton.backgroundColor = movie.seen ? UIColor.systemBlue : UIColor.systemGray
     }
     
-    
-    @IBAction func seenBtn_TouchUpInside(_ sender: UIButton) {
-        
+    @objc func toggleSeenHandler() {
         movie?.seen.toggle()
-        
-        if movie?.seen == true {
-            seenButton.setTitle("Seen", for: .normal)
-        } else {
-            seenButton.setTitle("Not Seen", for: .normal)
-        }
-        
+        updateView()
     }
+ 
     
     
     
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        seenButton.layer.cornerRadius = 5
+        seenButton.clipsToBounds = true
+        
+        seenButton.addTarget(self, action: #selector(toggleSeenHandler), for: .touchUpInside)
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

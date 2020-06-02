@@ -8,7 +8,12 @@
 
 import Foundation
 
-struct Movie {
+class Movie {
     var title: String
     var seen: Bool
+    
+    init(title: String, seen: Bool) {
+        self.title = title
+        self.seen = seen
+    }
 }
