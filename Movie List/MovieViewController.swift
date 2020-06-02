@@ -8,15 +8,13 @@
 
 import UIKit
 
-class MovieViewController: UIViewController, addMovieDelegate {
-    func movieWasAdded(_ movie: Movie) {
-    }
+class MovieViewController: UIViewController {
     
-
+    var delegate: AddMovieDelegate?
     
     @IBOutlet weak var tableView: UITableView!
     
-    var movie: [Movie] = []
+    var movies: [Movie] = []
     
     
     override func viewDidLoad() {
@@ -27,7 +25,7 @@ class MovieViewController: UIViewController, addMovieDelegate {
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "Add Movie" {
+        if segue.identifier == "addMovie" {
             if let destinationViewController = segue.destination as? AddMovieViewController {
                 destinationViewController.delegate = self
             }
@@ -42,17 +40,30 @@ class MovieViewController: UIViewController, addMovieDelegate {
 
 extension MovieViewController : UITableViewDataSource, UITableViewDelegate {
 func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return movie.count
+    return movies.count
    }
 
    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as? MovieTableViewCell else {
+    guard let cell = tableView.dequeueReusableCell(withIdentifier: "movieCell", for: indexPath) as? MovieTableViewCell else {
         return UITableViewCell()
     }
     self.tableView = tableView
-    let movieNames = movie[indexPath.row]
-    cell.movieNames = movie
+    let movie = movies[indexPath.row]
+    cell.movie = movie
 
     return cell
    }
+}
+
+extension MovieViewController: AddMovieDelegate {
+    func movieWasAdded(_ movie: Movie) {
+        _ = navigationController?.popViewController(animated: true)
+        movies.append(movie)
+        tableView.reloadData()
+    }
+
+}
+
+protocol AddMovieDelegate {
+    func movieWasAdded(_ movie: Movie)
 }
