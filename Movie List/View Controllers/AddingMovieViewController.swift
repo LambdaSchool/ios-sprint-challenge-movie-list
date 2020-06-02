@@ -8,29 +8,40 @@
 
 import UIKit
 
-class AddingMovieViewController: UIViewController {
+// Delegation Design Pattern
 
+// Delegator (which is found on this page)
+// Step 1: Create a delegate protocol
+// Step 2: Create delegate property on delegator file of type delegate
+// Step 3: Call methods on delegate when necessary
+
+// Delegate (which is found on your MoviesTableViewController)
+
+
+protocol  AddMovieDelegate {
+    func newMovieAdded(movie: Movie)
+}
+
+class AddingMovieViewController: UIViewController {
     
     @IBOutlet weak var EnterMoviesTitleTextLabel: UITextField!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-    }
+    var delegate: AddMovieDelegate?
     
-    
-    @IBAction func AddMovieButtonTapped(_ sender: Any) {
+    @IBAction func AddMovieButtonTapped(_ sender: UIButton) {
+        //Grab the user input
+        guard let name = EnterMoviesTitleTextLabel.text, !name.isEmpty else {return}
         
+        let movie = Movie(name: name)
+        
+        delegate?.newMovieAdded(movie: movie)
+        dismiss(animated: true, completion: nil)
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
+
+extension AddingMovieViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        return true
+    }
+}
+
