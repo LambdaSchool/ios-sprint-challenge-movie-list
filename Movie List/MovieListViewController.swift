@@ -25,6 +25,7 @@ class MovieListViewController: UIViewController {
                 addMovieVC.delegate = self
             }
         }
+        
     }
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true

@@ -33,6 +33,12 @@ class MovieListTableViewCell: UITableViewCell {
     private func updateViews() {
         if let movie = movieMade {
             movieLabel.text = movie.name
+            
+            if movie.seen {
+                notSeenButton.setTitle("Seen", for: .normal)
+            } else {
+                notSeenButton.setTitle("Not Seen", for: .normal)
+            }
         }
     }
 }
