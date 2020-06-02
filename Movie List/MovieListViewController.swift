@@ -11,7 +11,6 @@ import UIKit
 class MovieListViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
-
     
     var movies = [Movie]()
     
