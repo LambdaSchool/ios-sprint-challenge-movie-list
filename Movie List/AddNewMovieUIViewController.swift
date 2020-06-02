@@ -10,10 +10,16 @@ import UIKit
 
 class AddNewMovieUIViewController: UIViewController {
 
+    /// Need guidence on how to get this button to function // I understand I need to have code here to tell the button to display the movie onto the TableViewCell but I need more guidence/support on how to make that happen ///
+    
     @IBAction func addMovie(_ sender: Any) {
+        
     }
     
+    
     @IBOutlet weak var movieTextFeild: UITextField!
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
