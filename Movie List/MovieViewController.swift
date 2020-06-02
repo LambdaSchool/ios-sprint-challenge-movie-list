@@ -14,6 +14,7 @@ class MovieViewController: UITableViewController, AddMovieDelegate{
     var movieList: [Movie] = [Movie(movieName: "The Pianist", seen: true)]
     var delegate: AddMovieDelegate?
     
+    
     @IBOutlet var movieListTableView: UITableView!
     
     override func viewDidLoad() {
@@ -41,7 +42,10 @@ class MovieViewController: UITableViewController, AddMovieDelegate{
         movieList.append(movie)
         print("Asdasdsad")
         tableView.reloadData()
-    }
+        
+        _ = navigationController?.popViewController(animated: true)
+          
+        }
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -52,11 +56,7 @@ class MovieViewController: UITableViewController, AddMovieDelegate{
         }
     }
 
-
-    
-    
-    
-
-
-
 }
+    
+    
+
