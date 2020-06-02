@@ -2,29 +2,30 @@
 //  AddMovieViewController.swift
 //  Movie List
 //
-//  Created by Dojo on 5/31/20.
+//  Created by Dojo on 6/1/20.
 //  Copyright © 2020 Lambda School. All rights reserved.
 //
 
 import UIKit
 
-extension Notification.Name {
-    static let addMovieTextField = Notification.Name("MovieCell")
+protocol AddMovieDelegate {
+    func movieWasAdded(_ movie: Movie)
 }
 
-class AddMovieViewController: UIViewController, MovieControllerProtocol {
-    var movieController: MovieController?
+class AddMovieViewController: UIViewController {
     
-    @IBOutlet weak var addMovieTextField: UITextField!
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
+    @IBOutlet weak var newMovieTextField: UITextField!
     
-    @IBAction func addMovieButtonPressed(_ sender: UIButton) {
-        self.movieController?.create(name: addMovieTextField.text ?? "")
-        addMovieTextField.text = nil
+    var delegate: AddMovieDelegate?
+    
+    
+    @IBAction func addNewMovieButton(_ sender: Any) {
+        
+        guard let newMovie = newMovieTextField.text, !newMovie.isEmpty else {
+            return
+        }
+        let movie = Movie(name: newMovie, seen: false)
+        delegate?.movieWasAdded(movie)
         dismiss(animated: true, completion: nil)
-    
     }
-
 }

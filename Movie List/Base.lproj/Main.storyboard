@@ -11,13 +11,13 @@
         <!--Movie List-->
         <scene sceneID="nkf-La-msE">
             <objects>
-                <tableViewController id="KRm-eq-GW5" customClass="MoviesTableViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="MovieCell" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="oAa-r2-hB5">
+                <tableViewController id="KRm-eq-GW5" customClass="MovieTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="oAa-r2-hB5" userLabel="tableView">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="FsL-AZ-l09" userLabel="Movie Cell">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="movieCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="FsL-AZ-l09" userLabel="Movie Cell" customClass="MovieListTableViewCell" customModule="Movie_List" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="320" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FsL-AZ-l09" id="xJ7-3b-01s">
@@ -34,6 +34,9 @@
                                             </constraints>
                                             <fontDescription key="fontDescription" name=".SFNS-Regular" family=".AppleSystemUIFont" pointSize="17"/>
                                             <state key="normal" title="Haven't Seen it!"/>
+                                            <connections>
+                                                <action selector="notSeenButton:" destination="FsL-AZ-l09" eventType="touchUpInside" id="Pcd-IC-bBA"/>
+                                            </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="movieLabel" text="movie name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Je-R3-QmQ" userLabel="movieLabel">
                                             <rect key="frame" x="10" y="11.5" width="92.5" height="20.5"/>
@@ -58,18 +61,22 @@
                                 <constraints>
                                     <constraint firstItem="xJ4-YW-hHF" firstAttribute="centerY" secondItem="FsL-AZ-l09" secondAttribute="centerY" id="w5w-GD-0Y7"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="movieLabel" destination="2Je-R3-QmQ" id="FB6-Gb-Sfx"/>
+                                    <outlet property="notSeenButton" destination="0cx-I3-dd1" id="1wo-WR-tty"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                     </tableView>
                     <navigationItem key="navigationItem" title="Movie List" id="3hN-lx-LuG">
                         <barButtonItem key="rightBarButtonItem" title="Add Movie" image="plus" catalog="system" id="UUO-Ji-tuy">
                             <connections>
-                                <segue destination="My2-I5-a3A" kind="presentation" id="DQG-I6-64x"/>
+                                <segue destination="My2-I5-a3A" kind="presentation" identifier="AddMovieModalSegue" id="DQG-I6-64x"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="movieTableView" destination="oAa-r2-hB5" id="XQl-LF-zwO"/>
+                        <outlet property="tableView" destination="oAa-r2-hB5" id="AQ2-k2-tiN"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uh1-NE-dw1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -79,16 +86,16 @@
         <!--Movie List-->
         <scene sceneID="3Zb-be-sGd">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="l39-mS-KH4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController title="Movie List" id="QS0-cn-0UC" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="oGm-3n-vjm">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
                         <segue destination="KRm-eq-GW5" kind="relationship" relationship="rootViewController" id="QCs-mY-6S3"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="l39-mS-KH4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1345" y="-271"/>
         </scene>
@@ -100,7 +107,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="Movie Name" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="P9d-RC-uYd" userLabel="addMovieTextField">
+                            <textField opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="Movie Name" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="P9d-RC-uYd">
                                 <rect key="frame" x="45" y="207" width="231" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -115,7 +122,7 @@
                                 <rect key="frame" x="122" y="249" width="76" height="30"/>
                                 <state key="normal" title="Add Movie"/>
                                 <connections>
-                                    <action selector="addMovieButtonPressed:" destination="My2-I5-a3A" eventType="touchUpInside" id="bPh-P5-jON"/>
+                                    <action selector="addNewMovieButton:" destination="My2-I5-a3A" eventType="touchUpInside" id="zxo-vV-G8e"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -135,7 +142,7 @@
                         <viewLayoutGuide key="safeArea" id="NAm-qd-fZC"/>
                     </view>
                     <connections>
-                        <outlet property="addMovieTextField" destination="P9d-RC-uYd" id="4oq-wg-Rdi"/>
+                        <outlet property="newMovieTextField" destination="P9d-RC-uYd" id="xT5-oc-RvT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AdM-HB-dBf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

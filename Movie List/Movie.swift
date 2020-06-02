@@ -8,14 +8,7 @@
 
 import UIKit
 
-struct Movie: Equatable {
+struct Movie {
     var name: String
-
-    init(name: String) {
-        self.name = name
-    }
-
-    static func == (lhs: Movie, rhs: Movie) -> Bool {
-        return lhs.name == rhs.name
-    }
+    var seen: Bool
 }
