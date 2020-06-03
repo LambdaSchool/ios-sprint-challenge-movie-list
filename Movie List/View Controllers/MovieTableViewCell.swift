@@ -13,7 +13,7 @@ class MovieTableViewCell: UITableViewCell {
     @IBOutlet weak var MovieTitleLabel: UILabel!
 
     @IBAction func NotSeenButtonTapped(_ sender: UIButton) {
-        
+         
     }
     
     // THE BUTTON'S VALUE IS SET TO AUTOMATICALLY BE FALSE. CHANGE THE BOOLEAN PROPERTY INSIDE OF THE NOTSEENBUTTONTAPPED ACTION BUTTON

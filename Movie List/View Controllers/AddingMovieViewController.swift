@@ -35,7 +35,9 @@ class AddingMovieViewController: UIViewController {
         let movie = Movie(name: name)
         
         delegate?.newMovieAdded(movie: movie)
-        dismiss(animated: true, completion: nil)
+        navigationController?.popToRootViewController(animated: true)
+//        dismiss(animated: true, completion: nil)
+// How come this method did not work ^^^
     }
 }
 
