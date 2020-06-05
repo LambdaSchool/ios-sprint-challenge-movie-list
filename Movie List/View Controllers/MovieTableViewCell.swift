@@ -11,10 +11,10 @@ import UIKit
 class MovieTableViewCell: UITableViewCell {
 
     @IBOutlet weak var MovieTitleLabel: UILabel!
-
     @IBAction func NotSeenButtonTapped(_ sender: UIButton) {
-         
-    }
+        sender.setTitle("Seen", for: .normal)
+            
+        }
     
     // THE BUTTON'S VALUE IS SET TO AUTOMATICALLY BE FALSE. CHANGE THE BOOLEAN PROPERTY INSIDE OF THE NOTSEENBUTTONTAPPED ACTION BUTTON
     
@@ -35,12 +35,6 @@ class MovieTableViewCell: UITableViewCell {
         MovieTitleLabel.text = movie.name
         
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        // Configure the view for the selected state
-        
-    
-        
-    }
 }
+
+
