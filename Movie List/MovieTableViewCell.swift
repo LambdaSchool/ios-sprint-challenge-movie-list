@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MovieTableViewCell: UITableViewCell, UITextFieldDelegate {
+class MovieTableViewCell: UITableViewCell{
     
     var movie : Movie? {
         didSet {

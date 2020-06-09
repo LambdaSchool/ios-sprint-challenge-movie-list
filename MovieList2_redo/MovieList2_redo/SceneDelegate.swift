@@ -1,8 +1,8 @@
 //
 //  SceneDelegate.swift
-//  MovieList_CraigBelinfate
+//  MovieList2_redo
 //
-//  Created by Craig Belinfante on 5/31/20.
+//  Created by Craig Belinfante on 6/8/20.
 //  Copyright © 2020 Craig Belinfante. All rights reserved.
 //
 

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddMovieViewController: UIViewController, UITextFieldDelegate {
+class AddMovieViewController: UIViewController {
 
     @IBOutlet weak var addMovieButton: UIButton!
     @IBOutlet weak var movieTextField: UITextField!

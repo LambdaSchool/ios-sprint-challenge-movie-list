@@ -25,7 +25,7 @@ class MovieViewController: UIViewController {
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "addMovie" {
+        if segue.identifier == "" {
             if let destinationViewController = segue.destination as? AddMovieViewController {
                 destinationViewController.delegate = self
             }
@@ -57,7 +57,7 @@ func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> 
 
 extension MovieViewController: AddMovieDelegate {
     func movieWasAdded(_ movie: Movie) {
-        _ = navigationController?.popViewController(animated: true)
+        _ = navigationController?.popViewController(animated: false)
         movies.append(movie)
         tableView.reloadData()
     }
