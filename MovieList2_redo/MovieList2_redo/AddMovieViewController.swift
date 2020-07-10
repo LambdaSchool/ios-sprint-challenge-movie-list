@@ -22,7 +22,7 @@ class AddMovieViewController: UIViewController {
     @IBOutlet weak var textField: UITextField!
     
     @IBAction func addMovie(_ sender: Any) {
-        guard let unwrappedMovie = textField.text else {return}
+        guard let unwrappedMovie = textField.text, !unwrappedMovie.isEmpty else {return}
         let movie = Movie(name: unwrappedMovie, seen: true)
         delegate?.movieAdded(movie)
         }

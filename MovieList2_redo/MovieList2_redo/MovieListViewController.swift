@@ -25,7 +25,7 @@ class MovieListViewController: UIViewController, UITableViewDelegate{
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "" {
+        if segue.identifier == "xyz" {
             if let destinationViewController = segue.destination as?
                 AddMovieViewController {
                 destinationViewController.delegate = self
