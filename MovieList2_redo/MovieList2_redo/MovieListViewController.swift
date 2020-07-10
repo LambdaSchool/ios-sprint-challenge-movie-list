@@ -8,10 +8,10 @@
 
 import UIKit
 
-class MovieListViewController: UIViewController {
+class MovieListViewController: UIViewController, UITableViewDelegate{
     
     var movieList: [Movie] = []
-    var delegate: AddMovieDelegate?
+    var delegate: AddMovie?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +25,7 @@ class MovieListViewController: UIViewController {
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "add" {
+        if segue.identifier == "" {
             if let destinationViewController = segue.destination as?
                 AddMovieViewController {
                 destinationViewController.delegate = self
@@ -43,7 +43,7 @@ class MovieListViewController: UIViewController {
     
 }
 
-extension MovieListViewController: UITableViewDataSource, UITableViewDelegate, AddMovieDelegate {
+extension MovieListViewController: UITableViewDataSource, AddMovie {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return movieList.count
     }
@@ -61,7 +61,4 @@ extension MovieListViewController: UITableViewDataSource, UITableViewDelegate, A
         _ = navigationController?.popViewController(animated: false)
         movieList.append(movie)
     }
-}
-protocol AddMovieDelegate {
-    func movieAdded(_ movie: Movie)
 }

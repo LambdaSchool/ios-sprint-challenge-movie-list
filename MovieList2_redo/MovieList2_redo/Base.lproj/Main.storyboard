@@ -10,7 +10,7 @@
         <!--Movies-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MovieList2_redo" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MovieListViewController" customModule="MovieList2_redo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -22,7 +22,7 @@
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="l8N-d9-ZkP" customClass="MovieTableViewCell" customModule="MovieList2_redo" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="l8N-d9-ZkP" id="Gki-f4-5ZP">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="cell" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="l8N-d9-ZkP" id="Gki-f4-5ZP" customClass="MovieTableViewCell" customModule="MovieList2_redo" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
@@ -67,9 +67,14 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Movies" id="MzR-zU-mvb">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="djk-9j-yCu">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="A4o-ti-fZ9">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="2lp-Qa-59a">
+                                <rect key="frame" x="302" y="7" width="92" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                            </button>
                             <connections>
-                                <segue destination="cBB-MX-1tT" kind="show" identifier="" id="Upi-I8-OVW"/>
+                                <segue destination="cBB-MX-1tT" kind="show" identifier="" id="keE-rv-PIS"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -81,7 +86,7 @@
         <!--Add Movie View Controller-->
         <scene sceneID="E1W-Z3-3ah">
             <objects>
-                <viewController id="cBB-MX-1tT" customClass="AddMovieViewController" customModule="MovieList2_redo" sceneMemberID="viewController">
+                <viewController id="cBB-MX-1tT" customClass="AddMovieViewController" customModule="MovieList2_redo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UA9-bC-Nzm">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

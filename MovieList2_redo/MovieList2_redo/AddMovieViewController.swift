@@ -10,14 +10,17 @@ import UIKit
 
 class AddMovieViewController: UIViewController {
     
-    var delegate: AddMovieDelegate?
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    }
+    
+    var delegate: AddMovie?
+    
+    
+    @IBAction func add(_ sender: Any) {
     }
     @IBOutlet weak var textField: UITextField!
+    
     @IBAction func addMovie(_ sender: Any) {
         guard let unwrappedMovie = textField.text else {return}
         let movie = Movie(name: unwrappedMovie, seen: true)
@@ -35,3 +38,8 @@ class AddMovieViewController: UIViewController {
     */
 
 }
+
+protocol AddMovie {
+    func movieAdded(_ movie: Movie)
+}
+
