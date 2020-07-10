@@ -8,18 +8,20 @@
 
 import UIKit
 
-class MovieListViewController: UIViewController, UITableViewDelegate{
+class MovieListViewController: UIViewController, UITableViewDelegate {
+    @IBOutlet weak var tView: UITableView!
     
     var movieList: [Movie] = []
     var delegate: AddMovie?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        tView.dataSource = self
+       // updateViews()
         // Do any additional setup after loading the view.
     }
     
-    
+   
     
    
     
@@ -33,7 +35,7 @@ class MovieListViewController: UIViewController, UITableViewDelegate{
         }
     }
     /*
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     // In a storyboard-based application, you  often want to do a little preparation before navigation
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
      // Get the new view controller using segue.destination.
      // Pass the selected object to the new view controller.
@@ -60,5 +62,6 @@ extension MovieListViewController: UITableViewDataSource, AddMovie {
     func movieAdded(_ movie: Movie) {
         _ = navigationController?.popViewController(animated: false)
         movieList.append(movie)
+        tView.reloadData()
     }
 }

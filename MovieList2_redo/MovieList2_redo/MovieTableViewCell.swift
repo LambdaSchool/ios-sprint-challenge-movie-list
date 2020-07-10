@@ -9,18 +9,14 @@
 import UIKit
 
 class MovieTableViewCell: UITableViewCell {
-
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
+    
+    // Configure the view for the selected
+    
     var movie: Movie? {
         didSet {
             updateViews()
@@ -29,28 +25,33 @@ class MovieTableViewCell: UITableViewCell {
     @IBOutlet weak var movieLabel: UILabel!
     @IBOutlet weak var button: UIButton!
     @IBAction func buttonTapped(_ sender: UIButton) {
-        guard var unwrappedLabel = sender.titleLabel?.text else {return}
-        if unwrappedLabel == "seen" {
-            unwrappedLabel = "not seen"
+       /* if var unwrappedLabel = sender.titleLabel?.text {
+         if unwrappedLabel == "seen" {
+            unwrappedLabel = "Not Seen"
             movie?.seen = false
         } else {
-            unwrappedLabel = "Seen"
+            unwrappedLabel = "seen"
             movie?.seen = true
-        }
+        }*/
+        movie?.seen.toggle()
+        
+            if movie?.seen == true {
+                         button.setTitle("Seen", for: .normal)
+                     } else {
+                         button.setTitle("Not Seen", for: .normal)
+                     }
+          
     }
-    
+   // }
     private func updateViews() {
         guard let uwmovie = movie else {
             return
         }
         
         movieLabel.text = uwmovie.name
+       
         
-        if uwmovie.seen == true {
-            button.setTitle("Seen", for: .normal)
-        } else {
-            button.setTitle("Not Seen", for: .normal)
-        }
     }
     
 }
+
