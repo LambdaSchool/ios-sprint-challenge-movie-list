@@ -12,7 +12,7 @@ class MovieListViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
-    var movies: [Movie] = [Movie(title: "Frozen", seen: false)]
+    var movies: [Movie] = []
     
 
     override func viewDidLoad() {
@@ -39,11 +39,11 @@ extension MovieListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as? MovieTableViewCell else {
-            fatalError("Cell is not a MovieTableViewCell")
+            fatalError()
         }
         
         let movie = movies[indexPath.row]
-        cell.titleLabel.text = movie.title
+        cell.movie = movie
         
         return cell
     }
