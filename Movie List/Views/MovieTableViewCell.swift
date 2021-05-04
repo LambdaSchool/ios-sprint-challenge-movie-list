@@ -43,16 +43,4 @@ class MovieTableViewCell: UITableViewCell {
         movieTitleLabel.text = movie.title
         seenMovieButton.setTitle(movie.hasBeenSeen ? "Seen" : "Not Seen", for: .normal)
     }
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
 }
