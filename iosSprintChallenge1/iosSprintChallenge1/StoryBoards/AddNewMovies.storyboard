@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="sOe-PG-pZe">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Add New Movie-->
+        <scene sceneID="M4B-Wg-6FY">
+            <objects>
+                <viewController id="sOe-PG-pZe" customClass="AddNewMovieViewController" customModule="iosSprintChallenge1" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="St8-Jo-ZbV">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="473-Be-UiM">
+                                <rect key="frame" x="22" y="44" width="370" height="97"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a new movie to the list" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yYL-KW-zw4">
+                                        <rect key="frame" x="0.0" y="0.0" width="370" height="35"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="29"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZPL-0a-Fc8" userLabel="Movies Text Field">
+                                        <rect key="frame" x="8" y="36" width="354" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ngO-vS-El9">
+                                        <rect key="frame" x="148.5" y="67" width="73" height="30"/>
+                                        <state key="normal" title="Add Movie"/>
+                                        <connections>
+                                            <action selector="addMovieButtonPressed:" destination="sOe-PG-pZe" eventType="touchUpInside" id="wRQ-cs-diG"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="ZPL-0a-Fc8" firstAttribute="centerX" secondItem="473-Be-UiM" secondAttribute="centerX" id="E61-XY-JxU"/>
+                                    <constraint firstAttribute="trailing" secondItem="yYL-KW-zw4" secondAttribute="trailing" id="Ew7-pu-fhM"/>
+                                    <constraint firstAttribute="trailing" secondItem="ZPL-0a-Fc8" secondAttribute="trailing" constant="8" id="UfA-Yh-5QZ"/>
+                                    <constraint firstItem="yYL-KW-zw4" firstAttribute="leading" secondItem="473-Be-UiM" secondAttribute="leading" id="VN3-B8-PMd"/>
+                                    <constraint firstItem="ZPL-0a-Fc8" firstAttribute="leading" secondItem="473-Be-UiM" secondAttribute="leading" constant="8" id="llh-HZ-tkr"/>
+                                    <constraint firstItem="ngO-vS-El9" firstAttribute="centerX" secondItem="473-Be-UiM" secondAttribute="centerX" id="nH5-L0-hUT"/>
+                                    <constraint firstItem="yYL-KW-zw4" firstAttribute="centerX" secondItem="473-Be-UiM" secondAttribute="centerX" id="nf7-Zf-fbV"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="473-Be-UiM" firstAttribute="centerX" secondItem="St8-Jo-ZbV" secondAttribute="centerX" id="IAO-IK-Sqh"/>
+                            <constraint firstItem="473-Be-UiM" firstAttribute="leading" secondItem="Bpg-1q-4q6" secondAttribute="leading" constant="22" id="VZx-V9-Fi1"/>
+                            <constraint firstItem="473-Be-UiM" firstAttribute="top" secondItem="Bpg-1q-4q6" secondAttribute="top" id="gdG-8s-Eh8"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Bpg-1q-4q6"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Add New Movie" selectedImage="Plus" id="39u-A5-U2Q"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="addNewMovieTextField" destination="E61-XY-JxU" id="sjm-CO-x7P"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dQc-Oq-Wph" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="296" y="102"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Plus" width="28" height="28"/>
+    </resources>
+</document>
