@@ -1,11 +1,200 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="20o-Zn-OAQ">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <scenes/>
+    <scenes>
+        <!--Movies View Controller-->
+        <scene sceneID="GQr-wV-LZ4">
+            <objects>
+                <viewController id="FWa-im-sr3" customClass="MoviesViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9Qc-2R-b9b">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="FDE-0e-En7">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="gX0-2f-3I5">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gX0-2f-3I5" id="dyT-yr-Qfd">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="FDE-0e-En7" firstAttribute="top" secondItem="zuK-kM-qvU" secondAttribute="top" id="0Xv-n4-a9h"/>
+                            <constraint firstItem="FDE-0e-En7" firstAttribute="leading" secondItem="zuK-kM-qvU" secondAttribute="leading" id="LJ3-sP-mYg"/>
+                            <constraint firstItem="zuK-kM-qvU" firstAttribute="bottom" secondItem="FDE-0e-En7" secondAttribute="bottom" id="Pom-R5-rTD"/>
+                            <constraint firstItem="zuK-kM-qvU" firstAttribute="trailing" secondItem="FDE-0e-En7" secondAttribute="trailing" id="R4F-66-ay8"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="zuK-kM-qvU"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="wLQ-mI-zQN">
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="DVt-pC-J2Y">
+                            <connections>
+                                <action selector="editTable:" destination="FWa-im-sr3" id="kmY-gZ-QvV"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="FDE-0e-En7" id="A9c-fq-iCI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AL8-pe-aYd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1248.8" y="480.80959520239884"/>
+        </scene>
+        <!--Add New Movies-->
+        <scene sceneID="Tz0-Sh-851">
+            <objects>
+                <viewController id="w8O-pW-goB" customClass="AddViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="oKS-Hr-AVh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="gbz-4v-odx">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="VdW-r1-8Ch">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="210.5"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" image="vador" translatesAutoresizingMaskIntoConstraints="NO" id="jmp-FD-0hK">
+                                                <rect key="frame" x="0.0" y="0.0" width="32" height="210.5"/>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="748" image="movie-night-concept-creative-template-450w-1055348723" translatesAutoresizingMaskIntoConstraints="NO" id="M3i-JP-DKi">
+                                                <rect key="frame" x="50" y="0.0" width="0.0" height="210.5"/>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="neo2" translatesAutoresizingMaskIntoConstraints="NO" id="pPM-jQ-aGN">
+                                                <rect key="frame" x="68" y="0.0" width="307" height="210.5"/>
+                                            </imageView>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="VAl-U3-fbN">
+                                        <rect key="frame" x="28.5" y="218.5" width="318.5" height="210"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a New Movie To Your List" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pcx-Il-EMt">
+                                                <rect key="frame" x="0.0" y="0.0" width="318.5" height="124"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="247" verticalHuggingPriority="247" horizontalCompressionResistancePriority="747" verticalCompressionResistancePriority="747" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xzd-ZK-TEQ">
+                                                <rect key="frame" x="25" y="132" width="268.5" height="35"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="35" id="Nc7-lc-1aN"/>
+                                                </constraints>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C3f-vK-2rT">
+                                                <rect key="frame" x="115" y="175" width="88" height="35"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="35" id="uzj-Ro-0Sx"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                                <state key="normal" title="Add Movie"/>
+                                                <connections>
+                                                    <action selector="addButton:" destination="w8O-pW-goB" eventType="touchUpInside" id="2Th-Uf-hBk"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="Xzd-ZK-TEQ" firstAttribute="leading" secondItem="VAl-U3-fbN" secondAttribute="leading" constant="25" id="DpV-NI-Num"/>
+                                            <constraint firstAttribute="trailing" secondItem="Xzd-ZK-TEQ" secondAttribute="trailing" constant="25" id="Iu0-rI-6wt"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zfo-MP-84e">
+                                        <rect key="frame" x="0.0" y="436.5" width="375" height="210.5"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="253" verticalHuggingPriority="254" horizontalCompressionResistancePriority="754" verticalCompressionResistancePriority="755" image="venom" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rbr-9C-WzW">
+                                                <rect key="frame" x="0.0" y="0.0" width="188" height="210.5"/>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="TheAvengers2012Poster" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="81c-Ch-dkm">
+                                                <rect key="frame" x="205" y="0.0" width="170" height="210.5"/>
+                                            </imageView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="gbz-4v-odx" firstAttribute="leading" secondItem="BGD-6A-rDa" secondAttribute="leading" id="RP5-y4-Ouy"/>
+                            <constraint firstAttribute="bottom" secondItem="gbz-4v-odx" secondAttribute="bottom" id="lb3-hu-vEw"/>
+                            <constraint firstItem="gbz-4v-odx" firstAttribute="top" secondItem="BGD-6A-rDa" secondAttribute="top" id="p1F-8g-TD3"/>
+                            <constraint firstAttribute="trailing" secondItem="gbz-4v-odx" secondAttribute="trailing" id="pFz-u1-bIL"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="BGD-6A-rDa"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Add New Movies" image="Plus" id="cID-C7-q8t"/>
+                    <connections>
+                        <outlet property="labelText" destination="pcx-Il-EMt" id="x5J-b5-aNG"/>
+                        <outlet property="textField" destination="Xzd-ZK-TEQ" id="DJb-43-Lzs"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZUX-Bc-wrl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-610.39999999999998" y="480.80959520239884"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="xGR-T8-off">
+            <objects>
+                <tabBarController id="20o-Zn-OAQ" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="zxV-h1-q70">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="w8O-pW-goB" kind="relationship" relationship="viewControllers" id="xw1-Dn-nrS"/>
+                        <segue destination="Twr-oK-b9b" kind="relationship" relationship="viewControllers" id="uKK-KM-39x"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yFm-FJ-czM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-148" y="-355"/>
+        </scene>
+        <!--Movies-->
+        <scene sceneID="wEc-Ul-gJu">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Twr-oK-b9b" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Movies" image="Clapboard" id="17D-C3-yGK"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Uax-fQ-OL2">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="FWa-im-sr3" kind="relationship" relationship="rootViewController" id="SXD-42-pfS"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0ah-kz-7jE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="309.60000000000002" y="480.80959520239884"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Clapboard" width="28" height="28"/>
+        <image name="Plus" width="28" height="28"/>
+        <image name="TheAvengers2012Poster" width="220" height="326"/>
+        <image name="movie-night-concept-creative-template-450w-1055348723" width="76.631523132324219" height="112.90538024902344"/>
+        <image name="neo2" width="307" height="445"/>
+        <image name="vador" width="178" height="284"/>
+        <image name="venom" width="188" height="267"/>
+    </resources>
 </document>
