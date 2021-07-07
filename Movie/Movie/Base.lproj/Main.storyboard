@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="TEC-8p-qej">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Item-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="MovieViewController" customModule="Movie" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Asm-84-wGm">
+                                <rect key="frame" x="8" y="139" width="398" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <navigationBar contentMode="scaleToFill" largeTitles="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sg5-vn-3sr">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <items>
+                                    <navigationItem title="Add a Movie to the List" id="cfE-Cs-LC1"/>
+                                </items>
+                            </navigationBar>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LI5-f0-acd">
+                                <rect key="frame" x="160" y="184" width="94" height="30"/>
+                                <state key="normal" title="Add Movie"/>
+                                <connections>
+                                    <action selector="addMovieButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FFY-VM-T1s"/>
+                                    <segue destination="lfS-bk-7C0" kind="show" identifier="toAddedMovie" id="wjh-wj-vMm"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Asm-84-wGm" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="6Dg-HV-8DU"/>
+                            <constraint firstItem="LI5-f0-acd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="160" id="8tU-Yx-oD8"/>
+                            <constraint firstItem="LI5-f0-acd" firstAttribute="centerX" secondItem="Sg5-vn-3sr" secondAttribute="centerX" id="8vD-Bt-h9K"/>
+                            <constraint firstItem="Sg5-vn-3sr" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="KtD-5f-rxa"/>
+                            <constraint firstItem="Asm-84-wGm" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="95" id="Lgq-3h-d5n"/>
+                            <constraint firstItem="Sg5-vn-3sr" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="RAQ-OX-e0R"/>
+                            <constraint firstItem="Asm-84-wGm" firstAttribute="top" secondItem="Sg5-vn-3sr" secondAttribute="bottom" constant="51" id="SLZ-FI-Xde"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Asm-84-wGm" secondAttribute="trailing" constant="8" id="T1b-8f-9aO"/>
+                            <constraint firstItem="LI5-f0-acd" firstAttribute="centerX" secondItem="Asm-84-wGm" secondAttribute="centerX" id="UmO-4o-HS4"/>
+                            <constraint firstItem="LI5-f0-acd" firstAttribute="top" secondItem="Asm-84-wGm" secondAttribute="bottom" constant="15" id="sH6-t1-YND"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" image="Plus" selectedImage="Plus" id="o8o-uz-TNm"/>
+                    <connections>
+                        <outlet property="movieTextField" destination="Asm-84-wGm" id="gLe-N0-ssp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2878.2608695652175" y="-222.32142857142856"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="ujp-Hh-DmT">
+            <objects>
+                <viewController id="lfS-bk-7C0" customClass="MovieTableViewController" customModule="Movie" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="S9c-Mp-ll9">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Tyt-MN-fYX">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieCell" rowHeight="91" id="nbt-Se-VLp" customClass="MovieTableViewCell" customModule="Movie" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="91"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nbt-Se-VLp" id="5zR-bg-zIy">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="90.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lXL-E3-EXO">
+                                                    <rect key="frame" x="20" y="35" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X4U-Bc-qnc">
+                                                    <rect key="frame" x="354" y="35" width="35" height="30"/>
+                                                    <state key="normal" title="Seen"/>
+                                                    <connections>
+                                                        <action selector="wasSeenButtonTapped:" destination="nbt-Se-VLp" eventType="touchUpInside" id="It3-fP-aIZ"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="X4U-Bc-qnc" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="lXL-E3-EXO" secondAttribute="trailing" constant="8" symbolic="YES" id="2Lj-UE-Drh"/>
+                                                <constraint firstItem="X4U-Bc-qnc" firstAttribute="top" secondItem="lXL-E3-EXO" secondAttribute="top" id="EKG-pv-KKZ"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="X4U-Bc-qnc" secondAttribute="trailing" constant="5" id="LRV-hF-WuU"/>
+                                                <constraint firstItem="lXL-E3-EXO" firstAttribute="leading" secondItem="5zR-bg-zIy" secondAttribute="leading" constant="20" id="cal-ep-2sT"/>
+                                                <constraint firstAttribute="bottom" secondItem="lXL-E3-EXO" secondAttribute="bottom" constant="34.5" id="pan-jm-rf0"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="movieLabel" destination="lXL-E3-EXO" id="L2x-e3-FDj"/>
+                                            <outlet property="wasSeenButton" destination="X4U-Bc-qnc" id="Yom-Xh-Vea"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="hpD-7y-dAl" firstAttribute="bottom" secondItem="Tyt-MN-fYX" secondAttribute="bottom" id="IZN-eb-oQd"/>
+                            <constraint firstItem="Tyt-MN-fYX" firstAttribute="top" secondItem="hpD-7y-dAl" secondAttribute="top" id="Lcb-Pm-elS"/>
+                            <constraint firstItem="Tyt-MN-fYX" firstAttribute="leading" secondItem="hpD-7y-dAl" secondAttribute="leading" id="VIa-AR-Web"/>
+                            <constraint firstItem="hpD-7y-dAl" firstAttribute="trailing" secondItem="Tyt-MN-fYX" secondAttribute="trailing" id="g6j-Te-AYK"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="hpD-7y-dAl"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" image="Clapboard" selectedImage="Clapboard" id="UdW-ui-QMq"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="w1e-cb-RLr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2876.811594202899" y="493.52678571428567"/>
+        </scene>
+        <!--Movie Tab View Controller-->
+        <scene sceneID="1vx-ig-Ktu">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="TEC-8p-qej" customClass="MovieTabViewController" customModule="Movie" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="U7N-xD-ZB2">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="qD3-Kb-7Bn"/>
+                        <segue destination="lfS-bk-7C0" kind="relationship" relationship="viewControllers" id="RLL-Dx-RDd"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Pje-J4-fdd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1966.6666666666667" y="135.26785714285714"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Clapboard" width="28" height="28"/>
+        <image name="Plus" width="28" height="28"/>
+    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="wjh-wj-vMm"/>
+    </inferredMetricsTieBreakers>
+</document>
