@@ -1,11 +1,125 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="pxD-RE-J0k">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <scenes/>
+    <scenes>
+        <!--Add New Movies-->
+        <scene sceneID="G2F-QA-QBU">
+            <objects>
+                <viewController id="ANa-wg-Cxd" customClass="MovieViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="829-ul-905">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="39" translatesAutoresizingMaskIntoConstraints="NO" id="53d-lX-kCx">
+                                <rect key="frame" x="54.5" y="251.5" width="266.5" height="164.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a new movie to the list" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vge-Df-HIp">
+                                        <rect key="frame" x="0.0" y="0.0" width="266.5" height="26.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter the movie title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Oa0-IM-tIM">
+                                        <rect key="frame" x="58" y="65.5" width="150.5" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ONY-Gf-9d0">
+                                        <rect key="frame" x="96.5" y="134.5" width="73" height="30"/>
+                                        <state key="normal" title="Add movie"/>
+                                        <connections>
+                                            <action selector="addMovieButtonTapped:" destination="ANa-wg-Cxd" eventType="touchUpInside" id="AQp-X3-OFm"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="53d-lX-kCx" firstAttribute="centerX" secondItem="829-ul-905" secondAttribute="centerX" id="E5U-Kd-Eri"/>
+                            <constraint firstItem="53d-lX-kCx" firstAttribute="centerY" secondItem="829-ul-905" secondAttribute="centerY" id="WWR-WE-DXk"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="S08-Wn-YwM"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Add New Movies" image="Plus" id="acK-MZ-QrM"/>
+                    <connections>
+                        <outlet property="addMovieTextField" destination="Oa0-IM-tIM" id="iqK-cg-JgH"/>
+                        <outlet property="movieLabel" destination="vge-Df-HIp" id="leh-9p-Ua4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2xg-wQ-Ybd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3511.1999999999998" y="-460.11994002998506"/>
+        </scene>
+        <!--Movies-->
+        <scene sceneID="6wb-gH-u7N">
+            <objects>
+                <viewController id="4Ic-c7-rqR" customClass="DisplayMoviesViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="YzH-HT-CXP">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g2u-kx-6v1">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <connections>
+                                    <segue destination="EbT-oy-471" kind="embed" identifier="MovieTableView" id="Tlp-5x-zPv"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="g2u-kx-6v1" firstAttribute="top" secondItem="YzH-HT-CXP" secondAttribute="top" id="ap0-YJ-UJD"/>
+                            <constraint firstAttribute="bottom" secondItem="g2u-kx-6v1" secondAttribute="bottom" id="eHO-Ej-88G"/>
+                            <constraint firstItem="g2u-kx-6v1" firstAttribute="trailing" secondItem="hKe-0S-Riw" secondAttribute="trailing" id="qfZ-Bs-p0Y"/>
+                            <constraint firstItem="g2u-kx-6v1" firstAttribute="leading" secondItem="hKe-0S-Riw" secondAttribute="leading" id="qyZ-nA-ss5"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="hKe-0S-Riw"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Movies" image="Clapboard" id="jYu-TU-1uA"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HkW-OC-fVs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3500" y="214.54272863568218"/>
+        </scene>
+        <!--MovieTableView-->
+        <scene sceneID="hL6-b3-XN5">
+            <objects>
+                <viewControllerPlaceholder storyboardName="MovieTableView" id="EbT-oy-471" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zqu-XK-In1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4082" y="76"/>
+        </scene>
+        <!--Movie Tab Bar View Controller-->
+        <scene sceneID="mkF-Me-LJS">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="pxD-RE-J0k" customClass="MovieTabBarViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="E9q-a4-7bz">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="ANa-wg-Cxd" kind="relationship" relationship="viewControllers" id="fUL-Md-laz"/>
+                        <segue destination="4Ic-c7-rqR" kind="relationship" relationship="viewControllers" id="bK1-AX-vhj"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uxZ-DS-WDb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2560.8000000000002" y="-122.78860569715144"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Clapboard" width="28" height="28"/>
+        <image name="Plus" width="28" height="28"/>
+    </resources>
 </document>
